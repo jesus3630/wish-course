@@ -35,7 +35,6 @@ export default function Quiz({ questions, moduleName, onComplete }: Props) {
     setAnswers(newAnswers);
 
     if (isLast) {
-      const score = Math.round((newAnswers.filter(Boolean).length / questions.length) * 100);
       setAnswers(newAnswers);
       setShowResults(true);
       return;
