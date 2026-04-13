@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "introduction",
+    "name": "Introduction",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "Introduction",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \n\nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 0
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "WISH URL",
+        "instructions": "Video of scheduling site entered as the URL, and the home page on screen. ",
+        "text": "WISH is available online at wish.schedulingsite.com. ",
+        "original_index": 1
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Getting Started",
+        "instructions": "Video of WISH home page",
+        "text": "To access WISH, you will need login credentials. After you complete your assigned WISH training modules, your login details will be sent to the email address listed in your Employee Self Service account. \n\nBefore logging in for the first time, you will need to review and accept the cookies and privacy policy.\n\n\n\n\n\n",
+        "original_index": 2
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "ESS Employee Portal",
+        "instructions": "Video of ESS Home page, then back to WISH. ",
+        "text": "When you were hired, you should have received an email from the Employee Self Service Portal (ESS). This application allows you to access your job trainings, view your pay stubs, request schedules. You should already have an ESS account. ESS can be accessed online at ess.schedulingsite.com.\n\nYour WISH login credentials will be sent to the email address listed on your ESS account.Once you receive your credentials, you can log into WISH and begin completing your work assignments using the knowledge you\u2019ve gained.",
+        "original_index": 3
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Do Not Share Your Login Credentials",
+        "instructions": "Show video of Home page, cookies accepted, iD and password submitted and \"Your Name\" in the upper right corner of the page. ",
+        "text": "It is important that you do NOT share your login credentials with anyone. All actions performed using your credentials will be recorded in the system as being completed by you. Some tasks may require you to complete multiple training sessions before you can perform them. You will not be able to complete certain work duties until all assigned training is finished. Your system access and available features are determined by your assigned and completed training.\n\nYou will have access to all menus necessary for your role. If you attempt to open a menu for which you have not completed the required training, access will be restricted. If you believe you need access to additional menus, please contact your administrator to arrange the necessary training and obtain the appropriate permissions for your position.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Broadcast Messages ",
+        "instructions": "Video of envelope and message in Broadcast Messages screen. ",
+        "text": "When you log in, you will see your name in the top right corner of the page. On your first login, an envelope icon will appear next to your name. You will need to click on the envelope to open your message. This will direct you to the Broadcast Messages screen. Periodic updates will be posted here to inform of system changes, new features, or scheduled downtime for WISH system updates. You can read the message, mark it as read, or delete messages. Broadcast Messages present one-way communications which cannot be replied to. They are not emails. They are a way for WISH to communicate with you. ",
+        "original_index": 5
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Change Password",
+        "instructions": "Video of mouse clicking on \"Name\" to show three menu option available to user. ",
+        "text": "Your name, displayed in the top right corner, offers three menu options when clicked. You can click on My Messages to navigate to the Broadcast Messages screen. Log out of your session by clicking Log Out, and change your password by clicking on the Change Password menu. We recommend changing your password regularly. Changing your password in WISH only updates your password in the WISH application. \n",
+        "original_index": 6
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "W.I.S.H.",
+        "instructions": null,
+        "text": "The name WISH stands for Workforce Information Systems Hosted, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs. Key modules\u2014including Scheduling, Billing, Human Resources, and Payroll\u2014are consolidated into a single, integrated platform. By bringing these essential functions together, WISH streamlines workforce management and offers accessible, web-based services from any location with an internet connection.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "WISH Menu's",
+        "instructions": null,
+        "text": "In the following slides we will explore WISH\u2019s application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system. ",
+        "original_index": 8
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Admin Menu",
+        "instructions": null,
+        "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required.",
+        "original_index": 9
+      },
+      {
+        "slide_number": 10,
+        "slide_name": "Billing Menu",
+        "instructions": null,
+        "text": "\nThe Billing menu allows you to generate invoices for clients after your branch has completed a job. Whenever a schedule is saved in the system, it is stored for future billing purposes. This ensures you can easily create and provide accurate bills to clients for the events your team has worked.",
+        "original_index": 10
+      },
+      {
+        "slide_number": 11,
+        "slide_name": "Inventory Menu",
+        "instructions": null,
+        "text": "In the Inventory menu, you can track important items used at events\u2014like radios, jackets, and other supplies. When this feature becomes available, you will be notified through the Broadcast Message Center.",
+        "original_index": 11
+      },
+      {
+        "slide_number": 12,
+        "slide_name": "Records Menu",
+        "instructions": null,
+        "text": "\nThe Records menu is where you will spend much of your time entering, editing, and updating essential data. Maintaining accurate records is vital for your branch\u2019s operations.",
+        "original_index": 12
+      },
+      {
+        "slide_number": 13,
+        "slide_name": "Reports Menu",
+        "instructions": null,
+        "text": "The Reports menu provides access to important documents, such as alpha rosters, sign-in and sign-out sheets for events, and employee schedules. These reports help support job administration and event management.",
+        "original_index": 13
+      },
+      {
+        "slide_number": 14,
+        "slide_name": "Scheduling Menu",
+        "instructions": null,
+        "text": "The Scheduling menu is used by your branch scheduling department. The scheduling department schedules employees to jobs in one of two ways: Schedule by Employee or Schedule by Job. You can self-schedule through your ESS app, which is a different way from what you see here in WISH. ",
+        "original_index": 14
+      },
+      {
+        "slide_number": 15,
+        "slide_name": "Payroll Menu",
+        "instructions": null,
+        "text": "\nThe Payroll menu is where payroll staff review and approve employees\u2019 work hours after an event. This ensures that everyone is properly compensated for their time.",
+        "original_index": 15
+      },
+      {
+        "slide_number": 16,
+        "slide_name": "Time Clock Menu",
+        "instructions": null,
+        "text": "The Time Clock menu is used at event locations where computers are set up for employees to sign in at the start of their shifts and sign out at the end of their shifts. This feature helps accurately track work hours for payroll and attendance purposes.",
+        "original_index": 16
+      }
+    ]
+  },
+  {
+    "id": "record_maintenance",
+    "name": "Record Maintenance",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Record Maintenance",
+        "instructions": null,
+        "text": "In this module, we'll cover the following Record menu's:\nManage Job\nManage Clients\nManage Contracts\nManage Events \nManage Venues",
+        "original_index": 3
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Record Hierarchy",
+        "instructions": null,
+        "text": "Before creating anything in WISH, understand the hierarchy \u2014 the order records must exist.\n\nAt the top: Company and Branch (already created \u2014 CSC and all locations are already in WISH).\n\nBelow that:\n1. Event \u2014 must exist first\n2. Job \u2014 created under an Event\n3. Shift \u2014 created under a Job\n4. Role \u2014 created under a Shift\n\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Manage Event",
+        "instructions": "Video going through the Add/Edit Event menu,Manage Event. ",
+        "text": "Create an event, add an event name, explain start and end date. Load in date, date where branch moves into event. Load out date, moving out of event. Satisfy the asterisks and Save the record, receive your confirmation and review that clicking save generates an event number and adds new tabs to the menu. ",
+        "original_index": 5
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Manage Event Tabs-Clients",
+        "instructions": null,
+        "text": "New tabs appear after event is saved. Tabs are added for billing purposes. Clients tab, we can add clients directly from here or we can go to the Manage Client menu. Once you find the client make sure their status is checked and add them, you can have mulitiple clients that need to bill for. ",
+        "original_index": 6
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Manage Event Tabs-Venues",
+        "instructions": null,
+        "text": "The same thing we did for the clients, we are going to do for the venue. We are going to select and add an existing venue to our event. A well established venue may have all venues already created so you should search for the venue to see if it is already in the system. Only create after checking. An event can be taking place at multiple venues, if this is the case make sure to select all the venues where your event is taking place. ",
+        "original_index": 7
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Manage Job",
+        "instructions": null,
+        "text": "Under the Event, we will always have our Job. Look at the Start and End Date between our Jobs, there is a 15 day span. Click on Add New to create a new Job. Look at asterisks to identify what is needed to create a Job. Job Name, Job Class-important for payroll to knwo how the job is classified. Branch Name should be your Branch Name, Event should be the Event name you created in the Manage Event menu. Venue and Client information should provide the selections you chose in the Manage Event record. If this information does not pop-up, then you not have saved the data in the Event record or you may have added the wrong venue and client.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": null,
+        "original_index": 9
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.",
+        "original_index": 10
+      }
+    ]
+  },
+  {
+    "id": "manage_job",
+    "name": "Manage Job",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Manage Job",
+        "instructions": null,
+        "text": "In this module, you will learn:\n\u2022 How to create a Job\n\u2022 How to modify an existing Job\n\u2022 How to copy a Job\n\u2022 How to delete a Job (and why order matters)\n\nNote: If you have Record Maintenance access, this module is included within that permission. Manage Job is for users who create and modify jobs only.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Creating a Job",
+        "instructions": "Screen recording: Records \u2192 Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
+        "text": "Go to Records \u2192 Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\n\nFill in all asterisk-marked fields:\n\u2022 Job Name\n\u2022 Job Class \u2014 use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\n\u2022 Branch Name \u2014 auto-fills for you\n\u2022 Event \u2014 select the event from the dropdown\n\u2022 Venue and Client \u2014 these auto-populate from the event\n\u2022 Start and End Date/Time \u2014 use military time format\n\nAfter saving, copy the job number to your clipboard \u2014 you will use it throughout the system.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Shifts and Roles",
+        "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
+        "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name \u2014 such as \"Staff One Call\" \u2014 and set the start and end time within the job's time window.\n\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\n\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer \u2014 always leave wiggle room above the minimum). Save.\n\nYou can add multiple shifts and multiple roles under each shift.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Copying a Job",
+        "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
+        "text": "From Manage Job search results, click the copy icon for the job you want to copy. Open the copy settings link.\n\nChoose from:\n\u2022 Daily \u2014 copies the job to specific dates\n\u2022 Weekly \u2014 repeats on the same days of the week over a date range\n\u2022 Monthly \u2014 copies for every day of the month\n\nDaily is the most commonly used option. Always double-check your start and end dates before confirming \u2014 do not include the original date again. Copied jobs receive new unique job numbers.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Canceling or Deleting a Job",
+        "instructions": null,
+        "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting \u2014 open invoices and pending payments depend on accurate information.\n\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\n\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Sharing Shifts with Other Branches",
+        "instructions": "Checkmark/confetti",
+        "text": "When creating a shift, you can share it with other branches using the Select Branch field. Once saved, those branches can see that shift and schedule their own employees to it.\n\nThis is useful for large events where staff from multiple locations are needed. You can even rename the shift to identify the contributing branch \u2014 for example, \"San Diego Staff.\"",
+        "original_index": 9
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti animation",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 10
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 11
+      }
+    ]
+  },
+  {
+    "id": "mss",
+    "name": "MSS",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Manager Self Service (MSS)",
+        "instructions": "Calendar/web icon",
+        "text": "In this module, you will learn how to:\n\u2022 Publish job shifts to the web so employees can apply\n\u2022 Enable auto-scheduling for large events\n\u2022 Review and approve or deny employee shift applications\n\nMSS is the manager's side of the scheduling portal. It controls what employees can see and self-schedule for in their ESS app.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Accessing MSS",
+        "instructions": "Screen recording: Tools menu \u2192 Manager Portal. Show event list and variance column.",
+        "text": "Go to the Tools menu in the top navigation and select Manager Portal.\n\nYou will see a list of upcoming events for your branch. The variance column shows the difference between employees you have scheduled and the minimum required for each shift.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Publishing Shifts \u2014 Web Shift Tab",
+        "instructions": "Screen recording: Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
+        "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\n\nTo enable auto-scheduling \u2014 where employees can apply without needing your approval \u2014 check the Auto Schedule box at the top (selects all jobs) or check individually.\n\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\n\nTo disable publishing, click the green checkmark and confirm.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Auto-Schedule vs. Manual Approval",
+        "instructions": null,
+        "text": "You have two options for how employees get scheduled through ESS:\n\nAuto-Schedule \u2014 Employees who apply are automatically accepted on a first-come, first-served basis until the maximum headcount is reached. No action required from you. Ideal for large events.\n\nManual Approval \u2014 Employees apply and you review each application individually. Gives you more control but takes significantly more time.\n\nMost high-volume branches use auto-scheduling for large events.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Web Shift Approval Tab",
+        "instructions": "Screen recording: Web Shift Approval tab. Set date range. Show All Published Shifts. Expand event. Show employees listed. Approve/Deny buttons.",
+        "text": "The Web Shift Approval tab shows applications for published shifts.\n\nSet your date range and click Show All Published Shifts. Shifts with pending activity show small breadcrumb indicators.\n\nOpen a shift role to see applicants. Approve or deny each one. The system enforces your headcount limits \u2014 it will not let you approve more than the maximum allows.\n\nIf you approve one applicant for a full role, go back and deny others who applied.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 9
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 10
+      }
+    ]
+  },
+  {
+    "id": "scheduling",
+    "name": "Scheduling",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Two Ways to Schedule",
+        "instructions": null,
+        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\n\nSchedule by Employee \u2014 Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\n\nSchedule by Job \u2014 Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\n\nIn this module, you will learn both methods.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Schedule by Employee",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
+        "text": "Go to Scheduling \u2192 Schedule by Employee.\n\nThe calendar defaults to Saturday through Friday \u2014 keep this default so it matches what employees see on their end.\n\nSearch for your employee by number or name. Once found, click on the job in the calendar grid. Select the shift and role, then click the green checkmark. Hours will populate on the calendar.\n\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\n\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area \u2014 a dialogue box will ask for a reason code.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Schedule by Job",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
+        "text": "Go to Scheduling \u2192 Schedule by Job. Search for the job.\n\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\n\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\n\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Scheduling Tips",
+        "instructions": null,
+        "text": "A few things to know:\n\n\u2022 Red calendar highlights may indicate overtime \u2014 informational only, it will not prevent saving.\n\n\u2022 You can set unavailability for an employee on vacation \u2014 the calendar shows red across those days.\n\n\u2022 You can send a copy of the schedule directly to the employee from this screen before ending a call.\n\n\u2022 The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets \u2014 for example, flagging an employee who will be late.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 9
+      }
+    ]
+  },
+  {
+    "id": "schedule_by_job_admin",
+    "name": "Schedule By Job Admin",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Schedule by Job Admin",
+        "instructions": null,
+        "text": "In this module, you will learn how to use the administrative scheduling screen \u2014 which allows you to override standard scheduling restrictions.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "What Admin Scheduling Allows",
+        "instructions": null,
+        "text": "Schedule by Job Admin works exactly like Schedule by Job with one key difference: it bypasses certain restrictions.\n\nWith admin scheduling, you can:\n\u2022 Double-book an employee who is already scheduled for another shift at the same time\n\u2022 Schedule an employee who has exceeded their weekly hour limit\n\u2022 Override overlap warnings when necessary\n\nThis access gives managers flexibility in high-pressure situations such as last-minute event changes.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Using Schedule by Job Admin",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
+        "text": "Go to Scheduling \u2192 Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled \u2014 shown in red on the standard page \u2014 still have their checkboxes available here.\n\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\n\nUse this carefully. Always verify the employee is actually available before proceeding.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 8
+      }
+    ]
+  },
+  {
+    "id": "general_reporting",
+    "name": "General Reporting",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "General Reporting",
+        "instructions": null,
+        "text": "In this module, you will learn how to access and use basic reports in WISH.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Accessing Reports",
+        "instructions": "Screen recording: Reports \u2192 Job Administration. Show report list on right side.",
+        "text": "Go to the Reports menu and select Job Administration. This is where all basic reports live.\n\nAvailable reports include:\n\u2022 Alpha rosters \u2014 alphabetical lists of scheduled employees\n\u2022 Sign-in and sign-out sheets \u2014 used at event locations\n\u2022 Employee schedules \u2014 who is working when and where\n\u2022 Summary rosters and detailed rosters\n\nRun the report you need, review it, and use it to support your event operations.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "payroll_reporting",
+    "name": "Payroll Reporting",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Payroll Reporting",
+        "instructions": null,
+        "text": "In this module, you will learn how to access payroll reports in WISH.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Payroll Reports",
+        "instructions": "Screen recording: Reports \u2192 payroll section. Show available payroll reports.",
+        "text": "Payroll reports are found within the Reports menu under the payroll section of Job Administration.\n\nThese reports give you visibility into hours worked, pay totals, and payroll status across your events. As an event manager, use payroll reports to verify that hours have been processed correctly and that employees have been compensated accurately.\n\nRun these reports after approving process hours to confirm everything looks right before payroll is finalized.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "admin_reporting",
+    "name": "Admin Reporting",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Admin Reporting",
+        "instructions": null,
+        "text": "In this module, you will learn about Admin Reporting \u2014 the full suite of manager-level, billing, and payroll reports.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Admin Reports Overview",
+        "instructions": "Screen recording: Reports menu. Show all report categories available.",
+        "text": "Admin Reporting gives you access to the full suite of reports in WISH.\n\nIn addition to basic reports, you will have access to:\n\u2022 Billing reports \u2014 invoice totals, unbilled events, and client billing history\n\u2022 Payroll reports \u2014 for reviewing and verifying pay across events\n\u2022 Manager reports \u2014 higher-level summaries for operational oversight\n\nThese reports are used by managers responsible for the full lifecycle of an event \u2014 from scheduling through billing.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "workforce_scheduler_mntnnce",
+    "name": "Workforce Scheduler Mntnnce",
+    "slides": [
+      {
+        "slide_number": "Workforce Scheduler Maintenance",
+        "slide_name": null,
+        "instructions": null,
+        "text": "View employee record information, View and update Licensing and BG checks and Employee Notes",
+        "original_index": 0
+      },
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Workforce Scheduler Maintenance",
+        "instructions": null,
+        "text": "In this module, you will learn how to view employee records, licensing, background checks, and employee notes.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Viewing Employee Records",
+        "instructions": "Screen recording: Records \u2192 Manage Employee. Search. Click last name link. Walk through Personal Info, Licensing, Background Check, Employee Notes tabs.",
+        "text": "Go to Records \u2192 Manage Employee. Search by name or last-four of social. Click the blue link on an employee's last name to open their record.\n\nWith Workforce Scheduler Maintenance access, you can view:\n\u2022 Personal Information \u2014 contact details and uniform information\n\u2022 Licensing \u2014 guard card and other licenses with expiration dates\n\u2022 Background Check \u2014 status and upload history\n\u2022 Employee Notes \u2014 any notes on file for that employee\n\nThis access is primarily read-only on sensitive fields. Use it to verify employee status before scheduling.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Guard Card Verification",
+        "instructions": null,
+        "text": "Before scheduling employees for positions that require a guard card, verify that their guard card is current and has not expired.\n\nThe employee record shows the expiration date. An employee with an expired guard card should not be scheduled for a position that requires one.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 9
+      }
+    ]
+  },
+  {
+    "id": "workforce_admin_maintenance",
+    "name": "Workforce Admin Maintenance",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Workforce Admin Maintenance",
+        "instructions": null,
+        "text": "In this module, you will learn how to:\n\u2022 View and edit employee disciplinary action records\n\u2022 Update employee pay rates\n\u2022 View employee training records\n\nThis permission builds on Workforce Scheduler Maintenance, adding the ability to edit sensitive workforce data.",
+        "original_index": 3
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "What You Can Edit",
+        "instructions": "Screen recording: Records \u2192 Manage Employee. Open employee. Show Disciplinary Action tab, Pay Rate tab, Training tab.",
+        "text": "Go to Records \u2192 Manage Employee. Search for the employee and open their record by clicking the blue link on their last name.\n\nWith Workforce Admin Maintenance access, you can view and edit three key areas:\n\nDisciplinary Action \u2014 Place an employee on suspension or document any disciplinary issue. Upload supporting files directly to the record.\n\nPay Rates \u2014 To update a pay rate, first deactivate the current rate, then enter the new rate with an effective start date. Once saved, the new rate becomes active for that employee.\n\nTraining \u2014 View any training records or certifications tied to the employee profile.\n\nUse this access carefully \u2014 changes here directly affect how employees are paid and their standing in the system.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 6
+      }
+    ]
+  },
+  {
+    "id": "employee_hr_record_maintenance",
+    "name": "Employee HR Record Maintenance",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Employee HR Record Maintenance",
+        "instructions": null,
+        "text": "In this module, you will learn how to manage full employee HR records \u2014 including status, contact info, pay rates, background checks, exclusions, and tasks.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Full HR Record Access",
+        "instructions": "Screen recording: Records \u2192 Manage Employee. Open employee. Walk through all tabs including Status, Email, Phone, Pay Rate, BG Check, Exclusions, Tasks.",
+        "text": "Employee HR Record Maintenance gives you the broadest level of access to individual employee records, including:\n\n\u2022 Employee Status \u2014 change status between Active, Pending, Suspended, or Inactive\n\u2022 Contact Information \u2014 update email and phone number\n\u2022 Background Check \u2014 view, submit, and upload documentation\n\u2022 Shared Branches \u2014 manage which branches an employee is shared with\n\u2022 Employee Exclusions \u2014 exclude an employee from a specific venue; once excluded, they will not be schedulable or visible for any jobs at that venue\n\u2022 Employee Tasks \u2014 view pending tasks and remind employees to complete them in ESS",
+        "original_index": 6
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Manage Employee Status (Bulk)",
+        "instructions": "Screen recording: Records \u2192 Manage Employee Status. Search by branch. Show list of pending employees. Show bulk status change buttons.",
+        "text": "Manage Employee Status allows you to update the status of multiple employees at once.\n\nSearch by branch and status \u2014 for example, filter by Pending to see all employees awaiting activation. Select multiple employees and change their status in bulk: activate, suspend, or add disciplinary actions across a group at the same time.\n\nThis is useful after onboarding events or when resolving a group issue at a branch.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 9
+      }
+    ]
+  },
+  {
+    "id": "hiring_manager",
+    "name": "Hiring Manager",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Hiring Manager",
+        "instructions": null,
+        "text": "In this module, you will learn how to import applicants from the hiring portal into WISH.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Import from Hiring Portal",
+        "instructions": "Screen recording: Tools \u2192 Import from Hiring Portal. Show applicant list. Show Background Status column. Select approved applicant. Click Import Applicant.",
+        "text": "Go to Tools \u2192 Import from Hiring Portal.\n\nThis screen shows all applicants processed through the hiring portal who are ready to be brought into WISH as employees. You will see their names, background check status, and other relevant information.\n\nBefore importing, confirm that the background status shows as approved. Select the applicant and click Import Applicant.\n\nOnce imported, the new employee will receive a default pay rate if one is set up. If not, assign their pay rate through the employee record before scheduling them.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "hiring_admin",
+    "name": "Hiring Admin",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "HR Admin",
+        "instructions": null,
+        "text": "In this module, you will learn how to manage the employee task page in WISH.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Employee Tasks",
+        "instructions": "Screen recording: Employee record. Show Tasks tab. Show pending task. Show task description.",
+        "text": "HR Admin gives you the ability to manage the employee task page in WISH.\n\nEmployee tasks are items assigned to employees that they must complete through their ESS portal \u2014 such as reviewing a notice, completing a form, or acknowledging a policy.\n\nYou can view which employees have pending tasks, follow up with those who have not completed them, and confirm tasks are cleared once done.\n\nIf you see a pending task on an employee's record, remind them to log into ESS to take care of it. Some tasks may be required before the employee can be fully active in the system.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "mail_by",
+    "name": "Mail By",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Mail By",
+        "instructions": null,
+        "text": "In this module, you will learn how to send communications to employees directly through WISH \u2014 by employee or by job.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Sending Communications in WISH",
+        "instructions": "Screen recording: Show Mail By Employee and Mail By Job options. Demonstrate sending a schedule copy.",
+        "text": "The Mail By permission lets you send communications directly through WISH:\n\nMail by Employee \u2014 Send a message or schedule copy to a specific employee. Useful when finishing a scheduling call and wanting to immediately send them their shift details.\n\nMail by Job \u2014 Send a communication to all employees scheduled for a specific job. Helpful for event updates, last-minute changes, or shift reminders.\n\nUse this tool to keep your team informed without leaving the system.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 7
+      }
+    ]
+  },
+  {
+    "id": "sign-in__sign-out",
+    "name": "Sign-In  Sign-Out",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Sign-In / Sign-Out",
+        "instructions": null,
+        "text": "In this module, you will learn how to configure and manage electronic sign-in and sign-out for events.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Configuring Sign-In",
+        "instructions": "Screen recording: Time Clock \u2192 Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
+        "text": "Go to Time Clock \u2192 Sign-In Config. Do not use the Sign-In or Sign-Out pages directly \u2014 those show logs. Use Sign-In Config to set up your active session.\n\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\n\nThe late sign-in parameter defaults to 15 minutes \u2014 the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Signing Employees In",
+        "instructions": "Screen recording: Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
+        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\n\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK.\n\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\n\nYou can sign in employees up to two hours before their shift \u2014 they will receive their scheduled time, not the early clock time.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Signing Out",
+        "instructions": "Screen recording: Time Clock \u2192 Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
+        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter \u2014 if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\n\nIf you need to sign someone out early, use the Correction tab to adjust the time.\n\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Scan Time vs. Adjusted Time",
+        "instructions": null,
+        "text": "WISH keeps four timestamps per employee: scan time in, adjusted time in, scan time out, and adjusted time out.\n\nThe scan time is the actual clock time of processing. The adjusted time is the rounded result based on the 15-minute interval \u2014 or what you manually corrected it to.\n\nA large gap between scan time and adjusted time is a flag that warrants investigation. These timestamps are visible to anyone with sign-in access.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 9
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 10
+      }
+    ]
+  },
+  {
+    "id": "manual_process_hours",
+    "name": "Manual Process Hours",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Manual Process Hours",
+        "instructions": null,
+        "text": "In this module, you will learn how to review, adjust, and approve employee hours after an event.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Accessing Process Hours",
+        "instructions": "Screen recording: Payroll \u2192 Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
+        "text": "Go to Payroll \u2192 Manage Process Hours. Select your event from the dropdown.\n\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count \u2014 giving you an at-a-glance view of what happened.\n\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Approving Hours",
+        "instructions": "Screen recording: Open shift. Show sign-in and sign-out buttons. Click Sign-In button \u2014 show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
+        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\n\nReview the times. If everything looks correct, click Approve Hours \u2014 this is your save button and finalizes the hours.\n\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\n\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Autofill and Bulk Approval",
+        "instructions": "Screen recording: Show Autofill Sign-In and Autofill Sign-Out buttons. Click both. Click Approve Hours. Back button. Move to next shift.",
+        "text": "For jobs where no electronic sign-ins were done and you want to give everyone the full scheduled time, use Autofill Sign-In and Autofill Sign-Out.\n\nThese buttons instantly populate every employee with the shift's scheduled start and end time. Click Approve Hours to finalize.\n\nThis is the fastest way to process hours for clean sessions where you are confident everyone worked their full shift.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Handling No-Shows",
+        "instructions": null,
+        "text": "If an employee was scheduled but did not show up, they will appear with no times. You cannot approve hours while any employee has blank times.\n\nFor employees who did not show up, check the NS \u2014 No Show \u2014 checkbox next to their name. Once all no-shows are marked, you can proceed with approving hours for the rest of the shift.\n\nHandle this carefully. A no-show mark affects payroll and the employee's record. Make sure it is accurate before saving.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Override Rates and Per Diem",
+        "instructions": null,
+        "text": "When manually entering times, you will also see fields for:\n\nOverride Rate \u2014 If an employee worked a position different from their standard role and should be paid a different rate, enter it here. The system applies the higher of the two rates.\n\nPer Diem \u2014 If you provided the employee with additional payment outside their hourly rate (such as a pay card), enter that amount here so payroll can account for it.",
+        "original_index": 9
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 10
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 11
+      }
+    ]
+  },
+  {
+    "id": "billing",
+    "name": "Billing",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \nWISH is ProtaTECH\u2019s all-in-one workforce application which supports the entire employee lifecycle\u2014from hiring and staff management to timesheets and payroll\u2014all within one integrated system.  \nIn this module, we\u2019ll focus on the portion of WISH relevant to your role and access level.",
+        "original_index": 2
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Billing",
+        "instructions": null,
+        "text": "In this module, you will learn how to generate and manage client invoices in WISH.",
+        "original_index": 4
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Billing Prerequisites",
+        "instructions": null,
+        "text": "Before you can bill a client, two things must be true:\n\n1. All hours for the event must be approved in Manual Process Hours. WISH will not generate a bill for a job where hours are still pending.\n\n2. A contract must exist for the client you are billing. If no contract is in the system, the billing screens will not populate the client information.\n\nAlways complete payroll processing before billing. The order is: process hours \u2192 approve hours \u2192 then bill.",
+        "original_index": 5
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Check Bill for Job",
+        "instructions": "Screen recording: Billing \u2192 Check Bill for Job. Click View Unbilled. Show report with Hours Processed column showing Yes/No.",
+        "text": "Go to Billing \u2192 Check Bill for Job. Click View Unbilled to see everything that has not been invoiced yet.\n\nThe report shows a Hours Processed column. If it shows Yes, the job is ready to bill. If it shows No, go back to Manage Process Hours and complete the approval for that job first.",
+        "original_index": 6
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Manage Billing Process",
+        "instructions": "Screen recording: Billing \u2192 Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
+        "text": "Go to Billing \u2192 Manage Billing Process. Select your event \u2014 your client and contract will auto-populate.\n\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method \u2014 in most cases this is Calculate Regular Hours.\n\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data.",
+        "original_index": 7
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Reviewing and Adjusting the Bill",
+        "instructions": "Screen recording: Walk through Sign-In/Sign-Out tab, Billing Tax tab, Summary tab, Billable Items tab, Invoice Setup tab.",
+        "text": "After pulling invoice data, review the tabs:\n\nSign-In/Sign-Out \u2014 Adjust times, change roles, or update rates for employees who worked different positions. Use the change fields at the top to apply changes to multiple employees at once.\n\nBilling Tax \u2014 Apply tax rates to specific roles if applicable.\n\nSummary \u2014 Clean overview of all staff used across roles and job days.\n\nBillable Items \u2014 Add additional charges to the client: radios, carts, jackets, wristbands, etc.\n\nInvoice Setup \u2014 Set the Attention To field (the client contact who should receive the invoice). This is required before generating.",
+        "original_index": 8
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Generating and Printing the Invoice",
+        "instructions": "Screen recording: Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
+        "text": "Select your invoice type:\n\u2022 Summary \u2014 Clean totals by role. Most clients prefer this.\n\u2022 Detailed \u2014 Full breakdown showing each employee's times, regular and overtime hours.\n\u2022 Summary with Cover and Sign-In Sheets \u2014 Includes everything.\n\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\n\nTo make changes, use the invoice reference dropdown \u2014 your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\n\nTo print any previous invoice: Billing \u2192 Print Invoice, select your event, choose the invoice.",
+        "original_index": 9
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Managing Contracts",
+        "instructions": "Screen recording: Records \u2192 Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
+        "text": "Client contracts are managed under Records \u2192 Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\n\nInside a contract you will find:\n\u2022 Contract dates and payment terms \u2014 standard is net 30 days with 150% late fee\n\u2022 Bill rates by role \u2014 what you charge the client per hour for each position\n\u2022 Tax rates \u2014 set appropriately for your location\n\u2022 Contract document \u2014 upload the PDF directly into WISH\n\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate.",
+        "original_index": 10
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\n\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\n\nThank you for taking the time to learn how WISH supports staff management.",
+        "original_index": 11
+      },
+      {
+        "slide_number": 10,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "original_index": 12
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --orange: #D4782A;
+  --navy: #1B3A6B;
+  --teal: #5BBCB0;
+  --yellow-green: #C8D46A;
+  --light-bg: #F4F7FA;
+  --white: #FFFFFF;
+  --gray: #6B7280;
+  --light-gray: #E5E7EB;
+  --success: #10B981;
+  --error: #EF4444;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light-bg);
+  color: #1F2937;
+  min-height: 100vh;
+}
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
