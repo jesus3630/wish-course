@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["echo 'Client pre-built in repo — skipping build'"]
+
+[start]
+cmd = "node server/index.js"
