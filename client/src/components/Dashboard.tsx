@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import confetti from 'canvas-confetti';
 import { Module, CourseProgress } from '../types';
 import { getModuleProgress, getOverallCompletion } from '../utils/progress';
 
@@ -10,6 +11,26 @@ interface Props {
 
 export default function Dashboard({ modules, progress, onStartModule }: Props) {
   const overall = getOverallCompletion(progress, modules.length);
+  const [animatedPct, setAnimatedPct] = useState(0);
+  const confettiFiredRef = useRef(false);
+
+  // Animate progress ring on mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAnimatedPct(overall);
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [overall]);
+
+  // Fire confetti once when 100%
+  useEffect(() => {
+    if (overall === 100 && !confettiFiredRef.current) {
+      confettiFiredRef.current = true;
+      setTimeout(() => {
+        confetti({ particleCount: 180, spread: 90, origin: { y: 0.5 }, colors: ['#D4782A', '#5BBCB0', '#C8D46A', '#1B3A6B'] });
+      }, 400);
+    }
+  }, [overall]);
 
   function getModuleStatus(index: number): 'locked' | 'available' | 'in_progress' | 'completed' {
     const mod = modules[index];
@@ -17,7 +38,6 @@ export default function Dashboard({ modules, progress, onStartModule }: Props) {
     if (mp.completed) return 'completed';
     if (mp.started) return 'in_progress';
     if (index === 0) return 'available';
-    // Unlock next module if previous is completed
     const prevMod = modules[index - 1];
     const prevMp = getModuleProgress(progress, prevMod.id);
     if (prevMp.completed) return 'available';
@@ -30,6 +50,8 @@ export default function Dashboard({ modules, progress, onStartModule }: Props) {
     available: { color: '#1B3A6B', bg: '#EFF6FF', border: '#1B3A6B', icon: '○', label: 'Start' },
     locked: { color: '#9CA3AF', bg: '#F9FAFB', border: '#E5E7EB', icon: '🔒', label: 'Locked' },
   };
+
+  const circumference = 2 * Math.PI * 34;
 
   return (
     <div style={styles.page}>
@@ -55,24 +77,23 @@ export default function Dashboard({ modules, progress, onStartModule }: Props) {
             </p>
           </div>
           <div style={styles.overviewRight}>
-            <div style={styles.progressRing}>
-              <svg width="80" height="80" viewBox="0 0 80 80">
-                <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" strokeWidth="8" />
-                <circle
-                  cx="40" cy="40" r="34"
-                  fill="none"
-                  stroke="#D4782A"
-                  strokeWidth="8"
-                  strokeDasharray={`${2 * Math.PI * 34}`}
-                  strokeDashoffset={`${2 * Math.PI * 34 * (1 - overall / 100)}`}
-                  strokeLinecap="round"
-                  transform="rotate(-90 40 40)"
-                />
-                <text x="40" y="46" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#1B3A6B">
-                  {overall}%
-                </text>
-              </svg>
-            </div>
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" strokeWidth="8" />
+              <circle
+                cx="40" cy="40" r="34"
+                fill="none"
+                stroke="#D4782A"
+                strokeWidth="8"
+                strokeDasharray={circumference}
+                strokeDashoffset={circumference * (1 - animatedPct / 100)}
+                strokeLinecap="round"
+                transform="rotate(-90 40 40)"
+                style={{ transition: 'stroke-dashoffset 1s ease' }}
+              />
+              <text x="40" y="46" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#1B3A6B">
+                {overall}%
+              </text>
+            </svg>
           </div>
         </div>
 
@@ -174,7 +195,6 @@ const styles: Record<string, React.CSSProperties> = {
   overviewTitle: { fontSize: '22px', fontWeight: 700, color: '#1B3A6B', marginBottom: '6px' },
   overviewSub: { fontSize: '14px', color: '#6B7280' },
   overviewRight: {},
-  progressRing: {},
   sectionTitle: { fontSize: '16px', fontWeight: 700, color: '#1B3A6B', marginBottom: '16px', textTransform: 'uppercase', letterSpacing: '0.5px' },
   grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '16px', marginBottom: '32px' },
   moduleCard: {

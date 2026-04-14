@@ -31,11 +31,12 @@ export default function ModulePlayer({
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
+  const [slideVisible, setSlideVisible] = useState(true);
 
-  // Single persistent audio element — created once, never recreated
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const rafRef = useRef<number | null>(null);
-  // Keep latest progress in a ref to avoid stale closures in effects
+  const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const progressRef = useRef(progress);
   useEffect(() => { progressRef.current = progress; }, [progress]);
 
@@ -45,7 +46,6 @@ export default function ModulePlayer({
   const slideText = slide?.text ?? '';
   const slideName = slide?.slide_name ?? '';
 
-  // Stop word highlight loop
   function stopRaf() {
     if (rafRef.current !== null) {
       cancelAnimationFrame(rafRef.current);
@@ -54,8 +54,11 @@ export default function ModulePlayer({
     setActiveWordIndex(-1);
   }
 
-  // Kick off word highlight using exact Whisper timestamps
-  // Falls back to character-weight estimation if timing file not available
+  function clearTimers() {
+    if (autoAdvanceRef.current) { clearTimeout(autoAdvanceRef.current); autoAdvanceRef.current = null; }
+    if (autoPlayRef.current) { clearTimeout(autoPlayRef.current); autoPlayRef.current = null; }
+  }
+
   function startWordHighlight(
     audio: HTMLAudioElement,
     words: string[],
@@ -64,7 +67,7 @@ export default function ModulePlayer({
     stopRaf();
 
     if (timings && timings.length > 0) {
-      const t = timings; // narrow type for closure
+      const t = timings;
       const tick = () => {
         const ct = audio.currentTime;
         let lo = 0, hi = t.length - 1, idx = 0;
@@ -105,7 +108,6 @@ export default function ModulePlayer({
     }
   }
 
-  // Stop audio completely
   function stopAudio() {
     const audio = audioRef.current;
     audio.oncanplaythrough = null;
@@ -116,35 +118,17 @@ export default function ModulePlayer({
     audio.src = '';
     window.speechSynthesis?.cancel();
     stopRaf();
+    clearTimers();
     setIsPlaying(false);
     setAudioLoading(false);
   }
 
-  // Stop audio and mark slide viewed whenever slide changes
-  useEffect(() => {
-    stopAudio();
-    const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
-    onProgressUpdate(updated);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slideIndex]);
-
-  // Stop everything when component unmounts (Back button, quiz, etc.)
-  useEffect(() => {
-    return () => stopAudio();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  function handlePlayNarration() {
-    if (isPlaying) {
-      stopAudio();
-      return;
-    }
-    if (!slideText.trim()) return;
+  function playNarration(onEnded?: () => void) {
+    if (!slideText.trim()) { onEnded?.(); return; }
 
     const audio = audioRef.current;
     const audioPath = `/audio/${module.id}/slide_${slide.original_index}.mp3`;
 
-    // Clear any previous listeners before setting new ones
     audio.oncanplaythrough = null;
     audio.onended = null;
     audio.onerror = null;
@@ -154,7 +138,6 @@ export default function ModulePlayer({
     const words = slideText.trim().split(/\s+/);
     const timingPath = `/audio/${module.id}/slide_${slide.original_index}.json`;
 
-    // Fetch timing data and audio in parallel
     let timings: {word: string; start: number; end: number}[] | null = null;
     fetch(timingPath)
       .then(r => r.ok ? r.json() : null)
@@ -171,19 +154,20 @@ export default function ModulePlayer({
     audio.onended = () => {
       stopRaf();
       setIsPlaying(false);
+      onEnded?.();
     };
 
     audio.onerror = () => {
       setAudioLoading(false);
-      speakFallback(slideText);
+      speakFallback(slideText, onEnded);
     };
 
     audio.src = audioPath;
     audio.load();
   }
 
-  function speakFallback(text: string) {
-    if (!window.speechSynthesis) return;
+  function speakFallback(text: string, onEnded?: () => void) {
+    if (!window.speechSynthesis) { onEnded?.(); return; }
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = 0.95;
@@ -192,13 +176,61 @@ export default function ModulePlayer({
       v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Alex')
     );
     if (preferred) utterance.voice = preferred;
-    utterance.onend = () => setIsPlaying(false);
+    utterance.onend = () => { setIsPlaying(false); onEnded?.(); };
     setIsPlaying(true);
     window.speechSynthesis.speak(utterance);
   }
 
+  // Auto-play narration 600ms after slide loads, then auto-advance 1.5s after it ends
+  useEffect(() => {
+    stopAudio();
+    setSlideVisible(false);
+    const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
+    onProgressUpdate(updated);
+
+    // Fade in
+    const fadeTimer = setTimeout(() => setSlideVisible(true), 50);
+
+    // Auto-play after brief pause
+    autoPlayRef.current = setTimeout(() => {
+      playNarration(() => {
+        // Auto-advance after narration ends
+        autoAdvanceRef.current = setTimeout(() => {
+          handleNext();
+        }, 1500);
+      });
+    }, 600);
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimers();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slideIndex]);
+
+  useEffect(() => {
+    return () => stopAudio();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function handlePlayNarration() {
+    if (isPlaying) {
+      stopAudio();
+      return;
+    }
+    clearTimers();
+    playNarration(() => {
+      autoAdvanceRef.current = setTimeout(() => handleNext(), 1500);
+    });
+  }
+
+  function goToSlide(index: number) {
+    stopAudio();
+    setSlideIndex(index);
+  }
+
   function handlePrev() {
-    if (slideIndex > 0) setSlideIndex(slideIndex - 1);
+    if (slideIndex > 0) goToSlide(slideIndex - 1);
   }
 
   function handleNext() {
@@ -211,7 +243,7 @@ export default function ModulePlayer({
         onComplete(updated);
       }
     } else {
-      setSlideIndex(slideIndex + 1);
+      goToSlide(slideIndex + 1);
     }
   }
 
@@ -221,7 +253,7 @@ export default function ModulePlayer({
       onComplete(updated);
     } else {
       onProgressUpdate(updated);
-      setSlideIndex(0);
+      goToSlide(0);
       setView('slides');
     }
   }
@@ -264,7 +296,7 @@ export default function ModulePlayer({
 
       {/* Slide area */}
       <div style={styles.slideArea}>
-        <div style={styles.slideCard}>
+        <div style={{ ...styles.slideCard, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           <div style={styles.slideHeader}>
             <div style={styles.slideNumBadge}>
               Slide {slideIndex + 1} / {totalSlides}
@@ -292,7 +324,7 @@ export default function ModulePlayer({
               onClick={handlePlayNarration}
               disabled={audioLoading}
             >
-              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause Narration' : '▶ Play Narration'}
+              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Replay'}
             </button>
           )}
         </div>
@@ -304,6 +336,8 @@ export default function ModulePlayer({
           {module.slides.map((_, i) => (
             <div
               key={i}
+              onClick={() => goToSlide(i)}
+              title={`Slide ${i + 1}`}
               style={{
                 ...styles.dot,
                 background: i === slideIndex
@@ -312,6 +346,7 @@ export default function ModulePlayer({
                   ? '#5BBCB0'
                   : '#E5E7EB',
                 width: i === slideIndex ? '24px' : '8px',
+                cursor: 'pointer',
               }}
             />
           ))}
@@ -346,14 +381,13 @@ function HighlightedText({
   activeWordIndex: number;
   isPlaying: boolean;
 }) {
-  // Split into paragraphs, then track global word index across paragraphs
   const paragraphs = text.split('\n').filter(Boolean);
   let globalIndex = 0;
 
   return (
     <>
       {paragraphs.map((para, pi) => {
-        const words = para.split(/(\s+)/); // keep whitespace tokens
+        const words = para.split(/(\s+)/);
         const elements: React.ReactNode[] = [];
 
         for (let i = 0; i < words.length; i++) {
@@ -468,7 +502,6 @@ const styles: Record<string, React.CSSProperties> = {
   },
   slideName: { fontSize: '26px', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3' },
   slideContent: { marginBottom: '24px' },
-  slidePara: { fontSize: '16px', color: '#374151', lineHeight: '1.8', marginBottom: '14px' },
   emptyText: { color: '#9CA3AF', fontStyle: 'italic' },
   audioBtn: {
     padding: '10px 24px',
