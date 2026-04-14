@@ -1,20 +1,84 @@
-require('dotenv').config({ path: require('path').join(__dirname, '../.env') });
+require('dotenv').config({ path: require('path').join(__dirname, '.env') });
 const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 
 const PORT = process.env.PORT || 3001;
 const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'wish-admin';
+
+const COURSE_DATA_PATH = path.join(__dirname, '../course_data.json');
+const QUIZ_DATA_PATH = path.join(__dirname, '../quiz_data.json');
 
 // ─── Serve React build + audio files ─────────────────────────────────────────
 const BUILD_DIR = path.join(__dirname, '../client/build');
 app.use(express.static(BUILD_DIR));
+
+// ─── Public: course data ──────────────────────────────────────────────────────
+app.get('/api/course', (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(COURSE_DATA_PATH, 'utf8'));
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load course data' });
+  }
+});
+
+// ─── Public: quiz data ────────────────────────────────────────────────────────
+app.get('/api/quiz', (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(QUIZ_DATA_PATH, 'utf8'));
+    res.json(data);
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load quiz data' });
+  }
+});
+
+// ─── Admin auth middleware ─────────────────────────────────────────────────────
+function adminAuth(req, res, next) {
+  const pw = req.headers['x-admin-password'] || (req.body && req.body.password);
+  if (pw !== ADMIN_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
+  next();
+}
+
+// ─── Admin: login check ───────────────────────────────────────────────────────
+app.post('/api/admin/login', (req, res) => {
+  const { password } = req.body;
+  if (password === ADMIN_PASSWORD) {
+    res.json({ ok: true });
+  } else {
+    res.status(401).json({ error: 'Invalid password' });
+  }
+});
+
+// ─── Admin: update course data ────────────────────────────────────────────────
+app.put('/api/admin/course', adminAuth, (req, res) => {
+  try {
+    fs.writeFileSync(COURSE_DATA_PATH, JSON.stringify(req.body, null, 2), 'utf8');
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('Failed to save course data:', e);
+    res.status(500).json({ error: 'Failed to save course data' });
+  }
+});
+
+// ─── Admin: update quiz data ──────────────────────────────────────────────────
+app.put('/api/admin/quiz', adminAuth, (req, res) => {
+  try {
+    fs.writeFileSync(QUIZ_DATA_PATH, JSON.stringify(req.body, null, 2), 'utf8');
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('Failed to save quiz data:', e);
+    res.status(500).json({ error: 'Failed to save quiz data' });
+  }
+});
 
 // ─── Narration endpoint ───────────────────────────────────────────────────────
 app.post('/api/narrate', async (req, res) => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Module, CourseProgress, QuizQuestion } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete } from '../utils/progress';
-import quizData from '../utils/quizData';
 import Quiz from './Quiz';
 import Character from './Character';
 
@@ -10,6 +9,7 @@ interface Props {
   moduleIndex: number;
   totalModules: number;
   progress: CourseProgress;
+  quizData: Record<string, QuizQuestion[]>;
   onProgressUpdate: (p: CourseProgress) => void;
   onComplete: (p: CourseProgress) => void;
   onBack: () => void;
@@ -22,6 +22,7 @@ export default function ModulePlayer({
   moduleIndex,
   totalModules,
   progress,
+  quizData,
   onProgressUpdate,
   onComplete,
   onBack,
