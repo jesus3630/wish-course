@@ -3,6 +3,7 @@ import { Module, CourseProgress, QuizQuestion } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete } from '../utils/progress';
 import quizData from '../utils/quizData';
 import Quiz from './Quiz';
+import Character from './Character';
 
 interface Props {
   module: Module;
@@ -32,6 +33,7 @@ export default function ModulePlayer({
   const [audioLoading, setAudioLoading] = useState(false);
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
   const [slideVisible, setSlideVisible] = useState(true);
+  const [celebrating, setCelebrating] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const rafRef = useRef<number | null>(null);
@@ -195,7 +197,9 @@ export default function ModulePlayer({
     autoPlayRef.current = setTimeout(() => {
       playNarration(() => {
         // Auto-advance after narration ends
+        if (isLastSlide) setCelebrating(true);
         autoAdvanceRef.current = setTimeout(() => {
+          setCelebrating(false);
           handleNext();
         }, 1500);
       });
@@ -296,6 +300,10 @@ export default function ModulePlayer({
 
       {/* Slide area */}
       <div style={styles.slideArea}>
+        {/* Character */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', paddingBottom: '16px', marginRight: '16px', flexShrink: 0 }}>
+          <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
+        </div>
         <div style={{ ...styles.slideCard, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           <div style={styles.slideHeader}>
             <div style={styles.slideNumBadge}>
@@ -469,7 +477,7 @@ const styles: Record<string, React.CSSProperties> = {
   miniProgress: { width: '80px', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px', overflow: 'hidden' },
   miniProgressFill: { height: '100%', background: '#5BBCB0', borderRadius: '3px', transition: 'width 0.3s' },
   miniProgressLabel: { color: '#1B3A6B', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' },
-  slideArea: { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '32px 24px' },
+  slideArea: { flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', padding: '32px 24px' },
   slideCard: {
     background: '#FFFFFF',
     borderRadius: '16px',
