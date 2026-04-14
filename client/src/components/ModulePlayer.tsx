@@ -70,6 +70,28 @@ export default function ModulePlayer({
 
     if (timings && timings.length > 0) {
       const t = timings;
+
+      // Build timing index → display word index mapping by aligning on normalized text
+      const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+      const displayNorm = words.map(norm);
+      const timingToDisplay: number[] = new Array(t.length).fill(-1);
+      let displayCursor = 0;
+      for (let ti = 0; ti < t.length; ti++) {
+        const tw = norm(t[ti].word);
+        // Search forward in display words for a match
+        for (let di = displayCursor; di < Math.min(displayCursor + 6, displayNorm.length); di++) {
+          if (displayNorm[di] === tw || displayNorm[di].startsWith(tw) || tw.startsWith(displayNorm[di])) {
+            timingToDisplay[ti] = di;
+            displayCursor = di + 1;
+            break;
+          }
+        }
+        // If no match found, map to cursor position anyway
+        if (timingToDisplay[ti] === -1 && displayCursor < displayNorm.length) {
+          timingToDisplay[ti] = displayCursor;
+        }
+      }
+
       const tick = () => {
         const ct = audio.currentTime;
         let lo = 0, hi = t.length - 1, idx = 0;
@@ -78,7 +100,8 @@ export default function ModulePlayer({
           if (t[mid].start <= ct) { idx = mid; lo = mid + 1; }
           else hi = mid - 1;
         }
-        setActiveWordIndex(idx);
+        const displayIdx = timingToDisplay[idx];
+        if (displayIdx !== -1) setActiveWordIndex(displayIdx);
         rafRef.current = requestAnimationFrame(tick);
       };
       rafRef.current = requestAnimationFrame(tick);
