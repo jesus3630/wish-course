@@ -161,13 +161,29 @@ export default function ModulePlayer({
     setAudioLoading(true);
 
     const words = slideText.trim().split(/\s+/);
-    const timingPath = `/audio/${module.id}/slide_${slide.original_index}.json`;
+    const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const firstTextWord = norm(words[0] ?? '');
+    const oi = slide.original_index;
 
     let timings: {word: string; start: number; end: number}[] | null = null;
-    fetch(timingPath)
-      .then(r => r.ok ? r.json() : null)
-      .then(data => { timings = data; })
-      .catch(() => { timings = null; });
+
+    // Try loading timing — prefer the file whose first word matches the first text word.
+    // Some modules have timing files offset by -1 from the original_index.
+    async function loadTimings() {
+      for (const idx of [oi, oi - 1, oi + 1]) {
+        if (idx < 0) continue;
+        try {
+          const r = await fetch(`/audio/${module.id}/slide_${idx}.json`);
+          if (!r.ok) continue;
+          const data: {word: string; start: number; end: number}[] = await r.json();
+          if (!data?.length) continue;
+          if (norm(data[0].word) === firstTextWord) { timings = data; return; }
+          // Keep as fallback if no better match found
+          if (!timings) timings = data;
+        } catch { /* skip */ }
+      }
+    }
+    loadTimings();
 
     audio.oncanplaythrough = () => {
       setAudioLoading(false);
