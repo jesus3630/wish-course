@@ -236,12 +236,14 @@ export default function ModulePlayer({
     // Auto-play after brief pause
     autoPlayRef.current = setTimeout(() => {
       playNarration(() => {
-        // Auto-advance after narration ends
-        if (isLastSlide) setCelebrating(true);
-        autoAdvanceRef.current = setTimeout(() => {
-          setCelebrating(false);
-          handleNext();
-        }, 1500);
+        // Auto-advance after narration ends (only if not last slide)
+        if (!isLastSlide) {
+          autoAdvanceRef.current = setTimeout(() => {
+            handleNext();
+          }, 1500);
+        } else {
+          setCelebrating(true);
+        }
       });
     }, 600);
 
@@ -280,15 +282,16 @@ export default function ModulePlayer({
   function handleNext() {
     if (isLastSlide) {
       stopAudio();
-      if (questions.length > 0) {
-        setView('quiz');
-      } else {
-        const updated = markModuleComplete(progressRef.current, module.id, 100, true);
-        onComplete(updated);
-      }
+      const updated = markModuleComplete(progressRef.current, module.id, 100, true);
+      onComplete(updated);
     } else {
       goToSlide(slideIndex + 1);
     }
+  }
+
+  function handleTakeQuiz() {
+    stopAudio();
+    setView('quiz');
   }
 
   function handleQuizComplete(score: number, passed: boolean) {
@@ -408,10 +411,13 @@ export default function ModulePlayer({
           >
             ← Previous
           </button>
+          {isLastSlide && questions.length > 0 && (
+            <button style={{ ...styles.navBtn }} onClick={handleTakeQuiz}>
+              Take Quiz
+            </button>
+          )}
           <button style={{ ...styles.navBtn, ...styles.navBtnPrimary }} onClick={handleNext}>
-            {isLastSlide
-              ? questions.length > 0 ? 'Take Knowledge Check →' : 'Complete Module ✓'
-              : 'Next →'}
+            {isLastSlide ? 'Complete Module ✓' : 'Next →'}
           </button>
         </div>
       </div>

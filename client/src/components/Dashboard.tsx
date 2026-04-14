@@ -37,11 +37,7 @@ export default function Dashboard({ modules, progress, onStartModule }: Props) {
     const mp = getModuleProgress(progress, mod.id);
     if (mp.completed) return 'completed';
     if (mp.started) return 'in_progress';
-    if (index === 0) return 'available';
-    const prevMod = modules[index - 1];
-    const prevMp = getModuleProgress(progress, prevMod.id);
-    if (prevMp.completed) return 'available';
-    return 'locked';
+    return 'available';
   }
 
   const statusConfig = {
