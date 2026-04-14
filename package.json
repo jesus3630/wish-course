@@ -2,7 +2,8 @@
   "name": "wish-course",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd client && npm install && npm run build",
+    "build": "echo 'Client pre-built — skipping'",
+    "build:local": "cd client && npm install && npm run build",
     "start": "node server/index.js",
     "install:server": "cd server && npm install"
   },
