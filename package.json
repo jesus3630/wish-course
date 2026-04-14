@@ -2,9 +2,14 @@
   "name": "wish-course",
   "version": "1.0.0",
   "scripts": {
-    "build": "cd server && npm install && cd ../client && npm install && npm run build",
-    "start": "cd server && node index.js",
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/index.js",
     "install:server": "cd server && npm install"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
   },
   "engines": {
     "node": ">=18.0.0"
