@@ -80,7 +80,7 @@ app.get('/api/progress/:email', (req, res) => {
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 
 // ─── All other routes → React app ─────────────────────────────────────────────
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
   res.sendFile(path.join(BUILD_DIR, 'index.html'));
 });
 
