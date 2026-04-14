@@ -1,0 +1,2 @@
+*{box-sizing:border-box;margin:0;padding:0}:root{--orange:#d4782a;--navy:#1b3a6b;--teal:#5bbcb0;--yellow-green:#c8d46a;--light-bg:#f4f7fa;--white:#fff;--gray:#6b7280;--light-gray:#e5e7eb;--success:#10b981;--error:#ef4444}body{background:#f4f7fa;background:var(--light-bg);color:#1f2937;font-family:Segoe UI,Arial,sans-serif}.app,body{min-height:100vh}.app{display:flex;flex-direction:column}
+/*# sourceMappingURL=main.27c67ad9.css.map*/
