@@ -343,11 +343,11 @@ export default function ModulePlayer({
 
       {/* Slide area */}
       <div style={styles.slideArea}>
-        {/* Character */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', paddingBottom: '16px', marginRight: '16px', flexShrink: 0 }}>
-          <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
-        </div>
         <div style={{ ...styles.slideCard, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
+          {/* Character inline top-right */}
+          <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
+            <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
+          </div>
           <div style={styles.slideHeader}>
             <div style={styles.slideNumBadge}>
               Slide {slideIndex + 1} / {totalSlides}
@@ -523,13 +523,13 @@ const styles: Record<string, React.CSSProperties> = {
   miniProgress: { width: '80px', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px', overflow: 'hidden' },
   miniProgressFill: { height: '100%', background: '#5BBCB0', borderRadius: '3px', transition: 'width 0.3s' },
   miniProgressLabel: { color: '#1B3A6B', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' },
-  slideArea: { flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center', padding: '32px 24px' },
+  slideArea: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', padding: '32px 24px' },
   slideCard: {
     background: '#FFFFFF',
     borderRadius: '16px',
     padding: '40px 48px',
     width: '100%',
-    maxWidth: '820px',
+    position: 'relative',
     boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
     borderTop: '5px solid #D4782A',
   },
