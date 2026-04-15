@@ -3,7 +3,7 @@ export interface Slide {
   slide_name: string | null;
   instructions: string | null;
   text: string | null;
-  original_index: number;
+  original_index?: number;
 }
 
 export interface QuizQuestion {

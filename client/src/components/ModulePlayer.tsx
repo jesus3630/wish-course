@@ -163,7 +163,8 @@ export default function ModulePlayer({
     if (!slideText.trim()) { onEnded?.(); return; }
 
     const audio = audioRef.current;
-    const audioPath = `/audio/${module.id}/slide_${slide.original_index}.mp3`;
+    const audioIndex = slide.original_index ?? (slide.slide_number - 1);
+    const audioPath = `/audio/${module.id}/slide_${audioIndex}.mp3`;
 
     audio.oncanplaythrough = null;
     audio.onended = null;
@@ -177,7 +178,7 @@ export default function ModulePlayer({
 
     const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
     const firstTextWord = norm(words[0] ?? '');
-    const oi = slide.original_index;
+    const oi = audioIndex;
 
     // Try loading timing — prefer the file whose first word matches the first text word.
     // Some modules have timing files offset by -1 from the original_index.
