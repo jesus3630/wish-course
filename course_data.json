@@ -168,52 +168,52 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Manage Job",
-        "instructions": null,
+        "slide_name": "Creating a Job",
+        "instructions": "Screen recording: Records \u2192 Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
         "text": "Go to Records Manage Job Use the filter page to search for existing jobs by name or job number To create a new job click Add New Fill in all asterisk marked fields Job Name Job Class Use events for jobs you will schedule employees for and bill a client Office for in office hours Training for training shifts Branch Name autofills for you Event Select the event from the drop down Venue and Client These auto populate from the event Start and End Date Time Use military time format After saving copy the job number to your clipboard You will use it throughout the system",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Creating a Job",
-        "instructions": "Screen recording: Records \u2192 Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
+        "slide_name": "Shifts and Roles",
+        "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
         "text": "After saving the job click the Shifts tab click Add New Shift give it a name such as Staff 1 Call and set the start and end time within the job's time window Shift times must fall within the job's start and end time If you go outside that range Wish will warn you Once the shift is saved click Add Role Select the role set your minimum the client's required number and maximum Your buffer Always leave Wiggle Room above the minimum Save You can add multiple shifts and multiple roles under each shift",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Shifts and Roles",
-        "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
+        "slide_name": "Copying a Job",
+        "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
         "text": "From Manage Job Search Results click the copy icon for the job you want to copy Open the Copy Settings link Choose from Daily \u2013 Copies the job to specific dates Weekly \u2013 Repeats on the same days of the week over a date range Monthly \u2013 Copies for every day of the month Daily is the most commonly used option Always double check your start and end dates before confirming Do not include the original date again Copied jobs receive new unique job numbers",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Copying a Job",
-        "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
+        "slide_name": "Canceling or Deleting a Job",
+        "instructions": null,
         "text": "If a job is cancelled update the job class to Cancelled immediately This is critical for accounting Open invoices and pending payments depend on accurate information To fully delete a job work in reverse order Delete roles first then shifts then the job itself WISH will not let you delete a job if shifts exist and will not let you delete a shift if roles exist If employees are already scheduled remove them before deleting the role Most branches leave cancelled jobs in the system and simply update the job class",
         "original_index": 7
       },
       {
         "slide_number": 6,
-        "slide_name": "Canceling or Deleting a Job",
-        "instructions": null,
+        "slide_name": "Sharing Shifts with Other Branches",
+        "instructions": "Checkmark/confetti",
         "text": "When creating a shift you can share it with other branches using the Select Branch field Once saved those branches can see that shift and schedule their own employees to it This is useful for large events where staff from multiple locations are needed You can even rename the shift to identify the contributing branch For example San Diego Staff",
         "original_index": 8
       },
       {
         "slide_number": 7,
-        "slide_name": "Sharing Shifts with Other Branches",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti animation",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 9
       },
       {
-        "slide_number": 8,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti animation",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at cse usa com or call 887 915 150",
-        "original_index": 10
+        "original_index": 10,
+        "slide_number": 8
       }
     ]
   },
@@ -230,45 +230,45 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Manager Self Service (MSS)",
-        "instructions": "Calendar/web icon",
+        "slide_name": "Accessing MSS",
+        "instructions": "Screen recording: Tools menu \u2192 Manager Portal. Show event list and variance column.",
         "text": "Go to the Tools menu in the top navigation and select Manager Portal You will see a list of upcoming events for your branch The Variants column shows the difference between employees you have scheduled and the minimum required for each shift",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Accessing MSS",
-        "instructions": "Screen recording: Tools menu \u2192 Manager Portal. Show event list and variance column.",
+        "slide_name": "Publishing Shifts \u2014 Web Shift Tab",
+        "instructions": "Screen recording: Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
         "text": "Click the Web Shift tab Shifts with an unchecked box on the left are not published yet To enable auto scheduling where employees can apply without needing your approval check the auto schedule box at the top selects all jobs or check individually Click Add to Web Shift A green check mark confirms employees can now see and self schedule for the shift To disable publishing click the green check mark and confirm",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Publishing Shifts \u2014 Web Shift Tab",
-        "instructions": "Screen recording: Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
+        "slide_name": "Auto-Schedule vs. Manual Approval",
+        "instructions": null,
         "text": "You have two options for how employees get scheduled through ESS Auto schedule Employees who apply are automatically accepted on a first come first served basis until the maximum headcount is reached No action required from you Ideal for large events Manual approval Employees apply and you review each application individually Gives you more control but takes significantly more time Most high volume branches use auto scheduling for large events",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Auto-Schedule vs. Manual Approval",
-        "instructions": null,
+        "slide_name": "Web Shift Approval Tab",
+        "instructions": "Screen recording: Web Shift Approval tab. Set date range. Show All Published Shifts. Expand event. Show employees listed. Approve/Deny buttons.",
         "text": "The Web Shift Approval tab shows applications for published shifts Set your date range and click Show All Published Shifts Shifts with Pending Activity show small breadcrumb indicators Open a shift role to see applicants Approve or deny each one The system enforces your headcount limits it will not let you approve more than the maximum allows If you approve one applicant for a full role go back and deny others who applied",
         "original_index": 7
       },
       {
         "slide_number": 6,
-        "slide_name": "Web Shift Approval Tab",
-        "instructions": "Screen recording: Web Shift Approval tab. Set date range. Show All Published Shifts. Expand event. Show employees listed. Approve/Deny buttons.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 8
       },
       {
-        "slide_number": 7,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 9
+        "original_index": 9,
+        "slide_number": 7
       }
     ]
   },
@@ -285,38 +285,38 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Two Ways to Schedule",
-        "instructions": null,
+        "slide_name": "Schedule by Employee",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
         "text": "Go to Scheduling Schedule by Employee The calendar defaults to Saturday through Friday Keep this default so it matches what employees see on their end Search for your employee by number or name Once found click on the job in the calendar grid Select the shift and roll then click the green check mark Hours will populate on the calendar Click Save Schedule when ready You can schedule the same employee across multiple days before saving To remove an employee click the roll on the calendar and delete them or bring them up and click in their scheduled area A dialog box will ask for a reason code",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Schedule by Employee",
-        "instructions": "Screen recording: Scheduling \u2192 Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
+        "slide_name": "Schedule by Job",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
         "text": "Go to Scheduling Schedule by Job Search for the job Before searching for employees check the Check Employee Roles box This filters results to only show employees who have an active pay rate for the role you are filling Select the role run the search Employees ready to be scheduled appear in green Already scheduled employees appear in red Click the names of all employees you want to schedule then click Save They will all be assigned at once",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Schedule by Job",
-        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
+        "slide_name": "Scheduling Tips",
+        "instructions": null,
         "text": "A few things to know Red calendar highlights may indicate overtime Informational only It will not prevent saving You can set unavailability for an employee on vacation The calendar shows red across those days You can send a copy of the schedule directly to the employee from this screen before ending a call The scheduling comments button asterisk icon lets you add notes that appear on sign in sheets For example flagging an employee who will be late",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Scheduling Tips",
-        "instructions": null,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 7
       },
       {
-        "slide_number": 6,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module If applicable refer to Quick Reference Guide Contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 8
+        "original_index": 8,
+        "slide_number": 6
       }
     ]
   },
@@ -333,31 +333,31 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Schedule by Job Admin",
+        "slide_name": "What Admin Scheduling Allows",
         "instructions": null,
         "text": "Schedule by Job Admin works exactly like Schedule by Job with one key difference It bypasses certain restrictions With Admin Scheduling you can double book an employee who is already scheduled for another shift at the same time schedule an employee who has exceeded their weekly hour limit override overlap warnings when necessary This access gives managers flexibility in high pressure situations such as last minute event changes",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "What Admin Scheduling Allows",
-        "instructions": null,
+        "slide_name": "Using Schedule by Job Admin",
+        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
         "text": "Go to Scheduling Schedule by Job Admin This screen looks identical to Schedule by Job but employees already scheduled shown in red on the standard page still have their checkboxes available here If you select an already scheduled employee and save Wish displays an overlap warning You can choose to bypass this warning and proceed Use this carefully Always verify the employee is actually available before proceeding",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Using Schedule by Job Admin",
-        "instructions": "Screen recording: Scheduling \u2192 Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 6
       },
       {
-        "slide_number": 5,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable Refer to Quick Reference Guide Contact WISH Administrator for support For advanced permissions contact support wish at cscusa com or call 888 791 5150",
-        "original_index": 7
+        "original_index": 7,
+        "slide_number": 5
       }
     ]
   },
@@ -374,24 +374,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "General Reporting",
-        "instructions": null,
+        "slide_name": "Accessing Reports",
+        "instructions": "Screen recording: Reports \u2192 Job Administration. Show report list on right side.",
         "text": "go to the Reports menu and select Job Administration This is where all basic reports live Available reports include alpha rosters alphabetical lists of scheduled employees sign in and sign out sheets used at event locations employee schedules who is working when and where summary rosters and detailed rosters Run the report you need review it and use it to support your event operations",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Accessing Reports",
-        "instructions": "Screen recording: Reports \u2192 Job Administration. Show report list on right side.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at cscgusa com or call 888 7150",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -408,24 +408,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Payroll Reporting",
-        "instructions": null,
+        "slide_name": "Payroll Reports",
+        "instructions": "Screen recording: Reports \u2192 payroll section. Show available payroll reports.",
         "text": "Payroll reports are found within the Reports menu under the Payroll section of Job Administration These reports give you visibility into hours worked pay totals and payroll status across your events As an event manager use payroll reports to verify that hours have been processed correctly and that employees have been compensated accurately Run these reports after approving process hours to confirm everything looks right before payroll is finalized",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Payroll Reports",
-        "instructions": "Screen recording: Reports \u2192 payroll section. Show available payroll reports.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to quick reference guide contact WISH administrator for support For advanced permissions contact support wish at cscusa com or call 888 791 5150",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -442,24 +442,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Admin Reporting",
-        "instructions": null,
+        "slide_name": "Admin Reports Overview",
+        "instructions": "Screen recording: Reports menu. Show all report categories available.",
         "text": "Admin Reporting gives you access to the full suite of reports in Wish In addition to basic reports you will have access to Billing Reports Invoice Totals Unbilled Events and Client Billing History Payroll Reports for reviewing and verifying pay across events Manager Reports higher level summaries for operational oversight These reports are used by managers responsible for the full lifecycle of an event from scheduling through billing",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Admin Reports Overview",
-        "instructions": "Screen recording: Reports menu. Show all report categories available.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Slide 4",
+        "instructions": null,
         "text": "To proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact supportwish at cscusa com or call 888 5150",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -476,38 +476,38 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Workforce Scheduler Maintenance",
-        "instructions": null,
+        "slide_name": "Viewing Employee Records",
+        "instructions": "Screen recording: Records \u2192 Manage Employee. Search. Click last name link. Walk through Personal Info, Licensing, Background Check, Employee Notes tabs.",
         "text": "Welcome to the WISH Workforce Information Systems Hosted Training Series WISH is Prototech's all in one workforce application which supports the entire employee lifecycle from hiring and staff management to timesheets and payroll all within one integrated system In this module we'll focus on the portion of WISH relevant to your role and access level",
         "original_index": 2
       },
       {
         "slide_number": 3,
-        "slide_name": "Viewing Employee Records",
-        "instructions": "Screen recording: Records \u2192 Manage Employee. Search. Click last name link. Walk through Personal Info, Licensing, Background Check, Employee Notes tabs.",
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
         "text": "Go to Records Manage Employee Search by name or last four of social Click the blue link on an employee's last name to open their record With Workforce Scheduler maintenance access you can view personal information contact details and uniform information licensing guard card and other licenses with expiration dates background check status and upload history employee notes any notes on file for that employee This access is primarily read only on sensitive fields Use it to verify employee status before scheduling",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Guard Card Verification",
+        "slide_name": "Slide 4",
         "instructions": null,
         "text": "Before scheduling employees for positions that require a guard card verify that their guard card is current and has not expired The employee record shows the expiration date An employee with an expired guard card should not be scheduled for a position that requires one",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       },
       {
-        "slide_number": 5,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Slide 5",
+        "instructions": null,
         "text": "Congratulations you've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
-        "original_index": 7
+        "original_index": 7,
+        "slide_number": 5
       },
       {
-        "slide_number": 6,
         "slide_name": "Next Steps",
-        "instructions": "Arrow/progress bar",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide Contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 8
+        "original_index": 8,
+        "slide_number": 6
       }
     ]
   },
@@ -558,24 +558,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Employee HR Record Maintenance",
-        "instructions": null,
+        "slide_name": "Manage Employee Status (Bulk)",
+        "instructions": "Screen recording: Records \u2192 Manage Employee Status. Search by branch. Show list of pending employees. Show bulk status change buttons.",
         "text": "Manage Employee Status allows you to update the status of multiple employees at once Search by branch and status For example filter by pending to see all employees awaiting activation Select multiple employees and change their status in bulk Activate suspend or add disciplinary actions across a group at the same time This is useful after onboarding events or when resolving a group issue at a branch",
         "original_index": 5
       },
       {
-        "slide_number": 3,
-        "slide_name": "Full HR Record Access",
-        "instructions": "Screen recording: Records \u2192 Manage Employee. Open employee. Walk through all tabs including Status, Email, Phone, Pay Rate, BG Check, Exclusions, Tasks.",
+        "slide_name": "Slide 3",
+        "instructions": null,
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 3
       },
       {
-        "slide_number": 4,
-        "slide_name": "Manage Employee Status (Bulk)",
-        "instructions": "Screen recording: Records \u2192 Manage Employee Status. Search by branch. Show list of pending employees. Show bulk status change buttons.",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide Contact WISH Administrator for support For advanced permissions contact support wish at cscusa com or call 888 791 5150",
-        "original_index": 7
+        "original_index": 7,
+        "slide_number": 4
       }
     ]
   },
@@ -592,24 +592,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Hiring Manager",
-        "instructions": null,
+        "slide_name": "Import from Hiring Portal",
+        "instructions": "Screen recording: Tools \u2192 Import from Hiring Portal. Show applicant list. Show Background Status column. Select approved applicant. Click Import Applicant.",
         "text": "Go to Tools Import from Hiring Portal This screen shows all applicants processed through the hiring portal who are ready to be brought into Wish as employees You will see their names background check status and other relevant information Before importing confirm that the background status shows as approved Select the applicant and click Import Applicant Once imported the new employee will receive a default pay rate if one is set up If not assign their pay rate through the employee record before scheduling them",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Import from Hiring Portal",
-        "instructions": "Screen recording: Tools \u2192 Import from Hiring Portal. Show applicant list. Show Background Status column. Select approved applicant. Click Import Applicant.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Slide 4",
+        "instructions": null,
         "text": "To proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -626,24 +626,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "HR Admin",
-        "instructions": null,
+        "slide_name": "Employee Tasks",
+        "instructions": "Screen recording: Employee record. Show Tasks tab. Show pending task. Show task description.",
         "text": "HR Admin gives you the ability to manage the Employee Task page in WISH Employee Tasks are items assigned to employees that they must complete through their ESS portal such as reviewing a notice completing a form or acknowledging a policy You can view which employees have pending tasks follow up with those who have not completed them and confirm tasks are cleared once done If you see a pending task on an employee's record remind them to log into ESS to take care of it Some tasks may be required before the employee can be fully active in the system",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Employee Tasks",
-        "instructions": "Screen recording: Employee record. Show Tasks tab. Show pending task. Show task description.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable Refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -660,24 +660,24 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Mail By",
-        "instructions": null,
+        "slide_name": "Sending Communications in WISH",
+        "instructions": "Screen recording: Show Mail By Employee and Mail By Job options. Demonstrate sending a schedule copy.",
         "text": "The Mail by Permission lets you send communications directly through WISH Mail by Employee Send a message or schedule a call",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Sending Communications in WISH",
-        "instructions": "Screen recording: Show Mail By Employee and Mail By Job options. Demonstrate sending a schedule copy.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations you've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 5
       },
       {
-        "slide_number": 4,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at cscusa com or call 888 7951 INFO",
-        "original_index": 6
+        "original_index": 6,
+        "slide_number": 4
       }
     ]
   },
@@ -694,45 +694,45 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Sign-In / Sign-Out",
-        "instructions": null,
+        "slide_name": "Configuring Sign-In",
+        "instructions": "Screen recording: Time Clock \u2192 Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
         "text": "Go to time clock sign in config Do not use the sign in or sign out pages directly Those show logs Use sign in config to set up your active session Select your event and your venue and job will auto populate Select the shifts you want click add to shift list then click go to sign in The late sign in parameter defaults to 15 minutes the CSC standard Do not change this unless instructed The 15 minute interval means sign in time snapped to the nearest quarter hour",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Configuring Sign-In",
-        "instructions": "Screen recording: Time Clock \u2192 Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
+        "slide_name": "Signing Employees In",
+        "instructions": "Screen recording: Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
         "text": "In the sign in window employees can scan their ID badge or you can type the number manually If an employee is on time they are signed in immediately If they are late a warning appears Click Pause to freeze the screen and give yourself time to act Click the Correction tab and update the time before clicking OK If an employee does not know their ID number use the Employee Search link on the sign in screen You can sign in employees up to two hours before their shift They will receive their scheduled time not the early clock time",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Signing Employees In",
-        "instructions": "Screen recording: Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
+        "slide_name": "Signing Out",
+        "instructions": "Screen recording: Time Clock \u2192 Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
         "text": "Sign out works the same as sign in There is a two hour minimum parameter If you try to sign someone out before they have worked two hours the system sets the sign out time to give them at least that minimum If you need to sign someone out early use the correction tab to adjust the time At the end of the event match your sign out count to your sign in count as closely as possible Click the numbers in the shift columns to see exactly who is signed in who is signed out and their times",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Signing Out",
-        "instructions": "Screen recording: Time Clock \u2192 Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
+        "slide_name": "Scan Time vs. Adjusted Time",
+        "instructions": null,
         "text": "WISH keeps four timestamps per employee Scan time in adjusted time in scan time out and adjusted time out The scan time is the actual clock time of processing The adjusted time is the rounded result based on the 15 minute interval or what you manually corrected it to A large gap between scan time and adjusted time is a flag that warrants investigation These timestamps are visible to anyone with sign in access",
         "original_index": 7
       },
       {
         "slide_number": 6,
-        "slide_name": "Scan Time vs. Adjusted Time",
-        "instructions": null,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations you've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 8
       },
       {
-        "slide_number": 7,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 9
+        "original_index": 9,
+        "slide_number": 7
       }
     ]
   },
@@ -749,52 +749,52 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Manual Process Hours",
-        "instructions": null,
+        "slide_name": "Accessing Process Hours",
+        "instructions": "Screen recording: Payroll \u2192 Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
         "text": "Go to Payroll Manage Process Hours Select your event from the dropdown You will see all jobs for that event Click into a job to expand the shifts For each shift you will see the min max scheduled count and sign in count giving you an at a glance view of what happened The sign in count reflects what was captured electronically This is your starting point for approving hours",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Accessing Process Hours",
-        "instructions": "Screen recording: Payroll \u2192 Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
+        "slide_name": "Approving Hours",
+        "instructions": "Screen recording: Open shift. Show sign-in and sign-out buttons. Click Sign-In button \u2014 show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
         "text": "Open a shift roll If electronic sign ins were completed those times are already populated for each employee Review the times If everything looks correct click Approve Hours This is your Save button and finalizes the hours After approving you will see green sunburst icons next to completed shifts These let you track where you are Green means done blue link means not yet processed For paper sign in sheets use the Sign In and Sign Out buttons to populate all employees with the scheduled time then use the Tab key to manually adjust individual times",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Approving Hours",
-        "instructions": "Screen recording: Open shift. Show sign-in and sign-out buttons. Click Sign-In button \u2014 show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
+        "slide_name": "Autofill and Bulk Approval",
+        "instructions": "Screen recording: Show Autofill Sign-In and Autofill Sign-Out buttons. Click both. Click Approve Hours. Back button. Move to next shift.",
         "text": "For jobs where no electronic sign ins were done and you want to give everyone the full scheduled time use Autofill Sign In and Autofill Sign Out These buttons instantly populate every employee with the shift's scheduled start and end time Click Approve Hours to finalize This is the fastest way to process hours for clean sessions where you are confident everyone worked their full shift",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Autofill and Bulk Approval",
-        "instructions": "Screen recording: Show Autofill Sign-In and Autofill Sign-Out buttons. Click both. Click Approve Hours. Back button. Move to next shift.",
+        "slide_name": "Handling No-Shows",
+        "instructions": null,
         "text": "If an employee was scheduled but did not show up they will appear with no times You cannot approve hours while any employee has blank times For employees who did not show up check the NS No Show checkbox next to their name Once all no shows are marked you can proceed with approving hours for the rest of the shift Handle this carefully A no show mark affects payroll and the employee's record Make sure it is accurate before saving",
         "original_index": 7
       },
       {
         "slide_number": 6,
-        "slide_name": "Handling No-Shows",
+        "slide_name": "Override Rates and Per Diem",
         "instructions": null,
         "text": "When manually entering times you will also see fields for Override Rate If an employee worked a position different from their standard role and should be paid a different rate enter it here The system applies the higher of the two rates Per Diem if you provided the employee with additional payment outside their hourly rate such as a pay card enter that amount here so payroll can account for it",
         "original_index": 8
       },
       {
         "slide_number": 7,
-        "slide_name": "Override Rates and Per Diem",
-        "instructions": null,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations you've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 9
       },
       {
-        "slide_number": 8,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Next Steps",
+        "instructions": null,
         "text": "Proceed to next module if applicable refer to Quick Reference Guide contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 10
+        "original_index": 10,
+        "slide_number": 8
       }
     ]
   },
@@ -811,59 +811,59 @@
       },
       {
         "slide_number": 2,
-        "slide_name": "Billing",
+        "slide_name": "Billing Prerequisites",
         "instructions": null,
         "text": "Before you can bill a client two things must be true One all hours for the event must be approved in manual process hours Wish will not generate a bill for a job where hours are still pending Two a contract must exist for the client you are billing If no contract is in the system the billing screens will not populate the client information Always complete payroll processing before billing The order is process hours approve hours then bill",
         "original_index": 4
       },
       {
         "slide_number": 3,
-        "slide_name": "Billing Prerequisites",
-        "instructions": null,
+        "slide_name": "Check Bill for Job",
+        "instructions": "Screen recording: Billing \u2192 Check Bill for Job. Click View Unbilled. Show report with Hours Processed column showing Yes/No.",
         "text": "Go to Billing check Bill for Job Click View Unbilled to see everything that has not been invoiced yet The report shows a hours processed column If it shows yes the job is ready to bill If it shows no go back to Manage Process Hours and complete the approval for that job first",
         "original_index": 5
       },
       {
         "slide_number": 4,
-        "slide_name": "Check Bill for Job",
-        "instructions": "Screen recording: Billing \u2192 Check Bill for Job. Click View Unbilled. Show report with Hours Processed column showing Yes/No.",
+        "slide_name": "Manage Billing Process",
+        "instructions": "Screen recording: Billing \u2192 Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
         "text": "Go to Billing Manage Billing Process Select your event Your client and contract will auto populate Click Search to pull up all days worked for that event Select the days you want to bill for Choose your calculation method In most cases this is Calculate Regular Hours Click Get Invoice Data Wish will calculate the bill from the sign in and sign out data",
         "original_index": 6
       },
       {
         "slide_number": 5,
-        "slide_name": "Manage Billing Process",
-        "instructions": "Screen recording: Billing \u2192 Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
+        "slide_name": "Reviewing and Adjusting the Bill",
+        "instructions": "Screen recording: Walk through Sign-In/Sign-Out tab, Billing Tax tab, Summary tab, Billable Items tab, Invoice Setup tab.",
         "text": "After pulling invoice data review the tabs sign in sign out adjust times change roles or update rates for employees who work different positions Use the change fields at the top to apply changes to multiple employees at once Billing tax Apply tax rates to specific roles if applicable Summary Clean overview of all staff used across roles and job days Billable items Add additional charges to the client radios carts jackets wristbands etc Invoice setup Set the attention to field the client contact who should receive the invoice This is required before generating",
         "original_index": 7
       },
       {
         "slide_number": 6,
-        "slide_name": "Reviewing and Adjusting the Bill",
-        "instructions": "Screen recording: Walk through Sign-In/Sign-Out tab, Billing Tax tab, Summary tab, Billable Items tab, Invoice Setup tab.",
+        "slide_name": "Generating and Printing the Invoice",
+        "instructions": "Screen recording: Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
         "text": "Select your invoice type Summary clean totals by role Most clients prefer this Detailed full breakdown showing each employee's times regular and overtime hours Summary with cover and sign in sheets includes everything Click Generate Invoice Your invoice opens as a PDF Copy the invoice number To make changes use the Invoice Reference dropdown Your most recent invoice appears at the top Edit go back to Invoice Setup then Generate Invoice again Each revision gets a point suffix point one point two et cetera so every version is tracked To print any previous invoice billing print invoice select your event choose the invoice",
         "original_index": 8
       },
       {
         "slide_number": 7,
-        "slide_name": "Generating and Printing the Invoice",
-        "instructions": "Screen recording: Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
+        "slide_name": "Managing Contracts",
+        "instructions": "Screen recording: Records \u2192 Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
         "text": "Client contracts are managed under Records Manage Contract If a contract does not exist you will need to create one before billing is possible Inside a contract you will find contract dates and payment terms Standard is net 30 days with 150  late fee Bill rates by role what you charge the client per hour for each position Tax rates set appropriately for your location Contract document upload the PDF directly into Wish To update a rate deactivate the current rate and enter the new one If a role is missing add it here with its bill rate",
         "original_index": 9
       },
       {
         "slide_number": 8,
-        "slide_name": "Managing Contracts",
-        "instructions": "Screen recording: Records \u2192 Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
         "text": "Congratulations You've completed this portion of the WISH training WISH is here to make workforce management easier and you're now ready to use it with confidence Depending on your role and access level there may be additional training videos Each video provides the knowledge needed for your tools Thank you for taking the time to learn how WISH supports staff management",
         "original_index": 10
       },
       {
-        "slide_number": 9,
-        "slide_name": "Congratulations!",
-        "instructions": "Checkmark/confetti",
+        "slide_name": "Slide 9",
+        "instructions": null,
         "text": "To proceed to next module if applicable refer to Quick Reference Guide Contact WISH Administrator for support For advanced permissions contact support wish at csc usa com or call 888 791 5150",
-        "original_index": 11
+        "original_index": 11,
+        "slide_number": 9
       }
     ]
   }
