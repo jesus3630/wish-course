@@ -41,6 +41,8 @@ export default function ModulePlayer({
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const progressRef = useRef(progress);
+  const timingsRef = useRef<{word: string; start: number; end: number}[] | null>(null);
+  const wordsRef = useRef<string[]>([]);
   useEffect(() => { progressRef.current = progress; }, [progress]);
 
   const slide = module.slides[slideIndex];
@@ -49,12 +51,20 @@ export default function ModulePlayer({
   const slideText = slide?.text ?? '';
   const slideName = slide?.slide_name ?? '';
 
-  function stopRaf() {
+  function stopRaf(keepIndex = false) {
     if (rafRef.current !== null) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
     }
-    setActiveWordIndex(-1);
+    if (!keepIndex) setActiveWordIndex(-1);
+  }
+
+  function pauseAudio() {
+    audioRef.current.pause();
+    window.speechSynthesis?.cancel();
+    stopRaf(true); // keep word highlight on current word
+    clearTimers();
+    setIsPlaying(false);
   }
 
   function clearTimers() {
@@ -162,11 +172,12 @@ export default function ModulePlayer({
     setAudioLoading(true);
 
     const words = slideText.trim().split(/\s+/);
+    wordsRef.current = words;
+    timingsRef.current = null;
+
     const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
     const firstTextWord = norm(words[0] ?? '');
     const oi = slide.original_index;
-
-    let timings: {word: string; start: number; end: number}[] | null = null;
 
     // Try loading timing — prefer the file whose first word matches the first text word.
     // Some modules have timing files offset by -1 from the original_index.
@@ -178,9 +189,9 @@ export default function ModulePlayer({
           if (!r.ok) continue;
           const data: {word: string; start: number; end: number}[] = await r.json();
           if (!data?.length) continue;
-          if (norm(data[0].word) === firstTextWord) { timings = data; return; }
+          if (norm(data[0].word) === firstTextWord) { timingsRef.current = data; return; }
           // Keep as fallback if no better match found
-          if (!timings) timings = data;
+          if (!timingsRef.current) timingsRef.current = data;
         } catch { /* skip */ }
       }
     }
@@ -190,7 +201,7 @@ export default function ModulePlayer({
       setAudioLoading(false);
       setIsPlaying(true);
       audio.play();
-      startWordHighlight(audio, words, timings);
+      startWordHighlight(audio, words, timingsRef.current);
     };
 
     audio.onended = () => {
@@ -261,10 +272,23 @@ export default function ModulePlayer({
 
   function handlePlayNarration() {
     if (isPlaying) {
-      stopAudio();
+      pauseAudio();
       return;
     }
     clearTimers();
+    const audio = audioRef.current;
+    // Resume from paused position if audio is loaded and mid-way
+    if (audio.src && audio.currentTime > 0 && !audio.ended) {
+      audio.play();
+      setIsPlaying(true);
+      startWordHighlight(audio, wordsRef.current, timingsRef.current);
+      audio.onended = () => {
+        stopRaf();
+        setIsPlaying(false);
+        autoAdvanceRef.current = setTimeout(() => handleNext(), 1500);
+      };
+      return;
+    }
     playNarration(() => {
       autoAdvanceRef.current = setTimeout(() => handleNext(), 1500);
     });
