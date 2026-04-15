@@ -475,8 +475,8 @@ function HighlightedText({
             continue;
           }
           const wordIdx = globalIndex;
-          const isActive = isPlaying && wordIdx === activeWordIndex;
-          const isPast = isPlaying && wordIdx < activeWordIndex;
+          const isActive = activeWordIndex >= 0 && wordIdx === activeWordIndex;
+          const isPast = activeWordIndex >= 0 && wordIdx < activeWordIndex;
           elements.push(
             <span
               key={`${pi}-${i}`}
