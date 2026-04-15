@@ -613,9 +613,9 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '16px',
     boxShadow: '0 -2px 8px rgba(0,0,0,0.04)',
   },
-  slideDots: { display: 'flex', gap: '4px', alignItems: 'center', flex: 1, flexWrap: 'wrap', maxWidth: '60%' },
-  dot: { height: '8px', borderRadius: '4px', transition: 'all 0.25s' },
-  navBtns: { display: 'flex', gap: '12px' },
+  slideDots: { display: 'flex', gap: '4px', alignItems: 'center', flex: 1, flexWrap: 'wrap', minWidth: 0, overflow: 'hidden' },
+  dot: { height: '8px', borderRadius: '4px', transition: 'all 0.25s', flexShrink: 0 },
+  navBtns: { display: 'flex', gap: '8px', flexShrink: 0 },
   navBtn: {
     padding: '10px 20px',
     background: '#F3F4F6',
