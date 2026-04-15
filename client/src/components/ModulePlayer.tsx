@@ -163,7 +163,7 @@ export default function ModulePlayer({
     if (!slideText.trim()) { onEnded?.(); return; }
 
     const audio = audioRef.current;
-    const audioIndex = slide.original_index ?? (slide.slide_number - 1);
+    const audioIndex = slide.original_index ?? ((slide.slide_number ?? 1) - 1);
     const audioPath = `/audio/${module.id}/slide_${audioIndex}.mp3`;
 
     audio.oncanplaythrough = null;
