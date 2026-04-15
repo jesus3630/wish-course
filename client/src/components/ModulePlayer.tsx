@@ -399,7 +399,7 @@ export default function ModulePlayer({
               onClick={handlePlayNarration}
               disabled={audioLoading}
             >
-              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Replay'}
+              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Resume'}
             </button>
           )}
         </div>
