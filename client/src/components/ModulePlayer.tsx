@@ -459,9 +459,9 @@ function HighlightedText({
               style={{
                 backgroundColor: isActive ? '#D4782A' : 'transparent',
                 color: isActive ? '#FFFFFF' : isPast ? '#9CA3AF' : '#374151',
-                borderRadius: isActive ? '3px' : '0',
-                padding: isActive ? '1px 3px' : '1px 0',
-                transition: 'background-color 0.1s, color 0.1s',
+                borderRadius: '3px',
+                padding: '2px 3px',
+                fontWeight: isActive ? 700 : 400,
                 display: 'inline',
               }}
             >
