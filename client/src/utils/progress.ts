@@ -80,6 +80,26 @@ export function markModuleComplete(
   };
 }
 
+export function resetModuleProgress(
+  progress: CourseProgress,
+  moduleId: string
+): CourseProgress {
+  return {
+    ...progress,
+    modules: {
+      ...progress.modules,
+      [moduleId]: {
+        started: false,
+        completed: false,
+        quiz_score: null,
+        quiz_passed: false,
+        slides_viewed: [],
+        last_slide: 0,
+      },
+    },
+  };
+}
+
 export function getOverallCompletion(progress: CourseProgress, totalModules: number): number {
   const completed = Object.values(progress.modules).filter(m => m.completed).length;
   return Math.round((completed / totalModules) * 100);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Module, CourseProgress, QuizQuestion } from '../types';
-import { getModuleProgress, markSlideViewed, markModuleComplete } from '../utils/progress';
+import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
 import Quiz from './Quiz';
 import Character from './Character';
 
@@ -300,6 +300,14 @@ export default function ModulePlayer({
     setSlideIndex(index);
   }
 
+  function handleRestart() {
+    stopAudio();
+    const reset = resetModuleProgress(progressRef.current, module.id);
+    onProgressUpdate(reset);
+    setSlideIndex(0);
+    setCelebrating(false);
+  }
+
   function handlePrev() {
     if (slideIndex > 0) goToSlide(slideIndex - 1);
   }
@@ -429,6 +437,9 @@ export default function ModulePlayer({
         </div>
 
         <div style={styles.navBtns}>
+          <button style={{ ...styles.navBtn, ...styles.navBtnRestart }} onClick={handleRestart}>
+            ↺ Restart
+          </button>
           <button
             style={{ ...styles.navBtn, opacity: slideIndex === 0 ? 0.4 : 1 }}
             disabled={slideIndex === 0}
@@ -619,5 +630,9 @@ const styles: Record<string, React.CSSProperties> = {
     background: 'linear-gradient(135deg, #D4782A, #B8621F)',
     color: '#FFFFFF',
     border: 'none',
+  },
+  navBtnRestart: {
+    color: '#6B7280',
+    borderColor: '#D1D5DB',
   },
 };
