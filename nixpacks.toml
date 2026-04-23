@@ -1,8 +1,5 @@
-[phases.install]
-cmds = ["npm install", "cd client && npm install"]
-
 [phases.build]
-cmds = ["cd client && DISABLE_ESLINT_PLUGIN=true CI=false npm run build"]
+cmds = ["echo 'Client pre-built — skipping'"]
 
 [start]
 cmd = "node server/index.js"
