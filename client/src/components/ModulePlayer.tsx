@@ -230,7 +230,17 @@ export default function ModulePlayer({
       v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Alex')
     );
     if (preferred) utterance.voice = preferred;
-    utterance.onend = () => { setIsPlaying(false); onEnded?.(); };
+
+    // Track word position via boundary events
+    utterance.onboundary = (e) => {
+      if (e.name === 'word') {
+        const before = text.substring(0, e.charIndex).trim();
+        const idx = before === '' ? 0 : before.split(/\s+/).length;
+        setActiveWordIndex(idx);
+      }
+    };
+
+    utterance.onend = () => { stopRaf(); setActiveWordIndex(-1); setIsPlaying(false); onEnded?.(); };
     setIsPlaying(true);
     window.speechSynthesis.speak(utterance);
   }
