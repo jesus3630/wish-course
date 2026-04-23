@@ -546,8 +546,9 @@ function HighlightedText({
                 color: isActive ? '#FFFFFF' : isPast ? '#9CA3AF' : '#374151',
                 borderRadius: '3px',
                 padding: '2px 3px',
-                fontWeight: isActive ? 700 : 400,
+                fontWeight: 400,
                 display: 'inline',
+                transition: 'background-color 0.08s ease, color 0.08s ease',
               }}
             >
               {token}
