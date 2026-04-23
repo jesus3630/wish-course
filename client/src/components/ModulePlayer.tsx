@@ -82,28 +82,7 @@ export default function ModulePlayer({
 
     if (timings && timings.length > 0) {
       const t = timings;
-
-      // Build timing index → display word index mapping by aligning on normalized text
-      const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
-      const displayNorm = words.map(norm);
-      const timingToDisplay: number[] = new Array(t.length).fill(-1);
-      let displayCursor = 0;
-      for (let ti = 0; ti < t.length; ti++) {
-        const tw = norm(t[ti].word);
-        // Search forward in display words for a match
-        for (let di = displayCursor; di < Math.min(displayCursor + 6, displayNorm.length); di++) {
-          if (displayNorm[di] === tw || displayNorm[di].startsWith(tw) || tw.startsWith(displayNorm[di])) {
-            timingToDisplay[ti] = di;
-            displayCursor = di + 1;
-            break;
-          }
-        }
-        // If no match found, map to cursor position anyway
-        if (timingToDisplay[ti] === -1 && displayCursor < displayNorm.length) {
-          timingToDisplay[ti] = displayCursor;
-        }
-      }
-
+      // timings[i] was built from the same text split on whitespace, so index maps 1:1 to words[i]
       const tick = () => {
         const ct = audio.currentTime;
         let lo = 0, hi = t.length - 1, idx = 0;
@@ -112,8 +91,7 @@ export default function ModulePlayer({
           if (t[mid].start <= ct) { idx = mid; lo = mid + 1; }
           else hi = mid - 1;
         }
-        const displayIdx = timingToDisplay[idx];
-        if (displayIdx !== -1) setActiveWordIndex(displayIdx);
+        setActiveWordIndex(Math.min(idx, words.length - 1));
         rafRef.current = requestAnimationFrame(tick);
       };
       rafRef.current = requestAnimationFrame(tick);
@@ -181,9 +159,8 @@ export default function ModulePlayer({
     const firstTextWord = norm(words[0] ?? '');
     const oi = audioIndex;
 
-    // Try loading timing — prefer the file whose first word matches the first text word.
-    // Some modules have timing files offset by -1 from the original_index.
-    async function loadTimings() {
+    async function loadTimings(): Promise<{word: string; start: number; end: number}[] | null> {
+      let fallback: {word: string; start: number; end: number}[] | null = null;
       for (const idx of [oi, oi - 1, oi + 1]) {
         if (idx < 0) continue;
         try {
@@ -191,21 +168,31 @@ export default function ModulePlayer({
           if (!r.ok) continue;
           const data: {word: string; start: number; end: number}[] = await r.json();
           if (!data?.length) continue;
-          if (norm(data[0].word) === firstTextWord) { timingsRef.current = data; return; }
-          // Keep as fallback if no better match found
-          if (!timingsRef.current) timingsRef.current = data;
+          if (norm(data[0].word) === firstTextWord) return data;
+          if (!fallback) fallback = data;
         } catch { /* skip */ }
       }
+      return fallback;
     }
-    loadTimings();
 
-    audio.oncanplaythrough = () => {
+    // Await timings before starting playback so the RAF has accurate data from frame 1
+    let audioReady = false;
+    let timingsLoaded = false;
+    let resolvedTimings: {word: string; start: number; end: number}[] | null = null;
+
+    function maybeStart() {
+      if (!audioReady || !timingsLoaded) return;
+      timingsRef.current = resolvedTimings;
       setAudioLoading(false);
       setIsPlaying(true);
       audio.playbackRate = playbackRate;
       audio.play();
-      startWordHighlight(audio, words, timingsRef.current);
-    };
+      startWordHighlight(audio, words, resolvedTimings);
+    }
+
+    loadTimings().then(t => { resolvedTimings = t; timingsLoaded = true; maybeStart(); });
+
+    audio.oncanplaythrough = () => { audioReady = true; maybeStart(); };
 
     audio.onended = () => {
       stopRaf();
