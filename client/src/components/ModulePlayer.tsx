@@ -212,7 +212,7 @@ export default function ModulePlayer({
     };
 
     audio.onerror = () => {
-      // Try ElevenLabs API, fall back to browser TTS if unavailable
+      // Try ElevenLabs API with word timestamps, fall back to browser TTS if unavailable
       setAudioLoading(true);
       fetch('/api/narrate', {
         method: 'POST',
@@ -221,10 +221,15 @@ export default function ModulePlayer({
       })
         .then(res => {
           if (!res.ok) throw new Error('narrate failed');
-          return res.blob();
+          return res.json();
         })
-        .then(blob => {
-          const url = URL.createObjectURL(blob);
+        .then(({ audio: b64, timings }) => {
+          // Use exact word timings from ElevenLabs
+          timingsRef.current = timings ?? null;
+          const binary = atob(b64);
+          const bytes = new Uint8Array(binary.length);
+          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+          const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
           audio.oncanplaythrough = null;
           audio.onerror = null;
           audio.onended = () => { URL.revokeObjectURL(url); stopRaf(); setIsPlaying(false); onEnded?.(); };

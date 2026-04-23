@@ -96,12 +96,12 @@ app.post('/api/narrate', async (req, res) => {
 
   const options = {
     hostname: 'api.elevenlabs.io',
-    path: `/v1/text-to-speech/${VOICE_ID}`,
+    path: `/v1/text-to-speech/${VOICE_ID}/with-timestamps`,
     method: 'POST',
     headers: {
       'xi-api-key': ELEVENLABS_API_KEY,
       'Content-Type': 'application/json',
-      'Accept': 'audio/mpeg',
+      'Accept': 'application/json',
       'Content-Length': Buffer.byteLength(body),
     },
   };
@@ -111,8 +111,39 @@ app.post('/api/narrate', async (req, res) => {
       res.status(502).json({ error: 'ElevenLabs error', status: elRes.statusCode });
       return;
     }
-    res.set('Content-Type', 'audio/mpeg');
-    elRes.pipe(res);
+    let raw = '';
+    elRes.on('data', chunk => raw += chunk);
+    elRes.on('end', () => {
+      try {
+        const data = JSON.parse(raw);
+        // Convert character-level alignment to word-level timings
+        const chars = data.alignment?.characters ?? [];
+        const starts = data.alignment?.character_start_times_seconds ?? [];
+        const ends = data.alignment?.character_end_times_seconds ?? [];
+
+        const timings = [];
+        let word = '', wordStart = null;
+        for (let i = 0; i < chars.length; i++) {
+          const ch = chars[i];
+          if (ch === ' ' || ch === '\n') {
+            if (word.trim()) {
+              timings.push({ word: word.trim(), start: wordStart, end: ends[i - 1] ?? ends[i] });
+            }
+            word = '';
+            wordStart = null;
+          } else {
+            if (!word) wordStart = starts[i];
+            word += ch;
+          }
+        }
+        if (word.trim()) timings.push({ word: word.trim(), start: wordStart, end: ends[ends.length - 1] });
+
+        res.json({ audio: data.audio_base64, timings });
+      } catch (e) {
+        console.error('Failed to parse ElevenLabs response:', e);
+        res.status(500).json({ error: 'Failed to parse narration response' });
+      }
+    });
   });
 
   elReq.on('error', (err) => {
