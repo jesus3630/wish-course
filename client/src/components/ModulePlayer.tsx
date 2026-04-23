@@ -212,8 +212,35 @@ export default function ModulePlayer({
     };
 
     audio.onerror = () => {
-      setAudioLoading(false);
-      speakFallback(slideText, onEnded);
+      // Try ElevenLabs API, fall back to browser TTS if unavailable
+      setAudioLoading(true);
+      fetch('/api/narrate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: slideText }),
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('narrate failed');
+          return res.blob();
+        })
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          audio.oncanplaythrough = null;
+          audio.onerror = null;
+          audio.onended = () => { URL.revokeObjectURL(url); stopRaf(); setIsPlaying(false); onEnded?.(); };
+          audio.oncanplaythrough = () => {
+            setAudioLoading(false);
+            setIsPlaying(true);
+            audio.play();
+            startWordHighlight(audio, words, timingsRef.current);
+          };
+          audio.src = url;
+          audio.load();
+        })
+        .catch(() => {
+          setAudioLoading(false);
+          speakFallback(slideText, onEnded);
+        });
     };
 
     audio.src = audioPath;
