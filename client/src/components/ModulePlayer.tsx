@@ -224,12 +224,19 @@ export default function ModulePlayer({
     if (!window.speechSynthesis) { onEnded?.(); return; }
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.95;
+    utterance.rate = 0.92;
+    utterance.pitch = 1.05;
+
     const voices = window.speechSynthesis.getVoices();
-    const preferred = voices.find(v =>
-      v.name.includes('Google') || v.name.includes('Samantha') || v.name.includes('Alex')
-    );
-    if (preferred) utterance.voice = preferred;
+    // Priority: Google US English female > Samantha > Google UK > any Google > any en-US > any English
+    const pick =
+      voices.find(v => v.name === 'Google US English') ||
+      voices.find(v => v.name === 'Samantha') ||
+      voices.find(v => v.name.includes('Google') && v.lang === 'en-US') ||
+      voices.find(v => v.name.includes('Google') && v.lang.startsWith('en')) ||
+      voices.find(v => v.lang === 'en-US') ||
+      voices.find(v => v.lang.startsWith('en'));
+    if (pick) utterance.voice = pick;
 
     // Track word position via boundary events
     utterance.onboundary = (e) => {
