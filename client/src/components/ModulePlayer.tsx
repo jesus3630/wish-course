@@ -202,6 +202,7 @@ export default function ModulePlayer({
     audio.oncanplaythrough = () => {
       setAudioLoading(false);
       setIsPlaying(true);
+      audio.playbackRate = playbackRate;
       audio.play();
       startWordHighlight(audio, words, timingsRef.current);
     };
@@ -454,46 +455,46 @@ export default function ModulePlayer({
           </div>
 
           {slideText && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-              <button
-                style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
-                onClick={handlePlayNarration}
-                disabled={audioLoading}
-              >
-                {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Resume'}
-              </button>
-              <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
-                {[0.75, 1, 1.25, 1.5].map(rate => (
-                  <button
-                    key={rate}
-                    onClick={() => {
-                      setPlaybackRate(rate);
-                      audioRef.current.playbackRate = rate;
-                    }}
-                    style={{
-                      padding: '6px 10px',
-                      fontSize: '12px',
-                      fontWeight: 600,
-                      borderRadius: '6px',
-                      border: '2px solid',
-                      cursor: 'pointer',
-                      borderColor: playbackRate === rate ? '#D4782A' : '#E5E7EB',
-                      background: playbackRate === rate ? '#FFF3E8' : '#F9FAFB',
-                      color: playbackRate === rate ? '#D4782A' : '#6B7280',
-                      transition: 'all 0.15s',
-                    }}
-                  >
-                    {rate === 1 ? '1×' : `${rate}×`}
-                  </button>
-                ))}
-              </div>
-            </div>
+            <button
+              style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
+              onClick={handlePlayNarration}
+              disabled={audioLoading}
+            >
+              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Resume'}
+            </button>
           )}
         </div>
       </div>
 
       {/* Bottom navigation */}
       <div style={styles.bottomBar}>
+        {/* Speed selector — persists across all slides */}
+        <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexShrink: 0 }}>
+          {[0.75, 1, 1.25, 1.5].map(rate => (
+            <button
+              key={rate}
+              onClick={() => {
+                setPlaybackRate(rate);
+                audioRef.current.playbackRate = rate;
+              }}
+              style={{
+                padding: '5px 9px',
+                fontSize: '11px',
+                fontWeight: 600,
+                borderRadius: '6px',
+                border: '2px solid',
+                cursor: 'pointer',
+                borderColor: playbackRate === rate ? '#D4782A' : '#E5E7EB',
+                background: playbackRate === rate ? '#FFF3E8' : '#F9FAFB',
+                color: playbackRate === rate ? '#D4782A' : '#9CA3AF',
+                transition: 'all 0.15s',
+              }}
+            >
+              {rate === 1 ? '1×' : `${rate}×`}
+            </button>
+          ))}
+        </div>
+
         <div style={styles.slideDots}>
           {module.slides.map((_, i) => (
             <div
