@@ -4,6 +4,9 @@ import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProg
 import Quiz from './Quiz';
 import Character from './Character';
 
+type Timing = { word: string; start: number; end: number };
+type PrefetchEntry = { url: string; timings: Timing[] };
+
 interface Props {
   module: Module;
   moduleIndex: number;
@@ -42,8 +45,9 @@ export default function ModulePlayer({
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const progressRef = useRef(progress);
-  const timingsRef = useRef<{word: string; start: number; end: number}[] | null>(null);
+  const timingsRef = useRef<Timing[] | null>(null);
   const wordsRef = useRef<string[]>([]);
+  const prefetchCacheRef = useRef<Map<number, PrefetchEntry | 'pending'>>(new Map());
   useEffect(() => { progressRef.current = progress; }, [progress]);
 
   const slide = module.slides[slideIndex];
@@ -76,7 +80,7 @@ export default function ModulePlayer({
   function startWordHighlight(
     audio: HTMLAudioElement,
     words: string[],
-    timings: {word: string; start: number; end: number}[] | null
+    timings: Timing[] | null
   ) {
     stopRaf();
 
@@ -138,108 +142,87 @@ export default function ModulePlayer({
     setAudioLoading(false);
   }
 
+  function b64ToBlob(b64: string): string {
+    const binary = atob(b64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+  }
+
+  function prefetchSlide(idx: number) {
+    if (idx < 0 || idx >= module.slides.length) return;
+    if (prefetchCacheRef.current.has(idx)) return;
+    const text = module.slides[idx]?.text?.trim() ?? '';
+    if (!text) return;
+    prefetchCacheRef.current.set(idx, 'pending');
+    fetch('/api/narrate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text }),
+    })
+      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+      .then(({ audio: b64, timings }) => {
+        prefetchCacheRef.current.set(idx, { url: b64ToBlob(b64), timings: timings ?? [] });
+      })
+      .catch(() => { prefetchCacheRef.current.delete(idx); });
+  }
+
+  function playFromEntry(
+    entry: PrefetchEntry,
+    words: string[],
+    audio: HTMLAudioElement,
+    onEnded?: () => void
+  ) {
+    timingsRef.current = entry.timings.length ? entry.timings : null;
+    audio.oncanplaythrough = null;
+    audio.onended = null;
+    audio.onerror = null;
+    audio.onended = () => { stopRaf(); setIsPlaying(false); onEnded?.(); };
+    audio.oncanplaythrough = () => {
+      setAudioLoading(false);
+      setIsPlaying(true);
+      audio.playbackRate = playbackRate;
+      audio.play();
+      startWordHighlight(audio, words, timingsRef.current);
+    };
+    audio.src = entry.url;
+    audio.load();
+  }
+
   function playNarration(onEnded?: () => void) {
     if (!slideText.trim()) { onEnded?.(); return; }
 
     const audio = audioRef.current;
-    const audioIndex = slide.original_index ?? ((slide.slide_number ?? 1) - 1);
-    const audioPath = `/audio/${module.id}/slide_${audioIndex}.mp3`;
-
     audio.oncanplaythrough = null;
     audio.onended = null;
     audio.onerror = null;
-
     setAudioLoading(true);
 
     const words = slideText.trim().split(/\s+/);
     wordsRef.current = words;
     timingsRef.current = null;
 
-    const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
-    const firstTextWord = norm(words[0] ?? '');
-    const oi = audioIndex;
-
-    async function loadTimings(): Promise<{word: string; start: number; end: number}[] | null> {
-      let fallback: {word: string; start: number; end: number}[] | null = null;
-      for (const idx of [oi, oi - 1, oi + 1]) {
-        if (idx < 0) continue;
-        try {
-          const r = await fetch(`/audio/${module.id}/slide_${idx}.json`);
-          if (!r.ok) continue;
-          const data: {word: string; start: number; end: number}[] = await r.json();
-          if (!data?.length) continue;
-          if (norm(data[0].word) === firstTextWord) return data;
-          if (!fallback) fallback = data;
-        } catch { /* skip */ }
-      }
-      return fallback;
+    const cached = prefetchCacheRef.current.get(slideIndex);
+    if (cached && cached !== 'pending') {
+      playFromEntry(cached, words, audio, onEnded);
+      return;
     }
 
-    // Await timings before starting playback so the RAF has accurate data from frame 1
-    let audioReady = false;
-    let timingsLoaded = false;
-    let resolvedTimings: {word: string; start: number; end: number}[] | null = null;
-
-    function maybeStart() {
-      if (!audioReady || !timingsLoaded) return;
-      timingsRef.current = resolvedTimings;
-      setAudioLoading(false);
-      setIsPlaying(true);
-      audio.playbackRate = playbackRate;
-      audio.play();
-      startWordHighlight(audio, words, resolvedTimings);
-    }
-
-    loadTimings().then(t => { resolvedTimings = t; timingsLoaded = true; maybeStart(); });
-
-    audio.oncanplaythrough = () => { audioReady = true; maybeStart(); };
-
-    audio.onended = () => {
-      stopRaf();
-      setIsPlaying(false);
-      onEnded?.();
-    };
-
-    audio.onerror = () => {
-      // Try ElevenLabs API with word timestamps, fall back to browser TTS if unavailable
-      setAudioLoading(true);
-      fetch('/api/narrate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: slideText }),
+    fetch('/api/narrate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: slideText }),
+    })
+      .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+      .then(({ audio: b64, timings }) => {
+        const entry: PrefetchEntry = { url: b64ToBlob(b64), timings: timings ?? [] };
+        prefetchCacheRef.current.set(slideIndex, entry);
+        playFromEntry(entry, words, audio, onEnded);
       })
-        .then(res => {
-          if (!res.ok) throw new Error('narrate failed');
-          return res.json();
-        })
-        .then(({ audio: b64, timings }) => {
-          // Use exact word timings from ElevenLabs
-          timingsRef.current = timings ?? null;
-          const binary = atob(b64);
-          const bytes = new Uint8Array(binary.length);
-          for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-          const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
-          audio.oncanplaythrough = null;
-          audio.onerror = null;
-          audio.onended = () => { URL.revokeObjectURL(url); stopRaf(); setIsPlaying(false); onEnded?.(); };
-          audio.oncanplaythrough = () => {
-            setAudioLoading(false);
-            setIsPlaying(true);
-            audio.playbackRate = playbackRate;
-            audio.play();
-            startWordHighlight(audio, words, timingsRef.current);
-          };
-          audio.src = url;
-          audio.load();
-        })
-        .catch(() => {
-          setAudioLoading(false);
-          speakFallback(slideText, onEnded);
-        });
-    };
-
-    audio.src = audioPath;
-    audio.load();
+      .catch(() => {
+        setAudioLoading(false);
+        speakFallback(slideText, onEnded);
+      });
   }
 
   function speakFallback(text: string, onEnded?: () => void) {
@@ -274,29 +257,26 @@ export default function ModulePlayer({
     window.speechSynthesis.speak(utterance);
   }
 
-  // Auto-play narration 600ms after slide loads, then auto-advance 1.5s after it ends
   useEffect(() => {
     stopAudio();
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
     onProgressUpdate(updated);
 
-    // Fade in
+    // Start prefetching next slide immediately so it's ready when this one ends
+    prefetchSlide(slideIndex + 1);
+
     const fadeTimer = setTimeout(() => setSlideVisible(true), 50);
 
-    // Auto-play after brief pause
     autoPlayRef.current = setTimeout(() => {
       playNarration(() => {
-        // Auto-advance after narration ends (only if not last slide)
         if (!isLastSlide) {
-          autoAdvanceRef.current = setTimeout(() => {
-            handleNext();
-          }, 1500);
+          autoAdvanceRef.current = setTimeout(() => handleNext(), 350);
         } else {
           setCelebrating(true);
         }
       });
-    }, 600);
+    }, 150);
 
     return () => {
       clearTimeout(fadeTimer);
@@ -306,7 +286,13 @@ export default function ModulePlayer({
   }, [slideIndex]);
 
   useEffect(() => {
-    return () => stopAudio();
+    return () => {
+      stopAudio();
+      prefetchCacheRef.current.forEach(entry => {
+        if (entry && entry !== 'pending') URL.revokeObjectURL(entry.url);
+      });
+      prefetchCacheRef.current.clear();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
