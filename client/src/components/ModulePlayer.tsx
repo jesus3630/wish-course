@@ -47,7 +47,10 @@ export default function ModulePlayer({
   const progressRef = useRef(progress);
   const timingsRef = useRef<Timing[] | null>(null);
   const wordsRef = useRef<string[]>([]);
-  const prefetchCacheRef = useRef<Map<number, PrefetchEntry | 'pending'>>(new Map());
+  // Stores Promise so in-flight prefetches are reused instead of duplicated
+  const prefetchCacheRef = useRef<Map<number, Promise<PrefetchEntry | null>>>(new Map());
+  const blobUrlsRef = useRef<string[]>([]);
+  const narrationTokenRef = useRef<symbol | null>(null);
   useEffect(() => { progressRef.current = progress; }, [progress]);
 
   const slide = module.slides[slideIndex];
@@ -128,6 +131,7 @@ export default function ModulePlayer({
   }
 
   function stopAudio() {
+    narrationTokenRef.current = null; // cancel any in-flight playNarration
     const audio = audioRef.current;
     audio.oncanplaythrough = null;
     audio.onended = null;
@@ -146,39 +150,45 @@ export default function ModulePlayer({
     const binary = atob(b64);
     const bytes = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-    return URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+    const url = URL.createObjectURL(new Blob([bytes], { type: 'audio/mpeg' }));
+    blobUrlsRef.current.push(url);
+    return url;
   }
 
-  function prefetchSlide(idx: number) {
-    if (idx < 0 || idx >= module.slides.length) return;
-    if (prefetchCacheRef.current.has(idx)) return;
+  // Returns (and caches) a Promise — in-flight fetches are reused, never duplicated
+  function prefetchSlide(idx: number): Promise<PrefetchEntry | null> {
+    if (idx < 0 || idx >= module.slides.length) return Promise.resolve(null);
+    const existing = prefetchCacheRef.current.get(idx);
+    if (existing) return existing;
     const text = module.slides[idx]?.text?.trim() ?? '';
-    if (!text) return;
-    prefetchCacheRef.current.set(idx, 'pending');
-    fetch('/api/narrate', {
+    if (!text) return Promise.resolve(null);
+    const promise = fetch('/api/narrate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text }),
     })
       .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(({ audio: b64, timings }) => {
-        prefetchCacheRef.current.set(idx, { url: b64ToBlob(b64), timings: timings ?? [] });
-      })
-      .catch(() => { prefetchCacheRef.current.delete(idx); });
+      .then(({ audio: b64, timings }): PrefetchEntry => ({ url: b64ToBlob(b64), timings: timings ?? [] }))
+      .catch((): null => { prefetchCacheRef.current.delete(idx); return null; });
+    prefetchCacheRef.current.set(idx, promise);
+    return promise;
   }
 
   function playFromEntry(
     entry: PrefetchEntry,
     words: string[],
     audio: HTMLAudioElement,
+    token: symbol,
     onEnded?: () => void
   ) {
+    if (narrationTokenRef.current !== token) return;
     timingsRef.current = entry.timings.length ? entry.timings : null;
     audio.oncanplaythrough = null;
     audio.onended = null;
     audio.onerror = null;
     audio.onended = () => { stopRaf(); setIsPlaying(false); onEnded?.(); };
     audio.oncanplaythrough = () => {
+      if (narrationTokenRef.current !== token) return;
       setAudioLoading(false);
       setIsPlaying(true);
       audio.playbackRate = playbackRate;
@@ -192,6 +202,9 @@ export default function ModulePlayer({
   function playNarration(onEnded?: () => void) {
     if (!slideText.trim()) { onEnded?.(); return; }
 
+    const token = Symbol();
+    narrationTokenRef.current = token;
+
     const audio = audioRef.current;
     audio.oncanplaythrough = null;
     audio.onended = null;
@@ -202,27 +215,16 @@ export default function ModulePlayer({
     wordsRef.current = words;
     timingsRef.current = null;
 
-    const cached = prefetchCacheRef.current.get(slideIndex);
-    if (cached && cached !== 'pending') {
-      playFromEntry(cached, words, audio, onEnded);
-      return;
-    }
-
-    fetch('/api/narrate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: slideText }),
-    })
-      .then(res => { if (!res.ok) throw new Error(); return res.json(); })
-      .then(({ audio: b64, timings }) => {
-        const entry: PrefetchEntry = { url: b64ToBlob(b64), timings: timings ?? [] };
-        prefetchCacheRef.current.set(slideIndex, entry);
-        playFromEntry(entry, words, audio, onEnded);
-      })
-      .catch(() => {
+    // Wait on the prefetch promise — reuses in-flight request if prefetch already started
+    prefetchSlide(slideIndex).then(entry => {
+      if (narrationTokenRef.current !== token) return;
+      if (entry) {
+        playFromEntry(entry, words, audio, token, onEnded);
+      } else {
         setAudioLoading(false);
         speakFallback(slideText, onEnded);
-      });
+      }
+    });
   }
 
   function speakFallback(text: string, onEnded?: () => void) {
@@ -288,9 +290,8 @@ export default function ModulePlayer({
   useEffect(() => {
     return () => {
       stopAudio();
-      prefetchCacheRef.current.forEach(entry => {
-        if (entry && entry !== 'pending') URL.revokeObjectURL(entry.url);
-      });
+      blobUrlsRef.current.forEach(url => URL.revokeObjectURL(url));
+      blobUrlsRef.current = [];
       prefetchCacheRef.current.clear();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
