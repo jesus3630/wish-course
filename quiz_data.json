@@ -59,6 +59,18 @@
       ],
       "correct_index": 1,
       "explanation": "All actions performed using your credentials will be recorded in the system as being completed by you, making credential sharing a serious accountability issue."
+    },
+    {
+      "id": "intro_6",
+      "question": "How will you receive your WISH login credentials after completing training?",
+      "options": [
+        "They are posted on the company bulletin board",
+        "Your manager gives them to you in person",
+        "They are sent to the email address on your ESS account",
+        "You create them yourself on first login"
+      ],
+      "correct_index": 2,
+      "explanation": "After completing your assigned training modules, your login credentials will be sent to the email address listed on your Employee Self Service (ESS) account."
     }
   ],
   "record_maintenance": [
@@ -88,15 +100,39 @@
     },
     {
       "id": "rec_3",
-      "question": "Why is maintaining accurate records critical?",
+      "question": "What is the correct order of the record hierarchy in WISH?",
       "options": [
-        "It is only required for billing purposes",
-        "It affects employee self-service access",
-        "Accurate records are vital for branch operations",
-        "It determines payroll tax rates"
+        "Job → Event → Shift → Role",
+        "Event → Job → Shift → Role",
+        "Shift → Role → Job → Event",
+        "Role → Shift → Event → Job"
+      ],
+      "correct_index": 1,
+      "explanation": "The correct hierarchy is: Event must exist first, then Job is created under an Event, Shift under a Job, and Role under a Shift. Nothing can exist without the level above it."
+    },
+    {
+      "id": "rec_4",
+      "question": "What is the correct way to delete a job in WISH?",
+      "options": [
+        "Delete the job directly from the Manage Job screen",
+        "Contact your administrator to delete it",
+        "Delete roles first, then shifts, then the job",
+        "Archive the job and it will auto-delete after 30 days"
       ],
       "correct_index": 2,
-      "explanation": "Maintaining accurate records is vital for your branch's operations across all functions of WISH."
+      "explanation": "To delete a job, work in reverse order of the hierarchy: delete roles first, then shifts, then the job itself. WISH will not allow deletion if lower-level records still exist."
+    },
+    {
+      "id": "rec_5",
+      "question": "When adding a venue or client to an event, what should you do first?",
+      "options": [
+        "Always create a new venue or client record",
+        "Search the system to see if it already exists before creating",
+        "Email the administrator to add them",
+        "Add it through the Billing menu instead"
+      ],
+      "correct_index": 1,
+      "explanation": "A well-established venue may already be in the system. Always search first and only create a new record after confirming it doesn't already exist."
     }
   ],
   "manage_job": [
@@ -123,6 +159,42 @@
       ],
       "correct_index": 2,
       "explanation": "To create a new job, go to Records → Manage Job. Use the filter page to search for existing jobs or create a new one from there."
+    },
+    {
+      "id": "job_3",
+      "question": "Which Job Class should be used for jobs you will schedule employees for and bill a client?",
+      "options": [
+        "Office",
+        "Training",
+        "Events",
+        "Billing"
+      ],
+      "correct_index": 2,
+      "explanation": "Use the 'Events' Job Class for jobs you will schedule employees for and bill a client. 'Office' is for in-office hours and 'Training' is for training shifts."
+    },
+    {
+      "id": "job_4",
+      "question": "What is the most commonly used option when copying a job?",
+      "options": [
+        "Monthly — copies for every day of the month",
+        "Weekly — repeats on same days over a date range",
+        "Daily — copies the job to specific dates",
+        "Yearly — copies the job to the same date next year"
+      ],
+      "correct_index": 2,
+      "explanation": "Daily is the most commonly used copy option. It copies the job to specific dates. Always double-check start and end dates before confirming."
+    },
+    {
+      "id": "job_5",
+      "question": "If a job is canceled, what is the first thing you should do?",
+      "options": [
+        "Delete the job immediately from the system",
+        "Update the Job Class to 'Canceled' immediately",
+        "Remove all scheduled employees first",
+        "Notify billing and wait for approval"
+      ],
+      "correct_index": 1,
+      "explanation": "If a job is canceled, immediately update the Job Class to 'Canceled'. This is critical for accounting — open invoices and pending payments depend on accurate information."
     }
   ],
   "mss": [
@@ -131,18 +203,66 @@
       "question": "What does MSS allow in WISH?",
       "options": [
         "Manager self-scheduling",
-        "Publishing jobs to the web for Employee Self Service (ESS)",
+        "Publishing job shifts to the web for Employee Self Service (ESS)",
         "Mobile sign-in for employees",
         "Mass schedule updates"
       ],
       "correct_index": 1,
-      "explanation": "MSS provides access to publish jobs to the web for ESS (Employee Self Service), allowing employees to view and request shifts."
+      "explanation": "MSS (Manager Self Service) lets you publish job shifts to the web so employees can view and self-schedule through their ESS app."
+    },
+    {
+      "id": "mss_2",
+      "question": "Where do you find the Manager Portal in WISH?",
+      "options": [
+        "Records → Manager Portal",
+        "Scheduling → Manager Portal",
+        "Tools → Manager Portal",
+        "Admin → Manager Portal"
+      ],
+      "correct_index": 2,
+      "explanation": "The Manager Portal is accessed via the Tools menu in the top navigation. It shows upcoming events and variance between scheduled and minimum required headcount."
+    },
+    {
+      "id": "mss_3",
+      "question": "What is the difference between Auto-Schedule and Manual Approval?",
+      "options": [
+        "Auto-Schedule requires manager review; Manual Approval does not",
+        "Auto-Schedule accepts employees first-come first-served; Manual Approval requires you to review each application",
+        "Auto-Schedule is only for small events; Manual Approval is for large events",
+        "There is no difference — both require manager action"
+      ],
+      "correct_index": 1,
+      "explanation": "With Auto-Schedule, employees are accepted first-come first-served until max headcount is reached — no action required from you. Manual Approval requires you to review and approve each application individually."
+    },
+    {
+      "id": "mss_4",
+      "question": "What does the variance column in the Manager Portal show?",
+      "options": [
+        "The difference between scheduled employees and minimum required for each shift",
+        "The pay rate difference between roles",
+        "The time difference between shifts",
+        "The number of pending employee applications"
+      ],
+      "correct_index": 0,
+      "explanation": "The variance column shows the difference between the number of employees you have scheduled and the minimum required for each shift — helping you see where you're under or over-staffed."
+    },
+    {
+      "id": "mss_5",
+      "question": "What does a green checkmark on the Web Shift tab confirm?",
+      "options": [
+        "The shift has been fully staffed",
+        "Employees can now see and self-schedule for the shift",
+        "The shift has been approved by management",
+        "Payroll has been processed for the shift"
+      ],
+      "correct_index": 1,
+      "explanation": "After clicking 'Add to Web Shift', a green checkmark confirms that employees can now see and self-schedule for that shift through their ESS app."
     }
   ],
   "scheduling": [
     {
       "id": "sched_1",
-      "question": "What are the two ways the scheduling department can schedule employees?",
+      "question": "What are the two ways the scheduling department can schedule employees in WISH?",
       "options": [
         "By date and by location",
         "By employee and by job",
@@ -163,6 +283,42 @@
       ],
       "correct_index": 1,
       "explanation": "Employees can self-schedule through their ESS (Employee Self Service) app, which is separate from what the scheduling department does in WISH."
+    },
+    {
+      "id": "sched_3",
+      "question": "When should you use Schedule by Employee instead of Schedule by Job?",
+      "options": [
+        "When scheduling a large group of employees to the same role",
+        "When working with one employee at a time, such as on the phone",
+        "When processing payroll for a completed event",
+        "When creating new job records"
+      ],
+      "correct_index": 1,
+      "explanation": "Schedule by Employee is used when working with one employee at a time — for example, when you have an employee on the phone and need to assign them to multiple days or shifts."
+    },
+    {
+      "id": "sched_4",
+      "question": "What does the 'Check Employee Roles' box do in Schedule by Job?",
+      "options": [
+        "It checks if employees have completed their training",
+        "It filters results to only show employees with an active pay rate for the role being filled",
+        "It verifies employee background check status",
+        "It confirms employee availability for overtime"
+      ],
+      "correct_index": 1,
+      "explanation": "The Check Employee Roles box filters search results to only show employees who have an active pay rate for the role you are filling — ensuring you're scheduling qualified staff."
+    },
+    {
+      "id": "sched_5",
+      "question": "What does a red calendar highlight indicate when scheduling an employee?",
+      "options": [
+        "The employee is not eligible for the role",
+        "The employee's background check has expired",
+        "The employee may have overtime — informational only, it will not prevent saving",
+        "The employee is on a leave of absence"
+      ],
+      "correct_index": 2,
+      "explanation": "Red calendar highlights may indicate overtime. This is informational only — it will not prevent you from saving the schedule."
     }
   ],
   "schedule_by_job_admin": [
@@ -171,80 +327,296 @@
       "question": "What additional capability does the Schedule By Job Admin permission provide?",
       "options": [
         "Access to payroll reports",
-        "Ability to double and overlap schedules",
+        "Ability to double-book employees and override scheduling restrictions",
         "Permission to create new jobs",
         "Access to billing functions"
       ],
       "correct_index": 1,
-      "explanation": "Schedule By Job Admin provides the ability to double and overlap schedules, which is an elevated scheduling permission."
+      "explanation": "Schedule By Job Admin allows you to double-book employees already scheduled elsewhere, schedule employees over their hour limit, and bypass overlap warnings when necessary."
+    },
+    {
+      "id": "sjadmin_2",
+      "question": "Where do you find Schedule by Job Admin in WISH?",
+      "options": [
+        "Records → Schedule by Job Admin",
+        "Admin → Advanced Scheduling",
+        "Scheduling → Schedule by Job Admin",
+        "Tools → Admin Scheduling"
+      ],
+      "correct_index": 2,
+      "explanation": "Schedule by Job Admin is found under Scheduling → Schedule by Job Admin. The screen looks identical to Schedule by Job, but with fewer restrictions."
+    },
+    {
+      "id": "sjadmin_3",
+      "question": "What happens when you select an already-scheduled employee and save in Schedule by Job Admin?",
+      "options": [
+        "The system automatically cancels the previous schedule",
+        "WISH blocks the action and shows an error",
+        "WISH displays an overlap warning that you can choose to bypass",
+        "The employee receives an automatic notification"
+      ],
+      "correct_index": 2,
+      "explanation": "When you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed with the double-booking."
+    },
+    {
+      "id": "sjadmin_4",
+      "question": "How does Schedule by Job Admin differ visually from the standard Schedule by Job screen?",
+      "options": [
+        "It has a red banner indicating elevated access",
+        "It looks identical, but employees shown in red still have their checkboxes available",
+        "It shows an additional admin toolbar at the top",
+        "It displays all employees regardless of role qualification"
+      ],
+      "correct_index": 1,
+      "explanation": "The admin scheduling screen looks identical to Schedule by Job, but employees already scheduled — shown in red on the standard page — still have their checkboxes available for selection."
     }
   ],
   "general_reporting": [
     {
       "id": "gen_rep_1",
-      "question": "What level of reporting access does General Reporting provide?",
+      "question": "What are the three sections of the Reports menu under General Reporting?",
       "options": [
-        "Full access to all reports including payroll",
-        "Payroll and billing reports only",
-        "Basic reporting access",
-        "Administrative reports only"
+        "Payroll, Billing, and Manager Reports",
+        "Job Administration, Summary Roster, and Detailed Roster",
+        "Alpha Roster, Sign-In Sheets, and Payroll",
+        "Employee Reports, Client Reports, and Event Reports"
       ],
-      "correct_index": 2,
-      "explanation": "General Reporting provides basic reporting access, which is the entry level of reporting permissions in WISH."
+      "correct_index": 1,
+      "explanation": "The Reports menu has three sections: Job Administration (daily operational reports), Summary Roster (high-level overviews), and Detailed Roster (employee-level detail reports)."
     },
     {
       "id": "gen_rep_2",
-      "question": "Which report would help a job administrator manage an event?",
+      "question": "What is the Alpha Roster used for?",
       "options": [
-        "Payroll processing report",
-        "Alpha roster and sign-in/sign-out sheets",
-        "Billing invoice report",
-        "Employee disciplinary report"
+        "Tracking payroll for an event",
+        "An alphabetical list of every employee scheduled for a job — your pre-event checklist",
+        "Reviewing background check status of employees",
+        "Generating client invoices after an event"
       ],
       "correct_index": 1,
-      "explanation": "The Reports menu provides access to alpha rosters and sign-in/sign-out sheets for events, which support job administration."
+      "explanation": "The Alpha Roster is your pre-event checklist — an alphabetical list of every employee scheduled for a job, showing their assigned shift and role. Bring it to the event as your on-site reference."
+    },
+    {
+      "id": "gen_rep_3",
+      "question": "When should you print a Sign-In/Sign-Out sheet?",
+      "options": [
+        "After the event to document what happened",
+        "Only if the event has more than 50 employees",
+        "Before leaving for the event, as a backup if electronic sign-in is unavailable",
+        "At the end of the payroll period"
+      ],
+      "correct_index": 2,
+      "explanation": "Always print the Sign-In/Sign-Out sheet before you leave for the event. If electronic sign-in goes down on-site, this paper sheet is your backup."
+    },
+    {
+      "id": "gen_rep_4",
+      "question": "What does the Employee Not Sign-In report tell you?",
+      "options": [
+        "Employees who haven't completed their WISH training",
+        "Scheduled employees who have no electronic sign-in on record after an event",
+        "Employees who are unavailable for future scheduling",
+        "Employees with expired credentials"
+      ],
+      "correct_index": 1,
+      "explanation": "After an event, the Employee Not Sign-In report identifies which scheduled employees have no electronic sign-in on record. For each, you need to determine if they worked (enter hours manually) or didn't show up (mark as no-show)."
+    },
+    {
+      "id": "gen_rep_5",
+      "question": "What type of information is found in the Detailed Roster section?",
+      "options": [
+        "High-level branch summaries and client overviews",
+        "Employee-level reports on timesheets, licensing, availability, and training",
+        "Billing and invoice records",
+        "Payroll tax calculations"
+      ],
+      "correct_index": 1,
+      "explanation": "The Detailed Roster section provides employee-level reports covering specifics like time sheet details, sign-in/sign-out activity, licensing status, employee availability, and training completion."
     }
   ],
   "payroll_reporting": [
     {
       "id": "pay_rep_1",
-      "question": "What does the Payroll Reporting permission grant access to?",
+      "question": "Where do you find Payroll Reports in WISH?",
       "options": [
-        "Processing payroll checks",
-        "Access to Payroll Reports",
-        "Approving employee timesheets",
-        "Setting employee pay rates"
+        "Admin → Payroll Reports",
+        "Records → Payroll Reports",
+        "Reports → Payroll Reports",
+        "Payroll → Reports"
+      ],
+      "correct_index": 2,
+      "explanation": "Payroll Reports is accessed via Reports → Payroll Reports. It lives in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration."
+    },
+    {
+      "id": "pay_rep_2",
+      "question": "What is the primary report you should run before payroll is finalized?",
+      "options": [
+        "Alpha Roster",
+        "Employee Time Register",
+        "Billing Invoice Ledger",
+        "Schedule Efficiency Report"
       ],
       "correct_index": 1,
-      "explanation": "Payroll Reporting grants access to Payroll Reports, which is a specific permission level above General Reporting."
+      "explanation": "The Employee Time Register is your go-to report before payroll is finalized. It shows each employee's hours worked by job and shift across a selected date range."
+    },
+    {
+      "id": "pay_rep_3",
+      "question": "When would you use the Employee Time Register (Break) variant?",
+      "options": [
+        "When employees worked overtime",
+        "When employees took scheduled breaks that need to be accounted for separately",
+        "When employees worked at multiple venues",
+        "When you need to see manager approval notes"
+      ],
+      "correct_index": 1,
+      "explanation": "Use the Employee Time Register (Break) when employees took scheduled breaks that need to be accounted for separately. It adds a break time column to verify break duration."
+    },
+    {
+      "id": "pay_rep_4",
+      "question": "What should you do before payroll is approved if something looks off in a report?",
+      "options": [
+        "Approve it anyway and correct it next payroll period",
+        "Delete the employee's timesheet entry",
+        "Contact your administrator before payroll is approved",
+        "Run the report again until it looks correct"
+      ],
+      "correct_index": 2,
+      "explanation": "If anything looks off in a payroll report, contact your administrator before payroll is approved. It is always easier to correct issues before finalization than after."
+    },
+    {
+      "id": "pay_rep_5",
+      "question": "What does the Employee Estimate Hours report help with?",
+      "options": [
+        "Reviewing actual hours after an event is complete",
+        "Planning labor costs based on projected hours before an event",
+        "Calculating overtime pay rates",
+        "Verifying employee credentials before scheduling"
+      ],
+      "correct_index": 1,
+      "explanation": "Employee Estimate Hours is run before an event to see projected hours based on the schedule — useful for labor cost planning and budgeting."
     }
   ],
   "admin_reporting": [
     {
       "id": "adm_rep_1",
-      "question": "What reports are accessible under Admin Reporting?",
+      "question": "What two additional report sections does Admin Reporting provide beyond General and Payroll Reporting?",
       "options": [
-        "General reports only",
-        "Payroll reports only",
-        "Manager, Billing, and Payroll Reports",
-        "HR and disciplinary reports only"
+        "Time Clock Reports and Inventory Reports",
+        "Billing Reports and Manager Reports",
+        "HR Reports and Compliance Reports",
+        "Employee Reports and Contract Reports"
       ],
-      "correct_index": 2,
-      "explanation": "Admin Reporting provides the highest reporting access, including Manager, Billing, and Payroll Reports."
+      "correct_index": 1,
+      "explanation": "Admin Reporting adds Billing Reports (invoice and cost oversight) and Manager Reports (credentials, scheduling efficiency, and MVR tracking) to the full Reports menu."
+    },
+    {
+      "id": "adm_rep_2",
+      "question": "What does the Payroll UnBilled Hour Report show?",
+      "options": [
+        "Hours that have been billed but not yet paid",
+        "Approved hours that have not yet been billed to a client",
+        "Overtime hours awaiting payroll approval",
+        "Estimated hours for future events"
+      ],
+      "correct_index": 1,
+      "explanation": "The Payroll UnBilled Hour Report shows approved hours that have not yet been billed to a client — use it to make sure nothing falls through the cracks before billing is complete."
+    },
+    {
+      "id": "adm_rep_3",
+      "question": "What does the Schedule Efficiency report measure?",
+      "options": [
+        "How quickly managers complete scheduling for each event",
+        "How well scheduled headcount matched actual sign-in counts across jobs",
+        "The efficiency of the payroll approval process",
+        "Employee productivity compared to their pay rate"
+      ],
+      "correct_index": 1,
+      "explanation": "Schedule Efficiency measures how well your scheduled headcount matched actual sign-in counts across jobs — useful for identifying gaps in scheduling accuracy and improving future events."
+    },
+    {
+      "id": "adm_rep_4",
+      "question": "When is the Labour Cost Estimation report most useful?",
+      "options": [
+        "After payroll has been finalized",
+        "Before the event to plan the labor budget",
+        "During the event to track current spending",
+        "After billing to reconcile with the client"
+      ],
+      "correct_index": 1,
+      "explanation": "Labour Cost Estimation is run before the event to plan your labor budget based on the scheduled headcount and roles."
+    },
+    {
+      "id": "adm_rep_5",
+      "question": "What is the Billing Invoice Ledger Report?",
+      "options": [
+        "A daily summary of employee time entries",
+        "A record of all invoices generated with amounts and client details",
+        "A report of unpaid employee wages",
+        "A summary of client contracts and payment terms"
+      ],
+      "correct_index": 1,
+      "explanation": "The Billing Invoice Ledger Report is a record of all invoices generated, with amounts and client details — giving you visibility into the financial side of your events."
     }
   ],
   "workforce_scheduler_mntnnce": [
     {
       "id": "ws_mnt_1",
-      "question": "What can a user with Workforce Scheduler Maintenance access do?",
+      "question": "Which three areas of an employee record can a Workforce Scheduler Maintenance user edit?",
       "options": [
-        "Edit employee pay rates",
-        "View employee records, licensing, BG checks, and employee notes",
-        "Approve payroll",
-        "Create new user accounts"
+        "Pay Rate, Disciplinary Action, and Training Records",
+        "Licensing, Background Check, and Employee Notes",
+        "Personal Info, Contact Info, and Status",
+        "Shared Branches, Exclusions, and Tasks"
       ],
       "correct_index": 1,
-      "explanation": "Workforce Scheduler Maintenance allows viewing employee record information and updating Licensing, Background checks, and Employee Notes."
+      "explanation": "With Workforce Scheduler Maintenance access, you can update Licensing, Background Check status, and Employee Notes. All other tabs are view-only."
+    },
+    {
+      "id": "ws_mnt_2",
+      "question": "How do you search for an employee using the last four digits of their SSN?",
+      "options": [
+        "This is not possible in WISH",
+        "Go to Records → Manage Employee and enter the last 4 digits in the SSN search field",
+        "Contact HR to look up by SSN",
+        "Use the Admin menu to search by SSN"
+      ],
+      "correct_index": 1,
+      "explanation": "In Records → Manage Employee, you can search by employee number, name, or the last 4 digits of their SSN — useful when you are unsure of the spelling of their name."
+    },
+    {
+      "id": "ws_mnt_3",
+      "question": "Before scheduling an employee for a licensed position, what should you always verify?",
+      "options": [
+        "Their disciplinary action history",
+        "Their guard card number and expiration date on the Licensing tab",
+        "Their current pay rate",
+        "Whether they have completed MSS training"
+      ],
+      "correct_index": 1,
+      "explanation": "Before scheduling an employee for a licensed position, always check the Licensing tab to confirm their guard card number is entered and the expiration date is current."
+    },
+    {
+      "id": "ws_mnt_4",
+      "question": "What are Employee Notes used for?",
+      "options": [
+        "Official disciplinary records that are shared system-wide",
+        "Branch-level notes on an employee visible to anyone at your branch with access",
+        "Automated reminders sent to the employee",
+        "Notes that appear on the employee's paycheck"
+      ],
+      "correct_index": 1,
+      "explanation": "Employee Notes are branch-level — visible to anyone at your branch with record access, but not shared system-wide. Use them for scheduling concerns, follow-up items, or observations."
+    },
+    {
+      "id": "ws_mnt_5",
+      "question": "What is the impact of a pending or expired background check on scheduling?",
+      "options": [
+        "No impact — it is informational only",
+        "The employee cannot clock in until it is resolved",
+        "The employee may be restricted from scheduling for certain positions",
+        "The employee is automatically placed on inactive status"
+      ],
+      "correct_index": 2,
+      "explanation": "Background check status directly affects whether an employee can be scheduled for certain positions. If a check is pending or expired, the employee may be restricted from those roles."
     }
   ],
   "workforce_admin_maintenance": [
@@ -258,165 +630,441 @@
         "Access to MSS publishing"
       ],
       "correct_index": 1,
-      "explanation": "Workforce Admin Maintenance provides the ability to view and edit Disciplinary Action, Pay Rates, and Training information — elevated over Scheduler Maintenance."
+      "explanation": "Workforce Admin Maintenance adds Disciplinary Action, Pay Rates, and Training Records editing to the access already provided by Workforce Scheduler Maintenance."
+    },
+    {
+      "id": "wa_mnt_2",
+      "question": "What is the correct process when an employee's pay rate needs to be updated?",
+      "options": [
+        "Edit the existing rate directly in the Pay Rates tab",
+        "Delete the old rate and create a new one",
+        "Deactivate the current rate, then add a new one",
+        "Submit a request to payroll to update it on the backend"
+      ],
+      "correct_index": 2,
+      "explanation": "Never edit an existing pay rate directly — it will alter historical payroll records. The correct process is to deactivate the current rate (closing it out without deleting history), then add a new active rate."
+    },
+    {
+      "id": "wa_mnt_3",
+      "question": "What information should be recorded when adding a Disciplinary Action entry?",
+      "options": [
+        "Only the employee's name and manager signature",
+        "Date of action, type of action, and notes describing what happened",
+        "The employee's pay rate and current schedule",
+        "HR case number and legal department approval"
+      ],
+      "correct_index": 1,
+      "explanation": "When adding a disciplinary action, record the date the action occurred, the type of action, and clear notes describing what happened and any actions taken."
+    },
+    {
+      "id": "wa_mnt_4",
+      "question": "What does the Training Records tab show you?",
+      "options": [
+        "Which WISH training modules an employee has been assigned and completed",
+        "The employee's work history across all events",
+        "Safety certification and first aid training records",
+        "Manager-assigned coaching sessions"
+      ],
+      "correct_index": 0,
+      "explanation": "The Training Records tab shows which WISH training modules an employee has been assigned and their completion status — useful before scheduling someone for a position that requires specific training."
     }
   ],
   "employee_hr_record_maintenance": [
     {
       "id": "hr_1",
-      "question": "Which of the following can be managed under Employee HR Record Maintenance?",
+      "question": "What areas does Employee HR Record Maintenance add beyond Workforce Admin Maintenance?",
       "options": [
-        "Client contracts and venues",
-        "Employee status, email, phone, disciplinary action, and pay rates",
-        "Job scheduling and event management",
-        "Billing and invoice generation"
+        "Billing and contract management",
+        "Personal Info, Contact Info, Shared Branches, Exclusions, and Tasks",
+        "MSS publishing and scheduling override",
+        "Payroll approval and report generation"
       ],
       "correct_index": 1,
-      "explanation": "Employee HR Record Maintenance allows managing employee records including status changes, contact info, disciplinary action, pay rates, and background checks."
+      "explanation": "In addition to everything in Workforce Admin Maintenance, Employee HR Record Maintenance adds access to Personal Info, Contact Info, Shared Branches, Exclusions, and Tasks."
     },
     {
       "id": "hr_2",
-      "question": "What does \"shared branches\" refer to in employee record management?",
+      "question": "What does the Shared Branches tab control?",
       "options": [
-        "Sharing billing across multiple clients",
-        "Employees who work across multiple branch locations",
-        "Branch-level reporting access",
-        "Shared login credentials between branches"
+        "Which clients can see the employee's availability",
+        "Which branches beyond the employee's home branch can view and schedule them",
+        "Shared login credentials between branch managers",
+        "Billing split between multiple branches for one event"
       ],
       "correct_index": 1,
-      "explanation": "Shared branches refers to managing employees who work across multiple branch locations within the WISH system."
+      "explanation": "The Shared Branches tab controls which other branches can search for, view, and schedule the employee. Adding a branch gives them access to that employee's record information."
+    },
+    {
+      "id": "hr_3",
+      "question": "What is the purpose of the Exclusions tab?",
+      "options": [
+        "To exclude an employee from payroll processing",
+        "To flag clients or jobs the employee should never be assigned to",
+        "To restrict the employee from self-scheduling via ESS",
+        "To prevent the employee from receiving Broadcast Messages"
+      ],
+      "correct_index": 1,
+      "explanation": "The Exclusions tab lets you flag specific clients or jobs that an employee should never be assigned to. Once set, the employee won't appear as available when scheduling for that client or job."
+    },
+    {
+      "id": "hr_4",
+      "question": "What is the Manage Employee Status (bulk) tool used for?",
+      "options": [
+        "Updating one employee's status at a time through their individual record",
+        "Updating multiple employees' status at once — such as deactivating seasonal staff",
+        "Resetting employee passwords in bulk",
+        "Generating a status report for all active employees"
+      ],
+      "correct_index": 1,
+      "explanation": "Manage Employee Status (found at Records → Manage Employee Status) lets you select multiple employees and apply a status change to all of them at once — ideal for deactivating seasonal staff after large events."
+    },
+    {
+      "id": "hr_5",
+      "question": "Why is the email address in an employee's Contact Info especially important?",
+      "options": [
+        "It determines their pay rate classification",
+        "It is used for all Mail By communications and login credential delivery",
+        "It is linked to their ESS scheduling preferences",
+        "It controls which branch they are assigned to"
+      ],
+      "correct_index": 1,
+      "explanation": "The employee's email address in Contact Info is what WISH uses for all Mail By communications and to deliver their login credentials. An outdated email means they won't receive schedule messages or credentials."
     }
   ],
   "hiring_manager": [
     {
       "id": "hire_mgr_1",
-      "question": "What tool does the Hiring Manager permission provide access to?",
+      "question": "Where do you find the Import From Hiring Portal tool?",
       "options": [
-        "The payroll import tool",
-        "The Import from Hportal tool",
-        "The scheduling export tool",
-        "The billing import tool"
+        "Records → Import From Hiring Portal",
+        "Admin → Hiring Portal",
+        "Tools → Import From Hiring Portal",
+        "Scheduling → New Employee Import"
+      ],
+      "correct_index": 2,
+      "explanation": "Import From Hiring Portal is found under the Tools menu in the top navigation — not under Records. It's where you bring applicants from the hiring portal into WISH."
+    },
+    {
+      "id": "hire_mgr_2",
+      "question": "What two statuses must be confirmed before importing an applicant?",
+      "options": [
+        "Training Complete and Background Check Approved",
+        "Background Check Approved and E-Verify Employment Authorized",
+        "Status Hired and Pay Rate Assigned",
+        "SSN Verified and Direct Deposit Set Up"
       ],
       "correct_index": 1,
-      "explanation": "The Hiring Manager permission provides access to the Import from Hportal tool for bringing new hire information into WISH."
+      "explanation": "Before importing, confirm: (1) Background Check status shows APPROVED, and (2) E-Verify status shows EMPLOYMENT AUTHORIZED. Also confirm the Status column shows 'Hired'."
+    },
+    {
+      "id": "hire_mgr_3",
+      "question": "What does the 'Duplicate' column on the import screen indicate?",
+      "options": [
+        "Applicants who submitted their application twice",
+        "Applicants already in WISH under a matching SSN",
+        "Applicants who have worked for the company before",
+        "Applicants with duplicate contact information"
+      ],
+      "correct_index": 1,
+      "explanation": "The Duplicate column shows applicants who are already in WISH under a matching Social Security Number — meaning they likely have an existing record and may not need to be imported as new."
+    },
+    {
+      "id": "hire_mgr_4",
+      "question": "After importing an applicant, what should you do next?",
+      "options": [
+        "Immediately assign them to their first job",
+        "Go to Records → Manage Employee to verify their record was created correctly",
+        "Send them a welcome email from your personal account",
+        "Set their background check status to Approved in WISH"
+      ],
+      "correct_index": 1,
+      "explanation": "After importing, go to Records → Manage Employee and search for the new employee to confirm their record was created correctly — checking that personal information populated properly and assigning a default pay rate if needed."
     }
   ],
   "hiring_admin": [
     {
       "id": "hire_adm_1",
-      "question": "What page does the Hiring Admin permission grant access to?",
+      "question": "Where is Manage Employee Task found in WISH?",
       "options": [
-        "The Payroll Management page",
-        "The Manage Employee Task page",
-        "The Schedule Administration page",
-        "The Billing Management page"
+        "Tools → Manage Employee Task",
+        "Records → Manage Employee Task",
+        "Admin → Employee Tasks",
+        "Payroll → Task Management"
       ],
       "correct_index": 1,
-      "explanation": "Hiring Admin provides access to the Manage Employee Task page for HR administrative functions."
+      "explanation": "Manage Employee Task is found at the bottom of the Records menu — Records → Manage Employee Task."
+    },
+    {
+      "id": "hire_adm_2",
+      "question": "What does a checkmark next to an employee on the Manage Employee Task screen mean?",
+      "options": [
+        "The employee has been approved for their first shift",
+        "The employee has completed all assigned tasks — no action needed",
+        "The employee's background check is complete",
+        "The employee has signed their employment agreement"
+      ],
+      "correct_index": 1,
+      "explanation": "A checkmark means the employee has completed all assigned tasks. No action is needed. An X indicates one or more pending tasks that still need to be completed."
+    },
+    {
+      "id": "hire_adm_3",
+      "question": "What can pending tasks affect for an employee?",
+      "options": [
+        "Only their ability to request time off",
+        "Their WISH login credentials, menu access, and compliance report status",
+        "Their vacation accrual and pay rate",
+        "Only their ability to self-schedule through ESS"
+      ],
+      "correct_index": 1,
+      "explanation": "Pending tasks can delay an employee's WISH login credentials being issued, restrict their access to needed menus, and show them as incomplete in compliance reports."
+    },
+    {
+      "id": "hire_adm_4",
+      "question": "What information is shown when you click on an employee with an X on the task screen?",
+      "options": [
+        "Their full employment history and pay rate",
+        "The task name, description, due date, and current status",
+        "A list of all available tasks in the system",
+        "Their scheduling history for the past 90 days"
+      ],
+      "correct_index": 1,
+      "explanation": "Clicking an employee with an X shows you the task name, a description of what needs to be completed, the due date if one is set, and the current status (pending, in progress, or complete)."
     }
   ],
   "mail_by": [
     {
       "id": "mail_1",
-      "question": "What does the Mail By permission include?",
+      "question": "What are the three Mail By tools available in WISH?",
       "options": [
-        "Sending external emails to clients",
-        "Both Mail by Employee and Mail by Job",
-        "Broadcast message creation",
-        "Employee notification settings"
+        "Mail by Shift, Mail by Branch, and Mail by Role",
+        "Mail by Employee, Mail by Available Employee, and Mail by Job",
+        "Mail by Event, Mail by Date, and Mail by Manager",
+        "Mail by Client, Mail by Venue, and Mail by Employee"
       ],
       "correct_index": 1,
-      "explanation": "The Mail By permission includes both Mail by Employee and Mail by Job capabilities."
+      "explanation": "The three Mail By tools are: Mail by Employee (specific employees by name), Mail by Available Employee (employees not yet scheduled), and Mail by Job (all employees on a specific job)."
+    },
+    {
+      "id": "mail_2",
+      "question": "When would you use Mail By Available Employee?",
+      "options": [
+        "When sending a message to everyone working a specific job",
+        "When you have open shifts and need to reach employees who aren't already scheduled",
+        "When contacting a specific individual employee by name",
+        "When sending a system-wide announcement to all staff"
+      ],
+      "correct_index": 1,
+      "explanation": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled. It filters to show only employees available for the timeframe you select."
+    },
+    {
+      "id": "mail_3",
+      "question": "When would you use Mail By Job?",
+      "options": [
+        "When you need to fill an open position on a job",
+        "When you need to reach everyone already scheduled on a specific job at once",
+        "When contacting employees who applied for a job through ESS",
+        "When updating job details for managers"
+      ],
+      "correct_index": 1,
+      "explanation": "Use Mail By Job when you need to send the same message to all employees already scheduled on a specific job — such as last-minute location changes or event updates."
+    },
+    {
+      "id": "mail_4",
+      "question": "If an employee is not receiving Mail By messages, what is the first thing to check?",
+      "options": [
+        "Whether they have completed their WISH training",
+        "Their email address in their WISH employee record",
+        "Whether their ESS account is active",
+        "Whether their background check is current"
+      ],
+      "correct_index": 1,
+      "explanation": "If an employee isn't receiving messages, the first thing to check is their email address in their WISH record. All Mail By messages are sent to the email stored there."
     }
   ],
   "sign-in__sign-out": [
     {
       "id": "signin_1",
-      "question": "What does the Sign-In/Sign-Out permission include?",
+      "question": "What page should you use to set up electronic sign-in for an event?",
       "options": [
-        "Employee login management only",
-        "Both Sign-In Configuration and Sign-Out Configuration",
-        "Time clock hardware setup",
-        "Payroll approval for signed-in employees"
+        "Time Clock → Sign-In (the main log page)",
+        "Time Clock → Sign-In Config",
+        "Scheduling → Event Sign-In Setup",
+        "Records → Event Configuration"
       ],
       "correct_index": 1,
-      "explanation": "The Sign-In/Sign-Out permission includes both Sign-In Configuration and Sign-Out Configuration."
+      "explanation": "Always use Time Clock → Sign-In Config to set up your active sign-in session. The Sign-In and Sign-Out pages directly show logs — not where you configure a new session."
     },
     {
       "id": "signin_2",
-      "question": "What is the Time Clock menu used for?",
+      "question": "What is the default late sign-in parameter and when should it be changed?",
       "options": [
-        "Scheduling employees for future shifts",
-        "Billing clients for completed events",
-        "Employees signing in and out at event locations",
-        "Payroll approval by managers"
+        "30 minutes — change it if the event runs long",
+        "5 minutes — change it for high-volume events",
+        "15 minutes — do not change unless specifically instructed",
+        "10 minutes — change it based on the job class"
       ],
       "correct_index": 2,
-      "explanation": "The Time Clock menu is used at event locations where computers allow employees to sign in at the start of shifts and sign out at the end."
+      "explanation": "The late sign-in parameter defaults to 15 minutes — the CSC standard. Do not change this unless instructed by your manager or administrator."
+    },
+    {
+      "id": "signin_3",
+      "question": "What is the difference between scan time and adjusted time?",
+      "options": [
+        "Scan time is for employees; adjusted time is for managers",
+        "Scan time is the actual clock time of processing; adjusted time is the rounded or corrected result",
+        "Scan time applies to sign-in only; adjusted time applies to sign-out only",
+        "They are the same — scan time is automatically adjusted"
+      ],
+      "correct_index": 1,
+      "explanation": "WISH keeps four timestamps per employee: scan time (actual clock time of processing) and adjusted time (rounded based on the 15-minute interval, or what you manually corrected it to). A large gap between them is a flag for investigation."
+    },
+    {
+      "id": "signin_4",
+      "question": "What is the 2-hour minimum parameter in sign-out?",
+      "options": [
+        "Employees must work at least 2 hours before their supervisor can approve their timesheet",
+        "If you try to sign someone out before 2 hours, WISH sets the sign-out time to give them at least that minimum",
+        "Employees receive 2 hours of minimum pay even if they sign out early",
+        "Sign-out cannot be processed until 2 hours after sign-in"
+      ],
+      "correct_index": 1,
+      "explanation": "Sign-out has a 2-hour minimum parameter — if you try to sign someone out before they have worked two hours, the system sets the sign-out time to ensure they receive at least the minimum. Use the Correction tab to manually adjust if needed."
+    },
+    {
+      "id": "signin_5",
+      "question": "What should you do at the end of an event before closing out sign-in/sign-out?",
+      "options": [
+        "Submit the sign-in data to payroll immediately",
+        "Match your sign-out count to your sign-in count as closely as possible",
+        "Print the Alpha Roster and compare it manually",
+        "Archive the session to the cloud"
+      ],
+      "correct_index": 1,
+      "explanation": "At the end of the event, match your sign-out count to your sign-in count as closely as possible before closing out. This ensures accurate payroll processing."
     }
   ],
   "manual_process_hours": [
     {
       "id": "mph_1",
-      "question": "Where is Manual Process Hours managed in WISH?",
+      "question": "Where is Manual Process Hours accessed in WISH?",
       "options": [
-        "Under the Scheduling menu",
-        "Under the Records menu",
-        "In the Payroll menu — Manage Process Hours",
-        "Under the Admin menu"
+        "Scheduling → Manage Process Hours",
+        "Records → Manage Process Hours",
+        "Payroll → Manage Process Hours",
+        "Admin → Process Hours"
       ],
       "correct_index": 2,
-      "explanation": "Manual Process Hours access is located in the Payroll section under Manage Process Hours."
+      "explanation": "Manual Process Hours is found under Payroll → Manage Process Hours. Select your event from the dropdown to see all jobs for that event."
     },
     {
       "id": "mph_2",
-      "question": "What is the Payroll menu used for?",
+      "question": "What do green sunburst icons next to shifts indicate?",
       "options": [
-        "Scheduling employees to future events",
-        "Reviewing and approving employee work hours after an event",
-        "Generating client invoices",
-        "Creating new employee records"
+        "The shift had overtime hours",
+        "The shift is ready to be billed",
+        "The hours for that shift have been approved and finalized",
+        "The shift had employees who didn't sign in"
+      ],
+      "correct_index": 2,
+      "explanation": "Green sunburst icons appear next to shifts where hours have been approved. They help you track where you are — green means done, blue link means not yet processed."
+    },
+    {
+      "id": "mph_3",
+      "question": "What is Autofill Sign-In / Sign-Out used for?",
+      "options": [
+        "Automatically approving hours for employees who signed in electronically",
+        "Instantly giving all employees the scheduled start and end time when no electronic sign-ins were done",
+        "Filling in missing sign-in data from the alpha roster",
+        "Syncing electronic sign-ins from the Time Clock menu"
       ],
       "correct_index": 1,
-      "explanation": "The Payroll menu is where payroll staff review and approve employees' work hours after an event to ensure proper compensation."
+      "explanation": "Autofill Sign-In and Autofill Sign-Out populate every employee with the shift's scheduled start and end time — fastest for clean sessions where all employees worked their full shift and no electronic sign-in was used."
+    },
+    {
+      "id": "mph_4",
+      "question": "How do you handle an employee who was scheduled but did not show up?",
+      "options": [
+        "Leave their row blank and approve the rest",
+        "Delete them from the shift before approving",
+        "Check the NS (No Show) checkbox next to their name",
+        "Enter zero hours and click Approve"
+      ],
+      "correct_index": 2,
+      "explanation": "For employees who did not show up, check the NS (No Show) checkbox. You cannot approve hours while any employee has blank times — marking no-shows allows you to proceed with approving the rest of the shift."
+    },
+    {
+      "id": "mph_5",
+      "question": "When would you use the Override Rate field?",
+      "options": [
+        "When an employee worked overtime on a shift",
+        "When an employee worked a different position and should be paid a different rate",
+        "When a client has requested a custom billing rate",
+        "When correcting a data entry error from a previous payroll period"
+      ],
+      "correct_index": 1,
+      "explanation": "Use the Override Rate field when an employee worked a position different from their standard role and should be paid a different rate. The system applies the higher of the two rates."
     }
   ],
   "billing": [
     {
       "id": "bill_1",
-      "question": "When can you generate an invoice for a client using the Billing menu?",
+      "question": "What two things must be true before you can bill a client?",
       "options": [
-        "Before the event is scheduled",
-        "After your branch has completed a job",
-        "Only at the end of the fiscal quarter",
-        "When the employee timesheets are submitted"
+        "The event must be closed and the employee count confirmed",
+        "All hours must be approved in Manual Process Hours, and a client contract must exist",
+        "The invoice must be pre-approved by management and the client notified",
+        "The Alpha Roster must be finalized and the schedule archived"
       ],
       "correct_index": 1,
-      "explanation": "The Billing menu allows you to generate invoices for clients after your branch has completed a job."
+      "explanation": "Before billing, two things must be true: (1) all hours for the event must be approved in Manual Process Hours, and (2) a contract must exist for the client. WISH will not generate a bill without both."
     },
     {
       "id": "bill_2",
-      "question": "What happens to a schedule when it is saved in WISH?",
+      "question": "What does it mean if the Hours Processed column shows 'No' in Check Bill for Job?",
       "options": [
-        "It is automatically emailed to the client",
-        "It is deleted after the event",
-        "It is stored in the system for future billing purposes",
-        "It requires manager approval before saving"
+        "The client has not yet approved the invoice",
+        "The job is ready to bill",
+        "Hours have not been approved in Manage Process Hours yet — complete that first",
+        "The billing contract has expired"
       ],
       "correct_index": 2,
-      "explanation": "Whenever a schedule is saved in the system, it is stored for future billing purposes to ensure accurate client invoicing."
+      "explanation": "If Hours Processed shows 'No', it means you still need to go to Manage Process Hours and complete the approval for that job before billing can proceed."
     },
     {
       "id": "bill_3",
-      "question": "Which of the following is a billing function in WISH?",
+      "question": "What invoice type gives a clean total breakdown by role that most clients prefer?",
       "options": [
-        "Scheduling employees to jobs",
-        "Check Bill for Job, Manage Billing Process, and view/print invoice",
-        "Approving employee pay rates",
-        "Managing employee training records"
+        "Detailed — full breakdown showing each employee's times",
+        "Summary — clean totals by role",
+        "Summary with Cover and Sign-In Sheets",
+        "Standard — the system default format"
       ],
       "correct_index": 1,
-      "explanation": "Billing functions include: Check Bill for Job, Manage Billing Process, and the ability to view/print invoices for clients."
+      "explanation": "The Summary invoice type shows clean totals by role and is what most clients prefer. Use Detailed if the client wants a full breakdown with each employee's individual times."
+    },
+    {
+      "id": "bill_4",
+      "question": "Where are client contracts managed in WISH?",
+      "options": [
+        "Billing → Manage Contract",
+        "Admin → Client Contracts",
+        "Records → Manage Contract",
+        "Tools → Contract Manager"
+      ],
+      "correct_index": 2,
+      "explanation": "Client contracts are managed under Records → Manage Contract. If a contract does not exist, you must create one before billing is possible for that client."
+    },
+    {
+      "id": "bill_5",
+      "question": "What is the standard payment term in a WISH client contract?",
+      "options": [
+        "Net 15 days with a 100% late fee",
+        "Net 60 days with no late fee",
+        "Net 30 days with a 150% late fee",
+        "Net 45 days with a 125% late fee"
+      ],
+      "correct_index": 2,
+      "explanation": "The standard payment term in a WISH contract is net 30 days with a 150% late fee. This is the default — confirm with your administrator if your branch uses different terms."
     }
   ]
 }

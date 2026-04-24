@@ -155,20 +155,31 @@ app.post('/api/narrate', async (req, res) => {
   elReq.end();
 });
 
-// ─── Progress tracking ────────────────────────────────────────────────────────
-const progressStore = new Map();
+// ─── Progress tracking (file-backed) ─────────────────────────────────────────
+const PROGRESS_PATH = path.join(__dirname, '../progress_data.json');
+
+function readProgress() {
+  try { return JSON.parse(fs.readFileSync(PROGRESS_PATH, 'utf8')); }
+  catch { return {}; }
+}
+function writeProgress(data) {
+  fs.writeFileSync(PROGRESS_PATH, JSON.stringify(data, null, 2), 'utf8');
+}
 
 app.post('/api/progress', (req, res) => {
   const { email, progress } = req.body;
   if (!email || !progress) return res.status(400).json({ error: 'Missing fields' });
-  progressStore.set(email, { ...progress, last_synced: new Date().toISOString() });
+  const data = readProgress();
+  data[email] = { ...progress, last_synced: new Date().toISOString() };
+  writeProgress(data);
   res.json({ ok: true });
 });
 
 app.get('/api/progress/:email', (req, res) => {
-  const data = progressStore.get(req.params.email);
-  if (!data) return res.status(404).json({ error: 'Not found' });
-  res.json(data);
+  const data = readProgress();
+  const entry = data[req.params.email];
+  if (!entry) return res.status(404).json({ error: 'Not found' });
+  res.json(entry);
 });
 
 // ─── Health check ─────────────────────────────────────────────────────────────

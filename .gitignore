@@ -5,3 +5,4 @@ scripts/node_modules/
 client/build/audio/
 .env
 .DS_Store
+progress_data.json
