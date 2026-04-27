@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
+const crypto = require('crypto');
 
 const app = express();
 app.use(cors());
@@ -50,6 +51,12 @@ async function initDB() {
       data JSONB NOT NULL,
       last_synced TIMESTAMPTZ DEFAULT NOW()
     );
+    CREATE TABLE IF NOT EXISTS narration_cache (
+      text_hash TEXT PRIMARY KEY,
+      audio TEXT NOT NULL,
+      timings JSONB NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    );
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
@@ -88,6 +95,21 @@ async function setQuizData(data) {
   await pool.query(
     'INSERT INTO quiz_data (id, data, updated_at) VALUES (1, $1, NOW()) ON CONFLICT (id) DO UPDATE SET data = $1, updated_at = NOW()',
     [JSON.stringify(data)]
+  );
+}
+
+// ─── Narration cache helpers ──────────────────────────────────────────────────
+function narrationHash(text) {
+  return crypto.createHash('sha256').update(`${VOICE_ID}:${text}`).digest('hex');
+}
+async function getCachedNarration(hash) {
+  const r = await pool.query('SELECT audio, timings FROM narration_cache WHERE text_hash = $1', [hash]);
+  return r.rows[0] ?? null;
+}
+async function setCachedNarration(hash, audio, timings) {
+  await pool.query(
+    'INSERT INTO narration_cache (text_hash, audio, timings) VALUES ($1, $2, $3) ON CONFLICT (text_hash) DO NOTHING',
+    [hash, audio, JSON.stringify(timings)]
   );
 }
 
@@ -285,8 +307,17 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
     return res.status(503).json({ error: 'ElevenLabs API key not configured' });
   }
 
+  const trimmedText = text.substring(0, 5000);
+  const hash = narrationHash(trimmedText);
+
+  // Serve from cache if available — avoids hitting ElevenLabs for repeated requests
+  const cached = await getCachedNarration(hash);
+  if (cached) {
+    return res.json({ audio: cached.audio, timings: cached.timings });
+  }
+
   const body = JSON.stringify({
-    text: text.substring(0, 5000),
+    text: trimmedText,
     model_id: 'eleven_multilingual_v2',
     voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.2, use_speaker_boost: true },
   });
@@ -334,6 +365,7 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
         }
         if (word.trim()) timings.push({ word: word.trim(), start: wordStart, end: ends[ends.length - 1] });
 
+        setCachedNarration(hash, data.audio_base64, timings).catch(() => {});
         res.json({ audio: data.audio_base64, timings });
       } catch (e) {
         console.error('Failed to parse ElevenLabs response:', e);
