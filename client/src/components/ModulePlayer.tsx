@@ -134,6 +134,7 @@ export default function ModulePlayer({
     narrationTokenRef.current = null; // cancel any in-flight playNarration
     const audio = audioRef.current;
     audio.oncanplaythrough = null;
+    audio.onplaying = null;
     audio.onended = null;
     audio.onerror = null;
     audio.pause();
@@ -184,6 +185,7 @@ export default function ModulePlayer({
     if (narrationTokenRef.current !== token) return;
     timingsRef.current = entry.timings.length ? entry.timings : null;
     audio.oncanplaythrough = null;
+    audio.onplaying = null;
     audio.onended = null;
     audio.onerror = null;
     audio.onended = () => { stopRaf(); setIsPlaying(false); onEnded?.(); };
@@ -193,6 +195,9 @@ export default function ModulePlayer({
       setIsPlaying(true);
       audio.playbackRate = playbackRate;
       audio.play();
+    };
+    audio.onplaying = () => {
+      if (narrationTokenRef.current !== token) return;
       startWordHighlight(audio, words, timingsRef.current);
     };
     audio.src = entry.url;
@@ -207,6 +212,7 @@ export default function ModulePlayer({
 
     const audio = audioRef.current;
     audio.oncanplaythrough = null;
+    audio.onplaying = null;
     audio.onended = null;
     audio.onerror = null;
     setAudioLoading(true);
