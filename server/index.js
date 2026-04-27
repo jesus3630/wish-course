@@ -5,6 +5,7 @@ const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const { Pool } = require('pg');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 app.use(cors());
@@ -251,8 +252,33 @@ app.put('/api/admin/quiz', adminAuth, async (req, res) => {
   }
 });
 
+// ─── Admin: user completion list ─────────────────────────────────────────────
+app.get('/api/admin/users', adminAuth, async (req, res) => {
+  try {
+    const r = await pool.query('SELECT email, data, last_synced FROM user_progress ORDER BY last_synced DESC');
+    res.json(r.rows.map(row => ({
+      email: row.email,
+      name: row.data.user_name || 'Unknown',
+      started_at: row.data.started_at,
+      last_synced: row.last_synced,
+      modules_completed: Object.values(row.data.modules || {}).filter(m => m.completed).length,
+      modules_started: Object.values(row.data.modules || {}).filter(m => m.started).length,
+    })));
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load users' });
+  }
+});
+
 // ─── Narration endpoint ───────────────────────────────────────────────────────
-app.post('/api/narrate', async (req, res) => {
+const narrateLimit = rateLimit({
+  windowMs: 60 * 1000,
+  max: 30,
+  message: { error: 'Too many requests. Please wait a moment.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+app.post('/api/narrate', narrateLimit, async (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ error: 'No text provided' });
   if (!ELEVENLABS_API_KEY) {

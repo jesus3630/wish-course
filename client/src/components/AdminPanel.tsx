@@ -333,6 +333,15 @@ interface HistoryEntry {
   changes: string[];
 }
 
+interface UserEntry {
+  email: string;
+  name: string;
+  started_at: string;
+  last_synced: string;
+  modules_completed: number;
+  modules_started: number;
+}
+
 // ─── Main AdminPanel ──────────────────────────────────────────────────────────
 
 export default function AdminPanel() {
@@ -357,6 +366,10 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
+  const [adminView, setAdminView] = useState<'content' | 'users'>('content');
+  const [users, setUsers] = useState<UserEntry[]>([]);
+  const [usersLoading, setUsersLoading] = useState(false);
+
   const loadData = useCallback(async () => {
     setDataLoading(true);
     try {
@@ -379,6 +392,15 @@ export default function AdminPanel() {
       if (res.ok) setHistory(await res.json());
     } catch (e) {}
     setHistoryLoading(false);
+  }
+
+  async function loadUsers() {
+    setUsersLoading(true);
+    try {
+      const res = await fetch('/api/admin/users', { headers: { 'x-admin-password': password } });
+      if (res.ok) setUsers(await res.json());
+    } catch (e) {}
+    setUsersLoading(false);
   }
 
   async function restoreSnapshot(id: string) {
@@ -711,6 +733,26 @@ export default function AdminPanel() {
 
         {/* Sidebar */}
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
+          {/* Top-level nav */}
+          <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
+            {(['content', 'users'] as const).map(v => (
+              <button
+                key={v}
+                onClick={() => { setAdminView(v); if (v === 'users') loadUsers(); }}
+                style={{
+                  flex: 1, padding: '12px', border: 'none', fontWeight: 700, fontSize: '12px', cursor: 'pointer',
+                  textTransform: 'uppercase', letterSpacing: '0.5px',
+                  background: adminView === v ? C.navy : 'transparent',
+                  color: adminView === v ? C.white : C.gray,
+                  borderBottom: adminView === v ? `2px solid ${C.orange}` : '2px solid transparent',
+                  transition: 'all 0.15s',
+                }}
+              >
+                {v === 'content' ? 'Content' : 'Users'}
+              </button>
+            ))}
+          </div>
+          {adminView === 'content' && (
           <div style={{ padding: '14px 16px', borderBottom: `1px solid ${C.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
               Modules ({modules.length})
@@ -722,6 +764,8 @@ export default function AdminPanel() {
               + Add
             </button>
           </div>
+          )}
+          {adminView === 'content' && (
           <div style={{ flex: 1, overflowY: 'auto' }}>
             {modules.map((mod, idx) => (
               <div
@@ -743,10 +787,41 @@ export default function AdminPanel() {
               </div>
             ))}
           </div>
+          )}
+          {adminView === 'users' && (
+          <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+            {usersLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+            {!usersLoading && users.length === 0 && (
+              <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No users yet.</div>
+            )}
+            {users.map(u => {
+              const pct = modules.length ? Math.round((u.modules_completed / modules.length) * 100) : 0;
+              const done = u.modules_completed === modules.length && modules.length > 0;
+              return (
+                <div key={u.email} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '8px', borderLeft: `4px solid ${done ? C.green : u.modules_started > 0 ? C.orange : C.border}` }}>
+                  <div style={{ fontWeight: 700, fontSize: '13px', color: C.navy }}>{u.name}</div>
+                  <div style={{ fontSize: '11px', color: C.gray, marginBottom: '6px' }}>{u.email}</div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '11px', color: done ? C.green : C.gray, fontWeight: 600 }}>
+                      {done ? 'Completed' : `${u.modules_completed}/${modules.length} modules`}
+                    </span>
+                    <span style={{ fontSize: '11px', color: C.gray }}>{pct}%</span>
+                  </div>
+                  <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden' }}>
+                    <div style={{ height: '100%', width: `${pct}%`, background: done ? C.green : C.orange, borderRadius: '2px', transition: 'width 0.3s' }} />
+                  </div>
+                  <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
+                    Last active: {new Date(u.last_synced).toLocaleDateString()}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          )}
         </div>
 
         {/* Editor area */}
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+        {adminView === 'content' && <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
           {selectedMod ? (
             <>
               {/* Module toolbar */}
@@ -805,7 +880,7 @@ export default function AdminPanel() {
               Select a module from the sidebar to begin editing
             </div>
           )}
-        </div>
+        </div>}
       </div>
 
       {/* History drawer */}

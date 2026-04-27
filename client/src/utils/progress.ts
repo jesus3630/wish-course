@@ -104,3 +104,23 @@ export function getOverallCompletion(progress: CourseProgress, totalModules: num
   const completed = Object.values(progress.modules).filter(m => m.completed).length;
   return Math.round((completed / totalModules) * 100);
 }
+
+export async function syncProgressToServer(progress: CourseProgress): Promise<void> {
+  try {
+    await fetch('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: progress.user_email, progress }),
+    });
+  } catch { /* fire and forget */ }
+}
+
+export async function fetchProgressFromServer(email: string): Promise<CourseProgress | null> {
+  try {
+    const res = await fetch(`/api/progress/${encodeURIComponent(email)}`);
+    if (res.ok) return await res.json();
+    return null;
+  } catch {
+    return null;
+  }
+}

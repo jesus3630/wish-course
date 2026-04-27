@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { CourseProgress, Module, QuizQuestion } from './types';
-import { getProgress, createProgress, saveProgress } from './utils/progress';
+import { getProgress, createProgress, saveProgress, syncProgressToServer, fetchProgressFromServer } from './utils/progress';
 import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
@@ -19,7 +19,6 @@ export default function App() {
   const [quizData, setQuizData] = useState<Record<string, QuizQuestion[]>>({});
   const [dataLoaded, setDataLoaded] = useState(false);
 
-  // Fetch course and quiz data from server
   useEffect(() => {
     if (isAdmin) { setDataLoaded(true); return; }
     Promise.all([
@@ -35,19 +34,31 @@ export default function App() {
     });
   }, []);
 
+  // Resume session from localStorage, then refresh from server
   useEffect(() => {
     if (isAdmin) return;
     const saved = getProgress();
     if (saved) {
       setProgress(saved);
       setView('dashboard');
+      fetchProgressFromServer(saved.user_email).then(serverProgress => {
+        if (serverProgress) {
+          const merged = { ...serverProgress, user_name: saved.user_name };
+          saveProgress(merged);
+          setProgress(merged);
+        }
+      });
     }
   }, []);
 
-  function handleLogin(name: string, email: string) {
-    const p = createProgress(name, email);
+  async function handleLogin(name: string, email: string) {
+    const serverProgress = await fetchProgressFromServer(email);
+    const p = serverProgress
+      ? { ...serverProgress, user_name: name }
+      : createProgress(name, email);
     saveProgress(p);
     setProgress(p);
+    syncProgressToServer(p);
     setView('dashboard');
   }
 
@@ -59,11 +70,13 @@ export default function App() {
   function handleProgressUpdate(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
+    syncProgressToServer(updated);
   }
 
   function handleModuleComplete(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
+    syncProgressToServer(updated);
     setView('dashboard');
   }
 
