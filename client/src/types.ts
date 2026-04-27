@@ -4,6 +4,7 @@ export interface Slide {
   instructions: string | null;
   text: string | null;
   original_index?: number;
+  screenshot?: string;
 }
 
 export interface QuizQuestion {
@@ -14,11 +15,17 @@ export interface QuizQuestion {
   explanation: string;
 }
 
+export interface ModuleVideo {
+  title: string;
+  src: string;
+}
+
 export interface Module {
   id: string;
   name: string;
   slides: Slide[];
   quiz?: QuizQuestion[];
+  videos?: ModuleVideo[];
 }
 
 export interface SlideProgress {

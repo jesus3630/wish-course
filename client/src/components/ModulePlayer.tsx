@@ -374,7 +374,7 @@ export default function ModulePlayer({
     );
   }
 
-  const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length;
+const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length;
   const totalSlides = module.slides.length;
   const slideProgress = Math.round((slidesViewed / totalSlides) * 100);
 
@@ -419,6 +419,17 @@ export default function ModulePlayer({
           </div>
 
           <h2 style={styles.slideName}>{slideName}</h2>
+
+          {/* Screenshot — shown when this slide has a matched video frame */}
+          {slide?.screenshot && (
+            <div style={styles.screenshotWrap}>
+              <img
+                src={slide.screenshot}
+                alt="WISH system screenshot"
+                style={styles.screenshotImg}
+              />
+            </div>
+          )}
 
           <div style={styles.slideContent}>
             {slideText ? (
@@ -614,6 +625,21 @@ const styles: Record<string, React.CSSProperties> = {
   miniProgressFill: { height: '100%', background: '#5BBCB0', borderRadius: '3px', transition: 'width 0.3s' },
   miniProgressLabel: { color: '#1B3A6B', fontSize: '12px', fontWeight: 600, whiteSpace: 'nowrap' },
   slideArea: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', padding: '32px 24px' },
+  screenshotWrap: {
+    marginBottom: '24px',
+    borderRadius: '10px',
+    overflow: 'hidden',
+    border: '2px solid #E5E7EB',
+    background: '#F8FAFC',
+    lineHeight: 0,
+  },
+  screenshotImg: {
+    width: '100%',
+    height: 'auto',
+    maxHeight: '360px',
+    objectFit: 'contain',
+    display: 'block',
+  },
   slideCard: {
     background: '#FFFFFF',
     borderRadius: '16px',

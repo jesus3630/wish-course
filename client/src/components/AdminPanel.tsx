@@ -326,6 +326,13 @@ function QuizEditor({
   );
 }
 
+interface HistoryEntry {
+  id: string;
+  timestamp: string;
+  type: 'course' | 'quiz';
+  changes: string[];
+}
+
 // ─── Main AdminPanel ──────────────────────────────────────────────────────────
 
 export default function AdminPanel() {
@@ -345,6 +352,11 @@ export default function AdminPanel() {
   const [expandedSlide, setExpandedSlide] = useState<number | null>(null);
   const [expandedQuestion, setExpandedQuestion] = useState<number | null>(null);
 
+  const [showHistory, setShowHistory] = useState(false);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [restoring, setRestoring] = useState<string | null>(null);
+
   const loadData = useCallback(async () => {
     setDataLoading(true);
     try {
@@ -359,6 +371,33 @@ export default function AdminPanel() {
     }
     setDataLoading(false);
   }, []);
+
+  async function loadHistory() {
+    setHistoryLoading(true);
+    try {
+      const res = await fetch('/api/admin/history', { headers: { 'x-admin-password': password } });
+      if (res.ok) setHistory(await res.json());
+    } catch (e) {}
+    setHistoryLoading(false);
+  }
+
+  async function restoreSnapshot(id: string) {
+    if (!window.confirm('Restore this version? Current content will be overwritten.')) return;
+    setRestoring(id);
+    try {
+      const res = await fetch(`/api/admin/restore/${id}`, {
+        method: 'POST',
+        headers: { 'x-admin-password': password },
+      });
+      if (res.ok) {
+        await loadData();
+        setShowHistory(false);
+        setSaveStatus('saved');
+        setTimeout(() => setSaveStatus('idle'), 3000);
+      }
+    } catch (e) {}
+    setRestoring(null);
+  }
 
   // Check for saved session
   useEffect(() => {
@@ -646,6 +685,12 @@ export default function AdminPanel() {
           {saveStatus === 'saved' && <span style={{ color: '#166534', fontWeight: 700, fontSize: '14px', background: '#DCFCE7', padding: '4px 12px', borderRadius: '6px' }}>Saved!</span>}
           {saveStatus === 'error' && <span style={{ color: '#991B1B', fontWeight: 700, fontSize: '14px', background: '#FEE2E2', padding: '4px 12px', borderRadius: '6px' }}>Save failed</span>}
           <button
+            onClick={() => { setShowHistory(true); loadHistory(); }}
+            style={{ background: 'rgba(27,58,107,0.12)', color: C.navy, border: 'none', borderRadius: '8px', padding: '8px 16px', fontWeight: 600, fontSize: '13px', cursor: 'pointer' }}
+          >
+            History
+          </button>
+          <button
             onClick={handleSave}
             disabled={saving}
             style={{ background: C.orange, color: C.white, border: 'none', borderRadius: '8px', padding: '8px 20px', fontWeight: 700, fontSize: '14px', cursor: saving ? 'not-allowed' : 'pointer' }}
@@ -762,6 +807,60 @@ export default function AdminPanel() {
           )}
         </div>
       </div>
+
+      {/* History drawer */}
+      {showHistory && (
+        <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex' }}>
+          <div onClick={() => setShowHistory(false)} style={{ flex: 1, background: 'rgba(0,0,0,0.4)' }} />
+          <div style={{ width: '480px', background: C.white, display: 'flex', flexDirection: 'column', boxShadow: '-4px 0 24px rgba(0,0,0,0.15)' }}>
+            {/* Drawer header */}
+            <div style={{ padding: '20px 24px', borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
+              <div>
+                <div style={{ fontSize: '17px', fontWeight: 700, color: C.navy }}>Change History</div>
+                <div style={{ fontSize: '12px', color: C.gray, marginTop: '2px' }}>Click Restore to roll back to any previous version</div>
+              </div>
+              <button onClick={() => setShowHistory(false)} style={{ background: 'none', border: 'none', fontSize: '22px', cursor: 'pointer', color: C.gray }}>✕</button>
+            </div>
+
+            {/* Entries */}
+            <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
+              {historyLoading && <div style={{ textAlign: 'center', padding: '48px', color: C.gray }}>Loading...</div>}
+              {!historyLoading && history.length === 0 && (
+                <div style={{ textAlign: 'center', padding: '48px', color: C.gray }}>No history yet. Save changes to start tracking.</div>
+              )}
+              {!historyLoading && history.map(entry => {
+                const date = new Date(entry.timestamp);
+                const dateStr = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                const timeStr = date.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+                return (
+                  <div key={entry.id} style={{ background: C.bg, borderRadius: '10px', padding: '16px', marginBottom: '10px', border: `1px solid ${C.border}` }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
+                      <div>
+                        <div style={{ fontSize: '13px', fontWeight: 700, color: C.navy }}>{dateStr} · {timeStr}</div>
+                        <div style={{ fontSize: '11px', fontWeight: 700, color: entry.type === 'course' ? C.teal : C.orange, textTransform: 'uppercase', letterSpacing: '0.5px', marginTop: '2px' }}>
+                          {entry.type === 'course' ? 'Course Edit' : 'Quiz Edit'}
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => restoreSnapshot(entry.id)}
+                        disabled={restoring === entry.id}
+                        style={{ background: C.navy, color: C.white, border: 'none', borderRadius: '6px', padding: '6px 14px', fontSize: '12px', fontWeight: 700, cursor: restoring === entry.id ? 'not-allowed' : 'pointer', opacity: restoring === entry.id ? 0.5 : 1, flexShrink: 0 }}
+                      >
+                        {restoring === entry.id ? 'Restoring...' : 'Restore'}
+                      </button>
+                    </div>
+                    <ul style={{ margin: 0, paddingLeft: '16px' }}>
+                      {entry.changes.map((c, i) => (
+                        <li key={i} style={{ fontSize: '13px', color: '#374151', lineHeight: '1.6' }}>{c}</li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
