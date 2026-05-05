@@ -31,6 +31,7 @@ const SHEET_TO_ID = {
   'Sign-In  Sign-Out': 'sign-in__sign-out',
   'Manual Process Hours': 'manual_process_hours',
   'Billing': 'billing',
+  'Payroll Processing': 'payroll_processing',
 };
 
 const SHEET_TO_NAME = {
@@ -52,6 +53,7 @@ const SHEET_TO_NAME = {
   'Sign-In  Sign-Out': 'Sign-In / Sign-Out',
   'Manual Process Hours': 'Manual Process Hours',
   'Billing': 'Billing',
+  'Payroll Processing': 'Payroll Processing',
 };
 
 function findLatestExcel() {

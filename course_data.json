@@ -378,6 +378,72 @@
     ]
   },
   {
+    "id": "payroll_processing",
+    "name": "Payroll Processing",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle—from hiring and staff management to timesheets and payroll—all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "The Pay Week",
+        "instructions": "Show Payroll menu in top navigation. Show a calendar graphic with Saturday highlighted as the start and Friday as the end of the pay week.",
+        "text": "In this module, you will learn the full payroll processing workflow in WISH — from approving employee hours after an event through running the final reports your branch submits each week.\r\n\r\nEvery pay week in WISH runs Saturday through Friday. All hours worked during that window must be approved and processed before Wednesday morning, when the payroll department transmits everything. Stay current throughout the week — do not let hours pile up."
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Accessing Manage Process Hours",
+        "instructions": "Payroll → Manage Process Hours. Show the Start Date field, Event dropdown, and job list. Open a shift — point out the Min, Max, Scheduled, and Sign-In counts. Show the Sign-In number as a clickable link.",
+        "text": "Go to Payroll → Manage Process Hours. The screen defaults to today's date — if you are processing hours from earlier in the week, change the start date back to match your jobs.\r\n\r\nSelect your Event from the dropdown and click Retrieve. This pulls up the shifts for that job.\r\n\r\nWhen you open a shift, pay attention to the Sign-In count. That number tells you exactly how many employees came through electronic sign-in. Click it to see who signed in, who signed out, and who has a gap that needs attention."
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Entering Times",
+        "instructions": "Show Autofill Sign-In and Autofill Sign-Out buttons — click both, show all employees populating. Then show the Override Rate field at top of role — enter 18, click outside box, show all employees updating. Show Per Diem field doing the same.",
+        "text": "To populate times, use Autofill Sign-In and Autofill Sign-Out. One click fills every employee with the shift's scheduled start and end time. Employees who already have a different time recorded keep their time — autofill will not overwrite individual entries.\r\n\r\nFor employees with different arrival times, use autofill first, then go back and correct the exceptions manually using the Tab key to move through each field.\r\n\r\nIf employees earned a rate different from their default, enter it in the Override Rate field at the top of the role and click outside the box — everyone on that page updates at once. Per Diem works the same way."
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Handling Real-World Issues",
+        "instructions": "Show a shift with mixed states: one employee with both times, one with sign-in but no sign-out, two with no times. Show NS checkbox being checked. Show the 24-hour warning popup after clicking Approve Hours.",
+        "text": "Payroll is rarely perfect. When you open a shift you may see three situations:\r\n\r\nEmployee has both times — no action needed.\r\n\r\nEmployee has a sign-in but no sign-out — add the out-time manually. The system will not let you approve hours with any incomplete record.\r\n\r\nEmployee has no times — if they did not show up, check the NS checkbox to mark them as a No Show. If they did work but were not signed in electronically, enter their times from your paper sign-in sheet.\r\n\r\nWatch for the 24-hour warning. This appears when an out-date is left on the wrong day — for example, a shift that crosses midnight. Click OK, then go back and correct the out-date to the actual day the employee finished."
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Approving Hours",
+        "instructions": "Show the Approve Hours button at the bottom of a shift role. Click it. Show the green confirmation. Show green sunburst icons on the shift list. Show back button returning to job list.",
+        "text": "Once all times are entered and no-shows are marked, scroll to the bottom and click Approve Hours — this is your save button.\r\n\r\nYou will see a green confirmation and the shift rows will turn green. Back on the shift list, green sunburst icons mark the shifts you have completed. Blue links mean there is still work to do.\r\n\r\nProcess every shift across every job for the week before moving on. You can always go back and make corrections — just remember to re-run Process Payroll afterward so the changes are reflected in the reports."
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Sign-Out Exceptions and Process Payroll",
+        "instructions": "Payroll → Sign-Out Exceptions. Set Friday end date. Click Retrieve Exceptions — show overlap list. Show Adj button and correcting an out-time. Then Payroll → Process Payroll. Show job list with Yes/No approved column. Show Holiday Pay checkbox. Click Start Hours Process.",
+        "text": "Before running payroll, go to Payroll → Sign-Out Exceptions. This report flags overlapping hours — employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll → Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No — only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll."
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Payroll Reports",
+        "instructions": "Reports → Payroll Reports → Employee Time Register → Produce Report. Show report with employee names, days worked, hours, pay rate. Then Reports → Job Administration → One Line Shift Summary — set Saturday to Saturday. Then Sign-In Sign-Out Sheets — same date range. Then Payroll → Export Per Diem Report if applicable.",
+        "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register — go to Reports → Payroll Reports → Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days — both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary — go to Reports → Job Administration → One Line Shift Summary. Run it Saturday to Saturday — one extra day beyond Friday — to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets — same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu."
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti animation",
+        "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH — from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone."
+      },
+      {
+        "slide_number": 10,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+      }
+    ]
+  },
+  {
     "id": "general_reporting",
     "name": "General Reporting",
     "slides": [
