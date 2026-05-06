@@ -60,10 +60,24 @@ async function initDB() {
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
+  const jsonCourseData = JSON.parse(fs.readFileSync(COURSE_SEED_PATH, 'utf8'));
   if (courseCheck.rowCount === 0) {
     console.log('[boot] Seeding course_data from committed file');
-    const courseData = JSON.parse(fs.readFileSync(COURSE_SEED_PATH, 'utf8'));
-    await pool.query('INSERT INTO course_data (id, data) VALUES (1, $1)', [JSON.stringify(courseData)]);
+    await pool.query('INSERT INTO course_data (id, data) VALUES (1, $1)', [JSON.stringify(jsonCourseData)]);
+  } else {
+    // Merge: add any modules in JSON that aren't in DB (preserves admin edits)
+    const dbResult = await pool.query('SELECT data FROM course_data WHERE id = 1');
+    const dbModules = dbResult.rows[0].data;
+    const dbIds = new Set(dbModules.map(m => m.id));
+    const newModules = jsonCourseData.filter(m => !dbIds.has(m.id));
+    if (newModules.length > 0) {
+      console.log(`[boot] Adding ${newModules.length} new module(s) from JSON:`, newModules.map(m => m.id));
+      const merged = [...dbModules, ...newModules];
+      await pool.query(
+        'UPDATE course_data SET data = $1, updated_at = NOW() WHERE id = 1',
+        [JSON.stringify(merged)]
+      );
+    }
   }
 
   const quizCheck = await pool.query('SELECT id FROM quiz_data WHERE id = 1');
