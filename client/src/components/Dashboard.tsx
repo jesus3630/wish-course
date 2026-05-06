@@ -7,9 +7,10 @@ interface Props {
   modules: Module[];
   progress: CourseProgress;
   onStartModule: (index: number) => void;
+  onLogout: () => void;
 }
 
-export default function Dashboard({ modules, progress, onStartModule }: Props) {
+export default function Dashboard({ modules, progress, onStartModule, onLogout }: Props) {
   const overall = getOverallCompletion(progress, modules.length);
   const [animatedPct, setAnimatedPct] = useState(0);
   const confettiFiredRef = useRef(false);
@@ -60,6 +61,7 @@ export default function Dashboard({ modules, progress, onStartModule }: Props) {
         <div style={styles.userInfo}>
           <span style={styles.userName}>{progress.user_name}</span>
           <span style={styles.userEmail}>{progress.user_email}</span>
+          <button style={styles.logoutBtn} onClick={onLogout}>Log Out</button>
         </div>
       </div>
 
@@ -172,9 +174,22 @@ const styles: Record<string, React.CSSProperties> = {
   brandMark: { display: 'flex', flexDirection: 'column', lineHeight: 1 },
   brandWish: { fontSize: '32px', fontWeight: 900, color: '#D4782A', letterSpacing: '2px', textShadow: '0 1px 3px rgba(27,58,107,0.2)' },
   brandSub: { fontSize: '11px', fontWeight: 700, color: '#1B3A6B', letterSpacing: '2px', textTransform: 'uppercase' as const, opacity: 0.8 },
-  userInfo: { display: 'flex', flexDirection: 'column', alignItems: 'flex-end' },
+  userInfo: { display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '2px' },
   userName: { color: '#1B3A6B', fontWeight: 700, fontSize: '15px' },
   userEmail: { color: '#1B3A6B', fontSize: '12px', opacity: 0.7 },
+  logoutBtn: {
+    marginTop: '4px',
+    background: 'rgba(27,58,107,0.12)',
+    border: 'none',
+    borderRadius: '6px',
+    color: '#1B3A6B',
+    fontSize: '11px',
+    fontWeight: 700,
+    padding: '3px 10px',
+    cursor: 'pointer',
+    letterSpacing: '0.5px',
+    textTransform: 'uppercase' as const,
+  },
   content: { maxWidth: '1100px', margin: '0 auto', padding: '32px 24px', width: '100%' },
   overviewCard: {
     background: '#FFFFFF',

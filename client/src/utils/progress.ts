@@ -115,6 +115,10 @@ export async function syncProgressToServer(progress: CourseProgress): Promise<vo
   } catch { /* fire and forget */ }
 }
 
+export function clearProgress(): void {
+  localStorage.removeItem(STORAGE_KEY);
+}
+
 export async function fetchProgressFromServer(email: string): Promise<CourseProgress | null> {
   try {
     const res = await fetch(`/api/progress/${encodeURIComponent(email)}`);

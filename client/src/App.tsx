@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { CourseProgress, Module, QuizQuestion } from './types';
-import { getProgress, createProgress, saveProgress, syncProgressToServer, fetchProgressFromServer } from './utils/progress';
+import { getProgress, createProgress, saveProgress, syncProgressToServer, fetchProgressFromServer, clearProgress } from './utils/progress';
 import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
@@ -73,6 +73,12 @@ export default function App() {
     syncProgressToServer(updated);
   }
 
+  function handleLogout() {
+    clearProgress();
+    setProgress(null);
+    setView('login');
+  }
+
   function handleModuleComplete(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
@@ -117,6 +123,7 @@ export default function App() {
         modules={modules}
         progress={progress}
         onStartModule={handleStartModule}
+        onLogout={handleLogout}
       />
     );
   }
