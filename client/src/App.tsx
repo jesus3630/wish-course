@@ -58,7 +58,7 @@ export default function App() {
       : createProgress(name, email);
     saveProgress(p);
     setProgress(p);
-    syncProgressToServer(p);
+    if (!serverProgress) syncProgressToServer(p);
     setView('dashboard');
   }
 
@@ -73,7 +73,8 @@ export default function App() {
     syncProgressToServer(updated);
   }
 
-  function handleLogout() {
+  async function handleLogout() {
+    if (progress) await syncProgressToServer(progress);
     clearProgress();
     setProgress(null);
     setView('login');
