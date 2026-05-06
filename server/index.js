@@ -65,14 +65,16 @@ async function initDB() {
     console.log('[boot] Seeding course_data from committed file');
     await pool.query('INSERT INTO course_data (id, data) VALUES (1, $1)', [JSON.stringify(jsonCourseData)]);
   } else {
-    // Merge: add any modules in JSON that aren't in DB (preserves admin edits)
+    // Merge: use JSON order, keep DB version of existing modules (preserves admin edits), add new ones
     const dbResult = await pool.query('SELECT data FROM course_data WHERE id = 1');
     const dbModules = dbResult.rows[0].data;
-    const dbIds = new Set(dbModules.map(m => m.id));
-    const newModules = jsonCourseData.filter(m => !dbIds.has(m.id));
-    if (newModules.length > 0) {
-      console.log(`[boot] Adding ${newModules.length} new module(s) from JSON:`, newModules.map(m => m.id));
-      const merged = [...dbModules, ...newModules];
+    const dbMap = new Map(dbModules.map(m => [m.id, m]));
+    const jsonIds = new Set(jsonCourseData.map(m => m.id));
+    const newIds = jsonCourseData.filter(m => !dbMap.has(m.id)).map(m => m.id);
+    if (newIds.length > 0) {
+      console.log(`[boot] Adding ${newIds.length} new module(s) from JSON:`, newIds);
+      // Follow JSON order; for existing modules use DB copy, for new ones use JSON copy
+      const merged = jsonCourseData.map(m => dbMap.get(m.id) || m);
       await pool.query(
         'UPDATE course_data SET data = $1, updated_at = NOW() WHERE id = 1',
         [JSON.stringify(merged)]
