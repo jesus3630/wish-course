@@ -23,6 +23,12 @@ function normalizeText(text: string): string {
     .trim();
 }
 
+// Pure punctuation/symbol tokens (•, →, —, etc.) should not consume a timing slot.
+// ElevenLabs assigns the inter-paragraph pause duration to these, causing highlight lag.
+function isWordToken(w: string): boolean {
+  return /[a-zA-Z0-9]/.test(w);
+}
+
 interface Props {
   module: Module;
   moduleIndex: number;
@@ -218,7 +224,7 @@ export default function ModulePlayer({
     onEnded?: () => void
   ) {
     if (narrationTokenRef.current !== token) return;
-    timingsRef.current = entry.timings.length ? entry.timings : null;
+    timingsRef.current = entry.timings.length ? entry.timings.filter(t => isWordToken(t.word)) : null;
     audio.oncanplaythrough = null;
     audio.onplaying = null;
     audio.onended = null;
@@ -252,7 +258,7 @@ export default function ModulePlayer({
     audio.onerror = null;
     setAudioLoading(true);
 
-    const words = slideText.trim().split(/\s+/);
+    const words = slideText.trim().split(/\s+/).filter(isWordToken);
     wordsRef.current = words;
     timingsRef.current = null;
 
@@ -589,6 +595,11 @@ function HighlightedText({
           const token = words[i];
           if (/^\s+$/.test(token)) {
             elements.push(token);
+            continue;
+          }
+          // Non-word tokens (•, →, —, etc.) render as plain text — no timing slot, no highlight
+          if (!isWordToken(token)) {
+            elements.push(<span key={`${pi}-${i}`} style={{ color: '#374151' }}>{token}</span>);
             continue;
           }
           const wordIdx = globalIndex;
