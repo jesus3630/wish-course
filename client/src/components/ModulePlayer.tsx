@@ -121,7 +121,12 @@ export default function ModulePlayer({
           if (t[mid].start <= ct) { idx = mid; lo = mid + 1; }
           else hi = mid - 1;
         }
-        setActiveWordIndex(Math.min(idx, words.length - 1));
+        // Clear highlight during long inter-word pauses (e.g. after bullet characters)
+        if (ct > t[idx].end + 0.35) {
+          setActiveWordIndex(-1);
+        } else {
+          setActiveWordIndex(Math.min(idx, words.length - 1));
+        }
         rafRef.current = requestAnimationFrame(tick);
       };
       rafRef.current = requestAnimationFrame(tick);

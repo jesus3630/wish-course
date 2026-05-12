@@ -1147,7 +1147,7 @@
         "slide_number": 5,
         "slide_name": "Item Creation",
         "instructions": "Inventory → Item Creation. Show form. Enter Item Name, Category, Description. Save. Show item appear in list below.",
-        "text": "Go to Inventory → Item Creation. This is where you build your branch’s inventory catalog — the master list of items that can be assigned to jobs and checked out to employees.\r\n\r\nFor each item, enter:\r\n• Item Name — a clear, descriptive name such as “Radio — Motorola CLP1010” or “Nitrile Gloves — Large (100 Pairs/Box)”\r\n• Category — either Inventory Items or Job Equipment\r\n• Any additional details required by your branch\r\n\r\nItems must be created here before they can appear in Item Job Equipment or be selected during check-in and check-out. If an item is missing from those screens, come back here first."
+        "text": "Go to Inventory to Item Creation. This is where you build your branch's inventory catalog — the master list of items that can be assigned to jobs and checked out to employees.\n\nFor each item, enter:\n• Item Name — a clear, descriptive name such as Radio — Motorola CLP1010 or Nitrile Gloves — Large\n• Category — either Inventory Items or Job Equipment\n• Any additional details required by your branch\n\nItems must be created here before they can appear in Item Job Equipment or be selected during check-in and check-out. If an item is missing from those screens, come back here first."
       },
       {
         "slide_number": 6,
