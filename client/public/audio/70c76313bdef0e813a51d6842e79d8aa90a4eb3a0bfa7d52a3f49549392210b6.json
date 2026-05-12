@@ -1,0 +1,402 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.197
+  },
+  {
+    "word": "you",
+    "start": 0.232,
+    "end": 0.302
+  },
+  {
+    "word": "were",
+    "start": 0.337,
+    "end": 0.476
+  },
+  {
+    "word": "hired,",
+    "start": 0.534,
+    "end": 1.022
+  },
+  {
+    "word": "you",
+    "start": 1.103,
+    "end": 1.184
+  },
+  {
+    "word": "should",
+    "start": 1.219,
+    "end": 1.37
+  },
+  {
+    "word": "have",
+    "start": 1.393,
+    "end": 1.498
+  },
+  {
+    "word": "received",
+    "start": 1.533,
+    "end": 1.904
+  },
+  {
+    "word": "an",
+    "start": 1.939,
+    "end": 2.009
+  },
+  {
+    "word": "email",
+    "start": 2.078,
+    "end": 2.473
+  },
+  {
+    "word": "from",
+    "start": 2.531,
+    "end": 2.682
+  },
+  {
+    "word": "the",
+    "start": 2.728,
+    "end": 2.798
+  },
+  {
+    "word": "Employee",
+    "start": 2.868,
+    "end": 3.332
+  },
+  {
+    "word": "Self",
+    "start": 3.413,
+    "end": 3.646
+  },
+  {
+    "word": "Service",
+    "start": 3.704,
+    "end": 4.052
+  },
+  {
+    "word": "Portal",
+    "start": 4.098,
+    "end": 4.447
+  },
+  {
+    "word": "(ESS).",
+    "start": 4.621,
+    "end": 5.677
+  },
+  {
+    "word": "This",
+    "start": 5.921,
+    "end": 6.118
+  },
+  {
+    "word": "application",
+    "start": 6.177,
+    "end": 6.792
+  },
+  {
+    "word": "allows",
+    "start": 6.85,
+    "end": 7.187
+  },
+  {
+    "word": "you",
+    "start": 7.245,
+    "end": 7.349
+  },
+  {
+    "word": "to",
+    "start": 7.407,
+    "end": 7.465
+  },
+  {
+    "word": "access",
+    "start": 7.535,
+    "end": 7.941
+  },
+  {
+    "word": "your",
+    "start": 7.976,
+    "end": 8.115
+  },
+  {
+    "word": "job",
+    "start": 8.173,
+    "end": 8.406
+  },
+  {
+    "word": "training",
+    "start": 8.464,
+    "end": 8.8
+  },
+  {
+    "word": "and",
+    "start": 8.87,
+    "end": 8.975
+  },
+  {
+    "word": "request",
+    "start": 9.033,
+    "end": 9.392
+  },
+  {
+    "word": "schedules.",
+    "start": 9.427,
+    "end": 9.996
+  },
+  {
+    "word": "You",
+    "start": 10.321,
+    "end": 10.437
+  },
+  {
+    "word": "should",
+    "start": 10.484,
+    "end": 10.646
+  },
+  {
+    "word": "already",
+    "start": 10.681,
+    "end": 10.983
+  },
+  {
+    "word": "have",
+    "start": 11.041,
+    "end": 11.331
+  },
+  {
+    "word": "an",
+    "start": 11.366,
+    "end": 11.436
+  },
+  {
+    "word": "ESS",
+    "start": 11.517,
+    "end": 12.051
+  },
+  {
+    "word": "account.",
+    "start": 12.086,
+    "end": 12.516
+  },
+  {
+    "word": "ESS",
+    "start": 12.725,
+    "end": 13.375
+  },
+  {
+    "word": "can",
+    "start": 13.444,
+    "end": 13.572
+  },
+  {
+    "word": "be",
+    "start": 13.63,
+    "end": 13.734
+  },
+  {
+    "word": "accessed",
+    "start": 13.792,
+    "end": 14.315
+  },
+  {
+    "word": "online",
+    "start": 14.431,
+    "end": 15.116
+  },
+  {
+    "word": "at",
+    "start": 15.151,
+    "end": 15.255
+  },
+  {
+    "word": "ess.schedulingsite.com.",
+    "start": 15.337,
+    "end": 18.703
+  },
+  {
+    "word": "Your",
+    "start": 18.703,
+    "end": 18.901
+  },
+  {
+    "word": "WISH",
+    "start": 18.959,
+    "end": 19.145
+  },
+  {
+    "word": "login",
+    "start": 19.226,
+    "end": 19.528
+  },
+  {
+    "word": "credentials",
+    "start": 19.586,
+    "end": 20.085
+  },
+  {
+    "word": "will",
+    "start": 20.143,
+    "end": 20.306
+  },
+  {
+    "word": "be",
+    "start": 20.352,
+    "end": 20.433
+  },
+  {
+    "word": "sent",
+    "start": 20.48,
+    "end": 20.7
+  },
+  {
+    "word": "to",
+    "start": 20.747,
+    "end": 20.816
+  },
+  {
+    "word": "the",
+    "start": 20.898,
+    "end": 20.967
+  },
+  {
+    "word": "email",
+    "start": 21.06,
+    "end": 21.397
+  },
+  {
+    "word": "address",
+    "start": 21.443,
+    "end": 21.815
+  },
+  {
+    "word": "listed",
+    "start": 21.896,
+    "end": 22.279
+  },
+  {
+    "word": "on",
+    "start": 22.337,
+    "end": 22.407
+  },
+  {
+    "word": "your",
+    "start": 22.453,
+    "end": 22.558
+  },
+  {
+    "word": "ESS",
+    "start": 22.616,
+    "end": 23.092
+  },
+  {
+    "word": "account.",
+    "start": 23.127,
+    "end": 23.649
+  },
+  {
+    "word": "Once",
+    "start": 24.09,
+    "end": 24.346
+  },
+  {
+    "word": "you",
+    "start": 24.381,
+    "end": 24.462
+  },
+  {
+    "word": "receive",
+    "start": 24.543,
+    "end": 24.915
+  },
+  {
+    "word": "your",
+    "start": 24.95,
+    "end": 25.054
+  },
+  {
+    "word": "credentials,",
+    "start": 25.089,
+    "end": 25.867
+  },
+  {
+    "word": "you",
+    "start": 26.076,
+    "end": 26.169
+  },
+  {
+    "word": "can",
+    "start": 26.227,
+    "end": 26.343
+  },
+  {
+    "word": "log",
+    "start": 26.401,
+    "end": 26.633
+  },
+  {
+    "word": "into",
+    "start": 26.679,
+    "end": 26.854
+  },
+  {
+    "word": "WISH",
+    "start": 26.935,
+    "end": 27.225
+  },
+  {
+    "word": "and",
+    "start": 27.306,
+    "end": 27.515
+  },
+  {
+    "word": "begin",
+    "start": 27.585,
+    "end": 27.875
+  },
+  {
+    "word": "completing",
+    "start": 27.945,
+    "end": 28.456
+  },
+  {
+    "word": "your",
+    "start": 28.502,
+    "end": 28.618
+  },
+  {
+    "word": "work",
+    "start": 28.665,
+    "end": 28.839
+  },
+  {
+    "word": "assignments",
+    "start": 28.897,
+    "end": 29.501
+  },
+  {
+    "word": "using",
+    "start": 29.745,
+    "end": 30.058
+  },
+  {
+    "word": "the",
+    "start": 30.116,
+    "end": 30.197
+  },
+  {
+    "word": "knowledge",
+    "start": 30.255,
+    "end": 30.662
+  },
+  {
+    "word": "you’ve",
+    "start": 30.697,
+    "end": 30.894
+  },
+  {
+    "word": "gained.",
+    "start": 30.94,
+    "end": 31.625
+  }
+]

@@ -1,0 +1,367 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.29
+  },
+  {
+    "word": "manually",
+    "start": 0.372,
+    "end": 0.952
+  },
+  {
+    "word": "entering",
+    "start": 1.068,
+    "end": 1.474
+  },
+  {
+    "word": "times,",
+    "start": 1.544,
+    "end": 1.962
+  },
+  {
+    "word": "you",
+    "start": 2.009,
+    "end": 2.09
+  },
+  {
+    "word": "will",
+    "start": 2.125,
+    "end": 2.276
+  },
+  {
+    "word": "also",
+    "start": 2.357,
+    "end": 2.717
+  },
+  {
+    "word": "see",
+    "start": 2.786,
+    "end": 2.984
+  },
+  {
+    "word": "fields",
+    "start": 3.065,
+    "end": 3.39
+  },
+  {
+    "word": "for:",
+    "start": 3.448,
+    "end": 3.889
+  },
+  {
+    "word": "Override",
+    "start": 3.889,
+    "end": 4.458
+  },
+  {
+    "word": "Rate",
+    "start": 4.516,
+    "end": 4.772
+  },
+  {
+    "word": "—",
+    "start": 4.795,
+    "end": 8.626
+  },
+  {
+    "word": "If",
+    "start": 8.905,
+    "end": 9.079
+  },
+  {
+    "word": "an",
+    "start": 9.137,
+    "end": 9.207
+  },
+  {
+    "word": "employee",
+    "start": 9.253,
+    "end": 9.799
+  },
+  {
+    "word": "worked",
+    "start": 9.845,
+    "end": 10.112
+  },
+  {
+    "word": "a",
+    "start": 10.136,
+    "end": 10.159
+  },
+  {
+    "word": "position",
+    "start": 10.217,
+    "end": 10.658
+  },
+  {
+    "word": "different",
+    "start": 10.762,
+    "end": 11.146
+  },
+  {
+    "word": "from",
+    "start": 11.18,
+    "end": 11.308
+  },
+  {
+    "word": "their",
+    "start": 11.355,
+    "end": 11.494
+  },
+  {
+    "word": "standard",
+    "start": 11.54,
+    "end": 11.889
+  },
+  {
+    "word": "role",
+    "start": 11.947,
+    "end": 12.225
+  },
+  {
+    "word": "and",
+    "start": 12.26,
+    "end": 12.365
+  },
+  {
+    "word": "should",
+    "start": 12.399,
+    "end": 12.562
+  },
+  {
+    "word": "be",
+    "start": 12.597,
+    "end": 12.666
+  },
+  {
+    "word": "paid",
+    "start": 12.725,
+    "end": 12.945
+  },
+  {
+    "word": "a",
+    "start": 12.992,
+    "end": 13.015
+  },
+  {
+    "word": "different",
+    "start": 13.084,
+    "end": 13.386
+  },
+  {
+    "word": "rate,",
+    "start": 13.444,
+    "end": 13.723
+  },
+  {
+    "word": "enter",
+    "start": 13.781,
+    "end": 14.06
+  },
+  {
+    "word": "it",
+    "start": 14.118,
+    "end": 14.176
+  },
+  {
+    "word": "here.",
+    "start": 14.234,
+    "end": 14.547
+  },
+  {
+    "word": "The",
+    "start": 14.745,
+    "end": 14.872
+  },
+  {
+    "word": "system",
+    "start": 14.93,
+    "end": 15.232
+  },
+  {
+    "word": "applies",
+    "start": 15.29,
+    "end": 15.685
+  },
+  {
+    "word": "the",
+    "start": 15.732,
+    "end": 15.813
+  },
+  {
+    "word": "higher",
+    "start": 15.882,
+    "end": 16.184
+  },
+  {
+    "word": "of",
+    "start": 16.253,
+    "end": 16.3
+  },
+  {
+    "word": "the",
+    "start": 16.358,
+    "end": 16.428
+  },
+  {
+    "word": "two",
+    "start": 16.462,
+    "end": 16.613
+  },
+  {
+    "word": "rates.",
+    "start": 16.695,
+    "end": 17.136
+  },
+  {
+    "word": "Per",
+    "start": 17.136,
+    "end": 17.333
+  },
+  {
+    "word": "Diem",
+    "start": 17.414,
+    "end": 17.705
+  },
+  {
+    "word": "—",
+    "start": 17.821,
+    "end": 21.664
+  },
+  {
+    "word": "If",
+    "start": 21.861,
+    "end": 21.989
+  },
+  {
+    "word": "you",
+    "start": 22.035,
+    "end": 22.117
+  },
+  {
+    "word": "provided",
+    "start": 22.175,
+    "end": 22.569
+  },
+  {
+    "word": "the",
+    "start": 22.604,
+    "end": 22.674
+  },
+  {
+    "word": "employee",
+    "start": 22.72,
+    "end": 23.092
+  },
+  {
+    "word": "with",
+    "start": 23.127,
+    "end": 23.243
+  },
+  {
+    "word": "additional",
+    "start": 23.278,
+    "end": 23.661
+  },
+  {
+    "word": "payment",
+    "start": 23.719,
+    "end": 24.055
+  },
+  {
+    "word": "outside",
+    "start": 24.125,
+    "end": 24.601
+  },
+  {
+    "word": "their",
+    "start": 24.636,
+    "end": 24.798
+  },
+  {
+    "word": "hourly",
+    "start": 24.845,
+    "end": 25.228
+  },
+  {
+    "word": "rate",
+    "start": 25.309,
+    "end": 25.553
+  },
+  {
+    "word": "(such",
+    "start": 25.576,
+    "end": 25.843
+  },
+  {
+    "word": "as",
+    "start": 25.89,
+    "end": 25.959
+  },
+  {
+    "word": "a",
+    "start": 26.017,
+    "end": 26.041
+  },
+  {
+    "word": "pay",
+    "start": 26.087,
+    "end": 26.226
+  },
+  {
+    "word": "card),",
+    "start": 26.273,
+    "end": 26.644
+  },
+  {
+    "word": "enter",
+    "start": 26.888,
+    "end": 27.167
+  },
+  {
+    "word": "that",
+    "start": 27.225,
+    "end": 27.376
+  },
+  {
+    "word": "amount",
+    "start": 27.411,
+    "end": 27.654
+  },
+  {
+    "word": "here",
+    "start": 27.713,
+    "end": 27.922
+  },
+  {
+    "word": "so",
+    "start": 27.98,
+    "end": 28.189
+  },
+  {
+    "word": "payroll",
+    "start": 28.305,
+    "end": 28.769
+  },
+  {
+    "word": "can",
+    "start": 28.827,
+    "end": 28.943
+  },
+  {
+    "word": "account",
+    "start": 28.978,
+    "end": 29.268
+  },
+  {
+    "word": "for",
+    "start": 29.326,
+    "end": 29.466
+  },
+  {
+    "word": "it.",
+    "start": 29.535,
+    "end": 29.907
+  }
+]

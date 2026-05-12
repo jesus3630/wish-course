@@ -1,0 +1,482 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "to",
+    "start": 0.221,
+    "end": 0.267
+  },
+  {
+    "word": "Inventory",
+    "start": 0.325,
+    "end": 0.848
+  },
+  {
+    "word": "→",
+    "start": 0.964,
+    "end": 0.998
+  },
+  {
+    "word": "Manage",
+    "start": 1.207,
+    "end": 1.649
+  },
+  {
+    "word": "Asset",
+    "start": 1.695,
+    "end": 2.009
+  },
+  {
+    "word": "Tag.",
+    "start": 2.067,
+    "end": 2.508
+  },
+  {
+    "word": "Select",
+    "start": 2.891,
+    "end": 3.297
+  },
+  {
+    "word": "your",
+    "start": 3.332,
+    "end": 3.448
+  },
+  {
+    "word": "branch",
+    "start": 3.495,
+    "end": 3.785
+  },
+  {
+    "word": "from",
+    "start": 3.808,
+    "end": 3.924
+  },
+  {
+    "word": "the",
+    "start": 3.959,
+    "end": 4.029
+  },
+  {
+    "word": "dropdown",
+    "start": 4.063,
+    "end": 4.586
+  },
+  {
+    "word": "and",
+    "start": 4.632,
+    "end": 4.714
+  },
+  {
+    "word": "click",
+    "start": 4.772,
+    "end": 4.992
+  },
+  {
+    "word": "Search",
+    "start": 5.085,
+    "end": 5.457
+  },
+  {
+    "word": "to",
+    "start": 5.631,
+    "end": 5.759
+  },
+  {
+    "word": "see",
+    "start": 5.84,
+    "end": 6.037
+  },
+  {
+    "word": "all",
+    "start": 6.107,
+    "end": 6.327
+  },
+  {
+    "word": "registered",
+    "start": 6.409,
+    "end": 6.873
+  },
+  {
+    "word": "asset",
+    "start": 6.943,
+    "end": 7.291
+  },
+  {
+    "word": "tags",
+    "start": 7.338,
+    "end": 7.651
+  },
+  {
+    "word": "for",
+    "start": 7.697,
+    "end": 7.825
+  },
+  {
+    "word": "that",
+    "start": 7.872,
+    "end": 8.011
+  },
+  {
+    "word": "branch.",
+    "start": 8.057,
+    "end": 8.649
+  },
+  {
+    "word": "To",
+    "start": 8.649,
+    "end": 8.766
+  },
+  {
+    "word": "add",
+    "start": 8.847,
+    "end": 8.998
+  },
+  {
+    "word": "a",
+    "start": 9.033,
+    "end": 9.056
+  },
+  {
+    "word": "new",
+    "start": 9.114,
+    "end": 9.242
+  },
+  {
+    "word": "tag,",
+    "start": 9.288,
+    "end": 9.718
+  },
+  {
+    "word": "click",
+    "start": 9.764,
+    "end": 10.019
+  },
+  {
+    "word": "Add",
+    "start": 10.136,
+    "end": 10.461
+  },
+  {
+    "word": "Asset",
+    "start": 10.553,
+    "end": 10.948
+  },
+  {
+    "word": "Tag.",
+    "start": 11.006,
+    "end": 11.401
+  },
+  {
+    "word": "Enter",
+    "start": 11.517,
+    "end": 11.784
+  },
+  {
+    "word": "the",
+    "start": 11.842,
+    "end": 11.912
+  },
+  {
+    "word": "tag",
+    "start": 11.958,
+    "end": 12.202
+  },
+  {
+    "word": "details",
+    "start": 12.26,
+    "end": 12.736
+  },
+  {
+    "word": "and",
+    "start": 12.806,
+    "end": 13.061
+  },
+  {
+    "word": "save.",
+    "start": 13.154,
+    "end": 13.595
+  },
+  {
+    "word": "Asset",
+    "start": 13.769,
+    "end": 14.164
+  },
+  {
+    "word": "tags",
+    "start": 14.211,
+    "end": 14.571
+  },
+  {
+    "word": "are",
+    "start": 14.617,
+    "end": 14.826
+  },
+  {
+    "word": "the",
+    "start": 14.872,
+    "end": 14.942
+  },
+  {
+    "word": "physical",
+    "start": 15.012,
+    "end": 15.441
+  },
+  {
+    "word": "identifiers",
+    "start": 15.522,
+    "end": 16.265
+  },
+  {
+    "word": "attached",
+    "start": 16.312,
+    "end": 16.765
+  },
+  {
+    "word": "to",
+    "start": 16.8,
+    "end": 16.916
+  },
+  {
+    "word": "trackable",
+    "start": 17.009,
+    "end": 17.67
+  },
+  {
+    "word": "items",
+    "start": 17.821,
+    "end": 18.332
+  },
+  {
+    "word": "—",
+    "start": 18.355,
+    "end": 20.341
+  },
+  {
+    "word": "like",
+    "start": 20.956,
+    "end": 22.5
+  },
+  {
+    "word": "radios,",
+    "start": 23.115,
+    "end": 23.963
+  },
+  {
+    "word": "jackets,",
+    "start": 24.578,
+    "end": 25.356
+  },
+  {
+    "word": "and",
+    "start": 25.693,
+    "end": 25.925
+  },
+  {
+    "word": "wristbands",
+    "start": 26.006,
+    "end": 26.61
+  },
+  {
+    "word": "—",
+    "start": 26.772,
+    "end": 26.9
+  },
+  {
+    "word": "so",
+    "start": 27.365,
+    "end": 27.516
+  },
+  {
+    "word": "each",
+    "start": 27.597,
+    "end": 27.783
+  },
+  {
+    "word": "individual",
+    "start": 27.817,
+    "end": 28.27
+  },
+  {
+    "word": "item",
+    "start": 28.34,
+    "end": 28.595
+  },
+  {
+    "word": "can",
+    "start": 28.665,
+    "end": 28.781
+  },
+  {
+    "word": "be",
+    "start": 28.827,
+    "end": 28.909
+  },
+  {
+    "word": "located",
+    "start": 28.967,
+    "end": 29.431
+  },
+  {
+    "word": "and",
+    "start": 29.478,
+    "end": 29.605
+  },
+  {
+    "word": "accounted",
+    "start": 29.64,
+    "end": 30.012
+  },
+  {
+    "word": "for",
+    "start": 30.058,
+    "end": 30.302
+  },
+  {
+    "word": "throughout",
+    "start": 30.546,
+    "end": 30.917
+  },
+  {
+    "word": "check-in",
+    "start": 30.964,
+    "end": 31.393
+  },
+  {
+    "word": "and",
+    "start": 31.637,
+    "end": 31.997
+  },
+  {
+    "word": "check-out.",
+    "start": 32.125,
+    "end": 32.995
+  },
+  {
+    "word": "If",
+    "start": 32.995,
+    "end": 33.146
+  },
+  {
+    "word": "no",
+    "start": 33.216,
+    "end": 33.332
+  },
+  {
+    "word": "items",
+    "start": 33.425,
+    "end": 33.669
+  },
+  {
+    "word": "appear",
+    "start": 33.704,
+    "end": 33.936
+  },
+  {
+    "word": "after",
+    "start": 33.994,
+    "end": 34.18
+  },
+  {
+    "word": "searching,",
+    "start": 34.238,
+    "end": 34.737
+  },
+  {
+    "word": "your",
+    "start": 34.946,
+    "end": 35.097
+  },
+  {
+    "word": "branch",
+    "start": 35.143,
+    "end": 35.41
+  },
+  {
+    "word": "has",
+    "start": 35.434,
+    "end": 35.561
+  },
+  {
+    "word": "no",
+    "start": 35.631,
+    "end": 35.77
+  },
+  {
+    "word": "asset",
+    "start": 35.84,
+    "end": 36.153
+  },
+  {
+    "word": "tags",
+    "start": 36.188,
+    "end": 36.478
+  },
+  {
+    "word": "registered",
+    "start": 36.571,
+    "end": 36.978
+  },
+  {
+    "word": "yet.",
+    "start": 37.001,
+    "end": 37.326
+  },
+  {
+    "word": "Work",
+    "start": 37.709,
+    "end": 37.906
+  },
+  {
+    "word": "with",
+    "start": 37.941,
+    "end": 38.034
+  },
+  {
+    "word": "your",
+    "start": 38.069,
+    "end": 38.162
+  },
+  {
+    "word": "administrator",
+    "start": 38.185,
+    "end": 38.731
+  },
+  {
+    "word": "to",
+    "start": 38.789,
+    "end": 38.858
+  },
+  {
+    "word": "set",
+    "start": 38.975,
+    "end": 39.184
+  },
+  {
+    "word": "them",
+    "start": 39.218,
+    "end": 39.346
+  },
+  {
+    "word": "up",
+    "start": 39.393,
+    "end": 39.497
+  },
+  {
+    "word": "before",
+    "start": 39.555,
+    "end": 39.834
+  },
+  {
+    "word": "an",
+    "start": 39.857,
+    "end": 39.903
+  },
+  {
+    "word": "event.",
+    "start": 39.95,
+    "end": 40.588
+  }
+]

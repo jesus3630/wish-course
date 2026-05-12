@@ -1,0 +1,562 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "Exclusions",
+    "start": 0.221,
+    "end": 0.778
+  },
+  {
+    "word": "tab",
+    "start": 0.824,
+    "end": 1.138
+  },
+  {
+    "word": "lets",
+    "start": 1.219,
+    "end": 1.393
+  },
+  {
+    "word": "you",
+    "start": 1.428,
+    "end": 1.521
+  },
+  {
+    "word": "flag",
+    "start": 1.614,
+    "end": 1.916
+  },
+  {
+    "word": "clients",
+    "start": 1.974,
+    "end": 2.403
+  },
+  {
+    "word": "or",
+    "start": 2.438,
+    "end": 2.508
+  },
+  {
+    "word": "jobs",
+    "start": 2.577,
+    "end": 3.007
+  },
+  {
+    "word": "that",
+    "start": 3.053,
+    "end": 3.251
+  },
+  {
+    "word": "a",
+    "start": 3.32,
+    "end": 3.379
+  },
+  {
+    "word": "specific",
+    "start": 3.46,
+    "end": 4.04
+  },
+  {
+    "word": "employee",
+    "start": 4.098,
+    "end": 4.632
+  },
+  {
+    "word": "should",
+    "start": 4.679,
+    "end": 4.899
+  },
+  {
+    "word": "never",
+    "start": 4.992,
+    "end": 5.248
+  },
+  {
+    "word": "be",
+    "start": 5.317,
+    "end": 5.422
+  },
+  {
+    "word": "assigned",
+    "start": 5.468,
+    "end": 5.851
+  },
+  {
+    "word": "to.",
+    "start": 5.886,
+    "end": 6.513
+  },
+  {
+    "word": "Once",
+    "start": 6.513,
+    "end": 6.803
+  },
+  {
+    "word": "an",
+    "start": 6.838,
+    "end": 6.908
+  },
+  {
+    "word": "exclusion",
+    "start": 6.954,
+    "end": 7.5
+  },
+  {
+    "word": "is",
+    "start": 7.57,
+    "end": 7.663
+  },
+  {
+    "word": "set:",
+    "start": 7.721,
+    "end": 8.104
+  },
+  {
+    "word": "•",
+    "start": 8.104,
+    "end": 8.255
+  },
+  {
+    "word": "The",
+    "start": 8.29,
+    "end": 8.406
+  },
+  {
+    "word": "employee",
+    "start": 8.464,
+    "end": 8.975
+  },
+  {
+    "word": "will",
+    "start": 9.009,
+    "end": 9.172
+  },
+  {
+    "word": "not",
+    "start": 9.23,
+    "end": 9.369
+  },
+  {
+    "word": "appear",
+    "start": 9.404,
+    "end": 9.718
+  },
+  {
+    "word": "as",
+    "start": 9.787,
+    "end": 9.88
+  },
+  {
+    "word": "available",
+    "start": 9.938,
+    "end": 10.461
+  },
+  {
+    "word": "when",
+    "start": 10.495,
+    "end": 10.646
+  },
+  {
+    "word": "scheduling",
+    "start": 10.693,
+    "end": 11.169
+  },
+  {
+    "word": "for",
+    "start": 11.227,
+    "end": 11.331
+  },
+  {
+    "word": "that",
+    "start": 11.378,
+    "end": 11.517
+  },
+  {
+    "word": "client",
+    "start": 11.575,
+    "end": 11.923
+  },
+  {
+    "word": "or",
+    "start": 11.958,
+    "end": 12.028
+  },
+  {
+    "word": "job",
+    "start": 12.086,
+    "end": 12.504
+  },
+  {
+    "word": "•",
+    "start": 12.504,
+    "end": 15.302
+  },
+  {
+    "word": "This",
+    "start": 15.743,
+    "end": 15.975
+  },
+  {
+    "word": "prevents",
+    "start": 16.045,
+    "end": 16.521
+  },
+  {
+    "word": "accidental",
+    "start": 16.637,
+    "end": 17.218
+  },
+  {
+    "word": "scheduling",
+    "start": 17.264,
+    "end": 17.74
+  },
+  {
+    "word": "conflicts",
+    "start": 17.798,
+    "end": 18.309
+  },
+  {
+    "word": "or",
+    "start": 18.379,
+    "end": 18.553
+  },
+  {
+    "word": "safety",
+    "start": 18.669,
+    "end": 19.029
+  },
+  {
+    "word": "concerns",
+    "start": 19.075,
+    "end": 20.074
+  },
+  {
+    "word": "Common",
+    "start": 20.074,
+    "end": 20.666
+  },
+  {
+    "word": "reasons",
+    "start": 20.944,
+    "end": 21.432
+  },
+  {
+    "word": "for",
+    "start": 21.502,
+    "end": 21.873
+  },
+  {
+    "word": "exclusions:",
+    "start": 22.117,
+    "end": 23.452
+  },
+  {
+    "word": "•",
+    "start": 23.452,
+    "end": 23.475
+  },
+  {
+    "word": "A",
+    "start": 23.592,
+    "end": 23.684
+  },
+  {
+    "word": "client",
+    "start": 23.777,
+    "end": 24.277
+  },
+  {
+    "word": "has",
+    "start": 24.335,
+    "end": 24.474
+  },
+  {
+    "word": "requested",
+    "start": 24.544,
+    "end": 25.043
+  },
+  {
+    "word": "the",
+    "start": 25.078,
+    "end": 25.159
+  },
+  {
+    "word": "employee",
+    "start": 25.229,
+    "end": 25.832
+  },
+  {
+    "word": "not",
+    "start": 25.925,
+    "end": 26.181
+  },
+  {
+    "word": "return",
+    "start": 26.25,
+    "end": 26.703
+  },
+  {
+    "word": "to",
+    "start": 26.773,
+    "end": 26.842
+  },
+  {
+    "word": "their",
+    "start": 26.924,
+    "end": 27.098
+  },
+  {
+    "word": "venue",
+    "start": 27.167,
+    "end": 27.783
+  },
+  {
+    "word": "•",
+    "start": 27.783,
+    "end": 27.829
+  },
+  {
+    "word": "There",
+    "start": 28.038,
+    "end": 28.224
+  },
+  {
+    "word": "is",
+    "start": 28.259,
+    "end": 28.328
+  },
+  {
+    "word": "a",
+    "start": 28.375,
+    "end": 28.41
+  },
+  {
+    "word": "known",
+    "start": 28.491,
+    "end": 28.781
+  },
+  {
+    "word": "conflict",
+    "start": 28.851,
+    "end": 29.362
+  },
+  {
+    "word": "between",
+    "start": 29.397,
+    "end": 29.687
+  },
+  {
+    "word": "the",
+    "start": 29.71,
+    "end": 29.78
+  },
+  {
+    "word": "employee",
+    "start": 29.814,
+    "end": 30.395
+  },
+  {
+    "word": "and",
+    "start": 30.453,
+    "end": 30.558
+  },
+  {
+    "word": "a",
+    "start": 30.604,
+    "end": 30.639
+  },
+  {
+    "word": "specific",
+    "start": 30.674,
+    "end": 31.161
+  },
+  {
+    "word": "account",
+    "start": 31.208,
+    "end": 31.718
+  },
+  {
+    "word": "•",
+    "start": 31.718,
+    "end": 31.742
+  },
+  {
+    "word": "A",
+    "start": 31.986,
+    "end": 32.102
+  },
+  {
+    "word": "safety",
+    "start": 32.253,
+    "end": 32.717
+  },
+  {
+    "word": "or",
+    "start": 32.799,
+    "end": 32.938
+  },
+  {
+    "word": "conduct",
+    "start": 33.031,
+    "end": 33.472
+  },
+  {
+    "word": "issue",
+    "start": 33.542,
+    "end": 33.867
+  },
+  {
+    "word": "tied",
+    "start": 33.913,
+    "end": 34.296
+  },
+  {
+    "word": "to",
+    "start": 34.343,
+    "end": 34.459
+  },
+  {
+    "word": "a",
+    "start": 34.575,
+    "end": 34.61
+  },
+  {
+    "word": "specific",
+    "start": 34.679,
+    "end": 35.213
+  },
+  {
+    "word": "location",
+    "start": 35.271,
+    "end": 36.038
+  },
+  {
+    "word": "Exclusions",
+    "start": 36.038,
+    "end": 36.897
+  },
+  {
+    "word": "are",
+    "start": 36.932,
+    "end": 37.025
+  },
+  {
+    "word": "not",
+    "start": 37.059,
+    "end": 37.164
+  },
+  {
+    "word": "the",
+    "start": 37.199,
+    "end": 37.268
+  },
+  {
+    "word": "same",
+    "start": 37.315,
+    "end": 37.57
+  },
+  {
+    "word": "as",
+    "start": 37.605,
+    "end": 37.675
+  },
+  {
+    "word": "disciplinary",
+    "start": 37.744,
+    "end": 38.336
+  },
+  {
+    "word": "action",
+    "start": 38.406,
+    "end": 38.754
+  },
+  {
+    "word": "—",
+    "start": 38.778,
+    "end": 38.824
+  },
+  {
+    "word": "they're",
+    "start": 38.871,
+    "end": 39.103
+  },
+  {
+    "word": "a",
+    "start": 39.126,
+    "end": 39.149
+  },
+  {
+    "word": "scheduling",
+    "start": 39.196,
+    "end": 39.614
+  },
+  {
+    "word": "control.",
+    "start": 39.66,
+    "end": 40.182
+  },
+  {
+    "word": "Document",
+    "start": 40.391,
+    "end": 40.891
+  },
+  {
+    "word": "the",
+    "start": 40.926,
+    "end": 40.995
+  },
+  {
+    "word": "reason",
+    "start": 41.065,
+    "end": 41.378
+  },
+  {
+    "word": "in",
+    "start": 41.425,
+    "end": 41.483
+  },
+  {
+    "word": "Employee",
+    "start": 41.552,
+    "end": 41.936
+  },
+  {
+    "word": "Notes",
+    "start": 41.994,
+    "end": 42.261
+  },
+  {
+    "word": "so",
+    "start": 42.295,
+    "end": 42.412
+  },
+  {
+    "word": "the",
+    "start": 42.481,
+    "end": 42.551
+  },
+  {
+    "word": "context",
+    "start": 42.609,
+    "end": 43.178
+  },
+  {
+    "word": "is",
+    "start": 43.224,
+    "end": 43.317
+  },
+  {
+    "word": "on",
+    "start": 43.375,
+    "end": 43.468
+  },
+  {
+    "word": "record.",
+    "start": 43.549,
+    "end": 44.165
+  }
+]
