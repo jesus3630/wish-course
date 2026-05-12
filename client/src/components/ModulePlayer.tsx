@@ -12,6 +12,15 @@ async function textHash(text: string): Promise<string> {
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+// Collapse extra horizontal whitespace and multiple blank lines — used for display and word count.
+// Hash still uses raw .trim() to match pre-generated audio filenames.
+function normalizeText(text: string): string {
+  return text
+    .replace(/[^\S\n]+/g, ' ')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
 interface Props {
   module: Module;
   moduleIndex: number;
@@ -61,7 +70,7 @@ export default function ModulePlayer({
   const slide = module.slides[slideIndex];
   const questions: QuizQuestion[] = quizData[module.id] ?? [];
   const isLastSlide = slideIndex === module.slides.length - 1;
-  const slideText = slide?.text ?? '';
+  const slideText = normalizeText(slide?.text ?? '');
   const slideName = slide?.slide_name ?? '';
 
   function stopRaf(keepIndex = false) {
