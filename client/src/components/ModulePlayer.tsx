@@ -163,14 +163,38 @@ export default function ModulePlayer({
     if (existing) return existing;
     const text = module.slides[idx]?.text?.trim() ?? '';
     if (!text) return Promise.resolve(null);
-    const promise = fetch('/api/narrate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text }),
-    })
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(({ audio: b64, timings }): PrefetchEntry => ({ url: b64ToBlob(b64), timings: timings ?? [] }))
-      .catch((): null => { prefetchCacheRef.current.delete(idx); return null; });
+
+    const promise = (async (): Promise<PrefetchEntry | null> => {
+      // Try pre-generated static file first — instant, no ElevenLabs quota
+      const mp3Url = `/audio/${module.id}/slide_${idx}.mp3`;
+      try {
+        const head = await fetch(mp3Url, { method: 'HEAD' });
+        if (head.ok) {
+          let timings: Timing[] = [];
+          try {
+            const tr = await fetch(`/audio/${module.id}/slide_${idx}.json`);
+            if (tr.ok) timings = await tr.json();
+          } catch {}
+          return { url: mp3Url, timings };
+        }
+      } catch {}
+
+      // Fall back to ElevenLabs API
+      try {
+        const r = await fetch('/api/narrate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text }),
+        });
+        if (!r.ok) throw new Error();
+        const { audio: b64, timings } = await r.json();
+        return { url: b64ToBlob(b64), timings: timings ?? [] };
+      } catch {
+        prefetchCacheRef.current.delete(idx);
+        return null;
+      }
+    })();
+
     prefetchCacheRef.current.set(idx, promise);
     return promise;
   }
