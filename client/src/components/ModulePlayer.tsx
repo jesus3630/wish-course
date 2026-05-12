@@ -16,6 +16,8 @@ async function textHash(text: string): Promise<string> {
 // Hash still uses raw .trim() to match pre-generated audio filenames.
 function normalizeText(text: string): string {
   return text
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{2,}/g, '\n')
     .trim();
