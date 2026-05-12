@@ -172,16 +172,10 @@ export default function ModulePlayer({
     const promise = (async (): Promise<PrefetchEntry | null> => {
       // Try pre-generated static file first (named by text hash — auto-invalidates on edit)
       try {
-        const hash   = await textHash(text);
-        const mp3Url = `/audio/${hash}.mp3`;
-        const head   = await fetch(mp3Url, { method: 'HEAD' });
-        if (head.ok) {
-          let timings: Timing[] = [];
-          try {
-            const tr = await fetch(`/audio/${hash}.json`);
-            if (tr.ok) timings = await tr.json();
-          } catch {}
-          return { url: mp3Url, timings };
+        const hash = await textHash(text);
+        const tr   = await fetch(`/audio/${hash}.json`);
+        if (tr.ok) {
+          return { url: `/audio/${hash}.mp3`, timings: await tr.json() };
         }
       } catch {}
 

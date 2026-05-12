@@ -166,11 +166,13 @@ async function main() {
       const jsonPath = path.join(OUTPUT, `${hash}.json`);
       const label    = `[${String(count).padStart(3)}/${total}]  ${mod.id} › slide ${i}`;
 
-      if (fs.existsSync(mp3Path) && fs.statSync(mp3Path).size > 1000) {
-        skipped++;
-        console.log(`SKIP  ${label}  (${hash.slice(0, 8)}…)`);
-        continue;
-      }
+      try {
+        if (fs.statSync(mp3Path).size > 1000) {
+          skipped++;
+          console.log(`SKIP  ${label}  (${hash.slice(0, 8)}…)`);
+          continue;
+        }
+      } catch {}
 
       process.stdout.write(`GEN   ${label}  (${hash.slice(0, 8)}…) ...`);
       try {
