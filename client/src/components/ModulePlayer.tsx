@@ -18,8 +18,9 @@ function normalizeText(text: string): string {
   return text
     .replace(/\r\n/g, '\n')
     .replace(/\r/g, '\n')
-    .replace(/[^\S\n]+/g, ' ')
-    .replace(/\n{2,}/g, '\n')
+    .replace(/[^\S\n]+/g, ' ')   // collapse horizontal whitespace
+    .replace(/\n[ \t]+\n/g, '\n') // remove whitespace-only lines
+    .replace(/\n{2,}/g, '\n')     // collapse multiple blank lines
     .trim();
 }
 
