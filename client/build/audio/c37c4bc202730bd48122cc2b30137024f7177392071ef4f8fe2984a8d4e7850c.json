@@ -1,0 +1,732 @@
+[
+  {
+    "word": "Billing",
+    "start": 0,
+    "end": 0.36
+  },
+  {
+    "word": "Reports",
+    "start": 0.406,
+    "end": 0.859
+  },
+  {
+    "word": "give",
+    "start": 0.929,
+    "end": 1.115
+  },
+  {
+    "word": "you",
+    "start": 1.149,
+    "end": 1.242
+  },
+  {
+    "word": "visibility",
+    "start": 1.335,
+    "end": 2.032
+  },
+  {
+    "word": "into",
+    "start": 2.113,
+    "end": 2.334
+  },
+  {
+    "word": "the",
+    "start": 2.403,
+    "end": 2.473
+  },
+  {
+    "word": "financial",
+    "start": 2.543,
+    "end": 3.03
+  },
+  {
+    "word": "side",
+    "start": 3.088,
+    "end": 3.367
+  },
+  {
+    "word": "of",
+    "start": 3.402,
+    "end": 3.448
+  },
+  {
+    "word": "your",
+    "start": 3.506,
+    "end": 3.622
+  },
+  {
+    "word": "events,",
+    "start": 3.669,
+    "end": 4.098
+  },
+  {
+    "word": "what",
+    "start": 4.133,
+    "end": 4.331
+  },
+  {
+    "word": "has",
+    "start": 4.365,
+    "end": 4.481
+  },
+  {
+    "word": "been",
+    "start": 4.551,
+    "end": 4.737
+  },
+  {
+    "word": "invoiced,",
+    "start": 4.807,
+    "end": 5.445
+  },
+  {
+    "word": "what",
+    "start": 5.492,
+    "end": 5.7
+  },
+  {
+    "word": "hasn't,",
+    "start": 5.77,
+    "end": 6.258
+  },
+  {
+    "word": "and",
+    "start": 6.293,
+    "end": 6.455
+  },
+  {
+    "word": "what",
+    "start": 6.513,
+    "end": 6.687
+  },
+  {
+    "word": "labor",
+    "start": 6.769,
+    "end": 7.047
+  },
+  {
+    "word": "costs",
+    "start": 7.117,
+    "end": 7.57
+  },
+  {
+    "word": "look",
+    "start": 7.744,
+    "end": 7.953
+  },
+  {
+    "word": "like.",
+    "start": 8.011,
+    "end": 8.673
+  },
+  {
+    "word": "Reports",
+    "start": 8.673,
+    "end": 9.172
+  },
+  {
+    "word": "available",
+    "start": 9.23,
+    "end": 9.787
+  },
+  {
+    "word": "here:",
+    "start": 9.845,
+    "end": 10.437
+  },
+  {
+    "word": "•",
+    "start": 10.437,
+    "end": 10.553
+  },
+  {
+    "word": "Billing",
+    "start": 10.67,
+    "end": 11.018
+  },
+  {
+    "word": "Invoice",
+    "start": 11.099,
+    "end": 11.691
+  },
+  {
+    "word": "Ledger",
+    "start": 11.807,
+    "end": 12.156
+  },
+  {
+    "word": "Report,",
+    "start": 12.225,
+    "end": 12.759
+  },
+  {
+    "word": "a",
+    "start": 12.875,
+    "end": 12.957
+  },
+  {
+    "word": "record",
+    "start": 13.108,
+    "end": 13.421
+  },
+  {
+    "word": "of",
+    "start": 13.456,
+    "end": 13.526
+  },
+  {
+    "word": "all",
+    "start": 13.607,
+    "end": 13.827
+  },
+  {
+    "word": "invoices",
+    "start": 13.92,
+    "end": 14.478
+  },
+  {
+    "word": "generated,",
+    "start": 14.547,
+    "end": 15.093
+  },
+  {
+    "word": "with",
+    "start": 15.128,
+    "end": 15.314
+  },
+  {
+    "word": "amounts",
+    "start": 15.36,
+    "end": 15.72
+  },
+  {
+    "word": "and",
+    "start": 15.755,
+    "end": 15.836
+  },
+  {
+    "word": "client",
+    "start": 15.883,
+    "end": 16.208
+  },
+  {
+    "word": "details",
+    "start": 16.254,
+    "end": 16.974
+  },
+  {
+    "word": "•",
+    "start": 16.974,
+    "end": 17.891
+  },
+  {
+    "word": "Payroll",
+    "start": 18.054,
+    "end": 18.669
+  },
+  {
+    "word": "UnBilled",
+    "start": 19.935,
+    "end": 20.689
+  },
+  {
+    "word": "Hour",
+    "start": 21.943,
+    "end": 22.326
+  },
+  {
+    "word": "Report,",
+    "start": 22.442,
+    "end": 23.081
+  },
+  {
+    "word": "shows",
+    "start": 23.278,
+    "end": 23.685
+  },
+  {
+    "word": "approved",
+    "start": 23.743,
+    "end": 24.242
+  },
+  {
+    "word": "hours",
+    "start": 24.311,
+    "end": 24.764
+  },
+  {
+    "word": "that",
+    "start": 24.822,
+    "end": 24.962
+  },
+  {
+    "word": "have",
+    "start": 25.008,
+    "end": 25.171
+  },
+  {
+    "word": "not",
+    "start": 25.229,
+    "end": 25.484
+  },
+  {
+    "word": "yet",
+    "start": 25.531,
+    "end": 25.774
+  },
+  {
+    "word": "been",
+    "start": 25.832,
+    "end": 25.995
+  },
+  {
+    "word": "billed",
+    "start": 26.053,
+    "end": 26.366
+  },
+  {
+    "word": "to",
+    "start": 26.401,
+    "end": 26.494
+  },
+  {
+    "word": "a",
+    "start": 26.564,
+    "end": 26.599
+  },
+  {
+    "word": "client.",
+    "start": 26.633,
+    "end": 27.272
+  },
+  {
+    "word": "Use",
+    "start": 27.702,
+    "end": 27.992
+  },
+  {
+    "word": "this",
+    "start": 28.038,
+    "end": 28.247
+  },
+  {
+    "word": "to",
+    "start": 28.317,
+    "end": 28.41
+  },
+  {
+    "word": "make",
+    "start": 28.479,
+    "end": 28.677
+  },
+  {
+    "word": "sure",
+    "start": 28.712,
+    "end": 28.967
+  },
+  {
+    "word": "nothing",
+    "start": 29.06,
+    "end": 29.385
+  },
+  {
+    "word": "falls",
+    "start": 29.49,
+    "end": 29.803
+  },
+  {
+    "word": "through",
+    "start": 29.826,
+    "end": 30.024
+  },
+  {
+    "word": "the",
+    "start": 30.047,
+    "end": 30.105
+  },
+  {
+    "word": "cracks",
+    "start": 30.151,
+    "end": 30.639
+  },
+  {
+    "word": "before",
+    "start": 30.836,
+    "end": 31.277
+  },
+  {
+    "word": "closing",
+    "start": 31.336,
+    "end": 31.719
+  },
+  {
+    "word": "out",
+    "start": 31.765,
+    "end": 31.951
+  },
+  {
+    "word": "an",
+    "start": 32.021,
+    "end": 32.113
+  },
+  {
+    "word": "event.",
+    "start": 32.171,
+    "end": 33.785
+  },
+  {
+    "word": "•",
+    "start": 33.785,
+    "end": 33.808
+  },
+  {
+    "word": "Labour",
+    "start": 34.017,
+    "end": 34.354
+  },
+  {
+    "word": "Cost",
+    "start": 34.423,
+    "end": 34.725
+  },
+  {
+    "word": "Estimation,",
+    "start": 34.795,
+    "end": 35.538
+  },
+  {
+    "word": "projects",
+    "start": 35.654,
+    "end": 36.142
+  },
+  {
+    "word": "labor",
+    "start": 36.211,
+    "end": 36.478
+  },
+  {
+    "word": "costs",
+    "start": 36.536,
+    "end": 37.012
+  },
+  {
+    "word": "based",
+    "start": 37.337,
+    "end": 37.639
+  },
+  {
+    "word": "on",
+    "start": 37.686,
+    "end": 37.755
+  },
+  {
+    "word": "scheduled",
+    "start": 37.79,
+    "end": 38.162
+  },
+  {
+    "word": "hours",
+    "start": 38.185,
+    "end": 38.603
+  },
+  {
+    "word": "and",
+    "start": 38.719,
+    "end": 38.986
+  },
+  {
+    "word": "pay",
+    "start": 39.056,
+    "end": 39.218
+  },
+  {
+    "word": "rates.",
+    "start": 39.276,
+    "end": 39.717
+  },
+  {
+    "word": "Useful",
+    "start": 40.043,
+    "end": 40.449
+  },
+  {
+    "word": "for",
+    "start": 40.507,
+    "end": 40.646
+  },
+  {
+    "word": "pre-event",
+    "start": 40.716,
+    "end": 41.122
+  },
+  {
+    "word": "budget",
+    "start": 41.169,
+    "end": 41.447
+  },
+  {
+    "word": "planning.",
+    "start": 41.482,
+    "end": 42.098
+  },
+  {
+    "word": "•",
+    "start": 42.098,
+    "end": 42.132
+  },
+  {
+    "word": "Billing",
+    "start": 42.248,
+    "end": 42.562
+  },
+  {
+    "word": "Invoice",
+    "start": 42.608,
+    "end": 42.98
+  },
+  {
+    "word": "Register,",
+    "start": 43.026,
+    "end": 43.642
+  },
+  {
+    "word": "a",
+    "start": 43.851,
+    "end": 43.932
+  },
+  {
+    "word": "summary",
+    "start": 44.048,
+    "end": 44.408
+  },
+  {
+    "word": "register",
+    "start": 44.478,
+    "end": 44.907
+  },
+  {
+    "word": "of",
+    "start": 44.988,
+    "end": 45.058
+  },
+  {
+    "word": "all",
+    "start": 45.151,
+    "end": 45.418
+  },
+  {
+    "word": "billing",
+    "start": 45.488,
+    "end": 45.778
+  },
+  {
+    "word": "activity",
+    "start": 45.836,
+    "end": 46.277
+  },
+  {
+    "word": "across",
+    "start": 46.335,
+    "end": 46.672
+  },
+  {
+    "word": "a",
+    "start": 46.718,
+    "end": 46.753
+  },
+  {
+    "word": "date",
+    "start": 46.834,
+    "end": 47.067
+  },
+  {
+    "word": "range",
+    "start": 47.113,
+    "end": 47.728
+  },
+  {
+    "word": "•",
+    "start": 47.728,
+    "end": 47.775
+  },
+  {
+    "word": "Billing",
+    "start": 47.891,
+    "end": 48.204
+  },
+  {
+    "word": "Ledger",
+    "start": 48.262,
+    "end": 48.517
+  },
+  {
+    "word": "Details,",
+    "start": 48.576,
+    "end": 49.353
+  },
+  {
+    "word": "a",
+    "start": 49.562,
+    "end": 49.644
+  },
+  {
+    "word": "detailed",
+    "start": 49.76,
+    "end": 50.271
+  },
+  {
+    "word": "line-by-line",
+    "start": 50.317,
+    "end": 51.072
+  },
+  {
+    "word": "view",
+    "start": 51.118,
+    "end": 51.443
+  },
+  {
+    "word": "of",
+    "start": 51.826,
+    "end": 52.024
+  },
+  {
+    "word": "billing",
+    "start": 52.175,
+    "end": 52.535
+  },
+  {
+    "word": "transactions",
+    "start": 52.581,
+    "end": 54.694
+  },
+  {
+    "word": "For",
+    "start": 54.694,
+    "end": 55.193
+  },
+  {
+    "word": "most",
+    "start": 55.402,
+    "end": 55.913
+  },
+  {
+    "word": "day-to-day",
+    "start": 56.087,
+    "end": 56.61
+  },
+  {
+    "word": "use,",
+    "start": 56.691,
+    "end": 57.364
+  },
+  {
+    "word": "Payroll",
+    "start": 57.573,
+    "end": 58.189
+  },
+  {
+    "word": "UnBilled",
+    "start": 58.34,
+    "end": 58.804
+  },
+  {
+    "word": "Hour",
+    "start": 58.862,
+    "end": 59.106
+  },
+  {
+    "word": "Report",
+    "start": 59.175,
+    "end": 59.651
+  },
+  {
+    "word": "is",
+    "start": 59.895,
+    "end": 60.093
+  },
+  {
+    "word": "the",
+    "start": 60.162,
+    "end": 60.255
+  },
+  {
+    "word": "one",
+    "start": 60.348,
+    "end": 60.65
+  },
+  {
+    "word": "to",
+    "start": 60.708,
+    "end": 60.836
+  },
+  {
+    "word": "check",
+    "start": 60.917,
+    "end": 61.196
+  },
+  {
+    "word": "regularly,",
+    "start": 61.312,
+    "end": 62.055
+  },
+  {
+    "word": "it",
+    "start": 62.496,
+    "end": 62.647
+  },
+  {
+    "word": "tells",
+    "start": 62.693,
+    "end": 62.983
+  },
+  {
+    "word": "you",
+    "start": 63.053,
+    "end": 63.181
+  },
+  {
+    "word": "what",
+    "start": 63.297,
+    "end": 63.518
+  },
+  {
+    "word": "work",
+    "start": 63.599,
+    "end": 63.936
+  },
+  {
+    "word": "has",
+    "start": 64.017,
+    "end": 64.191
+  },
+  {
+    "word": "been",
+    "start": 64.249,
+    "end": 64.423
+  },
+  {
+    "word": "done",
+    "start": 64.481,
+    "end": 65.015
+  },
+  {
+    "word": "but",
+    "start": 65.34,
+    "end": 65.526
+  },
+  {
+    "word": "not",
+    "start": 65.596,
+    "end": 65.793
+  },
+  {
+    "word": "yet",
+    "start": 65.851,
+    "end": 66.049
+  },
+  {
+    "word": "invoiced.",
+    "start": 66.118,
+    "end": 67.012
+  }
+]

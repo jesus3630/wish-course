@@ -1,0 +1,452 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "to",
+    "start": 0.221,
+    "end": 0.267
+  },
+  {
+    "word": "Payroll",
+    "start": 0.348,
+    "end": 0.743
+  },
+  {
+    "word": "to",
+    "start": 0.801,
+    "end": 0.871
+  },
+  {
+    "word": "Manage",
+    "start": 0.952,
+    "end": 1.196
+  },
+  {
+    "word": "Process",
+    "start": 1.231,
+    "end": 1.672
+  },
+  {
+    "word": "Hours.",
+    "start": 1.707,
+    "end": 2.148
+  },
+  {
+    "word": "The",
+    "start": 2.241,
+    "end": 2.368
+  },
+  {
+    "word": "screen",
+    "start": 2.426,
+    "end": 2.728
+  },
+  {
+    "word": "defaults",
+    "start": 2.786,
+    "end": 3.158
+  },
+  {
+    "word": "to",
+    "start": 3.204,
+    "end": 3.274
+  },
+  {
+    "word": "today's",
+    "start": 3.355,
+    "end": 3.692
+  },
+  {
+    "word": "date,",
+    "start": 3.762,
+    "end": 4.087
+  },
+  {
+    "word": "if",
+    "start": 4.122,
+    "end": 4.261
+  },
+  {
+    "word": "you",
+    "start": 4.307,
+    "end": 4.389
+  },
+  {
+    "word": "are",
+    "start": 4.435,
+    "end": 4.54
+  },
+  {
+    "word": "processing",
+    "start": 4.586,
+    "end": 5.132
+  },
+  {
+    "word": "hours",
+    "start": 5.201,
+    "end": 5.573
+  },
+  {
+    "word": "from",
+    "start": 5.619,
+    "end": 5.77
+  },
+  {
+    "word": "earlier",
+    "start": 5.863,
+    "end": 6.223
+  },
+  {
+    "word": "in",
+    "start": 6.281,
+    "end": 6.351
+  },
+  {
+    "word": "the",
+    "start": 6.397,
+    "end": 6.467
+  },
+  {
+    "word": "week,",
+    "start": 6.525,
+    "end": 6.827
+  },
+  {
+    "word": "change",
+    "start": 6.873,
+    "end": 7.221
+  },
+  {
+    "word": "the",
+    "start": 7.245,
+    "end": 7.314
+  },
+  {
+    "word": "start",
+    "start": 7.361,
+    "end": 7.593
+  },
+  {
+    "word": "date",
+    "start": 7.628,
+    "end": 7.814
+  },
+  {
+    "word": "back",
+    "start": 7.86,
+    "end": 8.046
+  },
+  {
+    "word": "to",
+    "start": 8.104,
+    "end": 8.162
+  },
+  {
+    "word": "match",
+    "start": 8.243,
+    "end": 8.475
+  },
+  {
+    "word": "your",
+    "start": 8.51,
+    "end": 8.626
+  },
+  {
+    "word": "jobs.",
+    "start": 8.684,
+    "end": 9.265
+  },
+  {
+    "word": "Select",
+    "start": 9.265,
+    "end": 9.625
+  },
+  {
+    "word": "your",
+    "start": 9.659,
+    "end": 9.776
+  },
+  {
+    "word": "Event",
+    "start": 9.834,
+    "end": 10.066
+  },
+  {
+    "word": "from",
+    "start": 10.112,
+    "end": 10.228
+  },
+  {
+    "word": "the",
+    "start": 10.263,
+    "end": 10.333
+  },
+  {
+    "word": "dropdown",
+    "start": 10.379,
+    "end": 10.925
+  },
+  {
+    "word": "and",
+    "start": 10.983,
+    "end": 11.099
+  },
+  {
+    "word": "click",
+    "start": 11.18,
+    "end": 11.435
+  },
+  {
+    "word": "Retrieve.",
+    "start": 11.552,
+    "end": 12.155
+  },
+  {
+    "word": "This",
+    "start": 12.202,
+    "end": 12.422
+  },
+  {
+    "word": "pulls",
+    "start": 12.504,
+    "end": 12.771
+  },
+  {
+    "word": "up",
+    "start": 12.817,
+    "end": 12.91
+  },
+  {
+    "word": "the",
+    "start": 12.956,
+    "end": 13.026
+  },
+  {
+    "word": "shifts",
+    "start": 13.096,
+    "end": 13.409
+  },
+  {
+    "word": "for",
+    "start": 13.444,
+    "end": 13.537
+  },
+  {
+    "word": "that",
+    "start": 13.572,
+    "end": 13.699
+  },
+  {
+    "word": "job.",
+    "start": 13.757,
+    "end": 14.384
+  },
+  {
+    "word": "When",
+    "start": 14.384,
+    "end": 14.535
+  },
+  {
+    "word": "you",
+    "start": 14.57,
+    "end": 14.64
+  },
+  {
+    "word": "open",
+    "start": 14.698,
+    "end": 14.907
+  },
+  {
+    "word": "a",
+    "start": 14.965,
+    "end": 14.988
+  },
+  {
+    "word": "shift,",
+    "start": 15.069,
+    "end": 15.603
+  },
+  {
+    "word": "pay",
+    "start": 15.778,
+    "end": 15.963
+  },
+  {
+    "word": "attention",
+    "start": 16.01,
+    "end": 16.439
+  },
+  {
+    "word": "to",
+    "start": 16.486,
+    "end": 16.544
+  },
+  {
+    "word": "the",
+    "start": 16.625,
+    "end": 16.695
+  },
+  {
+    "word": "Sign-In",
+    "start": 16.764,
+    "end": 17.136
+  },
+  {
+    "word": "count.",
+    "start": 17.229,
+    "end": 17.624
+  },
+  {
+    "word": "That",
+    "start": 17.867,
+    "end": 18.076
+  },
+  {
+    "word": "number",
+    "start": 18.134,
+    "end": 18.378
+  },
+  {
+    "word": "tells",
+    "start": 18.436,
+    "end": 18.703
+  },
+  {
+    "word": "you",
+    "start": 18.761,
+    "end": 18.877
+  },
+  {
+    "word": "exactly",
+    "start": 18.97,
+    "end": 19.539
+  },
+  {
+    "word": "how",
+    "start": 19.597,
+    "end": 19.702
+  },
+  {
+    "word": "many",
+    "start": 19.748,
+    "end": 19.888
+  },
+  {
+    "word": "employees",
+    "start": 19.946,
+    "end": 20.456
+  },
+  {
+    "word": "came",
+    "start": 20.526,
+    "end": 20.793
+  },
+  {
+    "word": "through",
+    "start": 20.828,
+    "end": 21.048
+  },
+  {
+    "word": "electronic",
+    "start": 21.083,
+    "end": 21.606
+  },
+  {
+    "word": "sign-in.",
+    "start": 21.664,
+    "end": 22.256
+  },
+  {
+    "word": "Click",
+    "start": 22.465,
+    "end": 22.709
+  },
+  {
+    "word": "it",
+    "start": 22.755,
+    "end": 22.848
+  },
+  {
+    "word": "to",
+    "start": 22.906,
+    "end": 22.987
+  },
+  {
+    "word": "see",
+    "start": 23.069,
+    "end": 23.243
+  },
+  {
+    "word": "who",
+    "start": 23.289,
+    "end": 23.429
+  },
+  {
+    "word": "signed",
+    "start": 23.51,
+    "end": 23.846
+  },
+  {
+    "word": "in,",
+    "start": 23.916,
+    "end": 24.218
+  },
+  {
+    "word": "who",
+    "start": 24.299,
+    "end": 24.497
+  },
+  {
+    "word": "signed",
+    "start": 24.578,
+    "end": 24.891
+  },
+  {
+    "word": "out,",
+    "start": 24.949,
+    "end": 25.309
+  },
+  {
+    "word": "and",
+    "start": 25.483,
+    "end": 25.646
+  },
+  {
+    "word": "who",
+    "start": 25.704,
+    "end": 25.843
+  },
+  {
+    "word": "has",
+    "start": 25.913,
+    "end": 26.064
+  },
+  {
+    "word": "a",
+    "start": 26.122,
+    "end": 26.157
+  },
+  {
+    "word": "gap",
+    "start": 26.273,
+    "end": 26.621
+  },
+  {
+    "word": "that",
+    "start": 26.679,
+    "end": 26.795
+  },
+  {
+    "word": "needs",
+    "start": 26.842,
+    "end": 27.051
+  },
+  {
+    "word": "attention.",
+    "start": 27.086,
+    "end": 27.817
+  }
+]

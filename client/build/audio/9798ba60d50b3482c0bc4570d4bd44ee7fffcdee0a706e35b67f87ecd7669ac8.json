@@ -1,0 +1,402 @@
+[
+  {
+    "word": "Before",
+    "start": 0,
+    "end": 0.383
+  },
+  {
+    "word": "creating",
+    "start": 0.43,
+    "end": 0.766
+  },
+  {
+    "word": "anything",
+    "start": 0.848,
+    "end": 1.231
+  },
+  {
+    "word": "in",
+    "start": 1.289,
+    "end": 1.347
+  },
+  {
+    "word": "WISH,",
+    "start": 1.416,
+    "end": 1.846
+  },
+  {
+    "word": "understand",
+    "start": 2.055,
+    "end": 2.485
+  },
+  {
+    "word": "the",
+    "start": 2.531,
+    "end": 2.601
+  },
+  {
+    "word": "hierarchy,",
+    "start": 2.67,
+    "end": 3.425
+  },
+  {
+    "word": "the",
+    "start": 3.483,
+    "end": 3.611
+  },
+  {
+    "word": "order",
+    "start": 3.692,
+    "end": 3.924
+  },
+  {
+    "word": "records",
+    "start": 3.971,
+    "end": 4.296
+  },
+  {
+    "word": "must",
+    "start": 4.412,
+    "end": 4.679
+  },
+  {
+    "word": "exist.",
+    "start": 4.748,
+    "end": 5.41
+  },
+  {
+    "word": "At",
+    "start": 5.41,
+    "end": 5.573
+  },
+  {
+    "word": "the",
+    "start": 5.608,
+    "end": 5.677
+  },
+  {
+    "word": "top:",
+    "start": 5.735,
+    "end": 6.107
+  },
+  {
+    "word": "Company",
+    "start": 6.165,
+    "end": 6.594
+  },
+  {
+    "word": "and",
+    "start": 6.676,
+    "end": 6.803
+  },
+  {
+    "word": "Branch",
+    "start": 6.873,
+    "end": 7.291
+  },
+  {
+    "word": "(already",
+    "start": 7.372,
+    "end": 7.825
+  },
+  {
+    "word": "created,",
+    "start": 7.872,
+    "end": 8.406
+  },
+  {
+    "word": "CSC",
+    "start": 8.44,
+    "end": 9.056
+  },
+  {
+    "word": "and",
+    "start": 9.23,
+    "end": 9.381
+  },
+  {
+    "word": "all",
+    "start": 9.462,
+    "end": 9.648
+  },
+  {
+    "word": "locations",
+    "start": 9.694,
+    "end": 10.31
+  },
+  {
+    "word": "are",
+    "start": 10.368,
+    "end": 10.553
+  },
+  {
+    "word": "already",
+    "start": 10.612,
+    "end": 11.088
+  },
+  {
+    "word": "in",
+    "start": 11.169,
+    "end": 11.366
+  },
+  {
+    "word": "WISH).",
+    "start": 11.459,
+    "end": 12.016
+  },
+  {
+    "word": "Below",
+    "start": 12.016,
+    "end": 12.33
+  },
+  {
+    "word": "that:",
+    "start": 12.399,
+    "end": 12.748
+  },
+  {
+    "word": "1.",
+    "start": 12.748,
+    "end": 13.108
+  },
+  {
+    "word": "Event,",
+    "start": 13.154,
+    "end": 13.572
+  },
+  {
+    "word": "must",
+    "start": 13.618,
+    "end": 13.839
+  },
+  {
+    "word": "exist",
+    "start": 13.897,
+    "end": 14.245
+  },
+  {
+    "word": "first",
+    "start": 14.315,
+    "end": 14.861
+  },
+  {
+    "word": "2.",
+    "start": 14.861,
+    "end": 15.093
+  },
+  {
+    "word": "Job,",
+    "start": 15.163,
+    "end": 15.488
+  },
+  {
+    "word": "created",
+    "start": 15.523,
+    "end": 15.871
+  },
+  {
+    "word": "under",
+    "start": 15.917,
+    "end": 16.091
+  },
+  {
+    "word": "an",
+    "start": 16.161,
+    "end": 16.242
+  },
+  {
+    "word": "Event",
+    "start": 16.3,
+    "end": 16.718
+  },
+  {
+    "word": "3.",
+    "start": 16.718,
+    "end": 17.043
+  },
+  {
+    "word": "Shift,",
+    "start": 17.09,
+    "end": 17.438
+  },
+  {
+    "word": "created",
+    "start": 17.461,
+    "end": 17.752
+  },
+  {
+    "word": "under",
+    "start": 17.787,
+    "end": 17.926
+  },
+  {
+    "word": "a",
+    "start": 17.972,
+    "end": 17.995
+  },
+  {
+    "word": "Job",
+    "start": 18.065,
+    "end": 18.448
+  },
+  {
+    "word": "4.",
+    "start": 18.448,
+    "end": 18.901
+  },
+  {
+    "word": "Role,",
+    "start": 19.145,
+    "end": 19.725
+  },
+  {
+    "word": "created",
+    "start": 19.9,
+    "end": 20.225
+  },
+  {
+    "word": "under",
+    "start": 20.259,
+    "end": 20.422
+  },
+  {
+    "word": "a",
+    "start": 20.468,
+    "end": 20.503
+  },
+  {
+    "word": "Shift",
+    "start": 20.573,
+    "end": 21.293
+  },
+  {
+    "word": "Nothing",
+    "start": 21.293,
+    "end": 21.699
+  },
+  {
+    "word": "can",
+    "start": 21.757,
+    "end": 21.896
+  },
+  {
+    "word": "exist",
+    "start": 21.954,
+    "end": 22.338
+  },
+  {
+    "word": "without",
+    "start": 22.384,
+    "end": 22.709
+  },
+  {
+    "word": "the",
+    "start": 22.756,
+    "end": 22.825
+  },
+  {
+    "word": "level",
+    "start": 22.907,
+    "end": 23.185
+  },
+  {
+    "word": "above",
+    "start": 23.243,
+    "end": 23.522
+  },
+  {
+    "word": "it.",
+    "start": 23.557,
+    "end": 23.766
+  },
+  {
+    "word": "You",
+    "start": 24.009,
+    "end": 24.16
+  },
+  {
+    "word": "cannot",
+    "start": 24.242,
+    "end": 24.59
+  },
+  {
+    "word": "create",
+    "start": 24.648,
+    "end": 24.915
+  },
+  {
+    "word": "a",
+    "start": 24.938,
+    "end": 24.973
+  },
+  {
+    "word": "Job",
+    "start": 25.054,
+    "end": 25.403
+  },
+  {
+    "word": "without",
+    "start": 25.519,
+    "end": 25.89
+  },
+  {
+    "word": "an",
+    "start": 25.937,
+    "end": 26.006
+  },
+  {
+    "word": "Event.",
+    "start": 26.064,
+    "end": 26.529
+  },
+  {
+    "word": "When",
+    "start": 26.703,
+    "end": 26.912
+  },
+  {
+    "word": "deleting,",
+    "start": 26.97,
+    "end": 27.62
+  },
+  {
+    "word": "work",
+    "start": 27.771,
+    "end": 28.027
+  },
+  {
+    "word": "in",
+    "start": 28.085,
+    "end": 28.154
+  },
+  {
+    "word": "reverse",
+    "start": 28.224,
+    "end": 28.665
+  },
+  {
+    "word": "order",
+    "start": 28.746,
+    "end": 29.095
+  },
+  {
+    "word": "from",
+    "start": 29.164,
+    "end": 29.35
+  },
+  {
+    "word": "the",
+    "start": 29.408,
+    "end": 29.478
+  },
+  {
+    "word": "bottom",
+    "start": 29.536,
+    "end": 29.861
+  },
+  {
+    "word": "up.",
+    "start": 29.931,
+    "end": 30.372
+  }
+]

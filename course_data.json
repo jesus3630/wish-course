@@ -7,7 +7,7 @@
         "slide_number": 1,
         "slide_name": "Getting Started",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -49,7 +49,7 @@
         "slide_number": 7,
         "slide_name": "W.I.S.H.",
         "instructions": "",
-        "text": "The name WISH stands for Workforce Information Systems Hosted, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs. Key modules — including Scheduling, Billing, Human Resources, and Payroll — are consolidated into a single, integrated platform. By bringing these essential functions together, WISH streamlines workforce management and offers accessible, web-based services from any location with an internet connection."
+        "text": "The name WISH stands for Workforce Information Systems Hosted, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs. Key modules, including Scheduling, Billing, Human Resources, and Payroll, are consolidated into a single, integrated platform. By bringing these essential functions together, WISH streamlines workforce management and offers accessible, web-based services from any location with an internet connection."
       },
       {
         "slide_number": 8,
@@ -73,7 +73,7 @@
         "slide_number": 11,
         "slide_name": "Inventory Menu",
         "instructions": "",
-        "text": "In the Inventory menu, you can track important items used at events — like radios, jackets, and other supplies."
+        "text": "In the Inventory menu, you can track important items used at events, like radios, jackets, and other supplies."
       },
       {
         "slide_number": 12,
@@ -115,7 +115,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -127,7 +127,7 @@
         "slide_number": 3,
         "slide_name": "Record Hierarchy",
         "instructions": "",
-        "text": "Before creating anything in WISH, understand the hierarchy — the order records must exist.\r\n\r\nAt the top: Company and Branch (already created — CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event — must exist first\r\n2. Job — created under an Event\r\n3. Shift — created under a Job\r\n4. Role — created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up."
+        "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up."
       },
       {
         "slide_number": 4,
@@ -175,7 +175,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -187,31 +187,31 @@
         "slide_number": 3,
         "slide_name": "Creating a Job",
         "instructions": "Screen recording: Records → Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
-        "text": "Go to Records to Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\n• Job Name\r\n• Job Class — use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\n• Branch Name — auto-fills for you\r\n• Event — select the event from the dropdown\r\n• Venue and Client — these auto-populate from the event\r\n• Start and End Date/Time — use military time format\r\n\r\nAfter saving, copy the job number to your clipboard — you will use it throughout the system."
+        "text": "Go to Records to Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\n• Job Name\r\n• Job Class, use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\n• Branch Name, auto-fills for you\r\n• Event, select the event from the dropdown\r\n• Venue and Client, these auto-populate from the event\r\n• Start and End Date/Time, use military time format\r\n\r\nAfter saving, copy the job number to your clipboard, you will use it throughout the system."
       },
       {
         "slide_number": 4,
         "slide_name": "Shifts and Roles",
         "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
-        "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name — such as \"Staff One Call\" — and set the start and end time within the job's time window.\r\n\r\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\r\n\r\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer — always leave wiggle room above the minimum). Save.\r\n\r\nYou can add multiple shifts and multiple roles under each shift."
+        "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name, such as \"Staff One Call\", and set the start and end time within the job's time window.\r\n\r\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\r\n\r\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer, always leave wiggle room above the minimum). Save.\r\n\r\nYou can add multiple shifts and multiple roles under each shift."
       },
       {
         "slide_number": 5,
         "slide_name": "Copying a Job",
         "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
-        "text": "From Manage Job search results, click the copy icon for the job you want to copy. Open the copy settings link.\r\n\r\nChoose from:\r\n• Daily — copies the job to specific dates\r\n• Weekly — repeats on the same days of the week over a date range\r\n• Monthly — copies for every day of the month\r\n\r\nDaily is the most commonly used option. Always double-check your start and end dates before confirming — do not include the original date again. Copied jobs receive new unique job numbers."
+        "text": "From Manage Job search results, click the copy icon for the job you want to copy. Open the copy settings link.\r\n\r\nChoose from:\r\n• Daily, copies the job to specific dates\r\n• Weekly, repeats on the same days of the week over a date range\r\n• Monthly, copies for every day of the month\r\n\r\nDaily is the most commonly used option. Always double-check your start and end dates before confirming, do not include the original date again. Copied jobs receive new unique job numbers."
       },
       {
         "slide_number": 6,
         "slide_name": "Canceling or Deleting a Job",
         "instructions": "",
-        "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting — open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class."
+        "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting, open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class."
       },
       {
         "slide_number": 7,
         "slide_name": "Sharing Shifts with Other Branches",
         "instructions": "",
-        "text": "When creating a shift, you can share it with other branches using the Select Branch field. Once saved, those branches can see that shift and schedule their own employees to it.\r\n\r\nThis is useful for large events where staff from multiple locations are needed. You can even rename the shift to identify the contributing branch — for example, \"San Diego Staff.\""
+        "text": "When creating a shift, you can share it with other branches using the Select Branch field. Once saved, those branches can see that shift and schedule their own employees to it.\r\n\r\nThis is useful for large events where staff from multiple locations are needed. You can even rename the shift to identify the contributing branch, for example, \"San Diego Staff.\""
       },
       {
         "slide_number": 8,
@@ -235,7 +235,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -253,25 +253,25 @@
         "slide_number": 4,
         "slide_name": "Publishing Shifts — Web Shift Tab",
         "instructions": "Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
-        "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\r\n\r\nTo enable auto-scheduling — where employees can apply without needing your approval — check the Auto Schedule box at the top (selects all jobs) or check individually.\r\n\r\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\r\n\r\nTo disable publishing, click the green checkmark and confirm."
+        "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\r\n\r\nTo enable auto-scheduling, where employees can apply without needing your approval, check the Auto Schedule box at the top (selects all jobs) or check individually.\r\n\r\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\r\n\r\nTo disable publishing, click the green checkmark and confirm."
       },
       {
         "slide_number": 5,
         "slide_name": "Auto-Schedule vs. Manual Approval",
         "instructions": "",
-        "text": "You have two options for how employees get scheduled through ESS:\r\n\r\nAuto-Schedule — Employees who apply are automatically accepted on a first-come, first-served basis until the maximum headcount is reached. No action required from you. Ideal for large events.\r\n\r\nManual Approval — Employees apply and you review each employees scheduling request individually. Gives you more control but takes significantly more time.\r\n\r\nMost high-volume branches use auto-scheduling for large events."
+        "text": "You have two options for how employees get scheduled through ESS:\r\n\r\nAuto-Schedule, Employees who apply are automatically accepted on a first-come, first-served basis until the maximum headcount is reached. No action required from you. Ideal for large events.\r\n\r\nManual Approval, Employees apply and you review each employees scheduling request individually. Gives you more control but takes significantly more time.\r\n\r\nMost high-volume branches use auto-scheduling for large events."
       },
       {
         "slide_number": 6,
         "slide_name": "Web Shift Approval Tab",
         "instructions": "Web Shift Approval tab. Set date range. Show All Published Shifts. Expand event. Show employees listed. Approve/Deny buttons.",
-        "text": "The Web Shift Approval tab shows applications for published shifts.\r\n\r\nSet your date range and click Show All Published Shifts. Shifts with pending activity show small breadcrumb indicators.\r\n\r\nOpen a shift role to see applicants. Approve or deny each one. The system enforces your headcount limits — it will not let you approve more than the maximum allows.\r\n\r\nIf you approve one applicant for a full role, go back and deny others who applied."
+        "text": "The Web Shift Approval tab shows applications for published shifts.\r\n\r\nSet your date range and click Show All Published Shifts. Shifts with pending activity show small breadcrumb indicators.\r\n\r\nOpen a shift role to see applicants. Approve or deny each one. The system enforces your headcount limits, it will not let you approve more than the maximum allows.\r\n\r\nIf you approve one applicant for a full role, go back and deny others who applied."
       },
       {
         "slide_number": 7,
         "slide_name": "Web shift Report Tab",
         "instructions": "Web Shift Report in left nav. Set Branch and date range. Click Produce Report. Show results table with employee names, shift, status, and Approved By column.",
-        "text": "The Web Shift Report is your paper trail after the Web Shift Approval tab does its job.\r\n\r\nSelect your branch, set your date range, and click Produce Report. You'll see every employee who applied for a published shift — when they applied, what shift and role they applied for, and whether they were approved or are still pending.\r\n\r\nIf you see Pending next to a name, that's your cue — go back to the Web Shift Approval tab and take action before the event."
+        "text": "The Web Shift Report is your paper trail after the Web Shift Approval tab does its job.\r\n\r\nSelect your branch, set your date range, and click Produce Report. You'll see every employee who applied for a published shift, when they applied, what shift and role they applied for, and whether they were approved or are still pending.\r\n\r\nIf you see Pending next to a name, that's your cue, go back to the Web Shift Approval tab and take action before the event."
       },
       {
         "slide_number": 8,
@@ -295,19 +295,19 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "Two Ways to Schedule",
         "instructions": "",
-        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee — Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job — Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods."
+        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods."
       },
       {
         "slide_number": 3,
         "slide_name": "Schedule by Employee",
         "instructions": "Scheduling → Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
-        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday — this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area — a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
+        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
       },
       {
         "slide_number": 4,
@@ -319,7 +319,7 @@
         "slide_number": 5,
         "slide_name": "Scheduling Tips",
         "instructions": "",
-        "text": "A few things to know:\r\n\r\n• Red calendar highlights may indicate overtime — informational only, it will not prevent saving.\r\n\r\n• You can set unavailability for an employee on vacation — the calendar shows red across those days.\r\n\r\n• You can send a copy of the schedule directly to the employee from this screen before ending a call.\r\n\r\n• The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets — for example, flagging an employee who will be late."
+        "text": "A few things to know:\r\n\r\n• Red calendar highlights may indicate overtime, informational only, it will not prevent saving.\r\n\r\n• You can set unavailability for an employee on vacation, the calendar shows red across those days.\r\n\r\n• You can send a copy of the schedule directly to the employee from this screen before ending a call.\r\n\r\n• The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets, for example, flagging an employee who will be late."
       },
       {
         "slide_number": 6,
@@ -343,13 +343,13 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "Schedule by Job Admin",
         "instructions": "",
-        "text": "In this module, you will learn how to use the administrative scheduling screen — which allows you to override standard scheduling restrictions."
+        "text": "In this module, you will learn how to use the administrative scheduling screen, which allows you to override standard scheduling restrictions."
       },
       {
         "slide_number": 3,
@@ -361,7 +361,7 @@
         "slide_number": 4,
         "slide_name": "Using Schedule by Job Admin",
         "instructions": "Scheduling → Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
-        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled — shown in red on the standard page — still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding."
+        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding."
       },
       {
         "slide_number": 5,
@@ -385,55 +385,55 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "The Pay Week",
         "instructions": "Show Payroll menu in top navigation. Show a calendar graphic with Saturday highlighted as the start and Friday as the end of the pay week.",
-        "text": "In this module, you will learn the full payroll processing workflow in WISH — from approving employee hours after an event through running the final reports your branch submits each week.\r\n\r\nEvery pay week in WISH runs Saturday through Friday. All hours worked during that window must be approved and processed before Wednesday morning, when the payroll department transmits everything. Stay current throughout the week — do not let hours pile up."
+        "text": "In this module, you will learn the full payroll processing workflow in WISH, from approving employee hours after an event through running the final reports your branch submits each week.\r\n\r\nEvery pay week in WISH runs Saturday through Friday. All hours worked during that window must be approved and processed before Wednesday morning, when the payroll department transmits everything. Stay current throughout the week, do not let hours pile up."
       },
       {
         "slide_number": 3,
         "slide_name": "Accessing Manage Process Hours",
         "instructions": "Payroll → Manage Process Hours. Show the Start Date field, Event dropdown, and job list. Open a shift — point out the Min, Max, Scheduled, and Sign-In counts. Show the Sign-In number as a clickable link.",
-        "text": "Go to Payroll to Manage Process Hours. The screen defaults to today's date — if you are processing hours from earlier in the week, change the start date back to match your jobs.\r\n\r\nSelect your Event from the dropdown and click Retrieve. This pulls up the shifts for that job.\r\n\r\nWhen you open a shift, pay attention to the Sign-In count. That number tells you exactly how many employees came through electronic sign-in. Click it to see who signed in, who signed out, and who has a gap that needs attention."
+        "text": "Go to Payroll to Manage Process Hours. The screen defaults to today's date, if you are processing hours from earlier in the week, change the start date back to match your jobs.\r\n\r\nSelect your Event from the dropdown and click Retrieve. This pulls up the shifts for that job.\r\n\r\nWhen you open a shift, pay attention to the Sign-In count. That number tells you exactly how many employees came through electronic sign-in. Click it to see who signed in, who signed out, and who has a gap that needs attention."
       },
       {
         "slide_number": 4,
         "slide_name": "Entering Times",
         "instructions": "Show Autofill Sign-In and Autofill Sign-Out buttons — click both, show all employees populating. Then show the Override Rate field at top of role — enter 18, click outside box, show all employees updating. Show Per Diem field doing the same.",
-        "text": "To populate times, use Autofill Sign-In and Autofill Sign-Out. One click fills every employee with the shift's scheduled start and end time. Employees who already have a different time recorded keep their time — autofill will not overwrite individual entries.\r\n\r\nFor employees with different arrival times, use autofill first, then go back and correct the exceptions manually using the Tab key to move through each field.\r\n\r\nIf employees earned a rate different from their default, enter it in the Override Rate field at the top of the role and click outside the box — everyone on that page updates at once. Per Diem works the same way."
+        "text": "To populate times, use Autofill Sign-In and Autofill Sign-Out. One click fills every employee with the shift's scheduled start and end time. Employees who already have a different time recorded keep their time, autofill will not overwrite individual entries.\r\n\r\nFor employees with different arrival times, use autofill first, then go back and correct the exceptions manually using the Tab key to move through each field.\r\n\r\nIf employees earned a rate different from their default, enter it in the Override Rate field at the top of the role and click outside the box, everyone on that page updates at once. Per Diem works the same way."
       },
       {
         "slide_number": 5,
         "slide_name": "Handling Real-World Issues",
         "instructions": "Show a shift with mixed states: one employee with both times, one with sign-in but no sign-out, two with no times. Show NS checkbox being checked. Show the 24-hour warning popup after clicking Approve Hours.",
-        "text": "Payroll is rarely perfect. When you open a shift you may see three situations:\r\n\r\nEmployee has both times — no action needed.\r\n\r\nEmployee has a sign-in but no sign-out — add the out-time manually. The system will not let you approve hours with any incomplete record.\r\n\r\nEmployee has no times — if they did not show up, check the NS checkbox to mark them as a No Show. If they did work but were not signed in electronically, enter their times from your paper sign-in sheet.\r\n\r\nWatch for the 24-hour warning. This appears when an out-date is left on the wrong day — for example, a shift that crosses midnight. Click OK, then go back and correct the out-date to the actual day the employee finished."
+        "text": "Payroll is rarely perfect. When you open a shift you may see three situations:\r\n\r\nEmployee has both times, no action needed.\r\n\r\nEmployee has a sign-in but no sign-out, add the out-time manually. The system will not let you approve hours with any incomplete record.\r\n\r\nEmployee has no times, if they did not show up, check the NS checkbox to mark them as a No Show. If they did work but were not signed in electronically, enter their times from your paper sign-in sheet.\r\n\r\nWatch for the 24-hour warning. This appears when an out-date is left on the wrong day, for example, a shift that crosses midnight. Click OK, then go back and correct the out-date to the actual day the employee finished."
       },
       {
         "slide_number": 6,
         "slide_name": "Approving Hours",
         "instructions": "Show the Approve Hours button at the bottom of a shift role. Click it. Show the green confirmation. Show green sunburst icons on the shift list. Show back button returning to job list.",
-        "text": "Once all times are entered and no-shows are marked, scroll to the bottom and click Approve Hours — this is your save button.\r\n\r\nYou will see a green confirmation and the shift rows will turn green. Back on the shift list, green sunburst icons mark the shifts you have completed. Blue links mean there is still work to do.\r\n\r\nProcess every shift across every job for the week before moving on. You can always go back and make corrections — just remember to re-run Process Payroll afterward so the changes are reflected in the reports."
+        "text": "Once all times are entered and no-shows are marked, scroll to the bottom and click Approve Hours, this is your save button.\r\n\r\nYou will see a green confirmation and the shift rows will turn green. Back on the shift list, green sunburst icons mark the shifts you have completed. Blue links mean there is still work to do.\r\n\r\nProcess every shift across every job for the week before moving on. You can always go back and make corrections, just remember to re-run Process Payroll afterward so the changes are reflected in the reports."
       },
       {
         "slide_number": 7,
         "slide_name": "Sign-Out Exceptions and Process Payroll",
         "instructions": "Payroll → Sign-Out Exceptions. Set Friday end date. Click Retrieve Exceptions — show overlap list. Show Adj button and correcting an out-time. Then Payroll → Process Payroll. Show job list with Yes/No approved column. Show Holiday Pay checkbox. Click Start Hours Process.",
-        "text": "Before running payroll, go to Payroll to Sign-Out Exceptions. This report flags overlapping hours — employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll to Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No — only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll."
+        "text": "Before running payroll, go to Payroll to Sign-Out Exceptions. This report flags overlapping hours, employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll to Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No, only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll."
       },
       {
         "slide_number": 8,
         "slide_name": "Payroll Reports",
         "instructions": "Reports → Payroll Reports → Employee Time Register → Produce Report. Show report with employee names, days worked, hours, pay rate. Then Reports → Job Administration → One Line Shift Summary — set Saturday to Saturday. Then Sign-In Sign-Out Sheets — same date range. Then Payroll → Export Per Diem Report if applicable.",
-        "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register — go to Reports to Payroll Reports to Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days — both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary — go to Reports to Job Administration to One Line Shift Summary. Run it Saturday to Saturday — one extra day beyond Friday — to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets — same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu."
+        "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register, go to Reports to Payroll Reports to Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days, both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary, go to Reports to Job Administration to One Line Shift Summary. Run it Saturday to Saturday, one extra day beyond Friday, to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets, same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu."
       },
       {
         "slide_number": 9,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH — from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone."
+        "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH, from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone."
       },
       {
         "slide_number": 10,
@@ -457,19 +457,19 @@
         "slide_number": 2,
         "slide_name": "The Reports Menu",
         "instructions": "Click Reports in the top navigation. Show all three sub-menus expanding: Summary Roster, Detailed Roster, Job Administration.",
-        "text": "With General Reporting access, you have access to the full Reports menu in WISH.\r\n\r\nThe Reports menu has three sections:\r\n• Job Administration — your daily reports. Alpha rosters, sign-in sheets, schedules, and post-event follow-up.\r\n• Summary Roster — high-level overviews across employees, jobs, clients, venues, and branches.\r\n• Detailed Roster — deeper employee-level reports covering timesheets, licensing, sign-in activity, and availability.\r\n \r\nWe'll cover each one so you know where to go when you need something."
+        "text": "With General Reporting access, you have access to the full Reports menu in WISH.\r\n\r\nThe Reports menu has three sections:\r\n• Job Administration, your daily reports. Alpha rosters, sign-in sheets, schedules, and post-event follow-up.\r\n• Summary Roster, high-level overviews across employees, jobs, clients, venues, and branches.\r\n• Detailed Roster, deeper employee-level reports covering timesheets, licensing, sign-in activity, and availability.\r\n \r\nWe'll cover each one so you know where to go when you need something."
       },
       {
         "slide_number": 3,
         "slide_name": "Job Administration",
         "instructions": "Reports → Job Administration. Show the full report list on the right side. Scroll through so all report names are visible.",
-        "text": "Job Administration is where you'll spend most of your time in the Reports menu. These are the reports that support your day-to-day event operations.\r\n\r\nThe reports you'll use most often:\r\n• Alpha Roster — who is scheduled for a job, in alphabetical order\r\n• Sign-In / Sign-Out Sheets — paper backup when electronic sign-in isn't available\r\n• Employee Not Sign-In — after an event, who was scheduled but didn't sign in electronically"
+        "text": "Job Administration is where you'll spend most of your time in the Reports menu. These are the reports that support your day-to-day event operations.\r\n\r\nThe reports you'll use most often:\r\n• Alpha Roster, who is scheduled for a job, in alphabetical order\r\n• Sign-In and Sign-Out Sheets, paper backup when electronic sign-in isn't available\r\n• Employee Not Sign-In, after an event, who was scheduled but didn't sign in electronically"
       },
       {
         "slide_number": 4,
         "slide_name": "Alpha Roster",
         "instructions": "Reports → Job Administration → Alpha Roster. Enter Job#, Start Time, Branch. Click Retrieve. Show alphabetical list with shift and role columns.",
-        "text": "The Alpha Roster is your pre-event checklist — an alphabetical list of every employee scheduled for a job.\r\n\r\nTo run it:\r\n1. Go to Reports to Job Administration to Alpha Roster\r\n2. Enter the Job Number, Start Time (the event date), and your Branch\r\n3. Click Retrieve\r\n\r\nYou'll see each employee's name, their assigned shift, and their role. Bring this with you to the event as your on-site reference."
+        "text": "The Alpha Roster is your pre-event checklist, an alphabetical list of every employee scheduled for a job.\r\n\r\nTo run it:\r\n1. Go to Reports to Job Administration to Alpha Roster\r\n2. Enter the Job Number, Start Time (the event date), and your Branch\r\n3. Click Retrieve\r\n\r\nYou'll see each employee's name, their assigned shift, and their role. Bring this with you to the event as your on-site reference."
       },
       {
         "slide_number": 5,
@@ -487,13 +487,13 @@
         "slide_number": 7,
         "slide_name": "Summary Roster",
         "instructions": "Reports → Summary Roster. Show the dropdown list of report options: Employee Summary, Workgroup Summary, Job Summary, Client Summary, Venue Summary, Branch Summary, Background Check.",
-        "text": "The Summary Roster section gives you high-level overviews — useful when you need a broad picture rather than a specific job's details.\r\n\r\nReports available here include summaries organized by employee, workgroup, job, client, venue, and branch. There's also a Background Check status overview.\r\n\r\nThese reports are most useful for reviewing patterns across your branch — like checking which employees are active, or getting an overview of all jobs in a date range.\r\n\r\nFor descriptions of each report, refer to your Quick Reference Guide."
+        "text": "The Summary Roster section gives you high-level overviews, useful when you need a broad picture rather than a specific job's details.\r\n\r\nReports available here include summaries organized by employee, workgroup, job, client, venue, and branch. There's also a Background Check status overview.\r\n\r\nThese reports are most useful for reviewing patterns across your branch, like checking which employees are active, or getting an overview of all jobs in a date range.\r\n\r\nFor descriptions of each report, refer to your Quick Reference Guide."
       },
       {
         "slide_number": 8,
         "slide_name": "Detailed Roster",
         "instructions": "Reports → Detailed Roster. Show the dropdown list of report options. Highlight Employee Time Sheet Details, Employee Sign-In Sign-Out Details, Employee Licensing Report.",
-        "text": "The Detailed Roster section goes deeper — employee-level reports with specifics on time, licensing, availability, and training.\r\n\r\nReports you may find useful here:\r\n• Employee Time Sheet Details — full timesheet data for an employee over a date range\r\n• Employee Sign-In Sign-Out Details — exact timestamps for sign-in and sign-out activity\r\n• Employee Licensing Report — guard card and licensing status across your employee pool\r\n• Available Employees Report — who is eligible and available to be scheduled\r\n• Job Training Report — which WISH training modules each employee has completed\r\n\r\nFor the full list of Detailed Roster reports, refer to your Quick Reference Guide."
+        "text": "The Detailed Roster section goes deeper, employee-level reports with specifics on time, licensing, availability, and training.\r\n\r\nReports you may find useful here:\r\n• Employee Time Sheet Details, full timesheet data for an employee over a date range\r\n• Employee Sign-In Sign-Out Details, exact timestamps for sign-in and sign-out activity\r\n• Employee Licensing Report, guard card and licensing status across your employee pool\r\n• Available Employees Report, who is eligible and available to be scheduled\r\n• Job Training Report, which WISH training modules each employee has completed\r\n\r\nFor the full list of Detailed Roster reports, refer to your Quick Reference Guide."
       },
       {
         "slide_number": 9,
@@ -517,43 +517,43 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Payroll Reporting Gives You",
         "instructions": "Click Reports in the top navigation. Show the full menu — Summary Roster, Detailed Roster, Job Administration, Payroll Reports. Highlight Payroll Reports.",
-        "text": "With Payroll Reporting access, you have everything in General Reporting plus one additional section — Payroll Reports.\r\n\r\nPayroll Reports lives in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration. This is where you go to verify employee hours and pay before payroll is finalized.\r\n\r\nThink of these reports as your review tools — you run them to make sure what's in the system matches what actually happened at the event before payroll gets processed."
+        "text": "With Payroll Reporting access, you have everything in General Reporting plus one additional section, Payroll Reports.\r\n\r\nPayroll Reports lives in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration. This is where you go to verify employee hours and pay before payroll is finalized.\r\n\r\nThink of these reports as your review tools, you run them to make sure what's in the system matches what actually happened at the event before payroll gets processed."
       },
       {
         "slide_number": 3,
         "slide_name": "Navigating to Payroll Reports",
         "instructions": "Reports → Payroll Reports. Show the full list of available reports: Employee Time Register, Employee Time Register (Break), Emp Time Register With Notes, Financial Analysis Report, Export PerDiem Report, Manage Temp Cost Code Number, Employee Estimate Hours.",
-        "text": "Go to Reports to Payroll Reports to access this section.\r\n\r\nReports available here:\r\n• Employee Time Register — the primary report. Shows each employee's hours worked by job and shift.\r\n• Employee Time Register (Break) — same as above, with break time broken out separately.\r\n• Emp Time Register With Notes — includes any notes attached to an employee's timesheet entry.\r\n• Financial Analysis Report — a cost-facing view of hours and pay across jobs.\r\n• Export PerDiem Report — exports per diem payments for payroll processing.\r\n• Manage Temp Cost Code Number — for branches that use cost codes to categorize labor.\r\n• Employee Estimate Hours — projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register."
+        "text": "Go to Reports to Payroll Reports to access this section.\r\n\r\nReports available here:\r\n• Employee Time Register, the primary report. Shows each employee's hours worked by job and shift.\r\n• Employee Time Register (Break), same as above, with break time broken out separately.\r\n• Emp Time Register With Notes, includes any notes attached to an employee's timesheet entry.\r\n• Financial Analysis Report, a cost-facing view of hours and pay across jobs.\r\n• Export PerDiem Report, exports per diem payments for payroll processing.\r\n• Manage Temp Cost Code Number, for branches that use cost codes to categorize labor.\r\n• Employee Estimate Hours, projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register."
       },
       {
         "slide_number": 4,
         "slide_name": "Employee Time Register",
         "instructions": "Reports → Payroll Reports → Employee Time Register. Enter date range and Branch. Click Retrieve. Show report with employee names, job, shift times, regular hours, and overtime.",
-        "text": "The Employee Time Register is your go-to report before payroll is finalized. It shows you what hours are on record for each employee across a selected date range.\r\n\r\nTo run it:\r\n1. Go to Reports to Payroll Reports to Employee Time Register\r\n2. Enter your date range and confirm your Branch\r\n3. Click Retrieve\r\n\r\nThe report shows each employee's name, the job they worked, their sign-in and sign-out times, regular hours, and any overtime.\r\n\r\nReview this carefully before payroll is processed. If something looks off — wrong times, missing entries, unexpected overtime — go back to Manage Process Hours and make the correction before approving."
+        "text": "The Employee Time Register is your go-to report before payroll is finalized. It shows you what hours are on record for each employee across a selected date range.\r\n\r\nTo run it:\r\n1. Go to Reports to Payroll Reports to Employee Time Register\r\n2. Enter your date range and confirm your Branch\r\n3. Click Retrieve\r\n\r\nThe report shows each employee's name, the job they worked, their sign-in and sign-out times, regular hours, and any overtime.\r\n\r\nReview this carefully before payroll is processed. If something looks off, wrong times, missing entries, unexpected overtime, go back to Manage Process Hours and make the correction before approving."
       },
       {
         "slide_number": 5,
         "slide_name": "Time Register Variants",
         "instructions": "Show Employee Time Register (Break) report output side by side with standard Time Register. Point out the break column. Then briefly show Emp Time Register With Notes.",
-        "text": "Two variations of the Employee Time Register are available depending on what you need to see:\r\n\r\nEmployee Time Register (Break) — Use this when employees took scheduled breaks that need to be accounted for separately. The report adds a break time column so you can verify break duration against what was entered.\r\n\r\nEmp Time Register With Notes — Use this when you need to see any notes that were attached during the sign-in or hour approval process. Useful when there were corrections, late arrivals, or discrepancies that someone flagged at the time.\r\n\r\nFor most standard reviews, the base Employee Time Register is sufficient. Pull a variant when you need that extra layer of detail."
+        "text": "Two variations of the Employee Time Register are available depending on what you need to see:\r\n\r\nEmployee Time Register (Break), Use this when employees took scheduled breaks that need to be accounted for separately. The report adds a break time column so you can verify break duration against what was entered.\r\n\r\nEmp Time Register With Notes, Use this when you need to see any notes that were attached during the sign-in or hour approval process. Useful when there were corrections, late arrivals, or discrepancies that someone flagged at the time.\r\n\r\nFor most standard reviews, the base Employee Time Register is sufficient. Pull a variant when you need that extra layer of detail."
       },
       {
         "slide_number": 6,
         "slide_name": "When to Use Payroll Reports",
         "instructions": "",
-        "text": "Here's when payroll reports fit into your workflow:\r\n\r\nBefore the event:\r\n• Employee Estimate Hours — run this to see projected hours based on the schedule. Useful for labor cost planning.\r\n\r\nAfter the event, before payroll is finalized:\r\n• Employee Time Register — verify that all hours were captured correctly and match what employees actually worked.\r\n• Employee Time Register (Break) or With Notes — pull these if there were corrections or anything flagged during sign-in.\r\n• Financial Analysis Report — review cost totals by job if you need to reconcile against a budget.\r\n\r\nImportant: Always complete your review in Payroll Reports before payroll is approved. Once hours are finalized, corrections become significantly more difficult."
+        "text": "Here's when payroll reports fit into your workflow:\r\n\r\nBefore the event:\r\n• Employee Estimate Hours, run this to see projected hours based on the schedule. Useful for labor cost planning.\r\n\r\nAfter the event, before payroll is finalized:\r\n• Employee Time Register, verify that all hours were captured correctly and match what employees actually worked.\r\n• Employee Time Register (Break) or With Notes, pull these if there were corrections or anything flagged during sign-in.\r\n• Financial Analysis Report, review cost totals by job if you need to reconcile against a budget.\r\n\r\nImportant: Always complete your review in Payroll Reports before payroll is approved. Once hours are finalized, corrections become significantly more difficult."
       },
       {
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Payroll Reporting module.\r\n\r\nYou now know how to access Payroll Reports, run the Employee Time Register, and use payroll data to verify hours before payroll is finalized.\r\n\r\nIf anything looks off in a report, contact your administrator before payroll is approved — it's always easier to correct before finalization than after."
+        "text": "Congratulations! You've completed the Payroll Reporting module.\r\n\r\nYou now know how to access Payroll Reports, run the Employee Time Register, and use payroll data to verify hours before payroll is finalized.\r\n\r\nIf anything looks off in a report, contact your administrator before payroll is approved, it's always easier to correct before finalization than after."
       },
       {
         "slide_number": 8,
@@ -571,43 +571,43 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Admin Reporting Gives You",
         "instructions": "Click Reports in the top navigation. Show the full menu with all six sections visible: Summary Roster, Detailed Roster, Job Administration, Payroll Reports, Billing Reports, Manager Reports.",
-        "text": "Admin Reporting gives you access to the complete Reports menu in WISH — all six sections.\r\n\r\nYou have everything from General Reporting and Payroll Reporting, plus two additional sections that are exclusive to this permission level:\r\n• Billing Reports — invoice and cost reports for client billing oversight\r\n• Manager Reports — credential, scheduling efficiency, and MVR reports for branch management\r\n\r\nAs an admin-level user, you have a full view of event operations from scheduling through billing. These reports support oversight, auditing, and decision-making across your branch."
+        "text": "Admin Reporting gives you access to the complete Reports menu in WISH, all six sections.\r\n\r\nYou have everything from General Reporting and Payroll Reporting, plus two additional sections that are exclusive to this permission level:\r\n• Billing Reports, invoice and cost reports for client billing oversight\r\n• Manager Reports, credential, scheduling efficiency, and MVR reports for branch management\r\n\r\nAs an admin-level user, you have a full view of event operations from scheduling through billing. These reports support oversight, auditing, and decision-making across your branch."
       },
       {
         "slide_number": 3,
         "slide_name": "Reports You Already Know",
         "instructions": "Briefly hover over Summary Roster, Detailed Roster, Job Administration, Payroll Reports to show they are all still there.",
-        "text": "The first four sections of the Reports menu work the same way they do in General Reporting and Payroll Reporting:\r\n\r\n• Job Administration — alpha rosters, sign-in sheets, employee schedules, post-event follow-up\r\n• Summary Roster — high-level overviews by employee, job, client, venue, and branch\r\n• Detailed Roster — employee-level detail on timesheets, licensing, availability, and training\r\n• Payroll Reports — Employee Time Register and related reports for verifying hours before payroll is finalized\r\n\r\nIf you haven't completed the General Reporting and Payroll Reporting modules, review those first. This module focuses on the two sections that are new to you: Billing Reports and Manager Reports."
+        "text": "The first four sections of the Reports menu work the same way they do in General Reporting and Payroll Reporting:\r\n\r\n• Job Administration, alpha rosters, sign-in sheets, employee schedules, post-event follow-up\r\n• Summary Roster, high-level overviews by employee, job, client, venue, and branch\r\n• Detailed Roster, employee-level detail on timesheets, licensing, availability, and training\r\n• Payroll Reports, Employee Time Register and related reports for verifying hours before payroll is finalized\r\n\r\nIf you haven't completed the General Reporting and Payroll Reporting modules, review those first. This module focuses on the two sections that are new to you: Billing Reports and Manager Reports."
       },
       {
         "slide_number": 4,
         "slide_name": "Billing Reports",
         "instructions": "Reports → Billing Reports. Show the full list: Billing Invoice Ledger Report, Payroll UnBilled Hour Report, Labour Cost Estimation, Billing Invoice Register, Billing Ledger Details.",
-        "text": "Billing Reports give you visibility into the financial side of your events — what has been invoiced, what hasn't, and what labor costs look like.\r\n\r\nReports available here:\r\n• Billing Invoice Ledger Report — a record of all invoices generated, with amounts and client details\r\n• Payroll UnBilled Hour Report — shows approved hours that have not yet been billed to a client. Use this to make sure nothing falls through the cracks before closing out an event.\r\n• Labour Cost Estimation — projects labor costs based on scheduled hours and pay rates. Useful for pre-event budget planning.\r\n• Billing Invoice Register — a summary register of all billing activity across a date range\r\n• Billing Ledger Details — a detailed line-by-line view of billing transactions\r\n\r\nFor most day-to-day use, Payroll UnBilled Hour Report is the one to check regularly — it tells you what work has been done but not yet invoiced."
+        "text": "Billing Reports give you visibility into the financial side of your events, what has been invoiced, what hasn't, and what labor costs look like.\r\n\r\nReports available here:\r\n• Billing Invoice Ledger Report, a record of all invoices generated, with amounts and client details\r\n• Payroll UnBilled Hour Report, shows approved hours that have not yet been billed to a client. Use this to make sure nothing falls through the cracks before closing out an event.\r\n• Labour Cost Estimation, projects labor costs based on scheduled hours and pay rates. Useful for pre-event budget planning.\r\n• Billing Invoice Register, a summary register of all billing activity across a date range\r\n• Billing Ledger Details, a detailed line-by-line view of billing transactions\r\n\r\nFor most day-to-day use, Payroll UnBilled Hour Report is the one to check regularly, it tells you what work has been done but not yet invoiced."
       },
       {
         "slide_number": 5,
         "slide_name": "Manager Reports",
         "instructions": "Reports → Manager Reports. Show the full list: Schedule Efficiency, Employee Credential Report, Job Credential Report, Employee Task Report, MVR Roster, Branch MVR Roster, Master MVR Roster With Date, Branch MVR Roster Without Date.",
-        "text": "Manager Reports cover credential verification, scheduling performance, and motor vehicle record (MVR) tracking — tools for branch-level oversight.\r\n\r\nReports available here:\r\n• Schedule Efficiency — measures how well scheduled headcount matched actual sign-in counts across jobs. Useful for identifying gaps in scheduling accuracy.\r\n• Employee Credential Report — shows credential status (guard cards, licenses) for individual employees\r\n• Job Credential Report — credential requirements and compliance status for a specific job\r\n• Employee Task Report — tracks outstanding onboarding and compliance tasks by employee\r\n• MVR Roster — motor vehicle record status for employees who drive as part of their role\r\n• Branch MVR Roster — MVR status across all applicable employees in your branch\r\n• Master MVR Roster With Date — full MVR roster including check dates\r\n• Branch MVR Roster Without Date — MVR roster view without date filters, for a broad status overview\r\n\r\nCredential and MVR reports are especially important before scheduling employees for positions that require specific licensing or driving."
+        "text": "Manager Reports cover credential verification, scheduling performance, and motor vehicle record (MVR) tracking, tools for branch-level oversight.\r\n\r\nReports available here:\r\n• Schedule Efficiency, measures how well scheduled headcount matched actual sign-in counts across jobs. Useful for identifying gaps in scheduling accuracy.\r\n• Employee Credential Report, shows credential status (guard cards, licenses) for individual employees\r\n• Job Credential Report, credential requirements and compliance status for a specific job\r\n• Employee Task Report, tracks outstanding onboarding and compliance tasks by employee\r\n• MVR Roster, motor vehicle record status for employees who drive as part of their role\r\n• Branch MVR Roster, MVR status across all applicable employees in your branch\r\n• Master MVR Roster With Date, full MVR roster including check dates\r\n• Branch MVR Roster Without Date, MVR roster view without date filters, for a broad status overview\r\n\r\nCredential and MVR reports are especially important before scheduling employees for positions that require specific licensing or driving."
       },
       {
         "slide_number": 6,
         "slide_name": "Putting It All Together",
         "instructions": "",
-        "text": "As an Admin Reporting user, your reports touch every phase of event operations:\r\n\r\nBefore the event:\r\n• Labour Cost Estimation — plan your labor budget\r\n• Employee Credential Report / Job Credential Report — verify employees are licensed for the roles you're filling\r\n• Schedule Efficiency — review past events to improve future scheduling\r\n\r\nDuring and after the event:\r\n• Job Administration reports — alpha rosters, sign-in sheets, no-show follow-up\r\n• Payroll Reports — verify hours before finalizing\r\n• Payroll UnBilled Hour Report — confirm all worked hours are captured for billing\r\n\r\nFor billing and closeout:\r\n• Billing Invoice Ledger / Billing Invoice Register — confirm invoices have been generated\r\n• Billing Ledger Details — audit-level review of billing transactions\r\n\r\nThe goal is a clean handoff at every stage: scheduling feeds payroll, payroll feeds billing. Your reports give you the visibility to make sure that chain is intact."
+        "text": "As an Admin Reporting user, your reports touch every phase of event operations:\r\n\r\nBefore the event:\r\n• Labour Cost Estimation, plan your labor budget\r\n• Employee Credential Report and Job Credential Report, verify employees are licensed for the roles you're filling\r\n• Schedule Efficiency, review past events to improve future scheduling\r\n\r\nDuring and after the event:\r\n• Job Administration reports, alpha rosters, sign-in sheets, no-show follow-up\r\n• Payroll Reports, verify hours before finalizing\r\n• Payroll UnBilled Hour Report, confirm all worked hours are captured for billing\r\n\r\nFor billing and closeout:\r\n• Billing Invoice Ledger and Billing Invoice Register, confirm invoices have been generated\r\n• Billing Ledger Details, audit-level review of billing transactions\r\n\r\nThe goal is a clean handoff at every stage: scheduling feeds payroll, payroll feeds billing. Your reports give you the visibility to make sure that chain is intact."
       },
       {
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Admin Reporting module.\r\n\r\nYou now have a full picture of the WISH Reports menu and how each section supports your branch operations — from scheduling and payroll through billing and compliance.\r\n\r\nIf you're unsure which report to use for a specific situation, your administrator or the Quick Reference Guide is the best place to start."
+        "text": "Congratulations! You've completed the Admin Reporting module.\r\n\r\nYou now have a full picture of the WISH Reports menu and how each section supports your branch operations, from scheduling and payroll through billing and compliance.\r\n\r\nIf you're unsure which report to use for a specific situation, your administrator or the Quick Reference Guide is the best place to start."
       },
       {
         "slide_number": 8,
@@ -625,25 +625,25 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Workforce Scheduler Maintenance Gives You",
         "instructions": "Navigate to Records → Manage Employee. Show the search screen.",
-        "text": "Workforce Scheduler Maintenance gives you access to employee records in WISH — specifically the ability to look up employees and update three things:\r\n\r\n• Licensing — guard card numbers and expiration dates\r\n• Background Checks — status and check history\r\n• Employee Notes — branch-level notes on an employee\r\n\r\nEverything else in the employee record is view-only for you. You won't be able to change pay rates, status, contact information, or anything outside of those three areas. If you see a field you can't edit, that's by design — those changes require a higher permission level."
+        "text": "Workforce Scheduler Maintenance gives you access to employee records in WISH, specifically the ability to look up employees and update three things:\r\n\r\n• Licensing, guard card numbers and expiration dates\r\n• Background Checks, status and check history\r\n• Employee Notes, branch-level notes on an employee\r\n\r\nEverything else in the employee record is view-only for you. You won't be able to change pay rates, status, contact information, or anything outside of those three areas. If you see a field you can't edit, that's by design, those changes require a higher permission level."
       },
       {
         "slide_number": 3,
         "slide_name": "Finding an Employee",
         "instructions": "Records → Manage Employee. Show the search filters: Branch Name, Department, WorkGroup, Employee#, First Name, Last Name, Status, SSN last 4 digits. Type a last name. Click Search. Show the results list with Last Name, First Name, Employee#, Branch, Status columns.",
-        "text": "Go to Records to Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\n• Employee number\r\n• First or last name\r\n• Last 4 digits of their SSN — useful if you're not sure of the spelling\r\n• Status — defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name — it appears as a blue link."
+        "text": "Go to Records to Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\n• Employee number\r\n• First or last name\r\n• Last 4 digits of their SSN, useful if you're not sure of the spelling\r\n• Status, defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name, it appears as a blue link."
       },
       {
         "slide_number": 4,
         "slide_name": "Inside the Employee Record",
         "instructions": "Click an employee last name link. Show the employee record opening. Point out the tabs across the top of the record. Highlight the tabs that are accessible: Licensing, Background Check, Employee Notes.",
-        "text": "Clicking an employee's last name opens their full record. You'll see several tabs across the top.\r\n\r\nWith Workforce Scheduler Maintenance access, the tabs you can work with are:\r\n• Licensing\r\n• Background Check\r\n• Employee Notes\r\n\r\nOther tabs — such as Personal Info, Pay Rate, and Disciplinary Action — are visible but not editable at this permission level. If you need to make changes outside of your three tabs, you'll need to contact someone with higher access.\r\n\r\nAlways confirm you have the right employee before making any updates — double-check the name and employee number at the top of the record."
+        "text": "Clicking an employee's last name opens their full record. You'll see several tabs across the top.\r\n\r\nWith Workforce Scheduler Maintenance access, the tabs you can work with are:\r\n• Licensing\r\n• Background Check\r\n• Employee Notes\r\n\r\nOther tabs, such as Personal Info, Pay Rate, and Disciplinary Action, are visible but not editable at this permission level. If you need to make changes outside of your three tabs, you'll need to contact someone with higher access.\r\n\r\nAlways confirm you have the right employee before making any updates, double-check the name and employee number at the top of the record."
       },
       {
         "slide_number": 5,
@@ -661,13 +661,13 @@
         "slide_number": 7,
         "slide_name": "Employee Notes Tab",
         "instructions": "Click the Employee Notes tab. Show existing notes if any. Show typing a new note — include date, what the note is about. Click Save.",
-        "text": "The Employee Notes tab is where your branch records important information about an employee that isn't captured elsewhere in the system.\r\n\r\nNotes are branch-level — they're visible to anyone at your branch with access to the employee record, but are not shared system-wide.\r\n\r\nCommon uses for employee notes:\r\n• Flagging a scheduling concern or preference\r\n• Recording follow-up items that need attention\r\n• Noting equipment issued to an employee\r\n• Documenting any informal communications that should be on record\r\n\r\nWhen adding a note, always include the date and a brief description of what the note is about. This makes it easier for others on your team to understand the context later.\r\n\r\nClick Save after adding or editing a note."
+        "text": "The Employee Notes tab is where your branch records important information about an employee that isn't captured elsewhere in the system.\r\n\r\nNotes are branch-level, they're visible to anyone at your branch with access to the employee record, but are not shared system-wide.\r\n\r\nCommon uses for employee notes:\r\n• Flagging a scheduling concern or preference\r\n• Recording follow-up items that need attention\r\n• Noting equipment issued to an employee\r\n• Documenting any informal communications that should be on record\r\n\r\nWhen adding a note, always include the date and a brief description of what the note is about. This makes it easier for others on your team to understand the context later.\r\n\r\nClick Save after adding or editing a note."
       },
       {
         "slide_number": 8,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Workforce Scheduler Maintenance module.\r\n\r\nYou now know how to search for employees in WISH, open their records, and update the three areas within your access: Licensing, Background Check, and Employee Notes.\r\n\r\nRemember — always verify guard card and background check status before scheduling employees for positions that require them. When in doubt, check with your administrator before scheduling."
+        "text": "Congratulations! You've completed the Workforce Scheduler Maintenance module.\r\n\r\nYou now know how to search for employees in WISH, open their records, and update the three areas within your access: Licensing, Background Check, and Employee Notes.\r\n\r\nRemember, always verify guard card and background check status before scheduling employees for positions that require them. When in doubt, check with your administrator before scheduling."
       },
       {
         "slide_number": 9,
@@ -685,37 +685,37 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Workforce Admin Maintenance Gives You",
         "instructions": "Records → Manage Employee. Show the search screen briefly — same as before.",
-        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way — Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n• Disciplinary Action — view existing records and add new ones\r\n• Pay Rates — view and update employee pay rates\r\n• Training Records — view which WISH training modules an employee has completed"
+        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n• Disciplinary Action, view existing records and add new ones\r\n• Pay Rates, view and update employee pay rates\r\n• Training Records, view which WISH training modules an employee has completed"
       },
       {
         "slide_number": 3,
         "slide_name": "Disciplinary Action Tab",
         "instructions": "Open an employee record. Click the Disciplinary Action tab. Show any existing records. Show clicking Add New — fill in date, type, and notes fields. Click Save.",
-        "text": "The Disciplinary Action tab is where formal disciplinary records are logged for an employee.\r\n\r\nWhat you can do here:\r\n• View the full history of disciplinary actions on file\r\n• Add a new disciplinary action record\r\n\r\nWhen adding a new record, fill in:\r\n• Date — the date the action occurred\r\n• Type — the category of disciplinary action\r\n• Notes — a clear description of what happened and any actions taken\r\n\r\nBe precise and factual when writing notes. These records are part of the employee's permanent file and may be referenced during reviews or investigations.\r\n\r\nClick Save after entering the record."
+        "text": "The Disciplinary Action tab is where formal disciplinary records are logged for an employee.\r\n\r\nWhat you can do here:\r\n• View the full history of disciplinary actions on file\r\n• Add a new disciplinary action record\r\n\r\nWhen adding a new record, fill in:\r\n• Date, the date the action occurred\r\n• Type, the category of disciplinary action\r\n• Notes, a clear description of what happened and any actions taken\r\n\r\nBe precise and factual when writing notes. These records are part of the employee's permanent file and may be referenced during reviews or investigations.\r\n\r\nClick Save after entering the record."
       },
       {
         "slide_number": 4,
         "slide_name": "Pay Rates Tab",
         "instructions": "Click the Pay Rates tab. Show the current active pay rate. Show clicking to deactivate the current rate. Show adding a new rate with the role and dollar amount. Click Save.",
-        "text": "The Pay Rates tab shows what an employee is paid per hour for each role they're qualified for.\r\n\r\nImportant rule: never edit an existing pay rate directly. Changing a rate that's already in the system will alter historical payroll records.\r\n\r\nThe correct process to update a pay rate:\r\n1. Find the current active rate\r\n2. Deactivate it — this closes it out without deleting the history\r\n3. Add a new rate with the updated amount and an effective start date\r\n\r\nIf a role is missing from the employee's pay rate list, add it here. An employee cannot be scheduled for a role they don't have an active pay rate for — WISH uses this to filter results in Schedule by Job."
+        "text": "The Pay Rates tab shows what an employee is paid per hour for each role they're qualified for.\r\n\r\nImportant rule: never edit an existing pay rate directly. Changing a rate that's already in the system will alter historical payroll records.\r\n\r\nThe correct process to update a pay rate:\r\n1. Find the current active rate\r\n2. Deactivate it, this closes it out without deleting the history\r\n3. Add a new rate with the updated amount and an effective start date\r\n\r\nIf a role is missing from the employee's pay rate list, add it here. An employee cannot be scheduled for a role they don't have an active pay rate for, WISH uses this to filter results in Schedule by Job."
       },
       {
         "slide_number": 5,
         "slide_name": "Training Records Tab",
         "instructions": "Click the Training tab inside the employee record. Show the list of WISH training modules and their completion status.",
-        "text": "The Training Records tab shows which WISH training modules an employee has been assigned and completed.\r\n\r\nWhat you can do here:\r\n• View training completion status for each module\r\n• Confirm whether an employee has finished the training required for their role\r\n\r\nThis is useful before scheduling someone for a position that requires specific training. If a module shows as incomplete, the employee may not have the access or knowledge needed to perform that role in WISH.\r\n\r\nTraining assignments and completions are managed by administrators — if a training record looks incorrect, flag it with your administrator rather than attempting to change it yourself."
+        "text": "The Training Records tab shows which WISH training modules an employee has been assigned and completed.\r\n\r\nWhat you can do here:\r\n• View training completion status for each module\r\n• Confirm whether an employee has finished the training required for their role\r\n\r\nThis is useful before scheduling someone for a position that requires specific training. If a module shows as incomplete, the employee may not have the access or knowledge needed to perform that role in WISH.\r\n\r\nTraining assignments and completions are managed by administrators, if a training record looks incorrect, flag it with your administrator rather than attempting to change it yourself."
       },
       {
         "slide_number": 6,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Workforce Admin Maintenance module.\r\n\r\nYou now know how to access and update Disciplinary Action records, Pay Rates, and Training information within an employee's record.\r\n\r\nRemember — always deactivate an existing pay rate before adding a new one. Never edit a rate that's already been used for payroll."
+        "text": "Congratulations! You've completed the Workforce Admin Maintenance module.\r\n\r\nYou now know how to access and update Disciplinary Action records, Pay Rates, and Training information within an employee's record.\r\n\r\nRemember, always deactivate an existing pay rate before adding a new one. Never edit a rate that's already been used for payroll."
       },
       {
         "slide_number": 7,
@@ -733,43 +733,43 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Employee HR Record Maintenance Gives You",
         "instructions": "Records → Manage Employee. Show the search screen briefly.",
-        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always — Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\n• Personal Info — name, date of birth, status changes\r\n• Contact Info — address, phone number, email address\r\n• Background Checks — full history and status updates\r\n• Shared Branches — which branches can view and schedule this employee\r\n• Exclusions — clients or jobs this employee cannot be assigned to\r\n• Tasks — onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully."
+        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\n• Personal Info, name, date of birth, status changes\r\n• Contact Info, address, phone number, email address\r\n• Background Checks, full history and status updates\r\n• Shared Branches, which branches can view and schedule this employee\r\n• Exclusions, clients or jobs this employee cannot be assigned to\r\n• Tasks, onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully."
       },
       {
         "slide_number": 3,
         "slide_name": "Personal Info & Contact Info",
         "instructions": "Open an employee record. Show the Personal Info tab — name, date of birth, status dropdown. Then show the Contact Info tab — address, phone, email fields. Make a small edit and click Save.",
-        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\n• Legal name\r\n• Date of birth\r\n• Employee status — Active, Inactive, etc.\r\n\r\nContact Info includes:\r\n• Home address\r\n• Phone number\r\n• Email address — this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes."
+        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\n• Legal name\r\n• Date of birth\r\n• Employee status, Active, Inactive, etc.\r\n\r\nContact Info includes:\r\n• Home address\r\n• Phone number\r\n• Email address, this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes."
       },
       {
         "slide_number": 4,
         "slide_name": "Shared Branches",
         "instructions": "Click the Shared Branches tab. Show existing shared branches if any. Show adding a new branch — select from dropdown, click Add. Show removing a branch.",
-        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\n• That branch can search for them in Manage Employee\r\n• That branch can schedule them for their jobs\r\n• The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\n• Large events where staff from multiple locations are needed\r\n• Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully — sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed."
+        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\n• That branch can search for them in Manage Employee\r\n• That branch can schedule them for their jobs\r\n• The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\n• Large events where staff from multiple locations are needed\r\n• Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed."
       },
       {
         "slide_number": 5,
         "slide_name": "Exclusions",
         "instructions": "Click the Exclusions tab. Show the client exclusion list. Show adding a client or job exclusion — select from dropdown, save.",
-        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\n• The employee will not appear as available when scheduling for that client or job\r\n• This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\n• A client has requested the employee not return to their venue\r\n• There is a known conflict between the employee and a specific account\r\n• A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action — they're a scheduling control. Document the reason in Employee Notes so the context is on record."
+        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\n• The employee will not appear as available when scheduling for that client or job\r\n• This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\n• A client has requested the employee not return to their venue\r\n• There is a known conflict between the employee and a specific account\r\n• A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action, they're a scheduling control. Document the reason in Employee Notes so the context is on record."
       },
       {
         "slide_number": 6,
         "slide_name": "Manage Employee Status (Bulk)",
         "instructions": "Records → Manage Employee Status. Show filtering by branch and status. Show selecting multiple employees. Show applying a bulk status change.",
-        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status — a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n• Deactivating seasonal employees who have finished their assignments\r\n• Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
+        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status, a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n• Deactivating seasonal employees who have finished their assignments\r\n• Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
       },
       {
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Employee HR Record Maintenance module.\r\n\r\nYou now have full access to the employee record in WISH. With that comes responsibility — changes you make here affect the employee across all branches and all functions of the system.\r\n\r\nWhen in doubt about a change, check with your administrator before saving. It's always easier to confirm first than to correct after the fact."
+        "text": "Congratulations! You've completed the Employee HR Record Maintenance module.\r\n\r\nYou now have full access to the employee record in WISH. With that comes responsibility, changes you make here affect the employee across all branches and all functions of the system.\r\n\r\nWhen in doubt about a change, check with your administrator before saving. It's always easier to confirm first than to correct after the fact."
       },
       {
         "slide_number": 8,
@@ -787,43 +787,43 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Hiring Manager Access Does",
         "instructions": "Show Tools menu. Scroll to Import From Hiring Portal. Click it. Show the Import From Hiring Portal screen load.",
-        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu — go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
+        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
       },
       {
         "slide_number": 3,
         "slide_name": "Reading the Import Screen",
         "instructions": "Show the Import From Hiring Portal screen. Point out Branch Name, Employee Type filters. Show the summary count row: Total, Duplicate, Import, Hired, Rehired. Highlight the column headers in the employee list: SSN, Name, Branch, BG Status, E-Verify Status, Status, Hiring Status.",
-        "text": "Before importing anyone, understand what you're looking at.\r\n\r\nAt the top, set your filters:\r\n• Branch Name — select your branch\r\n• Employee Type — Regular Employee in most cases\r\n\r\nClick Search to pull the applicant list.\r\n\r\nAbove the list you'll see a summary row:\r\n• Total — all applicants returned by your search\r\n• Duplicate — applicants already in WISH under a matching SSN\r\n• Import — applicants successfully imported in this session\r\n• Hired — applicants whose hiring status is Hired\r\n• Rehired — returning employees being brought back\r\n\r\nThe list itself shows each applicant's SSN, name, branch, Background Check status, E-Verify status, current status, and hiring status. Review these columns carefully before taking any action."
+        "text": "Before importing anyone, understand what you're looking at.\r\n\r\nAt the top, set your filters:\r\n• Branch Name, select your branch\r\n• Employee Type, Regular Employee in most cases\r\n\r\nClick Search to pull the applicant list.\r\n\r\nAbove the list you'll see a summary row:\r\n• Total, all applicants returned by your search\r\n• Duplicate, applicants already in WISH under a matching SSN\r\n• Import, applicants successfully imported in this session\r\n• Hired, applicants whose hiring status is Hired\r\n• Rehired, returning employees being brought back\r\n\r\nThe list itself shows each applicant's SSN, name, branch, Background Check status, E-Verify status, current status, and hiring status. Review these columns carefully before taking any action."
       },
       {
         "slide_number": 4,
         "slide_name": "Check Before You Import",
         "instructions": "Show an applicant row. Point out BG Status column showing APPROVED and E-Verify Status showing EMPLOYMENTAUTHORIZED. Show the Status column showing Hired.",
-        "text": "Before importing an applicant, two things need to be confirmed:\r\n\r\n1. Background Check Status — should show APPROVED. Do not import applicants whose background check is still pending or has not cleared.\r\n\r\n2. E-Verify Status — should show EMPLOYMENTAUTHORIZED. This confirms the applicant is authorized to work.\r\n\r\nAlso check the Status column — it should show Hired before you proceed with the import. If an applicant shows a different status, do not import them until their hiring process is complete.\r\n\r\nIf you see Duplicate in the summary count, that applicant already exists in WISH. Do not import duplicates — importing a duplicate can create record conflicts in the system."
+        "text": "Before importing an applicant, two things need to be confirmed:\r\n\r\n1. Background Check Status, should show APPROVED. Do not import applicants whose background check is still pending or has not cleared.\r\n\r\n2. E-Verify Status, should show EMPLOYMENTAUTHORIZED. This confirms the applicant is authorized to work.\r\n\r\nAlso check the Status column, it should show Hired before you proceed with the import. If an applicant shows a different status, do not import them until their hiring process is complete.\r\n\r\nIf you see Duplicate in the summary count, that applicant already exists in WISH. Do not import duplicates, importing a duplicate can create record conflicts in the system."
       },
       {
         "slide_number": 5,
         "slide_name": "Importing an Applicant",
         "instructions": "Click the checkbox next to an approved applicant row. Show the dropdown: Select, Rejected, Rescind. Choose Select. Show the Import Applicant button at the bottom. Click Import Applicant. Show the confirmation.",
-        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name — a dropdown will appear with three options:\r\n   • Select — marks the applicant for import\r\n   • Rejected — marks them as rejected, removing them from consideration\r\n   • Rescind — reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records to Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data."
+        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name, a dropdown will appear with three options:\r\n   • Select, marks the applicant for import\r\n   • Rejected, marks them as rejected, removing them from consideration\r\n   • Rescind, reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records to Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data."
       },
       {
         "slide_number": 6,
         "slide_name": "After the Import",
         "instructions": "Navigate to Records → Manage Employee. Search for the newly imported employee by name. Show their record has been created with personal info populated.",
-        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n• Go to Records to Manage Employee and search for the new employee to confirm their record was created correctly\r\n• Verify their personal information populated properly — name, SSN, contact details\r\n• Assign their default pay rate if it wasn't set during import — they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs."
+        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n• Go to Records to Manage Employee and search for the new employee to confirm their record was created correctly\r\n• Verify their personal information populated properly, name, SSN, contact details\r\n• Assign their default pay rate if it wasn't set during import, they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs."
       },
       {
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Hiring Manager module.\r\n\r\nYou now know how to access the Import From Hiring Portal screen, review applicant status before importing, and bring new employees into WISH so they can be scheduled for jobs.\r\n\r\nRemember — always confirm Background Check and E-Verify status before importing. When in doubt, check with your administrator before proceeding."
+        "text": "Congratulations! You've completed the Hiring Manager module.\r\n\r\nYou now know how to access the Import From Hiring Portal screen, review applicant status before importing, and bring new employees into WISH so they can be scheduled for jobs.\r\n\r\nRemember, always confirm Background Check and E-Verify status before importing. When in doubt, check with your administrator before proceeding."
       },
       {
         "slide_number": 8,
@@ -841,37 +841,37 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What HR Admin Gives You",
         "instructions": "Records menu open. Scroll to the bottom and click Manage Employee Task.",
-        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu — Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
+        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
       },
       {
         "slide_number": 3,
         "slide_name": "Reading the Manage Employee Task Screen",
         "instructions": "Show the Manage Employee Task screen fully loaded. Point out the employee list with columns for name, employee number, status. Zoom in on the task column at the far right — show a checkmark on one row and an X on another.",
-        "text": "The Manage Employee Task screen displays your employees in a list with their basic information — name, employee number, and current status.\r\n\r\nAt the end of each row you'll see the task indicator:\r\n• Checkmark — the employee has completed all assigned tasks. No action needed.\r\n• X — the employee has one or more pending tasks that still need to be completed.\r\n\r\nEmployees with an X need your attention. They may be missing a required training, a document submission, or another compliance item that needs to be resolved before they can fully perform their role in WISH."
+        "text": "The Manage Employee Task screen displays your employees in a list with their basic information, name, employee number, and current status.\r\n\r\nAt the end of each row you'll see the task indicator:\r\n• Checkmark, the employee has completed all assigned tasks. No action needed.\r\n• X, the employee has one or more pending tasks that still need to be completed.\r\n\r\nEmployees with an X need your attention. They may be missing a required training, a document submission, or another compliance item that needs to be resolved before they can fully perform their role in WISH."
       },
       {
         "slide_number": 4,
         "slide_name": "Following Up on Pending Tasks",
         "instructions": "Click on an employee row that shows an X. Show the task detail that opens — task name, description, due date, and status. Show what a pending task looks like vs a completed one.",
-        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n• The name of the task\r\n• A description of what needs to be completed\r\n• The due date if one has been set\r\n• The current status — pending, in progress, or complete\r\n\r\nFrom here you can:\r\n• Review exactly what the employee needs to do\r\n• Follow up with the employee directly to make sure they complete it\r\n• Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator — your role is to monitor and follow up, not to mark tasks complete on their behalf."
+        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n• The name of the task\r\n• A description of what needs to be completed\r\n• The due date if one has been set\r\n• The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n• Review exactly what the employee needs to do\r\n• Follow up with the employee directly to make sure they complete it\r\n• Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf."
       },
       {
         "slide_number": 5,
         "slide_name": "Why Task Completion Matters",
         "instructions": "",
-        "text": "Pending tasks aren't just administrative — they can directly affect what an employee can do in the system.\r\n\r\nIn WISH, certain access and scheduling capabilities are tied to training and task completion. An employee with outstanding tasks may:\r\n• Not yet have their WISH login credentials issued\r\n• Be restricted from accessing menus they need for their role\r\n• Show as incomplete in compliance reporting\r\n\r\nFor new employees especially, task completion is part of the onboarding process. Staying on top of the Manage Employee Task screen helps make sure new hires get fully set up and can start working without delays.\r\n\r\nMake it a habit to check this screen regularly — not just when something seems wrong."
+        "text": "Pending tasks aren't just administrative, they can directly affect what an employee can do in the system.\r\n\r\nIn WISH, certain access and scheduling capabilities are tied to training and task completion. An employee with outstanding tasks may:\r\n• Not yet have their WISH login credentials issued\r\n• Be restricted from accessing menus they need for their role\r\n• Show as incomplete in compliance reporting\r\n\r\nFor new employees especially, task completion is part of the onboarding process. Staying on top of the Manage Employee Task screen helps make sure new hires get fully set up and can start working without delays.\r\n\r\nMake it a habit to check this screen regularly, not just when something seems wrong."
       },
       {
         "slide_number": 6,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the HR Admin module.\r\n\r\nYou now know how to access Manage Employee Task, read the task status indicators, and identify employees who have pending items that need follow-up.\r\n\r\nCheck this screen regularly — keeping tasks current keeps your employees set up correctly and your branch running smoothly."
+        "text": "Congratulations! You've completed the HR Admin module.\r\n\r\nYou now know how to access Manage Employee Task, read the task status indicators, and identify employees who have pending items that need follow-up.\r\n\r\nCheck this screen regularly, keeping tasks current keeps your employees set up correctly and your branch running smoothly."
       },
       {
         "slide_number": 7,
@@ -889,43 +889,43 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "What Mail By Gives You",
         "instructions": "Click Tools in the top navigation. Show the three Mail By options in the menu: Mail By Employee, Mail By Available Employee, Mail By Job.",
-        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n• Mail By Employee — send a message directly to one or more specific employees\r\n• Mail By Available Employee — send a message to employees who are available but not yet scheduled for a job\r\n• Mail By Job — send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why."
+        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n• Mail By Employee, send a message directly to one or more specific employees\r\n• Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n• Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why."
       },
       {
         "slide_number": 3,
         "slide_name": "Mail By Employee",
         "instructions": "Tools → Mail By Employee. Show the employee search field. Search for and select one or more employees. Show the message composition area. Show the Send button.",
-        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results — you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\n• Following up with an individual about a schedule or assignment\r\n• Sending a document or reminder to a specific group\r\n• Direct communication when you know exactly who needs to receive it"
+        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results, you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\n• Following up with an individual about a schedule or assignment\r\n• Sending a document or reminder to a specific group\r\n• Direct communication when you know exactly who needs to receive it"
       },
       {
         "slide_number": 4,
         "slide_name": "Mail By Available Employee",
         "instructions": "Tools → Mail By Available Employee. Show the filter options — branch, date, role. Show the list of available employees populating. Show selecting all and composing a message.",
-        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available — meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters — branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
+        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available, meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters, branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
       },
       {
         "slide_number": 5,
         "slide_name": "Mail By Job",
         "instructions": "Tools → Mail By Job. Show the job search field. Enter a job number. Show the list of scheduled employees populating automatically. Compose a message and click Send.",
-        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send — all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n• Last-minute schedule changes or location updates before an event\r\n• Sending reminders about what to wear, where to park, or what time to arrive\r\n• Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
+        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send, all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n• Last-minute schedule changes or location updates before an event\r\n• Sending reminders about what to wear, where to park, or what time to arrive\r\n• Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
       },
       {
         "slide_number": 6,
         "slide_name": "Choosing the Right Option",
         "instructions": "",
-        "text": "Not sure which Mail By option to use? Here's a quick guide:\r\n\r\n\"I need to reach a specific employee or a few people by name.\"\r\nto Mail By Employee\r\n\r\n\"I have open shifts and need to find employees who aren't scheduled yet.\"\r\nto Mail By Available Employee\r\n\r\n\"I need to send the same message to everyone working a specific job.\"\r\nto Mail By Job\r\n\r\nA few things to keep in mind:\r\n• Messages go to the email address on file in WISH — if an employee's email is outdated, they won't receive it\r\n• These are one-way communications — employees cannot reply through WISH\r\n• If an employee hasn't received a message you sent, verify their email address in their employee record before resending"
+        "text": "Not sure which Mail By option to use? Here's a quick guide:\r\n\r\n\"I need to reach a specific employee or a few people by name.\"\r\nto Mail By Employee\r\n\r\n\"I have open shifts and need to find employees who aren't scheduled yet.\"\r\nto Mail By Available Employee\r\n\r\n\"I need to send the same message to everyone working a specific job.\"\r\nto Mail By Job\r\n\r\nA few things to keep in mind:\r\n• Messages go to the email address on file in WISH, if an employee's email is outdated, they won't receive it\r\n• These are one-way communications, employees cannot reply through WISH\r\n• If an employee hasn't received a message you sent, verify their email address in their employee record before resending"
       },
       {
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "text": "Congratulations! You've completed the Mail By module.\r\n\r\nYou now know how to use all three Mail By tools to communicate with employees through WISH — whether you're reaching a specific person, filling open shifts, or sending an update to an entire job crew.\r\n\r\nIf an employee isn't receiving your messages, the first thing to check is their email address in their WISH record."
+        "text": "Congratulations! You've completed the Mail By module.\r\n\r\nYou now know how to use all three Mail By tools to communicate with employees through WISH, whether you're reaching a specific person, filling open shifts, or sending an update to an entire job crew.\r\n\r\nIf an employee isn't receiving your messages, the first thing to check is their email address in their WISH record."
       },
       {
         "slide_number": 8,
@@ -943,7 +943,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -955,25 +955,25 @@
         "slide_number": 3,
         "slide_name": "Configuring Sign-In",
         "instructions": "Time Clock → Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
-        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly — those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes — the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
+        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly, those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes, the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
       },
       {
         "slide_number": 4,
         "slide_name": "Signing Employees In",
         "instructions": "Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
-        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift — they will receive their scheduled time, not the early clock time."
+        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift, they will receive their scheduled time, not the early clock time."
       },
       {
         "slide_number": 5,
         "slide_name": "Signing Out",
         "instructions": "Time Clock → Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
-        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter — if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times."
+        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter, if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times."
       },
       {
         "slide_number": 6,
         "slide_name": "Scan Time vs. Adjusted Time",
         "instructions": "",
-        "text": "WISH keeps four timestamps per employee: scan time in, adjusted time in, scan time out, and adjusted time out.\r\n\r\nThe scan time is the actual clock time of processing. The adjusted time is the rounded result based on the 15-minute interval — or what you manually corrected it to.\r\n\r\nA large gap between scan time and adjusted time is a flag that warrants investigation. These timestamps are visible to anyone with sign-in access."
+        "text": "WISH keeps four timestamps per employee: scan time in, adjusted time in, scan time out, and adjusted time out.\r\n\r\nThe scan time is the actual clock time of processing. The adjusted time is the rounded result based on the 15-minute interval, or what you manually corrected it to.\r\n\r\nA large gap between scan time and adjusted time is a flag that warrants investigation. These timestamps are visible to anyone with sign-in access."
       },
       {
         "slide_number": 7,
@@ -997,7 +997,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -1009,13 +1009,13 @@
         "slide_number": 3,
         "slide_name": "Accessing Process Hours",
         "instructions": "Screen recording: Payroll → Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
-        "text": "Go to Payroll to Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count — giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours."
+        "text": "Go to Payroll to Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count, giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours."
       },
       {
         "slide_number": 4,
         "slide_name": "Approving Hours",
         "instructions": "Open shift. Show sign-in and sign-out buttons. Click Sign-In button — show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
-        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\r\n\r\nReview the times. If everything looks correct, click Approve Hours — this is your save button and finalizes the hours.\r\n\r\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\r\n\r\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times."
+        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\r\n\r\nReview the times. If everything looks correct, click Approve Hours, this is your save button and finalizes the hours.\r\n\r\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\r\n\r\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times."
       },
       {
         "slide_number": 5,
@@ -1027,13 +1027,13 @@
         "slide_number": 6,
         "slide_name": "Handling No-Shows",
         "instructions": "",
-        "text": "If an employee was scheduled but did not show up, they will appear with no times. You cannot approve hours while any employee has blank times.\r\n\r\nFor employees who did not show up, check the NS — No Show — checkbox next to their name. Once all no-shows are marked, you can proceed with approving hours for the rest of the shift.\r\n\r\nHandle this carefully. A no-show mark affects payroll and the employee's record. Make sure it is accurate before saving."
+        "text": "If an employee was scheduled but did not show up, they will appear with no times. You cannot approve hours while any employee has blank times.\r\n\r\nFor employees who did not show up, check the NS, No Show, checkbox next to their name. Once all no-shows are marked, you can proceed with approving hours for the rest of the shift.\r\n\r\nHandle this carefully. A no-show mark affects payroll and the employee's record. Make sure it is accurate before saving."
       },
       {
         "slide_number": 7,
         "slide_name": "Override Rates and Per Diem",
         "instructions": "",
-        "text": "When manually entering times, you will also see fields for:\r\n\r\nOverride Rate — If an employee worked a position different from their standard role and should be paid a different rate, enter it here. The system applies the higher of the two rates.\r\n\r\nPer Diem — If you provided the employee with additional payment outside their hourly rate (such as a pay card), enter that amount here so payroll can account for it."
+        "text": "When manually entering times, you will also see fields for:\r\n\r\nOverride Rate, If an employee worked a position different from their standard role and should be paid a different rate, enter it here. The system applies the higher of the two rates.\r\n\r\nPer Diem, If you provided the employee with additional payment outside their hourly rate (such as a pay card), enter that amount here so payroll can account for it."
       },
       {
         "slide_number": 8,
@@ -1057,7 +1057,7 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
@@ -1081,25 +1081,25 @@
         "slide_number": 5,
         "slide_name": "Manage Billing Process",
         "instructions": "Billing → Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
-        "text": "Go to Billing to Manage Billing Process. Select your event — your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method — in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data."
+        "text": "Go to Billing to Manage Billing Process. Select your event, your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method, in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data."
       },
       {
         "slide_number": 6,
         "slide_name": "Reviewing and Adjusting the Bill",
         "instructions": "Walk through Sign-In/Sign-Out tab, Billing Tax tab, Summary tab, Billable Items tab, Invoice Setup tab.",
-        "text": "After pulling invoice data, review the tabs:\r\n\r\nSign-In/Sign-Out — Adjust times, change roles, or update rates for employees who worked different positions. Use the change fields at the top to apply changes to multiple employees at once.\r\n\r\nBilling Tax — Apply tax rates to specific roles if applicable.\r\n\r\nSummary — Clean overview of all staff used across roles and job days.\r\n\r\nBillable Items — Add additional charges to the client: radios, carts, jackets, wristbands, etc.\r\n\r\nInvoice Setup — Set the Attention To field (the client contact who should receive the invoice). This is required before generating."
+        "text": "After pulling invoice data, review the tabs:\r\n\r\nSign-In/Sign-Out, Adjust times, change roles, or update rates for employees who worked different positions. Use the change fields at the top to apply changes to multiple employees at once.\r\n\r\nBilling Tax, Apply tax rates to specific roles if applicable.\r\n\r\nSummary, Clean overview of all staff used across roles and job days.\r\n\r\nBillable Items, Add additional charges to the client: radios, carts, jackets, wristbands, etc.\r\n\r\nInvoice Setup, Set the Attention To field (the client contact who should receive the invoice). This is required before generating."
       },
       {
         "slide_number": 7,
         "slide_name": "Generating and Printing the Invoice",
         "instructions": "Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
-        "text": "Select your invoice type:\r\n• Summary — Clean totals by role. Most clients prefer this.\r\n• Detailed — Full breakdown showing each employee's times, regular and overtime hours.\r\n• Summary with Cover and Sign-In Sheets — Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown — your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing to Print Invoice, select your event, choose the invoice."
+        "text": "Select your invoice type:\r\n• Summary, Clean totals by role. Most clients prefer this.\r\n• Detailed, Full breakdown showing each employee's times, regular and overtime hours.\r\n• Summary with Cover and Sign-In Sheets, Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown, your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing to Print Invoice, select your event, choose the invoice."
       },
       {
         "slide_number": 8,
         "slide_name": "Managing Contracts",
         "instructions": "Records → Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
-        "text": "Client contracts are managed under Records to Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\n• Contract dates and payment terms — standard is net 30 days with 150% late fee\r\n• Bill rates by role — what you charge the client per hour for each position\r\n• Tax rates — set appropriately for your location\r\n• Contract document — upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate."
+        "text": "Client contracts are managed under Records to Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\n• Contract dates and payment terms, standard is net 30 days with 150% late fee\r\n• Bill rates by role, what you charge the client per hour for each position\r\n• Tax rates, set appropriately for your location\r\n• Contract document, upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate."
       },
       {
         "slide_number": 9,
@@ -1123,31 +1123,31 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle — from hiring and staff management to timesheets and payroll — all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
       },
       {
         "slide_number": 2,
         "slide_name": "Inventory",
         "instructions": "",
-        "text": "In this module, you will learn how to track and manage physical items used at events — including how to set up asset tags, create inventory items, assign equipment to jobs, and process check-in and check-out activity."
+        "text": "In this module, you will learn how to track and manage physical items used at events, including how to set up asset tags, create inventory items, assign equipment to jobs, and process check-in and check-out activity."
       },
       {
         "slide_number": 3,
         "slide_name": "Inventory Menu Overview",
         "instructions": "Click Inventory in the navigation. Show all sub-menu items expanding: Manage Asset Tag, Item Creation, Item Job Equipment, Check-In Check-Out Report, Check-In Check-Out.",
-        "text": "The Inventory menu has five sections:\r\n• Manage Asset Tag — register and search the physical tags assigned to inventory items\r\n• Item Creation — create and maintain the inventory items in your branch’s catalog\r\n• Item Job Equipment — assign specific items and quantities to a job\r\n• Check-In Check-Out Report — generate a summary of all item activity for a date range\r\n• Check-In Check-Out — process the actual check-in and check-out of items at an event\r\n\r\nWe’ll walk through each one."
+        "text": "The Inventory menu has five sections:\r\n• Manage Asset Tag, register and search the physical tags assigned to inventory items\r\n• Item Creation, create and maintain the inventory items in your branch’s catalog\r\n• Item Job Equipment, assign specific items and quantities to a job\r\n• Check-In Check-Out Report, generate a summary of all item activity for a date range\r\n• Check-In Check-Out, process the actual check-in and check-out of items at an event\r\n\r\nWe’ll walk through each one."
       },
       {
         "slide_number": 4,
         "slide_name": "Manage Asset Tag",
         "instructions": "Inventory → Manage Asset Tag. Select Branch from dropdown. Click Search. Show Asset Tag List. Click Add Asset Tag. Show form fields. Save.",
-        "text": "Go to Inventory to Manage Asset Tag. Select your branch from the dropdown and click Search to see all registered asset tags for that branch.\r\n\r\nTo add a new tag, click Add Asset Tag. Enter the tag details and save. Asset tags are the physical identifiers attached to trackable items — like radios, jackets, and wristbands — so each individual item can be located and accounted for throughout check-in and check-out.\r\n\r\nIf no items appear after searching, your branch has no asset tags registered yet. Work with your administrator to set them up before an event."
+        "text": "Go to Inventory to Manage Asset Tag. Select your branch from the dropdown and click Search to see all registered asset tags for that branch.\r\n\r\nTo add a new tag, click Add Asset Tag. Enter the tag details and save. Asset tags are the physical identifiers attached to trackable items, like radios, jackets, and wristbands, so each individual item can be located and accounted for throughout check-in and check-out.\r\n\r\nIf no items appear after searching, your branch has no asset tags registered yet. Work with your administrator to set them up before an event."
       },
       {
         "slide_number": 5,
         "slide_name": "Item Creation",
         "instructions": "Inventory → Item Creation. Show form. Enter Item Name, Category, Description. Save. Show item appear in list below.",
-        "text": "Go to Inventory to Item Creation. This is where you build your branch's inventory catalog — the master list of items that can be assigned to jobs and checked out to employees.\n\nFor each item, enter:\n• Item Name — a clear, descriptive name such as Radio — Motorola CLP1010 or Nitrile Gloves — Large\n• Category — either Inventory Items or Job Equipment\n• Any additional details required by your branch\n\nItems must be created here before they can appear in Item Job Equipment or be selected during check-in and check-out. If an item is missing from those screens, come back here first."
+        "text": "Go to Inventory to Item Creation. This is where you build your branch's inventory catalog, the master list of items that can be assigned to jobs and checked out to employees.\n\nFor each item, enter:\n• Item Name, a clear, descriptive name such as Radio, Motorola CLP1010 or Nitrile Gloves, Large\n• Category, either Inventory Items or Job Equipment\n• Any additional details required by your branch\n\nItems must be created here before they can appear in Item Job Equipment or be selected during check-in and check-out. If an item is missing from those screens, come back here first."
       },
       {
         "slide_number": 6,
@@ -1159,19 +1159,19 @@
         "slide_number": 7,
         "slide_name": "Check-In Check-Out Report",
         "instructions": "Inventory → Check-In Check-Out Report. Fill in Branch Name, set Check Out Start Date and End Date. Leave Department, Event, Sorted By, and Check-In Check-Out status as All. Select PDF. Click Produce Report.",
-        "text": "Go to Inventory to Check-In Check-Out Report. This report gives you a full record of item activity across your branch for a selected date range.\r\n\r\nFill in:\r\n• Branch Name — required\r\n• Check Out Start Date and Check Out End Date — the range you want to review\r\n• Department, Event, Sorted By, and Check-In Check-Out — leave as All unless narrowing results\r\n\r\nSelect PDF or Excel, then click Produce Report for the full activity log. Click CheckOut Report if you only want to see items that were checked out but have not yet been returned.\r\n\r\nRun this report after every event to confirm all items have been accounted for."
+        "text": "Go to Inventory to Check-In Check-Out Report. This report gives you a full record of item activity across your branch for a selected date range.\r\n\r\nFill in:\r\n• Branch Name, required\r\n• Check Out Start Date and Check Out End Date, the range you want to review\r\n• Department, Event, Sorted By, and Check-In Check-Out, leave as All unless narrowing results\r\n\r\nSelect PDF or Excel, then click Produce Report for the full activity log. Click CheckOut Report if you only want to see items that were checked out but have not yet been returned.\r\n\r\nRun this report after every event to confirm all items have been accounted for."
       },
       {
         "slide_number": 8,
         "slide_name": "Item Check-In/Check-Out — Employee View",
         "instructions": "Inventory → Check-In Check-Out. Show Employee# tab selected. Fill in Branch, Date, Event. Enter Employee # and name. Click Search. Show results list.",
-        "text": "Go to Inventory to Check-In Check-Out. This is where you process the actual movement of items at an event — checking items out to employees and checking them in when returned.\r\n\r\nSelect the Employee# tab to search by person. Fill in:\r\n• Branch and Date — required\r\n• Event — select the active event\r\n• Venue and Job — optional, to narrow results\r\n• Employee Number, First Name, and Last Name — enter as much as you have\r\n• WorkGroup — optional filter\r\n\r\nClick Search to see all items currently checked out to that employee. Use this view to verify what a specific person has before they leave the event."
+        "text": "Go to Inventory to Check-In Check-Out. This is where you process the actual movement of items at an event, checking items out to employees and checking them in when returned.\r\n\r\nSelect the Employee# tab to search by person. Fill in:\r\n• Branch and Date, required\r\n• Event, select the active event\r\n• Venue and Job, optional, to narrow results\r\n• Employee Number, First Name, and Last Name, enter as much as you have\r\n• WorkGroup, optional filter\r\n\r\nClick Search to see all items currently checked out to that employee. Use this view to verify what a specific person has before they leave the event."
       },
       {
         "slide_number": 9,
         "slide_name": "Item Check-In/Check-Out — Item View",
         "instructions": "Inventory → Check-In Check-Out. Switch to Item tab. Set Category to Inventory Items. Select Item Type and Item Name. Enter Item Code or RFID if available. Click Search. Click History to review past activity.",
-        "text": "Switch to the Item tab to search by the item itself rather than by employee.\r\n\r\nFill in:\r\n• Branch and Date — required\r\n• Category — set to Inventory Items\r\n• Item Type and Item Name — select from the dropdowns\r\n• Item Code or RFID — enter if you have the physical tag number\r\n\r\nClick Search to see the current check-out status of that item — who has it and when it was taken.\r\n\r\nUse the History button to pull the full check-in and check-out log for any item or employee. This is your audit trail if a discrepancy comes up after an event."
+        "text": "Switch to the Item tab to search by the item itself rather than by employee.\r\n\r\nFill in:\r\n• Branch and Date, required\r\n• Category, set to Inventory Items\r\n• Item Type and Item Name, select from the dropdowns\r\n• Item Code or RFID, enter if you have the physical tag number\r\n\r\nClick Search to see the current check-out status of that item, who has it and when it was taken.\r\n\r\nUse the History button to pull the full check-in and check-out log for any item or employee. This is your audit trail if a discrepancy comes up after an event."
       },
       {
         "slide_number": 10,

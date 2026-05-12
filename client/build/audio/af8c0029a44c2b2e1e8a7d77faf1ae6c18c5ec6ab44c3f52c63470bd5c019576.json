@@ -1,0 +1,517 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.128
+  },
+  {
+    "word": "addition",
+    "start": 0.174,
+    "end": 0.499
+  },
+  {
+    "word": "to",
+    "start": 0.546,
+    "end": 0.604
+  },
+  {
+    "word": "updating",
+    "start": 0.685,
+    "end": 1.138
+  },
+  {
+    "word": "individual",
+    "start": 1.219,
+    "end": 1.753
+  },
+  {
+    "word": "employee",
+    "start": 1.8,
+    "end": 2.206
+  },
+  {
+    "word": "records,",
+    "start": 2.287,
+    "end": 2.833
+  },
+  {
+    "word": "Employee",
+    "start": 2.868,
+    "end": 3.46
+  },
+  {
+    "word": "HR",
+    "start": 3.529,
+    "end": 3.947
+  },
+  {
+    "word": "Record",
+    "start": 4.017,
+    "end": 4.307
+  },
+  {
+    "word": "Maintenance",
+    "start": 4.354,
+    "end": 4.841
+  },
+  {
+    "word": "gives",
+    "start": 4.934,
+    "end": 5.155
+  },
+  {
+    "word": "you",
+    "start": 5.19,
+    "end": 5.271
+  },
+  {
+    "word": "access",
+    "start": 5.364,
+    "end": 5.782
+  },
+  {
+    "word": "to",
+    "start": 5.828,
+    "end": 5.921
+  },
+  {
+    "word": "Manage",
+    "start": 6.049,
+    "end": 6.385
+  },
+  {
+    "word": "Employee",
+    "start": 6.409,
+    "end": 6.792
+  },
+  {
+    "word": "Status,",
+    "start": 6.85,
+    "end": 7.477
+  },
+  {
+    "word": "a",
+    "start": 7.593,
+    "end": 7.674
+  },
+  {
+    "word": "tool",
+    "start": 7.767,
+    "end": 7.999
+  },
+  {
+    "word": "for",
+    "start": 8.057,
+    "end": 8.162
+  },
+  {
+    "word": "updating",
+    "start": 8.22,
+    "end": 8.615
+  },
+  {
+    "word": "multiple",
+    "start": 8.661,
+    "end": 9.033
+  },
+  {
+    "word": "employees",
+    "start": 9.067,
+    "end": 9.567
+  },
+  {
+    "word": "at",
+    "start": 9.613,
+    "end": 9.694
+  },
+  {
+    "word": "once.",
+    "start": 9.776,
+    "end": 10.344
+  },
+  {
+    "word": "Go",
+    "start": 10.344,
+    "end": 10.495
+  },
+  {
+    "word": "to",
+    "start": 10.542,
+    "end": 10.6
+  },
+  {
+    "word": "Records",
+    "start": 10.681,
+    "end": 11.006
+  },
+  {
+    "word": "to",
+    "start": 11.041,
+    "end": 11.111
+  },
+  {
+    "word": "Manage",
+    "start": 11.204,
+    "end": 11.517
+  },
+  {
+    "word": "Employee",
+    "start": 11.54,
+    "end": 11.912
+  },
+  {
+    "word": "Status.",
+    "start": 11.97,
+    "end": 12.69
+  },
+  {
+    "word": "Filter",
+    "start": 12.69,
+    "end": 13.026
+  },
+  {
+    "word": "by",
+    "start": 13.073,
+    "end": 13.177
+  },
+  {
+    "word": "branch",
+    "start": 13.247,
+    "end": 13.607
+  },
+  {
+    "word": "and",
+    "start": 13.665,
+    "end": 13.792
+  },
+  {
+    "word": "current",
+    "start": 13.862,
+    "end": 14.152
+  },
+  {
+    "word": "status",
+    "start": 14.199,
+    "end": 14.582
+  },
+  {
+    "word": "to",
+    "start": 14.628,
+    "end": 14.686
+  },
+  {
+    "word": "pull",
+    "start": 14.756,
+    "end": 14.919
+  },
+  {
+    "word": "a",
+    "start": 14.977,
+    "end": 15
+  },
+  {
+    "word": "list",
+    "start": 15.046,
+    "end": 15.209
+  },
+  {
+    "word": "of",
+    "start": 15.244,
+    "end": 15.29
+  },
+  {
+    "word": "employees.",
+    "start": 15.337,
+    "end": 16.08
+  },
+  {
+    "word": "Select",
+    "start": 16.358,
+    "end": 16.799
+  },
+  {
+    "word": "the",
+    "start": 16.834,
+    "end": 16.904
+  },
+  {
+    "word": "ones",
+    "start": 16.985,
+    "end": 17.322
+  },
+  {
+    "word": "you",
+    "start": 17.45,
+    "end": 17.6
+  },
+  {
+    "word": "want",
+    "start": 17.67,
+    "end": 17.867
+  },
+  {
+    "word": "to",
+    "start": 17.914,
+    "end": 17.984
+  },
+  {
+    "word": "update,",
+    "start": 18.065,
+    "end": 18.576
+  },
+  {
+    "word": "choose",
+    "start": 18.645,
+    "end": 19.052
+  },
+  {
+    "word": "the",
+    "start": 19.098,
+    "end": 19.168
+  },
+  {
+    "word": "new",
+    "start": 19.237,
+    "end": 19.388
+  },
+  {
+    "word": "status,",
+    "start": 19.458,
+    "end": 20.039
+  },
+  {
+    "word": "and",
+    "start": 20.085,
+    "end": 20.236
+  },
+  {
+    "word": "apply",
+    "start": 20.282,
+    "end": 20.724
+  },
+  {
+    "word": "the",
+    "start": 20.84,
+    "end": 20.933
+  },
+  {
+    "word": "change",
+    "start": 20.991,
+    "end": 21.432
+  },
+  {
+    "word": "to",
+    "start": 21.478,
+    "end": 21.571
+  },
+  {
+    "word": "all",
+    "start": 21.687,
+    "end": 21.908
+  },
+  {
+    "word": "of",
+    "start": 21.966,
+    "end": 22.012
+  },
+  {
+    "word": "them",
+    "start": 22.07,
+    "end": 22.302
+  },
+  {
+    "word": "at",
+    "start": 22.453,
+    "end": 22.616
+  },
+  {
+    "word": "once.",
+    "start": 22.709,
+    "end": 23.44
+  },
+  {
+    "word": "This",
+    "start": 23.44,
+    "end": 23.626
+  },
+  {
+    "word": "is",
+    "start": 23.684,
+    "end": 23.777
+  },
+  {
+    "word": "most",
+    "start": 23.87,
+    "end": 24.079
+  },
+  {
+    "word": "useful",
+    "start": 24.137,
+    "end": 24.45
+  },
+  {
+    "word": "after",
+    "start": 24.508,
+    "end": 24.729
+  },
+  {
+    "word": "large",
+    "start": 24.787,
+    "end": 25.008
+  },
+  {
+    "word": "events:",
+    "start": 25.042,
+    "end": 25.681
+  },
+  {
+    "word": "•",
+    "start": 25.681,
+    "end": 25.716
+  },
+  {
+    "word": "Deactivating",
+    "start": 25.832,
+    "end": 26.563
+  },
+  {
+    "word": "seasonal",
+    "start": 26.679,
+    "end": 27.155
+  },
+  {
+    "word": "employees",
+    "start": 27.202,
+    "end": 27.771
+  },
+  {
+    "word": "who",
+    "start": 27.852,
+    "end": 28.015
+  },
+  {
+    "word": "have",
+    "start": 28.073,
+    "end": 28.212
+  },
+  {
+    "word": "finished",
+    "start": 28.258,
+    "end": 28.56
+  },
+  {
+    "word": "their",
+    "start": 28.583,
+    "end": 28.758
+  },
+  {
+    "word": "assignments",
+    "start": 28.792,
+    "end": 29.489
+  },
+  {
+    "word": "•",
+    "start": 29.489,
+    "end": 30.302
+  },
+  {
+    "word": "Reactivating",
+    "start": 30.813,
+    "end": 31.823
+  },
+  {
+    "word": "employees",
+    "start": 32.937,
+    "end": 33.947
+  },
+  {
+    "word": "returning",
+    "start": 34.272,
+    "end": 34.725
+  },
+  {
+    "word": "for",
+    "start": 34.783,
+    "end": 34.911
+  },
+  {
+    "word": "a",
+    "start": 34.969,
+    "end": 34.992
+  },
+  {
+    "word": "new",
+    "start": 35.062,
+    "end": 35.201
+  },
+  {
+    "word": "season",
+    "start": 35.271,
+    "end": 36.084
+  },
+  {
+    "word": "Bulk",
+    "start": 36.084,
+    "end": 36.409
+  },
+  {
+    "word": "status",
+    "start": 36.49,
+    "end": 36.908
+  },
+  {
+    "word": "changes",
+    "start": 36.966,
+    "end": 37.465
+  },
+  {
+    "word": "affect",
+    "start": 37.558,
+    "end": 38.069
+  },
+  {
+    "word": "every",
+    "start": 38.197,
+    "end": 38.603
+  },
+  {
+    "word": "selected",
+    "start": 38.684,
+    "end": 39.195
+  },
+  {
+    "word": "employee",
+    "start": 39.241,
+    "end": 39.857
+  },
+  {
+    "word": "immediately.",
+    "start": 39.892,
+    "end": 40.611
+  },
+  {
+    "word": "Double-check",
+    "start": 40.995,
+    "end": 41.645
+  },
+  {
+    "word": "your",
+    "start": 41.726,
+    "end": 41.877
+  },
+  {
+    "word": "selection",
+    "start": 41.935,
+    "end": 42.515
+  },
+  {
+    "word": "before",
+    "start": 42.759,
+    "end": 43.189
+  },
+  {
+    "word": "applying.",
+    "start": 43.224,
+    "end": 43.932
+  }
+]

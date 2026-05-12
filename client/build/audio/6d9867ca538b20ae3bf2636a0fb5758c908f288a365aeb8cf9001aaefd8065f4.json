@@ -1,0 +1,542 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.174
+  },
+  {
+    "word": "to",
+    "start": 0.232,
+    "end": 0.29
+  },
+  {
+    "word": "Inventory",
+    "start": 0.383,
+    "end": 0.987
+  },
+  {
+    "word": "to",
+    "start": 1.045,
+    "end": 1.126
+  },
+  {
+    "word": "Check-In",
+    "start": 1.196,
+    "end": 1.602
+  },
+  {
+    "word": "Check-Out",
+    "start": 1.672,
+    "end": 2.055
+  },
+  {
+    "word": "Report.",
+    "start": 2.101,
+    "end": 2.531
+  },
+  {
+    "word": "This",
+    "start": 2.566,
+    "end": 2.752
+  },
+  {
+    "word": "report",
+    "start": 2.81,
+    "end": 3.146
+  },
+  {
+    "word": "gives",
+    "start": 3.204,
+    "end": 3.425
+  },
+  {
+    "word": "you",
+    "start": 3.471,
+    "end": 3.564
+  },
+  {
+    "word": "a",
+    "start": 3.657,
+    "end": 3.715
+  },
+  {
+    "word": "full",
+    "start": 3.889,
+    "end": 4.203
+  },
+  {
+    "word": "record",
+    "start": 4.296,
+    "end": 4.644
+  },
+  {
+    "word": "of",
+    "start": 4.69,
+    "end": 4.772
+  },
+  {
+    "word": "item",
+    "start": 4.888,
+    "end": 5.155
+  },
+  {
+    "word": "activity",
+    "start": 5.201,
+    "end": 5.7
+  },
+  {
+    "word": "across",
+    "start": 5.782,
+    "end": 6.2
+  },
+  {
+    "word": "your",
+    "start": 6.246,
+    "end": 6.374
+  },
+  {
+    "word": "branch",
+    "start": 6.42,
+    "end": 6.745
+  },
+  {
+    "word": "for",
+    "start": 6.803,
+    "end": 6.989
+  },
+  {
+    "word": "a",
+    "start": 7.059,
+    "end": 7.094
+  },
+  {
+    "word": "selected",
+    "start": 7.21,
+    "end": 7.755
+  },
+  {
+    "word": "date",
+    "start": 7.837,
+    "end": 8.092
+  },
+  {
+    "word": "range.",
+    "start": 8.139,
+    "end": 8.568
+  },
+  {
+    "word": "Fill",
+    "start": 8.568,
+    "end": 8.812
+  },
+  {
+    "word": "in:",
+    "start": 8.905,
+    "end": 9.346
+  },
+  {
+    "word": "•",
+    "start": 9.346,
+    "end": 12.144
+  },
+  {
+    "word": "Branch",
+    "start": 12.423,
+    "end": 12.829
+  },
+  {
+    "word": "Name,",
+    "start": 12.899,
+    "end": 13.305
+  },
+  {
+    "word": "required",
+    "start": 13.479,
+    "end": 14.164
+  },
+  {
+    "word": "•",
+    "start": 14.164,
+    "end": 15.279
+  },
+  {
+    "word": "Check",
+    "start": 15.488,
+    "end": 15.766
+  },
+  {
+    "word": "Out",
+    "start": 15.824,
+    "end": 15.964
+  },
+  {
+    "word": "Start",
+    "start": 16.033,
+    "end": 16.312
+  },
+  {
+    "word": "Date",
+    "start": 16.37,
+    "end": 16.672
+  },
+  {
+    "word": "and",
+    "start": 16.718,
+    "end": 16.846
+  },
+  {
+    "word": "Check",
+    "start": 16.893,
+    "end": 17.113
+  },
+  {
+    "word": "Out",
+    "start": 17.171,
+    "end": 17.299
+  },
+  {
+    "word": "End",
+    "start": 17.357,
+    "end": 17.508
+  },
+  {
+    "word": "Date,",
+    "start": 17.566,
+    "end": 17.903
+  },
+  {
+    "word": "the",
+    "start": 17.995,
+    "end": 18.112
+  },
+  {
+    "word": "range",
+    "start": 18.205,
+    "end": 18.576
+  },
+  {
+    "word": "you",
+    "start": 18.623,
+    "end": 18.716
+  },
+  {
+    "word": "want",
+    "start": 18.785,
+    "end": 18.971
+  },
+  {
+    "word": "to",
+    "start": 19.006,
+    "end": 19.076
+  },
+  {
+    "word": "review",
+    "start": 19.169,
+    "end": 19.819
+  },
+  {
+    "word": "•",
+    "start": 19.819,
+    "end": 19.842
+  },
+  {
+    "word": "Department,",
+    "start": 20.121,
+    "end": 20.655
+  },
+  {
+    "word": "Event,",
+    "start": 20.689,
+    "end": 21.2
+  },
+  {
+    "word": "Sorted",
+    "start": 21.374,
+    "end": 21.758
+  },
+  {
+    "word": "By,",
+    "start": 21.816,
+    "end": 22.315
+  },
+  {
+    "word": "and",
+    "start": 22.489,
+    "end": 22.802
+  },
+  {
+    "word": "Check-In",
+    "start": 22.919,
+    "end": 23.395
+  },
+  {
+    "word": "Check-Out,",
+    "start": 24.509,
+    "end": 25.124
+  },
+  {
+    "word": "leave",
+    "start": 25.299,
+    "end": 25.635
+  },
+  {
+    "word": "as",
+    "start": 25.693,
+    "end": 26.018
+  },
+  {
+    "word": "All",
+    "start": 26.134,
+    "end": 26.471
+  },
+  {
+    "word": "unless",
+    "start": 26.587,
+    "end": 26.924
+  },
+  {
+    "word": "narrowing",
+    "start": 27.005,
+    "end": 27.365
+  },
+  {
+    "word": "results",
+    "start": 27.412,
+    "end": 27.946
+  },
+  {
+    "word": "Select",
+    "start": 27.946,
+    "end": 28.375
+  },
+  {
+    "word": "PDF",
+    "start": 28.468,
+    "end": 28.956
+  },
+  {
+    "word": "or",
+    "start": 29.072,
+    "end": 29.246
+  },
+  {
+    "word": "Excel,",
+    "start": 29.327,
+    "end": 29.885
+  },
+  {
+    "word": "then",
+    "start": 30.001,
+    "end": 30.21
+  },
+  {
+    "word": "click",
+    "start": 30.291,
+    "end": 30.523
+  },
+  {
+    "word": "Produce",
+    "start": 30.581,
+    "end": 30.918
+  },
+  {
+    "word": "Report",
+    "start": 30.953,
+    "end": 31.336
+  },
+  {
+    "word": "for",
+    "start": 31.394,
+    "end": 31.522
+  },
+  {
+    "word": "the",
+    "start": 31.568,
+    "end": 31.638
+  },
+  {
+    "word": "full",
+    "start": 31.696,
+    "end": 31.939
+  },
+  {
+    "word": "activity",
+    "start": 32.021,
+    "end": 32.462
+  },
+  {
+    "word": "log.",
+    "start": 32.52,
+    "end": 32.915
+  },
+  {
+    "word": "Click",
+    "start": 33.24,
+    "end": 33.507
+  },
+  {
+    "word": "CheckOut",
+    "start": 33.565,
+    "end": 33.925
+  },
+  {
+    "word": "Report",
+    "start": 33.983,
+    "end": 34.366
+  },
+  {
+    "word": "if",
+    "start": 34.424,
+    "end": 34.528
+  },
+  {
+    "word": "you",
+    "start": 34.575,
+    "end": 34.668
+  },
+  {
+    "word": "only",
+    "start": 34.784,
+    "end": 35.028
+  },
+  {
+    "word": "want",
+    "start": 35.086,
+    "end": 35.272
+  },
+  {
+    "word": "to",
+    "start": 35.306,
+    "end": 35.365
+  },
+  {
+    "word": "see",
+    "start": 35.434,
+    "end": 35.62
+  },
+  {
+    "word": "items",
+    "start": 35.69,
+    "end": 35.98
+  },
+  {
+    "word": "that",
+    "start": 36.015,
+    "end": 36.131
+  },
+  {
+    "word": "were",
+    "start": 36.166,
+    "end": 36.282
+  },
+  {
+    "word": "checked",
+    "start": 36.305,
+    "end": 36.572
+  },
+  {
+    "word": "out",
+    "start": 36.618,
+    "end": 36.885
+  },
+  {
+    "word": "but",
+    "start": 37.164,
+    "end": 37.547
+  },
+  {
+    "word": "have",
+    "start": 37.872,
+    "end": 38.046
+  },
+  {
+    "word": "not",
+    "start": 38.081,
+    "end": 38.174
+  },
+  {
+    "word": "yet",
+    "start": 38.221,
+    "end": 38.36
+  },
+  {
+    "word": "been",
+    "start": 38.418,
+    "end": 38.72
+  },
+  {
+    "word": "returned.",
+    "start": 38.929,
+    "end": 39.985
+  },
+  {
+    "word": "Run",
+    "start": 39.985,
+    "end": 40.159
+  },
+  {
+    "word": "this",
+    "start": 40.194,
+    "end": 40.31
+  },
+  {
+    "word": "report",
+    "start": 40.357,
+    "end": 40.717
+  },
+  {
+    "word": "after",
+    "start": 40.786,
+    "end": 41.053
+  },
+  {
+    "word": "every",
+    "start": 41.146,
+    "end": 41.425
+  },
+  {
+    "word": "event",
+    "start": 41.495,
+    "end": 41.785
+  },
+  {
+    "word": "to",
+    "start": 41.82,
+    "end": 41.889
+  },
+  {
+    "word": "confirm",
+    "start": 41.959,
+    "end": 42.342
+  },
+  {
+    "word": "all",
+    "start": 42.423,
+    "end": 42.644
+  },
+  {
+    "word": "items",
+    "start": 42.714,
+    "end": 43.004
+  },
+  {
+    "word": "have",
+    "start": 43.05,
+    "end": 43.178
+  },
+  {
+    "word": "been",
+    "start": 43.213,
+    "end": 43.433
+  },
+  {
+    "word": "accounted",
+    "start": 43.55,
+    "end": 44.084
+  },
+  {
+    "word": "for.",
+    "start": 44.142,
+    "end": 44.676
+  }
+]
