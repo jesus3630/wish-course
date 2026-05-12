@@ -1,0 +1,492 @@
+[
+  {
+    "word": "Use",
+    "start": 0,
+    "end": 0.302
+  },
+  {
+    "word": "Mail",
+    "start": 0.348,
+    "end": 0.488
+  },
+  {
+    "word": "By",
+    "start": 0.546,
+    "end": 0.662
+  },
+  {
+    "word": "Employee",
+    "start": 0.708,
+    "end": 1.173
+  },
+  {
+    "word": "when",
+    "start": 1.207,
+    "end": 1.347
+  },
+  {
+    "word": "you",
+    "start": 1.382,
+    "end": 1.451
+  },
+  {
+    "word": "need",
+    "start": 1.498,
+    "end": 1.66
+  },
+  {
+    "word": "to",
+    "start": 1.707,
+    "end": 1.765
+  },
+  {
+    "word": "reach",
+    "start": 1.881,
+    "end": 2.113
+  },
+  {
+    "word": "a",
+    "start": 2.159,
+    "end": 2.194
+  },
+  {
+    "word": "specific",
+    "start": 2.252,
+    "end": 2.775
+  },
+  {
+    "word": "person",
+    "start": 2.833,
+    "end": 3.216
+  },
+  {
+    "word": "or",
+    "start": 3.332,
+    "end": 3.506
+  },
+  {
+    "word": "a",
+    "start": 3.553,
+    "end": 3.576
+  },
+  {
+    "word": "select",
+    "start": 3.646,
+    "end": 4.017
+  },
+  {
+    "word": "group",
+    "start": 4.063,
+    "end": 4.272
+  },
+  {
+    "word": "of",
+    "start": 4.319,
+    "end": 4.377
+  },
+  {
+    "word": "employees",
+    "start": 4.447,
+    "end": 4.946
+  },
+  {
+    "word": "by",
+    "start": 5.027,
+    "end": 5.166
+  },
+  {
+    "word": "name.",
+    "start": 5.248,
+    "end": 5.654
+  },
+  {
+    "word": "To",
+    "start": 5.654,
+    "end": 5.77
+  },
+  {
+    "word": "send",
+    "start": 5.84,
+    "end": 6.002
+  },
+  {
+    "word": "a",
+    "start": 6.049,
+    "end": 6.072
+  },
+  {
+    "word": "message:",
+    "start": 6.13,
+    "end": 6.629
+  },
+  {
+    "word": "1.",
+    "start": 6.629,
+    "end": 7.024
+  },
+  {
+    "word": "Go",
+    "start": 7.14,
+    "end": 7.303
+  },
+  {
+    "word": "to",
+    "start": 7.372,
+    "end": 7.43
+  },
+  {
+    "word": "Tools",
+    "start": 7.546,
+    "end": 8.022
+  },
+  {
+    "word": "to",
+    "start": 8.081,
+    "end": 8.162
+  },
+  {
+    "word": "Mail",
+    "start": 8.231,
+    "end": 8.406
+  },
+  {
+    "word": "By",
+    "start": 8.464,
+    "end": 8.591
+  },
+  {
+    "word": "Employee",
+    "start": 8.638,
+    "end": 9.334
+  },
+  {
+    "word": "2.",
+    "start": 9.334,
+    "end": 9.729
+  },
+  {
+    "word": "Search",
+    "start": 9.903,
+    "end": 10.182
+  },
+  {
+    "word": "for",
+    "start": 10.228,
+    "end": 10.344
+  },
+  {
+    "word": "the",
+    "start": 10.391,
+    "end": 10.461
+  },
+  {
+    "word": "employee",
+    "start": 10.519,
+    "end": 11.006
+  },
+  {
+    "word": "by",
+    "start": 11.064,
+    "end": 11.204
+  },
+  {
+    "word": "name",
+    "start": 11.297,
+    "end": 11.587
+  },
+  {
+    "word": "or",
+    "start": 11.656,
+    "end": 11.819
+  },
+  {
+    "word": "employee",
+    "start": 11.865,
+    "end": 12.283
+  },
+  {
+    "word": "number",
+    "start": 12.33,
+    "end": 12.841
+  },
+  {
+    "word": "3.",
+    "start": 12.841,
+    "end": 13.177
+  },
+  {
+    "word": "Select",
+    "start": 13.293,
+    "end": 13.677
+  },
+  {
+    "word": "them",
+    "start": 13.711,
+    "end": 13.873
+  },
+  {
+    "word": "from",
+    "start": 13.931,
+    "end": 14.059
+  },
+  {
+    "word": "the",
+    "start": 14.106,
+    "end": 14.175
+  },
+  {
+    "word": "results",
+    "start": 14.233,
+    "end": 14.675
+  },
+  {
+    "word": "—",
+    "start": 14.744,
+    "end": 14.791
+  },
+  {
+    "word": "you",
+    "start": 14.907,
+    "end": 15
+  },
+  {
+    "word": "can",
+    "start": 15.046,
+    "end": 15.162
+  },
+  {
+    "word": "select",
+    "start": 15.209,
+    "end": 15.51
+  },
+  {
+    "word": "multiple",
+    "start": 15.615,
+    "end": 16.161
+  },
+  {
+    "word": "employees",
+    "start": 16.219,
+    "end": 17.774
+  },
+  {
+    "word": "4.",
+    "start": 17.774,
+    "end": 18.262
+  },
+  {
+    "word": "Type",
+    "start": 18.715,
+    "end": 19.017
+  },
+  {
+    "word": "your",
+    "start": 19.063,
+    "end": 19.179
+  },
+  {
+    "word": "subject",
+    "start": 19.237,
+    "end": 19.748
+  },
+  {
+    "word": "and",
+    "start": 19.899,
+    "end": 20.294
+  },
+  {
+    "word": "message",
+    "start": 20.538,
+    "end": 22.163
+  },
+  {
+    "word": "5.",
+    "start": 22.163,
+    "end": 22.709
+  },
+  {
+    "word": "Click",
+    "start": 23.231,
+    "end": 23.579
+  },
+  {
+    "word": "Send",
+    "start": 24.113,
+    "end": 24.717
+  },
+  {
+    "word": "Common",
+    "start": 24.717,
+    "end": 25.1
+  },
+  {
+    "word": "uses:",
+    "start": 25.158,
+    "end": 26.18
+  },
+  {
+    "word": "•",
+    "start": 26.18,
+    "end": 26.203
+  },
+  {
+    "word": "Following",
+    "start": 26.447,
+    "end": 26.9
+  },
+  {
+    "word": "up",
+    "start": 27.004,
+    "end": 27.178
+  },
+  {
+    "word": "with",
+    "start": 27.237,
+    "end": 27.387
+  },
+  {
+    "word": "an",
+    "start": 27.411,
+    "end": 27.48
+  },
+  {
+    "word": "individual",
+    "start": 27.527,
+    "end": 28.165
+  },
+  {
+    "word": "about",
+    "start": 28.27,
+    "end": 28.514
+  },
+  {
+    "word": "a",
+    "start": 28.548,
+    "end": 28.572
+  },
+  {
+    "word": "schedule",
+    "start": 28.63,
+    "end": 29.117
+  },
+  {
+    "word": "or",
+    "start": 29.175,
+    "end": 29.326
+  },
+  {
+    "word": "assignment",
+    "start": 29.384,
+    "end": 30.081
+  },
+  {
+    "word": "•",
+    "start": 30.081,
+    "end": 30.522
+  },
+  {
+    "word": "Sending",
+    "start": 30.743,
+    "end": 31.045
+  },
+  {
+    "word": "a",
+    "start": 31.079,
+    "end": 31.103
+  },
+  {
+    "word": "document",
+    "start": 31.161,
+    "end": 31.602
+  },
+  {
+    "word": "or",
+    "start": 31.66,
+    "end": 31.776
+  },
+  {
+    "word": "reminder",
+    "start": 31.822,
+    "end": 32.264
+  },
+  {
+    "word": "to",
+    "start": 32.333,
+    "end": 32.426
+  },
+  {
+    "word": "a",
+    "start": 32.531,
+    "end": 32.554
+  },
+  {
+    "word": "specific",
+    "start": 32.6,
+    "end": 33.065
+  },
+  {
+    "word": "group",
+    "start": 33.111,
+    "end": 33.529
+  },
+  {
+    "word": "•",
+    "start": 33.529,
+    "end": 33.715
+  },
+  {
+    "word": "Direct",
+    "start": 33.889,
+    "end": 34.342
+  },
+  {
+    "word": "communication",
+    "start": 34.4,
+    "end": 35.155
+  },
+  {
+    "word": "when",
+    "start": 35.224,
+    "end": 35.375
+  },
+  {
+    "word": "you",
+    "start": 35.41,
+    "end": 35.48
+  },
+  {
+    "word": "know",
+    "start": 35.515,
+    "end": 35.608
+  },
+  {
+    "word": "exactly",
+    "start": 35.666,
+    "end": 36.153
+  },
+  {
+    "word": "who",
+    "start": 36.2,
+    "end": 36.316
+  },
+  {
+    "word": "needs",
+    "start": 36.409,
+    "end": 36.896
+  },
+  {
+    "word": "to",
+    "start": 37.279,
+    "end": 37.396
+  },
+  {
+    "word": "receive",
+    "start": 37.477,
+    "end": 37.837
+  },
+  {
+    "word": "it",
+    "start": 37.872,
+    "end": 38.266
+  }
+]

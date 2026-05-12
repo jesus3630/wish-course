@@ -187,7 +187,7 @@
         "slide_number": 3,
         "slide_name": "Creating a Job",
         "instructions": "Screen recording: Records → Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
-        "text": "Go to Records → Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\n• Job Name\r\n• Job Class — use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\n• Branch Name — auto-fills for you\r\n• Event — select the event from the dropdown\r\n• Venue and Client — these auto-populate from the event\r\n• Start and End Date/Time — use military time format\r\n\r\nAfter saving, copy the job number to your clipboard — you will use it throughout the system."
+        "text": "Go to Records to Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\n• Job Name\r\n• Job Class — use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\n• Branch Name — auto-fills for you\r\n• Event — select the event from the dropdown\r\n• Venue and Client — these auto-populate from the event\r\n• Start and End Date/Time — use military time format\r\n\r\nAfter saving, copy the job number to your clipboard — you will use it throughout the system."
       },
       {
         "slide_number": 4,
@@ -307,13 +307,13 @@
         "slide_number": 3,
         "slide_name": "Schedule by Employee",
         "instructions": "Scheduling → Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
-        "text": "Go to Scheduling → Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday — this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area — a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
+        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday — this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area — a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
       },
       {
         "slide_number": 4,
         "slide_name": "Schedule by Job",
         "instructions": "Scheduling → Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
-        "text": "Go to Scheduling → Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once."
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once."
       },
       {
         "slide_number": 5,
@@ -361,7 +361,7 @@
         "slide_number": 4,
         "slide_name": "Using Schedule by Job Admin",
         "instructions": "Scheduling → Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
-        "text": "Go to Scheduling → Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled — shown in red on the standard page — still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding."
+        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled — shown in red on the standard page — still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding."
       },
       {
         "slide_number": 5,
@@ -397,7 +397,7 @@
         "slide_number": 3,
         "slide_name": "Accessing Manage Process Hours",
         "instructions": "Payroll → Manage Process Hours. Show the Start Date field, Event dropdown, and job list. Open a shift — point out the Min, Max, Scheduled, and Sign-In counts. Show the Sign-In number as a clickable link.",
-        "text": "Go to Payroll → Manage Process Hours. The screen defaults to today's date — if you are processing hours from earlier in the week, change the start date back to match your jobs.\r\n\r\nSelect your Event from the dropdown and click Retrieve. This pulls up the shifts for that job.\r\n\r\nWhen you open a shift, pay attention to the Sign-In count. That number tells you exactly how many employees came through electronic sign-in. Click it to see who signed in, who signed out, and who has a gap that needs attention."
+        "text": "Go to Payroll to Manage Process Hours. The screen defaults to today's date — if you are processing hours from earlier in the week, change the start date back to match your jobs.\r\n\r\nSelect your Event from the dropdown and click Retrieve. This pulls up the shifts for that job.\r\n\r\nWhen you open a shift, pay attention to the Sign-In count. That number tells you exactly how many employees came through electronic sign-in. Click it to see who signed in, who signed out, and who has a gap that needs attention."
       },
       {
         "slide_number": 4,
@@ -421,13 +421,13 @@
         "slide_number": 7,
         "slide_name": "Sign-Out Exceptions and Process Payroll",
         "instructions": "Payroll → Sign-Out Exceptions. Set Friday end date. Click Retrieve Exceptions — show overlap list. Show Adj button and correcting an out-time. Then Payroll → Process Payroll. Show job list with Yes/No approved column. Show Holiday Pay checkbox. Click Start Hours Process.",
-        "text": "Before running payroll, go to Payroll → Sign-Out Exceptions. This report flags overlapping hours — employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll → Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No — only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll."
+        "text": "Before running payroll, go to Payroll to Sign-Out Exceptions. This report flags overlapping hours — employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll to Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No — only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll."
       },
       {
         "slide_number": 8,
         "slide_name": "Payroll Reports",
         "instructions": "Reports → Payroll Reports → Employee Time Register → Produce Report. Show report with employee names, days worked, hours, pay rate. Then Reports → Job Administration → One Line Shift Summary — set Saturday to Saturday. Then Sign-In Sign-Out Sheets — same date range. Then Payroll → Export Per Diem Report if applicable.",
-        "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register — go to Reports → Payroll Reports → Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days — both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary — go to Reports → Job Administration → One Line Shift Summary. Run it Saturday to Saturday — one extra day beyond Friday — to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets — same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu."
+        "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register — go to Reports to Payroll Reports to Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days — both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary — go to Reports to Job Administration to One Line Shift Summary. Run it Saturday to Saturday — one extra day beyond Friday — to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets — same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu."
       },
       {
         "slide_number": 9,
@@ -469,19 +469,19 @@
         "slide_number": 4,
         "slide_name": "Alpha Roster",
         "instructions": "Reports → Job Administration → Alpha Roster. Enter Job#, Start Time, Branch. Click Retrieve. Show alphabetical list with shift and role columns.",
-        "text": "The Alpha Roster is your pre-event checklist — an alphabetical list of every employee scheduled for a job.\r\n\r\nTo run it:\r\n1. Go to Reports → Job Administration → Alpha Roster\r\n2. Enter the Job Number, Start Time (the event date), and your Branch\r\n3. Click Retrieve\r\n\r\nYou'll see each employee's name, their assigned shift, and their role. Bring this with you to the event as your on-site reference."
+        "text": "The Alpha Roster is your pre-event checklist — an alphabetical list of every employee scheduled for a job.\r\n\r\nTo run it:\r\n1. Go to Reports to Job Administration to Alpha Roster\r\n2. Enter the Job Number, Start Time (the event date), and your Branch\r\n3. Click Retrieve\r\n\r\nYou'll see each employee's name, their assigned shift, and their role. Bring this with you to the event as your on-site reference."
       },
       {
         "slide_number": 5,
         "slide_name": "Sign-In / Sign-Out",
         "instructions": "Reports → Job Administration → Sign-In Sign-Out Sheets. Enter Job#, Start Time, Branch. Click Retrieve. Show the printable sheet.",
-        "text": "When electronic sign-in isn't set up at an event location, you'll use a paper sign-in sheet.\r\n\r\nTo generate one:\r\n1. Go to Reports → Job Administration → Sign-In Sign-Out Sheets\r\n2. Enter the Job Number, Start Time, and Branch\r\n3. Click Retrieve and print the sheet\r\n\r\nEmployees sign in and out by hand. After the event, those times get entered manually in Manage Process Hours.\r\n\r\nAlways print this before you leave for the event. If electronic sign-in goes down on-site, this is your backup."
+        "text": "When electronic sign-in isn't set up at an event location, you'll use a paper sign-in sheet.\r\n\r\nTo generate one:\r\n1. Go to Reports to Job Administration to Sign-In Sign-Out Sheets\r\n2. Enter the Job Number, Start Time, and Branch\r\n3. Click Retrieve and print the sheet\r\n\r\nEmployees sign in and out by hand. After the event, those times get entered manually in Manage Process Hours.\r\n\r\nAlways print this before you leave for the event. If electronic sign-in goes down on-site, this is your backup."
       },
       {
         "slide_number": 6,
         "slide_name": "Employee Not Sign-In",
         "instructions": "Reports → Job Administration → Employee Not Sign-In. Enter Job# and date. Click Retrieve. Show list of employees with no recorded sign-in.",
-        "text": "After an event, Employee Not Sign-In tells you which scheduled employees have no electronic sign-in on record.\r\n\r\nTo run it:\r\n1. Go to Reports → Job Administration → Employee Not Sign-In\r\n2. Enter the Job Number and the event date\r\n3. Click Retrieve\r\n\r\nFor each employee on the list, determine whether they actually worked. If they did, their hours need to be entered manually in Manage Process Hours. If they didn't show up, mark them as a no-show in the system."
+        "text": "After an event, Employee Not Sign-In tells you which scheduled employees have no electronic sign-in on record.\r\n\r\nTo run it:\r\n1. Go to Reports to Job Administration to Employee Not Sign-In\r\n2. Enter the Job Number and the event date\r\n3. Click Retrieve\r\n\r\nFor each employee on the list, determine whether they actually worked. If they did, their hours need to be entered manually in Manage Process Hours. If they didn't show up, mark them as a no-show in the system."
       },
       {
         "slide_number": 7,
@@ -529,13 +529,13 @@
         "slide_number": 3,
         "slide_name": "Navigating to Payroll Reports",
         "instructions": "Reports → Payroll Reports. Show the full list of available reports: Employee Time Register, Employee Time Register (Break), Emp Time Register With Notes, Financial Analysis Report, Export PerDiem Report, Manage Temp Cost Code Number, Employee Estimate Hours.",
-        "text": "Go to Reports → Payroll Reports to access this section.\r\n\r\nReports available here:\r\n• Employee Time Register — the primary report. Shows each employee's hours worked by job and shift.\r\n• Employee Time Register (Break) — same as above, with break time broken out separately.\r\n• Emp Time Register With Notes — includes any notes attached to an employee's timesheet entry.\r\n• Financial Analysis Report — a cost-facing view of hours and pay across jobs.\r\n• Export PerDiem Report — exports per diem payments for payroll processing.\r\n• Manage Temp Cost Code Number — for branches that use cost codes to categorize labor.\r\n• Employee Estimate Hours — projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register."
+        "text": "Go to Reports to Payroll Reports to access this section.\r\n\r\nReports available here:\r\n• Employee Time Register — the primary report. Shows each employee's hours worked by job and shift.\r\n• Employee Time Register (Break) — same as above, with break time broken out separately.\r\n• Emp Time Register With Notes — includes any notes attached to an employee's timesheet entry.\r\n• Financial Analysis Report — a cost-facing view of hours and pay across jobs.\r\n• Export PerDiem Report — exports per diem payments for payroll processing.\r\n• Manage Temp Cost Code Number — for branches that use cost codes to categorize labor.\r\n• Employee Estimate Hours — projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register."
       },
       {
         "slide_number": 4,
         "slide_name": "Employee Time Register",
         "instructions": "Reports → Payroll Reports → Employee Time Register. Enter date range and Branch. Click Retrieve. Show report with employee names, job, shift times, regular hours, and overtime.",
-        "text": "The Employee Time Register is your go-to report before payroll is finalized. It shows you what hours are on record for each employee across a selected date range.\r\n\r\nTo run it:\r\n1. Go to Reports → Payroll Reports → Employee Time Register\r\n2. Enter your date range and confirm your Branch\r\n3. Click Retrieve\r\n\r\nThe report shows each employee's name, the job they worked, their sign-in and sign-out times, regular hours, and any overtime.\r\n\r\nReview this carefully before payroll is processed. If something looks off — wrong times, missing entries, unexpected overtime — go back to Manage Process Hours and make the correction before approving."
+        "text": "The Employee Time Register is your go-to report before payroll is finalized. It shows you what hours are on record for each employee across a selected date range.\r\n\r\nTo run it:\r\n1. Go to Reports to Payroll Reports to Employee Time Register\r\n2. Enter your date range and confirm your Branch\r\n3. Click Retrieve\r\n\r\nThe report shows each employee's name, the job they worked, their sign-in and sign-out times, regular hours, and any overtime.\r\n\r\nReview this carefully before payroll is processed. If something looks off — wrong times, missing entries, unexpected overtime — go back to Manage Process Hours and make the correction before approving."
       },
       {
         "slide_number": 5,
@@ -637,7 +637,7 @@
         "slide_number": 3,
         "slide_name": "Finding an Employee",
         "instructions": "Records → Manage Employee. Show the search filters: Branch Name, Department, WorkGroup, Employee#, First Name, Last Name, Status, SSN last 4 digits. Type a last name. Click Search. Show the results list with Last Name, First Name, Employee#, Branch, Status columns.",
-        "text": "Go to Records → Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\n• Employee number\r\n• First or last name\r\n• Last 4 digits of their SSN — useful if you're not sure of the spelling\r\n• Status — defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name — it appears as a blue link."
+        "text": "Go to Records to Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\n• Employee number\r\n• First or last name\r\n• Last 4 digits of their SSN — useful if you're not sure of the spelling\r\n• Status — defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name — it appears as a blue link."
       },
       {
         "slide_number": 4,
@@ -691,7 +691,7 @@
         "slide_number": 2,
         "slide_name": "What Workforce Admin Maintenance Gives You",
         "instructions": "Records → Manage Employee. Show the search screen briefly — same as before.",
-        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way — Records → Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n• Disciplinary Action — view existing records and add new ones\r\n• Pay Rates — view and update employee pay rates\r\n• Training Records — view which WISH training modules an employee has completed"
+        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way — Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n• Disciplinary Action — view existing records and add new ones\r\n• Pay Rates — view and update employee pay rates\r\n• Training Records — view which WISH training modules an employee has completed"
       },
       {
         "slide_number": 3,
@@ -739,7 +739,7 @@
         "slide_number": 2,
         "slide_name": "What Employee HR Record Maintenance Gives You",
         "instructions": "Records → Manage Employee. Show the search screen briefly.",
-        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always — Records → Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\n• Personal Info — name, date of birth, status changes\r\n• Contact Info — address, phone number, email address\r\n• Background Checks — full history and status updates\r\n• Shared Branches — which branches can view and schedule this employee\r\n• Exclusions — clients or jobs this employee cannot be assigned to\r\n• Tasks — onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully."
+        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always — Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\n• Personal Info — name, date of birth, status changes\r\n• Contact Info — address, phone number, email address\r\n• Background Checks — full history and status updates\r\n• Shared Branches — which branches can view and schedule this employee\r\n• Exclusions — clients or jobs this employee cannot be assigned to\r\n• Tasks — onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully."
       },
       {
         "slide_number": 3,
@@ -763,7 +763,7 @@
         "slide_number": 6,
         "slide_name": "Manage Employee Status (Bulk)",
         "instructions": "Records → Manage Employee Status. Show filtering by branch and status. Show selecting multiple employees. Show applying a bulk status change.",
-        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status — a tool for updating multiple employees at once.\r\n\r\nGo to Records → Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n• Deactivating seasonal employees who have finished their assignments\r\n• Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
+        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status — a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n• Deactivating seasonal employees who have finished their assignments\r\n• Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
       },
       {
         "slide_number": 7,
@@ -793,7 +793,7 @@
         "slide_number": 2,
         "slide_name": "What Hiring Manager Access Does",
         "instructions": "Show Tools menu. Scroll to Import From Hiring Portal. Click it. Show the Import From Hiring Portal screen load.",
-        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools → Import From Hiring Portal. This is not under the Records menu — go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
+        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu — go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
       },
       {
         "slide_number": 3,
@@ -811,13 +811,13 @@
         "slide_number": 5,
         "slide_name": "Importing an Applicant",
         "instructions": "Click the checkbox next to an approved applicant row. Show the dropdown: Select, Rejected, Rescind. Choose Select. Show the Import Applicant button at the bottom. Click Import Applicant. Show the confirmation.",
-        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name — a dropdown will appear with three options:\r\n   • Select — marks the applicant for import\r\n   • Rejected — marks them as rejected, removing them from consideration\r\n   • Rescind — reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records → Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data."
+        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name — a dropdown will appear with three options:\r\n   • Select — marks the applicant for import\r\n   • Rejected — marks them as rejected, removing them from consideration\r\n   • Rescind — reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records to Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data."
       },
       {
         "slide_number": 6,
         "slide_name": "After the Import",
         "instructions": "Navigate to Records → Manage Employee. Search for the newly imported employee by name. Show their record has been created with personal info populated.",
-        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n• Go to Records → Manage Employee and search for the new employee to confirm their record was created correctly\r\n• Verify their personal information populated properly — name, SSN, contact details\r\n• Assign their default pay rate if it wasn't set during import — they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs."
+        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n• Go to Records to Manage Employee and search for the new employee to confirm their record was created correctly\r\n• Verify their personal information populated properly — name, SSN, contact details\r\n• Assign their default pay rate if it wasn't set during import — they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs."
       },
       {
         "slide_number": 7,
@@ -847,7 +847,7 @@
         "slide_number": 2,
         "slide_name": "What HR Admin Gives You",
         "instructions": "Records menu open. Scroll to the bottom and click Manage Employee Task.",
-        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu — Records → Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
+        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu — Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
       },
       {
         "slide_number": 3,
@@ -901,25 +901,25 @@
         "slide_number": 3,
         "slide_name": "Mail By Employee",
         "instructions": "Tools → Mail By Employee. Show the employee search field. Search for and select one or more employees. Show the message composition area. Show the Send button.",
-        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools → Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results — you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\n• Following up with an individual about a schedule or assignment\r\n• Sending a document or reminder to a specific group\r\n• Direct communication when you know exactly who needs to receive it"
+        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results — you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\n• Following up with an individual about a schedule or assignment\r\n• Sending a document or reminder to a specific group\r\n• Direct communication when you know exactly who needs to receive it"
       },
       {
         "slide_number": 4,
         "slide_name": "Mail By Available Employee",
         "instructions": "Tools → Mail By Available Employee. Show the filter options — branch, date, role. Show the list of available employees populating. Show selecting all and composing a message.",
-        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available — meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools → Mail By Available Employee\r\n2. Set your filters — branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
+        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available — meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters — branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
       },
       {
         "slide_number": 5,
         "slide_name": "Mail By Job",
         "instructions": "Tools → Mail By Job. Show the job search field. Enter a job number. Show the list of scheduled employees populating automatically. Compose a message and click Send.",
-        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools → Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send — all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n• Last-minute schedule changes or location updates before an event\r\n• Sending reminders about what to wear, where to park, or what time to arrive\r\n• Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
+        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send — all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n• Last-minute schedule changes or location updates before an event\r\n• Sending reminders about what to wear, where to park, or what time to arrive\r\n• Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
       },
       {
         "slide_number": 6,
         "slide_name": "Choosing the Right Option",
         "instructions": "",
-        "text": "Not sure which Mail By option to use? Here's a quick guide:\r\n\r\n\"I need to reach a specific employee or a few people by name.\"\r\n→ Mail By Employee\r\n\r\n\"I have open shifts and need to find employees who aren't scheduled yet.\"\r\n→ Mail By Available Employee\r\n\r\n\"I need to send the same message to everyone working a specific job.\"\r\n→ Mail By Job\r\n\r\nA few things to keep in mind:\r\n• Messages go to the email address on file in WISH — if an employee's email is outdated, they won't receive it\r\n• These are one-way communications — employees cannot reply through WISH\r\n• If an employee hasn't received a message you sent, verify their email address in their employee record before resending"
+        "text": "Not sure which Mail By option to use? Here's a quick guide:\r\n\r\n\"I need to reach a specific employee or a few people by name.\"\r\nto Mail By Employee\r\n\r\n\"I have open shifts and need to find employees who aren't scheduled yet.\"\r\nto Mail By Available Employee\r\n\r\n\"I need to send the same message to everyone working a specific job.\"\r\nto Mail By Job\r\n\r\nA few things to keep in mind:\r\n• Messages go to the email address on file in WISH — if an employee's email is outdated, they won't receive it\r\n• These are one-way communications — employees cannot reply through WISH\r\n• If an employee hasn't received a message you sent, verify their email address in their employee record before resending"
       },
       {
         "slide_number": 7,
@@ -955,7 +955,7 @@
         "slide_number": 3,
         "slide_name": "Configuring Sign-In",
         "instructions": "Time Clock → Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
-        "text": "Go to Time Clock → Sign-In Config. Do not use the Sign-In or Sign-Out pages directly — those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes — the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
+        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly — those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes — the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
       },
       {
         "slide_number": 4,
@@ -1009,7 +1009,7 @@
         "slide_number": 3,
         "slide_name": "Accessing Process Hours",
         "instructions": "Screen recording: Payroll → Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
-        "text": "Go to Payroll → Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count — giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours."
+        "text": "Go to Payroll to Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count — giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours."
       },
       {
         "slide_number": 4,
@@ -1069,19 +1069,19 @@
         "slide_number": 3,
         "slide_name": "Billing Prerequisites",
         "instructions": "",
-        "text": "Before you can bill a client, two things must be true:\r\n\r\n1. All hours for the event must be approved in Manual Process Hours. WISH will not generate a bill for a job where hours are still pending.\r\n\r\n2. A contract must exist for the client you are billing. If no contract is in the system, the billing screens will not populate the client information.\r\n\r\nAlways complete payroll processing before billing. The order is: process hours → approve hours → then bill."
+        "text": "Before you can bill a client, two things must be true:\r\n\r\n1. All hours for the event must be approved in Manual Process Hours. WISH will not generate a bill for a job where hours are still pending.\r\n\r\n2. A contract must exist for the client you are billing. If no contract is in the system, the billing screens will not populate the client information.\r\n\r\nAlways complete payroll processing before billing. The order is: process hours to approve hours to then bill."
       },
       {
         "slide_number": 4,
         "slide_name": "Check Bill for Job",
         "instructions": "Billing → Check Bill for Job. Click View Unbilled. Show report with Hours Processed column showing Yes/No.",
-        "text": "Go to Billing → Check Bill for Job. Click View Unbilled to see everything that has not been invoiced yet.\r\n\r\nThe report shows an Hours Processed column. If it shows Yes, the job is ready to bill. If it shows No, go back to Manage Process Hours and complete the approval for that job first."
+        "text": "Go to Billing to Check Bill for Job. Click View Unbilled to see everything that has not been invoiced yet.\r\n\r\nThe report shows an Hours Processed column. If it shows Yes, the job is ready to bill. If it shows No, go back to Manage Process Hours and complete the approval for that job first."
       },
       {
         "slide_number": 5,
         "slide_name": "Manage Billing Process",
         "instructions": "Billing → Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
-        "text": "Go to Billing → Manage Billing Process. Select your event — your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method — in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data."
+        "text": "Go to Billing to Manage Billing Process. Select your event — your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method — in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data."
       },
       {
         "slide_number": 6,
@@ -1093,13 +1093,13 @@
         "slide_number": 7,
         "slide_name": "Generating and Printing the Invoice",
         "instructions": "Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
-        "text": "Select your invoice type:\r\n• Summary — Clean totals by role. Most clients prefer this.\r\n• Detailed — Full breakdown showing each employee's times, regular and overtime hours.\r\n• Summary with Cover and Sign-In Sheets — Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown — your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing → Print Invoice, select your event, choose the invoice."
+        "text": "Select your invoice type:\r\n• Summary — Clean totals by role. Most clients prefer this.\r\n• Detailed — Full breakdown showing each employee's times, regular and overtime hours.\r\n• Summary with Cover and Sign-In Sheets — Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown — your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing to Print Invoice, select your event, choose the invoice."
       },
       {
         "slide_number": 8,
         "slide_name": "Managing Contracts",
         "instructions": "Records → Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
-        "text": "Client contracts are managed under Records → Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\n• Contract dates and payment terms — standard is net 30 days with 150% late fee\r\n• Bill rates by role — what you charge the client per hour for each position\r\n• Tax rates — set appropriately for your location\r\n• Contract document — upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate."
+        "text": "Client contracts are managed under Records to Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\n• Contract dates and payment terms — standard is net 30 days with 150% late fee\r\n• Bill rates by role — what you charge the client per hour for each position\r\n• Tax rates — set appropriately for your location\r\n• Contract document — upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate."
       },
       {
         "slide_number": 9,
@@ -1141,7 +1141,7 @@
         "slide_number": 4,
         "slide_name": "Manage Asset Tag",
         "instructions": "Inventory → Manage Asset Tag. Select Branch from dropdown. Click Search. Show Asset Tag List. Click Add Asset Tag. Show form fields. Save.",
-        "text": "Go to Inventory → Manage Asset Tag. Select your branch from the dropdown and click Search to see all registered asset tags for that branch.\r\n\r\nTo add a new tag, click Add Asset Tag. Enter the tag details and save. Asset tags are the physical identifiers attached to trackable items — like radios, jackets, and wristbands — so each individual item can be located and accounted for throughout check-in and check-out.\r\n\r\nIf no items appear after searching, your branch has no asset tags registered yet. Work with your administrator to set them up before an event."
+        "text": "Go to Inventory to Manage Asset Tag. Select your branch from the dropdown and click Search to see all registered asset tags for that branch.\r\n\r\nTo add a new tag, click Add Asset Tag. Enter the tag details and save. Asset tags are the physical identifiers attached to trackable items — like radios, jackets, and wristbands — so each individual item can be located and accounted for throughout check-in and check-out.\r\n\r\nIf no items appear after searching, your branch has no asset tags registered yet. Work with your administrator to set them up before an event."
       },
       {
         "slide_number": 5,
@@ -1153,19 +1153,19 @@
         "slide_number": 6,
         "slide_name": "Item Job Equipment",
         "instructions": "Inventory → Item Job Equipment. Set Category to Job Equipment. Select Branch. Click Search. Show list: Item Name, Quantity, Action columns. Click + to increase a quantity. Click pencil to edit.",
-        "text": "Go to Inventory → Item Job Equipment. This screen shows the items assigned to jobs and their current quantities.\r\n\r\nSet the Category dropdown — Job Equipment for consumable supplies, Inventory Items for tracked assets — then select your branch and click Search.\r\n\r\nIn the results list:\r\n• Use the plus and minus buttons under Action to adjust quantities as items are staged or returned\r\n• Use the pencil icon to edit an item’s details\r\n• Use the trash icon to remove an item\r\n\r\nCommon items you’ll see here: earplugs, hand warmers, nitrile gloves, ponchos, and sunscreen packets. Keep quantities current so your on-site team knows what has been allocated."
+        "text": "Go to Inventory to Item Job Equipment. This screen shows the items assigned to jobs and their current quantities.\r\n\r\nSet the Category dropdown. Choose Job Equipment for consumable supplies, or Inventory Items for tracked assets. Then select your branch and click Search.\r\n\r\nIn the results list:\r\n• Use the plus and minus buttons under Action to adjust quantities as items are staged or returned\r\n• Use the pencil icon to edit an item’s details\r\n• Use the trash icon to remove an item\r\n\r\nCommon items you’ll see here: earplugs, hand warmers, nitrile gloves, ponchos, and sunscreen packets. Keep quantities current so your on-site team knows what has been allocated."
       },
       {
         "slide_number": 7,
         "slide_name": "Check-In Check-Out Report",
         "instructions": "Inventory → Check-In Check-Out Report. Fill in Branch Name, set Check Out Start Date and End Date. Leave Department, Event, Sorted By, and Check-In Check-Out status as All. Select PDF. Click Produce Report.",
-        "text": "Go to Inventory → Check-In Check-Out Report. This report gives you a full record of item activity across your branch for a selected date range.\r\n\r\nFill in:\r\n• Branch Name — required\r\n• Check Out Start Date and Check Out End Date — the range you want to review\r\n• Department, Event, Sorted By, and Check-In Check-Out — leave as All unless narrowing results\r\n\r\nSelect PDF or Excel, then click Produce Report for the full activity log. Click CheckOut Report if you only want to see items that were checked out but have not yet been returned.\r\n\r\nRun this report after every event to confirm all items have been accounted for."
+        "text": "Go to Inventory to Check-In Check-Out Report. This report gives you a full record of item activity across your branch for a selected date range.\r\n\r\nFill in:\r\n• Branch Name — required\r\n• Check Out Start Date and Check Out End Date — the range you want to review\r\n• Department, Event, Sorted By, and Check-In Check-Out — leave as All unless narrowing results\r\n\r\nSelect PDF or Excel, then click Produce Report for the full activity log. Click CheckOut Report if you only want to see items that were checked out but have not yet been returned.\r\n\r\nRun this report after every event to confirm all items have been accounted for."
       },
       {
         "slide_number": 8,
         "slide_name": "Item Check-In/Check-Out — Employee View",
         "instructions": "Inventory → Check-In Check-Out. Show Employee# tab selected. Fill in Branch, Date, Event. Enter Employee # and name. Click Search. Show results list.",
-        "text": "Go to Inventory → Check-In Check-Out. This is where you process the actual movement of items at an event — checking items out to employees and checking them in when returned.\r\n\r\nSelect the Employee# tab to search by person. Fill in:\r\n• Branch and Date — required\r\n• Event — select the active event\r\n• Venue and Job — optional, to narrow results\r\n• Employee Number, First Name, and Last Name — enter as much as you have\r\n• WorkGroup — optional filter\r\n\r\nClick Search to see all items currently checked out to that employee. Use this view to verify what a specific person has before they leave the event."
+        "text": "Go to Inventory to Check-In Check-Out. This is where you process the actual movement of items at an event — checking items out to employees and checking them in when returned.\r\n\r\nSelect the Employee# tab to search by person. Fill in:\r\n• Branch and Date — required\r\n• Event — select the active event\r\n• Venue and Job — optional, to narrow results\r\n• Employee Number, First Name, and Last Name — enter as much as you have\r\n• WorkGroup — optional filter\r\n\r\nClick Search to see all items currently checked out to that employee. Use this view to verify what a specific person has before they leave the event."
       },
       {
         "slide_number": 9,

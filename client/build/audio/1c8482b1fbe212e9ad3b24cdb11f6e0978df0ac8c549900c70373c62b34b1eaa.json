@@ -1,0 +1,772 @@
+[
+  {
+    "word": "After",
+    "start": 0,
+    "end": 0.29
+  },
+  {
+    "word": "running",
+    "start": 0.348,
+    "end": 0.58
+  },
+  {
+    "word": "Process",
+    "start": 0.639,
+    "end": 1.149
+  },
+  {
+    "word": "Payroll,",
+    "start": 1.207,
+    "end": 1.718
+  },
+  {
+    "word": "pull",
+    "start": 1.753,
+    "end": 2.009
+  },
+  {
+    "word": "three",
+    "start": 2.101,
+    "end": 2.38
+  },
+  {
+    "word": "reports",
+    "start": 2.45,
+    "end": 2.891
+  },
+  {
+    "word": "to",
+    "start": 2.937,
+    "end": 3.03
+  },
+  {
+    "word": "submit",
+    "start": 3.1,
+    "end": 3.437
+  },
+  {
+    "word": "to",
+    "start": 3.471,
+    "end": 3.529
+  },
+  {
+    "word": "the",
+    "start": 3.587,
+    "end": 3.657
+  },
+  {
+    "word": "payroll",
+    "start": 3.704,
+    "end": 4.04
+  },
+  {
+    "word": "department:",
+    "start": 4.098,
+    "end": 4.818
+  },
+  {
+    "word": "Employee",
+    "start": 4.818,
+    "end": 5.387
+  },
+  {
+    "word": "Time",
+    "start": 5.457,
+    "end": 5.77
+  },
+  {
+    "word": "Register",
+    "start": 5.817,
+    "end": 6.258
+  },
+  {
+    "word": "—",
+    "start": 6.339,
+    "end": 6.397
+  },
+  {
+    "word": "go",
+    "start": 6.571,
+    "end": 6.769
+  },
+  {
+    "word": "to",
+    "start": 6.85,
+    "end": 6.931
+  },
+  {
+    "word": "Reports",
+    "start": 7.012,
+    "end": 7.419
+  },
+  {
+    "word": "to",
+    "start": 7.465,
+    "end": 7.546
+  },
+  {
+    "word": "Payroll",
+    "start": 7.628,
+    "end": 7.988
+  },
+  {
+    "word": "Reports",
+    "start": 8.046,
+    "end": 8.44
+  },
+  {
+    "word": "to",
+    "start": 8.487,
+    "end": 8.58
+  },
+  {
+    "word": "Employee",
+    "start": 8.696,
+    "end": 9.125
+  },
+  {
+    "word": "Time",
+    "start": 9.183,
+    "end": 9.462
+  },
+  {
+    "word": "Register",
+    "start": 9.497,
+    "end": 9.961
+  },
+  {
+    "word": "and",
+    "start": 10.031,
+    "end": 10.182
+  },
+  {
+    "word": "click",
+    "start": 10.252,
+    "end": 10.519
+  },
+  {
+    "word": "Produce",
+    "start": 10.635,
+    "end": 11.041
+  },
+  {
+    "word": "Report.",
+    "start": 11.076,
+    "end": 11.54
+  },
+  {
+    "word": "This",
+    "start": 11.61,
+    "end": 11.865
+  },
+  {
+    "word": "always",
+    "start": 11.935,
+    "end": 12.249
+  },
+  {
+    "word": "reflects",
+    "start": 12.295,
+    "end": 12.678
+  },
+  {
+    "word": "your",
+    "start": 12.713,
+    "end": 12.841
+  },
+  {
+    "word": "most",
+    "start": 12.922,
+    "end": 13.142
+  },
+  {
+    "word": "recent",
+    "start": 13.223,
+    "end": 13.56
+  },
+  {
+    "word": "payroll",
+    "start": 13.618,
+    "end": 14.059
+  },
+  {
+    "word": "run.",
+    "start": 14.14,
+    "end": 14.489
+  },
+  {
+    "word": "Review",
+    "start": 14.663,
+    "end": 15.023
+  },
+  {
+    "word": "every",
+    "start": 15.139,
+    "end": 15.429
+  },
+  {
+    "word": "entry",
+    "start": 15.499,
+    "end": 15.754
+  },
+  {
+    "word": "for",
+    "start": 15.812,
+    "end": 15.905
+  },
+  {
+    "word": "zero",
+    "start": 15.952,
+    "end": 16.184
+  },
+  {
+    "word": "pay",
+    "start": 16.23,
+    "end": 16.37
+  },
+  {
+    "word": "rates",
+    "start": 16.428,
+    "end": 16.637
+  },
+  {
+    "word": "or",
+    "start": 16.671,
+    "end": 16.729
+  },
+  {
+    "word": "missing",
+    "start": 16.776,
+    "end": 17.008
+  },
+  {
+    "word": "days",
+    "start": 17.055,
+    "end": 17.426
+  },
+  {
+    "word": "—",
+    "start": 17.542,
+    "end": 23.138
+  },
+  {
+    "word": "both",
+    "start": 23.312,
+    "end": 23.579
+  },
+  {
+    "word": "mean",
+    "start": 23.649,
+    "end": 23.893
+  },
+  {
+    "word": "a",
+    "start": 23.986,
+    "end": 24.055
+  },
+  {
+    "word": "job",
+    "start": 24.137,
+    "end": 24.357
+  },
+  {
+    "word": "was",
+    "start": 24.415,
+    "end": 24.508
+  },
+  {
+    "word": "not",
+    "start": 24.555,
+    "end": 24.682
+  },
+  {
+    "word": "processed.",
+    "start": 24.729,
+    "end": 25.379
+  },
+  {
+    "word": "If",
+    "start": 25.425,
+    "end": 25.553
+  },
+  {
+    "word": "you",
+    "start": 25.6,
+    "end": 25.681
+  },
+  {
+    "word": "find",
+    "start": 25.75,
+    "end": 25.948
+  },
+  {
+    "word": "an",
+    "start": 25.994,
+    "end": 26.052
+  },
+  {
+    "word": "issue,",
+    "start": 26.11,
+    "end": 26.447
+  },
+  {
+    "word": "fix",
+    "start": 26.493,
+    "end": 26.702
+  },
+  {
+    "word": "it",
+    "start": 26.76,
+    "end": 26.83
+  },
+  {
+    "word": "in",
+    "start": 26.865,
+    "end": 26.911
+  },
+  {
+    "word": "Manage",
+    "start": 26.958,
+    "end": 27.202
+  },
+  {
+    "word": "Process",
+    "start": 27.225,
+    "end": 27.62
+  },
+  {
+    "word": "Hours,",
+    "start": 27.666,
+    "end": 28.189
+  },
+  {
+    "word": "re-run",
+    "start": 28.432,
+    "end": 28.792
+  },
+  {
+    "word": "Process",
+    "start": 28.85,
+    "end": 29.245
+  },
+  {
+    "word": "Payroll,",
+    "start": 29.291,
+    "end": 29.756
+  },
+  {
+    "word": "then",
+    "start": 29.791,
+    "end": 29.942
+  },
+  {
+    "word": "pull",
+    "start": 30.011,
+    "end": 30.197
+  },
+  {
+    "word": "this",
+    "start": 30.255,
+    "end": 30.371
+  },
+  {
+    "word": "report",
+    "start": 30.429,
+    "end": 30.812
+  },
+  {
+    "word": "again.",
+    "start": 30.882,
+    "end": 31.73
+  },
+  {
+    "word": "One",
+    "start": 31.73,
+    "end": 31.962
+  },
+  {
+    "word": "Line",
+    "start": 31.997,
+    "end": 32.206
+  },
+  {
+    "word": "Shift",
+    "start": 32.229,
+    "end": 32.426
+  },
+  {
+    "word": "Summary",
+    "start": 32.45,
+    "end": 32.763
+  },
+  {
+    "word": "—",
+    "start": 32.937,
+    "end": 33.146
+  },
+  {
+    "word": "go",
+    "start": 33.355,
+    "end": 33.471
+  },
+  {
+    "word": "to",
+    "start": 33.518,
+    "end": 33.564
+  },
+  {
+    "word": "Reports",
+    "start": 33.622,
+    "end": 34.005
+  },
+  {
+    "word": "to",
+    "start": 34.052,
+    "end": 34.121
+  },
+  {
+    "word": "Job",
+    "start": 34.203,
+    "end": 34.435
+  },
+  {
+    "word": "Administration",
+    "start": 34.481,
+    "end": 35.282
+  },
+  {
+    "word": "to",
+    "start": 35.364,
+    "end": 35.491
+  },
+  {
+    "word": "One",
+    "start": 35.608,
+    "end": 35.782
+  },
+  {
+    "word": "Line",
+    "start": 35.84,
+    "end": 36.327
+  },
+  {
+    "word": "Shift",
+    "start": 37.279,
+    "end": 37.732
+  },
+  {
+    "word": "Summary.",
+    "start": 37.755,
+    "end": 38.22
+  },
+  {
+    "word": "Run",
+    "start": 38.429,
+    "end": 38.615
+  },
+  {
+    "word": "it",
+    "start": 38.661,
+    "end": 38.731
+  },
+  {
+    "word": "Saturday",
+    "start": 38.789,
+    "end": 39.265
+  },
+  {
+    "word": "to",
+    "start": 39.311,
+    "end": 39.369
+  },
+  {
+    "word": "Saturday",
+    "start": 39.439,
+    "end": 39.938
+  },
+  {
+    "word": "—",
+    "start": 40.112,
+    "end": 40.159
+  },
+  {
+    "word": "one",
+    "start": 40.333,
+    "end": 40.519
+  },
+  {
+    "word": "extra",
+    "start": 40.565,
+    "end": 40.82
+  },
+  {
+    "word": "day",
+    "start": 40.867,
+    "end": 41.029
+  },
+  {
+    "word": "beyond",
+    "start": 41.099,
+    "end": 41.354
+  },
+  {
+    "word": "Friday",
+    "start": 41.424,
+    "end": 41.877
+  },
+  {
+    "word": "—",
+    "start": 42.086,
+    "end": 42.214
+  },
+  {
+    "word": "to",
+    "start": 42.539,
+    "end": 42.632
+  },
+  {
+    "word": "capture",
+    "start": 42.713,
+    "end": 43.131
+  },
+  {
+    "word": "any",
+    "start": 43.189,
+    "end": 43.433
+  },
+  {
+    "word": "overnight",
+    "start": 43.526,
+    "end": 44.013
+  },
+  {
+    "word": "shifts",
+    "start": 44.071,
+    "end": 44.408
+  },
+  {
+    "word": "that",
+    "start": 44.454,
+    "end": 44.605
+  },
+  {
+    "word": "cross",
+    "start": 44.663,
+    "end": 45.035
+  },
+  {
+    "word": "into",
+    "start": 45.093,
+    "end": 45.267
+  },
+  {
+    "word": "the",
+    "start": 45.325,
+    "end": 45.395
+  },
+  {
+    "word": "next",
+    "start": 45.441,
+    "end": 45.627
+  },
+  {
+    "word": "morning.",
+    "start": 45.697,
+    "end": 46.614
+  },
+  {
+    "word": "Sign-In",
+    "start": 46.614,
+    "end": 47.136
+  },
+  {
+    "word": "and",
+    "start": 47.206,
+    "end": 47.299
+  },
+  {
+    "word": "Sign-Out",
+    "start": 47.368,
+    "end": 47.821
+  },
+  {
+    "word": "Sheets",
+    "start": 47.868,
+    "end": 48.274
+  },
+  {
+    "word": "—",
+    "start": 48.483,
+    "end": 48.553
+  },
+  {
+    "word": "same",
+    "start": 48.994,
+    "end": 49.238
+  },
+  {
+    "word": "location,",
+    "start": 49.273,
+    "end": 49.934
+  },
+  {
+    "word": "same",
+    "start": 50.085,
+    "end": 50.41
+  },
+  {
+    "word": "Saturday-to-Saturday",
+    "start": 50.457,
+    "end": 52.256
+  },
+  {
+    "word": "date",
+    "start": 52.582,
+    "end": 52.976
+  },
+  {
+    "word": "range.",
+    "start": 53.127,
+    "end": 53.719
+  },
+  {
+    "word": "These",
+    "start": 54.23,
+    "end": 54.451
+  },
+  {
+    "word": "are",
+    "start": 54.474,
+    "end": 54.578
+  },
+  {
+    "word": "the",
+    "start": 54.613,
+    "end": 54.683
+  },
+  {
+    "word": "third",
+    "start": 54.741,
+    "end": 55.008
+  },
+  {
+    "word": "document",
+    "start": 55.066,
+    "end": 55.519
+  },
+  {
+    "word": "the",
+    "start": 55.554,
+    "end": 55.623
+  },
+  {
+    "word": "payroll",
+    "start": 55.681,
+    "end": 56.018
+  },
+  {
+    "word": "department",
+    "start": 56.065,
+    "end": 56.459
+  },
+  {
+    "word": "receives.",
+    "start": 56.506,
+    "end": 57.4
+  },
+  {
+    "word": "If",
+    "start": 57.4,
+    "end": 57.562
+  },
+  {
+    "word": "per",
+    "start": 57.632,
+    "end": 57.771
+  },
+  {
+    "word": "diems",
+    "start": 57.841,
+    "end": 58.178
+  },
+  {
+    "word": "were",
+    "start": 58.212,
+    "end": 58.352
+  },
+  {
+    "word": "entered",
+    "start": 58.41,
+    "end": 58.688
+  },
+  {
+    "word": "during",
+    "start": 58.723,
+    "end": 58.967
+  },
+  {
+    "word": "the",
+    "start": 59.013,
+    "end": 59.083
+  },
+  {
+    "word": "week,",
+    "start": 59.153,
+    "end": 59.536
+  },
+  {
+    "word": "also",
+    "start": 59.652,
+    "end": 59.989
+  },
+  {
+    "word": "run",
+    "start": 60.07,
+    "end": 60.232
+  },
+  {
+    "word": "the",
+    "start": 60.267,
+    "end": 60.337
+  },
+  {
+    "word": "Export",
+    "start": 60.43,
+    "end": 60.836
+  },
+  {
+    "word": "Per",
+    "start": 60.894,
+    "end": 61.022
+  },
+  {
+    "word": "Diem",
+    "start": 61.092,
+    "end": 61.312
+  },
+  {
+    "word": "Report",
+    "start": 61.382,
+    "end": 61.811
+  },
+  {
+    "word": "under",
+    "start": 61.986,
+    "end": 62.218
+  },
+  {
+    "word": "the",
+    "start": 62.264,
+    "end": 62.334
+  },
+  {
+    "word": "Payroll",
+    "start": 62.392,
+    "end": 62.787
+  },
+  {
+    "word": "menu.",
+    "start": 62.856,
+    "end": 63.483
+  }
+]

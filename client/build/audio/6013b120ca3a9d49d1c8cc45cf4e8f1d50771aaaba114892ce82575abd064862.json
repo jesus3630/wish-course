@@ -1,0 +1,422 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "electronic",
+    "start": 0.232,
+    "end": 0.708
+  },
+  {
+    "word": "sign-in",
+    "start": 0.766,
+    "end": 1.091
+  },
+  {
+    "word": "isn't",
+    "start": 1.173,
+    "end": 1.44
+  },
+  {
+    "word": "set",
+    "start": 1.498,
+    "end": 1.707
+  },
+  {
+    "word": "up",
+    "start": 1.765,
+    "end": 1.869
+  },
+  {
+    "word": "at",
+    "start": 1.939,
+    "end": 2.043
+  },
+  {
+    "word": "an",
+    "start": 2.09,
+    "end": 2.148
+  },
+  {
+    "word": "event",
+    "start": 2.194,
+    "end": 2.438
+  },
+  {
+    "word": "location,",
+    "start": 2.496,
+    "end": 3.181
+  },
+  {
+    "word": "you'll",
+    "start": 3.39,
+    "end": 3.587
+  },
+  {
+    "word": "use",
+    "start": 3.646,
+    "end": 3.831
+  },
+  {
+    "word": "a",
+    "start": 3.866,
+    "end": 3.901
+  },
+  {
+    "word": "paper",
+    "start": 4.017,
+    "end": 4.331
+  },
+  {
+    "word": "sign-in",
+    "start": 4.389,
+    "end": 4.69
+  },
+  {
+    "word": "sheet.",
+    "start": 4.748,
+    "end": 5.12
+  },
+  {
+    "word": "To",
+    "start": 5.12,
+    "end": 5.248
+  },
+  {
+    "word": "generate",
+    "start": 5.329,
+    "end": 5.747
+  },
+  {
+    "word": "one:",
+    "start": 5.805,
+    "end": 6.444
+  },
+  {
+    "word": "1.",
+    "start": 6.444,
+    "end": 6.815
+  },
+  {
+    "word": "Go",
+    "start": 6.931,
+    "end": 7.105
+  },
+  {
+    "word": "to",
+    "start": 7.163,
+    "end": 7.221
+  },
+  {
+    "word": "Reports",
+    "start": 7.303,
+    "end": 7.709
+  },
+  {
+    "word": "to",
+    "start": 7.744,
+    "end": 7.825
+  },
+  {
+    "word": "Job",
+    "start": 7.906,
+    "end": 8.139
+  },
+  {
+    "word": "Administration",
+    "start": 8.185,
+    "end": 8.858
+  },
+  {
+    "word": "to",
+    "start": 8.916,
+    "end": 8.998
+  },
+  {
+    "word": "Sign-In",
+    "start": 9.079,
+    "end": 9.404
+  },
+  {
+    "word": "Sign-Out",
+    "start": 9.474,
+    "end": 9.857
+  },
+  {
+    "word": "Sheets",
+    "start": 9.903,
+    "end": 10.519
+  },
+  {
+    "word": "2.",
+    "start": 10.519,
+    "end": 10.844
+  },
+  {
+    "word": "Enter",
+    "start": 10.902,
+    "end": 11.192
+  },
+  {
+    "word": "the",
+    "start": 11.262,
+    "end": 11.331
+  },
+  {
+    "word": "Job",
+    "start": 11.401,
+    "end": 11.656
+  },
+  {
+    "word": "Number,",
+    "start": 11.726,
+    "end": 12.109
+  },
+  {
+    "word": "Start",
+    "start": 12.19,
+    "end": 12.504
+  },
+  {
+    "word": "Time,",
+    "start": 12.55,
+    "end": 12.957
+  },
+  {
+    "word": "and",
+    "start": 13.003,
+    "end": 13.201
+  },
+  {
+    "word": "Branch",
+    "start": 13.282,
+    "end": 13.7
+  },
+  {
+    "word": "3.",
+    "start": 13.7,
+    "end": 14.118
+  },
+  {
+    "word": "Click",
+    "start": 14.269,
+    "end": 14.513
+  },
+  {
+    "word": "Retrieve",
+    "start": 14.571,
+    "end": 15.058
+  },
+  {
+    "word": "and",
+    "start": 15.105,
+    "end": 15.244
+  },
+  {
+    "word": "print",
+    "start": 15.314,
+    "end": 15.558
+  },
+  {
+    "word": "the",
+    "start": 15.604,
+    "end": 15.685
+  },
+  {
+    "word": "sheet",
+    "start": 15.743,
+    "end": 16.695
+  },
+  {
+    "word": "Employees",
+    "start": 16.695,
+    "end": 18.669
+  },
+  {
+    "word": "sign",
+    "start": 18.82,
+    "end": 19.331
+  },
+  {
+    "word": "in",
+    "start": 19.482,
+    "end": 19.784
+  },
+  {
+    "word": "and",
+    "start": 19.9,
+    "end": 20.144
+  },
+  {
+    "word": "out",
+    "start": 20.26,
+    "end": 20.608
+  },
+  {
+    "word": "by",
+    "start": 20.782,
+    "end": 21.107
+  },
+  {
+    "word": "hand.",
+    "start": 21.223,
+    "end": 21.908
+  },
+  {
+    "word": "After",
+    "start": 22.512,
+    "end": 22.849
+  },
+  {
+    "word": "the",
+    "start": 22.895,
+    "end": 22.976
+  },
+  {
+    "word": "event,",
+    "start": 23.046,
+    "end": 23.51
+  },
+  {
+    "word": "those",
+    "start": 23.592,
+    "end": 23.94
+  },
+  {
+    "word": "times",
+    "start": 23.986,
+    "end": 24.451
+  },
+  {
+    "word": "get",
+    "start": 24.532,
+    "end": 24.718
+  },
+  {
+    "word": "entered",
+    "start": 24.799,
+    "end": 25.182
+  },
+  {
+    "word": "manually",
+    "start": 25.252,
+    "end": 25.902
+  },
+  {
+    "word": "in",
+    "start": 26.018,
+    "end": 26.204
+  },
+  {
+    "word": "Manage",
+    "start": 26.32,
+    "end": 26.808
+  },
+  {
+    "word": "Process",
+    "start": 26.866,
+    "end": 27.516
+  },
+  {
+    "word": "Hours.",
+    "start": 27.632,
+    "end": 28.781
+  },
+  {
+    "word": "Always",
+    "start": 28.781,
+    "end": 29.281
+  },
+  {
+    "word": "print",
+    "start": 29.35,
+    "end": 29.594
+  },
+  {
+    "word": "this",
+    "start": 29.652,
+    "end": 29.966
+  },
+  {
+    "word": "before",
+    "start": 30.082,
+    "end": 30.534
+  },
+  {
+    "word": "you",
+    "start": 30.593,
+    "end": 30.697
+  },
+  {
+    "word": "leave",
+    "start": 30.813,
+    "end": 31.161
+  },
+  {
+    "word": "for",
+    "start": 31.219,
+    "end": 31.347
+  },
+  {
+    "word": "the",
+    "start": 31.405,
+    "end": 31.475
+  },
+  {
+    "word": "event.",
+    "start": 31.556,
+    "end": 32.079
+  },
+  {
+    "word": "If",
+    "start": 32.462,
+    "end": 32.601
+  },
+  {
+    "word": "electronic",
+    "start": 32.659,
+    "end": 33.205
+  },
+  {
+    "word": "sign-in",
+    "start": 33.251,
+    "end": 33.646
+  },
+  {
+    "word": "goes",
+    "start": 33.727,
+    "end": 33.959
+  },
+  {
+    "word": "down",
+    "start": 34.017,
+    "end": 34.319
+  },
+  {
+    "word": "on-site,",
+    "start": 34.435,
+    "end": 35.295
+  },
+  {
+    "word": "this",
+    "start": 35.469,
+    "end": 35.852
+  },
+  {
+    "word": "is",
+    "start": 36.003,
+    "end": 36.235
+  },
+  {
+    "word": "your",
+    "start": 36.328,
+    "end": 36.56
+  },
+  {
+    "word": "backup.",
+    "start": 36.653,
+    "end": 37.431
+  }
+]

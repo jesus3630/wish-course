@@ -1,0 +1,407 @@
+[
+  {
+    "word": "After",
+    "start": 0,
+    "end": 0.255
+  },
+  {
+    "word": "an",
+    "start": 0.279,
+    "end": 0.325
+  },
+  {
+    "word": "event,",
+    "start": 0.372,
+    "end": 0.766
+  },
+  {
+    "word": "Employee",
+    "start": 0.801,
+    "end": 1.324
+  },
+  {
+    "word": "Not",
+    "start": 1.382,
+    "end": 1.567
+  },
+  {
+    "word": "Sign-In",
+    "start": 1.625,
+    "end": 2.02
+  },
+  {
+    "word": "tells",
+    "start": 2.101,
+    "end": 2.392
+  },
+  {
+    "word": "you",
+    "start": 2.45,
+    "end": 2.566
+  },
+  {
+    "word": "which",
+    "start": 2.659,
+    "end": 2.879
+  },
+  {
+    "word": "scheduled",
+    "start": 2.914,
+    "end": 3.344
+  },
+  {
+    "word": "employees",
+    "start": 3.367,
+    "end": 3.901
+  },
+  {
+    "word": "have",
+    "start": 3.971,
+    "end": 4.18
+  },
+  {
+    "word": "no",
+    "start": 4.249,
+    "end": 4.47
+  },
+  {
+    "word": "electronic",
+    "start": 4.586,
+    "end": 5.132
+  },
+  {
+    "word": "sign-in",
+    "start": 5.178,
+    "end": 5.492
+  },
+  {
+    "word": "on",
+    "start": 5.573,
+    "end": 5.724
+  },
+  {
+    "word": "record.",
+    "start": 5.805,
+    "end": 6.258
+  },
+  {
+    "word": "To",
+    "start": 6.258,
+    "end": 6.385
+  },
+  {
+    "word": "run",
+    "start": 6.467,
+    "end": 6.618
+  },
+  {
+    "word": "it:",
+    "start": 6.664,
+    "end": 7.001
+  },
+  {
+    "word": "1.",
+    "start": 7.001,
+    "end": 7.396
+  },
+  {
+    "word": "Go",
+    "start": 7.512,
+    "end": 7.651
+  },
+  {
+    "word": "to",
+    "start": 7.709,
+    "end": 7.755
+  },
+  {
+    "word": "Reports",
+    "start": 7.825,
+    "end": 8.266
+  },
+  {
+    "word": "to",
+    "start": 8.301,
+    "end": 8.382
+  },
+  {
+    "word": "Job",
+    "start": 8.475,
+    "end": 8.742
+  },
+  {
+    "word": "Administration",
+    "start": 8.789,
+    "end": 9.509
+  },
+  {
+    "word": "to",
+    "start": 9.578,
+    "end": 9.683
+  },
+  {
+    "word": "Employee",
+    "start": 9.776,
+    "end": 10.228
+  },
+  {
+    "word": "Not",
+    "start": 10.286,
+    "end": 10.472
+  },
+  {
+    "word": "Sign-In",
+    "start": 10.53,
+    "end": 11.064
+  },
+  {
+    "word": "2.",
+    "start": 11.064,
+    "end": 11.366
+  },
+  {
+    "word": "Enter",
+    "start": 11.413,
+    "end": 11.633
+  },
+  {
+    "word": "the",
+    "start": 11.691,
+    "end": 11.761
+  },
+  {
+    "word": "Job",
+    "start": 11.819,
+    "end": 12.04
+  },
+  {
+    "word": "Number",
+    "start": 12.109,
+    "end": 12.376
+  },
+  {
+    "word": "and",
+    "start": 12.457,
+    "end": 12.62
+  },
+  {
+    "word": "the",
+    "start": 12.678,
+    "end": 12.748
+  },
+  {
+    "word": "event",
+    "start": 12.806,
+    "end": 13.096
+  },
+  {
+    "word": "date",
+    "start": 13.166,
+    "end": 13.63
+  },
+  {
+    "word": "3.",
+    "start": 13.63,
+    "end": 14.06
+  },
+  {
+    "word": "Click",
+    "start": 14.153,
+    "end": 14.396
+  },
+  {
+    "word": "Retrieve",
+    "start": 14.455,
+    "end": 14.965
+  },
+  {
+    "word": "For",
+    "start": 14.965,
+    "end": 15.105
+  },
+  {
+    "word": "each",
+    "start": 15.186,
+    "end": 15.372
+  },
+  {
+    "word": "employee",
+    "start": 15.418,
+    "end": 15.883
+  },
+  {
+    "word": "on",
+    "start": 15.975,
+    "end": 16.15
+  },
+  {
+    "word": "the",
+    "start": 16.196,
+    "end": 16.266
+  },
+  {
+    "word": "list,",
+    "start": 16.335,
+    "end": 16.8
+  },
+  {
+    "word": "determine",
+    "start": 16.974,
+    "end": 17.81
+  },
+  {
+    "word": "whether",
+    "start": 17.961,
+    "end": 18.263
+  },
+  {
+    "word": "they",
+    "start": 18.309,
+    "end": 18.437
+  },
+  {
+    "word": "actually",
+    "start": 18.506,
+    "end": 18.948
+  },
+  {
+    "word": "worked.",
+    "start": 19.017,
+    "end": 19.505
+  },
+  {
+    "word": "If",
+    "start": 19.714,
+    "end": 19.888
+  },
+  {
+    "word": "they",
+    "start": 19.946,
+    "end": 20.085
+  },
+  {
+    "word": "did,",
+    "start": 20.201,
+    "end": 20.701
+  },
+  {
+    "word": "their",
+    "start": 20.875,
+    "end": 21.13
+  },
+  {
+    "word": "hours",
+    "start": 21.2,
+    "end": 21.711
+  },
+  {
+    "word": "need",
+    "start": 21.804,
+    "end": 22.036
+  },
+  {
+    "word": "to",
+    "start": 22.071,
+    "end": 22.117
+  },
+  {
+    "word": "be",
+    "start": 22.175,
+    "end": 22.28
+  },
+  {
+    "word": "entered",
+    "start": 22.349,
+    "end": 22.651
+  },
+  {
+    "word": "manually",
+    "start": 22.732,
+    "end": 23.441
+  },
+  {
+    "word": "in",
+    "start": 23.719,
+    "end": 23.905
+  },
+  {
+    "word": "Manage",
+    "start": 24.021,
+    "end": 24.393
+  },
+  {
+    "word": "Process",
+    "start": 24.427,
+    "end": 24.869
+  },
+  {
+    "word": "Hours.",
+    "start": 24.903,
+    "end": 25.449
+  },
+  {
+    "word": "If",
+    "start": 25.728,
+    "end": 25.867
+  },
+  {
+    "word": "they",
+    "start": 25.914,
+    "end": 26.03
+  },
+  {
+    "word": "didn't",
+    "start": 26.099,
+    "end": 26.343
+  },
+  {
+    "word": "show",
+    "start": 26.378,
+    "end": 26.575
+  },
+  {
+    "word": "up,",
+    "start": 26.657,
+    "end": 26.912
+  },
+  {
+    "word": "mark",
+    "start": 27.191,
+    "end": 27.469
+  },
+  {
+    "word": "them",
+    "start": 27.551,
+    "end": 27.771
+  },
+  {
+    "word": "as",
+    "start": 27.887,
+    "end": 28.061
+  },
+  {
+    "word": "a",
+    "start": 28.119,
+    "end": 28.154
+  },
+  {
+    "word": "no-show",
+    "start": 28.27,
+    "end": 28.77
+  },
+  {
+    "word": "in",
+    "start": 28.886,
+    "end": 28.979
+  },
+  {
+    "word": "the",
+    "start": 29.025,
+    "end": 29.095
+  },
+  {
+    "word": "system.",
+    "start": 29.141,
+    "end": 29.814
+  }
+]
