@@ -1,0 +1,427 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "same",
+    "start": 0.197,
+    "end": 0.395
+  },
+  {
+    "word": "thing",
+    "start": 0.43,
+    "end": 0.58
+  },
+  {
+    "word": "we",
+    "start": 0.627,
+    "end": 0.708
+  },
+  {
+    "word": "did",
+    "start": 0.778,
+    "end": 0.94
+  },
+  {
+    "word": "for",
+    "start": 0.987,
+    "end": 1.068
+  },
+  {
+    "word": "the",
+    "start": 1.103,
+    "end": 1.173
+  },
+  {
+    "word": "clients,",
+    "start": 1.196,
+    "end": 1.718
+  },
+  {
+    "word": "we",
+    "start": 1.811,
+    "end": 1.962
+  },
+  {
+    "word": "are",
+    "start": 2.009,
+    "end": 2.125
+  },
+  {
+    "word": "going",
+    "start": 2.183,
+    "end": 2.438
+  },
+  {
+    "word": "to",
+    "start": 2.496,
+    "end": 2.554
+  },
+  {
+    "word": "do",
+    "start": 2.635,
+    "end": 2.844
+  },
+  {
+    "word": "for",
+    "start": 2.961,
+    "end": 3.123
+  },
+  {
+    "word": "the",
+    "start": 3.17,
+    "end": 3.239
+  },
+  {
+    "word": "venue.",
+    "start": 3.297,
+    "end": 3.738
+  },
+  {
+    "word": "We",
+    "start": 3.866,
+    "end": 4.052
+  },
+  {
+    "word": "are",
+    "start": 4.11,
+    "end": 4.238
+  },
+  {
+    "word": "going",
+    "start": 4.284,
+    "end": 4.516
+  },
+  {
+    "word": "to",
+    "start": 4.574,
+    "end": 4.632
+  },
+  {
+    "word": "select",
+    "start": 4.714,
+    "end": 5.178
+  },
+  {
+    "word": "and",
+    "start": 5.236,
+    "end": 5.364
+  },
+  {
+    "word": "add",
+    "start": 5.457,
+    "end": 5.77
+  },
+  {
+    "word": "an",
+    "start": 5.828,
+    "end": 5.921
+  },
+  {
+    "word": "existing",
+    "start": 5.991,
+    "end": 6.536
+  },
+  {
+    "word": "venue",
+    "start": 6.594,
+    "end": 6.978
+  },
+  {
+    "word": "to",
+    "start": 7.024,
+    "end": 7.152
+  },
+  {
+    "word": "our",
+    "start": 7.245,
+    "end": 7.361
+  },
+  {
+    "word": "event.",
+    "start": 7.419,
+    "end": 7.837
+  },
+  {
+    "word": "A",
+    "start": 7.872,
+    "end": 7.953
+  },
+  {
+    "word": "well-established",
+    "start": 8.069,
+    "end": 8.8
+  },
+  {
+    "word": "venue",
+    "start": 8.835,
+    "end": 9.23
+  },
+  {
+    "word": "may",
+    "start": 9.288,
+    "end": 9.485
+  },
+  {
+    "word": "have",
+    "start": 9.555,
+    "end": 9.752
+  },
+  {
+    "word": "all",
+    "start": 9.822,
+    "end": 10.043
+  },
+  {
+    "word": "venues",
+    "start": 10.112,
+    "end": 10.461
+  },
+  {
+    "word": "already",
+    "start": 10.542,
+    "end": 10.879
+  },
+  {
+    "word": "created",
+    "start": 10.925,
+    "end": 11.343
+  },
+  {
+    "word": "so",
+    "start": 11.401,
+    "end": 11.587
+  },
+  {
+    "word": "you",
+    "start": 11.703,
+    "end": 11.819
+  },
+  {
+    "word": "should",
+    "start": 11.877,
+    "end": 12.074
+  },
+  {
+    "word": "search",
+    "start": 12.144,
+    "end": 12.434
+  },
+  {
+    "word": "for",
+    "start": 12.492,
+    "end": 12.632
+  },
+  {
+    "word": "the",
+    "start": 12.69,
+    "end": 12.771
+  },
+  {
+    "word": "venue",
+    "start": 12.864,
+    "end": 13.27
+  },
+  {
+    "word": "to",
+    "start": 13.317,
+    "end": 13.398
+  },
+  {
+    "word": "see",
+    "start": 13.491,
+    "end": 13.781
+  },
+  {
+    "word": "if",
+    "start": 13.839,
+    "end": 13.99
+  },
+  {
+    "word": "it",
+    "start": 14.06,
+    "end": 14.141
+  },
+  {
+    "word": "is",
+    "start": 14.187,
+    "end": 14.28
+  },
+  {
+    "word": "already",
+    "start": 14.362,
+    "end": 14.768
+  },
+  {
+    "word": "in",
+    "start": 14.884,
+    "end": 15.058
+  },
+  {
+    "word": "the",
+    "start": 15.116,
+    "end": 15.186
+  },
+  {
+    "word": "system.",
+    "start": 15.232,
+    "end": 15.72
+  },
+  {
+    "word": "Only",
+    "start": 16.045,
+    "end": 16.393
+  },
+  {
+    "word": "create",
+    "start": 16.463,
+    "end": 17.043
+  },
+  {
+    "word": "after",
+    "start": 17.287,
+    "end": 17.74
+  },
+  {
+    "word": "checking.",
+    "start": 17.81,
+    "end": 18.367
+  },
+  {
+    "word": "An",
+    "start": 18.808,
+    "end": 18.948
+  },
+  {
+    "word": "event",
+    "start": 19.006,
+    "end": 19.284
+  },
+  {
+    "word": "can",
+    "start": 19.319,
+    "end": 19.424
+  },
+  {
+    "word": "be",
+    "start": 19.47,
+    "end": 19.551
+  },
+  {
+    "word": "taking",
+    "start": 19.586,
+    "end": 19.865
+  },
+  {
+    "word": "place",
+    "start": 19.923,
+    "end": 20.201
+  },
+  {
+    "word": "at",
+    "start": 20.248,
+    "end": 20.364
+  },
+  {
+    "word": "multiple",
+    "start": 20.48,
+    "end": 21.026
+  },
+  {
+    "word": "venues,",
+    "start": 21.061,
+    "end": 21.583
+  },
+  {
+    "word": "if",
+    "start": 21.711,
+    "end": 21.896
+  },
+  {
+    "word": "this",
+    "start": 21.954,
+    "end": 22.105
+  },
+  {
+    "word": "is",
+    "start": 22.163,
+    "end": 22.233
+  },
+  {
+    "word": "the",
+    "start": 22.28,
+    "end": 22.349
+  },
+  {
+    "word": "case",
+    "start": 22.396,
+    "end": 22.732
+  },
+  {
+    "word": "make",
+    "start": 22.802,
+    "end": 22.999
+  },
+  {
+    "word": "sure",
+    "start": 23.034,
+    "end": 23.208
+  },
+  {
+    "word": "to",
+    "start": 23.243,
+    "end": 23.29
+  },
+  {
+    "word": "select",
+    "start": 23.359,
+    "end": 23.696
+  },
+  {
+    "word": "all",
+    "start": 23.766,
+    "end": 24.033
+  },
+  {
+    "word": "the",
+    "start": 24.091,
+    "end": 24.16
+  },
+  {
+    "word": "venues",
+    "start": 24.207,
+    "end": 24.636
+  },
+  {
+    "word": "where",
+    "start": 24.706,
+    "end": 24.938
+  },
+  {
+    "word": "your",
+    "start": 24.996,
+    "end": 25.124
+  },
+  {
+    "word": "event",
+    "start": 25.182,
+    "end": 25.449
+  },
+  {
+    "word": "is",
+    "start": 25.519,
+    "end": 25.681
+  },
+  {
+    "word": "taking",
+    "start": 25.751,
+    "end": 26.064
+  },
+  {
+    "word": "place.",
+    "start": 26.122,
+    "end": 26.703
+  }
+]

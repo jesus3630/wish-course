@@ -1,0 +1,357 @@
+[
+  {
+    "word": "Click",
+    "start": 0,
+    "end": 0.244
+  },
+  {
+    "word": "the",
+    "start": 0.29,
+    "end": 0.36
+  },
+  {
+    "word": "Web",
+    "start": 0.406,
+    "end": 0.557
+  },
+  {
+    "word": "Shift",
+    "start": 0.604,
+    "end": 0.824
+  },
+  {
+    "word": "tab.",
+    "start": 0.848,
+    "end": 1.242
+  },
+  {
+    "word": "Shifts",
+    "start": 1.358,
+    "end": 1.672
+  },
+  {
+    "word": "with",
+    "start": 1.707,
+    "end": 1.846
+  },
+  {
+    "word": "an",
+    "start": 1.881,
+    "end": 1.939
+  },
+  {
+    "word": "unchecked",
+    "start": 2.02,
+    "end": 2.426
+  },
+  {
+    "word": "box",
+    "start": 2.473,
+    "end": 2.728
+  },
+  {
+    "word": "on",
+    "start": 2.798,
+    "end": 2.868
+  },
+  {
+    "word": "the",
+    "start": 2.902,
+    "end": 2.972
+  },
+  {
+    "word": "left",
+    "start": 3.019,
+    "end": 3.251
+  },
+  {
+    "word": "are",
+    "start": 3.297,
+    "end": 3.46
+  },
+  {
+    "word": "not",
+    "start": 3.518,
+    "end": 3.692
+  },
+  {
+    "word": "published",
+    "start": 3.773,
+    "end": 4.168
+  },
+  {
+    "word": "yet.",
+    "start": 4.214,
+    "end": 4.586
+  },
+  {
+    "word": "To",
+    "start": 4.586,
+    "end": 4.714
+  },
+  {
+    "word": "enable",
+    "start": 4.795,
+    "end": 5.248
+  },
+  {
+    "word": "auto-scheduling",
+    "start": 5.294,
+    "end": 6.153
+  },
+  {
+    "word": "—",
+    "start": 6.188,
+    "end": 6.246
+  },
+  {
+    "word": "where",
+    "start": 6.397,
+    "end": 6.548
+  },
+  {
+    "word": "employees",
+    "start": 6.571,
+    "end": 7.105
+  },
+  {
+    "word": "can",
+    "start": 7.163,
+    "end": 7.291
+  },
+  {
+    "word": "apply",
+    "start": 7.326,
+    "end": 7.721
+  },
+  {
+    "word": "without",
+    "start": 7.79,
+    "end": 8.081
+  },
+  {
+    "word": "needing",
+    "start": 8.139,
+    "end": 8.394
+  },
+  {
+    "word": "your",
+    "start": 8.429,
+    "end": 8.557
+  },
+  {
+    "word": "approval",
+    "start": 8.58,
+    "end": 9.033
+  },
+  {
+    "word": "—",
+    "start": 9.125,
+    "end": 14.721
+  },
+  {
+    "word": "check",
+    "start": 14.756,
+    "end": 14.977
+  },
+  {
+    "word": "the",
+    "start": 15.023,
+    "end": 15.105
+  },
+  {
+    "word": "Auto",
+    "start": 15.174,
+    "end": 15.372
+  },
+  {
+    "word": "Schedule",
+    "start": 15.441,
+    "end": 15.813
+  },
+  {
+    "word": "box",
+    "start": 15.848,
+    "end": 16.091
+  },
+  {
+    "word": "at",
+    "start": 16.149,
+    "end": 16.231
+  },
+  {
+    "word": "the",
+    "start": 16.266,
+    "end": 16.335
+  },
+  {
+    "word": "top",
+    "start": 16.382,
+    "end": 16.649
+  },
+  {
+    "word": "(selects",
+    "start": 16.695,
+    "end": 17.125
+  },
+  {
+    "word": "all",
+    "start": 17.183,
+    "end": 17.403
+  },
+  {
+    "word": "jobs)",
+    "start": 17.473,
+    "end": 17.845
+  },
+  {
+    "word": "or",
+    "start": 17.891,
+    "end": 18.019
+  },
+  {
+    "word": "check",
+    "start": 18.077,
+    "end": 18.286
+  },
+  {
+    "word": "individually.",
+    "start": 18.355,
+    "end": 19.052
+  },
+  {
+    "word": "Click",
+    "start": 19.052,
+    "end": 19.284
+  },
+  {
+    "word": "Add",
+    "start": 19.4,
+    "end": 19.737
+  },
+  {
+    "word": "to",
+    "start": 19.783,
+    "end": 19.876
+  },
+  {
+    "word": "Web",
+    "start": 19.958,
+    "end": 20.155
+  },
+  {
+    "word": "Shift.",
+    "start": 20.225,
+    "end": 20.666
+  },
+  {
+    "word": "A",
+    "start": 20.875,
+    "end": 20.968
+  },
+  {
+    "word": "green",
+    "start": 21.084,
+    "end": 21.386
+  },
+  {
+    "word": "checkmark",
+    "start": 21.444,
+    "end": 21.966
+  },
+  {
+    "word": "confirms",
+    "start": 22.024,
+    "end": 22.512
+  },
+  {
+    "word": "employees",
+    "start": 22.558,
+    "end": 23.127
+  },
+  {
+    "word": "can",
+    "start": 23.174,
+    "end": 23.313
+  },
+  {
+    "word": "now",
+    "start": 23.383,
+    "end": 23.615
+  },
+  {
+    "word": "see",
+    "start": 23.731,
+    "end": 24.056
+  },
+  {
+    "word": "and",
+    "start": 24.137,
+    "end": 24.346
+  },
+  {
+    "word": "self-schedule",
+    "start": 24.427,
+    "end": 25.182
+  },
+  {
+    "word": "for",
+    "start": 25.217,
+    "end": 25.345
+  },
+  {
+    "word": "the",
+    "start": 25.391,
+    "end": 25.461
+  },
+  {
+    "word": "shift.",
+    "start": 25.507,
+    "end": 26.146
+  },
+  {
+    "word": "To",
+    "start": 26.146,
+    "end": 26.273
+  },
+  {
+    "word": "disable",
+    "start": 26.343,
+    "end": 26.738
+  },
+  {
+    "word": "publishing,",
+    "start": 26.773,
+    "end": 27.423
+  },
+  {
+    "word": "click",
+    "start": 27.597,
+    "end": 27.841
+  },
+  {
+    "word": "the",
+    "start": 27.91,
+    "end": 27.98
+  },
+  {
+    "word": "green",
+    "start": 28.038,
+    "end": 28.294
+  },
+  {
+    "word": "checkmark",
+    "start": 28.352,
+    "end": 28.862
+  },
+  {
+    "word": "and",
+    "start": 28.944,
+    "end": 29.13
+  },
+  {
+    "word": "confirm.",
+    "start": 29.199,
+    "end": 30
+  }
+]

@@ -1,0 +1,412 @@
+[
+  {
+    "word": "Before",
+    "start": 0,
+    "end": 0.325
+  },
+  {
+    "word": "you",
+    "start": 0.36,
+    "end": 0.43
+  },
+  {
+    "word": "can",
+    "start": 0.464,
+    "end": 0.58
+  },
+  {
+    "word": "bill",
+    "start": 0.615,
+    "end": 0.766
+  },
+  {
+    "word": "a",
+    "start": 0.824,
+    "end": 0.848
+  },
+  {
+    "word": "client,",
+    "start": 0.906,
+    "end": 1.44
+  },
+  {
+    "word": "two",
+    "start": 1.486,
+    "end": 1.695
+  },
+  {
+    "word": "things",
+    "start": 1.776,
+    "end": 2.09
+  },
+  {
+    "word": "must",
+    "start": 2.159,
+    "end": 2.345
+  },
+  {
+    "word": "be",
+    "start": 2.392,
+    "end": 2.485
+  },
+  {
+    "word": "true:",
+    "start": 2.531,
+    "end": 3.216
+  },
+  {
+    "word": "1.",
+    "start": 3.216,
+    "end": 3.669
+  },
+  {
+    "word": "All",
+    "start": 3.75,
+    "end": 3.982
+  },
+  {
+    "word": "hours",
+    "start": 4.063,
+    "end": 4.365
+  },
+  {
+    "word": "for",
+    "start": 4.412,
+    "end": 4.516
+  },
+  {
+    "word": "the",
+    "start": 4.563,
+    "end": 4.632
+  },
+  {
+    "word": "event",
+    "start": 4.702,
+    "end": 4.992
+  },
+  {
+    "word": "must",
+    "start": 5.05,
+    "end": 5.236
+  },
+  {
+    "word": "be",
+    "start": 5.283,
+    "end": 5.375
+  },
+  {
+    "word": "approved",
+    "start": 5.41,
+    "end": 5.886
+  },
+  {
+    "word": "in",
+    "start": 5.933,
+    "end": 5.991
+  },
+  {
+    "word": "Manual",
+    "start": 6.049,
+    "end": 6.339
+  },
+  {
+    "word": "Process",
+    "start": 6.397,
+    "end": 6.803
+  },
+  {
+    "word": "Hours.",
+    "start": 6.838,
+    "end": 7.256
+  },
+  {
+    "word": "WISH",
+    "start": 7.326,
+    "end": 7.616
+  },
+  {
+    "word": "will",
+    "start": 7.663,
+    "end": 7.814
+  },
+  {
+    "word": "not",
+    "start": 7.872,
+    "end": 8.022
+  },
+  {
+    "word": "generate",
+    "start": 8.081,
+    "end": 8.464
+  },
+  {
+    "word": "a",
+    "start": 8.487,
+    "end": 8.51
+  },
+  {
+    "word": "bill",
+    "start": 8.58,
+    "end": 8.824
+  },
+  {
+    "word": "for",
+    "start": 8.893,
+    "end": 9.033
+  },
+  {
+    "word": "a",
+    "start": 9.091,
+    "end": 9.114
+  },
+  {
+    "word": "job",
+    "start": 9.183,
+    "end": 9.497
+  },
+  {
+    "word": "where",
+    "start": 9.578,
+    "end": 9.787
+  },
+  {
+    "word": "hours",
+    "start": 9.845,
+    "end": 10.228
+  },
+  {
+    "word": "are",
+    "start": 10.275,
+    "end": 10.403
+  },
+  {
+    "word": "still",
+    "start": 10.437,
+    "end": 10.646
+  },
+  {
+    "word": "pending.",
+    "start": 10.704,
+    "end": 11.308
+  },
+  {
+    "word": "2.",
+    "start": 11.308,
+    "end": 11.714
+  },
+  {
+    "word": "A",
+    "start": 11.773,
+    "end": 11.854
+  },
+  {
+    "word": "contract",
+    "start": 11.97,
+    "end": 12.504
+  },
+  {
+    "word": "must",
+    "start": 12.55,
+    "end": 12.713
+  },
+  {
+    "word": "exist",
+    "start": 12.759,
+    "end": 13.119
+  },
+  {
+    "word": "for",
+    "start": 13.166,
+    "end": 13.27
+  },
+  {
+    "word": "the",
+    "start": 13.305,
+    "end": 13.375
+  },
+  {
+    "word": "client",
+    "start": 13.421,
+    "end": 13.758
+  },
+  {
+    "word": "you",
+    "start": 13.793,
+    "end": 13.874
+  },
+  {
+    "word": "are",
+    "start": 13.921,
+    "end": 14.014
+  },
+  {
+    "word": "billing.",
+    "start": 14.037,
+    "end": 14.397
+  },
+  {
+    "word": "If",
+    "start": 14.42,
+    "end": 14.559
+  },
+  {
+    "word": "no",
+    "start": 14.629,
+    "end": 14.757
+  },
+  {
+    "word": "contract",
+    "start": 14.838,
+    "end": 15.279
+  },
+  {
+    "word": "is",
+    "start": 15.314,
+    "end": 15.372
+  },
+  {
+    "word": "in",
+    "start": 15.407,
+    "end": 15.453
+  },
+  {
+    "word": "the",
+    "start": 15.476,
+    "end": 15.546
+  },
+  {
+    "word": "system,",
+    "start": 15.593,
+    "end": 16.161
+  },
+  {
+    "word": "the",
+    "start": 16.289,
+    "end": 16.382
+  },
+  {
+    "word": "billing",
+    "start": 16.44,
+    "end": 16.684
+  },
+  {
+    "word": "screens",
+    "start": 16.707,
+    "end": 16.939
+  },
+  {
+    "word": "will",
+    "start": 16.962,
+    "end": 17.09
+  },
+  {
+    "word": "not",
+    "start": 17.137,
+    "end": 17.264
+  },
+  {
+    "word": "populate",
+    "start": 17.322,
+    "end": 17.787
+  },
+  {
+    "word": "the",
+    "start": 17.81,
+    "end": 17.88
+  },
+  {
+    "word": "client",
+    "start": 17.915,
+    "end": 18.17
+  },
+  {
+    "word": "information.",
+    "start": 18.205,
+    "end": 19.122
+  },
+  {
+    "word": "Always",
+    "start": 19.122,
+    "end": 19.482
+  },
+  {
+    "word": "complete",
+    "start": 19.528,
+    "end": 19.865
+  },
+  {
+    "word": "payroll",
+    "start": 19.9,
+    "end": 20.236
+  },
+  {
+    "word": "processing",
+    "start": 20.295,
+    "end": 20.887
+  },
+  {
+    "word": "before",
+    "start": 20.968,
+    "end": 21.281
+  },
+  {
+    "word": "billing.",
+    "start": 21.316,
+    "end": 21.769
+  },
+  {
+    "word": "The",
+    "start": 21.943,
+    "end": 22.071
+  },
+  {
+    "word": "order",
+    "start": 22.152,
+    "end": 22.431
+  },
+  {
+    "word": "is:",
+    "start": 22.524,
+    "end": 22.942
+  },
+  {
+    "word": "process",
+    "start": 23.116,
+    "end": 23.58
+  },
+  {
+    "word": "hours",
+    "start": 23.615,
+    "end": 24.045
+  },
+  {
+    "word": "→",
+    "start": 24.195,
+    "end": 24.219
+  },
+  {
+    "word": "approve",
+    "start": 24.393,
+    "end": 24.834
+  },
+  {
+    "word": "hours",
+    "start": 24.869,
+    "end": 25.287
+  },
+  {
+    "word": "→",
+    "start": 25.461,
+    "end": 25.484
+  },
+  {
+    "word": "then",
+    "start": 25.728,
+    "end": 25.995
+  },
+  {
+    "word": "bill.",
+    "start": 26.111,
+    "end": 26.75
+  }
+]

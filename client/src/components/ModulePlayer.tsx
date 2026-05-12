@@ -7,6 +7,11 @@ import Character from './Character';
 type Timing = { word: string; start: number; end: number };
 type PrefetchEntry = { url: string; timings: Timing[] };
 
+async function textHash(text: string): Promise<string> {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 interface Props {
   module: Module;
   moduleIndex: number;
@@ -165,14 +170,15 @@ export default function ModulePlayer({
     if (!text) return Promise.resolve(null);
 
     const promise = (async (): Promise<PrefetchEntry | null> => {
-      // Try pre-generated static file first — instant, no ElevenLabs quota
-      const mp3Url = `/audio/${module.id}/slide_${idx}.mp3`;
+      // Try pre-generated static file first (named by text hash — auto-invalidates on edit)
       try {
-        const head = await fetch(mp3Url, { method: 'HEAD' });
+        const hash   = await textHash(text);
+        const mp3Url = `/audio/${hash}.mp3`;
+        const head   = await fetch(mp3Url, { method: 'HEAD' });
         if (head.ok) {
           let timings: Timing[] = [];
           try {
-            const tr = await fetch(`/audio/${module.id}/slide_${idx}.json`);
+            const tr = await fetch(`/audio/${hash}.json`);
             if (tr.ok) timings = await tr.json();
           } catch {}
           return { url: mp3Url, timings };

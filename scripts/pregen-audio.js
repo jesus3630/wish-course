@@ -1,8 +1,11 @@
 /**
  * Pre-generate ElevenLabs narration for every slide across all modules.
- * Saves: client/public/audio/{module_id}/slide_{i}.mp3
- *        client/public/audio/{module_id}/slide_{i}.json  (word timings)
- * Skips slides whose MP3 already exists and is > 1 KB.
+ * Files are named by SHA-256 of the slide text so admin edits automatically
+ * invalidate the cache — changed text = new hash = static miss = fresh API call.
+ *
+ * Saves: client/public/audio/{sha256}.mp3
+ *        client/public/audio/{sha256}.json  (word timings)
+ * Skips hashes whose MP3 already exists and is > 1 KB.
  *
  * Usage (from project root):
  *   node scripts/pregen-audio.js               # all modules
@@ -16,12 +19,11 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const API_KEY   = process.env.ELEVENLABS_API_KEY;
-const VOICE_ID  = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
-const OUTPUT    = path.join(__dirname, '../client/public/audio');
+const API_KEY  = process.env.ELEVENLABS_API_KEY;
+const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
+const OUTPUT   = path.join(__dirname, '../client/public/audio');
 const DATA_FILE = path.join(__dirname, '../course_data.json');
 
-// Delay between requests (ms). Starter plan is ~30 req/min safe; 2.5s = 24/min.
 const DELAY_MS = 2500;
 
 if (!API_KEY) {
@@ -41,6 +43,10 @@ if (MOD_ONLY && modules.length === 0) {
   const ids = courseData.map(m => m.id).join(', ');
   console.error(`ERROR: module "${MOD_ONLY}" not found.\nAvailable: ${ids}`);
   process.exit(1);
+}
+
+function textHash(text) {
+  return crypto.createHash('sha256').update(text).digest('hex');
 }
 
 function sleep(ms) {
@@ -117,7 +123,6 @@ function callElevenLabs(text) {
 }
 
 async function main() {
-  // Count total slides and estimate chars
   let total = 0, totalChars = 0;
   for (const mod of modules) {
     for (const slide of mod.slides) {
@@ -126,14 +131,11 @@ async function main() {
   }
 
   console.log(`\nElevenLabs Pre-Generation — voice ${VOICE_ID}`);
+  console.log(`Naming: SHA-256 of slide text (admin edits auto-invalidate)`);
   if (MOD_ONLY) console.log(`Module filter     : ${MOD_ONLY}`);
   if (DRY_RUN)  console.log(`Mode              : DRY RUN (no API calls)`);
   console.log(`Slides to narrate : ${total}`);
-  console.log(`Est. characters   : ${totalChars.toLocaleString()} (Starter quota: 30,000/mo)`);
-  if (totalChars > 30000) {
-    console.warn(`\nWARNING: ${totalChars.toLocaleString()} chars exceeds monthly Starter quota (30,000).`);
-    console.warn('Use --module <id> to run one module at a time. Check usage: elevenlabs.io/app/subscription\n');
-  }
+  console.log(`Est. characters   : ${totalChars.toLocaleString()}`);
   console.log(`Output dir        : ${OUTPUT}`);
   if (!DRY_RUN) console.log(`Delay per request : ${DELAY_MS}ms`);
   console.log();
@@ -153,32 +155,31 @@ async function main() {
   let count = 0, generated = 0, skipped = 0, errors = 0, charsSent = 0;
 
   for (const mod of modules) {
-    const modDir = path.join(OUTPUT, mod.id);
-    fs.mkdirSync(modDir, { recursive: true });
-
     for (let i = 0; i < mod.slides.length; i++) {
       const slide = mod.slides[i];
       if (!slide.text?.trim()) continue;
 
       count++;
-      const mp3Path  = path.join(modDir, `slide_${i}.mp3`);
-      const jsonPath = path.join(modDir, `slide_${i}.json`);
+      const text     = slide.text.trim();
+      const hash     = textHash(text);
+      const mp3Path  = path.join(OUTPUT, `${hash}.mp3`);
+      const jsonPath = path.join(OUTPUT, `${hash}.json`);
       const label    = `[${String(count).padStart(3)}/${total}]  ${mod.id} › slide ${i}`;
 
       if (fs.existsSync(mp3Path) && fs.statSync(mp3Path).size > 1000) {
         skipped++;
-        console.log(`SKIP  ${label}`);
+        console.log(`SKIP  ${label}  (${hash.slice(0, 8)}…)`);
         continue;
       }
 
-      process.stdout.write(`GEN   ${label} ...`);
+      process.stdout.write(`GEN   ${label}  (${hash.slice(0, 8)}…) ...`);
       try {
-        const { audio_base64, timings } = await callElevenLabs(slide.text.trim());
+        const { audio_base64, timings } = await callElevenLabs(text);
 
         fs.writeFileSync(mp3Path, Buffer.from(audio_base64, 'base64'));
         fs.writeFileSync(jsonPath, JSON.stringify(timings, null, 2));
 
-        charsSent += slide.text.trim().length;
+        charsSent += text.length;
         generated++;
         console.log(` OK  (${timings.length} words, ${(fs.statSync(mp3Path).size / 1024).toFixed(1)} KB)`);
       } catch (err) {
