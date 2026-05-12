@@ -2,371 +2,371 @@
   {
     "word": "The",
     "start": 0,
-    "end": 0.151
+    "end": 0.163
   },
   {
     "word": "Inventory",
-    "start": 0.209,
-    "end": 0.65
+    "start": 0.221,
+    "end": 0.662
   },
   {
     "word": "menu",
-    "start": 0.697,
-    "end": 0.94
+    "start": 0.72,
+    "end": 0.998
   },
   {
     "word": "has",
-    "start": 1.01,
-    "end": 1.149
+    "start": 1.068,
+    "end": 1.254
   },
   {
     "word": "five",
-    "start": 1.242,
-    "end": 1.533
+    "start": 1.324,
+    "end": 1.579
   },
   {
     "word": "sections:",
-    "start": 1.579,
-    "end": 2.287
+    "start": 1.625,
+    "end": 2.31
   },
   {
     "word": "Manage",
-    "start": 2.287,
-    "end": 2.682
+    "start": 2.31,
+    "end": 2.659
   },
   {
     "word": "Asset",
-    "start": 2.752,
-    "end": 3.123
+    "start": 2.694,
+    "end": 3.019
   },
   {
     "word": "Tag,",
-    "start": 3.181,
-    "end": 3.634
+    "start": 3.065,
+    "end": 3.471
   },
   {
     "word": "register",
-    "start": 3.715,
-    "end": 4.191
+    "start": 3.587,
+    "end": 4.122
   },
   {
     "word": "and",
-    "start": 4.284,
-    "end": 4.412
+    "start": 4.203,
+    "end": 4.365
   },
   {
     "word": "search",
-    "start": 4.528,
-    "end": 4.83
+    "start": 4.458,
+    "end": 4.76
   },
   {
     "word": "the",
-    "start": 4.888,
-    "end": 4.957
+    "start": 4.83,
+    "end": 4.911
   },
   {
     "word": "physical",
-    "start": 5.004,
-    "end": 5.364
+    "start": 4.992,
+    "end": 5.41
   },
   {
     "word": "tags",
-    "start": 5.422,
-    "end": 5.817
+    "start": 5.468,
+    "end": 5.84
   },
   {
     "word": "assigned",
-    "start": 5.863,
-    "end": 6.397
+    "start": 5.886,
+    "end": 6.304
   },
   {
     "word": "to",
-    "start": 6.42,
-    "end": 6.49
+    "start": 6.327,
+    "end": 6.397
   },
   {
     "word": "inventory",
-    "start": 6.571,
-    "end": 7.036
+    "start": 6.513,
+    "end": 6.978
   },
   {
     "word": "items",
-    "start": 7.094,
-    "end": 7.802
+    "start": 7.036,
+    "end": 7.755
   },
   {
     "word": "Item",
-    "start": 7.802,
-    "end": 8.115
+    "start": 7.755,
+    "end": 8.046
   },
   {
     "word": "Creation,",
-    "start": 8.173,
-    "end": 8.824
+    "start": 8.104,
+    "end": 8.777
   },
   {
     "word": "create",
-    "start": 8.94,
-    "end": 9.288
+    "start": 9.021,
+    "end": 9.381
   },
   {
     "word": "and",
-    "start": 9.334,
-    "end": 9.404
+    "start": 9.404,
+    "end": 9.474
   },
   {
     "word": "maintain",
-    "start": 9.462,
+    "start": 9.509,
     "end": 9.915
   },
   {
     "word": "the",
     "start": 9.985,
-    "end": 10.066
+    "end": 10.077
   },
   {
     "word": "inventory",
-    "start": 10.147,
-    "end": 10.693
+    "start": 10.159,
+    "end": 10.681
   },
   {
     "word": "items",
     "start": 10.751,
-    "end": 11.053
+    "end": 11.018
   },
   {
     "word": "in",
-    "start": 11.111,
-    "end": 11.192
+    "start": 11.053,
+    "end": 11.111
   },
   {
     "word": "your",
-    "start": 11.25,
-    "end": 11.366
+    "start": 11.157,
+    "end": 11.273
   },
   {
     "word": "branch’s",
-    "start": 11.401,
-    "end": 11.796
+    "start": 11.331,
+    "end": 11.714
   },
   {
     "word": "catalog",
-    "start": 11.842,
-    "end": 12.794
+    "start": 11.773,
+    "end": 12.783
   },
   {
     "word": "Item",
-    "start": 12.794,
-    "end": 13.142
-  },
-  {
-    "word": "Job",
-    "start": 13.212,
-    "end": 13.421
-  },
-  {
-    "word": "Equipment,",
-    "start": 13.479,
-    "end": 14.048
-  },
-  {
-    "word": "assign",
-    "start": 14.199,
-    "end": 14.779
-  },
-  {
-    "word": "specific",
-    "start": 14.826,
-    "end": 15.325
-  },
-  {
-    "word": "items",
-    "start": 15.418,
-    "end": 15.72
-  },
-  {
-    "word": "and",
-    "start": 15.778,
-    "end": 15.882
-  },
-  {
-    "word": "quantities",
-    "start": 15.952,
-    "end": 16.451
-  },
-  {
-    "word": "to",
-    "start": 16.486,
-    "end": 16.556
-  },
-  {
-    "word": "a",
-    "start": 16.637,
-    "end": 16.66
+    "start": 12.783,
+    "end": 13.05
   },
   {
     "word": "job",
-    "start": 16.718,
-    "end": 17.334
+    "start": 13.119,
+    "end": 13.328
   },
   {
-    "word": "Check-In",
-    "start": 17.334,
-    "end": 17.635
+    "word": "Equipment,",
+    "start": 13.375,
+    "end": 13.909
   },
   {
-    "word": "Check-Out",
-    "start": 17.67,
-    "end": 17.914
+    "word": "assign",
+    "start": 13.932,
+    "end": 14.396
   },
   {
-    "word": "Report,",
-    "start": 17.949,
-    "end": 18.425
-  },
-  {
-    "word": "generate",
-    "start": 18.704,
-    "end": 19.122
-  },
-  {
-    "word": "a",
-    "start": 19.168,
-    "end": 19.214
-  },
-  {
-    "word": "summary",
-    "start": 19.342,
-    "end": 19.725
-  },
-  {
-    "word": "of",
-    "start": 19.783,
-    "end": 19.841
-  },
-  {
-    "word": "all",
-    "start": 19.911,
-    "end": 20.143
-  },
-  {
-    "word": "item",
-    "start": 20.259,
-    "end": 20.48
-  },
-  {
-    "word": "activity",
-    "start": 20.526,
-    "end": 20.933
-  },
-  {
-    "word": "for",
-    "start": 20.991,
-    "end": 21.13
-  },
-  {
-    "word": "a",
-    "start": 21.188,
-    "end": 21.223
-  },
-  {
-    "word": "date",
-    "start": 21.339,
-    "end": 21.583
-  },
-  {
-    "word": "range",
-    "start": 21.629,
-    "end": 21.966
-  },
-  {
-    "word": "Check-In",
-    "start": 21.966,
-    "end": 22.233
-  },
-  {
-    "word": "Check-Out,",
-    "start": 22.268,
-    "end": 22.744
-  },
-  {
-    "word": "process",
-    "start": 22.918,
-    "end": 23.406
-  },
-  {
-    "word": "the",
-    "start": 23.44,
-    "end": 23.522
-  },
-  {
-    "word": "actual",
-    "start": 23.603,
-    "end": 23.928
-  },
-  {
-    "word": "check-in",
-    "start": 23.986,
-    "end": 24.334
-  },
-  {
-    "word": "and",
-    "start": 24.416,
-    "end": 24.532
-  },
-  {
-    "word": "check-out",
-    "start": 24.59,
-    "end": 24.915
-  },
-  {
-    "word": "of",
-    "start": 24.95,
-    "end": 24.996
+    "word": "specific",
+    "start": 14.454,
+    "end": 14.953
   },
   {
     "word": "items",
-    "start": 25.066,
-    "end": 25.345
+    "start": 15.035,
+    "end": 15.325
+  },
+  {
+    "word": "and",
+    "start": 15.371,
+    "end": 15.464
+  },
+  {
+    "word": "quantities",
+    "start": 15.545,
+    "end": 16.045
+  },
+  {
+    "word": "to",
+    "start": 16.091,
+    "end": 16.184
+  },
+  {
+    "word": "a",
+    "start": 16.3,
+    "end": 16.323
+  },
+  {
+    "word": "job",
+    "start": 16.393,
+    "end": 16.95
+  },
+  {
+    "word": "Check-In",
+    "start": 16.95,
+    "end": 17.275
+  },
+  {
+    "word": "Check-Out",
+    "start": 17.31,
+    "end": 17.74
+  },
+  {
+    "word": "Report,",
+    "start": 18.181,
+    "end": 18.97
+  },
+  {
+    "word": "generate",
+    "start": 19.353,
+    "end": 19.911
+  },
+  {
+    "word": "a",
+    "start": 19.98,
+    "end": 20.073
+  },
+  {
+    "word": "summary",
+    "start": 20.224,
+    "end": 20.828
+  },
+  {
+    "word": "of",
+    "start": 20.979,
+    "end": 21.234
+  },
+  {
+    "word": "all",
+    "start": 21.385,
+    "end": 21.722
+  },
+  {
+    "word": "item",
+    "start": 21.838,
+    "end": 22.082
+  },
+  {
+    "word": "activity",
+    "start": 22.151,
+    "end": 22.697
+  },
+  {
+    "word": "for",
+    "start": 22.813,
+    "end": 23.069
+  },
+  {
+    "word": "a",
+    "start": 23.15,
+    "end": 23.231
+  },
+  {
+    "word": "date",
+    "start": 23.347,
+    "end": 23.614
+  },
+  {
+    "word": "range",
+    "start": 23.661,
+    "end": 24.195
+  },
+  {
+    "word": "Check-In",
+    "start": 24.195,
+    "end": 24.485
+  },
+  {
+    "word": "Check-Out,",
+    "start": 24.52,
+    "end": 25.17
+  },
+  {
+    "word": "process",
+    "start": 25.495,
+    "end": 26.087
+  },
+  {
+    "word": "the",
+    "start": 26.134,
+    "end": 26.25
+  },
+  {
+    "word": "actual",
+    "start": 26.343,
+    "end": 26.795
+  },
+  {
+    "word": "check-in",
+    "start": 26.865,
+    "end": 27.318
+  },
+  {
+    "word": "and",
+    "start": 27.643,
+    "end": 27.922
+  },
+  {
+    "word": "check-out",
+    "start": 27.991,
+    "end": 28.421
+  },
+  {
+    "word": "of",
+    "start": 28.491,
+    "end": 28.583
+  },
+  {
+    "word": "items",
+    "start": 28.665,
+    "end": 29.001
   },
   {
     "word": "at",
-    "start": 25.403,
-    "end": 25.53
+    "start": 29.083,
+    "end": 29.234
   },
   {
     "word": "an",
-    "start": 25.577,
-    "end": 25.635
+    "start": 29.292,
+    "end": 29.35
   },
   {
     "word": "event",
-    "start": 25.681,
-    "end": 26.18
+    "start": 29.396,
+    "end": 30.139
   },
   {
     "word": "We’ll",
-    "start": 26.18,
-    "end": 26.413
+    "start": 30.139,
+    "end": 30.395
   },
   {
     "word": "walk",
-    "start": 26.459,
-    "end": 26.633
+    "start": 30.441,
+    "end": 30.638
   },
   {
     "word": "through",
-    "start": 26.68,
-    "end": 26.935
+    "start": 30.685,
+    "end": 30.882
   },
   {
     "word": "each",
-    "start": 27.051,
-    "end": 27.283
+    "start": 30.94,
+    "end": 31.126
   },
   {
     "word": "one.",
-    "start": 27.365,
-    "end": 27.91
+    "start": 31.207,
+    "end": 31.718
   }
 ]

@@ -2,661 +2,661 @@
   {
     "word": "As",
     "start": 0,
-    "end": 0.186
+    "end": 0.197
   },
   {
     "word": "an",
-    "start": 0.244,
-    "end": 0.302
+    "start": 0.255,
+    "end": 0.325
   },
   {
     "word": "Admin",
-    "start": 0.372,
-    "end": 0.697
+    "start": 0.406,
+    "end": 0.731
   },
   {
     "word": "Reporting",
-    "start": 0.766,
-    "end": 1.173
+    "start": 0.801,
+    "end": 1.231
   },
   {
     "word": "user,",
-    "start": 1.231,
-    "end": 1.591
+    "start": 1.289,
+    "end": 1.672
   },
   {
     "word": "your",
-    "start": 1.66,
-    "end": 1.811
+    "start": 1.788,
+    "end": 1.939
   },
   {
     "word": "reports",
-    "start": 1.858,
-    "end": 2.206
+    "start": 1.997,
+    "end": 2.392
   },
   {
     "word": "touch",
-    "start": 2.252,
-    "end": 2.473
+    "start": 2.438,
+    "end": 2.705
   },
   {
     "word": "every",
-    "start": 2.566,
-    "end": 2.879
+    "start": 2.821,
+    "end": 3.146
   },
   {
     "word": "phase",
-    "start": 2.949,
-    "end": 3.309
+    "start": 3.216,
+    "end": 3.564
   },
   {
     "word": "of",
-    "start": 3.344,
-    "end": 3.413
+    "start": 3.611,
+    "end": 3.68
   },
   {
     "word": "event",
-    "start": 3.483,
-    "end": 3.738
+    "start": 3.75,
+    "end": 4.005
   },
   {
     "word": "operations:",
-    "start": 3.796,
-    "end": 4.632
+    "start": 4.063,
+    "end": 5.132
   },
   {
     "word": "Before",
-    "start": 4.632,
-    "end": 5.05
+    "start": 5.132,
+    "end": 5.561
   },
   {
     "word": "the",
-    "start": 5.085,
-    "end": 5.166
+    "start": 5.619,
+    "end": 5.7
   },
   {
     "word": "event:",
-    "start": 5.224,
-    "end": 5.759
+    "start": 5.77,
+    "end": 6.455
   },
   {
     "word": "Labour",
-    "start": 5.759,
-    "end": 6.06
+    "start": 6.455,
+    "end": 6.803
   },
   {
     "word": "Cost",
-    "start": 6.118,
-    "end": 6.385
+    "start": 6.873,
+    "end": 7.163
   },
   {
     "word": "Estimation,",
-    "start": 6.432,
-    "end": 7.059
+    "start": 7.245,
+    "end": 8.057
   },
   {
     "word": "plan",
-    "start": 7.129,
-    "end": 7.407
+    "start": 8.231,
+    "end": 8.487
   },
   {
     "word": "your",
-    "start": 7.477,
-    "end": 7.593
+    "start": 8.545,
+    "end": 8.673
   },
   {
     "word": "labor",
-    "start": 7.639,
-    "end": 7.883
+    "start": 8.731,
+    "end": 8.975
   },
   {
     "word": "budget",
-    "start": 7.941,
-    "end": 8.429
+    "start": 9.044,
+    "end": 9.578
   },
   {
     "word": "Employee",
-    "start": 8.429,
-    "end": 9.009
+    "start": 9.578,
+    "end": 10.147
   },
   {
     "word": "Credential",
-    "start": 9.067,
-    "end": 9.532
-  },
-  {
-    "word": "Report",
-    "start": 9.59,
-    "end": 9.973
-  },
-  {
-    "word": "and",
-    "start": 10.019,
-    "end": 10.194
-  },
-  {
-    "word": "Job",
-    "start": 10.31,
+    "start": 10.194,
     "end": 10.6
   },
   {
+    "word": "Report",
+    "start": 10.658,
+    "end": 11.088
+  },
+  {
+    "word": "and",
+    "start": 11.157,
+    "end": 11.355
+  },
+  {
+    "word": "job",
+    "start": 11.436,
+    "end": 11.691
+  },
+  {
     "word": "Credential",
-    "start": 10.646,
-    "end": 11.076
+    "start": 11.749,
+    "end": 12.144
   },
   {
     "word": "Report,",
-    "start": 11.146,
-    "end": 11.622
+    "start": 12.19,
+    "end": 12.655
   },
   {
     "word": "verify",
-    "start": 11.68,
-    "end": 12.156
+    "start": 12.899,
+    "end": 13.468
   },
   {
     "word": "employees",
-    "start": 12.214,
-    "end": 12.701
+    "start": 13.526,
+    "end": 14.245
   },
   {
     "word": "are",
-    "start": 12.759,
-    "end": 12.887
+    "start": 14.338,
+    "end": 14.536
   },
   {
     "word": "licensed",
-    "start": 12.957,
-    "end": 13.398
+    "start": 14.617,
+    "end": 15.081
   },
   {
     "word": "for",
-    "start": 13.421,
-    "end": 13.526
+    "start": 15.116,
+    "end": 15.232
   },
   {
     "word": "the",
-    "start": 13.561,
-    "end": 13.63
+    "start": 15.278,
+    "end": 15.348
   },
   {
     "word": "roles",
-    "start": 13.7,
-    "end": 13.979
+    "start": 15.418,
+    "end": 15.731
   },
   {
     "word": "you're",
-    "start": 14.014,
-    "end": 14.164
+    "start": 15.778,
+    "end": 15.94
   },
   {
     "word": "filling",
-    "start": 14.188,
-    "end": 14.664
+    "start": 15.963,
+    "end": 16.509
   },
   {
     "word": "Schedule",
-    "start": 14.664,
-    "end": 15.093
+    "start": 16.509,
+    "end": 16.95
   },
   {
     "word": "Efficiency,",
-    "start": 15.116,
-    "end": 15.941
+    "start": 16.973,
+    "end": 17.844
   },
   {
     "word": "review",
-    "start": 16.185,
-    "end": 16.649
+    "start": 18.042,
+    "end": 18.471
   },
   {
     "word": "past",
-    "start": 16.788,
-    "end": 17.16
+    "start": 18.727,
+    "end": 19.226
   },
   {
     "word": "events",
-    "start": 17.23,
-    "end": 17.822
+    "start": 19.365,
+    "end": 20.073
   },
   {
     "word": "to",
-    "start": 18.112,
-    "end": 18.24
+    "start": 20.329,
+    "end": 20.456
   },
   {
     "word": "improve",
-    "start": 18.321,
-    "end": 19.006
+    "start": 20.538,
+    "end": 21.246
   },
   {
     "word": "future",
-    "start": 19.157,
-    "end": 19.621
+    "start": 21.42,
+    "end": 21.85
   },
   {
     "word": "scheduling",
-    "start": 19.668,
-    "end": 20.318
+    "start": 21.908,
+    "end": 22.825
   },
   {
     "word": "During",
-    "start": 20.318,
-    "end": 20.666
+    "start": 22.825,
+    "end": 23.243
   },
   {
     "word": "and",
-    "start": 20.747,
-    "end": 21.049
+    "start": 23.324,
+    "end": 23.44
   },
   {
     "word": "after",
-    "start": 21.189,
-    "end": 21.548
+    "start": 23.533,
+    "end": 23.87
   },
   {
     "word": "the",
-    "start": 21.618,
-    "end": 21.688
+    "start": 23.939,
+    "end": 24.009
   },
   {
     "word": "event:",
-    "start": 21.746,
-    "end": 22.709
+    "start": 24.09,
+    "end": 25.042
   },
   {
-    "word": "Job",
-    "start": 22.709,
-    "end": 22.976
+    "word": "job",
+    "start": 25.042,
+    "end": 25.321
   },
   {
     "word": "Administration",
-    "start": 23.023,
-    "end": 23.638
+    "start": 25.379,
+    "end": 26.064
   },
   {
     "word": "reports,",
-    "start": 23.696,
-    "end": 24.393
+    "start": 26.134,
+    "end": 26.865
   },
   {
     "word": "alpha",
-    "start": 24.695,
-    "end": 25.02
+    "start": 27.097,
+    "end": 27.399
   },
   {
     "word": "rosters,",
-    "start": 25.101,
-    "end": 25.856
+    "start": 27.457,
+    "end": 28.154
   },
   {
     "word": "sign-in",
-    "start": 26.053,
-    "end": 26.506
+    "start": 28.316,
+    "end": 28.769
   },
   {
     "word": "sheets,",
-    "start": 26.587,
-    "end": 27.156
+    "start": 28.85,
+    "end": 29.466
   },
   {
     "word": "no-show",
-    "start": 27.446,
-    "end": 28.015
+    "start": 29.733,
+    "end": 30.209
   },
   {
     "word": "follow-up",
-    "start": 28.12,
-    "end": 29.002
+    "start": 30.302,
+    "end": 30.987
   },
   {
     "word": "Payroll",
-    "start": 29.002,
-    "end": 29.49
+    "start": 30.987,
+    "end": 31.428
   },
   {
     "word": "Reports,",
-    "start": 29.548,
-    "end": 30.244
+    "start": 31.509,
+    "end": 32.206
   },
   {
     "word": "verify",
-    "start": 30.535,
-    "end": 31.045
+    "start": 32.508,
+    "end": 33.031
   },
   {
     "word": "hours",
-    "start": 31.115,
-    "end": 31.544
+    "start": 33.123,
+    "end": 33.53
   },
   {
     "word": "before",
-    "start": 31.625,
-    "end": 31.985
+    "start": 33.588,
+    "end": 34.006
   },
   {
     "word": "finalizing",
-    "start": 32.043,
-    "end": 32.879
+    "start": 34.075,
+    "end": 34.842
   },
   {
     "word": "Payroll",
-    "start": 32.879,
-    "end": 33.332
+    "start": 34.842,
+    "end": 35.26
   },
   {
     "word": "UnBilled",
-    "start": 33.471,
-    "end": 34.11
+    "start": 35.376,
+    "end": 35.794
   },
   {
     "word": "Hour",
-    "start": 34.145,
-    "end": 34.319
+    "start": 35.829,
+    "end": 36.014
   },
   {
     "word": "Report,",
-    "start": 34.365,
-    "end": 35.004
+    "start": 36.084,
+    "end": 36.688
   },
   {
     "word": "confirm",
-    "start": 35.387,
-    "end": 35.805
+    "start": 36.931,
+    "end": 37.489
   },
   {
     "word": "all",
-    "start": 35.898,
-    "end": 36.153
+    "start": 37.605,
+    "end": 37.895
   },
   {
     "word": "worked",
-    "start": 36.223,
-    "end": 36.478
+    "start": 37.988,
+    "end": 38.255
   },
   {
     "word": "hours",
-    "start": 36.513,
-    "end": 36.815
+    "start": 38.29,
+    "end": 38.696
   },
   {
     "word": "are",
-    "start": 36.862,
-    "end": 36.989
+    "start": 38.766,
+    "end": 38.94
   },
   {
     "word": "captured",
-    "start": 37.036,
-    "end": 37.535
+    "start": 38.998,
+    "end": 39.509
   },
   {
     "word": "for",
-    "start": 37.57,
-    "end": 37.686
+    "start": 39.555,
+    "end": 39.695
   },
   {
     "word": "billing",
-    "start": 37.755,
-    "end": 38.266
+    "start": 39.753,
+    "end": 40.473
   },
   {
     "word": "For",
-    "start": 38.266,
-    "end": 38.44
+    "start": 40.473,
+    "end": 40.67
   },
   {
     "word": "billing",
-    "start": 38.51,
-    "end": 38.858
+    "start": 40.728,
+    "end": 41.088
   },
   {
     "word": "and",
-    "start": 38.928,
-    "end": 39.021
+    "start": 41.169,
+    "end": 41.367
   },
   {
     "word": "closeout:",
-    "start": 39.091,
-    "end": 40.077
+    "start": 41.436,
+    "end": 42.435
   },
   {
     "word": "Billing",
-    "start": 40.077,
-    "end": 40.449
+    "start": 42.435,
+    "end": 42.748
   },
   {
     "word": "Invoice",
-    "start": 40.542,
-    "end": 41.157
+    "start": 42.795,
+    "end": 43.375
   },
   {
     "word": "Ledger",
-    "start": 41.25,
-    "end": 41.622
+    "start": 43.584,
+    "end": 43.956
   },
   {
     "word": "and",
-    "start": 41.703,
-    "end": 41.842
+    "start": 44.037,
+    "end": 44.315
   },
   {
     "word": "Billing",
-    "start": 41.923,
-    "end": 42.249
+    "start": 44.397,
+    "end": 44.687
   },
   {
     "word": "Invoice",
-    "start": 42.33,
-    "end": 42.864
+    "start": 44.733,
+    "end": 45.175
   },
   {
     "word": "Register,",
-    "start": 42.922,
-    "end": 43.63
+    "start": 45.233,
+    "end": 45.86
   },
   {
     "word": "confirm",
-    "start": 43.955,
-    "end": 44.408
+    "start": 46.069,
+    "end": 46.51
   },
   {
     "word": "invoices",
-    "start": 44.524,
-    "end": 45.163
+    "start": 46.591,
+    "end": 47.137
   },
   {
     "word": "have",
-    "start": 45.221,
-    "end": 45.383
+    "start": 47.183,
+    "end": 47.299
   },
   {
     "word": "been",
-    "start": 45.418,
-    "end": 45.581
+    "start": 47.322,
+    "end": 47.45
   },
   {
     "word": "generated",
-    "start": 45.639,
-    "end": 46.544
+    "start": 47.497,
+    "end": 48.391
   },
   {
     "word": "Billing",
-    "start": 46.544,
-    "end": 46.869
+    "start": 48.391,
+    "end": 48.727
   },
   {
     "word": "Ledger",
-    "start": 46.927,
-    "end": 47.194
+    "start": 48.797,
+    "end": 49.076
   },
   {
     "word": "Details,",
-    "start": 47.276,
-    "end": 48.019
+    "start": 49.157,
+    "end": 49.911
   },
   {
     "word": "audit-level",
-    "start": 48.053,
-    "end": 48.75
+    "start": 50.086,
+    "end": 50.736
   },
   {
     "word": "review",
-    "start": 48.82,
-    "end": 49.11
+    "start": 50.817,
+    "end": 51.189
   },
   {
     "word": "of",
-    "start": 49.191,
-    "end": 49.261
+    "start": 51.432,
+    "end": 51.606
   },
   {
     "word": "billing",
-    "start": 49.342,
-    "end": 49.632
+    "start": 51.734,
+    "end": 52.164
   },
   {
     "word": "transactions",
-    "start": 49.656,
-    "end": 51.06
+    "start": 52.222,
+    "end": 53.731
   },
   {
     "word": "The",
-    "start": 51.06,
-    "end": 51.223
+    "start": 53.731,
+    "end": 53.917
   },
   {
     "word": "goal",
-    "start": 51.339,
-    "end": 51.862
+    "start": 54.01,
+    "end": 54.474
   },
   {
     "word": "is",
-    "start": 52.245,
-    "end": 52.442
+    "start": 54.857,
+    "end": 55.055
   },
   {
     "word": "a",
-    "start": 52.488,
-    "end": 52.523
+    "start": 55.113,
+    "end": 55.136
   },
   {
     "word": "clean",
-    "start": 52.674,
-    "end": 53.15
+    "start": 55.252,
+    "end": 55.728
   },
   {
     "word": "handoff",
-    "start": 53.359,
-    "end": 54.114
+    "start": 55.844,
+    "end": 56.541
   },
   {
     "word": "at",
-    "start": 54.555,
-    "end": 54.787
+    "start": 56.657,
+    "end": 56.901
   },
   {
     "word": "every",
-    "start": 54.961,
-    "end": 55.345
+    "start": 57.075,
+    "end": 57.493
   },
   {
     "word": "stage:",
-    "start": 55.403,
-    "end": 56.169
+    "start": 57.562,
+    "end": 58.282
   },
   {
     "word": "scheduling",
-    "start": 56.61,
-    "end": 57.144
+    "start": 58.607,
+    "end": 59.176
   },
   {
     "word": "feeds",
-    "start": 57.19,
-    "end": 57.446
+    "start": 59.257,
+    "end": 59.664
   },
   {
     "word": "payroll,",
-    "start": 57.504,
-    "end": 58.189
+    "start": 59.733,
+    "end": 60.523
   },
   {
     "word": "payroll",
-    "start": 58.398,
-    "end": 58.839
+    "start": 60.848,
+    "end": 61.37
   },
   {
     "word": "feeds",
-    "start": 58.909,
-    "end": 59.245
+    "start": 61.44,
+    "end": 61.777
   },
   {
     "word": "billing.",
-    "start": 59.327,
-    "end": 59.861
+    "start": 61.823,
+    "end": 62.299
   },
   {
     "word": "Your",
-    "start": 60.372,
-    "end": 60.569
+    "start": 62.81,
+    "end": 63.112
   },
   {
     "word": "reports",
-    "start": 60.615,
-    "end": 61.033
+    "start": 63.193,
+    "end": 63.727
   },
   {
     "word": "give",
-    "start": 61.091,
-    "end": 61.266
+    "start": 63.797,
+    "end": 64.006
   },
   {
     "word": "you",
-    "start": 61.3,
-    "end": 61.382
+    "start": 64.041,
+    "end": 64.122
   },
   {
     "word": "the",
-    "start": 61.44,
-    "end": 61.509
+    "start": 64.18,
+    "end": 64.25
   },
   {
     "word": "visibility",
-    "start": 61.591,
-    "end": 62.241
+    "start": 64.296,
+    "end": 64.981
   },
   {
     "word": "to",
-    "start": 62.299,
-    "end": 62.369
+    "start": 65.062,
+    "end": 65.19
   },
   {
     "word": "make",
-    "start": 62.461,
-    "end": 62.647
+    "start": 65.306,
+    "end": 65.538
   },
   {
     "word": "sure",
-    "start": 62.694,
-    "end": 63.042
+    "start": 65.585,
+    "end": 65.91
   },
   {
     "word": "that",
-    "start": 63.112,
-    "end": 63.286
+    "start": 65.956,
+    "end": 66.131
   },
   {
     "word": "chain",
-    "start": 63.344,
-    "end": 63.657
+    "start": 66.212,
+    "end": 66.607
   },
   {
     "word": "is",
-    "start": 63.739,
-    "end": 63.843
+    "start": 66.699,
+    "end": 66.862
   },
   {
     "word": "intact.",
-    "start": 63.901,
-    "end": 64.644
+    "start": 66.943,
+    "end": 67.802
   }
 ]

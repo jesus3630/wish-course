@@ -79,8 +79,13 @@ function parseTimings(alignment) {
 
 function stripBulletsForTts(text) {
   // Remove bullet chars so ElevenLabs doesn't insert 2-3s pauses at each bullet point.
-  // Hash is still computed from original text (with bullets) so the client finds the file.
-  return text.replace(/^[•]\s*/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+  // Lowercase "Job" so ElevenLabs reads it as the noun /dʒɒb/, not the biblical name /dʒoʊb/.
+  // Hash is still computed from original text so the client finds the file.
+  return text
+    .replace(/^[•]\s*/gm, '')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/\bJob\b/g, 'job')
+    .trim();
 }
 
 function callElevenLabs(text) {

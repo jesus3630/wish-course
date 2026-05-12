@@ -2,96 +2,96 @@
   {
     "word": "In",
     "start": 0,
-    "end": 0.163
+    "end": 0.139
   },
   {
     "word": "this",
-    "start": 0.209,
-    "end": 0.36
+    "start": 0.186,
+    "end": 0.313
   },
   {
     "word": "module,",
-    "start": 0.43,
-    "end": 0.871
+    "start": 0.372,
+    "end": 0.836
   },
   {
     "word": "we'll",
-    "start": 0.906,
-    "end": 1.057
+    "start": 0.882,
+    "end": 1.068
   },
   {
     "word": "cover",
-    "start": 1.103,
-    "end": 1.3
+    "start": 1.126,
+    "end": 1.37
   },
   {
     "word": "the",
-    "start": 1.347,
-    "end": 1.416
+    "start": 1.428,
+    "end": 1.498
   },
   {
     "word": "following",
-    "start": 1.474,
-    "end": 1.834
+    "start": 1.567,
+    "end": 1.927
   },
   {
     "word": "Record",
-    "start": 1.927,
-    "end": 2.218
+    "start": 1.997,
+    "end": 2.252
   },
   {
     "word": "menus:",
-    "start": 2.264,
-    "end": 2.984
+    "start": 2.287,
+    "end": 2.949
   },
   {
     "word": "Manage",
-    "start": 2.984,
+    "start": 2.949,
     "end": 3.402
   },
   {
-    "word": "Job",
-    "start": 3.483,
-    "end": 4.029
+    "word": "job",
+    "start": 3.46,
+    "end": 4.017
   },
   {
     "word": "Manage",
-    "start": 4.029,
-    "end": 4.412
+    "start": 4.017,
+    "end": 4.447
   },
   {
     "word": "Clients",
-    "start": 4.458,
-    "end": 4.992
+    "start": 4.47,
+    "end": 5.132
   },
   {
     "word": "Manage",
-    "start": 4.992,
-    "end": 5.352
+    "start": 5.132,
+    "end": 5.492
   },
   {
     "word": "Contracts",
-    "start": 5.399,
-    "end": 6.13
+    "start": 5.526,
+    "end": 6.397
   },
   {
     "word": "Manage",
-    "start": 6.13,
-    "end": 6.455
+    "start": 6.397,
+    "end": 6.803
   },
   {
     "word": "Events",
-    "start": 6.49,
-    "end": 6.861
+    "start": 6.838,
+    "end": 7.221
   },
   {
     "word": "Manage",
-    "start": 6.978,
-    "end": 7.349
+    "start": 7.5,
+    "end": 7.906
   },
   {
     "word": "Venues",
-    "start": 7.396,
-    "end": 8.22
+    "start": 7.953,
+    "end": 8.684
   }
 ]
