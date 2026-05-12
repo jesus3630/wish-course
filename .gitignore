@@ -6,3 +6,5 @@ video_processing/
 .env
 .DS_Store
 progress_data.json
+client/public/audio/
+.claude/
