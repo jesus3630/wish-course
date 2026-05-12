@@ -1,0 +1,517 @@
+[
+  {
+    "word": "Switch",
+    "start": 0,
+    "end": 0.58
+  },
+  {
+    "word": "to",
+    "start": 0.627,
+    "end": 0.697
+  },
+  {
+    "word": "the",
+    "start": 0.766,
+    "end": 0.848
+  },
+  {
+    "word": "Item",
+    "start": 0.964,
+    "end": 1.277
+  },
+  {
+    "word": "tab",
+    "start": 1.347,
+    "end": 1.73
+  },
+  {
+    "word": "to",
+    "start": 1.823,
+    "end": 1.95
+  },
+  {
+    "word": "search",
+    "start": 2.032,
+    "end": 2.299
+  },
+  {
+    "word": "by",
+    "start": 2.357,
+    "end": 2.461
+  },
+  {
+    "word": "the",
+    "start": 2.519,
+    "end": 2.589
+  },
+  {
+    "word": "item",
+    "start": 2.682,
+    "end": 2.949
+  },
+  {
+    "word": "itself",
+    "start": 3.007,
+    "end": 3.506
+  },
+  {
+    "word": "rather",
+    "start": 3.634,
+    "end": 3.947
+  },
+  {
+    "word": "than",
+    "start": 3.994,
+    "end": 4.133
+  },
+  {
+    "word": "by",
+    "start": 4.203,
+    "end": 4.342
+  },
+  {
+    "word": "employee.",
+    "start": 4.412,
+    "end": 5.596
+  },
+  {
+    "word": "Fill",
+    "start": 5.596,
+    "end": 5.84
+  },
+  {
+    "word": "in:",
+    "start": 5.956,
+    "end": 6.327
+  },
+  {
+    "word": "•",
+    "start": 6.327,
+    "end": 6.351
+  },
+  {
+    "word": "Branch",
+    "start": 6.467,
+    "end": 6.85
+  },
+  {
+    "word": "and",
+    "start": 6.896,
+    "end": 6.989
+  },
+  {
+    "word": "Date",
+    "start": 7.047,
+    "end": 7.465
+  },
+  {
+    "word": "—",
+    "start": 7.546,
+    "end": 7.616
+  },
+  {
+    "word": "required",
+    "start": 7.697,
+    "end": 8.429
+  },
+  {
+    "word": "•",
+    "start": 8.429,
+    "end": 8.464
+  },
+  {
+    "word": "Category",
+    "start": 8.638,
+    "end": 9.323
+  },
+  {
+    "word": "—",
+    "start": 9.451,
+    "end": 9.509
+  },
+  {
+    "word": "set",
+    "start": 9.683,
+    "end": 9.915
+  },
+  {
+    "word": "to",
+    "start": 9.973,
+    "end": 10.066
+  },
+  {
+    "word": "Inventory",
+    "start": 10.194,
+    "end": 10.832
+  },
+  {
+    "word": "Items",
+    "start": 10.913,
+    "end": 11.482
+  },
+  {
+    "word": "•",
+    "start": 11.482,
+    "end": 11.633
+  },
+  {
+    "word": "Item",
+    "start": 11.784,
+    "end": 12.063
+  },
+  {
+    "word": "Type",
+    "start": 12.132,
+    "end": 12.434
+  },
+  {
+    "word": "and",
+    "start": 12.481,
+    "end": 12.608
+  },
+  {
+    "word": "Item",
+    "start": 12.725,
+    "end": 12.992
+  },
+  {
+    "word": "Name",
+    "start": 13.05,
+    "end": 13.433
+  },
+  {
+    "word": "—",
+    "start": 13.491,
+    "end": 13.549
+  },
+  {
+    "word": "select",
+    "start": 13.7,
+    "end": 14.083
+  },
+  {
+    "word": "from",
+    "start": 14.129,
+    "end": 14.269
+  },
+  {
+    "word": "the",
+    "start": 14.315,
+    "end": 14.385
+  },
+  {
+    "word": "dropdowns",
+    "start": 14.42,
+    "end": 15.256
+  },
+  {
+    "word": "•",
+    "start": 15.256,
+    "end": 15.406
+  },
+  {
+    "word": "Item",
+    "start": 15.523,
+    "end": 15.813
+  },
+  {
+    "word": "Code",
+    "start": 15.882,
+    "end": 16.231
+  },
+  {
+    "word": "or",
+    "start": 16.289,
+    "end": 16.475
+  },
+  {
+    "word": "RFID",
+    "start": 16.591,
+    "end": 17.276
+  },
+  {
+    "word": "—",
+    "start": 17.52,
+    "end": 17.589
+  },
+  {
+    "word": "enter",
+    "start": 17.706,
+    "end": 18.124
+  },
+  {
+    "word": "if",
+    "start": 18.449,
+    "end": 18.576
+  },
+  {
+    "word": "you",
+    "start": 18.623,
+    "end": 18.692
+  },
+  {
+    "word": "have",
+    "start": 18.762,
+    "end": 18.901
+  },
+  {
+    "word": "the",
+    "start": 18.936,
+    "end": 19.006
+  },
+  {
+    "word": "physical",
+    "start": 19.041,
+    "end": 19.424
+  },
+  {
+    "word": "tag",
+    "start": 19.482,
+    "end": 19.749
+  },
+  {
+    "word": "number",
+    "start": 19.807,
+    "end": 20.434
+  },
+  {
+    "word": "Click",
+    "start": 20.434,
+    "end": 20.724
+  },
+  {
+    "word": "Search",
+    "start": 20.817,
+    "end": 21.247
+  },
+  {
+    "word": "to",
+    "start": 21.572,
+    "end": 21.688
+  },
+  {
+    "word": "see",
+    "start": 21.757,
+    "end": 21.932
+  },
+  {
+    "word": "the",
+    "start": 21.978,
+    "end": 22.048
+  },
+  {
+    "word": "current",
+    "start": 22.129,
+    "end": 22.64
+  },
+  {
+    "word": "check-out",
+    "start": 22.791,
+    "end": 23.336
+  },
+  {
+    "word": "status",
+    "start": 23.418,
+    "end": 23.929
+  },
+  {
+    "word": "of",
+    "start": 24.01,
+    "end": 24.172
+  },
+  {
+    "word": "that",
+    "start": 24.254,
+    "end": 24.451
+  },
+  {
+    "word": "item—who",
+    "start": 24.521,
+    "end": 25.612
+  },
+  {
+    "word": "has",
+    "start": 25.705,
+    "end": 25.925
+  },
+  {
+    "word": "it",
+    "start": 26.007,
+    "end": 26.146
+  },
+  {
+    "word": "and",
+    "start": 26.355,
+    "end": 26.622
+  },
+  {
+    "word": "when",
+    "start": 26.703,
+    "end": 26.889
+  },
+  {
+    "word": "it",
+    "start": 26.924,
+    "end": 26.982
+  },
+  {
+    "word": "was",
+    "start": 27.017,
+    "end": 27.121
+  },
+  {
+    "word": "taken.",
+    "start": 27.179,
+    "end": 28.096
+  },
+  {
+    "word": "Use",
+    "start": 28.096,
+    "end": 28.398
+  },
+  {
+    "word": "the",
+    "start": 28.433,
+    "end": 28.503
+  },
+  {
+    "word": "History",
+    "start": 28.573,
+    "end": 28.956
+  },
+  {
+    "word": "button",
+    "start": 29.014,
+    "end": 29.316
+  },
+  {
+    "word": "to",
+    "start": 29.385,
+    "end": 29.455
+  },
+  {
+    "word": "pull",
+    "start": 29.513,
+    "end": 29.722
+  },
+  {
+    "word": "the",
+    "start": 29.78,
+    "end": 29.85
+  },
+  {
+    "word": "full",
+    "start": 29.931,
+    "end": 30.198
+  },
+  {
+    "word": "check-in",
+    "start": 30.279,
+    "end": 30.709
+  },
+  {
+    "word": "and",
+    "start": 30.802,
+    "end": 30.929
+  },
+  {
+    "word": "check-out",
+    "start": 30.999,
+    "end": 31.405
+  },
+  {
+    "word": "log",
+    "start": 31.452,
+    "end": 31.707
+  },
+  {
+    "word": "for",
+    "start": 31.765,
+    "end": 31.881
+  },
+  {
+    "word": "any",
+    "start": 31.963,
+    "end": 32.195
+  },
+  {
+    "word": "item",
+    "start": 32.288,
+    "end": 32.613
+  },
+  {
+    "word": "or",
+    "start": 32.706,
+    "end": 32.88
+  },
+  {
+    "word": "employee.",
+    "start": 32.961,
+    "end": 33.762
+  },
+  {
+    "word": "This",
+    "start": 34.087,
+    "end": 34.296
+  },
+  {
+    "word": "is",
+    "start": 34.354,
+    "end": 34.447
+  },
+  {
+    "word": "your",
+    "start": 34.505,
+    "end": 34.691
+  },
+  {
+    "word": "audit",
+    "start": 34.772,
+    "end": 35.098
+  },
+  {
+    "word": "trail",
+    "start": 35.132,
+    "end": 35.504
+  },
+  {
+    "word": "if",
+    "start": 35.597,
+    "end": 35.724
+  },
+  {
+    "word": "a",
+    "start": 35.771,
+    "end": 35.794
+  },
+  {
+    "word": "discrepancy",
+    "start": 35.841,
+    "end": 36.363
+  },
+  {
+    "word": "comes",
+    "start": 36.421,
+    "end": 36.653
+  },
+  {
+    "word": "up",
+    "start": 36.723,
+    "end": 36.851
+  },
+  {
+    "word": "after",
+    "start": 36.92,
+    "end": 37.222
+  },
+  {
+    "word": "an",
+    "start": 37.28,
+    "end": 37.327
+  },
+  {
+    "word": "event.",
+    "start": 37.373,
+    "end": 37.988
+  }
+]
