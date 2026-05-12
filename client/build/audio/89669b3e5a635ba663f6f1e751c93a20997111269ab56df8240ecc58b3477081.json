@@ -7,496 +7,471 @@
   {
     "word": "Detailed",
     "start": 0.221,
-    "end": 0.615
+    "end": 0.604
   },
   {
     "word": "Roster",
-    "start": 0.662,
-    "end": 1.033
+    "start": 0.639,
+    "end": 0.929
   },
   {
     "word": "section",
-    "start": 1.103,
-    "end": 1.44
+    "start": 0.998,
+    "end": 1.335
   },
   {
     "word": "goes",
-    "start": 1.498,
-    "end": 1.718
+    "start": 1.393,
+    "end": 1.591
   },
   {
     "word": "deeper,",
-    "start": 1.776,
-    "end": 2.206
+    "start": 1.66,
+    "end": 2.067
   },
   {
     "word": "employee-level",
-    "start": 2.229,
-    "end": 3.216
+    "start": 2.101,
+    "end": 2.844
   },
   {
     "word": "reports",
-    "start": 3.286,
-    "end": 3.715
+    "start": 2.914,
+    "end": 3.355
   },
   {
     "word": "with",
-    "start": 3.75,
-    "end": 3.901
+    "start": 3.402,
+    "end": 3.553
   },
   {
     "word": "specifics",
-    "start": 3.947,
-    "end": 4.516
+    "start": 3.587,
+    "end": 4.11
   },
   {
     "word": "on",
-    "start": 4.574,
-    "end": 4.69
+    "start": 4.168,
+    "end": 4.272
   },
   {
     "word": "time,",
-    "start": 4.748,
-    "end": 5.201
+    "start": 4.342,
+    "end": 4.76
   },
   {
     "word": "licensing,",
-    "start": 5.445,
-    "end": 6.211
+    "start": 4.876,
+    "end": 5.55
   },
   {
     "word": "availability,",
-    "start": 6.246,
-    "end": 7.14
+    "start": 5.573,
+    "end": 6.362
   },
   {
     "word": "and",
-    "start": 7.163,
-    "end": 7.384
+    "start": 6.385,
+    "end": 6.536
   },
   {
     "word": "training.",
-    "start": 7.442,
-    "end": 8.034
+    "start": 6.594,
+    "end": 7.21
   },
   {
     "word": "Reports",
-    "start": 8.034,
-    "end": 8.406
+    "start": 7.21,
+    "end": 7.57
   },
   {
     "word": "you",
-    "start": 8.44,
-    "end": 8.51
+    "start": 7.605,
+    "end": 7.674
   },
   {
     "word": "may",
-    "start": 8.557,
-    "end": 8.661
+    "start": 7.732,
+    "end": 7.837
   },
   {
     "word": "find",
-    "start": 8.719,
-    "end": 8.951
+    "start": 7.895,
+    "end": 8.104
   },
   {
     "word": "useful",
-    "start": 9.033,
-    "end": 9.346
+    "start": 8.162,
+    "end": 8.452
   },
   {
     "word": "here:",
-    "start": 9.404,
-    "end": 9.868
-  },
-  {
-    "word": "•",
-    "start": 9.868,
-    "end": 9.985
+    "start": 8.522,
+    "end": 11.889
   },
   {
     "word": "Employee",
-    "start": 10.054,
-    "end": 10.612
+    "start": 11.889,
+    "end": 12.469
   },
   {
     "word": "Time",
-    "start": 10.681,
-    "end": 10.983
+    "start": 12.539,
+    "end": 12.817
   },
   {
     "word": "Sheet",
-    "start": 11.006,
-    "end": 11.331
+    "start": 12.841,
+    "end": 13.038
   },
   {
     "word": "Details,",
-    "start": 11.656,
-    "end": 12.423
+    "start": 13.096,
+    "end": 13.665
   },
   {
     "word": "full",
-    "start": 12.597,
-    "end": 12.829
+    "start": 13.723,
+    "end": 13.967
   },
   {
     "word": "timesheet",
-    "start": 12.887,
-    "end": 13.351
+    "start": 14.025,
+    "end": 14.524
   },
   {
     "word": "data",
-    "start": 13.41,
-    "end": 13.723
+    "start": 14.594,
+    "end": 14.896
   },
   {
     "word": "for",
-    "start": 13.804,
-    "end": 13.955
+    "start": 14.977,
+    "end": 15.151
   },
   {
     "word": "an",
-    "start": 13.99,
-    "end": 14.048
+    "start": 15.186,
+    "end": 15.244
   },
   {
     "word": "employee",
-    "start": 14.094,
-    "end": 14.617
+    "start": 15.279,
+    "end": 15.79
   },
   {
     "word": "over",
-    "start": 14.699,
-    "end": 15.012
+    "start": 15.86,
+    "end": 16.127
   },
   {
     "word": "a",
-    "start": 15.07,
-    "end": 15.093
+    "start": 16.208,
+    "end": 16.231
   },
   {
     "word": "date",
-    "start": 15.163,
-    "end": 15.418
+    "start": 16.301,
+    "end": 16.51
   },
   {
     "word": "range",
-    "start": 15.476,
-    "end": 15.918
-  },
-  {
-    "word": "•",
-    "start": 15.918,
-    "end": 15.976
+    "start": 16.556,
+    "end": 17.009
   },
   {
     "word": "Employee",
-    "start": 16.022,
-    "end": 16.661
+    "start": 17.009,
+    "end": 17.531
   },
   {
     "word": "Sign-In",
-    "start": 16.754,
-    "end": 17.299
+    "start": 17.601,
+    "end": 17.984
   },
   {
     "word": "Sign-Out",
-    "start": 17.81,
-    "end": 18.344
+    "start": 18.077,
+    "end": 18.518
   },
   {
     "word": "Details,",
-    "start": 18.402,
-    "end": 18.948
+    "start": 18.576,
+    "end": 19.25
   },
   {
     "word": "exact",
-    "start": 18.994,
-    "end": 19.412
+    "start": 19.494,
+    "end": 20.132
   },
   {
     "word": "timestamps",
-    "start": 19.447,
-    "end": 20.062
+    "start": 20.306,
+    "end": 21.165
   },
   {
     "word": "for",
-    "start": 20.097,
-    "end": 20.213
+    "start": 21.34,
+    "end": 21.49
   },
   {
     "word": "sign-in",
-    "start": 20.271,
-    "end": 20.771
+    "start": 21.56,
+    "end": 21.978
   },
   {
     "word": "and",
-    "start": 20.852,
-    "end": 20.98
+    "start": 22.071,
+    "end": 22.187
   },
   {
     "word": "sign-out",
-    "start": 21.072,
-    "end": 21.606
+    "start": 22.28,
+    "end": 22.768
   },
   {
     "word": "activity",
-    "start": 21.665,
-    "end": 22.384
-  },
-  {
-    "word": "•",
-    "start": 22.384,
-    "end": 22.593
+    "start": 22.814,
+    "end": 23.615
   },
   {
     "word": "Employee",
-    "start": 22.628,
-    "end": 23.139
+    "start": 23.615,
+    "end": 24.08
   },
   {
     "word": "Licensing",
-    "start": 23.22,
-    "end": 23.719
+    "start": 24.138,
+    "end": 24.614
   },
   {
     "word": "Report,",
-    "start": 23.789,
-    "end": 24.358
+    "start": 24.672,
+    "end": 25.171
   },
   {
     "word": "guard",
-    "start": 24.637,
-    "end": 24.962
+    "start": 25.38,
+    "end": 25.682
   },
   {
     "word": "card",
-    "start": 25.031,
-    "end": 25.368
+    "start": 25.74,
+    "end": 26.076
   },
   {
     "word": "and",
-    "start": 25.426,
-    "end": 25.519
+    "start": 26.146,
+    "end": 26.343
   },
   {
     "word": "licensing",
-    "start": 25.6,
-    "end": 26.1
+    "start": 26.425,
+    "end": 26.994
   },
   {
     "word": "status",
-    "start": 26.146,
-    "end": 26.552
+    "start": 27.063,
+    "end": 27.528
   },
   {
     "word": "across",
-    "start": 26.599,
-    "end": 26.97
+    "start": 27.609,
+    "end": 28.097
   },
   {
     "word": "your",
-    "start": 27.017,
-    "end": 27.133
+    "start": 28.166,
+    "end": 28.387
   },
   {
     "word": "employee",
-    "start": 27.179,
-    "end": 27.69
+    "start": 28.468,
+    "end": 28.979
   },
   {
     "word": "pool",
-    "start": 27.76,
-    "end": 28.352
-  },
-  {
-    "word": "•",
-    "start": 28.352,
-    "end": 28.561
+    "start": 29.06,
+    "end": 29.594
   },
   {
     "word": "Available",
-    "start": 28.677,
-    "end": 29.339
+    "start": 29.594,
+    "end": 30.14
   },
   {
     "word": "Employees",
-    "start": 29.374,
-    "end": 30.012
+    "start": 30.163,
+    "end": 30.604
   },
   {
     "word": "Report,",
-    "start": 30.07,
-    "end": 30.581
+    "start": 30.651,
+    "end": 31.15
   },
   {
     "word": "who",
-    "start": 30.604,
-    "end": 30.755
+    "start": 31.359,
+    "end": 31.522
   },
   {
     "word": "is",
-    "start": 30.813,
-    "end": 30.906
+    "start": 31.591,
+    "end": 31.695
   },
   {
     "word": "eligible",
-    "start": 30.988,
-    "end": 31.568
-  },
-  {
-    "word": "and",
-    "start": 31.615,
-    "end": 31.742
-  },
-  {
-    "word": "available",
-    "start": 31.777,
-    "end": 32.265
-  },
-  {
-    "word": "to",
-    "start": 32.3,
+    "start": 31.788,
     "end": 32.369
   },
   {
+    "word": "and",
+    "start": 32.415,
+    "end": 32.578
+  },
+  {
+    "word": "available",
+    "start": 32.636,
+    "end": 33.112
+  },
+  {
+    "word": "to",
+    "start": 33.135,
+    "end": 33.193
+  },
+  {
     "word": "be",
-    "start": 32.439,
-    "end": 32.543
+    "start": 33.24,
+    "end": 33.321
   },
   {
     "word": "scheduled",
-    "start": 32.59,
-    "end": 33.298
-  },
-  {
-    "word": "•",
-    "start": 33.298,
-    "end": 34.598
+    "start": 33.356,
+    "end": 33.808
   },
   {
     "word": "Job",
-    "start": 34.807,
-    "end": 35.109
+    "start": 33.808,
+    "end": 34.087
   },
   {
     "word": "Training",
-    "start": 35.167,
-    "end": 35.446
+    "start": 34.261,
+    "end": 34.679
   },
   {
     "word": "Report,",
-    "start": 35.481,
-    "end": 36.189
+    "start": 34.726,
+    "end": 35.283
   },
   {
     "word": "which",
-    "start": 36.398,
-    "end": 36.827
+    "start": 35.527,
+    "end": 35.852
   },
   {
     "word": "WISH",
-    "start": 37.211,
-    "end": 37.652
+    "start": 36.177,
+    "end": 36.781
   },
   {
     "word": "training",
-    "start": 37.745,
-    "end": 38.081
+    "start": 37.059,
+    "end": 37.64
   },
   {
     "word": "modules",
-    "start": 38.139,
-    "end": 38.708
+    "start": 37.756,
+    "end": 38.499
   },
   {
     "word": "each",
-    "start": 38.824,
-    "end": 39.033
+    "start": 38.882,
+    "end": 39.103
   },
   {
     "word": "employee",
-    "start": 39.068,
-    "end": 39.567
+    "start": 39.137,
+    "end": 39.695
   },
   {
     "word": "has",
-    "start": 39.625,
-    "end": 39.776
+    "start": 39.764,
+    "end": 39.939
   },
   {
     "word": "completed",
-    "start": 39.834,
+    "start": 39.997,
     "end": 40.728
   },
   {
     "word": "For",
     "start": 40.728,
-    "end": 40.914
+    "end": 40.96
   },
   {
     "word": "the",
-    "start": 40.961,
-    "end": 41.042
+    "start": 41.03,
+    "end": 41.1
   },
   {
     "word": "full",
-    "start": 41.123,
-    "end": 41.425
+    "start": 41.192,
+    "end": 41.471
   },
   {
     "word": "list",
-    "start": 41.518,
-    "end": 41.797
+    "start": 41.564,
+    "end": 41.866
   },
   {
     "word": "of",
-    "start": 41.855,
-    "end": 41.936
+    "start": 41.935,
+    "end": 42.04
   },
   {
     "word": "Detailed",
-    "start": 42.017,
-    "end": 42.435
+    "start": 42.156,
+    "end": 42.62
   },
   {
     "word": "Roster",
-    "start": 42.482,
-    "end": 42.818
+    "start": 42.667,
+    "end": 42.957
   },
   {
     "word": "reports,",
-    "start": 42.876,
+    "start": 43.004,
     "end": 43.584
   },
   {
     "word": "refer",
-    "start": 43.793,
-    "end": 44.13
+    "start": 43.758,
+    "end": 44.095
   },
   {
     "word": "to",
-    "start": 44.2,
-    "end": 44.258
+    "start": 44.176,
+    "end": 44.246
   },
   {
     "word": "your",
     "start": 44.327,
-    "end": 44.467
+    "end": 44.466
   },
   {
     "word": "Quick",
-    "start": 44.56,
-    "end": 44.838
+    "start": 44.559,
+    "end": 44.861
   },
   {
     "word": "Reference",
-    "start": 44.931,
-    "end": 45.303
+    "start": 45.14,
+    "end": 45.593
   },
   {
     "word": "Guide.",
-    "start": 45.338,
-    "end": 46.023
+    "start": 45.639,
+    "end": 46.301
   }
 ]

@@ -77,10 +77,17 @@ function parseTimings(alignment) {
   return timings;
 }
 
+function stripBulletsForTts(text) {
+  // Remove bullet chars so ElevenLabs doesn't insert 2-3s pauses at each bullet point.
+  // Hash is still computed from original text (with bullets) so the client finds the file.
+  return text.replace(/^[•]\s*/gm, '').replace(/\n{3,}/g, '\n\n').trim();
+}
+
 function callElevenLabs(text) {
   return new Promise((resolve, reject) => {
+    const ttsText = stripBulletsForTts(text);
     const body = JSON.stringify({
-      text: text.substring(0, 5000),
+      text: ttsText.substring(0, 5000),
       model_id: 'eleven_multilingual_v2',
       voice_settings: { stability: 0.5, similarity_boost: 0.8, style: 0.2, use_speaker_boost: true },
     });

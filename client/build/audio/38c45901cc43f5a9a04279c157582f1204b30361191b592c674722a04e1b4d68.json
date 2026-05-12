@@ -2,556 +2,521 @@
   {
     "word": "Before",
     "start": 0,
-    "end": 0.337
+    "end": 0.453
   },
   {
     "word": "importing",
-    "start": 0.372,
-    "end": 0.743
+    "start": 0.488,
+    "end": 0.894
   },
   {
     "word": "anyone,",
-    "start": 0.778,
-    "end": 1.254
+    "start": 0.929,
+    "end": 1.324
   },
   {
     "word": "understand",
-    "start": 1.347,
-    "end": 1.753
+    "start": 1.44,
+    "end": 2.009
   },
   {
     "word": "what",
-    "start": 1.8,
-    "end": 1.904
+    "start": 2.067,
+    "end": 2.171
   },
   {
     "word": "you're",
-    "start": 1.927,
-    "end": 2.067
+    "start": 2.206,
+    "end": 2.357
   },
   {
     "word": "looking",
-    "start": 2.09,
-    "end": 2.31
+    "start": 2.38,
+    "end": 2.647
   },
   {
     "word": "at.",
-    "start": 2.368,
-    "end": 2.775
+    "start": 2.717,
+    "end": 2.949
   },
   {
     "word": "At",
-    "start": 2.775,
-    "end": 2.937
+    "start": 2.949,
+    "end": 3.123
   },
   {
     "word": "the",
-    "start": 2.984,
-    "end": 3.065
+    "start": 3.17,
+    "end": 3.239
   },
   {
     "word": "top,",
-    "start": 3.123,
-    "end": 3.471
+    "start": 3.309,
+    "end": 3.634
   },
   {
     "word": "set",
-    "start": 3.518,
-    "end": 3.727
+    "start": 3.669,
+    "end": 3.855
   },
   {
     "word": "your",
-    "start": 3.785,
-    "end": 3.901
+    "start": 3.901,
+    "end": 4.017
   },
   {
     "word": "filters:",
-    "start": 3.947,
-    "end": 4.679
-  },
-  {
-    "word": "•",
-    "start": 4.679,
-    "end": 4.737
+    "start": 4.075,
+    "end": 4.656
   },
   {
     "word": "Branch",
-    "start": 4.853,
-    "end": 5.201
+    "start": 4.656,
+    "end": 4.981
   },
   {
     "word": "Name,",
-    "start": 5.259,
-    "end": 5.561
+    "start": 5.039,
+    "end": 5.375
   },
   {
     "word": "select",
-    "start": 5.596,
-    "end": 5.956
+    "start": 5.526,
+    "end": 5.851
   },
   {
     "word": "your",
-    "start": 5.991,
-    "end": 6.107
+    "start": 5.886,
+    "end": 6.002
   },
   {
     "word": "branch",
-    "start": 6.142,
-    "end": 6.653
-  },
-  {
-    "word": "•",
-    "start": 6.653,
-    "end": 6.931
+    "start": 6.06,
+    "end": 6.409
   },
   {
     "word": "Employee",
-    "start": 7.047,
-    "end": 7.721
+    "start": 6.409,
+    "end": 6.85
   },
   {
     "word": "Type,",
-    "start": 7.802,
-    "end": 8.197
+    "start": 6.92,
+    "end": 7.268
   },
   {
     "word": "Regular",
-    "start": 8.406,
-    "end": 8.777
+    "start": 7.361,
+    "end": 7.721
   },
   {
     "word": "Employee",
-    "start": 8.824,
-    "end": 9.451
+    "start": 7.779,
+    "end": 8.336
   },
   {
     "word": "in",
-    "start": 9.694,
-    "end": 9.834
+    "start": 8.51,
+    "end": 8.696
   },
   {
     "word": "most",
-    "start": 9.903,
-    "end": 10.101
+    "start": 8.777,
+    "end": 8.986
   },
   {
     "word": "cases",
-    "start": 10.136,
-    "end": 10.67
+    "start": 9.033,
+    "end": 9.555
   },
   {
     "word": "Click",
-    "start": 10.67,
-    "end": 10.925
+    "start": 9.555,
+    "end": 9.799
   },
   {
     "word": "Search",
-    "start": 10.995,
-    "end": 11.308
+    "start": 9.857,
+    "end": 10.124
   },
   {
     "word": "to",
-    "start": 11.378,
-    "end": 11.482
+    "start": 10.17,
+    "end": 10.24
   },
   {
     "word": "pull",
-    "start": 11.598,
-    "end": 11.889
+    "start": 10.31,
+    "end": 10.542
   },
   {
     "word": "the",
-    "start": 11.958,
-    "end": 12.051
+    "start": 10.6,
+    "end": 10.681
   },
   {
     "word": "applicant",
-    "start": 12.121,
-    "end": 12.562
+    "start": 10.751,
+    "end": 11.169
   },
   {
     "word": "list.",
-    "start": 12.62,
-    "end": 13.224
+    "start": 11.238,
+    "end": 11.691
   },
   {
     "word": "Above",
-    "start": 13.224,
-    "end": 13.56
+    "start": 11.691,
+    "end": 12.098
   },
   {
     "word": "the",
-    "start": 13.595,
-    "end": 13.665
+    "start": 12.132,
+    "end": 12.202
   },
   {
     "word": "list",
-    "start": 13.723,
-    "end": 13.978
+    "start": 12.26,
+    "end": 12.492
   },
   {
     "word": "you'll",
-    "start": 14.048,
-    "end": 14.233
+    "start": 12.55,
+    "end": 12.736
   },
   {
     "word": "see",
-    "start": 14.28,
-    "end": 14.431
+    "start": 12.782,
+    "end": 12.933
   },
   {
     "word": "a",
-    "start": 14.466,
-    "end": 14.5
+    "start": 12.968,
+    "end": 13.003
   },
   {
     "word": "summary",
-    "start": 14.57,
-    "end": 14.942
+    "start": 13.072,
+    "end": 13.444
   },
   {
     "word": "row:",
-    "start": 15.023,
-    "end": 15.743
-  },
-  {
-    "word": "•",
-    "start": 15.743,
-    "end": 15.766
+    "start": 13.525,
+    "end": 14.233
   },
   {
     "word": "Total,",
-    "start": 15.882,
-    "end": 16.381
+    "start": 14.233,
+    "end": 14.837
   },
   {
     "word": "all",
-    "start": 16.393,
-    "end": 16.66
+    "start": 14.918,
+    "end": 15.197
   },
   {
     "word": "applicants",
-    "start": 16.776,
-    "end": 17.345
+    "start": 15.278,
+    "end": 15.824
   },
   {
     "word": "returned",
-    "start": 17.403,
-    "end": 17.995
+    "start": 15.894,
+    "end": 16.37
   },
   {
     "word": "by",
-    "start": 18.355,
-    "end": 18.773
+    "start": 16.497,
+    "end": 16.892
   },
   {
     "word": "your",
-    "start": 19.04,
-    "end": 19.191
+    "start": 17.066,
+    "end": 17.217
   },
   {
     "word": "search",
-    "start": 19.249,
-    "end": 19.667
-  },
-  {
-    "word": "•",
-    "start": 19.667,
-    "end": 20.433
+    "start": 17.264,
+    "end": 17.542
   },
   {
     "word": "Duplicate,",
-    "start": 20.607,
-    "end": 21.153
+    "start": 17.542,
+    "end": 18.111
   },
   {
     "word": "applicants",
-    "start": 21.199,
-    "end": 21.815
+    "start": 18.355,
+    "end": 18.912
   },
   {
     "word": "already",
-    "start": 21.896,
-    "end": 22.453
+    "start": 18.97,
+    "end": 19.435
   },
   {
     "word": "in",
-    "start": 22.558,
-    "end": 22.732
+    "start": 19.551,
+    "end": 19.818
   },
   {
     "word": "WISH",
-    "start": 22.836,
-    "end": 23.208
+    "start": 19.992,
+    "end": 20.41
   },
   {
     "word": "under",
-    "start": 23.521,
-    "end": 23.997
+    "start": 20.619,
+    "end": 20.898
   },
   {
     "word": "a",
-    "start": 24.16,
-    "end": 24.473
+    "start": 20.956,
+    "end": 20.991
   },
   {
     "word": "matching",
-    "start": 24.671,
-    "end": 25.112
+    "start": 21.107,
+    "end": 21.525
   },
   {
     "word": "SSN",
-    "start": 25.24,
-    "end": 26.296
-  },
-  {
-    "word": "•",
-    "start": 26.296,
-    "end": 26.598
+    "start": 21.594,
+    "end": 22.175
   },
   {
     "word": "Import,",
-    "start": 26.714,
-    "end": 27.179
+    "start": 22.175,
+    "end": 22.767
   },
   {
     "word": "applicants",
-    "start": 27.202,
-    "end": 27.689
+    "start": 23.011,
+    "end": 23.649
   },
   {
     "word": "successfully",
-    "start": 27.713,
-    "end": 28.444
+    "start": 23.696,
+    "end": 24.473
   },
   {
     "word": "imported",
-    "start": 28.711,
-    "end": 29.199
+    "start": 24.566,
+    "end": 25.158
   },
   {
     "word": "in",
-    "start": 29.245,
-    "end": 29.303
+    "start": 25.228,
+    "end": 25.321
   },
   {
     "word": "this",
-    "start": 29.35,
-    "end": 29.477
+    "start": 25.379,
+    "end": 25.53
   },
   {
     "word": "session",
-    "start": 29.524,
-    "end": 30.116
-  },
-  {
-    "word": "•",
-    "start": 30.116,
-    "end": 30.534
+    "start": 25.576,
+    "end": 26.261
   },
   {
     "word": "Hired,",
-    "start": 30.696,
-    "end": 31.254
+    "start": 26.261,
+    "end": 26.865
   },
   {
     "word": "applicants",
-    "start": 31.567,
-    "end": 32.066
+    "start": 27.144,
+    "end": 27.748
   },
   {
     "word": "whose",
-    "start": 32.09,
-    "end": 32.264
+    "start": 27.782,
+    "end": 27.968
   },
   {
     "word": "hiring",
-    "start": 32.287,
-    "end": 32.577
+    "start": 28.003,
+    "end": 28.386
   },
   {
     "word": "status",
-    "start": 32.623,
-    "end": 32.96
+    "start": 28.432,
+    "end": 28.862
   },
   {
     "word": "is",
-    "start": 33.03,
-    "end": 33.134
+    "start": 28.955,
+    "end": 29.245
   },
   {
     "word": "Hired",
-    "start": 33.204,
-    "end": 33.715
-  },
-  {
-    "word": "•",
-    "start": 33.715,
-    "end": 34.191
+    "start": 29.489,
+    "end": 30.174
   },
   {
     "word": "Rehired,",
-    "start": 34.33,
-    "end": 35.108
+    "start": 30.174,
+    "end": 30.987
   },
   {
     "word": "returning",
-    "start": 35.375,
-    "end": 35.816
+    "start": 31.196,
+    "end": 31.66
   },
   {
     "word": "employees",
-    "start": 35.862,
-    "end": 36.28
+    "start": 31.718,
+    "end": 32.449
   },
   {
     "word": "being",
-    "start": 36.35,
-    "end": 36.536
+    "start": 32.833,
+    "end": 33.065
   },
   {
     "word": "brought",
-    "start": 36.582,
-    "end": 36.826
+    "start": 33.1,
+    "end": 33.343
   },
   {
     "word": "back",
-    "start": 36.873,
-    "end": 37.685
+    "start": 33.378,
+    "end": 34.771
   },
   {
     "word": "The",
-    "start": 37.685,
-    "end": 37.894
+    "start": 34.771,
+    "end": 34.98
   },
   {
     "word": "list",
-    "start": 37.952,
-    "end": 38.138
+    "start": 35.073,
+    "end": 35.352
   },
   {
     "word": "itself",
-    "start": 38.184,
-    "end": 38.51
+    "start": 35.445,
+    "end": 36.269
   },
   {
     "word": "shows",
-    "start": 38.556,
-    "end": 38.8
+    "start": 36.594,
+    "end": 36.931
   },
   {
     "word": "each",
-    "start": 38.869,
-    "end": 39.044
+    "start": 37.024,
+    "end": 37.244
   },
   {
     "word": "applicant's",
-    "start": 39.102,
-    "end": 39.589
+    "start": 37.314,
+    "end": 37.941
   },
   {
     "word": "SSN,",
-    "start": 39.682,
-    "end": 40.344
+    "start": 38.15,
+    "end": 39.183
   },
   {
     "word": "name,",
-    "start": 40.414,
-    "end": 40.75
+    "start": 39.566,
+    "end": 40.158
   },
   {
     "word": "branch,",
-    "start": 40.785,
-    "end": 41.226
+    "start": 40.484,
+    "end": 41.145
   },
   {
     "word": "Background",
-    "start": 41.296,
-    "end": 41.737
+    "start": 41.528,
+    "end": 42.121
   },
   {
     "word": "Check",
-    "start": 41.772,
-    "end": 41.958
+    "start": 42.167,
+    "end": 42.388
   },
   {
     "word": "status,",
-    "start": 42.004,
-    "end": 42.48
+    "start": 42.446,
+    "end": 43.177
   },
   {
     "word": "E-Verify",
-    "start": 42.689,
-    "end": 43.304
+    "start": 43.56,
+    "end": 44.21
   },
   {
     "word": "status,",
-    "start": 43.362,
-    "end": 43.931
+    "start": 44.268,
+    "end": 44.919
   },
   {
     "word": "current",
-    "start": 44.106,
-    "end": 44.407
+    "start": 45.244,
+    "end": 45.627
   },
   {
     "word": "status,",
-    "start": 44.442,
-    "end": 44.953
+    "start": 45.685,
+    "end": 46.393
   },
   {
     "word": "and",
-    "start": 45.104,
-    "end": 45.29
+    "start": 46.672,
+    "end": 46.846
   },
   {
     "word": "hiring",
-    "start": 45.371,
-    "end": 45.743
+    "start": 46.904,
+    "end": 47.275
   },
   {
     "word": "status.",
-    "start": 45.801,
-    "end": 46.323
+    "start": 47.322,
+    "end": 47.937
   },
   {
     "word": "Review",
-    "start": 46.602,
-    "end": 46.904
+    "start": 48.448,
+    "end": 48.82
   },
   {
     "word": "these",
-    "start": 46.962,
-    "end": 47.124
+    "start": 48.889,
+    "end": 49.063
   },
   {
     "word": "columns",
-    "start": 47.159,
-    "end": 47.484
+    "start": 49.098,
+    "end": 49.47
   },
   {
     "word": "carefully",
-    "start": 47.53,
-    "end": 47.914
+    "start": 49.528,
+    "end": 50.062
   },
   {
     "word": "before",
-    "start": 47.983,
-    "end": 48.274
+    "start": 50.503,
+    "end": 50.921
   },
   {
     "word": "taking",
-    "start": 48.32,
-    "end": 48.599
+    "start": 50.967,
+    "end": 51.362
   },
   {
     "word": "any",
-    "start": 48.657,
-    "end": 48.796
+    "start": 51.536,
+    "end": 51.943
   },
   {
     "word": "action.",
-    "start": 48.866,
-    "end": 49.504
+    "start": 52.059,
+    "end": 52.848
   }
 ]

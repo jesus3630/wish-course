@@ -2,776 +2,736 @@
   {
     "word": "Manager",
     "start": 0,
-    "end": 0.464
+    "end": 0.453
   },
   {
     "word": "Reports",
-    "start": 0.511,
-    "end": 0.94
+    "start": 0.522,
+    "end": 0.952
   },
   {
     "word": "cover",
-    "start": 1.033,
-    "end": 1.335
+    "start": 1.022,
+    "end": 1.289
   },
   {
     "word": "credential",
-    "start": 1.393,
-    "end": 1.788
+    "start": 1.358,
+    "end": 1.939
   },
   {
     "word": "verification,",
-    "start": 1.846,
-    "end": 2.821
+    "start": 1.997,
+    "end": 2.902
   },
   {
     "word": "scheduling",
-    "start": 2.937,
-    "end": 3.506
+    "start": 3.077,
+    "end": 3.634
   },
   {
     "word": "performance,",
-    "start": 3.564,
-    "end": 4.238
+    "start": 3.68,
+    "end": 4.365
   },
   {
     "word": "and",
-    "start": 4.331,
-    "end": 4.516
+    "start": 4.516,
+    "end": 4.725
   },
   {
     "word": "motor",
-    "start": 4.598,
-    "end": 4.865
+    "start": 4.807,
+    "end": 5.074
   },
   {
     "word": "vehicle",
-    "start": 4.923,
-    "end": 5.259
+    "start": 5.132,
+    "end": 5.515
   },
   {
     "word": "record",
-    "start": 5.306,
-    "end": 5.631
+    "start": 5.573,
+    "end": 5.968
   },
   {
     "word": "(MVR)",
-    "start": 5.689,
-    "end": 6.455
+    "start": 6.06,
+    "end": 6.885
   },
   {
     "word": "tracking,",
-    "start": 6.478,
-    "end": 7.047
+    "start": 6.908,
+    "end": 7.465
   },
   {
     "word": "tools",
-    "start": 7.094,
-    "end": 7.523
+    "start": 7.674,
+    "end": 8.092
   },
   {
     "word": "for",
-    "start": 7.581,
-    "end": 7.755
+    "start": 8.15,
+    "end": 8.278
   },
   {
     "word": "branch-level",
-    "start": 7.848,
-    "end": 8.475
+    "start": 8.359,
+    "end": 8.928
   },
   {
     "word": "oversight.",
-    "start": 8.545,
-    "end": 9.16
-  },
-  {
-    "word": "Reports",
-    "start": 9.16,
+    "start": 8.998,
     "end": 9.636
   },
   {
+    "word": "Reports",
+    "start": 9.636,
+    "end": 9.996
+  },
+  {
     "word": "available",
-    "start": 9.694,
-    "end": 10.217
+    "start": 10.031,
+    "end": 10.461
   },
   {
     "word": "here:",
-    "start": 10.275,
-    "end": 10.681
-  },
-  {
-    "word": "•",
-    "start": 10.681,
-    "end": 10.704
+    "start": 10.507,
+    "end": 10.948
   },
   {
     "word": "Schedule",
-    "start": 10.797,
-    "end": 11.331
+    "start": 10.948,
+    "end": 11.424
   },
   {
     "word": "Efficiency,",
-    "start": 11.389,
-    "end": 12.144
+    "start": 11.447,
+    "end": 12.156
   },
   {
     "word": "measures",
     "start": 12.237,
-    "end": 12.585
+    "end": 12.574
   },
   {
     "word": "how",
-    "start": 12.632,
-    "end": 12.783
+    "start": 12.62,
+    "end": 12.748
   },
   {
     "word": "well",
-    "start": 12.852,
-    "end": 13.05
+    "start": 12.864,
+    "end": 13.096
   },
   {
     "word": "scheduled",
-    "start": 13.119,
-    "end": 13.63
+    "start": 13.154,
+    "end": 13.653
   },
   {
     "word": "headcount",
     "start": 13.688,
-    "end": 14.141
+    "end": 14.106
   },
   {
     "word": "matched",
-    "start": 14.234,
-    "end": 14.536
+    "start": 14.188,
+    "end": 14.478
   },
   {
     "word": "actual",
-    "start": 14.605,
-    "end": 15.058
+    "start": 14.571,
+    "end": 14.989
   },
   {
     "word": "sign-in",
-    "start": 15.128,
-    "end": 15.534
+    "start": 15.047,
+    "end": 15.384
   },
   {
     "word": "counts",
-    "start": 15.616,
-    "end": 15.964
+    "start": 15.465,
+    "end": 15.767
   },
   {
     "word": "across",
-    "start": 16.138,
-    "end": 16.986
+    "start": 15.825,
+    "end": 16.219
   },
   {
     "word": "jobs.",
-    "start": 17.369,
-    "end": 18.123
+    "start": 16.289,
+    "end": 16.916
   },
   {
     "word": "Useful",
-    "start": 18.634,
-    "end": 19.029
+    "start": 17.357,
+    "end": 17.787
   },
   {
     "word": "for",
-    "start": 19.075,
-    "end": 19.18
+    "start": 17.845,
+    "end": 17.949
   },
   {
     "word": "identifying",
-    "start": 19.215,
-    "end": 19.702
+    "start": 17.996,
+    "end": 18.6
   },
   {
     "word": "gaps",
-    "start": 19.772,
-    "end": 20.155
+    "start": 18.692,
+    "end": 19.099
   },
   {
     "word": "in",
-    "start": 20.201,
-    "end": 20.271
+    "start": 19.18,
+    "end": 19.389
   },
   {
     "word": "scheduling",
-    "start": 20.341,
-    "end": 20.817
+    "start": 19.482,
+    "end": 20.051
   },
   {
     "word": "accuracy.",
-    "start": 20.875,
-    "end": 21.908
-  },
-  {
-    "word": "•",
-    "start": 21.908,
-    "end": 21.931
+    "start": 20.167,
+    "end": 21.27
   },
   {
     "word": "Employee",
-    "start": 22.024,
-    "end": 22.686
+    "start": 21.27,
+    "end": 21.839
   },
   {
     "word": "Credential",
-    "start": 22.756,
-    "end": 23.266
+    "start": 21.885,
+    "end": 22.361
   },
   {
     "word": "Report,",
-    "start": 23.336,
-    "end": 23.951
+    "start": 22.431,
+    "end": 22.976
   },
   {
     "word": "shows",
-    "start": 24.16,
-    "end": 24.497
+    "start": 23.185,
+    "end": 23.569
   },
   {
     "word": "credential",
-    "start": 24.555,
-    "end": 25.008
+    "start": 23.627,
+    "end": 24.079
   },
   {
     "word": "status",
-    "start": 25.066,
-    "end": 25.565
+    "start": 24.126,
+    "end": 24.625
   },
   {
     "word": "(guard",
-    "start": 25.774,
-    "end": 26.401
+    "start": 24.799,
+    "end": 25.252
   },
   {
     "word": "cards,",
-    "start": 26.459,
-    "end": 27.075
+    "start": 25.31,
+    "end": 25.74
   },
   {
     "word": "licenses)",
-    "start": 27.353,
-    "end": 28.236
+    "start": 25.856,
+    "end": 26.61
   },
   {
     "word": "for",
-    "start": 28.352,
-    "end": 28.503
+    "start": 26.657,
+    "end": 26.796
   },
   {
     "word": "individual",
-    "start": 28.561,
-    "end": 29.013
+    "start": 26.866,
+    "end": 27.458
   },
   {
     "word": "employees",
-    "start": 29.06,
-    "end": 29.907
-  },
-  {
-    "word": "•",
-    "start": 29.907,
-    "end": 30.116
+    "start": 27.539,
+    "end": 28.677
   },
   {
     "word": "Job",
-    "start": 30.36,
-    "end": 30.662
+    "start": 28.677,
+    "end": 28.979
   },
   {
     "word": "Credential",
-    "start": 30.732,
-    "end": 31.185
+    "start": 29.037,
+    "end": 29.455
   },
   {
     "word": "Report,",
-    "start": 31.243,
-    "end": 31.847
+    "start": 29.524,
+    "end": 30.036
   },
   {
     "word": "credential",
-    "start": 32.09,
-    "end": 32.578
+    "start": 30.21,
+    "end": 30.686
   },
   {
     "word": "requirements",
-    "start": 32.636,
-    "end": 33.344
+    "start": 30.744,
+    "end": 31.417
   },
   {
     "word": "and",
-    "start": 33.437,
-    "end": 33.6
+    "start": 31.464,
+    "end": 31.661
   },
   {
     "word": "compliance",
-    "start": 33.681,
-    "end": 34.169
+    "start": 31.731,
+    "end": 32.23
   },
   {
     "word": "status",
-    "start": 34.18,
-    "end": 34.645
+    "start": 32.253,
+    "end": 32.718
   },
   {
     "word": "for",
-    "start": 34.923,
-    "end": 35.213
+    "start": 32.973,
+    "end": 33.321
   },
   {
     "word": "a",
-    "start": 35.295,
-    "end": 35.388
+    "start": 33.426,
+    "end": 33.542
   },
   {
     "word": "specific",
-    "start": 35.527,
-    "end": 36.386
+    "start": 33.658,
+    "end": 34.297
   },
   {
     "word": "job",
-    "start": 36.63,
-    "end": 37.257
-  },
-  {
-    "word": "•",
-    "start": 37.257,
-    "end": 38.232
+    "start": 34.494,
+    "end": 35.365
   },
   {
     "word": "Employee",
-    "start": 38.418,
-    "end": 38.824
+    "start": 35.365,
+    "end": 36.305
   },
   {
     "word": "Task",
-    "start": 38.859,
-    "end": 39.149
+    "start": 36.421,
+    "end": 36.827
   },
   {
     "word": "Report,",
-    "start": 39.196,
-    "end": 39.649
+    "start": 36.909,
+    "end": 37.466
   },
   {
     "word": "tracks",
-    "start": 39.799,
-    "end": 40.183
+    "start": 37.698,
+    "end": 38.128
   },
   {
     "word": "outstanding",
-    "start": 40.241,
-    "end": 40.786
+    "start": 38.186,
+    "end": 38.917
   },
   {
     "word": "onboarding",
-    "start": 40.856,
-    "end": 41.378
+    "start": 38.999,
+    "end": 39.567
   },
   {
     "word": "and",
-    "start": 41.448,
-    "end": 41.599
+    "start": 39.649,
+    "end": 39.927
   },
   {
     "word": "compliance",
-    "start": 41.669,
-    "end": 42.179
+    "start": 40.009,
+    "end": 40.531
   },
   {
     "word": "tasks",
-    "start": 42.214,
-    "end": 42.551
+    "start": 40.566,
+    "end": 41.03
   },
   {
     "word": "by",
-    "start": 42.621,
-    "end": 42.795
+    "start": 41.286,
+    "end": 41.599
   },
   {
     "word": "employee",
-    "start": 42.864,
-    "end": 43.782
-  },
-  {
-    "word": "•",
-    "start": 43.782,
-    "end": 44.165
+    "start": 41.762,
+    "end": 42.656
   },
   {
     "word": "MVR",
-    "start": 44.304,
-    "end": 44.838
+    "start": 42.656,
+    "end": 43.178
   },
   {
     "word": "Roster,",
-    "start": 44.943,
-    "end": 45.535
+    "start": 43.236,
+    "end": 43.852
   },
   {
     "word": "motor",
-    "start": 45.779,
-    "end": 46.08
+    "start": 44.014,
+    "end": 44.281
   },
   {
     "word": "vehicle",
-    "start": 46.127,
-    "end": 46.487
+    "start": 44.328,
+    "end": 44.664
   },
   {
     "word": "record",
-    "start": 46.533,
-    "end": 46.8
+    "start": 44.722,
+    "end": 45.001
   },
   {
     "word": "status",
-    "start": 46.823,
-    "end": 47.23
+    "start": 45.024,
+    "end": 45.512
   },
   {
     "word": "for",
-    "start": 47.276,
-    "end": 47.45
+    "start": 45.732,
+    "end": 45.976
   },
   {
     "word": "employees",
-    "start": 47.508,
-    "end": 48.135
+    "start": 46.057,
+    "end": 46.824
   },
   {
     "word": "who",
-    "start": 48.193,
-    "end": 48.333
+    "start": 46.859,
+    "end": 47.067
   },
   {
     "word": "drive",
-    "start": 48.391,
-    "end": 48.762
+    "start": 47.149,
+    "end": 47.578
   },
   {
     "word": "as",
-    "start": 48.809,
-    "end": 48.959
+    "start": 47.625,
+    "end": 47.776
   },
   {
     "word": "part",
-    "start": 49.041,
-    "end": 49.261
+    "start": 47.845,
+    "end": 48.054
   },
   {
     "word": "of",
-    "start": 49.296,
-    "end": 49.343
+    "start": 48.078,
+    "end": 48.135
   },
   {
     "word": "their",
-    "start": 49.389,
-    "end": 49.54
+    "start": 48.182,
+    "end": 48.321
   },
   {
     "word": "role",
-    "start": 49.598,
-    "end": 50.074
-  },
-  {
-    "word": "•",
-    "start": 50.074,
-    "end": 50.457
+    "start": 48.379,
+    "end": 49.076
   },
   {
     "word": "Branch",
-    "start": 50.608,
-    "end": 51.026
+    "start": 49.076,
+    "end": 49.517
   },
   {
     "word": "MVR",
-    "start": 51.131,
-    "end": 51.583
+    "start": 49.633,
+    "end": 50.121
   },
   {
     "word": "Roster,",
-    "start": 51.653,
-    "end": 52.257
+    "start": 50.167,
+    "end": 50.759
   },
   {
     "word": "MVR",
-    "start": 52.431,
-    "end": 52.86
+    "start": 50.922,
+    "end": 51.421
   },
   {
     "word": "status",
-    "start": 52.953,
-    "end": 53.429
+    "start": 51.502,
+    "end": 51.967
   },
   {
     "word": "across",
-    "start": 53.65,
-    "end": 54.033
+    "start": 52.338,
+    "end": 52.802
   },
   {
     "word": "all",
-    "start": 54.079,
-    "end": 54.3
+    "start": 52.86,
+    "end": 53.151
   },
   {
     "word": "applicable",
-    "start": 54.393,
-    "end": 54.846
+    "start": 53.267,
+    "end": 53.789
   },
   {
     "word": "employees",
-    "start": 54.881,
-    "end": 55.496
+    "start": 53.812,
+    "end": 54.184
   },
   {
     "word": "in",
-    "start": 55.589,
-    "end": 55.74
+    "start": 54.219,
+    "end": 54.277
   },
   {
     "word": "your",
-    "start": 55.786,
-    "end": 55.937
+    "start": 54.312,
+    "end": 54.405
   },
   {
     "word": "branch",
-    "start": 55.983,
-    "end": 56.564
-  },
-  {
-    "word": "•",
-    "start": 56.564,
-    "end": 56.761
+    "start": 54.439,
+    "end": 55.101
   },
   {
     "word": "Master",
-    "start": 56.889,
-    "end": 57.261
+    "start": 55.101,
+    "end": 55.566
   },
   {
     "word": "MVR",
-    "start": 57.353,
-    "end": 57.841
+    "start": 55.647,
+    "end": 56.1
   },
   {
     "word": "Roster",
-    "start": 57.911,
-    "end": 58.329
+    "start": 56.158,
+    "end": 56.634
   },
   {
     "word": "With",
-    "start": 58.689,
-    "end": 58.898
+    "start": 56.994,
+    "end": 57.261
   },
   {
     "word": "Date,",
-    "start": 58.967,
-    "end": 59.374
+    "start": 57.342,
+    "end": 57.83
   },
   {
     "word": "full",
-    "start": 59.594,
-    "end": 59.896
+    "start": 58.097,
+    "end": 58.422
   },
   {
     "word": "MVR",
-    "start": 60.012,
-    "end": 60.511
+    "start": 58.538,
+    "end": 59.014
   },
   {
     "word": "roster",
-    "start": 60.593,
-    "end": 60.999
+    "start": 59.072,
+    "end": 59.432
   },
   {
     "word": "including",
-    "start": 61.173,
-    "end": 61.579
+    "start": 59.49,
+    "end": 59.861
   },
   {
     "word": "check",
-    "start": 61.638,
-    "end": 61.847
+    "start": 59.919,
+    "end": 60.152
   },
   {
     "word": "dates",
-    "start": 61.893,
-    "end": 62.404
-  },
-  {
-    "word": "•",
-    "start": 62.404,
-    "end": 62.636
+    "start": 60.21,
+    "end": 60.987
   },
   {
     "word": "Branch",
-    "start": 62.775,
-    "end": 63.1
+    "start": 60.987,
+    "end": 61.359
   },
   {
     "word": "MVR",
-    "start": 63.193,
-    "end": 63.646
+    "start": 61.475,
+    "end": 61.928
   },
   {
     "word": "Roster",
-    "start": 63.716,
-    "end": 64.122
+    "start": 61.986,
+    "end": 62.404
   },
   {
     "word": "Without",
-    "start": 64.691,
-    "end": 65.051
+    "start": 62.891,
+    "end": 63.251
   },
   {
     "word": "Date,",
-    "start": 65.097,
-    "end": 65.597
+    "start": 63.298,
+    "end": 63.762
   },
   {
     "word": "MVR",
-    "start": 65.736,
-    "end": 66.2
+    "start": 63.925,
+    "end": 64.412
   },
   {
     "word": "roster",
-    "start": 66.258,
-    "end": 66.595
+    "start": 64.47,
+    "end": 64.912
   },
   {
     "word": "view",
-    "start": 66.653,
-    "end": 66.908
+    "start": 65.272,
+    "end": 65.492
   },
   {
     "word": "without",
-    "start": 67.048,
-    "end": 67.396
+    "start": 65.562,
+    "end": 65.864
   },
   {
     "word": "date",
-    "start": 67.431,
-    "end": 67.64
+    "start": 65.91,
+    "end": 66.119
   },
   {
     "word": "filters,",
-    "start": 67.675,
-    "end": 68.29
+    "start": 66.166,
+    "end": 66.734
   },
   {
     "word": "for",
-    "start": 68.43,
-    "end": 68.604
+    "start": 66.897,
+    "end": 67.071
   },
   {
     "word": "a",
-    "start": 68.674,
-    "end": 68.72
+    "start": 67.129,
+    "end": 67.164
   },
   {
     "word": "broad",
-    "start": 68.813,
-    "end": 69.138
+    "start": 67.222,
+    "end": 67.582
   },
   {
     "word": "status",
-    "start": 69.196,
-    "end": 69.568
+    "start": 67.628,
+    "end": 68
   },
   {
     "word": "overview",
-    "start": 69.626,
-    "end": 70.055
+    "start": 68.07,
+    "end": 68.998
   },
   {
     "word": "Credential",
-    "start": 70.055,
-    "end": 70.496
+    "start": 68.998,
+    "end": 69.463
   },
   {
     "word": "and",
-    "start": 70.543,
-    "end": 70.612
+    "start": 69.509,
+    "end": 69.579
   },
   {
     "word": "MVR",
-    "start": 70.636,
-    "end": 71.042
+    "start": 69.602,
+    "end": 70.043
   },
   {
     "word": "reports",
-    "start": 71.077,
-    "end": 71.576
+    "start": 70.066,
+    "end": 70.566
   },
   {
     "word": "are",
-    "start": 71.901,
-    "end": 72.203
+    "start": 70.6,
+    "end": 70.693
   },
   {
     "word": "especially",
-    "start": 72.273,
-    "end": 72.958
+    "start": 70.717,
+    "end": 71.181
   },
   {
     "word": "important",
-    "start": 73.004,
-    "end": 73.422
+    "start": 71.216,
+    "end": 71.773
   },
   {
     "word": "before",
-    "start": 73.468,
-    "end": 73.794
+    "start": 71.982,
+    "end": 72.365
   },
   {
     "word": "scheduling",
-    "start": 73.84,
-    "end": 74.374
+    "start": 72.423,
+    "end": 72.946
   },
   {
     "word": "employees",
-    "start": 74.432,
-    "end": 74.978
+    "start": 73.004,
+    "end": 73.561
   },
   {
     "word": "for",
-    "start": 75.036,
-    "end": 75.14
+    "start": 73.607,
+    "end": 73.724
   },
   {
     "word": "positions",
-    "start": 75.198,
-    "end": 75.663
+    "start": 73.793,
+    "end": 74.397
   },
   {
     "word": "that",
-    "start": 75.709,
-    "end": 75.848
+    "start": 74.443,
+    "end": 74.571
   },
   {
     "word": "require",
-    "start": 75.907,
-    "end": 76.359
+    "start": 74.618,
+    "end": 75.059
   },
   {
     "word": "specific",
-    "start": 76.406,
-    "end": 77.068
+    "start": 75.094,
+    "end": 75.639
   },
   {
     "word": "licensing",
-    "start": 77.195,
-    "end": 77.741
+    "start": 75.72,
+    "end": 76.289
   },
   {
     "word": "or",
-    "start": 77.799,
-    "end": 77.869
+    "start": 76.347,
+    "end": 76.429
   },
   {
     "word": "driving.",
-    "start": 77.927,
-    "end": 78.623
+    "start": 76.487,
+    "end": 77.276
   }
 ]
