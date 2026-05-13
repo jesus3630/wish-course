@@ -21,3 +21,16 @@ body {
 }
 
 .app { min-height: 100vh; display: flex; flex-direction: column; }
+
+@media print {
+  body * { visibility: hidden; }
+  .cert-printable, .cert-printable * { visibility: visible; }
+  .cert-printable {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+  }
+  .cert-chrome { display: none !important; }
+}

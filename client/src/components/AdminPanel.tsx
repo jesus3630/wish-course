@@ -48,9 +48,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-function SmBtn({
-  onClick, disabled, danger, children,
-}: {
+function SmBtn({ onClick, disabled, danger, children }: {
   onClick: () => void; disabled?: boolean; danger?: boolean; children: React.ReactNode;
 }) {
   return (
@@ -99,6 +97,7 @@ function TabBtn({ active, onClick, children }: { active: boolean; onClick: () =>
 
 function SlidesEditor({
   slides, expandedSlide, setExpandedSlide, onUpdate, onAdd, onDelete, onMove,
+  moduleId, token, onScreenshotUpdate,
 }: {
   slides: Slide[];
   expandedSlide: number | null;
@@ -107,7 +106,36 @@ function SlidesEditor({
   onAdd: () => void;
   onDelete: (idx: number) => void;
   onMove: (idx: number, dir: -1 | 1) => void;
+  moduleId: string;
+  token: string;
+  onScreenshotUpdate: (idx: number, url: string) => void;
 }) {
+  const [uploadingIdx, setUploadingIdx] = useState<number | null>(null);
+
+  async function handleScreenshotUpload(slideIdx: number, file: File) {
+    setUploadingIdx(slideIdx);
+    const reader = new FileReader();
+    reader.onload = async () => {
+      const imageData = reader.result as string;
+      try {
+        const res = await fetch('/api/admin/screenshot', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+          body: JSON.stringify({ moduleId, slideIndex: slideIdx, imageData }),
+        });
+        if (res.ok) {
+          const { url } = await res.json();
+          onScreenshotUpdate(slideIdx, url);
+        }
+      } catch {}
+      setUploadingIdx(null);
+    };
+    reader.readAsDataURL(file);
+  }
+
   return (
     <div>
       {slides.map((slide, idx) => (
@@ -122,7 +150,6 @@ function SlidesEditor({
             boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
           }}
         >
-          {/* Slide row */}
           <div
             onClick={() => setExpandedSlide(expandedSlide === idx ? null : idx)}
             style={{
@@ -145,13 +172,15 @@ function SlidesEditor({
             <span style={{ flex: 1, fontWeight: 600, color: C.navy, fontSize: '14px' }}>
               {slide.slide_name || 'Untitled Slide'}
             </span>
+            {slide.screenshot && (
+              <span style={{ fontSize: '11px', color: C.teal, fontWeight: 600 }}>IMG</span>
+            )}
             <span style={{ fontSize: '12px', color: C.gray, whiteSpace: 'nowrap' }}>
               {(slide.text ?? '').length} chars
             </span>
             <span style={{ fontSize: '16px', color: C.gray }}>{expandedSlide === idx ? '▲' : '▼'}</span>
           </div>
 
-          {/* Expanded editor */}
           {expandedSlide === idx && (
             <div style={{ padding: '20px', borderTop: `1px solid ${C.border}` }}>
               <Field label="Slide Name">
@@ -176,6 +205,48 @@ function SlidesEditor({
                   style={{ ...inputStyle, minHeight: '160px', resize: 'vertical' }}
                 />
               </Field>
+
+              {/* Screenshot upload */}
+              <div style={{ marginBottom: '16px' }}>
+                <label style={labelStyle}>Screenshot</label>
+                {slide.screenshot && (
+                  <div style={{ marginBottom: '8px' }}>
+                    <img
+                      src={slide.screenshot}
+                      alt="Slide screenshot"
+                      style={{ maxWidth: '100%', maxHeight: '160px', objectFit: 'contain', borderRadius: '6px', border: `1px solid ${C.border}` }}
+                    />
+                  </div>
+                )}
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <label style={{
+                    padding: '6px 14px',
+                    background: uploadingIdx === idx ? C.lightGray : C.navy,
+                    color: C.white,
+                    borderRadius: '6px',
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    cursor: uploadingIdx === idx ? 'not-allowed' : 'pointer',
+                  }}>
+                    {uploadingIdx === idx ? 'Uploading...' : slide.screenshot ? 'Replace Image' : 'Upload Image'}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      style={{ display: 'none' }}
+                      disabled={uploadingIdx === idx}
+                      onChange={e => {
+                        const file = e.target.files?.[0];
+                        if (file) handleScreenshotUpload(idx, file);
+                        e.target.value = '';
+                      }}
+                    />
+                  </label>
+                  {slide.screenshot && (
+                    <SmBtn onClick={() => onUpdate(idx, 'screenshot' as keyof Slide, '')} danger>Remove</SmBtn>
+                  )}
+                </div>
+              </div>
+
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '8px' }}>
                   <SmBtn onClick={() => onMove(idx, -1)} disabled={idx === 0}>↑ Move Up</SmBtn>
@@ -275,7 +346,6 @@ function QuizEditor({
                         checked={isCorrect}
                         onChange={() => onUpdate(idx, 'correct_index', oi)}
                         style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: C.green, flexShrink: 0 }}
-                        title="Mark as correct answer"
                       />
                       <input
                         value={opt}
@@ -342,10 +412,17 @@ interface UserEntry {
   modules_started: number;
 }
 
+interface RosterEntry {
+  email: string;
+  name: string | null;
+  added_at: string;
+}
+
 // ─── Main AdminPanel ──────────────────────────────────────────────────────────
 
 export default function AdminPanel() {
-  const [password, setPassword] = useState('');
+  const [loginPassword, setLoginPassword] = useState('');
+  const [token, setToken] = useState('');
   const [authed, setAuthed] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [loginLoading, setLoginLoading] = useState(false);
@@ -366,9 +443,17 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
-  const [adminView, setAdminView] = useState<'content' | 'users'>('content');
+  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster'>('content');
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
+
+  const [roster, setRoster] = useState<RosterEntry[]>([]);
+  const [rosterLoading, setRosterLoading] = useState(false);
+  const [rosterEmail, setRosterEmail] = useState('');
+  const [rosterName, setRosterName] = useState('');
+  const [rosterSaving, setRosterSaving] = useState(false);
+
+  const authHeaders = { 'Authorization': `Bearer ${token}` };
 
   const loadData = useCallback(async () => {
     setDataLoading(true);
@@ -385,22 +470,60 @@ export default function AdminPanel() {
     setDataLoading(false);
   }, []);
 
-  async function loadHistory() {
+  async function loadHistory(tok: string) {
     setHistoryLoading(true);
     try {
-      const res = await fetch('/api/admin/history', { headers: { 'x-admin-password': password } });
+      const res = await fetch('/api/admin/history', { headers: { 'Authorization': `Bearer ${tok}` } });
       if (res.ok) setHistory(await res.json());
-    } catch (e) {}
+    } catch {}
     setHistoryLoading(false);
   }
 
   async function loadUsers() {
     setUsersLoading(true);
     try {
-      const res = await fetch('/api/admin/users', { headers: { 'x-admin-password': password } });
+      const res = await fetch('/api/admin/users', { headers: authHeaders });
       if (res.ok) setUsers(await res.json());
-    } catch (e) {}
+    } catch {}
     setUsersLoading(false);
+  }
+
+  async function loadRoster() {
+    setRosterLoading(true);
+    try {
+      const res = await fetch('/api/admin/roster', { headers: authHeaders });
+      if (res.ok) setRoster(await res.json());
+    } catch {}
+    setRosterLoading(false);
+  }
+
+  async function addToRoster() {
+    if (!rosterEmail.trim()) return;
+    setRosterSaving(true);
+    try {
+      const res = await fetch('/api/admin/roster', {
+        method: 'POST',
+        headers: { ...authHeaders, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: rosterEmail.trim(), name: rosterName.trim() || null }),
+      });
+      if (res.ok) {
+        setRosterEmail('');
+        setRosterName('');
+        loadRoster();
+      }
+    } catch {}
+    setRosterSaving(false);
+  }
+
+  async function removeFromRoster(email: string) {
+    if (!window.confirm(`Remove ${email} from roster?`)) return;
+    try {
+      const res = await fetch(`/api/admin/roster/${encodeURIComponent(email)}`, {
+        method: 'DELETE',
+        headers: authHeaders,
+      });
+      if (res.ok) loadRoster();
+    } catch {}
   }
 
   async function restoreSnapshot(id: string) {
@@ -409,7 +532,7 @@ export default function AdminPanel() {
     try {
       const res = await fetch(`/api/admin/restore/${id}`, {
         method: 'POST',
-        headers: { 'x-admin-password': password },
+        headers: authHeaders,
       });
       if (res.ok) {
         await loadData();
@@ -417,27 +540,24 @@ export default function AdminPanel() {
         setSaveStatus('saved');
         setTimeout(() => setSaveStatus('idle'), 3000);
       }
-    } catch (e) {}
+    } catch {}
     setRestoring(null);
   }
 
-  // Check for saved session
+  // Validate saved token on load
   useEffect(() => {
-    const saved = sessionStorage.getItem('wish_admin_pw');
+    const saved = sessionStorage.getItem('wish_admin_token');
     if (saved) {
-      setPassword(saved);
-      (async () => {
-        const res = await fetch('/api/admin/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ password: saved }),
-        });
-        if (res.ok) {
-          setAuthed(true);
-        } else {
-          sessionStorage.removeItem('wish_admin_pw');
-        }
-      })();
+      fetch('/api/admin/validate', { headers: { 'Authorization': `Bearer ${saved}` } })
+        .then(res => {
+          if (res.ok) {
+            setToken(saved);
+            setAuthed(true);
+          } else {
+            sessionStorage.removeItem('wish_admin_token');
+          }
+        })
+        .catch(() => sessionStorage.removeItem('wish_admin_token'));
     }
   }, []);
 
@@ -446,21 +566,29 @@ export default function AdminPanel() {
   }, [authed, loadData]);
 
   async function handleLogin() {
-    if (!password.trim()) return;
+    if (!loginPassword.trim()) return;
     setLoginLoading(true);
     setLoginError('');
-    const res = await fetch('/api/admin/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ password }),
-    });
-    setLoginLoading(false);
-    if (res.ok) {
-      sessionStorage.setItem('wish_admin_pw', password);
-      setAuthed(true);
-    } else {
-      setLoginError('Incorrect password');
+    try {
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: loginPassword }),
+      });
+      if (res.ok) {
+        const { token: newToken } = await res.json();
+        sessionStorage.setItem('wish_admin_token', newToken);
+        setToken(newToken);
+        setAuthed(true);
+      } else if (res.status === 429) {
+        setLoginError('Too many login attempts. Try again in 15 minutes.');
+      } else {
+        setLoginError('Incorrect password');
+      }
+    } catch {
+      setLoginError('Connection error. Please try again.');
     }
+    setLoginLoading(false);
   }
 
   async function handleSave() {
@@ -470,12 +598,12 @@ export default function AdminPanel() {
       const [cr, qr] = await Promise.all([
         fetch('/api/admin/course', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+          headers: { 'Content-Type': 'application/json', ...authHeaders },
           body: JSON.stringify(modules),
         }),
         fetch('/api/admin/quiz', {
           method: 'PUT',
-          headers: { 'Content-Type': 'application/json', 'x-admin-password': password },
+          headers: { 'Content-Type': 'application/json', ...authHeaders },
           body: JSON.stringify(quizData),
         }),
       ]);
@@ -488,9 +616,10 @@ export default function AdminPanel() {
   }
 
   function handleLogout() {
-    sessionStorage.removeItem('wish_admin_pw');
+    sessionStorage.removeItem('wish_admin_token');
+    setToken('');
     setAuthed(false);
-    setPassword('');
+    setLoginPassword('');
   }
 
   // ─── Slide mutations ────────────────────────────────────────────────────────
@@ -657,8 +786,8 @@ export default function AdminPanel() {
           <label style={labelStyle}>Password</label>
           <input
             type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            value={loginPassword}
+            onChange={e => setLoginPassword(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && handleLogin()}
             placeholder="Enter admin password"
             style={{ ...inputStyle, borderColor: loginError ? C.red : C.border }}
@@ -707,7 +836,7 @@ export default function AdminPanel() {
           {saveStatus === 'saved' && <span style={{ color: '#166534', fontWeight: 700, fontSize: '14px', background: '#DCFCE7', padding: '4px 12px', borderRadius: '6px' }}>Saved!</span>}
           {saveStatus === 'error' && <span style={{ color: '#991B1B', fontWeight: 700, fontSize: '14px', background: '#FEE2E2', padding: '4px 12px', borderRadius: '6px' }}>Save failed</span>}
           <button
-            onClick={() => { setShowHistory(true); loadHistory(); }}
+            onClick={() => { setShowHistory(true); loadHistory(token); }}
             style={{ background: 'rgba(27,58,107,0.12)', color: C.navy, border: 'none', borderRadius: '8px', padding: '8px 16px', fontWeight: 600, fontSize: '13px', cursor: 'pointer' }}
           >
             History
@@ -735,12 +864,16 @@ export default function AdminPanel() {
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
           {/* Top-level nav */}
           <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
-            {(['content', 'users'] as const).map(v => (
+            {(['content', 'users', 'roster'] as const).map(v => (
               <button
                 key={v}
-                onClick={() => { setAdminView(v); if (v === 'users') loadUsers(); }}
+                onClick={() => {
+                  setAdminView(v);
+                  if (v === 'users') loadUsers();
+                  if (v === 'roster') loadRoster();
+                }}
                 style={{
-                  flex: 1, padding: '12px', border: 'none', fontWeight: 700, fontSize: '12px', cursor: 'pointer',
+                  flex: 1, padding: '10px 4px', border: 'none', fontWeight: 700, fontSize: '11px', cursor: 'pointer',
                   textTransform: 'uppercase', letterSpacing: '0.5px',
                   background: adminView === v ? C.navy : 'transparent',
                   color: adminView === v ? C.white : C.gray,
@@ -748,139 +881,208 @@ export default function AdminPanel() {
                   transition: 'all 0.15s',
                 }}
               >
-                {v === 'content' ? 'Content' : 'Users'}
+                {v}
               </button>
             ))}
           </div>
+
+          {/* Content tab: module list */}
           {adminView === 'content' && (
-          <div style={{ padding: '14px 16px', borderBottom: `1px solid ${C.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              Modules ({modules.length})
-            </span>
-            <button
-              onClick={addModule}
-              style={{ background: C.navy, color: C.white, border: 'none', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', fontWeight: 700, cursor: 'pointer' }}
-            >
-              + Add
-            </button>
-          </div>
-          )}
-          {adminView === 'content' && (
-          <div style={{ flex: 1, overflowY: 'auto' }}>
-            {modules.map((mod, idx) => (
-              <div
-                key={mod.id}
-                onClick={() => { setSelectedModIdx(idx); setExpandedSlide(null); setExpandedQuestion(null); }}
-                style={{
-                  padding: '12px 16px', cursor: 'pointer',
-                  borderBottom: `1px solid ${C.border}`,
-                  background: selectedModIdx === idx ? '#EFF6FF' : 'transparent',
-                  borderLeft: `4px solid ${selectedModIdx === idx ? C.orange : 'transparent'}`,
-                  transition: 'background 0.1s',
-                }}
-              >
-                <div style={{ fontSize: '10px', color: C.gray, marginBottom: '2px', fontWeight: 600 }}>Module {idx + 1}</div>
-                <div style={{ fontSize: '13px', fontWeight: 600, color: C.navy, lineHeight: '1.3' }}>{mod.name}</div>
-                <div style={{ fontSize: '11px', color: C.gray, marginTop: '4px' }}>
-                  {mod.slides.length} slides · {(quizData[mod.id] || []).length} questions
-                </div>
+            <>
+              <div style={{ padding: '14px 16px', borderBottom: `1px solid ${C.border}`, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  Modules ({modules.length})
+                </span>
+                <button
+                  onClick={addModule}
+                  style={{ background: C.navy, color: C.white, border: 'none', borderRadius: '6px', padding: '4px 10px', fontSize: '12px', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  + Add
+                </button>
               </div>
-            ))}
-          </div>
+              <div style={{ flex: 1, overflowY: 'auto' }}>
+                {modules.map((mod, idx) => (
+                  <div
+                    key={mod.id}
+                    onClick={() => { setSelectedModIdx(idx); setExpandedSlide(null); setExpandedQuestion(null); }}
+                    style={{
+                      padding: '12px 16px', cursor: 'pointer',
+                      borderBottom: `1px solid ${C.border}`,
+                      background: selectedModIdx === idx ? '#EFF6FF' : 'transparent',
+                      borderLeft: `4px solid ${selectedModIdx === idx ? C.orange : 'transparent'}`,
+                      transition: 'background 0.1s',
+                    }}
+                  >
+                    <div style={{ fontSize: '10px', color: C.gray, marginBottom: '2px', fontWeight: 600 }}>Module {idx + 1}</div>
+                    <div style={{ fontSize: '13px', fontWeight: 600, color: C.navy, lineHeight: '1.3' }}>{mod.name}</div>
+                    <div style={{ fontSize: '11px', color: C.gray, marginTop: '4px' }}>
+                      {mod.slides.length} slides · {(quizData[mod.id] || []).length} questions
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
+
+          {/* Users tab */}
           {adminView === 'users' && (
-          <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
-            {usersLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
-            {!usersLoading && users.length === 0 && (
-              <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No users yet.</div>
-            )}
-            {users.map(u => {
-              const pct = modules.length ? Math.round((u.modules_completed / modules.length) * 100) : 0;
-              const done = u.modules_completed === modules.length && modules.length > 0;
-              return (
-                <div key={u.email} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '8px', borderLeft: `4px solid ${done ? C.green : u.modules_started > 0 ? C.orange : C.border}` }}>
-                  <div style={{ fontWeight: 700, fontSize: '13px', color: C.navy }}>{u.name}</div>
-                  <div style={{ fontSize: '11px', color: C.gray, marginBottom: '6px' }}>{u.email}</div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                    <span style={{ fontSize: '11px', color: done ? C.green : C.gray, fontWeight: 600 }}>
-                      {done ? 'Completed' : `${u.modules_completed}/${modules.length} modules`}
-                    </span>
-                    <span style={{ fontSize: '11px', color: C.gray }}>{pct}%</span>
+            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              {usersLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+              {!usersLoading && users.length === 0 && (
+                <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No users yet.</div>
+              )}
+              {users.map(u => {
+                const pct = modules.length ? Math.round((u.modules_completed / modules.length) * 100) : 0;
+                const done = u.modules_completed === modules.length && modules.length > 0;
+                return (
+                  <div key={u.email} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '8px', borderLeft: `4px solid ${done ? C.green : u.modules_started > 0 ? C.orange : C.border}` }}>
+                    <div style={{ fontWeight: 700, fontSize: '13px', color: C.navy }}>{u.name}</div>
+                    <div style={{ fontSize: '11px', color: C.gray, marginBottom: '6px' }}>{u.email}</div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                      <span style={{ fontSize: '11px', color: done ? C.green : C.gray, fontWeight: 600 }}>
+                        {done ? 'Completed' : `${u.modules_completed}/${modules.length} modules`}
+                      </span>
+                      <span style={{ fontSize: '11px', color: C.gray }}>{pct}%</span>
+                    </div>
+                    <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${pct}%`, background: done ? C.green : C.orange, borderRadius: '2px', transition: 'width 0.3s' }} />
+                    </div>
+                    <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
+                      Last active: {new Date(u.last_synced).toLocaleDateString()}
+                    </div>
                   </div>
-                  <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden' }}>
-                    <div style={{ height: '100%', width: `${pct}%`, background: done ? C.green : C.orange, borderRadius: '2px', transition: 'width 0.3s' }} />
-                  </div>
-                  <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
-                    Last active: {new Date(u.last_synced).toLocaleDateString()}
-                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Roster tab */}
+          {adminView === 'roster' && (
+            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              <div style={{ background: '#EFF6FF', border: `1px solid #BFDBFE`, borderRadius: '8px', padding: '10px 12px', marginBottom: '12px', fontSize: '11px', color: C.navy, lineHeight: '1.5' }}>
+                Enable roster enforcement by setting <strong>REQUIRE_ROSTER=true</strong> in Railway env vars. When enabled, only listed emails can log in.
+              </div>
+              {/* Add to roster */}
+              <div style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '12px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '8px' }}>Add to Roster</div>
+                <input
+                  value={rosterEmail}
+                  onChange={e => setRosterEmail(e.target.value)}
+                  placeholder="Email address"
+                  style={{ ...inputStyle, marginBottom: '6px', fontSize: '13px' }}
+                  onKeyDown={e => e.key === 'Enter' && addToRoster()}
+                />
+                <input
+                  value={rosterName}
+                  onChange={e => setRosterName(e.target.value)}
+                  placeholder="Name (optional)"
+                  style={{ ...inputStyle, marginBottom: '8px', fontSize: '13px' }}
+                  onKeyDown={e => e.key === 'Enter' && addToRoster()}
+                />
+                <button
+                  onClick={addToRoster}
+                  disabled={rosterSaving || !rosterEmail.trim()}
+                  style={{
+                    width: '100%', padding: '8px', background: C.navy, color: C.white,
+                    border: 'none', borderRadius: '6px', fontSize: '12px', fontWeight: 700,
+                    cursor: rosterSaving || !rosterEmail.trim() ? 'not-allowed' : 'pointer',
+                    opacity: !rosterEmail.trim() ? 0.5 : 1,
+                  }}
+                >
+                  {rosterSaving ? 'Adding...' : 'Add'}
+                </button>
+              </div>
+              {/* Roster list */}
+              {rosterLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+              {!rosterLoading && roster.length === 0 && (
+                <div style={{ color: C.gray, fontSize: '13px', padding: '8px', textAlign: 'center' }}>
+                  No emails on roster yet.
                 </div>
-              );
-            })}
-          </div>
+              )}
+              {roster.map(r => (
+                <div key={r.email} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 12px', marginBottom: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    {r.name && <div style={{ fontSize: '12px', fontWeight: 700, color: C.navy }}>{r.name}</div>}
+                    <div style={{ fontSize: '11px', color: C.gray }}>{r.email}</div>
+                  </div>
+                  <button
+                    onClick={() => removeFromRoster(r.email)}
+                    style={{ background: '#FEE2E2', color: C.red, border: 'none', borderRadius: '4px', padding: '4px 8px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }}
+                  >
+                    Remove
+                  </button>
+                </div>
+              ))}
+            </div>
           )}
         </div>
 
         {/* Editor area */}
-        {adminView === 'content' && <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-          {selectedMod ? (
-            <>
-              {/* Module toolbar */}
-              <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ ...labelStyle, marginBottom: '4px' }}>Module Name</div>
-                  <input
-                    value={selectedMod.name}
-                    onChange={e => updateModuleName(selectedModIdx, e.target.value)}
-                    style={{ fontSize: '17px', fontWeight: 700, color: C.navy, border: 'none', borderBottom: `2px solid ${C.border}`, outline: 'none', padding: '4px 0', width: '100%', background: 'transparent', fontFamily: 'inherit' }}
-                  />
+        {adminView === 'content' && (
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+            {selectedMod ? (
+              <>
+                {/* Module toolbar */}
+                <div style={{ background: C.white, borderBottom: `1px solid ${C.border}`, padding: '14px 24px', display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ ...labelStyle, marginBottom: '4px' }}>Module Name</div>
+                    <input
+                      value={selectedMod.name}
+                      onChange={e => updateModuleName(selectedModIdx, e.target.value)}
+                      style={{ fontSize: '17px', fontWeight: 700, color: C.navy, border: 'none', borderBottom: `2px solid ${C.border}`, outline: 'none', padding: '4px 0', width: '100%', background: 'transparent', fontFamily: 'inherit' }}
+                    />
+                  </div>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
+                    <TabBtn active={activeTab === 'slides'} onClick={() => { setActiveTab('slides'); setExpandedSlide(null); }}>
+                      Slides ({selectedMod.slides.length})
+                    </TabBtn>
+                    <TabBtn active={activeTab === 'quiz'} onClick={() => { setActiveTab('quiz'); setExpandedQuestion(null); }}>
+                      Quiz ({selectedQuiz.length})
+                    </TabBtn>
+                    <button
+                      onClick={() => deleteModule(selectedModIdx)}
+                      style={{ background: '#FEE2E2', color: C.red, border: 'none', borderRadius: '6px', padding: '6px 12px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
+                    >
+                      Delete Module
+                    </button>
+                  </div>
                 </div>
-                <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexShrink: 0 }}>
-                  <TabBtn active={activeTab === 'slides'} onClick={() => { setActiveTab('slides'); setExpandedSlide(null); }}>
-                    Slides ({selectedMod.slides.length})
-                  </TabBtn>
-                  <TabBtn active={activeTab === 'quiz'} onClick={() => { setActiveTab('quiz'); setExpandedQuestion(null); }}>
-                    Quiz ({selectedQuiz.length})
-                  </TabBtn>
-                  <button
-                    onClick={() => deleteModule(selectedModIdx)}
-                    style={{ background: '#FEE2E2', color: C.red, border: 'none', borderRadius: '6px', padding: '6px 12px', fontSize: '12px', fontWeight: 600, cursor: 'pointer' }}
-                  >
-                    Delete Module
-                  </button>
-                </div>
-              </div>
 
-              {/* Scrollable content */}
-              <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
-                {activeTab === 'slides' ? (
-                  <SlidesEditor
-                    slides={selectedMod.slides}
-                    expandedSlide={expandedSlide}
-                    setExpandedSlide={setExpandedSlide}
-                    onUpdate={(sIdx, field, val) => updateSlide(selectedModIdx, sIdx, field, val)}
-                    onAdd={() => addSlide(selectedModIdx)}
-                    onDelete={sIdx => deleteSlide(selectedModIdx, sIdx)}
-                    onMove={(sIdx, dir) => moveSlide(selectedModIdx, sIdx, dir)}
-                  />
-                ) : (
-                  <QuizEditor
-                    questions={selectedQuiz}
-                    expandedQuestion={expandedQuestion}
-                    setExpandedQuestion={setExpandedQuestion}
-                    onUpdate={(qIdx, field, val) => updateQuestion(selectedModIdx, qIdx, field, val)}
-                    onUpdateOption={(qIdx, optIdx, val) => updateQuestionOption(selectedModIdx, qIdx, optIdx, val)}
-                    onAdd={() => addQuestion(selectedModIdx)}
-                    onDelete={qIdx => deleteQuestion(selectedModIdx, qIdx)}
-                  />
-                )}
+                {/* Scrollable content */}
+                <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
+                  {activeTab === 'slides' ? (
+                    <SlidesEditor
+                      slides={selectedMod.slides}
+                      expandedSlide={expandedSlide}
+                      setExpandedSlide={setExpandedSlide}
+                      onUpdate={(sIdx, field, val) => updateSlide(selectedModIdx, sIdx, field, val)}
+                      onAdd={() => addSlide(selectedModIdx)}
+                      onDelete={sIdx => deleteSlide(selectedModIdx, sIdx)}
+                      onMove={(sIdx, dir) => moveSlide(selectedModIdx, sIdx, dir)}
+                      moduleId={selectedMod.id}
+                      token={token}
+                      onScreenshotUpdate={(sIdx, url) => updateSlide(selectedModIdx, sIdx, 'screenshot' as keyof Slide, url)}
+                    />
+                  ) : (
+                    <QuizEditor
+                      questions={selectedQuiz}
+                      expandedQuestion={expandedQuestion}
+                      setExpandedQuestion={setExpandedQuestion}
+                      onUpdate={(qIdx, field, val) => updateQuestion(selectedModIdx, qIdx, field, val)}
+                      onUpdateOption={(qIdx, optIdx, val) => updateQuestionOption(selectedModIdx, qIdx, optIdx, val)}
+                      onAdd={() => addQuestion(selectedModIdx)}
+                      onDelete={qIdx => deleteQuestion(selectedModIdx, qIdx)}
+                    />
+                  )}
+                </div>
+              </>
+            ) : (
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.gray, fontSize: '16px' }}>
+                Select a module from the sidebar to begin editing
               </div>
-            </>
-          ) : (
-            <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', color: C.gray, fontSize: '16px' }}>
-              Select a module from the sidebar to begin editing
-            </div>
-          )}
-        </div>}
+            )}
+          </div>
+        )}
       </div>
 
       {/* History drawer */}
@@ -888,7 +1090,6 @@ export default function AdminPanel() {
         <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex' }}>
           <div onClick={() => setShowHistory(false)} style={{ flex: 1, background: 'rgba(0,0,0,0.4)' }} />
           <div style={{ width: '480px', background: C.white, display: 'flex', flexDirection: 'column', boxShadow: '-4px 0 24px rgba(0,0,0,0.15)' }}>
-            {/* Drawer header */}
             <div style={{ padding: '20px 24px', borderBottom: `1px solid ${C.border}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0 }}>
               <div>
                 <div style={{ fontSize: '17px', fontWeight: 700, color: C.navy }}>Change History</div>
@@ -897,7 +1098,6 @@ export default function AdminPanel() {
               <button onClick={() => setShowHistory(false)} style={{ background: 'none', border: 'none', fontSize: '22px', cursor: 'pointer', color: C.gray }}>✕</button>
             </div>
 
-            {/* Entries */}
             <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
               {historyLoading && <div style={{ textAlign: 'center', padding: '48px', color: C.gray }}>Loading...</div>}
               {!historyLoading && history.length === 0 && (

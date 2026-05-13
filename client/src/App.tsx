@@ -6,6 +6,7 @@ import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
 import AdminPanel from './components/AdminPanel';
+import Certificate from './components/Certificate';
 
 type AppView = 'login' | 'dashboard' | 'module';
 
@@ -18,6 +19,7 @@ export default function App() {
   const [modules, setModules] = useState<Module[]>([]);
   const [quizData, setQuizData] = useState<Record<string, QuizQuestion[]>>({});
   const [dataLoaded, setDataLoaded] = useState(false);
+  const [showCertificate, setShowCertificate] = useState(false);
 
   useEffect(() => {
     if (isAdmin) { setDataLoaded(true); return; }
@@ -51,7 +53,18 @@ export default function App() {
     }
   }, []);
 
-  async function handleLogin(name: string, email: string) {
+  async function handleLogin(name: string, email: string): Promise<string | null> {
+    try {
+      const loginRes = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (loginRes.status === 403) return 'not_on_roster';
+      if (!loginRes.ok) return null;
+    } catch {
+      return null;
+    }
     const serverProgress = await fetchProgressFromServer(email);
     const p = serverProgress
       ? { ...serverProgress, user_name: name }
@@ -60,6 +73,7 @@ export default function App() {
     setProgress(p);
     if (!serverProgress) syncProgressToServer(p);
     setView('dashboard');
+    return null;
   }
 
   function handleStartModule(index: number) {
@@ -103,6 +117,10 @@ export default function App() {
     return <LoginScreen onLogin={handleLogin} />;
   }
 
+  if (showCertificate && progress) {
+    return <Certificate progress={progress} modules={modules} onClose={() => setShowCertificate(false)} />;
+  }
+
   if (view === 'module' && progress) {
     return (
       <ModulePlayer
@@ -125,6 +143,7 @@ export default function App() {
         progress={progress}
         onStartModule={handleStartModule}
         onLogout={handleLogout}
+        onViewCertificate={() => setShowCertificate(true)}
       />
     );
   }

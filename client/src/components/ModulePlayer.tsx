@@ -3,6 +3,7 @@ import { Module, CourseProgress, QuizQuestion } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
 import Quiz from './Quiz';
 import Character from './Character';
+import { useIsMobile } from '../utils/useIsMobile';
 
 type Timing = { word: string; start: number; end: number };
 type PrefetchEntry = { url: string; timings: Timing[] };
@@ -54,6 +55,7 @@ export default function ModulePlayer({
   onBack,
 }: Props) {
   const mp = getModuleProgress(progress, module.id);
+  const isMobile = useIsMobile();
   const [slideIndex, setSlideIndex] = useState(mp.last_slide ?? 0);
   const [view, setView] = useState<PlayerView>('slides');
   const [isPlaying, setIsPlaying] = useState(false);
@@ -434,16 +436,16 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
   return (
     <div style={styles.page}>
       {/* Top bar */}
-      <div style={styles.topBar}>
+      <div style={{ ...styles.topBar, height: isMobile ? 'auto' : '72px', padding: isMobile ? '10px 12px' : '0 24px', flexWrap: 'wrap' as const, gap: '8px' }}>
         <button style={styles.backBtn} onClick={() => { stopAudio(); onBack(); }}>
           ← Back
         </button>
-        <div style={styles.topCenter}>
+        <div style={{ ...styles.topCenter, gap: isMobile ? '8px' : '12px' }}>
           <div style={styles.brandMark}>
-            <span style={styles.brandWish}>WISH</span>
+            <span style={{ ...styles.brandWish, fontSize: isMobile ? '20px' : '28px' }}>WISH</span>
           </div>
-          <span style={styles.moduleBadge}>Module {moduleIndex + 1} of {totalModules}</span>
-          <span style={styles.moduleTitle}>{module.name}</span>
+          <span style={{ ...styles.moduleBadge, fontSize: '10px', padding: '2px 8px' }}>M{moduleIndex + 1}/{totalModules}</span>
+          {!isMobile && <span style={styles.moduleTitle}>{module.name}</span>}
         </div>
         <div style={styles.topRight}>
           <div style={styles.miniProgress}>
@@ -454,8 +456,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       </div>
 
       {/* Slide area */}
-      <div style={styles.slideArea}>
-        <div style={{ ...styles.slideCard, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
+      <div style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
+        <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : '40px 48px', opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           {/* Character inline top-right */}
           <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
             <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
@@ -505,7 +507,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       </div>
 
       {/* Bottom navigation */}
-      <div style={styles.bottomBar}>
+      <div style={{ ...styles.bottomBar, flexWrap: 'wrap' as const, padding: isMobile ? '10px 12px' : '16px 32px', gap: isMobile ? '8px' : '16px' }}>
         {/* Speed selector — persists across all slides */}
         <div style={{ display: 'flex', gap: '4px', alignItems: 'center', flexShrink: 0 }}>
           {[0.75, 1, 1.25, 1.5].map(rate => (
@@ -553,24 +555,26 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           ))}
         </div>
 
-        <div style={styles.navBtns}>
-          <button style={{ ...styles.navBtn, ...styles.navBtnRestart }} onClick={handleRestart}>
-            ↺ Restart
-          </button>
+        <div style={{ ...styles.navBtns, flexWrap: 'wrap' as const }}>
+          {!isMobile && (
+            <button style={{ ...styles.navBtn, ...styles.navBtnRestart }} onClick={handleRestart}>
+              ↺ Restart
+            </button>
+          )}
           <button
-            style={{ ...styles.navBtn, opacity: slideIndex === 0 ? 0.4 : 1 }}
+            style={{ ...styles.navBtn, opacity: slideIndex === 0 ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
             disabled={slideIndex === 0}
             onClick={handlePrev}
           >
-            ← Previous
+            ← Prev
           </button>
           {isLastSlide && questions.length > 0 && (
-            <button style={{ ...styles.navBtn }} onClick={handleTakeQuiz}>
-              Take Quiz
+            <button style={{ ...styles.navBtn, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }} onClick={handleTakeQuiz}>
+              Quiz
             </button>
           )}
-          <button style={{ ...styles.navBtn, ...styles.navBtnPrimary }} onClick={handleNext}>
-            {isLastSlide ? 'Complete Module ✓' : 'Next →'}
+          <button style={{ ...styles.navBtn, ...styles.navBtnPrimary, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }} onClick={handleNext}>
+            {isLastSlide ? 'Complete ✓' : 'Next →'}
           </button>
         </div>
       </div>

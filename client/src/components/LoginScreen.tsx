@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
 interface Props {
-  onLogin: (name: string, email: string) => void;
+  onLogin: (name: string, email: string) => Promise<string | null>;
 }
 
 export default function LoginScreen({ onLogin }: Props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name.trim() || !email.trim()) {
       setError('Please enter your full name and email address.');
@@ -19,7 +20,15 @@ export default function LoginScreen({ onLogin }: Props) {
       setError('Please enter a valid email address.');
       return;
     }
-    onLogin(name.trim(), email.trim().toLowerCase());
+    setLoading(true);
+    setError('');
+    const result = await onLogin(name.trim(), email.trim().toLowerCase());
+    setLoading(false);
+    if (result === 'not_on_roster') {
+      setError('Your email is not on the approved training roster. Please contact your administrator.');
+    } else if (result !== null) {
+      setError('Unable to connect to the server. Please try again.');
+    }
   }
 
   return (
@@ -51,8 +60,8 @@ export default function LoginScreen({ onLogin }: Props) {
             onChange={e => setEmail(e.target.value)}
           />
           {error && <p style={styles.error}>{error}</p>}
-          <button type="submit" style={styles.button}>
-            Begin Training
+          <button type="submit" style={{ ...styles.button, opacity: loading ? 0.7 : 1 }} disabled={loading}>
+            {loading ? 'Checking...' : 'Begin Training'}
           </button>
         </form>
         <p style={styles.footer}>

@@ -16,6 +16,7 @@ const PORT = process.env.PORT || 3001;
 const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'wish-admin';
+const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../video_processing/screenshots');
 
 // PostgreSQL
 const pool = new Pool({
@@ -56,6 +57,16 @@ async function initDB() {
       audio TEXT NOT NULL,
       timings JSONB NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
+    );
+    CREATE TABLE IF NOT EXISTS admin_sessions (
+      token TEXT PRIMARY KEY,
+      created_at TIMESTAMPTZ DEFAULT NOW(),
+      expires_at TIMESTAMPTZ NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS roster (
+      email TEXT PRIMARY KEY,
+      name TEXT,
+      added_at TIMESTAMPTZ DEFAULT NOW()
     );
   `);
 
@@ -137,8 +148,7 @@ app.use(express.static(BUILD_DIR));
 const CLIPS_DIR = path.join(__dirname, '../video_processing/clips');
 app.use('/clips', express.static(CLIPS_DIR));
 
-// ─── Serve per-slide screenshots (local-only; not committed to git) ───────────
-const SCREENSHOTS_DIR = path.join(__dirname, '../video_processing/screenshots');
+// ─── Serve per-slide screenshots ─────────────────────────────────────────────
 app.use('/screenshots', express.static(SCREENSHOTS_DIR));
 
 // ─── Public: course data ──────────────────────────────────────────────────────
@@ -160,20 +170,52 @@ app.get('/api/quiz', async (req, res) => {
 });
 
 // ─── Admin auth middleware ─────────────────────────────────────────────────────
-function adminAuth(req, res, next) {
-  const pw = req.headers['x-admin-password'] || (req.body && req.body.password);
-  if (pw !== ADMIN_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
-  next();
+async function adminAuth(req, res, next) {
+  const authHeader = req.headers['authorization'];
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    const token = authHeader.slice(7);
+    try {
+      const r = await pool.query(
+        'SELECT token FROM admin_sessions WHERE token = $1 AND expires_at > NOW()',
+        [token]
+      );
+      if (r.rowCount > 0) return next();
+    } catch {}
+  }
+  return res.status(401).json({ error: 'Unauthorized' });
 }
 
-// ─── Admin: login check ───────────────────────────────────────────────────────
-app.post('/api/admin/login', (req, res) => {
+const adminLoginLimit = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5,
+  message: { error: 'Too many login attempts. Try again in 15 minutes.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// ─── Admin: login — issues session token ─────────────────────────────────────
+app.post('/api/admin/login', adminLoginLimit, async (req, res) => {
   const { password } = req.body;
-  if (password === ADMIN_PASSWORD) {
-    res.json({ ok: true });
-  } else {
-    res.status(401).json({ error: 'Invalid password' });
+  if (password !== ADMIN_PASSWORD) return res.status(401).json({ error: 'Invalid password' });
+  const token = crypto.randomBytes(32).toString('hex');
+  const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000);
+  await pool.query('INSERT INTO admin_sessions (token, expires_at) VALUES ($1, $2)', [token, expiresAt]);
+  await pool.query('DELETE FROM admin_sessions WHERE expires_at < NOW()');
+  res.json({ ok: true, token });
+});
+
+// ─── Admin: validate session token ───────────────────────────────────────────
+app.get('/api/admin/validate', adminAuth, (req, res) => res.json({ ok: true }));
+
+// ─── User login: roster check ─────────────────────────────────────────────────
+app.post('/api/login', async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json({ error: 'Email required' });
+  if (process.env.REQUIRE_ROSTER === 'true') {
+    const r = await pool.query('SELECT email FROM roster WHERE email = $1', [email.toLowerCase().trim()]);
+    if (r.rowCount === 0) return res.status(403).json({ error: 'not_on_roster' });
   }
+  res.json({ ok: true });
 });
 
 // ─── History ──────────────────────────────────────────────────────────────────
@@ -304,6 +346,58 @@ app.get('/api/admin/users', adminAuth, async (req, res) => {
     })));
   } catch (e) {
     res.status(500).json({ error: 'Failed to load users' });
+  }
+});
+
+// ─── Admin: roster management ─────────────────────────────────────────────────
+app.get('/api/admin/roster', adminAuth, async (req, res) => {
+  try {
+    const r = await pool.query('SELECT email, name, added_at FROM roster ORDER BY added_at DESC');
+    res.json(r.rows);
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load roster' });
+  }
+});
+
+app.post('/api/admin/roster', adminAuth, async (req, res) => {
+  const { email, name } = req.body;
+  if (!email) return res.status(400).json({ error: 'Email required' });
+  try {
+    await pool.query(
+      'INSERT INTO roster (email, name) VALUES ($1, $2) ON CONFLICT (email) DO UPDATE SET name = $2',
+      [email.toLowerCase().trim(), name?.trim() || null]
+    );
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to add to roster' });
+  }
+});
+
+app.delete('/api/admin/roster/:email', adminAuth, async (req, res) => {
+  try {
+    await pool.query('DELETE FROM roster WHERE email = $1', [req.params.email]);
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to remove from roster' });
+  }
+});
+
+// ─── Admin: screenshot upload ─────────────────────────────────────────────────
+app.post('/api/admin/screenshot', adminAuth, async (req, res) => {
+  const { moduleId, slideIndex, imageData } = req.body;
+  if (!moduleId || slideIndex === undefined || !imageData) {
+    return res.status(400).json({ error: 'Missing fields' });
+  }
+  try {
+    const dir = path.join(SCREENSHOTS_DIR, moduleId);
+    fs.mkdirSync(dir, { recursive: true });
+    const filename = `slide_${slideIndex}.jpg`;
+    const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
+    fs.writeFileSync(path.join(dir, filename), Buffer.from(base64Data, 'base64'));
+    res.json({ ok: true, url: `/screenshots/${moduleId}/${filename}` });
+  } catch (e) {
+    console.error('Screenshot upload failed:', e);
+    res.status(500).json({ error: 'Upload failed' });
   }
 });
 

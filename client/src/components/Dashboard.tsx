@@ -2,18 +2,21 @@ import React, { useEffect, useRef, useState } from 'react';
 import confetti from 'canvas-confetti';
 import { Module, CourseProgress } from '../types';
 import { getModuleProgress, getOverallCompletion } from '../utils/progress';
+import { useIsMobile } from '../utils/useIsMobile';
 
 interface Props {
   modules: Module[];
   progress: CourseProgress;
   onStartModule: (index: number) => void;
   onLogout: () => void;
+  onViewCertificate: () => void;
 }
 
-export default function Dashboard({ modules, progress, onStartModule, onLogout }: Props) {
+export default function Dashboard({ modules, progress, onStartModule, onLogout, onViewCertificate }: Props) {
   const overall = getOverallCompletion(progress, modules.length);
   const [animatedPct, setAnimatedPct] = useState(0);
   const confettiFiredRef = useRef(false);
+  const isMobile = useIsMobile();
 
   // Animate progress ring on mount
   useEffect(() => {
@@ -53,21 +56,21 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout }
   return (
     <div style={styles.page}>
       {/* Header */}
-      <div style={styles.header}>
+      <div style={{ ...styles.header, height: isMobile ? 'auto' : '72px', padding: isMobile ? '12px 16px' : '0 32px', flexWrap: 'wrap' as const, gap: isMobile ? '8px' : '0' }}>
         <div style={styles.brandMark}>
           <span style={styles.brandWish}>WISH</span>
-          <span style={styles.brandSub}>Training Portal</span>
+          {!isMobile && <span style={styles.brandSub}>Training Portal</span>}
         </div>
-        <div style={styles.userInfo}>
+        <div style={{ ...styles.userInfo, alignItems: isMobile ? 'flex-start' : 'flex-end' }}>
           <span style={styles.userName}>{progress.user_name}</span>
-          <span style={styles.userEmail}>{progress.user_email}</span>
+          {!isMobile && <span style={styles.userEmail}>{progress.user_email}</span>}
           <button style={styles.logoutBtn} onClick={onLogout}>Log Out</button>
         </div>
       </div>
 
-      <div style={styles.content}>
+      <div style={{ ...styles.content, padding: isMobile ? '16px' : '32px 24px' }}>
         {/* Progress overview */}
-        <div style={styles.overviewCard}>
+        <div style={{ ...styles.overviewCard, padding: isMobile ? '16px' : '28px 32px' }}>
           <div style={styles.overviewLeft}>
             <h2 style={styles.overviewTitle}>Training Progress</h2>
             <p style={styles.overviewSub}>
@@ -97,7 +100,7 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout }
 
         {/* Module grid */}
         <h3 style={styles.sectionTitle}>Training Modules</h3>
-        <div style={styles.grid}>
+        <div style={{ ...styles.grid, gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {modules.map((mod, index) => {
             const status = getModuleStatus(index);
             const cfg = statusConfig[status];
@@ -151,7 +154,28 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout }
 
         {overall === 100 && (
           <div style={styles.completionBanner}>
-            🎉 Congratulations, {progress.user_name}! You have completed all WISH training modules.
+            <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>
+              Congratulations, {progress.user_name}!
+            </div>
+            <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '16px' }}>
+              You have completed all {modules.length} WISH training modules.
+            </div>
+            <button
+              onClick={onViewCertificate}
+              style={{
+                padding: '12px 28px',
+                background: '#FFFFFF',
+                color: '#059669',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '14px',
+                fontWeight: 700,
+                cursor: 'pointer',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              }}
+            >
+              View & Print Certificate
+            </button>
           </div>
         )}
       </div>
