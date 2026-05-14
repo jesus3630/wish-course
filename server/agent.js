@@ -1,4 +1,4 @@
-const Anthropic = require('@anthropic-ai/sdk');
+const OpenAI = require('openai');
 const { isConfigured, getUnreadEmails, sendEmail, markAsRead } = require('./gmail');
 const { sendInviteEmail } = require('./email');
 
@@ -7,7 +7,7 @@ const AGENT_EMAIL = (process.env.GMAIL_AGENT_EMAIL || '').toLowerCase();
 const POLL_INTERVAL_MS = 60 * 1000;
 
 let pool;
-let anthropic;
+let openai;
 
 // Permission name → module ID (matches the WISH permission form checkboxes)
 const PERMISSION_TO_MODULE = {
@@ -47,58 +47,73 @@ function mapPermissions(permissions) {
 
 const TOOLS = [
   {
-    name: 'enroll_user',
-    description: 'Add a person to the WISH training roster with their specific permissions and send them an enrollment invite.',
-    input_schema: {
-      type: 'object',
-      properties: {
-        name: { type: 'string', description: 'Full name of the person to enroll' },
-        email: { type: 'string', description: 'Email address of the person to enroll' },
-        permissions: {
-          type: 'array',
-          items: { type: 'string' },
-          description: 'WISH permissions being granted. Use exact names from the form: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory',
+    type: 'function',
+    function: {
+      name: 'enroll_user',
+      description: 'Add a person to the WISH training roster with their specific permissions and send them an enrollment invite.',
+      parameters: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', description: 'Full name of the person to enroll' },
+          email: { type: 'string', description: 'Email address of the person to enroll' },
+          permissions: {
+            type: 'array',
+            items: { type: 'string' },
+            description: 'WISH permissions being granted: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory',
+          },
         },
+        required: ['email', 'permissions'],
       },
-      required: ['email', 'permissions'],
     },
   },
   {
-    name: 'check_progress',
-    description: 'Look up the WISH training progress for a specific user by email.',
-    input_schema: {
-      type: 'object',
-      properties: {
-        email: { type: 'string', description: 'Email address to look up' },
+    type: 'function',
+    function: {
+      name: 'check_progress',
+      description: 'Look up the WISH training progress for a specific user by email.',
+      parameters: {
+        type: 'object',
+        properties: {
+          email: { type: 'string', description: 'Email address to look up' },
+        },
+        required: ['email'],
       },
-      required: ['email'],
     },
   },
   {
-    name: 'list_enrolled_users',
-    description: 'Get all users currently enrolled in WISH training with their progress and completion status.',
-    input_schema: { type: 'object', properties: {} },
-  },
-  {
-    name: 'remove_user',
-    description: 'Remove a user from the WISH training roster.',
-    input_schema: {
-      type: 'object',
-      properties: {
-        email: { type: 'string', description: 'Email address to remove' },
-      },
-      required: ['email'],
+    type: 'function',
+    function: {
+      name: 'list_enrolled_users',
+      description: 'Get all users currently enrolled in WISH training with their progress and completion status.',
+      parameters: { type: 'object', properties: {} },
     },
   },
   {
-    name: 'send_reply',
-    description: 'Send a reply email back to the person who made the request. Always call this at the end to confirm what was done.',
-    input_schema: {
-      type: 'object',
-      properties: {
-        message: { type: 'string', description: 'The reply message. Be concise and professional.' },
+    type: 'function',
+    function: {
+      name: 'remove_user',
+      description: 'Remove a user from the WISH training roster.',
+      parameters: {
+        type: 'object',
+        properties: {
+          email: { type: 'string', description: 'Email address to remove' },
+        },
+        required: ['email'],
       },
-      required: ['message'],
+    },
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'send_reply',
+      description: 'Send a reply email back to the person who made the request. Always call this at the end.',
+      parameters: {
+        type: 'object',
+        properties: {
+          message: { type: 'string', description: 'The reply message. Be concise and professional.' },
+        },
+        required: ['message'],
+      },
     },
   },
 ];
@@ -208,36 +223,32 @@ async function processEmail(email) {
   console.log(`[agent] Processing: "${email.subject}" from ${email.fromEmail}`);
 
   const messages = [
-    {
-      role: 'user',
-      content: `From: ${email.from}\nSubject: ${email.subject}\n\n${email.body.substring(0, 4000)}`,
-    },
+    { role: 'system', content: SYSTEM_PROMPT },
+    { role: 'user', content: `From: ${email.from}\nSubject: ${email.subject}\n\n${email.body.substring(0, 4000)}` },
   ];
 
-  // Agentic loop — keeps running until Claude stops requesting tools
+  // Agentic loop — keeps running until model stops calling tools
   while (true) {
-    const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-6',
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      tools: TOOLS,
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4o-mini',
       messages,
+      tools: TOOLS,
+      tool_choice: 'auto',
     });
 
-    if (response.stop_reason === 'end_turn') break;
-    if (response.stop_reason !== 'tool_use') break;
+    const msg = response.choices[0].message;
+    messages.push(msg);
 
-    const toolResults = [];
-    for (const block of response.content) {
-      if (block.type !== 'tool_use') continue;
-      console.log(`[agent] Tool: ${block.name}`, JSON.stringify(block.input));
-      const result = await executeTool(block.name, block.input, email);
+    if (!msg.tool_calls || msg.tool_calls.length === 0) break;
+
+    for (const tc of msg.tool_calls) {
+      const name = tc.function.name;
+      const input = JSON.parse(tc.function.arguments);
+      console.log(`[agent] Tool: ${name}`, JSON.stringify(input));
+      const result = await executeTool(name, input, email);
       console.log(`[agent] Result:`, JSON.stringify(result));
-      toolResults.push({ type: 'tool_result', tool_use_id: block.id, content: JSON.stringify(result) });
+      messages.push({ role: 'tool', tool_call_id: tc.id, content: JSON.stringify(result) });
     }
-
-    messages.push({ role: 'assistant', content: response.content });
-    messages.push({ role: 'user', content: toolResults });
   }
 
   console.log(`[agent] Done: ${email.fromEmail}`);
@@ -248,8 +259,8 @@ async function poll() {
     console.log('[agent] Gmail API not configured — skipping poll');
     return;
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.log('[agent] ANTHROPIC_API_KEY not set — skipping poll');
+  if (!process.env.OPENAI_API_KEY) {
+    console.log('[agent] OPENAI_API_KEY not set — skipping poll');
     return;
   }
 
@@ -272,7 +283,7 @@ async function poll() {
 
 function start(dbPool) {
   pool = dbPool;
-  anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+  openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   console.log('[agent] Email agent starting — polling every 60s');
   poll(); // run immediately
   setInterval(poll, POLL_INTERVAL_MS);
