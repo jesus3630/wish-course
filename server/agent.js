@@ -283,9 +283,13 @@ async function poll() {
 
 function start(dbPool) {
   pool = dbPool;
+  if (!process.env.OPENAI_API_KEY) {
+    console.log('[agent] OPENAI_API_KEY not set — agent disabled');
+    return;
+  }
   openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   console.log('[agent] Email agent starting — polling every 60s');
-  poll(); // run immediately
+  poll();
   setInterval(poll, POLL_INTERVAL_MS);
 }
 
