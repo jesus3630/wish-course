@@ -452,6 +452,7 @@ export default function AdminPanel() {
   const [rosterEmail, setRosterEmail] = useState('');
   const [rosterName, setRosterName] = useState('');
   const [rosterSaving, setRosterSaving] = useState(false);
+  const [inviteSending, setInviteSending] = useState<Record<string, boolean>>({});
 
   const authHeaders = { 'Authorization': `Bearer ${token}` };
 
@@ -513,6 +514,26 @@ export default function AdminPanel() {
       }
     } catch {}
     setRosterSaving(false);
+  }
+
+  async function sendInvite(email: string) {
+    setInviteSending(s => ({ ...s, [email]: true }));
+    try {
+      const res = await fetch('/api/admin/invite', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        alert(`Invite sent to ${email}`);
+      } else {
+        const err = await res.json();
+        alert(`Failed: ${err.error || 'Unknown error'}`);
+      }
+    } catch {
+      alert('Network error sending invite');
+    }
+    setInviteSending(s => ({ ...s, [email]: false }));
   }
 
   async function removeFromRoster(email: string) {
@@ -1005,12 +1026,21 @@ export default function AdminPanel() {
                     {r.name && <div style={{ fontSize: '12px', fontWeight: 700, color: C.navy }}>{r.name}</div>}
                     <div style={{ fontSize: '11px', color: C.gray }}>{r.email}</div>
                   </div>
-                  <button
-                    onClick={() => removeFromRoster(r.email)}
-                    style={{ background: '#FEE2E2', color: C.red, border: 'none', borderRadius: '4px', padding: '4px 8px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }}
-                  >
-                    Remove
-                  </button>
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <button
+                      onClick={() => sendInvite(r.email)}
+                      disabled={inviteSending[r.email]}
+                      style={{ background: '#EFF6FF', color: C.navy, border: 'none', borderRadius: '4px', padding: '4px 8px', fontSize: '11px', fontWeight: 600, cursor: inviteSending[r.email] ? 'not-allowed' : 'pointer', opacity: inviteSending[r.email] ? 0.6 : 1 }}
+                    >
+                      {inviteSending[r.email] ? 'Sending...' : 'Send Invite'}
+                    </button>
+                    <button
+                      onClick={() => removeFromRoster(r.email)}
+                      style={{ background: '#FEE2E2', color: C.red, border: 'none', borderRadius: '4px', padding: '4px 8px', fontSize: '11px', fontWeight: 600, cursor: 'pointer' }}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

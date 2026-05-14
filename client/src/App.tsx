@@ -98,7 +98,12 @@ export default function App() {
     saveProgress(updated);
     setProgress(updated);
     syncProgressToServer(updated);
-    setView('dashboard');
+    const allComplete = modules.every(m => updated.modules[m.id]?.completed === true);
+    if (allComplete) {
+      setShowCertificate(true);
+    } else {
+      setView('dashboard');
+    }
   }
 
   if (isAdmin) {

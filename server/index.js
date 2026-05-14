@@ -7,6 +7,7 @@ const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
+const sgMail = require('@sendgrid/mail');
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,15 @@ const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'wish-admin';
 const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../video_processing/screenshots');
+const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'training@protatech.com';
+const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
+
+if (process.env.SENDGRID_API_KEY) {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  console.log('[email] SendGrid configured');
+} else {
+  console.log('[email] SENDGRID_API_KEY not set — email disabled');
+}
 
 // PostgreSQL
 const pool = new Pool({
@@ -138,6 +148,72 @@ async function setCachedNarration(hash, audio, timings) {
     'INSERT INTO narration_cache (text_hash, audio, timings) VALUES ($1, $2, $3) ON CONFLICT (text_hash) DO NOTHING',
     [hash, audio, JSON.stringify(timings)]
   );
+}
+
+// ─── Email helpers ────────────────────────────────────────────────────────────
+async function sendInviteEmail(email, name) {
+  if (!process.env.SENDGRID_API_KEY) {
+    console.log(`[email] invite skipped (no API key) — would send to ${email}`);
+    return;
+  }
+  const greeting = name ? `Hi ${name},` : 'Hello,';
+  await sgMail.send({
+    to: email,
+    from: FROM_EMAIL,
+    subject: "You're enrolled in the WISH Training Program",
+    html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
+      <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
+        <span style="color:#D4782A;font-size:28px;font-weight:900;letter-spacing:4px">WISH</span>
+        <div style="color:#fff;font-size:11px;margin-top:4px;letter-spacing:2px">WORKFORCE INFORMATION SYSTEMS HOSTED</div>
+      </div>
+      <div style="border:1px solid #E5E7EB;border-top:none;border-radius:0 0 8px 8px;padding:32px 24px">
+        <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
+        <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. This self-paced online course covers all aspects of the Workforce Information Systems Hosted platform used by Los Angeles County.</p>
+        <div style="text-align:center;margin:32px 0">
+          <a href="${SITE_URL}" style="background:#D4782A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">Start Training</a>
+        </div>
+        <p style="color:#6B7280;font-size:13px;line-height:1.6">Complete all modules and their knowledge checks to earn your certificate of completion. Your progress is automatically saved — resume at any time from any browser.</p>
+        <hr style="border:none;border-top:1px solid #E5E7EB;margin:24px 0">
+        <p style="color:#9CA3AF;font-size:12px;margin:0">ProtaTECH Training Portal &middot; <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></p>
+      </div>
+    </div>`,
+  });
+  console.log(`[email] Invite sent to ${email}`);
+}
+
+async function sendCompletionEmail(name, email) {
+  if (!process.env.SENDGRID_API_KEY) {
+    console.log(`[email] completion skipped (no API key) — would send to ${email}`);
+    return;
+  }
+  const completedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  await sgMail.send({
+    to: email,
+    from: FROM_EMAIL,
+    subject: `Congratulations ${name} — WISH Training Complete!`,
+    html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
+      <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
+        <span style="color:#D4782A;font-size:28px;font-weight:900;letter-spacing:4px">WISH</span>
+        <div style="color:#fff;font-size:11px;margin-top:4px;letter-spacing:2px">WORKFORCE INFORMATION SYSTEMS HOSTED</div>
+      </div>
+      <div style="border:1px solid #E5E7EB;border-top:none;border-radius:0 0 8px 8px;padding:32px 24px">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="width:72px;height:72px;background:#1B3A6B;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px">
+            <span style="color:#D4782A;font-size:32px">&#10003;</span>
+          </div>
+          <h1 style="color:#1B3A6B;font-size:22px;margin:0 0 8px">Certificate of Completion</h1>
+          <p style="color:#374151;font-size:16px;margin:0">Congratulations, <strong>${name}</strong>!</p>
+        </div>
+        <p style="color:#374151;line-height:1.6;text-align:center">You have successfully completed all modules of the <strong>WISH Training Program</strong> on <strong>${completedDate}</strong>. You may now view and print your official certificate.</p>
+        <div style="text-align:center;margin:32px 0">
+          <a href="${SITE_URL}" style="background:#1B3A6B;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">View &amp; Print Certificate</a>
+        </div>
+        <hr style="border:none;border-top:1px solid #E5E7EB;margin:24px 0">
+        <p style="color:#9CA3AF;font-size:12px;margin:0;text-align:center">ProtaTECH Training Portal &middot; <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></p>
+      </div>
+    </div>`,
+  });
+  console.log(`[email] Completion email sent to ${email}`);
 }
 
 // ─── Serve React build ────────────────────────────────────────────────────────
@@ -382,6 +458,21 @@ app.delete('/api/admin/roster/:email', adminAuth, async (req, res) => {
   }
 });
 
+// ─── Admin: send invite email ─────────────────────────────────────────────────
+app.post('/api/admin/invite', adminAuth, async (req, res) => {
+  const { email } = req.body;
+  if (!email) return res.status(400).json({ error: 'Email required' });
+  try {
+    const r = await pool.query('SELECT name FROM roster WHERE email = $1', [email.toLowerCase().trim()]);
+    const name = r.rows[0]?.name || null;
+    await sendInviteEmail(email, name);
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('[email] invite failed:', e.message);
+    res.status(500).json({ error: 'Failed to send invite email' });
+  }
+});
+
 // ─── Admin: screenshot upload ─────────────────────────────────────────────────
 app.post('/api/admin/screenshot', adminAuth, async (req, res) => {
   const { moduleId, slideIndex, imageData } = req.body;
@@ -498,9 +589,27 @@ app.post('/api/progress', async (req, res) => {
   const { email, progress } = req.body;
   if (!email || !progress) return res.status(400).json({ error: 'Missing fields' });
   try {
+    let progressToSave = progress;
+
+    // Detect first-time completion and send certificate email
+    if (!progress.completed_at) {
+      const [existingRes, courseData] = await Promise.all([
+        pool.query('SELECT data FROM user_progress WHERE email = $1', [email]),
+        getCourseData(),
+      ]);
+      const wasAlreadyComplete = existingRes.rows[0]?.data?.completed_at;
+      if (!wasAlreadyComplete && courseData) {
+        const allComplete = courseData.every(m => progress.modules?.[m.id]?.completed === true);
+        if (allComplete) {
+          progressToSave = { ...progress, completed_at: new Date().toISOString() };
+          sendCompletionEmail(progress.user_name, email).catch(e => console.error('[email] completion send failed:', e.message));
+        }
+      }
+    }
+
     await pool.query(
       'INSERT INTO user_progress (email, data, last_synced) VALUES ($1, $2, NOW()) ON CONFLICT (email) DO UPDATE SET data = $2, last_synced = NOW()',
-      [email, JSON.stringify(progress)]
+      [email, JSON.stringify(progressToSave)]
     );
     res.json({ ok: true });
   } catch (e) {
