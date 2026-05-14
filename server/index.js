@@ -371,12 +371,26 @@ app.get('/api/admin/roster', adminAuth, async (req, res) => {
 });
 
 app.post('/api/admin/roster', adminAuth, async (req, res) => {
-  const { email, name } = req.body;
+  const { email, name, assigned_modules, username, password, requester_email } = req.body;
   if (!email) return res.status(400).json({ error: 'Email required' });
   try {
     await pool.query(
-      'INSERT INTO roster (email, name) VALUES ($1, $2) ON CONFLICT (email) DO UPDATE SET name = $2',
-      [email.toLowerCase().trim(), name?.trim() || null]
+      `INSERT INTO roster (email, name, assigned_modules, username, password, requester_email)
+       VALUES ($1, $2, $3, $4, $5, $6)
+       ON CONFLICT (email) DO UPDATE SET
+         name = COALESCE($2, roster.name),
+         assigned_modules = COALESCE($3, roster.assigned_modules),
+         username = COALESCE($4, roster.username),
+         password = COALESCE($5, roster.password),
+         requester_email = COALESCE($6, roster.requester_email)`,
+      [
+        email.toLowerCase().trim(),
+        name?.trim() || null,
+        assigned_modules ? JSON.stringify(assigned_modules) : null,
+        username || null,
+        password || null,
+        requester_email || null,
+      ]
     );
     res.json({ ok: true });
   } catch (e) {
