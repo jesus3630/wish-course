@@ -127,8 +127,8 @@ async function getUnreadEmails() {
   for (const msg of messages) {
     const detail = await gmail.users.messages.get({ userId: 'me', id: msg.id, format: 'full' });
     const parsed = parseMessage(detail.data);
-    // Skip self-sent to prevent reply loops
-    if (agentEmail && parsed.fromEmail.toLowerCase() === agentEmail) continue;
+    // Skip self-sent only when no attachment — replies never have forms, form emails may be self-sent in tests
+    if (agentEmail && parsed.fromEmail.toLowerCase() === agentEmail && parsed.docxAttachments.length === 0) continue;
 
     // Parse any .docx attachments as WISH permission forms
     if (parsed.docxAttachments.length > 0) {
