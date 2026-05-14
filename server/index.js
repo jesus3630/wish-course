@@ -7,7 +7,7 @@ const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
-const { sendInviteEmail, sendCompletionEmail } = require('./email');
+const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = require('./email');
 const agent = require('./agent');
 
 const app = express();
@@ -75,6 +75,7 @@ async function initDB() {
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS assigned_modules JSONB DEFAULT '[]'::jsonb;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS username TEXT;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS password TEXT;
+    ALTER TABLE roster ADD COLUMN IF NOT EXISTS requester_email TEXT;
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
@@ -525,18 +526,25 @@ app.post('/api/progress', async (req, res) => {
   try {
     let progressToSave = progress;
 
-    // Detect first-time completion and send certificate email
+    // Detect first-time completion and notify employee + manager
     if (!progress.completed_at) {
-      const [existingRes, courseData] = await Promise.all([
+      const [existingRes, rosterRes] = await Promise.all([
         pool.query('SELECT data FROM user_progress WHERE email = $1', [email]),
-        getCourseData(),
+        pool.query('SELECT assigned_modules, requester_email, name FROM roster WHERE email = $1', [email]),
       ]);
       const wasAlreadyComplete = existingRes.rows[0]?.data?.completed_at;
-      if (!wasAlreadyComplete && courseData) {
-        const allComplete = courseData.every(m => progress.modules?.[m.id]?.completed === true);
+      if (!wasAlreadyComplete) {
+        const assigned = rosterRes.rows[0]?.assigned_modules || [];
+        const requesterEmail = rosterRes.rows[0]?.requester_email || null;
+        const modulesToCheck = assigned.length > 0 ? assigned : (await getCourseData() || []).map(m => m.id);
+        const allComplete = modulesToCheck.every(id => progress.modules?.[id]?.completed === true);
         if (allComplete) {
           progressToSave = { ...progress, completed_at: new Date().toISOString() };
           sendCompletionEmail(progress.user_name, email).catch(e => console.error('[email] completion send failed:', e.message));
+          if (requesterEmail) {
+            sendManagerCompletionEmail(requesterEmail, progress.user_name, email, progressToSave.completed_at)
+              .catch(e => console.error('[email] manager notification failed:', e.message));
+          }
         }
       }
     }

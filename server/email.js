@@ -78,4 +78,27 @@ async function sendCompletionEmail(name, email) {
   console.log(`[email] Completion email sent to ${email}`);
 }
 
-module.exports = { sendInviteEmail, sendCompletionEmail };
+async function sendManagerCompletionEmail(managerEmail, employeeName, employeeEmail, completedAt) {
+  if (!isConfigured()) return;
+  const completedDate = new Date(completedAt).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+  await sendEmail(
+    managerEmail,
+    `WISH Training Complete — ${employeeName}`,
+    brandedEmail(`
+      <p style="font-size:16px;color:#111827;margin-top:0">Training Complete</p>
+      <p style="color:#374151;line-height:1.6"><strong>${employeeName}</strong> has successfully completed all assigned WISH training modules as of <strong>${completedDate}</strong>.</p>
+      <div style="background:#F4F7FA;border-radius:8px;padding:16px 20px;margin:20px 0">
+        <div style="font-size:11px;font-weight:700;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Employee Details</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:120px">Name:</span> ${employeeName}</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:120px">Email:</span> ${employeeEmail}</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:120px">Completed:</span> ${completedDate}</div>
+      </div>
+      <p style="color:#6B7280;font-size:13px;line-height:1.6">This employee is now cleared to use WISH with their assigned permissions. No further action is required.</p>
+    `)
+  );
+  console.log(`[email] Manager completion notice sent to ${managerEmail} for ${employeeName}`);
+}
+
+module.exports = { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail };

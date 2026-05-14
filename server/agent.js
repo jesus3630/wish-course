@@ -170,8 +170,8 @@ async function executeTool(name, input, emailCtx) {
       const username = generateUsername(userName);
       const password = generatePassword();
       await pool.query(
-        'INSERT INTO roster (email, name, assigned_modules, username, password) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name), assigned_modules = $3, username = $4, password = $5',
-        [normalizedEmail, userName?.trim() || null, JSON.stringify(assignedModules), username, password]
+        'INSERT INTO roster (email, name, assigned_modules, username, password, requester_email) VALUES ($1, $2, $3, $4, $5, $6) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name), assigned_modules = $3, username = $4, password = $5, requester_email = $6',
+        [normalizedEmail, userName?.trim() || null, JSON.stringify(assignedModules), username, password, emailCtx.fromEmail]
       );
       await sendInviteEmail(normalizedEmail, userName, assignedModules, username, password);
       return { success: true, enrolled: normalizedEmail, username, assigned_modules: assignedModules };
