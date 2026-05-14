@@ -53,18 +53,22 @@ export default function App() {
     }
   }, []);
 
-  async function handleLogin(name: string, email: string): Promise<string | null> {
+  async function handleLogin(username: string, password: string): Promise<string | null> {
     let assignedModules: string[] | null = null;
+    let name = '';
+    let email = '';
     try {
       const loginRes = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ username, password }),
       });
-      if (loginRes.status === 403) return 'not_on_roster';
+      if (loginRes.status === 403) return 'invalid_credentials';
       if (!loginRes.ok) return null;
       const loginData = await loginRes.json();
       assignedModules = loginData.assigned_modules ?? null;
+      name = loginData.name || username;
+      email = loginData.email || '';
     } catch {
       return null;
     }

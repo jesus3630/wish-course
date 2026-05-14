@@ -1,31 +1,27 @@
 import React, { useState } from 'react';
 
 interface Props {
-  onLogin: (name: string, email: string) => Promise<string | null>;
+  onLogin: (username: string, password: string) => Promise<string | null>;
 }
 
 export default function LoginScreen({ onLogin }: Props) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) {
-      setError('Please enter your full name and email address.');
-      return;
-    }
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError('Please enter a valid email address.');
+    if (!username.trim() || !password.trim()) {
+      setError('Please enter your username and password.');
       return;
     }
     setLoading(true);
     setError('');
-    const result = await onLogin(name.trim(), email.trim().toLowerCase());
+    const result = await onLogin(username.trim(), password.trim());
     setLoading(false);
-    if (result === 'not_on_roster') {
-      setError('Your email is not on the approved training roster. Please contact your administrator.');
+    if (result === 'invalid_credentials') {
+      setError('Invalid username or password. Please check your invite email.');
     } else if (result !== null) {
       setError('Unable to connect to the server. Please try again.');
     }
@@ -39,29 +35,31 @@ export default function LoginScreen({ onLogin }: Props) {
         <p style={styles.subtitle}>Training Portal</p>
         <div style={styles.divider} />
         <p style={styles.instructions}>
-          Enter your information below to begin your WISH training. Your progress will be saved automatically.
+          Enter the username and password from your enrollment email to begin training.
         </p>
         <form onSubmit={handleSubmit} style={styles.form}>
-          <label style={styles.label}>Full Name</label>
+          <label style={styles.label}>Username</label>
           <input
             style={styles.input}
             type="text"
-            placeholder="Enter your full name"
-            value={name}
-            onChange={e => setName(e.target.value)}
+            placeholder="e.g. JGonzalez"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
             autoFocus
+            autoComplete="username"
           />
-          <label style={styles.label}>Email Address</label>
+          <label style={styles.label}>Password</label>
           <input
             style={styles.input}
-            type="email"
-            placeholder="Enter your work email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            autoComplete="current-password"
           />
           {error && <p style={styles.error}>{error}</p>}
           <button type="submit" style={{ ...styles.button, opacity: loading ? 0.7 : 1 }} disabled={loading}>
-            {loading ? 'Checking...' : 'Begin Training'}
+            {loading ? 'Signing in...' : 'Begin Training'}
           </button>
         </form>
         <p style={styles.footer}>

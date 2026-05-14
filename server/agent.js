@@ -35,6 +35,23 @@ const PERMISSION_TO_MODULE = {
   'inventory': 'inventory',
 };
 
+function generateUsername(name) {
+  if (!name) return null;
+  const parts = name.trim().split(/\s+/);
+  const firstInitial = parts[0][0].toUpperCase();
+  const lastName = parts.slice(1).join('');
+  return firstInitial + lastName;
+}
+
+function generatePassword() {
+  const letters = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  const digits = '0123456789';
+  let pw = '';
+  for (let i = 0; i < 4; i++) pw += letters[Math.floor(Math.random() * letters.length)];
+  for (let i = 0; i < 4; i++) pw += digits[Math.floor(Math.random() * digits.length)];
+  return pw;
+}
+
 function mapPermissions(permissions) {
   const moduleIds = ['introduction']; // everyone gets intro
   for (const perm of (permissions || [])) {
@@ -150,12 +167,14 @@ async function executeTool(name, input, emailCtx) {
       const { name: userName, email, permissions } = input;
       const normalizedEmail = email.toLowerCase().trim();
       const assignedModules = mapPermissions(permissions);
+      const username = generateUsername(userName);
+      const password = generatePassword();
       await pool.query(
-        'INSERT INTO roster (email, name, assigned_modules) VALUES ($1, $2, $3) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name), assigned_modules = $3',
-        [normalizedEmail, userName?.trim() || null, JSON.stringify(assignedModules)]
+        'INSERT INTO roster (email, name, assigned_modules, username, password) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name), assigned_modules = $3, username = $4, password = $5',
+        [normalizedEmail, userName?.trim() || null, JSON.stringify(assignedModules), username, password]
       );
-      await sendInviteEmail(normalizedEmail, userName, assignedModules);
-      return { success: true, enrolled: normalizedEmail, assigned_modules: assignedModules };
+      await sendInviteEmail(normalizedEmail, userName, assignedModules, username, password);
+      return { success: true, enrolled: normalizedEmail, username, assigned_modules: assignedModules };
     }
 
     case 'check_progress': {

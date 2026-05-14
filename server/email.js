@@ -16,7 +16,7 @@ function brandedEmail(content) {
   </div>`;
 }
 
-async function sendInviteEmail(email, name, assignedModules) {
+async function sendInviteEmail(email, name, assignedModules, username, password) {
   if (!isConfigured()) {
     console.log(`[email] not configured — skipping invite to ${email}`);
     return;
@@ -37,8 +37,8 @@ async function sendInviteEmail(email, name, assignedModules) {
       ${moduleList}
       <div style="background:#F4F7FA;border-radius:8px;padding:16px 20px;margin:20px 0">
         <div style="font-size:11px;font-weight:700;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Your Login Credentials</div>
-        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Username:</span> ${name || 'Your full name'}</div>
-        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Password:</span> ${email}</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Username:</span> <span style="font-family:monospace;font-size:14px">${username || ''}</span></div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Password:</span> <span style="font-family:monospace;font-size:14px;letter-spacing:2px">${password || ''}</span></div>
         <div style="font-size:12px;color:#6B7280;margin-top:10px">Enter these exactly on the login screen at <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></div>
       </div>
       <div style="text-align:center;margin:32px 0">
