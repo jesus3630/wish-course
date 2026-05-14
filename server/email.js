@@ -35,11 +35,11 @@ async function sendInviteEmail(email, name, assignedModules) {
       <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
       <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. Your training has been customized based on your assigned system permissions.</p>
       ${moduleList}
-      <div style="background:#F0F4FF;border:1px solid #C7D2FE;border-radius:8px;padding:16px 20px;margin:20px 0">
-        <div style="font-size:11px;font-weight:700;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Your Login Information</div>
-        <div style="font-size:13px;color:#374151;margin-bottom:6px"><span style="font-weight:600;display:inline-block;width:60px">Name:</span> ${name || 'Your full name'}</div>
-        <div style="font-size:13px;color:#374151"><span style="font-weight:600;display:inline-block;width:60px">Email:</span> ${email}</div>
-        <div style="font-size:12px;color:#6B7280;margin-top:10px">Use these exact details on the login screen. No password needed.</div>
+      <div style="background:#F4F7FA;border-radius:8px;padding:16px 20px;margin:20px 0">
+        <div style="font-size:11px;font-weight:700;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Your Login Credentials</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Username:</span> ${name || 'Your full name'}</div>
+        <div style="font-size:13px;color:#374151;padding:3px 0"><span style="font-weight:600;display:inline-block;width:90px">Password:</span> ${email}</div>
+        <div style="font-size:12px;color:#6B7280;margin-top:10px">Enter these exactly on the login screen at <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></div>
       </div>
       <div style="text-align:center;margin:32px 0">
         <a href="${SITE_URL}" style="background:#D4782A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">Start Training</a>

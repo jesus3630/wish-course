@@ -128,7 +128,9 @@ For every email you process:
 ENROLLING A USER:
 - Extract the employee's name, email, and which WISH permissions they are being granted
 - Permissions come from the WISH User Permissions Request Form and include: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory
-- If an attached WISH Permission Form is included, read the checked boxes (☒) to determine which permissions are granted — ignore unchecked boxes (☐ or empty)
+- If an attached WISH Permission Form is included:
+  - Read the "Employee Name" and "Employee Email" fields from the form — use THOSE for enrollment, not the sender's email
+  - Read the checked boxes (☒) to determine which permissions are granted — ignore unchecked boxes
 - Only assign the modules matching the permissions they were granted — do NOT assign all modules
 - Every user always gets the Introduction module in addition to their specific permissions
 
