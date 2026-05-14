@@ -1,5 +1,5 @@
 const { google } = require('googleapis');
-const mammoth = require('mammoth');
+const JSZip = require('jszip');
 
 const SCOPES = ['https://www.googleapis.com/auth/gmail.modify'];
 
@@ -64,6 +64,53 @@ function parseMessage(msgData) {
   };
 }
 
+async function parseWishForm(buffer) {
+  const zip = await JSZip.loadAsync(buffer);
+  const xml = await zip.file('word/document.xml').async('string');
+
+  // Extract employee fields — collect all text runs in the paragraph after the label
+  function fieldAfterLabel(label) {
+    const re = new RegExp(label + '[^<]*<\\/w:t>([\\s\\S]*?)<\\/w:p>');
+    const section = xml.match(re)?.[1] || '';
+    const texts = [...section.matchAll(/<w:t[^>]*>([^<]+)<\/w:t>/g)].map((m) => m[1]).join('');
+    return texts.replace(/^[\s:]+/, '').trim();
+  }
+  const employeeName = fieldAfterLabel('Employee Name');
+  const employeeEmail = fieldAfterLabel('Employee Email').split(/\s/)[0]; // stop at whitespace (before Employee Phone)
+  const requesterName = fieldAfterLabel('Requester Name');
+
+  // Extract checked permissions from w14:checkbox SDT blocks
+  const checkedPermissions = [];
+  const sdtRegex = /<w:sdt>([\s\S]*?)<\/w:sdt>/g;
+  let m;
+  while ((m = sdtRegex.exec(xml)) !== null) {
+    const block = m[1];
+    const checkedMatch = block.match(/<w14:checked w14:val="(\d+)"/);
+    if (!checkedMatch || checkedMatch[1] !== '1') continue;
+    // Get permission name from text immediately after this sdt
+    const after = xml.substring(m.index + m[0].length, m.index + m[0].length + 600);
+    const text = [...after.matchAll(/<w:t[^>]*>(.*?)<\/w:t>/g)]
+      .map((x) => x[1])
+      .join('')
+      .trim()
+      .replace(/\(.*$/, '') // strip description in parens
+      .trim();
+    if (text) checkedPermissions.push(text);
+  }
+
+  if (!checkedPermissions.length) return null;
+
+  const lines = ['WISH PERMISSION FORM (PARSED FROM ATTACHMENT)'];
+  if (employeeName) lines.push(`Employee Name: ${employeeName}`);
+  if (employeeEmail) lines.push(`Employee Email: ${employeeEmail}`);
+  if (requesterName) lines.push(`Requested By: ${requesterName}`);
+  lines.push('', 'CHECKED PERMISSIONS:');
+  checkedPermissions.forEach((p) => lines.push(`- ${p}`));
+
+  console.log(`[gmail] Parsed .docx: ${checkedPermissions.length} permissions checked for ${employeeName || 'unknown'}`);
+  return lines.join('\n');
+}
+
 async function getUnreadEmails() {
   const gmail = getClient();
   const agentEmail = (process.env.GMAIL_AGENT_EMAIL || '').toLowerCase();
@@ -83,9 +130,8 @@ async function getUnreadEmails() {
     // Skip self-sent to prevent reply loops
     if (agentEmail && parsed.fromEmail.toLowerCase() === agentEmail) continue;
 
-    // Extract text from any .docx attachments (WISH permission forms)
+    // Parse any .docx attachments as WISH permission forms
     if (parsed.docxAttachments.length > 0) {
-      let formText = '';
       for (const att of parsed.docxAttachments) {
         try {
           const attRes = await gmail.users.messages.attachments.get({
@@ -94,13 +140,12 @@ async function getUnreadEmails() {
             id: att.attachmentId,
           });
           const buf = Buffer.from(attRes.data.data, 'base64');
-          const result = await mammoth.extractRawText({ buffer: buf });
-          formText += result.value;
+          const formText = await parseWishForm(buf);
+          if (formText) parsed.attachmentText = formText;
         } catch (e) {
-          console.error(`[gmail] Failed to extract attachment ${att.filename}:`, e.message);
+          console.error(`[gmail] Failed to parse attachment ${att.filename}:`, e.message);
         }
       }
-      if (formText) parsed.attachmentText = formText;
     }
 
     emails.push(parsed);
