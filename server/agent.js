@@ -128,6 +128,7 @@ For every email you process:
 ENROLLING A USER:
 - Extract the employee's name, email, and which WISH permissions they are being granted
 - Permissions come from the WISH User Permissions Request Form and include: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory
+- If an attached WISH Permission Form is included, read the checked boxes (☒) to determine which permissions are granted — ignore unchecked boxes (☐ or empty)
 - Only assign the modules matching the permissions they were granted — do NOT assign all modules
 - Every user always gets the Introduction module in addition to their specific permissions
 
@@ -223,9 +224,13 @@ async function executeTool(name, input, emailCtx) {
 async function processEmail(email) {
   console.log(`[agent] Processing: "${email.subject}" from ${email.fromEmail}`);
 
+  const formSection = email.attachmentText
+    ? `\n\n--- ATTACHED WISH PERMISSION FORM ---\n${email.attachmentText.substring(0, 6000)}\n--- END FORM ---`
+    : '';
+
   const messages = [
     { role: 'system', content: SYSTEM_PROMPT },
-    { role: 'user', content: `From: ${email.from}\nSubject: ${email.subject}\n\n${email.body.substring(0, 4000)}` },
+    { role: 'user', content: `From: ${email.from}\nSubject: ${email.subject}\n\n${email.body.substring(0, 2000)}${formSection}` },
   ];
 
   // Agentic loop — keeps running until model stops calling tools

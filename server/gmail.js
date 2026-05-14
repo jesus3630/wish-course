@@ -1,4 +1,5 @@
 const { google } = require('googleapis');
+const mammoth = require('mammoth');
 
 const SCOPES = ['https://www.googleapis.com/auth/gmail.modify'];
 
@@ -33,11 +34,18 @@ function parseMessage(msgData) {
   const fromEmail = emailMatch ? emailMatch[1].trim() : from.trim();
   const fromName = from.replace(/<.+?>/, '').trim().replace(/^"|"$/g, '');
 
-  // Extract plain-text body from MIME tree
+  // Extract plain-text body and .docx attachment IDs from MIME tree
   let body = '';
+  const docxAttachments = [];
   function walk(part) {
     if (part.mimeType === 'text/plain' && part.body?.data) {
       body += Buffer.from(part.body.data, 'base64').toString('utf8');
+    } else if (
+      part.body?.attachmentId &&
+      (part.mimeType === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' ||
+        (part.filename || '').toLowerCase().endsWith('.docx'))
+    ) {
+      docxAttachments.push({ attachmentId: part.body.attachmentId, filename: part.filename });
     } else if (part.parts) {
       part.parts.forEach(walk);
     }
@@ -52,6 +60,7 @@ function parseMessage(msgData) {
     fromName,
     subject: h('Subject'),
     body,
+    docxAttachments,
   };
 }
 
@@ -73,6 +82,27 @@ async function getUnreadEmails() {
     const parsed = parseMessage(detail.data);
     // Skip self-sent to prevent reply loops
     if (agentEmail && parsed.fromEmail.toLowerCase() === agentEmail) continue;
+
+    // Extract text from any .docx attachments (WISH permission forms)
+    if (parsed.docxAttachments.length > 0) {
+      let formText = '';
+      for (const att of parsed.docxAttachments) {
+        try {
+          const attRes = await gmail.users.messages.attachments.get({
+            userId: 'me',
+            messageId: msg.id,
+            id: att.attachmentId,
+          });
+          const buf = Buffer.from(attRes.data.data, 'base64');
+          const result = await mammoth.extractRawText({ buffer: buf });
+          formText += result.value;
+        } catch (e) {
+          console.error(`[gmail] Failed to extract attachment ${att.filename}:`, e.message);
+        }
+      }
+      if (formText) parsed.attachmentText = formText;
+    }
+
     emails.push(parsed);
   }
 
