@@ -7,7 +7,7 @@ const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
-const sgMail = require('@sendgrid/mail');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(cors());
@@ -21,11 +21,18 @@ const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../
 const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'training@protatech.com';
 const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 
-if (process.env.SENDGRID_API_KEY) {
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  console.log('[email] SendGrid configured');
+function createMailer() {
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) return null;
+  return nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
+  });
+}
+
+if (process.env.GMAIL_USER) {
+  console.log(`[email] Gmail mailer configured (${process.env.GMAIL_USER})`);
 } else {
-  console.log('[email] SENDGRID_API_KEY not set — email disabled');
+  console.log('[email] GMAIL_USER not set — email disabled');
 }
 
 // PostgreSQL
@@ -152,14 +159,15 @@ async function setCachedNarration(hash, audio, timings) {
 
 // ─── Email helpers ────────────────────────────────────────────────────────────
 async function sendInviteEmail(email, name) {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.log(`[email] invite skipped (no API key) — would send to ${email}`);
+  const mailer = createMailer();
+  if (!mailer) {
+    console.log(`[email] invite skipped (not configured) — would send to ${email}`);
     return;
   }
   const greeting = name ? `Hi ${name},` : 'Hello,';
-  await sgMail.send({
+  await mailer.sendMail({
+    from: `"ProtaTECH Training" <${process.env.GMAIL_USER}>`,
     to: email,
-    from: FROM_EMAIL,
     subject: "You're enrolled in the WISH Training Program",
     html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
       <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
@@ -182,14 +190,15 @@ async function sendInviteEmail(email, name) {
 }
 
 async function sendCompletionEmail(name, email) {
-  if (!process.env.SENDGRID_API_KEY) {
-    console.log(`[email] completion skipped (no API key) — would send to ${email}`);
+  const mailer = createMailer();
+  if (!mailer) {
+    console.log(`[email] completion skipped (not configured) — would send to ${email}`);
     return;
   }
   const completedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  await sgMail.send({
+  await mailer.sendMail({
+    from: `"ProtaTECH Training" <${process.env.GMAIL_USER}>`,
     to: email,
-    from: FROM_EMAIL,
     subject: `Congratulations ${name} — WISH Training Complete!`,
     html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
       <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
