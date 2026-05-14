@@ -30,7 +30,7 @@ async function sendInviteEmail(email, name, assignedModules, username, password)
     : '';
   await sendEmail(
     email,
-    "You're enrolled in the WISH Training Program",
+    "You are enrolled in the WISH Training Program",
     brandedEmail(`
       <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
       <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. Your training has been customized based on your assigned system permissions.</p>
@@ -60,7 +60,7 @@ async function sendCompletionEmail(name, email) {
   });
   await sendEmail(
     email,
-    `Congratulations ${name} — WISH Training Complete!`,
+    `Congratulations ${name} - WISH Training Complete!`,
     brandedEmail(`
       <div style="text-align:center;margin-bottom:24px">
         <div style="width:72px;height:72px;background:#1B3A6B;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px">
@@ -85,7 +85,7 @@ async function sendManagerCompletionEmail(managerEmail, employeeName, employeeEm
   });
   await sendEmail(
     managerEmail,
-    `WISH Training Complete — ${employeeName}`,
+    `WISH Training Complete - ${employeeName}`,
     brandedEmail(`
       <p style="font-size:16px;color:#111827;margin-top:0">Training Complete</p>
       <p style="color:#374151;line-height:1.6"><strong>${employeeName}</strong> has successfully completed all assigned WISH training modules as of <strong>${completedDate}</strong>.</p>
