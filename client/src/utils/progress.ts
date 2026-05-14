@@ -15,12 +15,13 @@ export function saveProgress(progress: CourseProgress): void {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
 }
 
-export function createProgress(name: string, email: string): CourseProgress {
+export function createProgress(name: string, email: string, assignedModules: string[] | null = null): CourseProgress {
   return {
     user_name: name,
     user_email: email,
     started_at: new Date().toISOString(),
     modules: {},
+    assigned_modules: assignedModules,
   };
 }
 

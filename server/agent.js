@@ -9,17 +9,58 @@ const POLL_INTERVAL_MS = 60 * 1000;
 let pool;
 let anthropic;
 
+// Permission name → module ID (matches the WISH permission form checkboxes)
+const PERMISSION_TO_MODULE = {
+  'record maintenance': 'record_maintenance',
+  'manage job': 'manage_job',
+  'mss': 'mss',
+  'scheduling': 'scheduling',
+  'schedule by job admin': 'schedule_by_job_admin',
+  'payroll processing': 'payroll_processing',
+  'general reporting': 'general_reporting',
+  'payroll reporting': 'payroll_reporting',
+  'admin reporting': 'admin_reporting',
+  'workforce scheduler maintenance': 'workforce_scheduler_mntnnce',
+  'workforce admin maintenance': 'workforce_admin_maintenance',
+  'employee hr record maintenance': 'employee_hr_record_maintenance',
+  'hiring manager': 'hiring_manager',
+  'hr admin': 'hiring_admin',
+  'hiring admin': 'hiring_admin',
+  'mail by': 'mail_by',
+  'sign-in/sign-out': 'sign-in__sign-out',
+  'sign-in': 'sign-in__sign-out',
+  'sign in sign out': 'sign-in__sign-out',
+  'manual process hours': 'manual_process_hours',
+  'billing': 'billing',
+  'inventory': 'inventory',
+};
+
+function mapPermissions(permissions) {
+  const moduleIds = ['introduction']; // everyone gets intro
+  for (const perm of (permissions || [])) {
+    const key = perm.toLowerCase().trim();
+    const moduleId = PERMISSION_TO_MODULE[key];
+    if (moduleId && !moduleIds.includes(moduleId)) moduleIds.push(moduleId);
+  }
+  return moduleIds;
+}
+
 const TOOLS = [
   {
     name: 'enroll_user',
-    description: 'Add a person to the WISH training roster and send them an enrollment invite email. Use this when someone asks to enroll, add, or register a staff member.',
+    description: 'Add a person to the WISH training roster with their specific permissions and send them an enrollment invite.',
     input_schema: {
       type: 'object',
       properties: {
         name: { type: 'string', description: 'Full name of the person to enroll' },
         email: { type: 'string', description: 'Email address of the person to enroll' },
+        permissions: {
+          type: 'array',
+          items: { type: 'string' },
+          description: 'WISH permissions being granted. Use exact names from the form: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory',
+        },
       },
-      required: ['email'],
+      required: ['email', 'permissions'],
     },
   },
   {
@@ -69,8 +110,13 @@ For every email you process:
 2. Take the appropriate action using the available tools
 3. Always end by calling send_reply to confirm what you did
 
-Supported requests:
-- Enroll someone: "Please enroll Jane Doe at jane.doe@lacounty.gov"
+ENROLLING A USER:
+- Extract the employee's name, email, and which WISH permissions they are being granted
+- Permissions come from the WISH User Permissions Request Form and include: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory
+- Only assign the modules matching the permissions they were granted — do NOT assign all modules
+- Every user always gets the Introduction module in addition to their specific permissions
+
+Other supported requests:
 - Check progress: "What's the status for john@lacounty.gov?"
 - List everyone: "Who is enrolled?" / "Send me a status report"
 - Remove someone: "Remove bob@example.com from training"
@@ -82,14 +128,15 @@ Never invent information — only report what the tools return.`;
 async function executeTool(name, input, emailCtx) {
   switch (name) {
     case 'enroll_user': {
-      const { name: userName, email } = input;
+      const { name: userName, email, permissions } = input;
       const normalizedEmail = email.toLowerCase().trim();
+      const assignedModules = mapPermissions(permissions);
       await pool.query(
-        'INSERT INTO roster (email, name) VALUES ($1, $2) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name)',
-        [normalizedEmail, userName?.trim() || null]
+        'INSERT INTO roster (email, name, assigned_modules) VALUES ($1, $2, $3) ON CONFLICT (email) DO UPDATE SET name = COALESCE($2, roster.name), assigned_modules = $3',
+        [normalizedEmail, userName?.trim() || null, JSON.stringify(assignedModules)]
       );
-      await sendInviteEmail(normalizedEmail, userName);
-      return { success: true, enrolled: normalizedEmail, name: userName || null };
+      await sendInviteEmail(normalizedEmail, userName, assignedModules);
+      return { success: true, enrolled: normalizedEmail, assigned_modules: assignedModules };
     }
 
     case 'check_progress': {

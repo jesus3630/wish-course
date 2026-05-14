@@ -46,4 +46,6 @@ export interface CourseProgress {
   user_email: string;
   started_at: string;
   modules: Record<string, ModuleProgress>;
+  assigned_modules: string[] | null; // null = all modules
+  completed_at?: string;
 }

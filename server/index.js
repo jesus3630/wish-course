@@ -69,8 +69,10 @@ async function initDB() {
     CREATE TABLE IF NOT EXISTS roster (
       email TEXT PRIMARY KEY,
       name TEXT,
+      assigned_modules JSONB DEFAULT '[]'::jsonb,
       added_at TIMESTAMPTZ DEFAULT NOW()
     );
+    ALTER TABLE roster ADD COLUMN IF NOT EXISTS assigned_modules JSONB DEFAULT '[]'::jsonb;
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
@@ -210,15 +212,18 @@ app.post('/api/admin/login', adminLoginLimit, async (req, res) => {
 // ─── Admin: validate session token ───────────────────────────────────────────
 app.get('/api/admin/validate', adminAuth, (req, res) => res.json({ ok: true }));
 
-// ─── User login: roster check ─────────────────────────────────────────────────
+// ─── User login: roster check + return assigned modules ──────────────────────
 app.post('/api/login', async (req, res) => {
   const { email } = req.body;
   if (!email) return res.status(400).json({ error: 'Email required' });
-  if (process.env.REQUIRE_ROSTER === 'true') {
-    const r = await pool.query('SELECT email FROM roster WHERE email = $1', [email.toLowerCase().trim()]);
-    if (r.rowCount === 0) return res.status(403).json({ error: 'not_on_roster' });
+  const normalized = email.toLowerCase().trim();
+  const r = await pool.query('SELECT assigned_modules FROM roster WHERE email = $1', [normalized]);
+  if (process.env.REQUIRE_ROSTER === 'true' && r.rowCount === 0) {
+    return res.status(403).json({ error: 'not_on_roster' });
   }
-  res.json({ ok: true });
+  const assigned = r.rows[0]?.assigned_modules;
+  const assigned_modules = Array.isArray(assigned) && assigned.length > 0 ? assigned : null;
+  res.json({ ok: true, assigned_modules });
 });
 
 // ─── History ──────────────────────────────────────────────────────────────────

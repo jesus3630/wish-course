@@ -54,6 +54,7 @@ export default function App() {
   }, []);
 
   async function handleLogin(name: string, email: string): Promise<string | null> {
+    let assignedModules: string[] | null = null;
     try {
       const loginRes = await fetch('/api/login', {
         method: 'POST',
@@ -62,13 +63,15 @@ export default function App() {
       });
       if (loginRes.status === 403) return 'not_on_roster';
       if (!loginRes.ok) return null;
+      const loginData = await loginRes.json();
+      assignedModules = loginData.assigned_modules ?? null;
     } catch {
       return null;
     }
     const serverProgress = await fetchProgressFromServer(email);
     const p = serverProgress
-      ? { ...serverProgress, user_name: name }
-      : createProgress(name, email);
+      ? { ...serverProgress, user_name: name, assigned_modules: assignedModules }
+      : createProgress(name, email, assignedModules);
     saveProgress(p);
     setProgress(p);
     if (!serverProgress) syncProgressToServer(p);
@@ -94,11 +97,16 @@ export default function App() {
     setView('login');
   }
 
+  const visibleModules = progress?.assigned_modules
+    ? modules.filter(m => progress.assigned_modules!.includes(m.id))
+    : modules;
+
   function handleModuleComplete(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
     syncProgressToServer(updated);
-    const allComplete = modules.every(m => updated.modules[m.id]?.completed === true);
+    const assignedMods = updated.assigned_modules ? modules.filter(m => updated.assigned_modules!.includes(m.id)) : modules;
+    const allComplete = assignedMods.every(m => updated.modules[m.id]?.completed === true);
     if (allComplete) {
       setShowCertificate(true);
     } else {
@@ -123,15 +131,15 @@ export default function App() {
   }
 
   if (showCertificate && progress) {
-    return <Certificate progress={progress} modules={modules} onClose={() => setShowCertificate(false)} />;
+    return <Certificate progress={progress} modules={visibleModules} onClose={() => setShowCertificate(false)} />;
   }
 
   if (view === 'module' && progress) {
     return (
       <ModulePlayer
-        module={modules[activeModuleIndex]}
+        module={visibleModules[activeModuleIndex]}
         moduleIndex={activeModuleIndex}
-        totalModules={modules.length}
+        totalModules={visibleModules.length}
         progress={progress}
         quizData={quizData}
         onProgressUpdate={handleProgressUpdate}
@@ -144,7 +152,7 @@ export default function App() {
   if (progress) {
     return (
       <Dashboard
-        modules={modules}
+        modules={visibleModules}
         progress={progress}
         onStartModule={handleStartModule}
         onLogout={handleLogout}

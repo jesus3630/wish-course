@@ -36,7 +36,8 @@ const oauth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_U
 const authUrl = oauth2Client.generateAuthUrl({
   access_type: 'offline',
   scope: ['https://www.googleapis.com/auth/gmail.modify'],
-  prompt: 'consent', // forces refresh_token to be returned even if previously authorized
+  prompt: 'consent',
+  login_hint: process.env.GMAIL_AGENT_EMAIL,
 });
 
 console.log('\nOpen this URL in your browser:\n');

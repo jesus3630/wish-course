@@ -16,22 +16,29 @@ function brandedEmail(content) {
   </div>`;
 }
 
-async function sendInviteEmail(email, name) {
+async function sendInviteEmail(email, name, assignedModules) {
   if (!isConfigured()) {
     console.log(`[email] not configured — skipping invite to ${email}`);
     return;
   }
   const greeting = name ? `Hi ${name},` : 'Hello,';
+  const moduleList = Array.isArray(assignedModules) && assignedModules.length > 0
+    ? `<div style="background:#F4F7FA;border-radius:8px;padding:16px 20px;margin:20px 0">
+        <div style="font-size:11px;font-weight:700;color:#6B7280;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px">Your assigned modules</div>
+        ${assignedModules.map(id => `<div style="font-size:13px;color:#374151;padding:3px 0">&#10003; ${id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()).replace('Sign In  Sign Out', 'Sign-In / Sign-Out')}</div>`).join('')}
+      </div>`
+    : '';
   await sendEmail(
     email,
     "You're enrolled in the WISH Training Program",
     brandedEmail(`
       <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
-      <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. This self-paced online course covers all aspects of the Workforce Information Systems Hosted platform used by Los Angeles County.</p>
+      <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. Your training has been customized based on your assigned system permissions.</p>
+      ${moduleList}
       <div style="text-align:center;margin:32px 0">
         <a href="${SITE_URL}" style="background:#D4782A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">Start Training</a>
       </div>
-      <p style="color:#6B7280;font-size:13px;line-height:1.6">Complete all modules and their knowledge checks to earn your certificate of completion. Your progress is automatically saved — resume at any time from any browser.</p>
+      <p style="color:#6B7280;font-size:13px;line-height:1.6">Log in with your name and email address. Your progress is automatically saved — resume at any time from any browser.</p>
     `)
   );
   console.log(`[email] Invite sent to ${email}`);
