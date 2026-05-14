@@ -7,7 +7,8 @@ const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
 const crypto = require('crypto');
-const nodemailer = require('nodemailer');
+const { sendInviteEmail, sendCompletionEmail } = require('./email');
+const agent = require('./agent');
 
 const app = express();
 app.use(cors());
@@ -18,22 +19,7 @@ const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'wish-admin';
 const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../video_processing/screenshots');
-const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || 'training@protatech.com';
 const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
-
-function createMailer() {
-  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) return null;
-  return nodemailer.createTransport({
-    service: 'gmail',
-    auth: { user: process.env.GMAIL_USER, pass: process.env.GMAIL_APP_PASSWORD },
-  });
-}
-
-if (process.env.GMAIL_USER) {
-  console.log(`[email] Gmail mailer configured (${process.env.GMAIL_USER})`);
-} else {
-  console.log('[email] GMAIL_USER not set — email disabled');
-}
 
 // PostgreSQL
 const pool = new Pool({
@@ -155,74 +141,6 @@ async function setCachedNarration(hash, audio, timings) {
     'INSERT INTO narration_cache (text_hash, audio, timings) VALUES ($1, $2, $3) ON CONFLICT (text_hash) DO NOTHING',
     [hash, audio, JSON.stringify(timings)]
   );
-}
-
-// ─── Email helpers ────────────────────────────────────────────────────────────
-async function sendInviteEmail(email, name) {
-  const mailer = createMailer();
-  if (!mailer) {
-    console.log(`[email] invite skipped (not configured) — would send to ${email}`);
-    return;
-  }
-  const greeting = name ? `Hi ${name},` : 'Hello,';
-  await mailer.sendMail({
-    from: `"ProtaTECH Training" <${process.env.GMAIL_USER}>`,
-    to: email,
-    subject: "You're enrolled in the WISH Training Program",
-    html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
-      <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
-        <span style="color:#D4782A;font-size:28px;font-weight:900;letter-spacing:4px">WISH</span>
-        <div style="color:#fff;font-size:11px;margin-top:4px;letter-spacing:2px">WORKFORCE INFORMATION SYSTEMS HOSTED</div>
-      </div>
-      <div style="border:1px solid #E5E7EB;border-top:none;border-radius:0 0 8px 8px;padding:32px 24px">
-        <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
-        <p style="color:#374151;line-height:1.6">You've been enrolled in the <strong>WISH Training Program</strong> by ProtaTECH. This self-paced online course covers all aspects of the Workforce Information Systems Hosted platform used by Los Angeles County.</p>
-        <div style="text-align:center;margin:32px 0">
-          <a href="${SITE_URL}" style="background:#D4782A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">Start Training</a>
-        </div>
-        <p style="color:#6B7280;font-size:13px;line-height:1.6">Complete all modules and their knowledge checks to earn your certificate of completion. Your progress is automatically saved — resume at any time from any browser.</p>
-        <hr style="border:none;border-top:1px solid #E5E7EB;margin:24px 0">
-        <p style="color:#9CA3AF;font-size:12px;margin:0">ProtaTECH Training Portal &middot; <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></p>
-      </div>
-    </div>`,
-  });
-  console.log(`[email] Invite sent to ${email}`);
-}
-
-async function sendCompletionEmail(name, email) {
-  const mailer = createMailer();
-  if (!mailer) {
-    console.log(`[email] completion skipped (not configured) — would send to ${email}`);
-    return;
-  }
-  const completedDate = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-  await mailer.sendMail({
-    from: `"ProtaTECH Training" <${process.env.GMAIL_USER}>`,
-    to: email,
-    subject: `Congratulations ${name} — WISH Training Complete!`,
-    html: `<div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px 24px">
-      <div style="background:#1B3A6B;padding:20px 24px;border-radius:8px 8px 0 0;text-align:center">
-        <span style="color:#D4782A;font-size:28px;font-weight:900;letter-spacing:4px">WISH</span>
-        <div style="color:#fff;font-size:11px;margin-top:4px;letter-spacing:2px">WORKFORCE INFORMATION SYSTEMS HOSTED</div>
-      </div>
-      <div style="border:1px solid #E5E7EB;border-top:none;border-radius:0 0 8px 8px;padding:32px 24px">
-        <div style="text-align:center;margin-bottom:24px">
-          <div style="width:72px;height:72px;background:#1B3A6B;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;margin-bottom:12px">
-            <span style="color:#D4782A;font-size:32px">&#10003;</span>
-          </div>
-          <h1 style="color:#1B3A6B;font-size:22px;margin:0 0 8px">Certificate of Completion</h1>
-          <p style="color:#374151;font-size:16px;margin:0">Congratulations, <strong>${name}</strong>!</p>
-        </div>
-        <p style="color:#374151;line-height:1.6;text-align:center">You have successfully completed all modules of the <strong>WISH Training Program</strong> on <strong>${completedDate}</strong>. You may now view and print your official certificate.</p>
-        <div style="text-align:center;margin:32px 0">
-          <a href="${SITE_URL}" style="background:#1B3A6B;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px">View &amp; Print Certificate</a>
-        </div>
-        <hr style="border:none;border-top:1px solid #E5E7EB;margin:24px 0">
-        <p style="color:#9CA3AF;font-size:12px;margin:0;text-align:center">ProtaTECH Training Portal &middot; <a href="${SITE_URL}" style="color:#1B3A6B">${SITE_URL}</a></p>
-      </div>
-    </div>`,
-  });
-  console.log(`[email] Completion email sent to ${email}`);
 }
 
 // ─── Serve React build ────────────────────────────────────────────────────────
@@ -646,5 +564,8 @@ app.get('/{*path}', (req, res) => {
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 initDB()
-  .then(() => app.listen(PORT, () => console.log(`WISH Course running on port ${PORT}`)))
+  .then(() => {
+    app.listen(PORT, () => console.log(`WISH Course running on port ${PORT}`));
+    agent.start(pool);
+  })
   .catch(err => { console.error('[boot] DB init failed:', err); process.exit(1); });
