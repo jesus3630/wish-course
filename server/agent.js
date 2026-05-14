@@ -136,6 +136,7 @@ Other supported requests:
 - List everyone: "Who is enrolled?" / "Send me a status report"
 - Remove someone: "Remove bob@example.com from training"
 
+IMPORTANT: When you successfully enroll a user, do NOT call send_reply — the invite email they receive is their confirmation. Only call send_reply for non-enrollment actions (check_progress, list_enrolled_users, remove_user) or when a request is unclear or spam.
 If the request is unclear, send a polite reply listing what you can help with.
 If the email appears to be spam or unrelated to WISH training, reply briefly and ignore.
 Never invent information — only report what the tools return.`;
