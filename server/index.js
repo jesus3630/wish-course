@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const { Pool } = require('pg');
 const rateLimit = require('express-rate-limit');
+const multer = require('multer');
 const crypto = require('crypto');
 const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = require('./email');
 const agent = require('./agent');
@@ -19,6 +20,7 @@ const ELEVENLABS_API_KEY = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'wish-admin';
 const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../video_processing/screenshots');
+const VIDEOS_DIR = process.env.VIDEOS_DIR || path.join('/data', 'videos');
 const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 
 // PostgreSQL
@@ -155,6 +157,9 @@ app.use(express.static(BUILD_DIR));
 // ─── Serve local video clips (local-only; not committed to git) ───────────────
 const CLIPS_DIR = path.join(__dirname, '../video_processing/clips');
 app.use('/clips', express.static(CLIPS_DIR));
+
+// ─── Serve uploaded module videos ────────────────────────────────────────────
+app.use('/videos', express.static(VIDEOS_DIR));
 
 // ─── Serve per-slide screenshots ─────────────────────────────────────────────
 app.use('/screenshots', express.static(SCREENSHOTS_DIR));
@@ -422,6 +427,34 @@ app.post('/api/admin/invite', adminAuth, async (req, res) => {
   }
 });
 
+// ─── Admin: video upload ──────────────────────────────────────────────────────
+const videoStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    fs.mkdirSync(VIDEOS_DIR, { recursive: true });
+    cb(null, VIDEOS_DIR);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname) || '.mp4';
+    cb(null, `${req.params.moduleId}${ext}`);
+  },
+});
+const uploadVideo = multer({
+  storage: videoStorage,
+  limits: { fileSize: 2 * 1024 * 1024 * 1024 },
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype.startsWith('video/')) cb(null, true);
+    else cb(new Error('Not a video file'));
+  },
+});
+
+app.post('/api/admin/video/:moduleId', adminAuth, uploadVideo.single('video'), async (req, res) => {
+  if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
+  const ext = path.extname(req.file.originalname) || '.mp4';
+  const url = `/videos/${req.params.moduleId}${ext}`;
+  console.log(`[video] Uploaded video for module ${req.params.moduleId}: ${req.file.size} bytes → ${url}`);
+  res.json({ ok: true, url });
+});
+
 // ─── Admin: screenshot upload ─────────────────────────────────────────────────
 app.post('/api/admin/screenshot', adminAuth, async (req, res) => {
   const { moduleId, slideIndex, imageData } = req.body;
@@ -581,6 +614,18 @@ app.get('/api/progress/:email', async (req, res) => {
   } catch (e) {
     res.status(500).json({ error: 'Failed to load progress' });
   }
+});
+
+// ─── Training request (no auth — public) ──────────────────────────────────────
+app.post('/api/request-training', async (req, res) => {
+  const { name, email, department, message } = req.body;
+  if (!name || !email) return res.status(400).json({ error: 'Name and email are required.' });
+  const { sendTrainingRequestEmail } = require('./email');
+  await sendTrainingRequestEmail({ name, email, department, message }).catch(e =>
+    console.error('[request-training] email error:', e.message)
+  );
+  console.log(`[request-training] ${name} <${email}> (${department || 'no dept'})`);
+  res.json({ ok: true });
 });
 
 // ─── Health check ─────────────────────────────────────────────────────────────

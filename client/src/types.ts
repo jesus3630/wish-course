@@ -5,6 +5,8 @@ export interface Slide {
   text: string | null;
   original_index?: number;
   screenshot?: string;
+  video_start?: number;
+  video_end?: number;
 }
 
 export interface QuizQuestion {
@@ -26,6 +28,7 @@ export interface Module {
   slides: Slide[];
   quiz?: QuizQuestion[];
   videos?: ModuleVideo[];
+  video_url?: string;
 }
 
 export interface SlideProgress {

@@ -66,6 +66,7 @@ export default function ModulePlayer({
   const [playbackRate, setPlaybackRate] = useState(1);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
+  const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number | null>(null);
   const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -314,6 +315,28 @@ export default function ModulePlayer({
     window.speechSynthesis.speak(utterance);
   }
 
+  // Seek module video to this slide's clip when slide changes
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !module.video_url) return;
+    const start = slide?.video_start;
+    if (start !== undefined) {
+      video.currentTime = start;
+      video.play().catch(() => {});
+    }
+  }, [slideIndex]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  function handleVideoTimeUpdate() {
+    const video = videoRef.current;
+    if (!video || !slide) return;
+    const end = slide.video_end;
+    const start = slide.video_start ?? 0;
+    if (end !== undefined && video.currentTime >= end) {
+      video.currentTime = start;
+      video.play().catch(() => {});
+    }
+  }
+
   useEffect(() => {
     stopAudio();
     setSlideVisible(false);
@@ -477,8 +500,19 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
           <h2 style={styles.slideName}>{slideName}</h2>
 
-          {/* Screenshot — shown when this slide has a matched video frame */}
-          {slide?.screenshot && (
+          {/* Video clip — shown when module has a video and this slide has timestamps */}
+          {module.video_url && slide?.video_start !== undefined ? (
+            <div style={styles.screenshotWrap}>
+              <video
+                ref={videoRef}
+                src={module.video_url}
+                muted
+                playsInline
+                onTimeUpdate={handleVideoTimeUpdate}
+                style={{ ...styles.screenshotImg, background: '#000' }}
+              />
+            </div>
+          ) : slide?.screenshot ? (
             <div style={styles.screenshotWrap}>
               <img
                 src={slide.screenshot}
@@ -486,7 +520,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 style={styles.screenshotImg}
               />
             </div>
-          )}
+          ) : null}
 
           <div style={styles.slideContent}>
             {slideText ? (

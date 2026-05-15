@@ -93,22 +93,116 @@ function TabBtn({ active, onClick, children }: { active: boolean; onClick: () =>
   );
 }
 
+// ─── Time helpers ─────────────────────────────────────────────────────────────
+
+function formatTime(seconds: number | undefined): string {
+  if (seconds === undefined || seconds === null || isNaN(seconds as number)) return '';
+  const m = Math.floor((seconds as number) / 60);
+  const s = Math.floor((seconds as number) % 60);
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}
+
+function parseTime(val: string): number | null {
+  const trimmed = val.trim();
+  if (!trimmed) return null;
+  if (trimmed.includes(':')) {
+    const [m, s] = trimmed.split(':').map(Number);
+    if (!isNaN(m) && !isNaN(s)) return m * 60 + s;
+  } else {
+    const n = parseFloat(trimmed);
+    if (!isNaN(n)) return n;
+  }
+  return null;
+}
+
+// ─── Module Video Upload ──────────────────────────────────────────────────────
+
+function ModuleVideoSection({ moduleId, videoUrl, token, onVideoUpdate }: {
+  moduleId: string;
+  videoUrl?: string;
+  token: string;
+  onVideoUpdate: (url: string) => void;
+}) {
+  const [uploading, setUploading] = useState(false);
+  const [uploadPct, setUploadPct] = useState(0);
+
+  async function handleVideoFile(file: File) {
+    setUploading(true);
+    setUploadPct(0);
+    const formData = new FormData();
+    formData.append('video', file);
+    try {
+      const xhr = new XMLHttpRequest();
+      xhr.upload.onprogress = (e) => {
+        if (e.lengthComputable) setUploadPct(Math.round((e.loaded / e.total) * 100));
+      };
+      await new Promise<void>((resolve, reject) => {
+        xhr.onload = () => {
+          if (xhr.status === 200) {
+            const { url } = JSON.parse(xhr.responseText);
+            onVideoUpdate(url);
+            resolve();
+          } else reject(new Error(xhr.statusText));
+        };
+        xhr.onerror = reject;
+        xhr.open('POST', `/api/admin/video/${moduleId}`);
+        xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+        xhr.send(formData);
+      });
+    } catch (e) {
+      alert('Video upload failed. Please try again.');
+    }
+    setUploading(false);
+    setUploadPct(0);
+  }
+
+  return (
+    <div style={{ background: C.white, borderRadius: '10px', border: `1px solid ${C.border}`, padding: '16px 20px', marginBottom: '16px', boxShadow: '0 1px 4px rgba(0,0,0,0.04)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: videoUrl ? '12px' : '0' }}>
+        <div>
+          <div style={{ fontSize: '12px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px' }}>Module Video</div>
+          {videoUrl && <div style={{ fontSize: '12px', color: C.teal, marginTop: '2px', fontFamily: 'monospace' }}>{videoUrl}</div>}
+          {!videoUrl && !uploading && <div style={{ fontSize: '12px', color: C.gray, marginTop: '2px' }}>No video uploaded — upload one to enable per-slide clip timestamps</div>}
+        </div>
+        <label style={{
+          padding: '7px 14px', background: uploading ? C.lightGray : C.navy,
+          color: C.white, borderRadius: '6px', fontSize: '12px', fontWeight: 600,
+          cursor: uploading ? 'not-allowed' : 'pointer', whiteSpace: 'nowrap', flexShrink: 0,
+        }}>
+          {uploading ? `Uploading ${uploadPct}%...` : videoUrl ? 'Replace Video' : 'Upload Video'}
+          <input type="file" accept="video/*" style={{ display: 'none' }} disabled={uploading}
+            onChange={e => { const f = e.target.files?.[0]; if (f) handleVideoFile(f); e.target.value = ''; }} />
+        </label>
+      </div>
+      {uploading && (
+        <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden', marginTop: '8px' }}>
+          <div style={{ height: '100%', width: `${uploadPct}%`, background: C.teal, transition: 'width 0.2s', borderRadius: '2px' }} />
+        </div>
+      )}
+      {videoUrl && (
+        <video src={videoUrl} controls muted style={{ width: '100%', borderRadius: '6px', marginTop: '4px', maxHeight: '160px', background: '#000', display: 'block' }} />
+      )}
+    </div>
+  );
+}
+
 // ─── Slides Editor ────────────────────────────────────────────────────────────
 
 function SlidesEditor({
   slides, expandedSlide, setExpandedSlide, onUpdate, onAdd, onDelete, onMove,
-  moduleId, token, onScreenshotUpdate,
+  moduleId, token, onScreenshotUpdate, moduleVideoUrl,
 }: {
   slides: Slide[];
   expandedSlide: number | null;
   setExpandedSlide: (i: number | null) => void;
-  onUpdate: (idx: number, field: keyof Slide, val: string) => void;
+  onUpdate: (idx: number, field: keyof Slide, val: string | number) => void;
   onAdd: () => void;
   onDelete: (idx: number) => void;
   onMove: (idx: number, dir: -1 | 1) => void;
   moduleId: string;
   token: string;
   onScreenshotUpdate: (idx: number, url: string) => void;
+  moduleVideoUrl?: string;
 }) {
   const [uploadingIdx, setUploadingIdx] = useState<number | null>(null);
 
@@ -246,6 +340,58 @@ function SlidesEditor({
                   )}
                 </div>
               </div>
+
+              {/* Video clip timestamps — only shown when module has a video */}
+              {moduleVideoUrl && (
+                <div style={{ marginBottom: '16px' }}>
+                  <label style={labelStyle}>Video Clip Timestamps</label>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '11px', color: C.gray, marginBottom: '4px' }}>Start (M:SS)</div>
+                      <input
+                        style={{ ...inputStyle, marginBottom: 0, fontFamily: 'monospace' }}
+                        placeholder="0:00"
+                        defaultValue={formatTime(slide.video_start)}
+                        key={`start-${idx}-${slide.video_start}`}
+                        onBlur={e => {
+                          const parsed = parseTime(e.target.value);
+                          if (parsed !== null) onUpdate(idx, 'video_start', parsed);
+                        }}
+                      />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '11px', color: C.gray, marginBottom: '4px' }}>End (M:SS)</div>
+                      <input
+                        style={{ ...inputStyle, marginBottom: 0, fontFamily: 'monospace' }}
+                        placeholder="0:00"
+                        defaultValue={formatTime(slide.video_end)}
+                        key={`end-${idx}-${slide.video_end}`}
+                        onBlur={e => {
+                          const parsed = parseTime(e.target.value);
+                          if (parsed !== null) onUpdate(idx, 'video_end', parsed);
+                        }}
+                      />
+                    </div>
+                    {slide.video_start !== undefined && slide.video_end !== undefined && (
+                      <div style={{ alignSelf: 'flex-end', paddingBottom: '2px' }}>
+                        <a
+                          href={`${moduleVideoUrl}#t=${slide.video_start},${slide.video_end}`}
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ display: 'inline-block', padding: '10px 12px', background: C.teal, color: C.white, borderRadius: '6px', fontSize: '12px', fontWeight: 600, textDecoration: 'none' }}
+                        >
+                          Preview
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                  {slide.video_start !== undefined && slide.video_end !== undefined && (
+                    <div style={{ fontSize: '11px', color: C.gray, marginTop: '6px' }}>
+                      Clip: {formatTime(slide.video_start)} – {formatTime(slide.video_end)} ({((slide.video_end - slide.video_start)).toFixed(1)}s)
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ display: 'flex', gap: '8px' }}>
@@ -645,7 +791,7 @@ export default function AdminPanel() {
 
   // ─── Slide mutations ────────────────────────────────────────────────────────
 
-  function updateSlide(modIdx: number, slideIdx: number, field: keyof Slide, value: string) {
+  function updateSlide(modIdx: number, slideIdx: number, field: keyof Slide, value: string | number) {
     setModules(prev => {
       const next: Module[] = JSON.parse(JSON.stringify(prev));
       (next[modIdx].slides[slideIdx] as any)[field] = value;
@@ -753,6 +899,14 @@ export default function AdminPanel() {
   }
 
   // ─── Module mutations ───────────────────────────────────────────────────────
+
+  function updateModuleVideo(modIdx: number, url: string) {
+    setModules(prev => {
+      const next: Module[] = JSON.parse(JSON.stringify(prev));
+      (next[modIdx] as any).video_url = url;
+      return next;
+    });
+  }
 
   function updateModuleName(modIdx: number, name: string) {
     setModules(prev => {
@@ -1081,18 +1235,27 @@ export default function AdminPanel() {
                 {/* Scrollable content */}
                 <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
                   {activeTab === 'slides' ? (
-                    <SlidesEditor
-                      slides={selectedMod.slides}
-                      expandedSlide={expandedSlide}
-                      setExpandedSlide={setExpandedSlide}
-                      onUpdate={(sIdx, field, val) => updateSlide(selectedModIdx, sIdx, field, val)}
-                      onAdd={() => addSlide(selectedModIdx)}
-                      onDelete={sIdx => deleteSlide(selectedModIdx, sIdx)}
-                      onMove={(sIdx, dir) => moveSlide(selectedModIdx, sIdx, dir)}
-                      moduleId={selectedMod.id}
-                      token={token}
-                      onScreenshotUpdate={(sIdx, url) => updateSlide(selectedModIdx, sIdx, 'screenshot' as keyof Slide, url)}
-                    />
+                    <>
+                      <ModuleVideoSection
+                        moduleId={selectedMod.id}
+                        videoUrl={selectedMod.video_url}
+                        token={token}
+                        onVideoUpdate={(url) => updateModuleVideo(selectedModIdx, url)}
+                      />
+                      <SlidesEditor
+                        slides={selectedMod.slides}
+                        expandedSlide={expandedSlide}
+                        setExpandedSlide={setExpandedSlide}
+                        onUpdate={(sIdx, field, val) => updateSlide(selectedModIdx, sIdx, field, val)}
+                        onAdd={() => addSlide(selectedModIdx)}
+                        onDelete={sIdx => deleteSlide(selectedModIdx, sIdx)}
+                        onMove={(sIdx, dir) => moveSlide(selectedModIdx, sIdx, dir)}
+                        moduleId={selectedMod.id}
+                        token={token}
+                        onScreenshotUpdate={(sIdx, url) => updateSlide(selectedModIdx, sIdx, 'screenshot' as keyof Slide, url)}
+                        moduleVideoUrl={selectedMod.video_url}
+                      />
+                    </>
                   ) : (
                     <QuizEditor
                       questions={selectedQuiz}
