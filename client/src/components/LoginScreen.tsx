@@ -9,6 +9,7 @@ export default function LoginScreen({ onLogin }: Props) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -49,14 +50,25 @@ export default function LoginScreen({ onLogin }: Props) {
             autoComplete="username"
           />
           <label style={styles.label}>Password</label>
-          <input
-            style={styles.input}
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            autoComplete="current-password"
-          />
+          <div style={{ position: 'relative' }}>
+            <input
+              style={{ ...styles.input, paddingRight: '44px', marginBottom: 0 }}
+              type={showPassword ? 'text' : 'password'}
+              placeholder="Enter or paste your password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              autoComplete="current-password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(p => !p)}
+              style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', color: '#6B7280', padding: '4px' }}
+              tabIndex={-1}
+            >
+              {showPassword ? '🙈' : '👁'}
+            </button>
+          </div>
+          <div style={{ marginBottom: '12px' }} />
           {error && <p style={styles.error}>{error}</p>}
           <button type="submit" style={{ ...styles.button, opacity: loading ? 0.7 : 1 }} disabled={loading}>
             {loading ? 'Signing in...' : 'Begin Training'}

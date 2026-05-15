@@ -70,14 +70,14 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
 
       <div style={{ ...styles.content, padding: isMobile ? '16px' : '32px 24px' }}>
         {/* Progress overview */}
-        <div style={{ ...styles.overviewCard, padding: isMobile ? '16px' : '28px 32px' }}>
+        <div style={{ ...styles.overviewCard, padding: isMobile ? '16px' : '28px 32px', flexDirection: isMobile ? 'column' : 'row', alignItems: isMobile ? 'flex-start' : 'center', gap: isMobile ? '16px' : '0' }}>
           <div style={styles.overviewLeft}>
-            <h2 style={styles.overviewTitle}>Training Progress</h2>
+            <h2 style={{ ...styles.overviewTitle, fontSize: isMobile ? '18px' : '22px' }}>Training Progress</h2>
             <p style={styles.overviewSub}>
               {Object.values(progress.modules).filter(m => m.completed).length} of {modules.length} modules completed
             </p>
           </div>
-          <div style={styles.overviewRight}>
+          <div style={{ ...styles.overviewRight, alignSelf: isMobile ? 'flex-end' : 'auto', marginTop: isMobile ? '-48px' : '0' }}>
             <svg width="80" height="80" viewBox="0 0 80 80">
               <circle cx="40" cy="40" r="34" fill="none" stroke="#E5E7EB" strokeWidth="8" />
               <circle

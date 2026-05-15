@@ -458,10 +458,12 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       {/* Slide area */}
       <div style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
         <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : '40px 48px', opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
-          {/* Character inline top-right */}
-          <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
-            <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
-          </div>
+          {/* Character inline top-right — hidden on mobile to avoid clipping */}
+          {!isMobile && (
+            <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
+              <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
+            </div>
+          )}
           <div style={styles.slideHeader}>
             <div style={styles.slideNumBadge}>
               Slide {slideIndex + 1} / {totalSlides}
@@ -535,7 +537,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           ))}
         </div>
 
-        <div style={styles.slideDots}>
+        <div style={{ ...styles.slideDots, overflowX: 'auto', maxWidth: isMobile ? '160px' : '100%', flexShrink: 1 }}>
           {module.slides.map((_, i) => (
             <div
               key={i}
@@ -548,7 +550,9 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                   : getModuleProgress(progress, module.id).slides_viewed.includes(i)
                   ? '#5BBCB0'
                   : '#E5E7EB',
-                width: i === slideIndex ? '24px' : '8px',
+                width: i === slideIndex ? (isMobile ? '16px' : '24px') : (isMobile ? '6px' : '8px'),
+                height: isMobile ? '6px' : '8px',
+                flexShrink: 0,
                 cursor: 'pointer',
               }}
             />
@@ -732,7 +736,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 500,
     flex: 1,
   },
-  slideName: { fontSize: '26px', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3' },
+  slideName: { fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3' },
   slideContent: { marginBottom: '24px' },
   emptyText: { color: '#9CA3AF', fontStyle: 'italic' },
   audioBtn: {

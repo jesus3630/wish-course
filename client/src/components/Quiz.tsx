@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { QuizQuestion } from '../types';
+import { useIsMobile } from '../utils/useIsMobile';
 
 interface Props {
   questions: QuizQuestion[];
@@ -10,6 +11,7 @@ interface Props {
 const PASS_SCORE = 80;
 
 export default function Quiz({ questions, moduleName, onComplete }: Props) {
+  const isMobile = useIsMobile();
   const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
   const [confirmed, setConfirmed] = useState(false);
@@ -50,7 +52,7 @@ export default function Quiz({ questions, moduleName, onComplete }: Props) {
     const passed = score >= PASS_SCORE;
     return (
       <div style={styles.page}>
-        <div style={styles.resultsCard}>
+        <div style={{ ...styles.resultsCard, padding: isMobile ? '32px 20px' : '48px 40px' }}>
           <div style={{ ...styles.scoreCircle, borderColor: passed ? '#10B981' : '#EF4444' }}>
             <span style={{ ...styles.scoreNumber, color: passed ? '#10B981' : '#EF4444' }}>{score}%</span>
             <span style={styles.scoreLabel}>Score</span>
@@ -76,7 +78,7 @@ export default function Quiz({ questions, moduleName, onComplete }: Props) {
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
+      <div style={{ ...styles.card, padding: isMobile ? '24px 16px' : '40px' }}>
         {/* Header */}
         <div style={styles.quizHeader}>
           <span style={styles.quizTag}>Knowledge Check</span>
@@ -86,7 +88,7 @@ export default function Quiz({ questions, moduleName, onComplete }: Props) {
           <div style={{ ...styles.progressFill, width: `${((currentQ + 1) / questions.length) * 100}%` }} />
         </div>
 
-        <h2 style={styles.question}>{question.question}</h2>
+        <h2 style={{ ...styles.question, fontSize: isMobile ? '17px' : '20px' }}>{question.question}</h2>
 
         <div style={styles.options}>
           {question.options.map((opt, i) => {
