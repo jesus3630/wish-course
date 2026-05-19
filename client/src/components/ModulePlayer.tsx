@@ -513,12 +513,13 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               />
             </div>
           ) : slide?.screenshot ? (
-            <div style={styles.screenshotWrap}>
+            <div style={{ ...styles.screenshotWrap, position: 'relative' }}>
               <img
                 src={slide.screenshot}
                 alt="WISH system screenshot"
                 style={styles.screenshotImg}
               />
+              <AnimatedCursor key={slideIndex} />
             </div>
           ) : null}
 
@@ -615,6 +616,74 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             {isLastSlide ? 'Complete ✓' : 'Next →'}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Animated cursor overlay for screenshots ─────────────────────────────────
+function AnimatedCursor({ key: _key }: { key?: number }) {
+  const [pos, setPos] = useState({ x: 55, y: 45 });
+  const [ripple, setRipple] = useState(false);
+  const idxRef = useRef(0);
+
+  useEffect(() => {
+    if (!document.getElementById('wish-cursor-style')) {
+      const s = document.createElement('style');
+      s.id = 'wish-cursor-style';
+      s.textContent = `@keyframes wish-ripple { 0% { transform:scale(0.3); opacity:0.9; } 100% { transform:scale(2.8); opacity:0; } }`;
+      document.head.appendChild(s);
+    }
+  }, []);
+
+  useEffect(() => {
+    const waypoints = [
+      { x: 50, y: 42, click: false },
+      { x: 18, y: 30, click: false },
+      { x: 55, y: 20, click: false },
+      { x: 60, y: 35, click: true  },
+      { x: 68, y: 55, click: false },
+      { x: 18, y: 50, click: false },
+      { x: 45, y: 48, click: false },
+      { x: 58, y: 68, click: true  },
+      { x: 42, y: 25, click: false },
+      { x: 72, y: 72, click: false },
+    ];
+    idxRef.current = 0;
+    setPos(waypoints[0]);
+
+    const interval = setInterval(() => {
+      idxRef.current = (idxRef.current + 1) % waypoints.length;
+      const wp = waypoints[idxRef.current];
+      setPos({ x: wp.x, y: wp.y });
+      if (wp.click) {
+        setTimeout(() => { setRipple(true); setTimeout(() => setRipple(false), 600); }, 750);
+      }
+    }, 2200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 5 }}>
+      <div style={{
+        position: 'absolute',
+        left: `${pos.x}%`,
+        top: `${pos.y}%`,
+        transition: 'left 0.95s cubic-bezier(0.25,0.46,0.45,0.94), top 0.95s cubic-bezier(0.25,0.46,0.45,0.94)',
+        filter: 'drop-shadow(1px 2px 4px rgba(0,0,0,0.55))',
+      }}>
+        <svg width="18" height="22" viewBox="0 0 18 22" style={{ display: 'block' }}>
+          <path d="M1 1 L1 17 L5 13 L8 20 L10 19 L7 12 L13 12 Z" fill="white" stroke="#222" strokeWidth="1.2" strokeLinejoin="round"/>
+        </svg>
+        {ripple && (
+          <div style={{
+            position: 'absolute', top: '-6px', left: '-6px',
+            width: '24px', height: '24px', borderRadius: '50%',
+            border: '2px solid #D4782A',
+            animation: 'wish-ripple 0.55s ease-out forwards',
+          }} />
+        )}
       </div>
     </div>
   );
