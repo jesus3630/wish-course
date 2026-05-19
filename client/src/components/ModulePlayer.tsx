@@ -513,7 +513,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               />
             </div>
           ) : slide?.screenshot ? (
-            <div style={{ ...styles.screenshotWrap, position: 'relative' }}>
+            <div style={{ ...styles.screenshotWrap, position: 'relative', marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
               <img
                 src={slide.screenshot}
                 alt="WISH system screenshot"
@@ -796,17 +796,18 @@ const styles: Record<string, React.CSSProperties> = {
   slideArea: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'stretch', justifyContent: 'flex-start', padding: '32px 24px' },
   screenshotWrap: {
     marginBottom: '24px',
-    borderRadius: '10px',
+    marginLeft: '-48px',
+    marginRight: '-48px',
+    borderRadius: '0',
     overflow: 'hidden',
-    border: '2px solid #E5E7EB',
-    background: '#F8FAFC',
+    borderTop: '2px solid #E5E7EB',
+    borderBottom: '2px solid #E5E7EB',
+    background: '#000',
     lineHeight: 0,
   },
   screenshotImg: {
     width: '100%',
     height: 'auto',
-    maxHeight: '360px',
-    objectFit: 'contain',
     display: 'block',
   },
   slideCard: {
