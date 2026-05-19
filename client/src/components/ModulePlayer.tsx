@@ -638,16 +638,16 @@ function AnimatedCursor({ key: _key }: { key?: number }) {
 
   useEffect(() => {
     const waypoints = [
-      { x: 50, y: 42, click: false },
-      { x: 18, y: 30, click: false },
-      { x: 55, y: 20, click: false },
-      { x: 60, y: 35, click: true  },
-      { x: 68, y: 55, click: false },
-      { x: 18, y: 50, click: false },
-      { x: 45, y: 48, click: false },
-      { x: 58, y: 68, click: true  },
-      { x: 42, y: 25, click: false },
-      { x: 72, y: 72, click: false },
+      { x: 45, y: 40, click: false },
+      { x: 22, y: 28, click: false },
+      { x: 50, y: 20, click: false },
+      { x: 55, y: 33, click: true  },
+      { x: 62, y: 50, click: false },
+      { x: 22, y: 48, click: false },
+      { x: 43, y: 45, click: false },
+      { x: 54, y: 62, click: true  },
+      { x: 40, y: 24, click: false },
+      { x: 63, y: 65, click: false },
     ];
     idxRef.current = 0;
     setPos(waypoints[0]);
@@ -665,7 +665,7 @@ function AnimatedCursor({ key: _key }: { key?: number }) {
   }, []);
 
   return (
-    <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 5 }}>
+    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 5 }}>
       <div style={{
         position: 'absolute',
         left: `${pos.x}%`,
