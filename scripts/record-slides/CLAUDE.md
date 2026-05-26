@@ -44,15 +44,21 @@ Every slide calls `runGuided(steps)` — NOT `runSeq()`. The guided engine highl
 
 ## The Workflow
 
-1. Open `mockup.html` in the browser at `localhost:8765`
-2. Click to the slide you're working on
-3. Log into real WISH at https://wish.schedulingsite.com — navigate to the same screen
-4. Screenshot the real WISH screen
-5. Describe what needs to change: *"The table needs a Copy icon column on the right. The icon is a small document-on-document shape, not text."*
-6. Claude edits `mockup.html` directly
-7. Refresh browser, compare, repeat
+**Before starting a session — batch your screenshots first:**
+1. Log into real WISH at https://wish.schedulingsite.com
+2. Navigate to every slide in the "In progress" table below
+3. Screenshot each one and name it `[module]_[slide#].png` (e.g. `manage_job_5.png`)
+4. Save them all to one folder
+
+**Then in Claude Code — work through them in order:**
+1. Open `mockup.html` at `localhost:8765`, navigate to the slide
+2. Drag the matching screenshot into the Claude Code chat
+3. Describe what needs to change — Claude edits `mockup.html` directly
+4. Refresh browser, confirm match, move to next slide
 
 Drag screenshots directly into the Claude Code chat window — Claude can read images.
+
+**Tip:** Reporting modules (general_reporting, payroll_reporting, admin_reporting) are nearly identical — one screenshot fixes all three. Same for the workforce/employee maintenance modules.
 
 ## Module & Slide Status
 

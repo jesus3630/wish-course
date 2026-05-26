@@ -7,25 +7,29 @@
         "slide_number": 1,
         "slide_name": "Getting Started",
         "instructions": "ProtaTECH logo, series title",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH’s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we’ll focus on the portion of WISH relevant to your role and access level.",
+        "screenshot": "/screenshots/introduction/slide_1.png"
       },
       {
         "slide_number": 2,
         "slide_name": "WISH URL",
         "instructions": "Video of scheduling site entered as the URL, and the home page on screen.",
-        "text": "WISH is available online at wish.schedulingsite.com."
+        "text": "WISH is available online at wish.schedulingsite.com.",
+        "screenshot": "/screenshots/introduction/slide_2.png"
       },
       {
         "slide_number": 3,
         "slide_name": "Getting Started",
         "instructions": "Video of WISH home page",
-        "text": "To access WISH, you will need login credentials. After you complete your assigned WISH training modules, your login details will be sent to the email address listed in your Employee Self Service account. \r\n\r\nBefore logging in for the first time, you will need to review and accept the cookies and privacy policy."
+        "text": "To access WISH, you will need login credentials. After you complete your assigned WISH training modules, your login details will be sent to the email address listed in your Employee Self Service account. \r\n\r\nBefore logging in for the first time, you will need to review and accept the cookies and privacy policy.",
+        "screenshot": "/screenshots/introduction/slide_3.png"
       },
       {
         "slide_number": 4,
         "slide_name": "ESS Employee Portal",
         "instructions": "Video of ESS Home page, then back to WISH.",
-        "text": "When you were hired, you should have received an email from the Employee Self Service Portal (ESS). This application allows you to access your job training and request schedules. You should already have an ESS account. ESS can be accessed online at ess.schedulingsite.com.\r\n\r\nYour WISH login credentials will be sent to the email address listed on your ESS account. Once you receive your credentials, you can log into WISH and begin completing your work assignments using the knowledge you’ve gained."
+        "text": "When you were hired, you should have received an email from the Employee Self Service Portal (ESS). This application allows you to access your job training and request schedules. You should already have an ESS account. ESS can be accessed online at ess.schedulingsite.com.\r\n\r\nYour WISH login credentials will be sent to the email address listed on your ESS account. Once you receive your credentials, you can log into WISH and begin completing your work assignments using the knowledge you’ve gained.",
+        "screenshot": "/screenshots/introduction/slide_4.png"
       },
       {
         "slide_number": 4,

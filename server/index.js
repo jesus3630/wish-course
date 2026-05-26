@@ -164,6 +164,9 @@ app.use('/videos', express.static(VIDEOS_DIR));
 // ─── Serve per-slide screenshots ─────────────────────────────────────────────
 app.use('/screenshots', express.static(SCREENSHOTS_DIR));
 
+// ─── Serve interactive mockup simulator ──────────────────────────────────────
+app.use('/mockup', express.static(path.join(__dirname, '../scripts/record-slides')));
+
 // ─── Public: course data ──────────────────────────────────────────────────────
 app.get('/api/course', async (req, res) => {
   try {
