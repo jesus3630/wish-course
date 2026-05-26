@@ -8,6 +8,30 @@ import { useIsMobile } from '../utils/useIsMobile';
 type Timing = { word: string; start: number; end: number };
 type PrefetchEntry = { url: string; timings: Timing[] };
 
+function SimFrame({ src }: { src: string }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.7);
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+    const measure = () => setScale(Math.min(el.offsetWidth / 1280, 0.65));
+    measure();
+    const obs = new ResizeObserver(measure);
+    obs.observe(el);
+    window.addEventListener('resize', measure);
+    return () => { obs.disconnect(); window.removeEventListener('resize', measure); };
+  }, []);
+  return (
+    <div ref={wrapRef} style={{ width: '100%', overflow: 'hidden' }}>
+      <iframe
+        src={src}
+        style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
+        title="WISH Interactive Simulation"
+      />
+    </div>
+  );
+}
+
 async function textHash(text: string): Promise<string> {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
@@ -64,6 +88,7 @@ export default function ModulePlayer({
   const [slideVisible, setSlideVisible] = useState(true);
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
+  const [simReady, setSimReady] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -339,6 +364,7 @@ export default function ModulePlayer({
 
   useEffect(() => {
     stopAudio();
+    setSimReady(false);
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
     onProgressUpdate(updated);
@@ -349,8 +375,11 @@ export default function ModulePlayer({
     const fadeTimer = setTimeout(() => setSlideVisible(true), 50);
 
     autoPlayRef.current = setTimeout(() => {
+      const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
       playNarration(() => {
-        if (!isLastSlide) {
+        if (hasSimulation) {
+          setSimReady(true);
+        } else if (!isLastSlide) {
           autoAdvanceRef.current = setTimeout(() => handleNext(), 350);
         } else {
           setCelebrating(true);
@@ -387,15 +416,17 @@ export default function ModulePlayer({
       audio.play();
       setIsPlaying(true);
       startWordHighlight(audio, wordsRef.current, timingsRef.current);
+      const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
       audio.onended = () => {
         stopRaf();
         setIsPlaying(false);
-        autoAdvanceRef.current = setTimeout(() => handleNext(), 1500);
+        if (hasSimulation) { setSimReady(true); } else { autoAdvanceRef.current = setTimeout(() => handleNext(), 1500); }
       };
       return;
     }
+    const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
     playNarration(() => {
-      autoAdvanceRef.current = setTimeout(() => handleNext(), 1500);
+      if (hasSimulation) { setSimReady(true); } else { autoAdvanceRef.current = setTimeout(() => handleNext(), 1500); }
     });
   }
 
@@ -539,6 +570,24 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             >
               {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Resume'}
             </button>
+          )}
+
+          {(slide as any)?.simulation_url && (
+            <div style={{ marginTop: '24px', borderTop: '2px solid #E5E7EB', borderBottom: '2px solid #E5E7EB' }}>
+              <div style={{ background: simReady ? '#2e7d32' : '#1B3A6B', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', transition: 'background 0.4s' }}>
+                {simReady ? 'Your turn — click through the steps below' : 'Interactive demo — available after narration'}
+              </div>
+              <div style={{ position: 'relative' }}>
+                <SimFrame src={(slide as any).simulation_url} />
+                {!simReady && (
+                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.55)', cursor: 'not-allowed', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <span style={{ background: 'rgba(27,58,107,0.85)', color: '#fff', padding: '10px 20px', borderRadius: '6px', fontSize: '13px', fontWeight: 600 }}>
+                      Finish the narration to unlock
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
           )}
         </div>
       </div>
@@ -802,13 +851,17 @@ const styles: Record<string, React.CSSProperties> = {
     overflow: 'hidden',
     borderTop: '2px solid #E5E7EB',
     borderBottom: '2px solid #E5E7EB',
-    background: '#000',
+    background: '#f4f4f4',
     lineHeight: 0,
+    textAlign: 'center' as const,
   },
   screenshotImg: {
     width: '100%',
+    maxWidth: '900px',
+    maxHeight: '420px',
     height: 'auto',
-    display: 'block',
+    display: 'inline-block',
+    objectFit: 'contain' as const,
   },
   slideCard: {
     background: '#FFFFFF',
