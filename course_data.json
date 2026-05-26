@@ -67,7 +67,8 @@
         "slide_number": 9,
         "slide_name": "Admin Menu",
         "instructions": "",
-        "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required."
+        "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required.",
+        "image_below": "/screenshots/introduction/slide_10_admin.png"
       },
       {
         "slide_number": 10,
