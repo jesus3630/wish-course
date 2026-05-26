@@ -1,0 +1,45 @@
+{
+  "cookies": [
+    {
+      "name": "ApplicationGatewayAffinityCORS",
+      "value": "b6e2a99dbe44a1564d151a7286fd4c1b",
+      "domain": "wish.schedulingsite.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "ApplicationGatewayAffinity",
+      "value": "b6e2a99dbe44a1564d151a7286fd4c1b",
+      "domain": "wish.schedulingsite.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ASP.NET_SessionId",
+      "value": "1u2boothz0vmvzjaajp5pg3y",
+      "domain": "wish.schedulingsite.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ASPXAUTH",
+      "value": "AF9CC8686CD39A971C3D7536893BD78018BC8D4DC1BFD328E0BA930CE582955C7B0B39264942E690F22273C7E8176D889A60A53B79A9A7D63F9090BE2713E521EA5806D7A0C7A3BE305EFC062C966C27BE18837285F652421454701405418F593FA7AFE027B707AEC7970FA3190974F9",
+      "domain": "wish.schedulingsite.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": []
+}

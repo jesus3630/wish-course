@@ -130,7 +130,8 @@ async function getUnreadEmails() {
     // Skip self-sent only when no attachment — replies never have forms, form emails may be self-sent in tests
     if (agentEmail && parsed.fromEmail.toLowerCase() === agentEmail && parsed.docxAttachments.length === 0) continue;
 
-    // Parse any .docx attachments as WISH permission forms
+    // Parse any .docx attachments as WISH permission forms (supports multiple)
+    parsed.attachmentTexts = [];
     if (parsed.docxAttachments.length > 0) {
       for (const att of parsed.docxAttachments) {
         try {
@@ -141,7 +142,7 @@ async function getUnreadEmails() {
           });
           const buf = Buffer.from(attRes.data.data, 'base64');
           const formText = await parseWishForm(buf);
-          if (formText) parsed.attachmentText = formText;
+          if (formText) parsed.attachmentTexts.push(formText);
         } catch (e) {
           console.error(`[gmail] Failed to parse attachment ${att.filename}:`, e.message);
         }

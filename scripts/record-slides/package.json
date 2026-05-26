@@ -1,0 +1,13 @@
+{
+  "name": "wish-record-slides",
+  "version": "1.0.0",
+  "description": "Playwright script to record WISH system navigation per slide",
+  "main": "record.js",
+  "scripts": {
+    "record": "node record.js",
+    "record:module": "node record.js --module"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}

@@ -88,7 +88,7 @@ export default function ModulePlayer({
   const [slideVisible, setSlideVisible] = useState(true);
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [simReady, setSimReady] = useState(false);
+  const [simReady, setSimReady] = useState(true); // TEST MODE: unlocked immediately (skip narration requirement)
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -364,7 +364,7 @@ export default function ModulePlayer({
 
   useEffect(() => {
     stopAudio();
-    setSimReady(false);
+    setSimReady(true); // TEST MODE: always unlocked
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
     onProgressUpdate(updated);

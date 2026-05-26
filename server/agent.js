@@ -145,9 +145,11 @@ For every email you process:
 ENROLLING A USER:
 - Extract the employee's name, email, and which WISH permissions they are being granted
 - Permissions come from the WISH User Permissions Request Form and include: Record Maintenance, Manage Job, MSS, Scheduling, Schedule by Job Admin, General Reporting, Payroll Reporting, Admin Reporting, Workforce Scheduler Maintenance, Workforce Admin Maintenance, Employee HR Record Maintenance, Hiring Manager, HR Admin, Mail By, Sign-In/Sign-Out, Manual Process Hours, Billing, Inventory
-- If an attached WISH Permission Form is included:
-  - Read the "Employee Name" and "Employee Email" fields from the form — use THOSE for enrollment, not the sender's email
-  - Read the checked boxes (☒) to determine which permissions are granted — ignore unchecked boxes
+- If one or more attached WISH Permission Forms are included:
+  - Each form is labeled "WISH PERMISSION FORM X of N" — process EVERY form, enrolling each employee separately
+  - Read the "Employee Name" and "Employee Email" fields from each form — use THOSE for enrollment, not the sender's email
+  - Read the checked boxes to determine which permissions are granted for each employee — ignore unchecked boxes
+  - Call enroll_user once per form — do NOT batch multiple employees into one call
 - Only assign the modules matching the permissions they were granted — do NOT assign all modules
 - Every user always gets the Introduction module in addition to their specific permissions
 
@@ -156,7 +158,7 @@ Other supported requests:
 - List everyone: "Who is enrolled?" / "Send me a status report"
 - Remove someone: "Remove bob@example.com from training"
 
-IMPORTANT: When you successfully enroll a user, do NOT call send_reply — the invite email they receive is their confirmation. Only call send_reply for non-enrollment actions (check_progress, list_enrolled_users, remove_user) or when a request is unclear or spam.
+IMPORTANT: When you successfully enroll one or more users, do NOT call send_reply — each invite email is their confirmation. For batch enrollments (multiple forms), enroll every person before finishing. Only call send_reply for non-enrollment actions (check_progress, list_enrolled_users, remove_user) or when a request is unclear or spam.
 If the request is unclear, send a polite reply listing what you can help with.
 If the email appears to be spam or unrelated to WISH training, reply briefly and ignore.
 Never invent information — only report what the tools return.`;
@@ -243,10 +245,14 @@ async function executeTool(name, input, emailCtx) {
 }
 
 async function processEmail(email) {
-  console.log(`[agent] Processing: "${email.subject}" from ${email.fromEmail}`);
+  const formCount = (email.attachmentTexts || []).length;
+  console.log(`[agent] Processing: "${email.subject}" from ${email.fromEmail}${formCount > 0 ? ` (${formCount} form${formCount > 1 ? 's' : ''})` : ''}`);
 
-  const formSection = email.attachmentText
-    ? `\n\n--- ATTACHED WISH PERMISSION FORM ---\n${email.attachmentText.substring(0, 6000)}\n--- END FORM ---`
+  const forms = email.attachmentTexts || [];
+  const formSection = forms.length > 0
+    ? forms.map((text, i) =>
+        `\n\n--- WISH PERMISSION FORM ${i + 1} of ${forms.length} ---\n${text.substring(0, 4000)}\n--- END FORM ${i + 1} ---`
+      ).join('')
     : '';
 
   const messages = [
@@ -264,6 +270,10 @@ async function processEmail(email) {
     });
 
     const msg = response.choices[0].message;
+    const usage = response.usage;
+    if (usage) {
+      console.log(`[agent] tokens — in: ${usage.prompt_tokens}, out: ${usage.completion_tokens}, total: ${usage.total_tokens}`);
+    }
     messages.push(msg);
 
     if (!msg.tool_calls || msg.tool_calls.length === 0) break;
