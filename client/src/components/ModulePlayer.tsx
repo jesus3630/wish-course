@@ -569,7 +569,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               <img
                 src={(slide as any).image_below}
                 alt="Slide visual"
-                style={{ maxWidth: '320px', width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
+                style={{ maxWidth: '200px', maxHeight: '220px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
               />
             </div>
           )}
