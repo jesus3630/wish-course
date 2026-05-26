@@ -65,6 +65,11 @@ async function initDB() {
       timings JSONB NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
     );
+    CREATE TABLE IF NOT EXISTS client_timings (
+      client_hash TEXT PRIMARY KEY,
+      timings JSONB NOT NULL,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    );
     CREATE TABLE IF NOT EXISTS admin_sessions (
       token TEXT PRIMARY KEY,
       created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -173,6 +178,9 @@ async function setQuizData(data) {
 function narrationHash(text) {
   return crypto.createHash('sha256').update(`${VOICE_ID}:${text}`).digest('hex');
 }
+function clientHash(text) {
+  return crypto.createHash('sha256').update(text).digest('hex');
+}
 async function getCachedNarration(hash) {
   const r = await pool.query('SELECT audio, timings FROM narration_cache WHERE text_hash = $1', [hash]);
   return r.rows[0] ?? null;
@@ -183,6 +191,34 @@ async function setCachedNarration(hash, audio, timings) {
     [hash, audio, JSON.stringify(timings)]
   );
 }
+async function setClientTimings(cHash, timings) {
+  await pool.query(
+    'INSERT INTO client_timings (client_hash, timings) VALUES ($1, $2) ON CONFLICT (client_hash) DO NOTHING',
+    [cHash, JSON.stringify(timings)]
+  ).catch(() => {});
+}
+
+// ─── Timing JSON fallback — serve from DB when static file not on Railway ─────
+// Client requests /audio/{sha256(text)}.json — static files excluded from railway up
+// This route intercepts missing files and serves timings from client_timings table.
+app.get('/audio/:hash.json', async (req, res, next) => {
+  const hash = req.params.hash;
+  // Let static middleware handle it if file exists on disk
+  const staticPath = path.join(__dirname, '../client/build/audio', hash + '.json');
+  if (fs.existsSync(staticPath)) return next();
+  // File not on disk — try DB
+  try {
+    const r = await pool.query('SELECT timings FROM client_timings WHERE client_hash = $1', [hash]);
+    if (r.rows.length > 0) {
+      res.setHeader('Content-Type', 'application/json');
+      res.setHeader('Cache-Control', 'public, max-age=86400');
+      return res.json(r.rows[0].timings);
+    }
+  } catch (e) {
+    console.error('[timing-fallback] DB error:', e.message);
+  }
+  next(); // 404
+});
 
 // ─── Serve React build ────────────────────────────────────────────────────────
 const BUILD_DIR = path.join(__dirname, '../client/build');
@@ -533,6 +569,8 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
   // Serve from cache if available — avoids hitting ElevenLabs for repeated requests
   const cached = await getCachedNarration(hash);
   if (cached) {
+    // Also ensure client_timings is populated (for /audio/{hash}.json route)
+    setClientTimings(clientHash(trimmedText), cached.timings);
     return res.json({ audio: cached.audio, timings: cached.timings });
   }
 
@@ -586,6 +624,7 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
         if (word.trim()) timings.push({ word: word.trim(), start: wordStart, end: ends[ends.length - 1] });
 
         setCachedNarration(hash, data.audio_base64, timings).catch(() => {});
+        setClientTimings(clientHash(trimmedText), timings); // also store by client hash for /audio/{hash}.json fallback
         res.json({ audio: data.audio_base64, timings });
       } catch (e) {
         console.error('Failed to parse ElevenLabs response:', e);
