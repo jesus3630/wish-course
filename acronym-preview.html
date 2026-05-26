@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WISH Acronym Card Preview</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F4F7FA;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .card-wrap {
+      width: 100%;
+      max-width: 680px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px 48px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+      border-top: 5px solid #D4782A;
+    }
+    .slide-text {
+      font-size: 16px;
+      line-height: 1.9;
+      color: #374151;
+      margin-bottom: 0;
+    }
+
+    /* Acronym card */
+    .acronym { text-align: center; padding: 28px 16px 16px; }
+
+    .wish-title {
+      font-size: clamp(42px, 8vw, 68px);
+      font-weight: 900;
+      color: #1B3A6B;
+      letter-spacing: 6px;
+      line-height: 1;
+      margin-bottom: 28px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .wish-row {
+      font-size: clamp(22px, 4.5vw, 36px);
+      font-weight: 800;
+      line-height: 1.45;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1);
+    }
+    .wish-row .accent {
+      color: #D4782A;
+      text-shadow: 0 0 22px rgba(212,120,42,0.30);
+    }
+    .wish-row .rest { color: #1B3A6B; }
+
+    .visible { opacity: 1 !important; transform: translateY(0) !important; }
+
+    .play-btn {
+      margin-top: 28px;
+      padding: 10px 24px;
+      background: #D4782A;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .replay-btn {
+      margin-top: 16px;
+      display: block;
+      background: none;
+      border: none;
+      color: #9CA3AF;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card-wrap">
+    <div style="font-size:11px;font-weight:700;background:#1B3A6B;color:#fff;padding:4px 12px;border-radius:20px;display:inline-block;text-transform:uppercase;margin-bottom:20px;">Slide 8 / 17</div>
+    <h2 style="font-size:26px;font-weight:800;color:#1B3A6B;margin-bottom:20px;">W.I.S.H.</h2>
+
+    <p class="slide-text">The name WISH stands for <strong>Workforce Information Systems Hosted</strong>, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs.</p>
+
+    <!-- Acronym Card -->
+    <div class="acronym">
+      <div class="wish-title" id="t0">W.I.S.H.</div>
+      <div class="wish-row" id="t1"><span class="accent">W</span><span class="rest">ORKFORCE</span></div>
+      <div class="wish-row" id="t2"><span class="accent">I</span><span class="rest">NFORMATION</span></div>
+      <div class="wish-row" id="t3"><span class="accent">S</span><span class="rest">YSTEMS</span></div>
+      <div class="wish-row" id="t4"><span class="accent">H</span><span class="rest">OSTED</span></div>
+    </div>
+
+    <button class="play-btn">▶ Resume</button>
+    <button class="replay-btn" onclick="replay()">↺ Replay animation</button>
+  </div>
+
+  <script>
+    function replay() {
+      ['t0','t1','t2','t3','t4'].forEach(id => document.getElementById(id).classList.remove('visible'));
+      const delays = [200, 700, 1200, 1700, 2200];
+      ['t0','t1','t2','t3','t4'].forEach((id, i) =>
+        setTimeout(() => document.getElementById(id).classList.add('visible'), delays[i])
+      );
+    }
+    replay();
+  </script>
+</body>
+</html>

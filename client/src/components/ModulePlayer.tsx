@@ -674,49 +674,55 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
 // ─── W.I.S.H. Acronym card ────────────────────────────────────────────────────
 function WishAcronymCard() {
-  const rows = [
-    { letter: 'W', accent: '#D4782A', word: 'Workforce',   desc: 'People, teams, and employee lifecycle management' },
-    { letter: 'I', accent: '#5BBCB0', word: 'Information', desc: 'Centralized data accessible from anywhere'          },
-    { letter: 'S', accent: '#C8D46A', word: 'Systems',     desc: 'Integrated modules — HR, Payroll, Billing & more'   },
-    { letter: 'H', accent: '#1B3A6B', word: 'Hosted',      desc: 'Cloud-based platform — no local install needed'     },
+  const [step, setStep] = useState(-1);
+
+  useEffect(() => {
+    setStep(-1);
+    // Title at 200ms, then each word 500ms apart
+    const delays = [200, 700, 1200, 1700, 2200];
+    const timers = delays.map((ms, i) => setTimeout(() => setStep(i), ms));
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const shown = (i: number): React.CSSProperties => ({
+    opacity: step >= i ? 1 : 0,
+    transform: step >= i ? 'translateY(0)' : 'translateY(18px)',
+    transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+  });
+
+  const rows: { letter: string; rest: string }[] = [
+    { letter: 'W', rest: 'ORKFORCE'   },
+    { letter: 'I', rest: 'NFORMATION' },
+    { letter: 'S', rest: 'YSTEMS'     },
+    { letter: 'H', rest: 'OSTED'      },
   ];
+
   return (
-    <div style={{ margin: '32px 0 12px', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 6px 24px rgba(0,0,0,0.10)', border: '1px solid #E5E7EB' }}>
-      {/* Header */}
-      <div style={{ background: 'linear-gradient(135deg, #1B3A6B 0%, #2a5298 100%)', padding: '18px 24px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-        <div style={{ display: 'flex', gap: '6px' }}>
-          {['W','I','S','H'].map((l, i) => (
-            <span key={l} style={{
-              width: '32px', height: '32px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              background: ['#D4782A','#5BBCB0','#C8D46A','rgba(255,255,255,0.18)'][i],
-              fontSize: '16px', fontWeight: 900, color: '#fff', letterSpacing: 0,
-            }}>{l}</span>
-          ))}
-        </div>
-        <div>
-          <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '2px', color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase' }}>What it stands for</div>
-          <div style={{ fontSize: '13px', fontWeight: 600, color: '#fff', marginTop: '2px' }}>Workforce Information Systems Hosted</div>
-        </div>
+    <div style={{ textAlign: 'center', padding: '28px 16px 16px' }}>
+      {/* Big W.I.S.H. title */}
+      <div style={{
+        ...shown(0),
+        fontSize: 'clamp(42px, 8vw, 68px)',
+        fontWeight: 900,
+        color: '#1B3A6B',
+        letterSpacing: '6px',
+        lineHeight: 1,
+        marginBottom: '28px',
+      }}>
+        W.I.S.H.
       </div>
-      {/* Rows */}
-      {rows.map(({ letter, accent, word, desc }, i) => (
+
+      {/* One row per letter */}
+      {rows.map(({ letter, rest }, i) => (
         <div key={letter} style={{
-          display: 'flex', alignItems: 'center', gap: '16px',
-          padding: '14px 24px',
-          background: i % 2 === 0 ? '#FAFAFA' : '#FFFFFF',
-          borderTop: '1px solid #F0F0F0',
+          ...shown(i + 1),
+          fontSize: 'clamp(22px, 4.5vw, 36px)',
+          fontWeight: 800,
+          lineHeight: 1.45,
+          letterSpacing: '1px',
         }}>
-          <div style={{
-            width: '44px', height: '44px', borderRadius: '10px', flexShrink: 0,
-            background: accent, display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '26px', fontWeight: 900, color: '#fff',
-            boxShadow: `0 3px 10px ${accent}55`,
-          }}>{letter}</div>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontSize: '15px', fontWeight: 800, color: '#1B3A6B', letterSpacing: '0.2px' }}>{word}</div>
-            <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '2px', lineHeight: 1.4 }}>{desc}</div>
-          </div>
-          <div style={{ width: '4px', height: '36px', borderRadius: '2px', background: accent, flexShrink: 0 }} />
+          <span style={{ color: '#D4782A', textShadow: '0 0 22px rgba(212,120,42,0.30)' }}>{letter}</span>
+          <span style={{ color: '#1B3A6B' }}>{rest}</span>
         </div>
       ))}
     </div>
