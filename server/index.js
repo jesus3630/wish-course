@@ -240,6 +240,7 @@ const adminLoginLimit = rateLimit({
   message: { error: 'Too many login attempts. Try again in 15 minutes.' },
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false },
 });
 
 // ─── Admin: login — issues session token ─────────────────────────────────────
@@ -517,6 +518,7 @@ const narrateLimit = rateLimit({
   message: { error: 'Too many requests. Please wait a moment.' },
   standardHeaders: true,
   legacyHeaders: false,
+  validate: { trustProxy: false },
 });
 
 app.post('/api/narrate', narrateLimit, async (req, res) => {
