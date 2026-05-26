@@ -65,7 +65,8 @@
         "slide_name": "WISH Menu's",
         "instructions": null,
         "text": "In the following slides we will explore WISH’s application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system. ",
-        "original_index": 8
+        "original_index": 8,
+        "image_below": "/screenshots/introduction/slide_9_menu.png"
       },
       {
         "slide_number": 9,
