@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="190" height="446" viewBox="0 0 190 446">
+  <defs>
+    <filter id="sh" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000" flood-opacity="0.13"/>
+    </filter>
+    <style>
+      .lbl { font-family: Arial, Helvetica, sans-serif; font-size: 14px; fill: #2c2c2c; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="190" height="446" rx="6" fill="#d4d4d4"/>
+
+  <!-- ── ADMIN (y=6) ── -->
+  <rect x="6" y="6" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- head -->
+  <circle cx="24" cy="18" r="6.5" fill="#4880C0"/>
+  <!-- shoulders -->
+  <path d="M11,40 C11,26 37,26 37,40 Z" fill="#4880C0"/>
+  <text x="44" y="30" class="lbl">Admin</text>
+
+  <!-- ── BILLING (y=50) ── -->
+  <rect x="6" y="50" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- shopping cart handle -->
+  <path d="M12,72 L14,62 L33,62" stroke="#5A8A3C" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- basket -->
+  <path d="M14,62 L33,62 L31,74 L15,74 Z" fill="#5A8A3C"/>
+  <!-- wheels -->
+  <circle cx="19" cy="81" r="4" fill="#5A8A3C"/>
+  <circle cx="28" cy="81" r="4" fill="#5A8A3C"/>
+  <text x="44" y="74" class="lbl">Billing</text>
+
+  <!-- ── INVENTORY (y=94) ── -->
+  <rect x="6" y="94" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- box front face -->
+  <rect x="14" y="108" width="20" height="16" rx="1" fill="#8A6830"/>
+  <!-- box top face (parallelogram) -->
+  <polygon points="14,108 20,102 34,102 28,108" fill="#A07838"/>
+  <!-- box lid crease -->
+  <line x1="27" y1="102" x2="21" y2="108" stroke="#6A4820" stroke-width="1"/>
+  <text x="44" y="118" class="lbl">Inventory</text>
+
+  <!-- ── RECORDS (y=138) ── -->
+  <rect x="6" y="138" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- document with folded corner -->
+  <path d="M14,144 L29,144 L36,151 L36,170 L14,170 Z" fill="#7898B0"/>
+  <path d="M29,144 L29,151 L36,151" fill="#5A7888" stroke="none"/>
+  <!-- text lines -->
+  <line x1="18" y1="156" x2="32" y2="156" stroke="white" stroke-width="2"/>
+  <line x1="18" y1="161" x2="32" y2="161" stroke="white" stroke-width="2"/>
+  <line x1="18" y1="166" x2="27" y2="166" stroke="white" stroke-width="2"/>
+  <text x="44" y="162" class="lbl">Records</text>
+
+  <!-- ── REPORTS (y=182) ── -->
+  <rect x="6" y="182" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <path d="M14,188 L29,188 L36,195 L36,214 L14,214 Z" fill="#5888B0"/>
+  <path d="M29,188 L29,195 L36,195" fill="#4070A0" stroke="none"/>
+  <!-- bar chart -->
+  <rect x="17" y="206" width="4" height="6"  fill="white" opacity="0.92"/>
+  <rect x="22" y="202" width="4" height="10" fill="white" opacity="0.92"/>
+  <rect x="27" y="197" width="4" height="15" fill="white" opacity="0.92"/>
+  <text x="44" y="206" class="lbl">Reports</text>
+
+  <!-- ── SCHEDULING (y=226) ── -->
+  <rect x="6" y="226" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- bullseye / target -->
+  <circle cx="24" cy="245" r="14" fill="#D04818"/>
+  <circle cx="24" cy="245" r="9"  fill="white"/>
+  <circle cx="24" cy="245" r="5"  fill="#D04818"/>
+  <circle cx="24" cy="245" r="2"  fill="white"/>
+  <text x="44" y="250" class="lbl">Scheduling</text>
+
+  <!-- ── PAYROLL (y=270) ── -->
+  <rect x="6" y="270" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <path d="M14,276 L29,276 L36,283 L36,302 L14,302 Z" fill="#508850"/>
+  <path d="M29,276 L29,283 L36,283" fill="#387038" stroke="none"/>
+  <text x="25" y="295" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">$</text>
+  <text x="44" y="294" class="lbl">Payroll</text>
+
+  <!-- ── TIME CLOCK (y=314) ── -->
+  <rect x="6" y="314" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- clock circle -->
+  <circle cx="24" cy="333" r="14" fill="white" stroke="#909090" stroke-width="2.5"/>
+  <circle cx="24" cy="333" r="12" fill="#f6f6f6"/>
+  <!-- tick marks at 12/3/6/9 -->
+  <line x1="24" y1="321" x2="24" y2="324" stroke="#606060" stroke-width="2"/>
+  <line x1="24" y1="342" x2="24" y2="345" stroke="#606060" stroke-width="2"/>
+  <line x1="13" y1="333" x2="16" y2="333" stroke="#606060" stroke-width="2"/>
+  <line x1="32" y1="333" x2="35" y2="333" stroke="#606060" stroke-width="2"/>
+  <!-- hour hand (~10 o'clock) -->
+  <line x1="24" y1="333" x2="18" y2="325" stroke="#404040" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- minute hand (12) -->
+  <line x1="24" y1="333" x2="24" y2="322" stroke="#404040" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="24" cy="333" r="2" fill="#404040"/>
+  <text x="44" y="338" class="lbl">Time Clock</text>
+
+  <!-- ── TOOLS (y=358) ── -->
+  <rect x="6" y="358" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- gear body + cardinal teeth -->
+  <g transform="translate(24,377)">
+    <circle r="12" fill="#C88018"/>
+    <rect x="-3.5" y="-16" width="7" height="6" rx="1" fill="#C88018"/>
+    <rect x="-3.5" y="10"  width="7" height="6" rx="1" fill="#C88018"/>
+    <rect x="-16"  y="-3.5" width="6" height="7" rx="1" fill="#C88018"/>
+    <rect x="10"   y="-3.5" width="6" height="7" rx="1" fill="#C88018"/>
+  </g>
+  <!-- diagonal teeth -->
+  <g transform="translate(24,377) rotate(45)">
+    <rect x="-3.5" y="-16" width="7" height="6" rx="1" fill="#C88018"/>
+    <rect x="-3.5" y="10"  width="7" height="6" rx="1" fill="#C88018"/>
+    <rect x="-16"  y="-3.5" width="6" height="7" rx="1" fill="#C88018"/>
+    <rect x="10"   y="-3.5" width="6" height="7" rx="1" fill="#C88018"/>
+  </g>
+  <!-- gear center -->
+  <circle cx="24" cy="377" r="5.5" fill="white"/>
+  <circle cx="24" cy="377" r="3"   fill="#C88018"/>
+  <text x="44" y="382" class="lbl">Tools</text>
+
+  <!-- ── HOME (y=402) ── -->
+  <rect x="6" y="402" width="178" height="38" rx="4" fill="white" filter="url(#sh)"/>
+  <!-- roof -->
+  <polygon points="24,408 38,420 10,420" fill="#3C68B0"/>
+  <!-- walls -->
+  <rect x="14" y="420" width="20" height="14" fill="#4878C0"/>
+  <!-- door -->
+  <rect x="20" y="426" width="8" height="8" rx="1" fill="white"/>
+  <text x="44" y="426" class="lbl">Home</text>
+</svg>
