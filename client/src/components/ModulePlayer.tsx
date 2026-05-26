@@ -568,7 +568,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
               <img
                 src={(slide as any).image_below}
-                alt="Slide visual"
+                alt=""
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 style={{ maxWidth: '280px', maxHeight: '380px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
               />
             </div>
