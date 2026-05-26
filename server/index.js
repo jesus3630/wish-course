@@ -5,7 +5,8 @@ const https = require('https');
 const path = require('path');
 const fs = require('fs');
 const { Pool } = require('pg');
-const rateLimit = require('express-rate-limit');
+// express-rate-limit removed — was crashing Railway due to X-Forwarded-For validation
+const rateLimit = (opts) => (req, res, next) => next(); // passthrough stub
 const multer = require('multer');
 const crypto = require('crypto');
 const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = require('./email');
