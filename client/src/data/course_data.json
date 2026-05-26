@@ -81,7 +81,8 @@
         "slide_name": "Billing Menu",
         "instructions": null,
         "text": "\nThe Billing menu allows you to generate invoices for clients after your branch has completed a job. Whenever a schedule is saved in the system, it is stored for future billing purposes. This ensures you can easily create and provide accurate bills to clients for the events your team has worked.",
-        "original_index": 10
+        "original_index": 10,
+        "image_below": "/screenshots/introduction/slide_11_billing.png"
       },
       {
         "slide_number": 11,
