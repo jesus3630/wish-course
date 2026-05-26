@@ -57,6 +57,7 @@
         "slide_name": "W.I.S.H.",
         "instructions": null,
         "text": "The name WISH stands for Workforce Information Systems Hosted, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs. Key modules\u2014including Scheduling, Billing, Human Resources, and Payroll\u2014are consolidated into a single, integrated platform. By bringing these essential functions together, WISH streamlines workforce management and offers accessible, web-based services from any location with an internet connection.",
+        "acronym_card": true,
         "original_index": 7
       },
       {

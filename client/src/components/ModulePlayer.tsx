@@ -562,6 +562,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             )}
           </div>
 
+          {(slide as any)?.acronym_card && <WishAcronymCard />}
+
           {slideText && (
             <button
               style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
@@ -665,6 +667,41 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             {isLastSlide ? 'Complete ✓' : 'Next →'}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── W.I.S.H. Acronym card ────────────────────────────────────────────────────
+function WishAcronymCard() {
+  const items = [
+    { letter: 'W', word: 'Workforce',   sub: '',  bg: '#1B3A6B' },
+    { letter: 'I', word: 'Information', sub: '',  bg: '#D4782A' },
+    { letter: 'S', word: 'Systems',     sub: '',  bg: '#5BBCB0' },
+    { letter: 'H', word: 'Hosted',      sub: '',  bg: '#C8D46A' },
+  ];
+  return (
+    <div style={{ margin: '28px 0 8px' }}>
+      <div style={{ textAlign: 'center', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', color: '#9CA3AF', marginBottom: '16px' }}>
+        W · I · S · H &nbsp;Acronym
+      </div>
+      <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        {items.map(({ letter, word, bg }) => (
+          <div key={letter} style={{
+            background: bg,
+            borderRadius: '14px',
+            padding: '22px 20px 18px',
+            textAlign: 'center',
+            minWidth: '100px',
+            flex: '1',
+            maxWidth: '150px',
+            boxShadow: '0 4px 16px rgba(0,0,0,0.14)',
+          }}>
+            <div style={{ fontSize: '52px', fontWeight: 900, color: '#fff', lineHeight: 1, textShadow: '0 2px 6px rgba(0,0,0,0.25)' }}>{letter}</div>
+            <div style={{ marginTop: '10px', height: '2px', background: 'rgba(255,255,255,0.35)', borderRadius: '1px' }} />
+            <div style={{ marginTop: '10px', fontSize: '13px', fontWeight: 700, color: 'rgba(255,255,255,0.95)', textTransform: 'uppercase', letterSpacing: '0.6px' }}>{word}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
