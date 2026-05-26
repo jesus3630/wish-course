@@ -564,6 +564,16 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
           {(slide as any)?.acronym_card && <WishAcronymCard />}
 
+          {(slide as any)?.image_below && (
+            <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
+              <img
+                src={(slide as any).image_below}
+                alt="Slide visual"
+                style={{ maxWidth: '320px', width: '100%', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
+              />
+            </div>
+          )}
+
           {slideText && (
             <button
               style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
