@@ -194,7 +194,8 @@
         "slide_name": "Creating a Job",
         "instructions": "Screen recording: Records â†’ Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
         "text": "Go to Records to Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\nâ€¢ Job Name\r\nâ€¢ Job Class, use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\nâ€¢ Branch Name, auto-fills for you\r\nâ€¢ Event, select the event from the dropdown\r\nâ€¢ Venue and Client, these auto-populate from the event\r\nâ€¢ Start and End Date/Time, use military time format\r\n\r\nAfter saving, copy the job number to your clipboard, you will use it throughout the system.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=3"
+        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=3",
+        "screenshot": null
       },
       {
         "slide_number": 4,
