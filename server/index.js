@@ -12,7 +12,7 @@ const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = req
 const agent = require('./agent');
 
 const app = express();
-app.set('trust proxy', 1); // Railway sits behind a proxy — required for express-rate-limit
+app.set('trust proxy', 1); // Required for express-rate-limit behind Railway's proxy
 app.use(cors());
 app.use(express.json({ limit: '10mb' }));
 
@@ -87,16 +87,48 @@ async function initDB() {
     console.log('[boot] Seeding course_data from committed file');
     await pool.query('INSERT INTO course_data (id, data) VALUES (1, $1)', [JSON.stringify(jsonCourseData)]);
   } else {
-    // Merge: use JSON order, keep DB version of existing modules (preserves admin edits), add new ones
+    // Merge strategy:
+    // 1. Add new modules from JSON (preserves DB for existing ones)
+    // 2. For existing modules, apply new slide-level fields from JSON (e.g. simulation_url)
+    //    without overwriting admin-edited text/slide_name/instructions fields
     const dbResult = await pool.query('SELECT data FROM course_data WHERE id = 1');
     const dbModules = dbResult.rows[0].data;
     const dbMap = new Map(dbModules.map(m => [m.id, m]));
-    const jsonIds = new Set(jsonCourseData.map(m => m.id));
     const newIds = jsonCourseData.filter(m => !dbMap.has(m.id)).map(m => m.id);
-    if (newIds.length > 0) {
-      console.log(`[boot] Adding ${newIds.length} new module(s) from JSON:`, newIds);
-      // Follow JSON order; for existing modules use DB copy, for new ones use JSON copy
-      const merged = jsonCourseData.map(m => dbMap.get(m.id) || m);
+
+    // Merge each module: DB base + apply simulation_url / screenshot from JSON slides
+    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'video_start', 'video_end'];
+    const merged = jsonCourseData.map(jsonMod => {
+      const dbMod = dbMap.get(jsonMod.id);
+      if (!dbMod) return jsonMod; // new module — use JSON fully
+
+      // Existing module: keep DB slide content but apply structural fields from JSON
+      const mergedSlides = (dbMod.slides || []).map((dbSlide, idx) => {
+        const jsonSlide = (jsonMod.slides || [])[idx];
+        if (!jsonSlide) return dbSlide;
+        const merged = { ...dbSlide };
+        for (const field of SLIDE_FIELDS_FROM_JSON) {
+          if (field in jsonSlide) {
+            if (jsonSlide[field] === null || jsonSlide[field] === undefined) {
+              delete merged[field]; // JSON explicitly removed — remove from DB
+            } else {
+              merged[field] = jsonSlide[field]; // JSON added/changed — apply
+            }
+          }
+        }
+        return merged;
+      });
+      return { ...dbMod, slides: mergedSlides };
+    });
+
+    const hasChanges = newIds.length > 0 || merged.some((m, i) => {
+      const db = dbMap.get(m.id);
+      return db && JSON.stringify(db.slides) !== JSON.stringify(m.slides);
+    });
+
+    if (hasChanges) {
+      if (newIds.length > 0) console.log(`[boot] Adding ${newIds.length} new module(s):`, newIds);
+      console.log('[boot] Applying slide field updates from JSON (simulation_url, screenshot, etc.)');
       await pool.query(
         'UPDATE course_data SET data = $1, updated_at = NOW() WHERE id = 1',
         [JSON.stringify(merged)]
