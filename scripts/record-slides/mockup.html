@@ -114,8 +114,8 @@ tr:hover td{background:#f8f4f0;}
 /* ── Guided interactive mode ── */
 @keyframes guided-pulse{0%,100%{box-shadow:0 0 0 0 rgba(192,120,0,.7);}50%{box-shadow:0 0 0 8px rgba(192,120,0,0);}}
 .guided-target{outline:2px solid #c07800!important;outline-offset:2px;animation:guided-pulse 1.2s infinite!important;position:relative!important;z-index:20!important;cursor:pointer!important;}
-#guided-prompt{position:fixed;background:#1a3c5a;color:#fff;padding:9px 14px 9px 38px;border-radius:4px;font-size:13px;max-width:280px;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;}
-#guided-prompt::before{content:'☝';position:absolute;left:10px;top:7px;font-size:17px;}
+#guided-prompt{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);background:#1a3c5a;color:#fff;padding:9px 16px 9px 40px;border-radius:4px;font-size:13px;max-width:420px;width:max-content;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;text-align:left;}
+#guided-prompt::before{content:'☝';position:absolute;left:12px;top:7px;font-size:17px;}
 #guided-bar{position:fixed;bottom:24px;left:0;width:100%;height:34px;background:#1a3c5a;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;font-size:12px;z-index:9997;}
 .step-pip{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);flex-shrink:0;}
 .step-pip.done{background:#4caf50;}
@@ -325,32 +325,16 @@ function runGuided(steps) {
   }
 
   function placeTip(el, text) {
+    // Prompt is CSS-anchored (bottom:66px, centered) — never overlaps content
     tip.textContent = text;
     tip.style.display = 'block';
-    const r = el.getBoundingClientRect();
-    let top = r.top - 54, left = r.left;
-    if (top < 10) top = r.bottom + 10;
-    // Only push below page-title for elements in the content area (not topbar/header/dropdown)
-    if (r.top > 120) {
-      const titleEl = document.querySelector('.page-title');
-      if (titleEl) {
-        const tr = titleEl.getBoundingClientRect();
-        if (top < tr.bottom + 8) top = tr.bottom + 12;
-      }
-    }
-    if (top > 670) top = 670;
-    // For top-area elements on the right side of the screen, place tooltip to the left
-    if (r.top < 120 && r.left > 620) {
-      left = r.left - 292 - 10;
-      top = Math.max(r.top, 10);
-    }
-    if (left + 292 > 1268) left = 1268 - 292;
-    if (left < 8) left = 8;
-    tip.style.top = top + 'px'; tip.style.left = left + 'px';
   }
 
   function showStep(i) {
-    if (_gs && _gs.handler) document.removeEventListener('click', _gs.handler, true);
+    if (_gs && _gs.handler) {
+      if (_gs.isSelect) _gs.el.removeEventListener('change', _gs.handler);
+      else document.removeEventListener('click', _gs.handler, true);
+    }
     if (_gs && _gs.el) _gs.el.classList.remove('guided-target');
     _gs = null;
 
@@ -374,31 +358,25 @@ function runGuided(steps) {
       el.classList.add('guided-target');
 
       if (s.skipClick) {
-        // Observation step — place tooltip in the gray area below the content panel
+        // Observation step — prompt is CSS-anchored above the bar, never overlaps content
         const btn = document.createElement('button');
         btn.className = 'guided-next-btn'; btn.textContent = 'Next →';
         btn.onclick = () => showStep(i + 1);
         bar.appendChild(btn);
         _gs = { el, handler: null };
-        requestAnimationFrame(() => {
-          tip.textContent = s.prompt;
-          tip.style.display = 'block';
-          const content = document.getElementById('content');
-          const cr = content ? content.getBoundingClientRect() : { bottom: 530, left: 150 };
-          let tipTop = cr.bottom + 14;
-          let tipLeft = cr.left + 20;
-          if (tipTop > 650) tipTop = 650;
-          if (tipLeft + 292 > 1268) tipLeft = 1268 - 292;
-          tip.style.top = tipTop + 'px'; tip.style.left = tipLeft + 'px';
-        });
+        tip.textContent = s.prompt;
+        tip.style.display = 'block';
         return;
       }
 
       placeTip(el, s.prompt);
 
+      const isSelect = el.tagName === 'SELECT';
+      const eventType = isSelect ? 'change' : 'click';
+
       const handler = (e) => {
-        if (!el.contains(e.target)) return;
-        document.removeEventListener('click', handler, true);
+        if (!isSelect && !el.contains(e.target)) return;
+        (isSelect ? el : document).removeEventListener(eventType, handler, !isSelect);
         el.classList.remove('guided-target');
         _gs = null;
 
@@ -419,8 +397,12 @@ function runGuided(steps) {
           }
         }
       };
-      _gs = { el, handler };
-      document.addEventListener('click', handler, true);
+      _gs = { el, handler, eventType, isSelect };
+      if (isSelect) {
+        el.addEventListener('change', handler);
+      } else {
+        document.addEventListener('click', handler, true);
+      }
     }
     tryHighlight(0);
   }
@@ -510,11 +492,23 @@ function slide_manage_job_3() {
   runGuided([
     { selector: '#btn-addnew', prompt: 'Click "Add New" to create a new job',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditJobHTML('', ''); }},
-    { selector: '#f-jname', prompt: 'Click here and type the Job Name', type: 'DRAKE N3' },
-    { selector: '#f-event', prompt: 'Click to select the Event Name',
+    { selector: '#f-jname', prompt: 'Type the Job Name here', type: 'DRAKE N3' },
+    { selector: '#f-jobclass', prompt: 'Select the Job Class',
+      onConfirm: () => { document.getElementById('f-jobclass').value = 'Events'; }},
+    { selector: '#f-event', prompt: 'Select the Event Name',
       onConfirm: () => { document.getElementById('f-event').value = '2023 DRAKE'; }},
+    { selector: '#f-dept', prompt: 'Select the Department Name',
+      onConfirm: () => { document.getElementById('f-dept').value = 'Staff'; }},
+    { selector: '#f-venue', prompt: 'Select the Venue Name',
+      onConfirm: () => { document.getElementById('f-venue').value = 'The Forum'; }},
+    { selector: '#f-client', prompt: 'Select the Client Name',
+      onConfirm: () => { document.getElementById('f-client').value = 'Forum Entertainment LLC'; }},
+    { selector: '#f-startdt', prompt: 'Enter the Start Date', type: '05/21/2026' },
+    { selector: '#f-starttime', prompt: 'Enter the Start Time', type: '08:00' },
+    { selector: '#f-finishdt', prompt: 'Enter the Finish Date', type: '06/05/2026' },
+    { selector: '#f-finishtime', prompt: 'Enter the Finish Time', type: '17:00' },
     { selector: '#btn-save', prompt: 'Click "Save" to save the job',
-      onConfirm: () => { const m = document.querySelector('#card .msg-success'); if(m) m.classList.add('show'); }},
+      onConfirm: () => { const m = document.querySelector('.msg-success'); if(m) m.style.display='block'; }},
   ]);
 }
 
@@ -541,13 +535,13 @@ function addEditJobHTML(jobNum, jobName) {
     <div id="sec-ri">
       <div class="form-row"><span class="form-label">Job# :</span><input class="form-input" id="f-jobnum" value="${jobNum}" style="width:140px"></div>
       <div class="form-row"><span class="form-label">Job Name :</span><input class="form-input" id="f-jname" value="${jobName}"> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Job Class :</span><select class="form-select"><option>Select</option><option>Events</option></select> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Job Class :</span><select class="form-select" id="f-jobclass"><option>Select</option><option>Events</option></select> <span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Branch Name :</span><select class="form-select"><option>Prota LA Branch Test</option></select> <span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Charge Branch :</span><select class="form-select"><option>Prota LA Branch Test</option></select></div>
       <div class="form-row"><span class="form-label">Event Name :</span><select class="form-select" id="f-event"><option>--Select--</option><option>2023 DRAKE</option></select> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Department Name :</span><select class="form-select"><option>--Select--</option><option>Staff</option></select> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Venue Name :</span><select class="form-select"><option>--Select--</option><option>The Forum</option></select> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Client Name :</span><select class="form-select"><option>--Select--</option><option>Forum Entertainment LLC</option></select> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Department Name :</span><select class="form-select" id="f-dept"><option>--Select--</option><option>Staff</option></select> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Venue Name :</span><select class="form-select" id="f-venue"><option>--Select--</option><option>The Forum</option></select> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Client Name :</span><select class="form-select" id="f-client"><option>--Select--</option><option>Forum Entertainment LLC</option></select> <span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Status :</span><select class="form-select"><option>Active</option></select></div>
       <div class="form-row"><span class="form-label">Start Date Time :</span><input class="form-input" id="f-startdt" value="" style="width:95px">${calBtn()}${timeSpinner('f-starttime')} <span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Finish Date Time :</span><input class="form-input" id="f-finishdt" value="" style="width:95px">${calBtn()}${timeSpinner('f-finishtime')} <span class="req">*</span></div>
@@ -636,6 +630,93 @@ function slide_manage_job_5() {
       onConfirm: () => {
         closeDialog();
         document.getElementById('content').insertAdjacentHTML('afterbegin','<div class="msg-success show">&#10004; Job copied successfully. 3 new jobs created.</div>');
+      }},
+  ]);
+}
+
+function slide_manage_job_6() {
+  setNav('records');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Jobs</div>
+    <div class="note-bar">To fully delete a job, first cancel it, then delete its shifts, then delete the job.</div>
+    <table><thead><tr><th>Job#</th><th>Job Name</th><th>Branch</th><th>Start</th><th>Finish</th><th>Job Class</th><th style="width:50px">Edit</th></tr></thead>
+    <tbody>
+      <tr><td>1012698342</td><td>DRAKE N3</td><td>Los Angeles</td><td>05/21/2026</td><td>06/05/2026</td>
+        <td id="job-class-cell">Active</td>
+        <td><span id="edit-btn" style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold" title="Edit">&#9998;</span></td></tr>
+      <tr><td>1012698123</td><td>BEYONCE TOUR</td><td>Los Angeles</td><td>07/20/2023</td><td>07/21/2023</td><td>Active</td>
+        <td><span style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold">&#9998;</span></td></tr>
+    </tbody></table>`;
+  runGuided([
+    { selector: '#edit-btn', prompt: 'Click the Edit icon to open the job record',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = addEditJobHTML('1012698342', 'DRAKE N3') +
+          `<style>#f-jobclass-cancel{width:160px}</style>`;
+        // Replace job class select with one that has Canceled option
+        const jc = document.getElementById('f-jobclass');
+        if (jc) {
+          jc.innerHTML = '<option>Events</option><option>Canceled</option>';
+          jc.id = 'f-jobclass';
+        }
+      }},
+    { selector: '#f-jobclass', prompt: 'Change the Job Class to "Canceled"',
+      onConfirm: () => { document.getElementById('f-jobclass').value = 'Canceled'; }},
+    { selector: '#btn-save', prompt: 'Click "Save" — the job is now marked as canceled',
+      onConfirm: () => {
+        const m = document.querySelector('.msg-success');
+        if (m) { m.textContent = '✔ Job class updated to Canceled.'; m.style.display = 'block'; }
+      }},
+  ]);
+}
+
+function slide_manage_job_7() {
+  setNav('records');
+  document.getElementById('content').innerHTML = addEditJobHTML('1012698342', 'DRAKE N3');
+  // Pre-select the Shifts tab
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-shifts').classList.add('active');
+  document.getElementById('sec-ri').style.display = 'none';
+  document.getElementById('sec-shifts').style.display = '';
+  // Show an existing shift row
+  document.getElementById('shifts-body').innerHTML = `
+    <tr id="shift-row-1">
+      <td>Morning Shift</td>
+      <td>08:00</td><td>16:00</td><td>5</td><td>20</td>
+      <td><span id="edit-shift-btn" style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold" title="Edit">&#9998;</span></td>
+    </tr>`;
+  document.querySelector('#sec-shifts thead tr').innerHTML =
+    '<th>Shift Name</th><th>Start</th><th>Finish</th><th>Min</th><th>Max</th><th style="width:40px"></th>';
+
+  runGuided([
+    { selector: '#edit-shift-btn', prompt: 'Click to edit the shift and set branch sharing',
+      onConfirm: () => {
+        document.getElementById('shifts-body').innerHTML = `
+          <tr>
+            <td><input class="form-input" id="f-shiftname2" value="Morning Shift" style="width:130px"></td>
+            <td><input class="form-input" value="08:00" style="width:65px"></td>
+            <td><input class="form-input" value="16:00" style="width:65px"></td>
+            <td><input class="form-input" value="5" style="width:40px"></td>
+            <td><input class="form-input" value="20" style="width:40px"></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="6" style="padding:6px 4px">
+              <span class="form-label" style="width:130px;display:inline-block;text-align:right">Select Branch :</span>
+              <select class="form-select" id="f-share-branch" style="width:180px">
+                <option>--Select--</option>
+                <option>San Diego Branch</option>
+                <option>Orange County Branch</option>
+                <option>Riverside Branch</option>
+              </select>
+            </td>
+          </tr>`;
+      }},
+    { selector: '#f-share-branch', prompt: 'Select the branch to share this shift with',
+      onConfirm: () => { document.getElementById('f-share-branch').value = 'San Diego Branch'; }},
+    { selector: '#btn-save', prompt: 'Click "Save" — the shift is now shared with the selected branch',
+      onConfirm: () => {
+        const m = document.querySelector('.msg-success');
+        if (m) { m.textContent = '✔ Shift shared with San Diego Branch.'; m.style.display = 'block'; }
       }},
   ]);
 }
@@ -1730,6 +1811,8 @@ const routes = {
   'manage_job-3':   slide_manage_job_3,
   'manage_job-4':   slide_manage_job_4,
   'manage_job-5':   slide_manage_job_5,
+  'manage_job-6':   slide_manage_job_6,
+  'manage_job-7':   slide_manage_job_7,
   'mss-3':          slide_mss_3,
   'mss-4':          slide_mss_4,
   'mss-6':          slide_mss_6,
