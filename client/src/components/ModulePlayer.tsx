@@ -543,6 +543,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           ) : slide?.screenshot ? (
             <div style={{ ...styles.screenshotWrap, position: 'relative', marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
               <img
+                key={slide.screenshot}
                 src={slide.screenshot}
                 alt="WISH system screenshot"
                 style={styles.screenshotImg}
