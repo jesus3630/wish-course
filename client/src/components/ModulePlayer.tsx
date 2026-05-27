@@ -547,12 +547,13 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               />
             </div>
           ) : slide?.screenshot ? (
-            <div style={{ ...styles.screenshotWrap, marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
+            <div style={{ ...styles.screenshotWrap, position: 'relative', marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
               <img
                 src={slide.screenshot}
                 alt="WISH system screenshot"
                 style={styles.screenshotImg}
               />
+              <AnimatedCursor key={slideIndex} />
             </div>
           ) : null}
 
