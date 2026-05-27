@@ -518,16 +518,14 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             <div style={styles.slideNumBadge}>
               Slide {slideIndex + 1} / {totalSlides}
             </div>
-            {slideName && (
-              <div style={styles.slideNameTag}>
-                {slideName}
+            {slide?.instructions && (
+              <div style={styles.instructionsTag}>
+                📹 {slide.instructions}
               </div>
             )}
           </div>
 
-          {slide?.instructions && (
-            <h2 style={styles.instructionsHeading}>📹 {slide.instructions}</h2>
-          )}
+          <h2 style={styles.slideName}>{slideName}</h2>
 
           {/* Video clip — shown when module has a video and this slide has timestamps */}
           {module.video_url && slide?.video_start !== undefined ? (
@@ -948,7 +946,7 @@ const styles: Record<string, React.CSSProperties> = {
     textTransform: 'uppercase',
     whiteSpace: 'nowrap',
   },
-  slideNameTag: {
+  instructionsTag: {
     background: '#F0FDF4',
     border: '1px solid #BBF7D0',
     color: '#166534',
@@ -958,7 +956,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 500,
     flex: 1,
   },
-  instructionsHeading: { fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3', margin: '0 0 20px 0' },
+  slideName: { fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3' },
   slideContent: { marginBottom: '24px' },
   emptyText: { color: '#9CA3AF', fontStyle: 'italic' },
   audioBtn: {
