@@ -1,5 +1,14 @@
+[phases.install]
+cmds = ["npm install", "cd client && npm install"]
+
 [phases.build]
-cmds = ["echo 'Client pre-built — skipping'"]
+cmds = [
+  "cp -r client/build/audio /tmp/wish_audio_backup || true",
+  "cp -r client/build/screenshots /tmp/wish_screenshots_backup || true",
+  "cd client && npm run build",
+  "cp -r /tmp/wish_audio_backup client/build/audio || true",
+  "cp -r /tmp/wish_screenshots_backup client/build/screenshots || true"
+]
 
 [start]
 cmd = "node server/index.js"
