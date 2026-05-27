@@ -88,7 +88,7 @@ export default function ModulePlayer({
   const [slideVisible, setSlideVisible] = useState(true);
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
-  const [simReady, setSimReady] = useState(true); // TEST MODE: unlocked immediately (skip narration requirement)
+  const [simReady, setSimReady] = useState(false);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -364,7 +364,7 @@ export default function ModulePlayer({
 
   useEffect(() => {
     stopAudio();
-    setSimReady(true); // TEST MODE: always unlocked
+    setSimReady(false);
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
     onProgressUpdate(updated);
@@ -431,6 +431,7 @@ export default function ModulePlayer({
   }
 
   function goToSlide(index: number) {
+    if (isPlaying) return; // locked during narration
     stopAudio();
     setSlideIndex(index);
   }
@@ -444,10 +445,12 @@ export default function ModulePlayer({
   }
 
   function handlePrev() {
+    if (isPlaying || audioLoading) return;
     if (slideIndex > 0) goToSlide(slideIndex - 1);
   }
 
   function handleNext() {
+    if (isPlaying || audioLoading) return;
     if (isLastSlide) {
       stopAudio();
       const updated = markModuleComplete(progressRef.current, module.id, 100, true);
@@ -638,7 +641,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           {module.slides.map((_, i) => (
             <div
               key={i}
-              onClick={() => goToSlide(i)}
+              onClick={() => !isPlaying && goToSlide(i)}
               title={`Slide ${i + 1}`}
               style={{
                 ...styles.dot,
@@ -650,7 +653,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 width: i === slideIndex ? (isMobile ? '16px' : '24px') : (isMobile ? '6px' : '8px'),
                 height: isMobile ? '6px' : '8px',
                 flexShrink: 0,
-                cursor: 'pointer',
+                cursor: isPlaying ? 'not-allowed' : 'pointer',
+                opacity: isPlaying && i !== slideIndex ? 0.5 : 1,
               }}
             />
           ))}
@@ -663,18 +667,26 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             </button>
           )}
           <button
-            style={{ ...styles.navBtn, opacity: slideIndex === 0 ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
-            disabled={slideIndex === 0}
+            style={{ ...styles.navBtn, opacity: (slideIndex === 0 || isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
+            disabled={slideIndex === 0 || isPlaying || audioLoading}
             onClick={handlePrev}
           >
             ← Prev
           </button>
           {isLastSlide && questions.length > 0 && (
-            <button style={{ ...styles.navBtn, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }} onClick={handleTakeQuiz}>
+            <button
+              style={{ ...styles.navBtn, opacity: (isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
+              disabled={isPlaying || audioLoading}
+              onClick={handleTakeQuiz}
+            >
               Quiz
             </button>
           )}
-          <button style={{ ...styles.navBtn, ...styles.navBtnPrimary, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }} onClick={handleNext}>
+          <button
+            style={{ ...styles.navBtn, ...styles.navBtnPrimary, opacity: (isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
+            disabled={isPlaying || audioLoading}
+            onClick={handleNext}
+          >
             {isLastSlide ? 'Complete ✓' : 'Next →'}
           </button>
         </div>
