@@ -713,9 +713,18 @@ app.get('/{*path}', (req, res) => {
 });
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
-initDB()
-  .then(() => {
-    app.listen(PORT, () => console.log(`WISH Course running on port ${PORT}`));
+// Start HTTP server immediately — don't block on DB
+app.listen(PORT, () => console.log(`WISH Course running on port ${PORT}`));
+
+// Init DB with retry — keeps retrying every 10s until success, never crashes the process
+async function bootWithRetry(attempt = 1) {
+  try {
+    await initDB();
+    console.log('[boot] DB init complete');
     agent.start(pool);
-  })
-  .catch(err => { console.error('[boot] DB init failed:', err); process.exit(1); });
+  } catch (err) {
+    console.error(`[boot] DB init failed (attempt ${attempt}), retrying in 10s:`, err.message);
+    setTimeout(() => bootWithRetry(attempt + 1), 10000);
+  }
+}
+bootWithRetry();
