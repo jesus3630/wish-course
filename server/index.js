@@ -222,6 +222,11 @@ app.get('/audio/:hash.json', async (req, res, next) => {
 
 // ─── Serve React build ────────────────────────────────────────────────────────
 const BUILD_DIR = path.join(__dirname, '../client/build');
+// Force browsers to re-fetch index.html every time — prevents stale bundle caching
+app.get('/', (req, res) => {
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+  res.sendFile(path.join(BUILD_DIR, 'index.html'));
+});
 app.use(express.static(BUILD_DIR));
 
 // ─── Serve local video clips (local-only; not committed to git) ───────────────

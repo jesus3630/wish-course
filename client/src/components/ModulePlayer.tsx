@@ -93,7 +93,6 @@ export default function ModulePlayer({
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef<number | null>(null);
-  const autoAdvanceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const progressRef = useRef(progress);
   const timingsRef = useRef<Timing[] | null>(null);
@@ -127,7 +126,6 @@ export default function ModulePlayer({
   }
 
   function clearTimers() {
-    if (autoAdvanceRef.current) { clearTimeout(autoAdvanceRef.current); autoAdvanceRef.current = null; }
     if (autoPlayRef.current) { clearTimeout(autoPlayRef.current); autoPlayRef.current = null; }
   }
 
