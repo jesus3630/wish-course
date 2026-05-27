@@ -5,6 +5,7 @@ scripts/node_modules/
 scripts/record-slides/node_modules/
 video_processing/
 client/build/audio/
+client/build/videos/
 .env
 .DS_Store
 client/public/
