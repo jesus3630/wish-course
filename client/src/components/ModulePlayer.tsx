@@ -379,11 +379,10 @@ export default function ModulePlayer({
       playNarration(() => {
         if (hasSimulation) {
           setSimReady(true);
-        } else if (!isLastSlide) {
-          autoAdvanceRef.current = setTimeout(() => handleNext(), 350);
-        } else {
+        } else if (isLastSlide) {
           setCelebrating(true);
         }
+        // narration finished — user clicks Next manually
       });
     }, 150);
 
@@ -420,13 +419,13 @@ export default function ModulePlayer({
       audio.onended = () => {
         stopRaf();
         setIsPlaying(false);
-        if (hasSimulation) { setSimReady(true); } else { autoAdvanceRef.current = setTimeout(() => handleNext(), 1500); }
+        if (hasSimulation) { setSimReady(true); }
       };
       return;
     }
     const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
     playNarration(() => {
-      if (hasSimulation) { setSimReady(true); } else { autoAdvanceRef.current = setTimeout(() => handleNext(), 1500); }
+      if (hasSimulation) { setSimReady(true); }
     });
   }
 
