@@ -63,30 +63,32 @@
         "slide_name": "WISH Menus",
         "instructions": "",
         "text": "In the following slides we will explore WISHâ€™s application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system.",
-        "image_below": "/screenshots/introduction/slide_9_menu.png",
-        "screenshot": "/screenshots/introduction/slide_9_menu.png"
+        "screenshot": "/screenshots/introduction/slide_9_menu.png",
+        "image_below": null
       },
       {
         "slide_number": 9,
         "slide_name": "Admin Menu",
         "instructions": "",
         "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required.",
-        "image_below": "/screenshots/introduction/slide_10_admin.png",
-        "screenshot": "/screenshots/introduction/slide_10_admin.png"
+        "screenshot": "/screenshots/introduction/slide_10_admin.png",
+        "image_below": null
       },
       {
         "slide_number": 10,
         "slide_name": "Billing Menu",
         "instructions": "",
         "text": "The Billing menu allows you to generate invoices for clients after your branch has completed a job. Whenever a schedule is saved in the system, it is stored for future billing purposes. This ensures you can easily create and provide accurate bills to clients for the events your team has worked.",
-        "image_below": "/screenshots/introduction/slide_11_billing.png",
-        "screenshot": "/screenshots/introduction/slide_11_billing.png"
+        "screenshot": "/screenshots/introduction/slide_11_billing.png",
+        "image_below": null
       },
       {
         "slide_number": 11,
         "slide_name": "Inventory Menu",
         "instructions": "",
-        "text": "In the Inventory menu, you can track important items used at events, like radios, jackets, and other supplies."
+        "text": "In the Inventory menu, you can track important items used at events, like radios, jackets, and other supplies.",
+        "screenshot": "/inventory-menu.png",
+        "image_below": null
       },
       {
         "slide_number": 12,
