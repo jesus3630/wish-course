@@ -528,7 +528,18 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             </div>
           )}
 
-          {/* Video clip — shown when module has a video and this slide has timestamps */}
+          {/* Script always first */}
+          <div style={styles.slideContent}>
+            {slideText ? (
+              <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+            ) : (
+              <p style={styles.emptyText}>No narration text for this slide.</p>
+            )}
+          </div>
+
+          {(slide as any)?.acronym_card && <WishAcronymCard />}
+
+          {/* Screenshot / video below the text */}
           {module.video_url && slide?.video_start !== undefined ? (
             <div style={styles.screenshotWrap}>
               <video
@@ -550,16 +561,6 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               />
             </div>
           ) : null}
-
-          <div style={styles.slideContent}>
-            {slideText ? (
-              <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
-            ) : (
-              <p style={styles.emptyText}>No narration text for this slide.</p>
-            )}
-          </div>
-
-          {(slide as any)?.acronym_card && <WishAcronymCard />}
 
           {(slide as any)?.image_below && (
             <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
