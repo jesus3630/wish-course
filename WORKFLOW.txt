@@ -1,0 +1,39 @@
+===================================================
+  WISH Course — Your Daily Workflow
+===================================================
+
+--- BEFORE YOU START WORKING EVERY DAY ---
+
+cd wish-course
+git pull origin main
+node server/index.js
+
+Then open: http://localhost:3001
+
+
+--- WHILE WORKING ---
+
+- Make all changes on http://localhost:3001
+- Content/data changes save automatically to the shared database
+- Code/file changes stay local until you push
+
+
+--- WHEN YOU FINISH FOR THE DAY ---
+
+git add .
+git commit -m "describe what you changed"
+git push origin main
+railway up --detach
+
+
+--- GOLDEN RULES ---
+
+1. Always git pull origin main before you start
+2. Always git push + railway up --detach when you finish
+3. Text Jesus before touching the same file at the same time
+4. Never skip the pull — it will bring back things we deleted
+
+
+--- CHECK THE LIVE SITE AFTER DEPLOY ---
+
+https://wish-app-production.up.railway.app
