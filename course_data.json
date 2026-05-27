@@ -41,13 +41,15 @@
         "slide_number": 5,
         "slide_name": "Broadcast Messages",
         "instructions": "Video of envelope and message in Broadcast Messages screen.",
-        "text": "When you log in, you will see your name in the top right corner of the page. On your first login, an envelope icon will appear next to your name. You will need to click on the envelope to open your message. This will direct you to the Broadcast Messages screen. Periodic updates will be posted here to inform of system changes, new features, or scheduled downtime for WISH system updates. You can read the message, mark it as read, or delete messages. Broadcast Messages present one-way communications which cannot be replied to."
+        "text": "When you log in, you will see your name in the top right corner of the page. On your first login, an envelope icon will appear next to your name. You will need to click on the envelope to open your message. This will direct you to the Broadcast Messages screen. Periodic updates will be posted here to inform of system changes, new features, or scheduled downtime for WISH system updates. You can read the message, mark it as read, or delete messages. Broadcast Messages present one-way communications which cannot be replied to.",
+        "simulation_url": "/mockup/mockup.html?module=introduction&slide=6"
       },
       {
         "slide_number": 6,
         "slide_name": "Change Password",
         "instructions": "Video of mouse clicking on \"Name\" to show three menu option available to user.",
-        "text": "Your name, displayed in the top right corner, offers three menu options when clicked. You can click on My Messages to navigate to the Broadcast Messages screen. Log out of your session by clicking Log Out, and change your password by clicking on the Change Password menu. We recommend changing your password regularly. Changing your password in WISH only updates your password in the WISH application."
+        "text": "Your name, displayed in the top right corner, offers three menu options when clicked. You can click on My Messages to navigate to the Broadcast Messages screen. Log out of your session by clicking Log Out, and change your password by clicking on the Change Password menu. We recommend changing your password regularly. Changing your password in WISH only updates your password in the WISH application.",
+        "simulation_url": "/mockup/mockup.html?module=introduction&slide=7"
       },
       {
         "slide_number": 7,
