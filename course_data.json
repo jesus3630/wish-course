@@ -61,21 +61,24 @@
         "slide_name": "WISH Menus",
         "instructions": "",
         "text": "In the following slides we will explore WISHâ€™s application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system.",
-        "image_below": "/screenshots/introduction/slide_9_menu.png"
+        "image_below": "/screenshots/introduction/slide_9_menu.png",
+        "screenshot": "/screenshots/introduction/slide_9_menu.png"
       },
       {
         "slide_number": 9,
         "slide_name": "Admin Menu",
         "instructions": "",
         "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required.",
-        "image_below": "/screenshots/introduction/slide_10_admin.png"
+        "image_below": "/screenshots/introduction/slide_10_admin.png",
+        "screenshot": "/screenshots/introduction/slide_10_admin.png"
       },
       {
         "slide_number": 10,
         "slide_name": "Billing Menu",
         "instructions": "",
         "text": "The Billing menu allows you to generate invoices for clients after your branch has completed a job. Whenever a schedule is saved in the system, it is stored for future billing purposes. This ensures you can easily create and provide accurate bills to clients for the events your team has worked.",
-        "image_below": "/screenshots/introduction/slide_11_billing.png"
+        "image_below": "/screenshots/introduction/slide_11_billing.png",
+        "screenshot": "/screenshots/introduction/slide_11_billing.png"
       },
       {
         "slide_number": 11,
@@ -129,37 +132,43 @@
         "slide_number": 2,
         "slide_name": "Record Maintenance",
         "instructions": "",
-        "text": "In this module, we'll cover the following Record menus:\r\nManage Job\r\nManage Clients\r\nManage Contracts\r\nManage Events \r\nManage Venues"
+        "text": "In this module, we'll cover the following Record menus:\r\nManage Job\r\nManage Clients\r\nManage Contracts\r\nManage Events \r\nManage Venues",
+        "screenshot": "/screenshots/record_maintenance/slide_1.jpg"
       },
       {
         "slide_number": 3,
         "slide_name": "Record Hierarchy",
         "instructions": "",
-        "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up."
+        "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up.",
+        "screenshot": "/screenshots/record_maintenance/slide_2.jpg"
       },
       {
         "slide_number": 4,
         "slide_name": "Manage Event",
         "instructions": "Video going through the Add/Edit Event menu,Manage Event.",
-        "text": "Create an event, add an event name, explain start and end date. Load in date, date where branch moves into event. Load out date, moving out of event. Satisfy the asterisks and Save the record, receive your confirmation and review that clicking save generates an event number and adds new tabs to the menu."
+        "text": "Create an event, add an event name, explain start and end date. Load in date, date where branch moves into event. Load out date, moving out of event. Satisfy the asterisks and Save the record, receive your confirmation and review that clicking save generates an event number and adds new tabs to the menu.",
+        "screenshot": "/screenshots/record_maintenance/slide_3.jpg"
       },
       {
         "slide_number": 5,
         "slide_name": "Manage Event Tabs-Clients",
         "instructions": "",
-        "text": "New tabs appear after event is saved. Tabs are added for billing purposes. Clients tab, we can add an existing client directly from here or we can go to the Manage Client menu and add new clients. Once you find the client make sure their status is checked and add them, you can have multiple clients in the same event that you need to bill for."
+        "text": "New tabs appear after event is saved. Tabs are added for billing purposes. Clients tab, we can add an existing client directly from here or we can go to the Manage Client menu and add new clients. Once you find the client make sure their status is checked and add them, you can have multiple clients in the same event that you need to bill for.",
+        "screenshot": "/screenshots/record_maintenance/slide_4.jpg"
       },
       {
         "slide_number": 6,
         "slide_name": "Manage Event Tabs-Venues",
         "instructions": "",
-        "text": "The same thing we did for the clients, we are going to do for the venue. We are going to select and add an existing venue to our event. A well-established venue may have all venues already created so you should search for the venue to see if it is already in the system. Only create after checking. An event can be taking place at multiple venues, if this is the case make sure to select all the venues where your event is taking place."
+        "text": "The same thing we did for the clients, we are going to do for the venue. We are going to select and add an existing venue to our event. A well-established venue may have all venues already created so you should search for the venue to see if it is already in the system. Only create after checking. An event can be taking place at multiple venues, if this is the case make sure to select all the venues where your event is taking place.",
+        "screenshot": "/screenshots/record_maintenance/slide_5.jpg"
       },
       {
         "slide_number": 7,
         "slide_name": "Manage Job",
         "instructions": "",
-        "text": "Under the Event, we will always have our Job. Look at the Start and End Date between our Jobs, there is a 15 day span. Click on Add New to create a new Job. Look at asterisks to identify what is needed to create a Job. Job Name, Job Class-important for payroll to know how the job is classified. Branch Name should be your Branch Name, Event should be the Event name you created in the Manage Event menu. Venue and Client information should provide the selections you chose in the Manage Event record. If this information does not pop-up, then you may not have saved the data in the Event record or you may have added the wrong venue and client."
+        "text": "Under the Event, we will always have our Job. Look at the Start and End Date between our Jobs, there is a 15 day span. Click on Add New to create a new Job. Look at asterisks to identify what is needed to create a Job. Job Name, Job Class-important for payroll to know how the job is classified. Branch Name should be your Branch Name, Event should be the Event name you created in the Manage Event menu. Venue and Client information should provide the selections you chose in the Manage Event record. If this information does not pop-up, then you may not have saved the data in the Event record or you may have added the wrong venue and client.",
+        "screenshot": "/screenshots/record_maintenance/slide_6.jpg"
       },
       {
         "slide_number": 8,
@@ -189,7 +198,8 @@
         "slide_number": 2,
         "slide_name": "Manage Job",
         "instructions": "",
-        "text": "In this module, you will learn:\r\nâ€¢ How to create a Job\r\nâ€¢ How to modify an existing Job\r\nâ€¢ How to copy a Job\r\nâ€¢ How to delete a Job (and why order matters)\r\n\r\nNote: If you have Record Maintenance access, this module is included within that permission. Manage Job is for users who create and modify jobs only."
+        "text": "In this module, you will learn:\r\nâ€¢ How to create a Job\r\nâ€¢ How to modify an existing Job\r\nâ€¢ How to copy a Job\r\nâ€¢ How to delete a Job (and why order matters)\r\n\r\nNote: If you have Record Maintenance access, this module is included within that permission. Manage Job is for users who create and modify jobs only.",
+        "screenshot": "/screenshots/manage_job/slide_2.jpg"
       },
       {
         "slide_number": 3,
@@ -197,28 +207,31 @@
         "instructions": "Screen recording: Records â†’ Manage Job. Click Add New. Fill required fields. Save. Show green confirmation and job number.",
         "text": "Go to Records to Manage Job. Use the filter page to search for existing jobs by name or job number. To create a new job, click Add New.\r\n\r\nFill in all asterisk-marked fields:\r\nâ€¢ Job Name\r\nâ€¢ Job Class, use Events for jobs you will schedule employees for and bill a client; Office for in-office hours; Training for training shifts\r\nâ€¢ Branch Name, auto-fills for you\r\nâ€¢ Event, select the event from the dropdown\r\nâ€¢ Venue and Client, these auto-populate from the event\r\nâ€¢ Start and End Date/Time, use military time format\r\n\r\nAfter saving, copy the job number to your clipboard, you will use it throughout the system.",
         "simulation_url": "/mockup/mockup.html?module=manage_job&slide=3",
-        "screenshot": null
+        "screenshot": "/screenshots/manage_job/slide_3.jpg"
       },
       {
         "slide_number": 4,
         "slide_name": "Shifts and Roles",
         "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
         "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name, such as \"Staff One Call\", and set the start and end time within the job's time window.\r\n\r\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\r\n\r\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer, always leave wiggle room above the minimum). Save.\r\n\r\nYou can add multiple shifts and multiple roles under each shift.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=4"
+        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=4",
+        "screenshot": "/screenshots/manage_job/slide_4.jpg"
       },
       {
         "slide_number": 5,
         "slide_name": "Copying a Job",
         "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
         "text": "From Manage Job search results, click the copy icon for the job you want to copy. Open the copy settings link.\r\n\r\nChoose from:\r\nâ€¢ Daily, copies the job to specific dates\r\nâ€¢ Weekly, repeats on the same days of the week over a date range\r\nâ€¢ Monthly, copies for every day of the month\r\n\r\nDaily is the most commonly used option. Always double-check your start and end dates before confirming, do not include the original date again. Copied jobs receive new unique job numbers.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=5"
+        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=5",
+        "screenshot": "/screenshots/manage_job/slide_5.jpg"
       },
       {
         "slide_number": 6,
         "slide_name": "Canceling or Deleting a Job",
         "instructions": "",
         "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting, open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=6"
+        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=6",
+        "screenshot": "/screenshots/manage_job/slide_6.jpg"
       },
       {
         "slide_number": 7,
@@ -315,19 +328,22 @@
         "slide_number": 2,
         "slide_name": "Two Ways to Schedule",
         "instructions": "",
-        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods."
+        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods.",
+        "screenshot": "/screenshots/scheduling/slide_2.jpg"
       },
       {
         "slide_number": 3,
         "slide_name": "Schedule by Employee",
         "instructions": "Scheduling â†’ Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
-        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
+        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code.",
+        "screenshot": "/screenshots/scheduling/slide_3.jpg"
       },
       {
         "slide_number": 4,
         "slide_name": "Schedule by Job",
         "instructions": "Scheduling â†’ Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
-        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once."
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "screenshot": "/screenshots/scheduling/slide_4.jpg"
       },
       {
         "slide_number": 5,
@@ -363,13 +379,15 @@
         "slide_number": 2,
         "slide_name": "Schedule by Job Admin",
         "instructions": "",
-        "text": "In this module, you will learn how to use the administrative scheduling screen, which allows you to override standard scheduling restrictions."
+        "text": "In this module, you will learn how to use the administrative scheduling screen, which allows you to override standard scheduling restrictions.",
+        "screenshot": "/screenshots/schedule_by_job_admin/slide_2.jpg"
       },
       {
         "slide_number": 3,
         "slide_name": "What Admin Scheduling Allows",
         "instructions": "",
-        "text": "Schedule by Job Admin works exactly like Schedule by Job with one key difference: it bypasses certain restrictions.\r\n\r\nWith admin scheduling, you can:\r\nâ€¢ Double-book an employee who is already scheduled for another shift at the same time\r\nâ€¢ Schedule an employee who has exceeded their weekly hour limit\r\nâ€¢ Override overlap warnings when necessary\r\n\r\nThis access gives managers flexibility in high-pressure situations such as last-minute event changes."
+        "text": "Schedule by Job Admin works exactly like Schedule by Job with one key difference: it bypasses certain restrictions.\r\n\r\nWith admin scheduling, you can:\r\nâ€¢ Double-book an employee who is already scheduled for another shift at the same time\r\nâ€¢ Schedule an employee who has exceeded their weekly hour limit\r\nâ€¢ Override overlap warnings when necessary\r\n\r\nThis access gives managers flexibility in high-pressure situations such as last-minute event changes.",
+        "screenshot": "/screenshots/schedule_by_job_admin/slide_3.jpg"
       },
       {
         "slide_number": 4,
@@ -753,31 +771,36 @@
         "slide_number": 2,
         "slide_name": "What Employee HR Record Maintenance Gives You",
         "instructions": "Records â†’ Manage Employee. Show the search screen briefly.",
-        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\nâ€¢ Personal Info, name, date of birth, status changes\r\nâ€¢ Contact Info, address, phone number, email address\r\nâ€¢ Background Checks, full history and status updates\r\nâ€¢ Shared Branches, which branches can view and schedule this employee\r\nâ€¢ Exclusions, clients or jobs this employee cannot be assigned to\r\nâ€¢ Tasks, onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully."
+        "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\nâ€¢ Personal Info, name, date of birth, status changes\r\nâ€¢ Contact Info, address, phone number, email address\r\nâ€¢ Background Checks, full history and status updates\r\nâ€¢ Shared Branches, which branches can view and schedule this employee\r\nâ€¢ Exclusions, clients or jobs this employee cannot be assigned to\r\nâ€¢ Tasks, onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully.",
+        "screenshot": "/screenshots/employee_hr_record_maintenance/slide_1.jpg"
       },
       {
         "slide_number": 3,
         "slide_name": "Personal Info & Contact Info",
         "instructions": "Open an employee record. Show the Personal Info tab â€” name, date of birth, status dropdown. Then show the Contact Info tab â€” address, phone, email fields. Make a small edit and click Save.",
-        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\nâ€¢ Legal name\r\nâ€¢ Date of birth\r\nâ€¢ Employee status, Active, Inactive, etc.\r\n\r\nContact Info includes:\r\nâ€¢ Home address\r\nâ€¢ Phone number\r\nâ€¢ Email address, this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes."
+        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\nâ€¢ Legal name\r\nâ€¢ Date of birth\r\nâ€¢ Employee status, Active, Inactive, etc.\r\n\r\nContact Info includes:\r\nâ€¢ Home address\r\nâ€¢ Phone number\r\nâ€¢ Email address, this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes.",
+        "screenshot": "/screenshots/employee_hr_record_maintenance/slide_2.jpg"
       },
       {
         "slide_number": 4,
         "slide_name": "Shared Branches",
         "instructions": "Click the Shared Branches tab. Show existing shared branches if any. Show adding a new branch â€” select from dropdown, click Add. Show removing a branch.",
-        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\nâ€¢ That branch can search for them in Manage Employee\r\nâ€¢ That branch can schedule them for their jobs\r\nâ€¢ The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\nâ€¢ Large events where staff from multiple locations are needed\r\nâ€¢ Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed."
+        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\nâ€¢ That branch can search for them in Manage Employee\r\nâ€¢ That branch can schedule them for their jobs\r\nâ€¢ The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\nâ€¢ Large events where staff from multiple locations are needed\r\nâ€¢ Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed.",
+        "screenshot": "/screenshots/employee_hr_record_maintenance/slide_3.jpg"
       },
       {
         "slide_number": 5,
         "slide_name": "Exclusions",
         "instructions": "Click the Exclusions tab. Show the client exclusion list. Show adding a client or job exclusion â€” select from dropdown, save.",
-        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\nâ€¢ The employee will not appear as available when scheduling for that client or job\r\nâ€¢ This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\nâ€¢ A client has requested the employee not return to their venue\r\nâ€¢ There is a known conflict between the employee and a specific account\r\nâ€¢ A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action, they're a scheduling control. Document the reason in Employee Notes so the context is on record."
+        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\nâ€¢ The employee will not appear as available when scheduling for that client or job\r\nâ€¢ This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\nâ€¢ A client has requested the employee not return to their venue\r\nâ€¢ There is a known conflict between the employee and a specific account\r\nâ€¢ A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action, they're a scheduling control. Document the reason in Employee Notes so the context is on record.",
+        "screenshot": "/screenshots/employee_hr_record_maintenance/slide_4.jpg"
       },
       {
         "slide_number": 6,
         "slide_name": "Manage Employee Status (Bulk)",
         "instructions": "Records â†’ Manage Employee Status. Show filtering by branch and status. Show selecting multiple employees. Show applying a bulk status change.",
-        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status, a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\nâ€¢ Deactivating seasonal employees who have finished their assignments\r\nâ€¢ Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
+        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status, a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\nâ€¢ Deactivating seasonal employees who have finished their assignments\r\nâ€¢ Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying.",
+        "screenshot": "/screenshots/employee_hr_record_maintenance/slide_5.jpg"
       },
       {
         "slide_number": 7,
@@ -963,25 +986,29 @@
         "slide_number": 2,
         "slide_name": "Sign-In / Sign-Out",
         "instructions": "",
-        "text": "In this module, you will learn how to configure and manage electronic sign-in and sign-out for events."
+        "text": "In this module, you will learn how to configure and manage electronic sign-in and sign-out for events.",
+        "screenshot": "/screenshots/sign-in__sign-out/slide_2.jpg"
       },
       {
         "slide_number": 3,
         "slide_name": "Configuring Sign-In",
         "instructions": "Time Clock â†’ Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
-        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly, those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes, the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
+        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly, those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes, the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour.",
+        "screenshot": "/screenshots/sign-in__sign-out/slide_3.jpg"
       },
       {
         "slide_number": 4,
         "slide_name": "Signing Employees In",
         "instructions": "Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
-        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift, they will receive their scheduled time, not the early clock time."
+        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift, they will receive their scheduled time, not the early clock time.",
+        "screenshot": "/screenshots/sign-in__sign-out/slide_4.jpg"
       },
       {
         "slide_number": 5,
         "slide_name": "Signing Out",
         "instructions": "Time Clock â†’ Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
-        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter, if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times."
+        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter, if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times.",
+        "screenshot": "/screenshots/sign-in__sign-out/slide_5.jpg"
       },
       {
         "slide_number": 6,
