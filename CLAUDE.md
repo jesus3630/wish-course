@@ -1,0 +1,192 @@
+# WISH Training Portal — CLAUDE.md
+
+## What This Is
+ProtaTECH's WISH (Workforce Information Systems Hosted) training course for Los Angeles County staff.
+Employees complete assigned modules, take quizzes, and get certificates.
+
+**Live site:** https://wish-app-production.up.railway.app  
+**Admin panel:** https://wish-app-production.up.railway.app/admin (password: `wish2026`)  
+**GitHub:** https://github.com/jesus3630/wish-course  
+**Railway project:** Wish-course → service: Wish-Training  
+
+---
+
+## Stack
+| Layer | Tech |
+|---|---|
+| Frontend | React (CRA) — pre-built, committed to repo |
+| Backend | Express v5 (CJS) — `server/index.js` |
+| Database | PostgreSQL on Railway |
+| Hosting | Railway |
+| Narration | ElevenLabs (Darryl voice) — pre-generated MP3s in `client/build/audio/` |
+| Email agent | OpenAI gpt-4o-mini — polls gahnr434@gmail.com every 60s |
+
+---
+
+## Project Structure
+```
+wish-course/
+├── server/
+│   ├── index.js        — Express server, all API routes
+│   ├── agent.js        — AI email agent (gpt-4o-mini)
+│   ├── gmail.js        — Gmail OAuth2 + .docx form parser
+│   └── email.js        — Email templates (invite, certificate, manager notify)
+├── client/
+│   ├── src/
+│   │   ├── App.tsx                      — Login flow, progress sync
+│   │   ├── components/
+│   │   │   ├── ModulePlayer.tsx         — Slide player, narration, word highlight
+│   │   │   ├── AdminPanel.tsx           — Admin content editor, history, users
+│   │   │   ├── LoginScreen.tsx          — Username + password login
+│   │   │   ├── Dashboard.tsx            — Module selection screen
+│   │   │   ├── Quiz.tsx                 — Quiz per module
+│   │   │   └── Certificate.tsx          — Completion certificate
+│   │   └── utils/
+│   │       └── progress.ts              — syncProgressToServer, fetchProgressFromServer
+│   └── build/                           — Pre-built React app (committed to git)
+│       └── audio/                       — 178 pre-generated MP3s + timing JSON files
+├── scripts/
+│   ├── pregen-audio.js                  — Pre-generate ElevenLabs narration
+│   └── update-course.js                 — Excel storyboard → course_data.json
+├── course_data.json                     — Seed file (live data is in Railway PostgreSQL)
+├── quiz_data.json                       — Seed file (live data is in Railway PostgreSQL)
+├── deploy.sh                            — Safe deploy script (Mac/Linux)
+└── nixpacks.toml                        — Railway build config (skips React build)
+```
+
+---
+
+## Key Concepts
+
+### Data Lives in PostgreSQL (not JSON files)
+- `course_data.json` and `quiz_data.json` are seed files only
+- Live content is in Railway PostgreSQL — edit via admin panel at `/admin`
+- Admin saves persist across all redeploys
+- DB tables: `course_data`, `quiz_data`, `history`, `user_progress`, `roster`
+
+### React Client is Pre-Built
+- `client/build/` is committed to git including audio files (77MB)
+- Railway skips the build step (see `nixpacks.toml`)
+- **After any React change:** `cd client && npm run build` → commit build → deploy
+- Do NOT run `npm run build` at root — it skips intentionally
+
+### Login System
+- Username: FLastName format (e.g. `JGonzalez`)
+- Password: 4 uppercase letters + 4 digits (e.g. `UTQL5531`)
+- Credentials stored in `roster` table, generated on enrollment
+
+### API Endpoints (key ones)
+- `GET /api/course` — all course data
+- `GET /api/quiz` — all quiz data
+- `POST /api/login` — user login
+- `POST /api/progress` — save user progress
+- `GET /api/progress/:email` — fetch user progress
+- `POST /api/admin/login` — admin login
+- `GET /api/admin/users` — all enrolled users + progress
+- `GET /api/admin/roster` — enrollment roster
+
+---
+
+## Local Development
+
+### Mac (Jesus)
+```bash
+cd ~/Projects/wish-course
+node server/index.js        # runs on localhost:3001
+# React served from client/build/ at same port
+```
+
+### Windows (collaborator)
+```bash
+cd wish-course
+node server/index.js        # runs on localhost:3001
+```
+
+### Environment Variables (create `server/.env`)
+```
+DATABASE_URL=<Railway PostgreSQL URL — get from Jesus or Railway dashboard>
+ADMIN_PASSWORD=wish2026
+NODE_ENV=development
+```
+
+---
+
+## Deploy
+
+### Mac
+```bash
+./deploy.sh    # safe deploy — checks git status first
+```
+
+### Windows
+```bash
+git pull origin main
+railway up --detach
+```
+
+### Manual (both)
+```bash
+git pull origin main                   # ALWAYS pull before deploy
+railway service 'Wish-Training'        # link to correct service
+railway up --detach                    # deploy
+```
+
+---
+
+## Collaboration Rules
+
+1. **Pull before every session:** `git pull origin main`
+2. **Pull before every deploy** — or things the other person deleted will come back
+3. **Commit and push when done:** `git add . && git commit -m "what you did" && git push origin main`
+4. **Edit content via admin panel** — not by editing JSON files directly
+5. **After React changes:** rebuild client, commit the build, then deploy
+
+---
+
+## After React Changes — Full Flow
+```bash
+cd client
+npm run build
+cd ..
+git add client/build
+git commit -m "rebuild client — [what changed]"
+git push origin main
+./deploy.sh      # Mac
+# or: railway up --detach   (Windows)
+```
+
+---
+
+## Narration Audio
+- All 178 slides pre-generated as static MP3s (Darryl voice, ElevenLabs)
+- Files named by `sha256(slide text)` — in `client/build/audio/`
+- If you edit slide text in admin panel → new hash → fresh ElevenLabs call on next play
+- Pre-generate script: `node scripts/pregen-audio.js` (needs `ELEVENLABS_API_KEY` in env)
+
+---
+
+## AI Email Agent
+- Inbox: gahnr434@gmail.com — polled every 60s
+- Manager emails a WISH permission form (.docx) → agent reads it → enrolls employee → sends credentials
+- Model: gpt-4o-mini (OpenAI) — NOT Claude/Anthropic
+- Agent only runs when `OPENAI_API_KEY` is set in Railway env vars
+- Files: `server/agent.js`, `server/gmail.js`, `server/email.js`
+
+---
+
+## Railway Environment Variables (Wish-Training service)
+- `DATABASE_URL` — PostgreSQL connection string
+- `ADMIN_PASSWORD` — wish2026
+- `OPENAI_API_KEY` — powers email agent
+- `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID=Znoc6pjc2kSb9hIuR7XU` — narration fallback
+- `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`, `GMAIL_AGENT_EMAIL` — email agent OAuth
+- `NODE_ENV=production`
+
+---
+
+## Never Do This
+- Never deploy without pulling first
+- Never edit `course_data.json` or `quiz_data.json` to change live content — use admin panel
+- Never commit real employee emails to the repo
+- Never run `npm run build` at the project root (it skips intentionally)
+- Never touch `client/build/audio/` manually — it's auto-generated
