@@ -431,7 +431,6 @@ export default function ModulePlayer({
   }
 
   function goToSlide(index: number) {
-    if (isPlaying) return; // locked during narration
     stopAudio();
     setSlideIndex(index);
   }
@@ -445,12 +444,10 @@ export default function ModulePlayer({
   }
 
   function handlePrev() {
-    if (isPlaying || audioLoading) return;
     if (slideIndex > 0) goToSlide(slideIndex - 1);
   }
 
   function handleNext() {
-    if (isPlaying || audioLoading) return;
     if (isLastSlide) {
       stopAudio();
       const updated = markModuleComplete(progressRef.current, module.id, 100, true);
@@ -553,7 +550,6 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 alt="WISH system screenshot"
                 style={styles.screenshotImg}
               />
-              <AnimatedCursor key={slideIndex} />
             </div>
           ) : null}
 
@@ -641,7 +637,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           {module.slides.map((_, i) => (
             <div
               key={i}
-              onClick={() => !isPlaying && goToSlide(i)}
+              onClick={() => goToSlide(i)}
               title={`Slide ${i + 1}`}
               style={{
                 ...styles.dot,
@@ -653,8 +649,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 width: i === slideIndex ? (isMobile ? '16px' : '24px') : (isMobile ? '6px' : '8px'),
                 height: isMobile ? '6px' : '8px',
                 flexShrink: 0,
-                cursor: isPlaying ? 'not-allowed' : 'pointer',
-                opacity: isPlaying && i !== slideIndex ? 0.5 : 1,
+                cursor: 'pointer',
               }}
             />
           ))}
@@ -667,24 +662,22 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             </button>
           )}
           <button
-            style={{ ...styles.navBtn, opacity: (slideIndex === 0 || isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
-            disabled={slideIndex === 0 || isPlaying || audioLoading}
+            style={{ ...styles.navBtn, opacity: slideIndex === 0 ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
+            disabled={slideIndex === 0}
             onClick={handlePrev}
           >
             ← Prev
           </button>
           {isLastSlide && questions.length > 0 && (
             <button
-              style={{ ...styles.navBtn, opacity: (isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
-              disabled={isPlaying || audioLoading}
+              style={{ ...styles.navBtn, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
               onClick={handleTakeQuiz}
             >
               Quiz
             </button>
           )}
           <button
-            style={{ ...styles.navBtn, ...styles.navBtnPrimary, opacity: (isPlaying || audioLoading) ? 0.4 : 1, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
-            disabled={isPlaying || audioLoading}
+            style={{ ...styles.navBtn, ...styles.navBtnPrimary, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
             onClick={handleNext}
           >
             {isLastSlide ? 'Complete ✓' : 'Next →'}
