@@ -518,14 +518,15 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             <div style={styles.slideNumBadge}>
               Slide {slideIndex + 1} / {totalSlides}
             </div>
-            {slide?.instructions && (
-              <div style={styles.instructionsTag}>
-                📹 {slide.instructions}
-              </div>
-            )}
           </div>
 
           <h2 style={styles.slideName}>{slideName}</h2>
+
+          {slide?.instructions && (
+            <div style={styles.instructionsTag}>
+              📹 {slide.instructions}
+            </div>
+          )}
 
           {/* Video clip — shown when module has a video and this slide has timestamps */}
           {module.video_url && slide?.video_start !== undefined ? (
@@ -951,10 +952,11 @@ const styles: Record<string, React.CSSProperties> = {
     border: '1px solid #BBF7D0',
     color: '#166534',
     padding: '6px 14px',
-    borderRadius: '20px',
+    borderRadius: '8px',
     fontSize: '14px',
     fontWeight: 500,
-    flex: 1,
+    marginBottom: '20px',
+    display: 'inline-block',
   },
   slideName: { fontSize: 'clamp(18px, 4vw, 26px)', fontWeight: 800, color: '#1B3A6B', marginBottom: '20px', lineHeight: '1.3' },
   slideContent: { marginBottom: '24px' },
