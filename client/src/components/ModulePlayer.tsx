@@ -369,7 +369,8 @@ export default function ModulePlayer({
 
   useEffect(() => {
     stopAudio();
-    setSimReady(false);
+    const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
+    setSimReady(hasSimulation); // show demo immediately — no narration gate
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
     onProgressUpdate(updated);
@@ -380,11 +381,8 @@ export default function ModulePlayer({
     const fadeTimer = setTimeout(() => setSlideVisible(true), 50);
 
     autoPlayRef.current = setTimeout(() => {
-      const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
       playNarration(() => {
-        if (hasSimulation) {
-          setSimReady(true);
-        } else if (isLastSlide) {
+        if (isLastSlide) {
           setCelebrating(true);
         }
         // narration finished — user clicks Next manually
@@ -424,14 +422,10 @@ export default function ModulePlayer({
       audio.onended = () => {
         stopRaf();
         setIsPlaying(false);
-        if (hasSimulation) { setSimReady(true); }
       };
       return;
     }
-    const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
-    playNarration(() => {
-      if (hasSimulation) { setSimReady(true); }
-    });
+    playNarration();
   }
 
   function goToSlide(index: number) {
@@ -589,18 +583,11 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
           {(slide as any)?.simulation_url && (
             <div style={{ marginTop: '24px', borderTop: '2px solid #E5E7EB', borderBottom: '2px solid #E5E7EB' }}>
-              <div style={{ background: simReady ? '#2e7d32' : '#1B3A6B', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', transition: 'background 0.4s' }}>
-                {simReady ? 'Your turn — click through the steps below' : 'Interactive demo — available after narration'}
+              <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px' }}>
+                Your turn — click through the steps below
               </div>
               <div style={{ position: 'relative' }}>
                 <SimFrame src={(slide as any).simulation_url} />
-                {!simReady && (
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(255,255,255,0.55)', cursor: 'not-allowed', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <span style={{ background: 'rgba(27,58,107,0.85)', color: '#fff', padding: '10px 20px', borderRadius: '6px', fontSize: '13px', fontWeight: 600 }}>
-                      Finish the narration to unlock
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
           )}
