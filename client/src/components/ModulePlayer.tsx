@@ -582,9 +582,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             <button
               style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
               onClick={handlePlayNarration}
-              disabled={audioLoading}
             >
-              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Resume'}
+              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Play'}
             </button>
           )}
 
