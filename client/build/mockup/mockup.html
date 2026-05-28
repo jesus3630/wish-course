@@ -1809,7 +1809,7 @@ function addEditEventHTML(eventNum, eventName, showTabs) {
       <div style="${row}"><span style="${lbl}">Event Name :</span>
         <input style="${inp}" id="f-evtname" value="${eventName}"> <span class="req" style="margin-left:4px;">*</span></div>
       <div style="${row}"><span style="${lbl}">Event Type :</span>
-        <select style="${sel}" id="f-evt-type"><option>--Select--</option><option>Concert</option><option>Sports</option><option>Corporate</option><option>Festival</option><option>Other</option></select> <span class="req" style="margin-left:4px;">*</span></div>
+        <select style="${sel}" id="f-evt-type"><option>--Select--</option><option>Sporting</option><option>Entertainment /Concert</option><option>Convention</option><option>Campus Security</option><option>Racing</option><option>Private Party</option><option>Fair</option><option>Other</option></select> <span class="req" style="margin-left:4px;">*</span></div>
       <div style="${row}"><span style="${lbl}">Start Date:</span>
         <input style="border:1px solid #aaa;padding:2px 4px;width:120px;background:#fff;height:22px;font-size:12px;" id="f-evt-start" value="">${calBtn()} <span class="req" style="margin-left:4px;">*</span></div>
       <div style="${row}"><span style="${lbl}">End Date:</span>
@@ -1905,7 +1905,7 @@ function slide_record_maintenance_4() {
     <div style="${row}"><span style="${lbl}">Event# :</span><input style="${inp}" id="f-srch-evtnum"></div>
     <div style="${row}"><span style="${lbl}">Event Name :</span><input style="${inp}" id="f-srch-evtname"></div>
     <div style="${row}"><span style="${lbl}">Client Name :</span><input style="${inp}" id="f-srch-client">${srchIcon}</div>
-    <div style="${row}"><span style="${lbl}">Event Type :</span><select style="${sel}" id="f-srch-evttype"><option>All</option><option>Concert</option><option>Sports</option><option>Corporate</option><option>Other</option></select></div>
+    <div style="${row}"><span style="${lbl}">Event Type :</span><select style="${sel}" id="f-srch-evttype"><option>All</option><option>Sporting</option><option>Entertainment /Concert</option><option>Convention</option><option>Campus Security</option><option>Racing</option><option>Private Party</option><option>Fair</option><option>Other</option></select></div>
     <div style="${row}"><span style="${lbl}">Status :</span><select style="${sel}" id="f-srch-status"><option>Active</option><option>Inactive</option><option>All</option></select></div>
     <div style="margin:14px 0 0 128px;">
       <button class="btn" id="btn-srch-evt" style="padding:4px 18px;font-size:12px;">Search</button>
@@ -1916,7 +1916,7 @@ function slide_record_maintenance_4() {
       onConfirm: () => { document.getElementById('content').innerHTML = addEditEventHTML('', '', false); }},
     { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2025 DRAKE CONCERT' },
     { selector: '#f-evt-type', prompt: '* Event Type — select the type that applies',
-      onConfirm: () => { document.getElementById('f-evt-type').value = 'Concert'; }},
+      onConfirm: () => { document.getElementById('f-evt-type').value = 'Entertainment /Concert'; }},
     { selector: '#f-evt-start', prompt: '* Start Date — set the event start date', type: '08/15/2025' },
     { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2025' },
     { selector: '#btn-evt-save', prompt: 'Click "Save" — an Event# will be generated and new tabs will appear',
@@ -1924,7 +1924,7 @@ function slide_record_maintenance_4() {
         document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
         document.getElementById('f-evt-start').value = '08/15/2025';
         document.getElementById('f-evt-end').value = '08/16/2025';
-        document.getElementById('f-evt-type').value = 'Concert';
+        document.getElementById('f-evt-type').value = 'Entertainment /Concert';
         document.getElementById('evt-saved-msg').classList.add('show');
       }},
     { selector: '#event-tabs', prompt: 'Event saved — new tabs have appeared for Clients, Venues, and Jobs.', skipClick: true },
