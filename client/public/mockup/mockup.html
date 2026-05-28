@@ -559,38 +559,112 @@ function slide_manage_job_4() {
 
 function slide_manage_job_5() {
   setNav('records');
+  const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
+  const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
+  const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
+  const row = 'display:flex;align-items:center;margin-bottom:10px;';
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Jobs</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <table><thead><tr><th>Job#</th><th>Job Name</th><th>Branch</th><th>Start</th><th>Finish</th><th>Venue</th><th style="width:60px">Copy</th></tr></thead>
-    <tbody>
-      <tr><td>1012698342</td><td>DRAKE N3</td><td>Los Angeles</td><td>08/15/2023</td><td>08/16/2023</td><td>The Forum</td>
-        <td><span id="copy-btn" style="cursor:pointer;font-size:16px;color:#3a6aaa" title="Copy">&#10697;</span></td></tr>
-      <tr><td>1012698123</td><td>BEYONCE TOUR</td><td>Los Angeles</td><td>07/20/2023</td><td>07/21/2023</td><td>SoFi Stadium</td>
-        <td><span style="cursor:pointer;font-size:16px;color:#3a6aaa">&#10697;</span></td></tr>
-      <tr><td>1012697980</td><td>LA CLIPPERS</td><td>Los Angeles</td><td>06/10/2023</td><td>06/11/2023</td><td>Crypto.com Arena</td>
-        <td><span style="cursor:pointer;font-size:16px;color:#3a6aaa">&#10697;</span></td></tr>
-    </tbody></table>`;
+    <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
+    <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
+    <div style="${row}">
+      <span style="${lbl}">Branch Name :</span>
+      <select style="${sel}"><option>Prota LA Branch Test</option></select>
+      <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
+      <span id="copy-setting-btn" style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
+    </div>
+    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
+    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
+    <div style="${row}">
+      <span style="${lbl}">Start Date :</span>
+      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
+      <span style="color:#c00;margin-left:4px;">*</span>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">End Date :</span>
+      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
+      <span style="color:#c00;margin-left:4px;">*</span>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">Venue Name :</span>
+      <select style="${sel}"><option>Grand Bell Arena</option></select>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">Sorting :</span>
+      <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5" checked> Start Date</label>
+      <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5"> JobName</label>
+    </div>
+    <div style="margin-bottom:20px;padding-left:145px;">
+      <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
+      <button class="btn" style="padding:5px 20px;">Add New</button>
+    </div>
+    <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#333;color:#fff;">
+          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:center;">Copy</th>
+          <th style="padding:8px 10px;text-align:center;">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;border-bottom:1px solid #eee;">
+          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
+          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
+          <td style="padding:8px 10px;">AB Convention Center</td>
+          <td style="padding:8px 10px;">08/15/2026 08:00</td>
+          <td style="padding:8px 10px;">08/16/2026 17:00</td>
+          <td style="padding:8px 10px;text-align:center;">
+            <span id="copy-icon" style="cursor:pointer;font-size:17px;color:#444;" title="Copy">&#128203;</span>
+          </td>
+          <td style="padding:8px 10px;text-align:center;">
+            <span style="cursor:pointer;font-size:17px;color:#c00;" title="Delete">&#10006;</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
+      <span>Total Pages: 1</span>
+      <div style="display:flex;gap:3px;">
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
+      </div>
+      <span>Current Page: 1</span>
+    </div>`;
   runGuided([
-    { selector: '#copy-btn', prompt: 'Click the Copy icon to copy this job to new dates',
-      onConfirm: () => showDialog('Copy Job Settings',
-        `<div class="form-row"><span class="form-label" style="width:110px">Copy Type :</span>
-          <label><input type="radio" name="ctype" id="r-daily"> Daily</label>
-          <label style="margin-left:12px"><input type="radio" name="ctype"> Weekly</label></div>
-        <div class="form-row" style="margin-top:8px"><span class="form-label" style="width:110px">Start Date :</span>
-          <input class="form-input" value="08/17/2023" style="width:110px"></div>
-        <div class="form-row"><span class="form-label" style="width:110px">End Date :</span>
-          <input class="form-input" value="08/20/2023" style="width:110px"></div>
-        <div style="margin-top:14px">
-          <button class="btn" id="dlg-copy-btn">Copy</button>
-          <button class="btn btn-secondary" onclick="closeDialog()">Cancel</button>
-        </div>`)
-    },
-    { selector: '#r-daily', prompt: 'Select "Daily" to copy the job for each day in the date range' },
-    { selector: '#dlg-copy-btn', prompt: 'Click "Copy" to create the copies',
+    { selector: '#copy-setting-btn', prompt: '"Copy Setting" lets you copy filter settings from another branch into this search — no action needed here', skipClick: true },
+    { selector: '#copy-icon', prompt: 'Click the Copy icon to copy this job\'s settings to a new job',
+      onConfirm: () => {
+        showDialog('Copy Job Settings',
+          `<div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">Copy Type :</span>
+            <label style="font-size:12px;margin-right:12px;"><input type="radio" name="ctype5" id="r-daily5" checked> Daily</label>
+            <label style="font-size:12px;"><input type="radio" name="ctype5"> Weekly</label>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">Start Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;height:22px;font-size:12px;" value="08/17/2026">
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:14px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">End Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;height:22px;font-size:12px;" value="08/20/2026">
+          </div>
+          <div style="display:flex;gap:8px;padding-left:110px;">
+            <button class="btn" id="dlg-copy5-btn" style="padding:5px 18px;">Copy</button>
+            <button class="btn" style="padding:5px 18px;" onclick="closeDialog()">Cancel</button>
+          </div>`);
+      }},
+    { selector: '#r-daily5', prompt: '"Daily" is selected — the job will be copied once for each day in the date range', skipClick: true },
+    { selector: '#dlg-copy5-btn', prompt: 'Click "Copy" to create the copied jobs',
       onConfirm: () => {
         closeDialog();
-        document.getElementById('content').insertAdjacentHTML('afterbegin','<div class="msg-success show">&#10004; Job copied successfully. 3 new jobs created.</div>');
+        document.getElementById('content').insertAdjacentHTML('afterbegin',
+          '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job copied successfully.</div>');
       }},
   ]);
 }
