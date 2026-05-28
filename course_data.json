@@ -265,7 +265,7 @@
         "slide_name": "Sharing Shifts with Other Branches",
         "instructions": "",
         "text": "When creating a shift, you can share it with other branches using the Select Branch field. Once saved, those branches can see that shift and schedule their own employees to it.\r\n\r\nThis is useful for large events where staff from multiple locations are needed. You can even rename the shift to identify the contributing branch, for example, \"San Diego Staff.\"",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=7"
+        "screenshot": "screenshots/manage_job/slide_7.png"
       },
       {
         "slide_number": 8,
