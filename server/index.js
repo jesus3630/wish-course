@@ -36,6 +36,54 @@ const pool = new Pool({
 const COURSE_SEED_PATH = path.join(__dirname, '../course_data.json');
 const QUIZ_SEED_PATH = path.join(__dirname, '../quiz_data.json');
 
+// ─── Encoding fix (UTF-8 mojibake from Windows-1252 misread) ─────────────────
+const WIN1252_TO_BYTE = {
+  0x20AC:0x80,0x201A:0x82,0x0192:0x83,0x201E:0x84,0x2026:0x85,0x2020:0x86,
+  0x2021:0x87,0x02C6:0x88,0x2030:0x89,0x0160:0x8A,0x2039:0x8B,0x0152:0x8C,
+  0x017D:0x8E,0x2018:0x91,0x2019:0x92,0x201C:0x93,0x201D:0x94,0x2022:0x95,
+  0x2013:0x96,0x2014:0x97,0x02DC:0x98,0x2122:0x99,0x0161:0x9A,0x203A:0x9B,
+  0x0153:0x9C,0x017E:0x9E,0x0178:0x9F,
+};
+function _tryFixOnce(str) {
+  try {
+    const bytes = [];
+    for (let i = 0; i < str.length; i++) {
+      const c = str.charCodeAt(i);
+      if (c in WIN1252_TO_BYTE) bytes.push(WIN1252_TO_BYTE[c]);
+      else if (c < 256) bytes.push(c);
+      else return null;
+    }
+    const r = Buffer.from(bytes).toString('utf8');
+    return r.includes('�') ? null : r;
+  } catch { return null; }
+}
+function _fixStr(s) {
+  if (typeof s !== 'string') return s;
+  let cur = s;
+  for (let i = 0; i < 3; i++) { const f = _tryFixOnce(cur); if (!f || f === cur) break; cur = f; }
+  return cur;
+}
+function _fixDeep(v) {
+  if (typeof v === 'string') return _fixStr(v);
+  if (Array.isArray(v)) return v.map(_fixDeep);
+  if (v && typeof v === 'object') { const r = {}; for (const k of Object.keys(v)) r[k] = _fixDeep(v[k]); return r; }
+  return v;
+}
+async function fixEncodingOnce() {
+  for (const tbl of ['course_data', 'quiz_data']) {
+    const { rows } = await pool.query(`SELECT id, data FROM ${tbl}`);
+    for (const row of rows) {
+      const before = JSON.stringify(row.data);
+      const after = _fixDeep(row.data);
+      const afterStr = JSON.stringify(after);
+      if (before !== afterStr) {
+        await pool.query(`UPDATE ${tbl} SET data = $1 WHERE id = $2`, [afterStr, row.id]);
+        console.log(`[boot] Fixed encoding in ${tbl} row ${row.id}`);
+      }
+    }
+  }
+}
+
 async function initDB() {
   await pool.query(`
     CREATE TABLE IF NOT EXISTS course_data (
@@ -149,6 +197,9 @@ async function initDB() {
     const quizData = JSON.parse(fs.readFileSync(QUIZ_SEED_PATH, 'utf8'));
     await pool.query('INSERT INTO quiz_data (id, data) VALUES (1, $1)', [JSON.stringify(quizData)]);
   }
+
+  // Fix mojibake encoding (UTF-8 text misread as Windows-1252) — safe to run every boot, no-op if clean
+  await fixEncodingOnce();
 
   console.log('[boot] DB ready');
 }
