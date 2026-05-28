@@ -710,35 +710,109 @@ function slide_manage_job_5() {
 
 function slide_manage_job_6() {
   setNav('records');
+  const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
+  const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
+  const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
+  const row = 'display:flex;align-items:center;margin-bottom:10px;';
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Jobs</div>
-    <div class="note-bar">To fully delete a job, first cancel it, then delete its shifts, then delete the job.</div>
-    <table><thead><tr><th>Job#</th><th>Job Name</th><th>Branch</th><th>Start</th><th>Finish</th><th>Job Class</th><th style="width:50px">Edit</th></tr></thead>
-    <tbody>
-      <tr><td>1012698342</td><td>DRAKE N3</td><td>Los Angeles</td><td>05/21/2026</td><td>06/05/2026</td>
-        <td id="job-class-cell">Active</td>
-        <td><span id="edit-btn" style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold" title="Edit">&#9998;</span></td></tr>
-      <tr><td>1012698123</td><td>BEYONCE TOUR</td><td>Los Angeles</td><td>07/20/2023</td><td>07/21/2023</td><td>Active</td>
-        <td><span style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold">&#9998;</span></td></tr>
-    </tbody></table>`;
+    <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
+    <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
+    <div style="${row}">
+      <span style="${lbl}">Branch Name :</span>
+      <select style="${sel}"><option>Prota LA Branch Test</option></select>
+      <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
+      <span style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
+    </div>
+    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
+    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
+    <div style="${row}">
+      <span style="${lbl}">Start Date :</span>
+      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
+      <span style="color:#c00;margin-left:4px;">*</span>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">End Date :</span>
+      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
+      <span style="color:#c00;margin-left:4px;">*</span>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">Venue Name :</span>
+      <select style="${sel}"><option>Grand Bell Arena</option></select>
+    </div>
+    <div style="${row}">
+      <span style="${lbl}">Sorting :</span>
+      <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6" checked> Start Date</label>
+      <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6"> JobName</label>
+    </div>
+    <div style="margin-bottom:20px;padding-left:145px;">
+      <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
+      <button class="btn" style="padding:5px 20px;">Add New</button>
+    </div>
+    <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px;">
+      <thead>
+        <tr style="background:#333;color:#fff;">
+          <th style="padding:8px 10px;text-align:left;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:left;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+          <th style="padding:8px 10px;text-align:center;">Copy</th>
+          <th style="padding:8px 10px;text-align:center;">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff;border-bottom:1px solid #eee;">
+          <td style="padding:8px 10px;"><span id="job6-link" style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
+          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
+          <td style="padding:8px 10px;">AB Convention Center</td>
+          <td style="padding:8px 10px;">08/15/2026 08:00</td>
+          <td style="padding:8px 10px;">08/16/2026 17:00</td>
+          <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#444;">&#128203;</span></td>
+          <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#c00;">&#10006;</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
+      <span>Total Pages: 1</span>
+      <div style="display:flex;gap:3px;">
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
+        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
+      </div>
+      <span>Current Page: 1</span>
+    </div>`;
   runGuided([
-    { selector: '#edit-btn', prompt: 'Click the Edit icon to open the job record',
+    { selector: '#job6-link', prompt: 'Click the job number to open the Add / Edit Job form',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = addEditJobHTML('1012698342', 'DRAKE N3') +
-          `<style>#f-jobclass-cancel{width:160px}</style>`;
-        // Replace job class select with one that has Canceled option
-        const jc = document.getElementById('f-jobclass');
-        if (jc) {
-          jc.innerHTML = '<option>Events</option><option>Canceled</option>';
-          jc.id = 'f-jobclass';
+        document.getElementById('content').innerHTML = addEditJobFormHTML();
+        document.getElementById('f-job-num').value    = '5023705541';
+        document.getElementById('f-job-name').value   = 'Drake Job';
+        document.getElementById('f-job-class').value  = 'Events';
+        document.getElementById('f-job-dept').value   = 'Staff';
+        document.getElementById('f-job-event').value  = '2026 DRAKE CONCERT';
+        document.getElementById('f-job-venue').value  = 'AB Convention Center';
+        document.getElementById('f-job-client').value = 'AB Ventures';
+        document.getElementById('f-job-start').value  = '08/15/2026';
+        document.getElementById('f-job-stime').value  = '08:00';
+        document.getElementById('f-job-end').value    = '08/16/2026';
+        document.getElementById('f-job-etime').value  = '17:00';
+        document.getElementById('job-form-title').textContent = 'Add / Edit Job - 5023705541  Drake Job';
+        // Add Canceled option to Job Class
+        const jc = document.getElementById('f-job-class');
+        if (jc && !jc.querySelector('option[value="Canceled"]')) {
+          const opt = document.createElement('option');
+          opt.value = opt.textContent = 'Canceled';
+          jc.appendChild(opt);
         }
       }},
-    { selector: '#f-jobclass', prompt: 'Change the Job Class to "Canceled"',
-      onConfirm: () => { document.getElementById('f-jobclass').value = 'Canceled'; }},
-    { selector: '#btn-save', prompt: 'Click "Save" — the job is now marked as canceled',
+    { selector: '#f-job-class', prompt: 'Change Job Class to "Canceled" — do this immediately when a job is canceled',
+      onConfirm: () => { document.getElementById('f-job-class').value = 'Canceled'; }},
+    { selector: '#btn-job-save', prompt: 'Click "Save" — the job is now marked Canceled',
       onConfirm: () => {
-        const m = document.querySelector('.msg-success');
-        if (m) { m.textContent = '✔ Job class updated to Canceled.'; m.style.display = 'block'; }
+        document.getElementById('content').insertAdjacentHTML('afterbegin',
+          '<div class="msg-success show" style="margin-bottom:8px;">&#10004; Record has been updated successfully.</div>');
       }},
   ]);
 }
