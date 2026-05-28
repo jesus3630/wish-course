@@ -2402,11 +2402,10 @@ function slide_manage_job_4() {
     { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
       onConfirm: () => {
         showAddRolePanel();
-        setTimeout(() => {
-          const rn = document.getElementById('f-role-name');
-          if (rn) rn.value = 'Event Staff';
-          autoFillRoleForm();
-        }, 80);
+        // Elements exist immediately after appendChild — set synchronously
+        const rn = document.getElementById('f-role-name');
+        if (rn) rn.value = 'Event Staff';
+        autoFillRoleForm();
       }},
     { selector: '#f-role-name', prompt: '* Role Name — "Event Staff" selected for this shift', skipClick: true },
   ]);
