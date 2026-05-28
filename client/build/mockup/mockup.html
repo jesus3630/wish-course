@@ -1914,21 +1914,20 @@ function slide_record_maintenance_4() {
   runGuided([
     { selector: '#btn-addnew-evt', prompt: 'Click "Add New" to create a new Event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditEventHTML('', '', false); }},
-    { selector: '#f-evtname', prompt: 'Click here and type the Event Name', type: '2025 DRAKE CONCERT' },
-    { selector: '#f-evt-start', prompt: 'Set the Event Start Date', type: '08/15/2025' },
-    { selector: '#f-evt-end', prompt: 'Set the Event End Date', type: '08/16/2025' },
-    { selector: '#f-evt-loadin', prompt: 'Set the Load In Date — when your branch moves into the venue', type: '08/14/2025' },
-    { selector: '#f-evt-loadout', prompt: 'Set the Load Out Date — when your branch moves out', type: '08/17/2025' },
+    { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2025 DRAKE CONCERT' },
+    { selector: '#f-evt-type', prompt: '* Event Type — select the type that applies',
+      onConfirm: () => { document.getElementById('f-evt-type').value = 'Concert'; }},
+    { selector: '#f-evt-start', prompt: '* Start Date — set the event start date', type: '08/15/2025' },
+    { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2025' },
     { selector: '#btn-evt-save', prompt: 'Click "Save" — an Event# will be generated and new tabs will appear',
       onConfirm: () => {
         document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
         document.getElementById('f-evt-start').value = '08/15/2025';
         document.getElementById('f-evt-end').value = '08/16/2025';
-        document.getElementById('f-evt-loadin').value = '08/14/2025';
-        document.getElementById('f-evt-loadout').value = '08/17/2025';
+        document.getElementById('f-evt-type').value = 'Concert';
         document.getElementById('evt-saved-msg').classList.add('show');
       }},
-    { selector: '#event-tabs', prompt: 'New tabs have appeared — Clients, Venues, and Jobs. You\'ll use these next.', skipClick: true },
+    { selector: '#event-tabs', prompt: 'Event saved — new tabs have appeared for Clients, Venues, and Jobs.', skipClick: true },
   ]);
 }
 
