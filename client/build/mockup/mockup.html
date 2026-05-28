@@ -2392,10 +2392,18 @@ function slide_manage_job_4() {
       }},
     { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
       onConfirm: () => { showAddRolePanel(); }},
-    { selector: '#f-role-name', prompt: '* Role Name — select the role for this shift',
-      onConfirm: () => { document.getElementById('f-role-name').value = 'Event Staff'; }},
-    { selector: '#f-role-min', prompt: '* Min — minimum number of staff needed', type: '5' },
-    { selector: '#f-role-max', prompt: '* Max — maximum number of staff allowed', type: '10' },
+    { selector: '#f-role-name', prompt: '* Role Name — select the role for this shift (Min, Max, and times will auto-fill)',
+      onConfirm: () => {
+        document.getElementById('f-role-name').value = 'Event Staff';
+        document.getElementById('f-role-min').value = '5';
+        document.getElementById('f-role-max').value = '7';
+        document.getElementById('f-role-stime').value = '08:00';
+        document.getElementById('f-role-etime').value = '17:00';
+      }},
+    { selector: '#f-role-min', prompt: '* Min — auto-filled to 5 (minimum staff required for this role)', skipClick: true },
+    { selector: '#f-role-max', prompt: '* Max — auto-filled to 7 (maximum staff allowed for this role)', skipClick: true },
+    { selector: '#f-role-stime', prompt: '* Start Time — auto-filled to 08:00 to match the shift', skipClick: true },
+    { selector: '#f-role-etime', prompt: '* Finish Time — auto-filled to 17:00 to match the shift', skipClick: true },
     { selector: '#btn-role-save', prompt: 'Click "Save" — the role will appear under the shift row',
       onConfirm: () => {
         document.getElementById('add-role-modal').remove();
@@ -2447,7 +2455,7 @@ function slide_manage_job_4() {
                       <tr style="background:#fff;">
                         <td style="padding:4px 8px;">Event Staff</td>
                         <td style="padding:4px 8px;">5</td>
-                        <td style="padding:4px 8px;">10</td>
+                        <td style="padding:4px 8px;">7</td>
                         <td style="padding:4px 8px;">08/15/2026 08:00</td>
                         <td style="padding:4px 8px;">08/15/2026 17:00</td>
                         <td style="padding:4px 8px;white-space:nowrap;">
@@ -2495,7 +2503,12 @@ function showAddRolePanel() {
           </div>
           <div style="display:flex;align-items:center;margin-bottom:8px;">
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Role Name :</span>
-            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 3px;width:185px;height:22px;font-size:12px;background:#fff;">
+            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 3px;width:185px;height:22px;font-size:12px;background:#fff;" onchange="
+              document.getElementById('f-role-min').value='5';
+              document.getElementById('f-role-max').value='7';
+              document.getElementById('f-role-stime').value='08:00';
+              document.getElementById('f-role-etime').value='17:00';
+            ">
               <option>Administrative</option>
               <option>C&amp;T Event Staff</option>
               <option>C&amp;T Event Staff 1</option>
@@ -2530,14 +2543,14 @@ function showAddRolePanel() {
           <div style="display:flex;align-items:center;margin-bottom:8px;">
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
             <input style="border:1px solid #aaa;padding:2px 4px;width:90px;height:22px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="08:00">
+            <input id="f-role-stime" style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="">
             <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
             <span style="color:#c00;margin-left:3px;">*</span>
           </div>
           <div style="display:flex;align-items:center;margin-bottom:16px;">
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Finish Date :</span>
             <input style="border:1px solid #aaa;padding:2px 4px;width:90px;height:22px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="17:00">
+            <input id="f-role-etime" style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="">
             <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
             <span style="color:#c00;margin-left:3px;">*</span>
           </div>
