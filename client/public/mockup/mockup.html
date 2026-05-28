@@ -2184,7 +2184,7 @@ function addEditJobFormHTML() {
     <div style="${row}"><span style="${lbl}">Job Name :</span>
       <input style="${inp}" id="f-job-name" value="">${req}</div>
     <div style="${row}"><span style="${lbl}">Job Class :</span>
-      <select style="${sel}" id="f-job-class"><option>Select</option><option>Events</option><option>Office</option><option>Training</option><option>Other</option></select>${req}</div>
+      <select style="${sel}" id="f-job-class" onchange="document.getElementById('f-job-dept').value='Staff'"><option>Select</option><option>Events</option><option>Office</option><option>Training</option><option>Other</option></select>${req}</div>
     <div style="${row}"><span style="${lbl}">Branch Name :</span>
       <select style="${sel}" id="f-job-branch"><option>Prota LA Branch Test</option></select>${req}</div>
     <div style="${row}"><span style="${lbl}">Charge Branch :</span>
@@ -2262,12 +2262,13 @@ function slide_record_maintenance_7() {
     { selector: '#btn-addnew-job', prompt: 'Click "Add New" to create a Job under this event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditJobFormHTML(); }},
     { selector: '#f-job-name', prompt: '* Job Name — type the name of this job', type: 'Drake Job' },
-    { selector: '#f-job-class', prompt: '* Job Class — select the type of job',
-      onConfirm: () => { document.getElementById('f-job-class').value = 'Events'; }},
+    { selector: '#f-job-class', prompt: '* Job Class — select the type of job (Department auto-fills to "Staff")',
+      onConfirm: () => {
+        document.getElementById('f-job-class').value = 'Events';
+        document.getElementById('f-job-dept').value = 'Staff';
+      }},
     { selector: '#f-job-event', prompt: '* Event Name — select the event this job belongs to',
       onConfirm: () => { document.getElementById('f-job-event').value = '2026 DRAKE CONCERT'; }},
-    { selector: '#f-job-dept', prompt: '* Department Name — select the department',
-      onConfirm: () => { document.getElementById('f-job-dept').value = 'Staff'; }},
     { selector: '#f-job-venue', prompt: '* Venue Name — select where this job takes place',
       onConfirm: () => { document.getElementById('f-job-venue').value = 'AB Convention Center'; }},
     { selector: '#f-job-client', prompt: '* Client Name — select the client for this job',
