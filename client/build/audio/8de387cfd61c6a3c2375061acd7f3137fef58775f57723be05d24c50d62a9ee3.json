@@ -1,0 +1,537 @@
+[
+  {
+    "word": "Select",
+    "start": 0,
+    "end": 0.383
+  },
+  {
+    "word": "your",
+    "start": 0.418,
+    "end": 0.522
+  },
+  {
+    "word": "invoice",
+    "start": 0.58,
+    "end": 1.022
+  },
+  {
+    "word": "type:",
+    "start": 1.045,
+    "end": 1.985
+  },
+  {
+    "word": "•",
+    "start": 1.985,
+    "end": 2.287
+  },
+  {
+    "word": "Summary",
+    "start": 2.589,
+    "end": 3.065
+  },
+  {
+    "word": "—",
+    "start": 3.286,
+    "end": 3.738
+  },
+  {
+    "word": "Clean",
+    "start": 4.145,
+    "end": 4.435
+  },
+  {
+    "word": "totals",
+    "start": 4.481,
+    "end": 4.795
+  },
+  {
+    "word": "by",
+    "start": 4.853,
+    "end": 4.957
+  },
+  {
+    "word": "role.",
+    "start": 5.016,
+    "end": 5.433
+  },
+  {
+    "word": "Most",
+    "start": 5.735,
+    "end": 6.002
+  },
+  {
+    "word": "clients",
+    "start": 6.049,
+    "end": 6.362
+  },
+  {
+    "word": "prefer",
+    "start": 6.409,
+    "end": 6.711
+  },
+  {
+    "word": "this.",
+    "start": 6.78,
+    "end": 7.686
+  },
+  {
+    "word": "•",
+    "start": 7.686,
+    "end": 7.848
+  },
+  {
+    "word": "Detailed",
+    "start": 8.104,
+    "end": 8.638
+  },
+  {
+    "word": "—",
+    "start": 8.8,
+    "end": 9.218
+  },
+  {
+    "word": "Full",
+    "start": 9.439,
+    "end": 9.683
+  },
+  {
+    "word": "breakdown",
+    "start": 9.752,
+    "end": 10.403
+  },
+  {
+    "word": "showing",
+    "start": 10.507,
+    "end": 10.855
+  },
+  {
+    "word": "each",
+    "start": 10.937,
+    "end": 11.134
+  },
+  {
+    "word": "employee's",
+    "start": 11.169,
+    "end": 11.598
+  },
+  {
+    "word": "times,",
+    "start": 11.656,
+    "end": 12.237
+  },
+  {
+    "word": "regular",
+    "start": 12.423,
+    "end": 12.875
+  },
+  {
+    "word": "and",
+    "start": 12.98,
+    "end": 13.154
+  },
+  {
+    "word": "overtime",
+    "start": 13.235,
+    "end": 13.735
+  },
+  {
+    "word": "hours.",
+    "start": 13.758,
+    "end": 14.93
+  },
+  {
+    "word": "•",
+    "start": 14.93,
+    "end": 15.232
+  },
+  {
+    "word": "Summary",
+    "start": 15.488,
+    "end": 15.929
+  },
+  {
+    "word": "with",
+    "start": 15.975,
+    "end": 16.138
+  },
+  {
+    "word": "Cover",
+    "start": 16.184,
+    "end": 16.486
+  },
+  {
+    "word": "and",
+    "start": 16.544,
+    "end": 16.637
+  },
+  {
+    "word": "Sign-In",
+    "start": 16.707,
+    "end": 17.067
+  },
+  {
+    "word": "Sheets",
+    "start": 17.136,
+    "end": 17.461
+  },
+  {
+    "word": "—",
+    "start": 17.624,
+    "end": 17.81
+  },
+  {
+    "word": "Includes",
+    "start": 17.868,
+    "end": 18.367
+  },
+  {
+    "word": "everything.",
+    "start": 18.413,
+    "end": 19.621
+  },
+  {
+    "word": "Click",
+    "start": 19.621,
+    "end": 19.934
+  },
+  {
+    "word": "Generate",
+    "start": 20.19,
+    "end": 20.608
+  },
+  {
+    "word": "Invoice.",
+    "start": 20.631,
+    "end": 21.176
+  },
+  {
+    "word": "Your",
+    "start": 21.374,
+    "end": 21.536
+  },
+  {
+    "word": "invoice",
+    "start": 21.606,
+    "end": 22.256
+  },
+  {
+    "word": "opens",
+    "start": 22.43,
+    "end": 22.941
+  },
+  {
+    "word": "as",
+    "start": 23.324,
+    "end": 23.498
+  },
+  {
+    "word": "a",
+    "start": 23.556,
+    "end": 23.58
+  },
+  {
+    "word": "PDF.",
+    "start": 23.661,
+    "end": 24.485
+  },
+  {
+    "word": "Copy",
+    "start": 24.868,
+    "end": 25.368
+  },
+  {
+    "word": "the",
+    "start": 25.681,
+    "end": 25.82
+  },
+  {
+    "word": "invoice",
+    "start": 25.902,
+    "end": 26.343
+  },
+  {
+    "word": "number.",
+    "start": 26.389,
+    "end": 27.295
+  },
+  {
+    "word": "To",
+    "start": 27.295,
+    "end": 27.411
+  },
+  {
+    "word": "make",
+    "start": 27.481,
+    "end": 27.643
+  },
+  {
+    "word": "changes,",
+    "start": 27.69,
+    "end": 28.363
+  },
+  {
+    "word": "use",
+    "start": 28.595,
+    "end": 28.816
+  },
+  {
+    "word": "the",
+    "start": 28.851,
+    "end": 28.932
+  },
+  {
+    "word": "invoice",
+    "start": 29.025,
+    "end": 29.512
+  },
+  {
+    "word": "reference",
+    "start": 29.582,
+    "end": 30.035
+  },
+  {
+    "word": "dropdown",
+    "start": 30.151,
+    "end": 30.79
+  },
+  {
+    "word": "—",
+    "start": 30.964,
+    "end": 31.068
+  },
+  {
+    "word": "your",
+    "start": 31.242,
+    "end": 31.382
+  },
+  {
+    "word": "most",
+    "start": 31.44,
+    "end": 31.637
+  },
+  {
+    "word": "recent",
+    "start": 31.707,
+    "end": 32.02
+  },
+  {
+    "word": "invoice",
+    "start": 32.067,
+    "end": 32.508
+  },
+  {
+    "word": "appears",
+    "start": 32.554,
+    "end": 32.903
+  },
+  {
+    "word": "at",
+    "start": 32.937,
+    "end": 33.007
+  },
+  {
+    "word": "the",
+    "start": 33.042,
+    "end": 33.111
+  },
+  {
+    "word": "top.",
+    "start": 33.158,
+    "end": 33.564
+  },
+  {
+    "word": "Edit,",
+    "start": 33.727,
+    "end": 34.203
+  },
+  {
+    "word": "go",
+    "start": 34.354,
+    "end": 34.481
+  },
+  {
+    "word": "back",
+    "start": 34.551,
+    "end": 34.725
+  },
+  {
+    "word": "to",
+    "start": 34.772,
+    "end": 34.841
+  },
+  {
+    "word": "Invoice",
+    "start": 34.934,
+    "end": 35.364
+  },
+  {
+    "word": "Setup,",
+    "start": 35.399,
+    "end": 35.84
+  },
+  {
+    "word": "then",
+    "start": 35.991,
+    "end": 36.165
+  },
+  {
+    "word": "Generate",
+    "start": 36.246,
+    "end": 36.664
+  },
+  {
+    "word": "Invoice",
+    "start": 36.687,
+    "end": 37.128
+  },
+  {
+    "word": "again.",
+    "start": 37.163,
+    "end": 37.651
+  },
+  {
+    "word": "Each",
+    "start": 37.93,
+    "end": 38.115
+  },
+  {
+    "word": "revision",
+    "start": 38.173,
+    "end": 38.58
+  },
+  {
+    "word": "gets",
+    "start": 38.638,
+    "end": 38.8
+  },
+  {
+    "word": "a",
+    "start": 38.835,
+    "end": 38.858
+  },
+  {
+    "word": "point",
+    "start": 38.94,
+    "end": 39.16
+  },
+  {
+    "word": "suffix",
+    "start": 39.218,
+    "end": 39.648
+  },
+  {
+    "word": "(.01,",
+    "start": 39.799,
+    "end": 41.099
+  },
+  {
+    "word": ".02,",
+    "start": 41.122,
+    "end": 42.225
+  },
+  {
+    "word": "etc.)",
+    "start": 42.341,
+    "end": 43.108
+  },
+  {
+    "word": "so",
+    "start": 43.351,
+    "end": 43.537
+  },
+  {
+    "word": "every",
+    "start": 43.653,
+    "end": 43.967
+  },
+  {
+    "word": "version",
+    "start": 44.036,
+    "end": 44.478
+  },
+  {
+    "word": "is",
+    "start": 44.594,
+    "end": 44.791
+  },
+  {
+    "word": "tracked.",
+    "start": 44.849,
+    "end": 45.604
+  },
+  {
+    "word": "To",
+    "start": 45.604,
+    "end": 45.743
+  },
+  {
+    "word": "print",
+    "start": 45.824,
+    "end": 46.068
+  },
+  {
+    "word": "any",
+    "start": 46.138,
+    "end": 46.335
+  },
+  {
+    "word": "previous",
+    "start": 46.405,
+    "end": 46.8
+  },
+  {
+    "word": "invoice:",
+    "start": 46.858,
+    "end": 47.438
+  },
+  {
+    "word": "Billing",
+    "start": 47.717,
+    "end": 48.123
+  },
+  {
+    "word": "→",
+    "start": 48.274,
+    "end": 48.309
+  },
+  {
+    "word": "Print",
+    "start": 48.553,
+    "end": 48.831
+  },
+  {
+    "word": "Invoice,",
+    "start": 48.901,
+    "end": 49.528
+  },
+  {
+    "word": "select",
+    "start": 49.737,
+    "end": 50.108
+  },
+  {
+    "word": "your",
+    "start": 50.143,
+    "end": 50.271
+  },
+  {
+    "word": "event,",
+    "start": 50.329,
+    "end": 50.735
+  },
+  {
+    "word": "choose",
+    "start": 50.886,
+    "end": 51.281
+  },
+  {
+    "word": "the",
+    "start": 51.316,
+    "end": 51.409
+  },
+  {
+    "word": "invoice.",
+    "start": 51.49,
+    "end": 52.338
+  }
+]

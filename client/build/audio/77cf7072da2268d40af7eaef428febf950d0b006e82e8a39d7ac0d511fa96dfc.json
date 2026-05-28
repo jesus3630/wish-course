@@ -1,0 +1,562 @@
+[
+  {
+    "word": "Two",
+    "start": 0,
+    "end": 0.221
+  },
+  {
+    "word": "variations",
+    "start": 0.302,
+    "end": 0.964
+  },
+  {
+    "word": "of",
+    "start": 1.033,
+    "end": 1.149
+  },
+  {
+    "word": "the",
+    "start": 1.207,
+    "end": 1.312
+  },
+  {
+    "word": "Employee",
+    "start": 1.405,
+    "end": 1.904
+  },
+  {
+    "word": "Time",
+    "start": 1.974,
+    "end": 2.252
+  },
+  {
+    "word": "Register",
+    "start": 2.31,
+    "end": 2.763
+  },
+  {
+    "word": "are",
+    "start": 2.844,
+    "end": 3.053
+  },
+  {
+    "word": "available",
+    "start": 3.088,
+    "end": 3.657
+  },
+  {
+    "word": "depending",
+    "start": 3.704,
+    "end": 4.156
+  },
+  {
+    "word": "on",
+    "start": 4.214,
+    "end": 4.284
+  },
+  {
+    "word": "what",
+    "start": 4.342,
+    "end": 4.481
+  },
+  {
+    "word": "you",
+    "start": 4.54,
+    "end": 4.621
+  },
+  {
+    "word": "need",
+    "start": 4.679,
+    "end": 4.841
+  },
+  {
+    "word": "to",
+    "start": 4.876,
+    "end": 4.934
+  },
+  {
+    "word": "see:",
+    "start": 5.004,
+    "end": 5.445
+  },
+  {
+    "word": "Employee",
+    "start": 5.445,
+    "end": 5.956
+  },
+  {
+    "word": "Time",
+    "start": 6.026,
+    "end": 6.281
+  },
+  {
+    "word": "Register",
+    "start": 6.316,
+    "end": 6.769
+  },
+  {
+    "word": "(Break),",
+    "start": 6.943,
+    "end": 10.426
+  },
+  {
+    "word": "Use",
+    "start": 10.704,
+    "end": 10.96
+  },
+  {
+    "word": "this",
+    "start": 10.995,
+    "end": 11.25
+  },
+  {
+    "word": "when",
+    "start": 11.331,
+    "end": 11.505
+  },
+  {
+    "word": "employees",
+    "start": 11.552,
+    "end": 12.074
+  },
+  {
+    "word": "took",
+    "start": 12.132,
+    "end": 12.318
+  },
+  {
+    "word": "scheduled",
+    "start": 12.376,
+    "end": 12.783
+  },
+  {
+    "word": "breaks",
+    "start": 12.806,
+    "end": 13.177
+  },
+  {
+    "word": "that",
+    "start": 13.293,
+    "end": 13.502
+  },
+  {
+    "word": "need",
+    "start": 13.584,
+    "end": 13.793
+  },
+  {
+    "word": "to",
+    "start": 13.827,
+    "end": 13.874
+  },
+  {
+    "word": "be",
+    "start": 13.932,
+    "end": 14.025
+  },
+  {
+    "word": "accounted",
+    "start": 14.06,
+    "end": 14.443
+  },
+  {
+    "word": "for",
+    "start": 14.489,
+    "end": 14.617
+  },
+  {
+    "word": "separately.",
+    "start": 14.71,
+    "end": 15.244
+  },
+  {
+    "word": "The",
+    "start": 15.279,
+    "end": 15.395
+  },
+  {
+    "word": "report",
+    "start": 15.464,
+    "end": 15.894
+  },
+  {
+    "word": "adds",
+    "start": 15.964,
+    "end": 16.231
+  },
+  {
+    "word": "a",
+    "start": 16.277,
+    "end": 16.312
+  },
+  {
+    "word": "break",
+    "start": 16.393,
+    "end": 16.614
+  },
+  {
+    "word": "time",
+    "start": 16.661,
+    "end": 16.881
+  },
+  {
+    "word": "column",
+    "start": 16.916,
+    "end": 17.287
+  },
+  {
+    "word": "so",
+    "start": 17.334,
+    "end": 17.438
+  },
+  {
+    "word": "you",
+    "start": 17.52,
+    "end": 17.613
+  },
+  {
+    "word": "can",
+    "start": 17.671,
+    "end": 17.798
+  },
+  {
+    "word": "verify",
+    "start": 17.868,
+    "end": 18.356
+  },
+  {
+    "word": "break",
+    "start": 18.507,
+    "end": 18.785
+  },
+  {
+    "word": "duration",
+    "start": 18.866,
+    "end": 19.575
+  },
+  {
+    "word": "against",
+    "start": 19.9,
+    "end": 20.527
+  },
+  {
+    "word": "what",
+    "start": 20.805,
+    "end": 21.049
+  },
+  {
+    "word": "was",
+    "start": 21.107,
+    "end": 21.258
+  },
+  {
+    "word": "entered.",
+    "start": 21.351,
+    "end": 22.082
+  },
+  {
+    "word": "Emp",
+    "start": 22.082,
+    "end": 22.384
+  },
+  {
+    "word": "Time",
+    "start": 22.535,
+    "end": 22.907
+  },
+  {
+    "word": "Register",
+    "start": 23.023,
+    "end": 23.592
+  },
+  {
+    "word": "With",
+    "start": 23.766,
+    "end": 23.975
+  },
+  {
+    "word": "Notes,",
+    "start": 24.068,
+    "end": 24.579
+  },
+  {
+    "word": "Use",
+    "start": 24.753,
+    "end": 25.008
+  },
+  {
+    "word": "this",
+    "start": 25.043,
+    "end": 25.194
+  },
+  {
+    "word": "when",
+    "start": 25.24,
+    "end": 25.38
+  },
+  {
+    "word": "you",
+    "start": 25.414,
+    "end": 25.484
+  },
+  {
+    "word": "need",
+    "start": 25.542,
+    "end": 25.705
+  },
+  {
+    "word": "to",
+    "start": 25.74,
+    "end": 25.786
+  },
+  {
+    "word": "see",
+    "start": 25.856,
+    "end": 26.111
+  },
+  {
+    "word": "any",
+    "start": 26.192,
+    "end": 26.483
+  },
+  {
+    "word": "notes",
+    "start": 26.564,
+    "end": 26.877
+  },
+  {
+    "word": "that",
+    "start": 26.924,
+    "end": 27.086
+  },
+  {
+    "word": "were",
+    "start": 27.121,
+    "end": 27.26
+  },
+  {
+    "word": "attached",
+    "start": 27.295,
+    "end": 27.841
+  },
+  {
+    "word": "during",
+    "start": 28.12,
+    "end": 28.433
+  },
+  {
+    "word": "the",
+    "start": 28.479,
+    "end": 28.561
+  },
+  {
+    "word": "sign-in",
+    "start": 28.654,
+    "end": 29.257
+  },
+  {
+    "word": "or",
+    "start": 29.385,
+    "end": 29.71
+  },
+  {
+    "word": "hour",
+    "start": 29.838,
+    "end": 30.233
+  },
+  {
+    "word": "approval",
+    "start": 30.325,
+    "end": 30.79
+  },
+  {
+    "word": "process.",
+    "start": 30.848,
+    "end": 31.545
+  },
+  {
+    "word": "Useful",
+    "start": 31.719,
+    "end": 32.183
+  },
+  {
+    "word": "when",
+    "start": 32.264,
+    "end": 32.438
+  },
+  {
+    "word": "there",
+    "start": 32.473,
+    "end": 32.636
+  },
+  {
+    "word": "were",
+    "start": 32.671,
+    "end": 32.833
+  },
+  {
+    "word": "corrections,",
+    "start": 32.903,
+    "end": 33.681
+  },
+  {
+    "word": "late",
+    "start": 33.797,
+    "end": 34.029
+  },
+  {
+    "word": "arrivals,",
+    "start": 34.052,
+    "end": 34.993
+  },
+  {
+    "word": "or",
+    "start": 35.167,
+    "end": 35.457
+  },
+  {
+    "word": "discrepancies",
+    "start": 35.666,
+    "end": 37.013
+  },
+  {
+    "word": "that",
+    "start": 37.338,
+    "end": 37.524
+  },
+  {
+    "word": "someone",
+    "start": 37.558,
+    "end": 37.825
+  },
+  {
+    "word": "flagged",
+    "start": 37.884,
+    "end": 38.534
+  },
+  {
+    "word": "at",
+    "start": 38.661,
+    "end": 38.882
+  },
+  {
+    "word": "the",
+    "start": 38.952,
+    "end": 39.033
+  },
+  {
+    "word": "time.",
+    "start": 39.091,
+    "end": 39.915
+  },
+  {
+    "word": "For",
+    "start": 39.915,
+    "end": 40.055
+  },
+  {
+    "word": "most",
+    "start": 40.113,
+    "end": 40.275
+  },
+  {
+    "word": "standard",
+    "start": 40.298,
+    "end": 40.6
+  },
+  {
+    "word": "reviews,",
+    "start": 40.635,
+    "end": 41.158
+  },
+  {
+    "word": "the",
+    "start": 41.332,
+    "end": 41.459
+  },
+  {
+    "word": "base",
+    "start": 41.541,
+    "end": 41.843
+  },
+  {
+    "word": "Employee",
+    "start": 41.877,
+    "end": 42.377
+  },
+  {
+    "word": "Time",
+    "start": 42.458,
+    "end": 42.748
+  },
+  {
+    "word": "Register",
+    "start": 42.795,
+    "end": 43.259
+  },
+  {
+    "word": "is",
+    "start": 43.375,
+    "end": 43.735
+  },
+  {
+    "word": "sufficient.",
+    "start": 43.909,
+    "end": 44.699
+  },
+  {
+    "word": "Pull",
+    "start": 44.815,
+    "end": 45.035
+  },
+  {
+    "word": "a",
+    "start": 45.082,
+    "end": 45.105
+  },
+  {
+    "word": "variant",
+    "start": 45.163,
+    "end": 45.581
+  },
+  {
+    "word": "when",
+    "start": 45.616,
+    "end": 45.732
+  },
+  {
+    "word": "you",
+    "start": 45.767,
+    "end": 45.836
+  },
+  {
+    "word": "need",
+    "start": 45.871,
+    "end": 46.034
+  },
+  {
+    "word": "that",
+    "start": 46.08,
+    "end": 46.243
+  },
+  {
+    "word": "extra",
+    "start": 46.324,
+    "end": 46.661
+  },
+  {
+    "word": "layer",
+    "start": 46.719,
+    "end": 46.974
+  },
+  {
+    "word": "of",
+    "start": 47.067,
+    "end": 47.183
+  },
+  {
+    "word": "detail.",
+    "start": 47.299,
+    "end": 48.065
+  }
+]

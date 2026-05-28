@@ -1,0 +1,577 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "the",
+    "start": 0.186,
+    "end": 0.255
+  },
+  {
+    "word": "sign-in",
+    "start": 0.325,
+    "end": 0.708
+  },
+  {
+    "word": "window,",
+    "start": 0.766,
+    "end": 1.207
+  },
+  {
+    "word": "employees",
+    "start": 1.231,
+    "end": 1.776
+  },
+  {
+    "word": "can",
+    "start": 1.823,
+    "end": 1.95
+  },
+  {
+    "word": "scan",
+    "start": 2.02,
+    "end": 2.357
+  },
+  {
+    "word": "their",
+    "start": 2.426,
+    "end": 2.589
+  },
+  {
+    "word": "ID",
+    "start": 2.67,
+    "end": 3.03
+  },
+  {
+    "word": "badge",
+    "start": 3.274,
+    "end": 3.68
+  },
+  {
+    "word": "or",
+    "start": 3.727,
+    "end": 3.866
+  },
+  {
+    "word": "you",
+    "start": 3.936,
+    "end": 4.005
+  },
+  {
+    "word": "can",
+    "start": 4.063,
+    "end": 4.18
+  },
+  {
+    "word": "type",
+    "start": 4.238,
+    "end": 4.516
+  },
+  {
+    "word": "the",
+    "start": 4.551,
+    "end": 4.621
+  },
+  {
+    "word": "number",
+    "start": 4.679,
+    "end": 4.957
+  },
+  {
+    "word": "manually.",
+    "start": 5.074,
+    "end": 5.793
+  },
+  {
+    "word": "If",
+    "start": 5.793,
+    "end": 5.933
+  },
+  {
+    "word": "an",
+    "start": 5.991,
+    "end": 6.049
+  },
+  {
+    "word": "employee",
+    "start": 6.095,
+    "end": 6.583
+  },
+  {
+    "word": "is",
+    "start": 6.653,
+    "end": 6.78
+  },
+  {
+    "word": "on",
+    "start": 6.85,
+    "end": 6.943
+  },
+  {
+    "word": "time,",
+    "start": 7.012,
+    "end": 7.407
+  },
+  {
+    "word": "they",
+    "start": 7.43,
+    "end": 7.581
+  },
+  {
+    "word": "are",
+    "start": 7.616,
+    "end": 7.732
+  },
+  {
+    "word": "signed",
+    "start": 7.802,
+    "end": 8.127
+  },
+  {
+    "word": "in",
+    "start": 8.173,
+    "end": 8.266
+  },
+  {
+    "word": "immediately.",
+    "start": 8.382,
+    "end": 9.125
+  },
+  {
+    "word": "If",
+    "start": 9.16,
+    "end": 9.311
+  },
+  {
+    "word": "they",
+    "start": 9.369,
+    "end": 9.509
+  },
+  {
+    "word": "are",
+    "start": 9.543,
+    "end": 9.671
+  },
+  {
+    "word": "late,",
+    "start": 9.741,
+    "end": 10.112
+  },
+  {
+    "word": "a",
+    "start": 10.17,
+    "end": 10.252
+  },
+  {
+    "word": "warning",
+    "start": 10.344,
+    "end": 10.635
+  },
+  {
+    "word": "appears.",
+    "start": 10.681,
+    "end": 11.273
+  },
+  {
+    "word": "Click",
+    "start": 11.389,
+    "end": 11.645
+  },
+  {
+    "word": "Pause",
+    "start": 11.714,
+    "end": 12.098
+  },
+  {
+    "word": "to",
+    "start": 12.144,
+    "end": 12.225
+  },
+  {
+    "word": "freeze",
+    "start": 12.341,
+    "end": 12.678
+  },
+  {
+    "word": "the",
+    "start": 12.701,
+    "end": 12.771
+  },
+  {
+    "word": "screen",
+    "start": 12.817,
+    "end": 13.201
+  },
+  {
+    "word": "and",
+    "start": 13.27,
+    "end": 13.398
+  },
+  {
+    "word": "give",
+    "start": 13.479,
+    "end": 13.653
+  },
+  {
+    "word": "yourself",
+    "start": 13.688,
+    "end": 14.036
+  },
+  {
+    "word": "time",
+    "start": 14.094,
+    "end": 14.396
+  },
+  {
+    "word": "to",
+    "start": 14.431,
+    "end": 14.512
+  },
+  {
+    "word": "act.",
+    "start": 14.605,
+    "end": 14.954
+  },
+  {
+    "word": "Click",
+    "start": 15.012,
+    "end": 15.244
+  },
+  {
+    "word": "the",
+    "start": 15.29,
+    "end": 15.36
+  },
+  {
+    "word": "Correction",
+    "start": 15.395,
+    "end": 15.766
+  },
+  {
+    "word": "tab",
+    "start": 15.824,
+    "end": 16.219
+  },
+  {
+    "word": "and",
+    "start": 16.428,
+    "end": 16.66
+  },
+  {
+    "word": "update",
+    "start": 16.707,
+    "end": 17.032
+  },
+  {
+    "word": "the",
+    "start": 17.055,
+    "end": 17.125
+  },
+  {
+    "word": "time",
+    "start": 17.171,
+    "end": 17.577
+  },
+  {
+    "word": "before",
+    "start": 17.694,
+    "end": 18.135
+  },
+  {
+    "word": "clicking",
+    "start": 18.193,
+    "end": 18.599
+  },
+  {
+    "word": "OK.",
+    "start": 18.808,
+    "end": 19.342
+  },
+  {
+    "word": "Not",
+    "start": 19.586,
+    "end": 19.795
+  },
+  {
+    "word": "everyone",
+    "start": 19.865,
+    "end": 20.352
+  },
+  {
+    "word": "will",
+    "start": 20.387,
+    "end": 20.55
+  },
+  {
+    "word": "have",
+    "start": 20.596,
+    "end": 20.759
+  },
+  {
+    "word": "the",
+    "start": 20.793,
+    "end": 20.863
+  },
+  {
+    "word": "permission",
+    "start": 20.909,
+    "end": 21.327
+  },
+  {
+    "word": "to",
+    "start": 21.374,
+    "end": 21.432
+  },
+  {
+    "word": "correct",
+    "start": 21.502,
+    "end": 21.792
+  },
+  {
+    "word": "times,",
+    "start": 21.827,
+    "end": 22.419
+  },
+  {
+    "word": "check",
+    "start": 22.57,
+    "end": 22.79
+  },
+  {
+    "word": "with",
+    "start": 22.825,
+    "end": 22.941
+  },
+  {
+    "word": "your",
+    "start": 22.976,
+    "end": 23.081
+  },
+  {
+    "word": "manager",
+    "start": 23.139,
+    "end": 23.557
+  },
+  {
+    "word": "before",
+    "start": 23.638,
+    "end": 23.94
+  },
+  {
+    "word": "doing",
+    "start": 23.986,
+    "end": 24.23
+  },
+  {
+    "word": "so.",
+    "start": 24.3,
+    "end": 25.24
+  },
+  {
+    "word": "If",
+    "start": 25.24,
+    "end": 25.403
+  },
+  {
+    "word": "an",
+    "start": 25.461,
+    "end": 25.519
+  },
+  {
+    "word": "employee",
+    "start": 25.565,
+    "end": 26.006
+  },
+  {
+    "word": "does",
+    "start": 26.053,
+    "end": 26.227
+  },
+  {
+    "word": "not",
+    "start": 26.273,
+    "end": 26.436
+  },
+  {
+    "word": "know",
+    "start": 26.482,
+    "end": 26.61
+  },
+  {
+    "word": "their",
+    "start": 26.668,
+    "end": 26.819
+  },
+  {
+    "word": "ID",
+    "start": 26.877,
+    "end": 27.109
+  },
+  {
+    "word": "number,",
+    "start": 27.26,
+    "end": 27.724
+  },
+  {
+    "word": "use",
+    "start": 27.933,
+    "end": 28.2
+  },
+  {
+    "word": "the",
+    "start": 28.235,
+    "end": 28.317
+  },
+  {
+    "word": "employee",
+    "start": 28.375,
+    "end": 28.827
+  },
+  {
+    "word": "search",
+    "start": 28.885,
+    "end": 29.152
+  },
+  {
+    "word": "link",
+    "start": 29.222,
+    "end": 29.466
+  },
+  {
+    "word": "on",
+    "start": 29.64,
+    "end": 29.837
+  },
+  {
+    "word": "the",
+    "start": 29.872,
+    "end": 29.942
+  },
+  {
+    "word": "sign-in",
+    "start": 29.988,
+    "end": 30.29
+  },
+  {
+    "word": "screen.",
+    "start": 30.348,
+    "end": 31.184
+  },
+  {
+    "word": "You",
+    "start": 31.184,
+    "end": 31.312
+  },
+  {
+    "word": "can",
+    "start": 31.358,
+    "end": 31.463
+  },
+  {
+    "word": "sign",
+    "start": 31.521,
+    "end": 31.8
+  },
+  {
+    "word": "in",
+    "start": 31.869,
+    "end": 31.927
+  },
+  {
+    "word": "employees",
+    "start": 31.985,
+    "end": 32.438
+  },
+  {
+    "word": "up",
+    "start": 32.496,
+    "end": 32.601
+  },
+  {
+    "word": "to",
+    "start": 32.647,
+    "end": 32.693
+  },
+  {
+    "word": "two",
+    "start": 32.775,
+    "end": 32.949
+  },
+  {
+    "word": "hours",
+    "start": 33.03,
+    "end": 33.413
+  },
+  {
+    "word": "before",
+    "start": 33.495,
+    "end": 33.924
+  },
+  {
+    "word": "their",
+    "start": 33.971,
+    "end": 34.133
+  },
+  {
+    "word": "shift,",
+    "start": 34.191,
+    "end": 34.644
+  },
+  {
+    "word": "they",
+    "start": 34.76,
+    "end": 34.911
+  },
+  {
+    "word": "will",
+    "start": 34.934,
+    "end": 35.062
+  },
+  {
+    "word": "receive",
+    "start": 35.108,
+    "end": 35.503
+  },
+  {
+    "word": "their",
+    "start": 35.55,
+    "end": 35.712
+  },
+  {
+    "word": "scheduled",
+    "start": 35.759,
+    "end": 36.188
+  },
+  {
+    "word": "time,",
+    "start": 36.211,
+    "end": 36.711
+  },
+  {
+    "word": "not",
+    "start": 36.885,
+    "end": 37.07
+  },
+  {
+    "word": "the",
+    "start": 37.105,
+    "end": 37.187
+  },
+  {
+    "word": "early",
+    "start": 37.268,
+    "end": 37.488
+  },
+  {
+    "word": "clock",
+    "start": 37.535,
+    "end": 37.767
+  },
+  {
+    "word": "time.",
+    "start": 37.813,
+    "end": 38.266
+  }
+]
