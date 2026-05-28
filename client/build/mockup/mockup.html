@@ -2115,7 +2115,6 @@ function slide_record_maintenance_6() {
         <table style="width:100%;border-collapse:collapse;">
           <thead><tr style="background:#444;">
             <th style="${th}width:50px;text-align:center;">Select</th>
-            <th style="${th}width:55px;text-align:center;">Status</th>
             <th style="${th}">Venue Name</th>
             <th style="${th}">Address</th>
             <th style="${th}">City</th>
@@ -2124,15 +2123,18 @@ function slide_record_maintenance_6() {
           </tr></thead>
           <tbody id="venue-results-body">
             ${[
-              ['The Forum','3900 W Manchester Blvd','Inglewood','California','(310) 330-7300'],
-              ['SoFi Stadium','1001 Stadium Dr','Inglewood','California','(833) 763-4849'],
-              ['Crypto.com Arena','1111 S Figueroa St','Los Angeles','California','(213) 742-7100'],
-              ['Hollywood Bowl','2301 N Highland Ave','Los Angeles','California','(323) 850-2000'],
-              ['Banc of California Stadium','3939 S Figueroa St','Los Angeles','California','(213) 519-9900'],
-              ['Dodger Stadium','1000 Vin Scully Ave','Los Angeles','California','(323) 224-1507'],
+              ['AB Convention Center','Defence Area','San Francisco','California','(317) 279-6962'],
+              ['ABA Hall','3106','Santa Clara','California','(317) 279-6962'],
+              ['AJ Super Bowl 2026','3106','Santa Clara','California','(317) 279-6962'],
+              ['aPost Super Bowl Venue','3106','Santa Clara','California','(317) 279-6962'],
+              ['Crocket Arena','100 Ocean Drive','Los Angeles','California','(323) 289-7430'],
+              ['Dosier Stadium','2001 Stadium Park Drive','Los Alamitos','California','(323) 289-7430'],
+              ['Grand Bell Arena','10010 Grand Ave','Los Alamitos','California','(898) 555-2123'],
+              ['JAD Venue','3106','Santa Clara','California','(317) 279-6962'],
+              ['Majestic Hall','8615 State Street','South Bay','California','(818) 885-5150'],
+              ['Phoenix Speedway Venue','2312 Playa Vista Dr','Playa Vista','California','(123) 456-7897'],
             ].map((v,i) => `<tr style="background:${i%2===0?'#fff':'#f7f7f7'}">
               <td style="${td}text-align:center;"><input type="checkbox" class="chk-venue"></td>
-              <td style="${td}text-align:center;"><span style="color:#3a9a3a;font-size:16px;font-weight:bold;">&#10004;</span></td>
               <td style="${td}">${v[0]}</td>
               <td style="${td}">${v[1]}</td>
               <td style="${td}">${v[2]}</td>
@@ -2142,7 +2144,7 @@ function slide_record_maintenance_6() {
           </tbody>
         </table>
         <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;padding:4px 0;">
-          <span style="font-weight:bold;">Total Pages: 1</span>
+          <span style="font-weight:bold;">Total Pages: 2</span>
           <span>
             <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">&#9664;&#9664; First</button>
             <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">&#9664; Previous</button>
