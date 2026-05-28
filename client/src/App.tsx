@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
+// v2026-05-28 cache-bust
 import { CourseProgress, Module, QuizQuestion } from './types';
 import { getProgress, createProgress, saveProgress, clearProgress } from './utils/progress';
 import LoginScreen from './components/LoginScreen';
