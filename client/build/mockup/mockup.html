@@ -1886,17 +1886,27 @@ function slide_record_maintenance_4() {
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
     <div class="form-row">
       <span class="form-label">Branch Name :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select>&nbsp;<span class="req">*</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select>
+    </div>
+    <div class="form-row">
+      <span class="form-label">Event# :</span>
+      <input class="form-input" id="f-srch-evtnum" placeholder="">
     </div>
     <div class="form-row">
       <span class="form-label">Event Name :</span>
       <input class="form-input" id="f-srch-evtname" placeholder="">
     </div>
     <div class="form-row">
-      <span class="form-label">Start Date :</span>
-      <input class="form-input" value="" style="width:100px">${calBtn()}
-      &nbsp;&nbsp;<span class="form-label" style="width:auto">End Date :</span>
-      <input class="form-input" value="" style="width:100px">${calBtn()}
+      <span class="form-label">Client Name :</span>
+      <input class="form-input" id="f-srch-client" placeholder="">&nbsp;<span style="cursor:pointer;font-size:14px;">🔍</span>
+    </div>
+    <div class="form-row">
+      <span class="form-label">Event Type :</span>
+      <select class="form-select" id="f-srch-evttype"><option>All</option><option>Concert</option><option>Sports</option><option>Corporate</option><option>Other</option></select>
+    </div>
+    <div class="form-row">
+      <span class="form-label">Status :</span>
+      <select class="form-select" id="f-srch-status"><option>Active</option><option>Inactive</option><option>All</option></select>
     </div>
     <div style="margin:12px 0 0 160px;">
       <button class="btn" id="btn-srch-evt">Search</button>
