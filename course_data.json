@@ -7,7 +7,7 @@
                            "slide_number":  1,
                            "slide_name":  "Getting Started",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level.",
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
                            "screenshot":  "/screenshots/introduction/slide_1.png"
                        },
                        {
@@ -28,7 +28,7 @@
                            "slide_number":  4,
                            "slide_name":  "ESS Employee Portal",
                            "instructions":  "Video of ESS Home page, then back to WISH.",
-                           "text":  "When you were hired, you should have received an email from the Employee Self Service Portal (ESS). This application allows you to access your job training and request schedules. You should already have an ESS account. ESS can be accessed online at ess.schedulingsite.com.\r\n\r\nYour WISH login credentials will be sent to the email address listed on your ESS account. Once you receive your credentials, you can log into WISH and begin completing your work assignments using the knowledge youÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ve gained.",
+                           "text":  "When you were hired, you should have received an email from the Employee Self Service Portal (ESS). This application allows you to access your job training and request schedules. You should already have an ESS account. ESS can be accessed online at ess.schedulingsite.com.\r\n\r\nYour WISH login credentials will be sent to the email address listed on your ESS account. Once you receive your credentials, you can log into WISH and begin completing your work assignments using the knowledge you've gained.",
                            "screenshot":  "/screenshots/introduction/slide_4.png"
                        },
                        {
@@ -62,7 +62,7 @@
                            "slide_number":  8,
                            "slide_name":  "WISH Menus",
                            "instructions":  "",
-                           "text":  "In the following slides we will explore WISHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system.",
+                           "text":  "In the following slides we will explore WISH's application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system.",
                            "screenshot":  "/screenshots/introduction/slide_9_menu.png",
                            "image_below":  null
                        },
@@ -117,7 +117,7 @@
                            "slide_number":  15,
                            "slide_name":  "Payroll Menu",
                            "instructions":  "",
-                           "text":  "The Payroll menu is where payroll staff review and approve employeesÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ work hours after an event. This ensures that everyone is properly compensated for their time.",
+                           "text":  "The Payroll menu is where payroll staff review and approve employees' work hours after an event. This ensures that everyone is properly compensated for their time.",
                            "image_below":  "/payroll-menu.png"
                        },
                        {
@@ -137,7 +137,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -202,7 +202,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -268,7 +268,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -328,7 +328,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -376,7 +376,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -658,7 +658,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -718,7 +718,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -766,7 +766,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -874,7 +874,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -976,7 +976,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -1030,7 +1030,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -1090,7 +1090,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -1156,7 +1156,7 @@
                            "slide_number":  1,
                            "slide_name":  "WISH Training Series",
                            "instructions":  "ProtaTECH logo, series title",
-                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECHÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, weÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll focus on the portion of WISH relevant to your role and access level."
+                           "text":  "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level."
                        },
                        {
                            "slide_number":  2,
@@ -1168,7 +1168,7 @@
                            "slide_number":  3,
                            "slide_name":  "Inventory Menu Overview",
                            "instructions":  "Click Inventory in the navigation. Show all sub-menu items expanding: Manage Asset Tag, Item Creation, Item Job Equipment, Check-In Check-Out Report, Check-In Check-Out.",
-                           "text":  "The Inventory menu has five sections:\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Manage Asset Tag, register and search the physical tags assigned to inventory items\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Item Creation, create and maintain the inventory items in your branchÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s catalog\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Item Job Equipment, assign specific items and quantities to a job\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Check-In Check-Out Report, generate a summary of all item activity for a date range\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Check-In Check-Out, process the actual check-in and check-out of items at an event\r\n\r\nWeÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll walk through each one."
+                           "text":  "The Inventory menu has five sections:\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Manage Asset Tag, register and search the physical tags assigned to inventory items\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Item Creation, create and maintain the inventory items in your branch's catalog\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Item Job Equipment, assign specific items and quantities to a job\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Check-In Check-Out Report, generate a summary of all item activity for a date range\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Check-In Check-Out, process the actual check-in and check-out of items at an event\r\n\r\nWe'll walk through each one."
                        },
                        {
                            "slide_number":  4,
@@ -1186,7 +1186,7 @@
                            "slide_number":  6,
                            "slide_name":  "Item Job Equipment",
                            "instructions":  "Inventory ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢ Item Job Equipment. Set Category to Job Equipment. Select Branch. Click Search. Show list: Item Name, Quantity, Action columns. Click + to increase a quantity. Click pencil to edit.",
-                           "text":  "Go to Inventory to Item Job Equipment. This screen shows the items assigned to jobs and their current quantities.\r\n\r\nSet the Category dropdown. Choose Job Equipment for consumable supplies, or Inventory Items for tracked assets. Then select your branch and click Search.\r\n\r\nIn the results list:\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the plus and minus buttons under Action to adjust quantities as items are staged or returned\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the pencil icon to edit an itemÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢s details\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the trash icon to remove an item\r\n\r\nCommon items youÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ll see here: earplugs, hand warmers, nitrile gloves, ponchos, and sunscreen packets. Keep quantities current so your on-site team knows what has been allocated."
+                           "text":  "Go to Inventory to Item Job Equipment. This screen shows the items assigned to jobs and their current quantities.\r\n\r\nSet the Category dropdown. Choose Job Equipment for consumable supplies, or Inventory Items for tracked assets. Then select your branch and click Search.\r\n\r\nIn the results list:\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the plus and minus buttons under Action to adjust quantities as items are staged or returned\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the pencil icon to edit an item's details\r\nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ Use the trash icon to remove an item\r\n\r\nCommon items you'll see here: earplugs, hand warmers, nitrile gloves, ponchos, and sunscreen packets. Keep quantities current so your on-site team knows what has been allocated."
                        },
                        {
                            "slide_number":  7,
@@ -1210,7 +1210,7 @@
                            "slide_number":  10,
                            "slide_name":  "Congratulations!",
                            "instructions":  "Checkmark/confetti",
-                           "text":  "Congratulations! YouÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢ve completed this portion of the WISH training. WISH is here to make workforce management easier, and youÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾Ãƒâ€šÃ‚Â¢re now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management."
+                           "text":  "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management."
                        },
                        {
                            "slide_number":  11,
