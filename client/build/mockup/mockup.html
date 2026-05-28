@@ -683,8 +683,25 @@ function slide_manage_job_5() {
       }},
     { selector: '#cs-daily', prompt: '● Daily is selected — copies the job once for each day in the date range', skipClick: true },
     { selector: '#cs-sched-check', prompt: '☑ Copy Scheduling Information — shifts and roles will also be copied over', skipClick: true },
-    { selector: '#copy-icon', prompt: 'Click the Copy icon to execute the copy with these settings',
+    { selector: '#copy-icon', prompt: 'Click the Copy icon — a confirmation dialog will appear',
       onConfirm: () => {
+        const m = document.createElement('div');
+        m.id = 'copy-confirm-modal';
+        m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
+        m.innerHTML = `
+          <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
+            <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
+            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to copy this job?</div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;">
+              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('copy-confirm-modal').remove()">Cancel</button>
+              <button id="copy-confirm-ok" style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
+            </div>
+          </div>`;
+        document.body.appendChild(m);
+      }},
+    { selector: '#copy-confirm-ok', prompt: 'Click "OK" to confirm the copy',
+      onConfirm: () => {
+        document.getElementById('copy-confirm-modal').remove();
         document.getElementById('content').insertAdjacentHTML('afterbegin',
           '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job copied successfully.</div>');
       }},
