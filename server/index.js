@@ -298,13 +298,13 @@ app.post('/api/admin/login', adminLoginLimit, async (req, res) => {
 // ─── Admin: validate session token ───────────────────────────────────────────
 app.get('/api/admin/validate', adminAuth, (req, res) => res.json({ ok: true }));
 
-// ─── User login: username + password ─────────────────────────────────────────
+// ─── User login: username only (no password required) ────────────────────────
 app.post('/api/login', async (req, res) => {
-  const { username, password } = req.body;
-  if (!username || !password) return res.status(400).json({ error: 'Username and password required' });
+  const { username } = req.body;
+  if (!username) return res.status(400).json({ error: 'Username required' });
   const r = await pool.query(
-    'SELECT email, name, assigned_modules FROM roster WHERE LOWER(username) = LOWER($1) AND password = $2',
-    [username.trim(), password.trim()]
+    'SELECT email, name, assigned_modules FROM roster WHERE LOWER(username) = LOWER($1)',
+    [username.trim()]
   );
   if (r.rowCount === 0) return res.status(403).json({ error: 'invalid_credentials' });
   const { email, name, assigned_modules: assigned } = r.rows[0];

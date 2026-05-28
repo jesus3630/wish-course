@@ -53,7 +53,7 @@ export default function App() {
     }
   }, []);
 
-  async function handleLogin(username: string, password: string): Promise<string | null> {
+  async function handleLogin(username: string): Promise<string | null> {
     let assignedModules: string[] | null = null;
     let name = '';
     let email = '';
@@ -61,7 +61,7 @@ export default function App() {
       const loginRes = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ username }),
       });
       if (loginRes.status === 403) return 'invalid_credentials';
       if (!loginRes.ok) return null;

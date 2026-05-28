@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 interface Props {
-  onLogin: (username: string, password: string) => Promise<string | null>;
+  onLogin: (username: string) => Promise<string | null>;
 }
 
 export default function LoginScreen({ onLogin }: Props) {
@@ -9,10 +9,8 @@ export default function LoginScreen({ onLogin }: Props) {
 
   // Sign-in state
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
   // Request training state
   const [reqName, setReqName] = useState('');
@@ -25,16 +23,16 @@ export default function LoginScreen({ onLogin }: Props) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!username.trim() || !password.trim()) {
-      setError('Please enter your username and password.');
+    if (!username.trim()) {
+      setError('Please enter your username.');
       return;
     }
     setLoading(true);
     setError('');
-    const result = await onLogin(username.trim(), password.trim());
+    const result = await onLogin(username.trim());
     setLoading(false);
     if (result === 'invalid_credentials') {
-      setError('Invalid username or password. Please check your invite email.');
+      setError('Username not found. Please check your invite email or request access below.');
     } else if (result !== null) {
       setError('Unable to connect to the server. Please try again.');
     }
@@ -91,7 +89,7 @@ export default function LoginScreen({ onLogin }: Props) {
         {tab === 'signin' ? (
           <>
             <p style={styles.instructions}>
-              Enter the username and password from your enrollment email to begin training.
+              Enter the username from your enrollment email to begin training.
             </p>
             <form onSubmit={handleSubmit} style={styles.form}>
               <label style={styles.label}>Username</label>
@@ -104,26 +102,6 @@ export default function LoginScreen({ onLogin }: Props) {
                 autoFocus
                 autoComplete="username"
               />
-              <label style={styles.label}>Password</label>
-              <div style={{ position: 'relative' }}>
-                <input
-                  style={{ ...styles.input, paddingRight: '44px', marginBottom: 0 }}
-                  type={showPassword ? 'text' : 'password'}
-                  placeholder="Enter or paste your password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  autoComplete="current-password"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(p => !p)}
-                  style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', fontSize: '16px', color: '#6B7280', padding: '4px' }}
-                  tabIndex={-1}
-                >
-                  {showPassword ? '🙈' : '👁'}
-                </button>
-              </div>
-              <div style={{ marginBottom: '12px' }} />
               {error && <p style={styles.error}>{error}</p>}
               <button type="submit" style={{ ...styles.button, opacity: loading ? 0.7 : 1 }} disabled={loading}>
                 {loading ? 'Signing in...' : 'Begin Training'}
