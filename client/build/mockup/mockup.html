@@ -325,9 +325,18 @@ function runGuided(steps) {
   }
 
   function placeTip(el, text) {
-    // Prompt is CSS-anchored (bottom:66px, centered) — never overlaps content
     tip.textContent = text;
     tip.style.display = 'block';
+    // Flip to top when target element is in the lower 50% of the viewport
+    const rect = el.getBoundingClientRect();
+    const viewH = window.innerHeight;
+    if (rect.bottom > viewH * 0.55) {
+      tip.style.bottom = 'auto';
+      tip.style.top = '72px';
+    } else {
+      tip.style.top = 'auto';
+      tip.style.bottom = '66px';
+    }
   }
 
   function showStep(i) {
@@ -2180,6 +2189,7 @@ function addEditJobFormHTML() {
       <span class="tab" onclick="showJobTab('joborder',this)">Job Order Information</span>
       <span class="tab" id="tab-shifts" onclick="showJobTab('shifts',this)">Shifts</span>
       <span class="tab" onclick="showJobTab('jobnotes',this)">JobNotes</span>
+      <span class="tab" onclick="showJobTab('credential',this)">Credential</span>
     </div>
     <div id="job-tab-record-info">
     <div style="${row}"><span style="${lbl}">Job# :</span>
@@ -2232,11 +2242,12 @@ function addEditJobFormHTML() {
     <div id="job-tab-invoice" style="display:none;"></div>
     <div id="job-tab-contact" style="display:none;"></div>
     <div id="job-tab-joborder" style="display:none;"></div>
-    <div id="job-tab-jobnotes" style="display:none;"></div>`;
+    <div id="job-tab-jobnotes" style="display:none;"></div>
+    <div id="job-tab-credential" style="display:none;"></div>`;
 }
 
 function showJobTab(name, el) {
-  ['record-info','shifts','overrides','invoice','contact','joborder','jobnotes'].forEach(t => {
+  ['record-info','shifts','overrides','invoice','contact','joborder','jobnotes','credential'].forEach(t => {
     const p = document.getElementById('job-tab-' + t);
     if (p) p.style.display = 'none';
   });
@@ -2315,10 +2326,251 @@ function slide_record_maintenance_7() {
           note.parentNode.insertBefore(banner, note);
         }
       }},
+  ]);
+}
+
+// ── Manage Job slide 4 — Shifts and Roles ──────────────────────────────────
+function slide_manage_job_4() {
+  setNav('records');
+  // Restore the saved job state from the end of slide 3
+  document.getElementById('content').innerHTML = addEditJobFormHTML();
+  document.getElementById('f-job-num').value    = '5023705541';
+  document.getElementById('f-job-name').value   = 'Drake Job';
+  document.getElementById('f-job-class').value  = 'Events';
+  document.getElementById('f-job-dept').value   = 'Staff';
+  document.getElementById('f-job-event').value  = '2026 DRAKE CONCERT';
+  document.getElementById('f-job-venue').value  = 'AB Convention Center';
+  document.getElementById('f-job-client').value = 'AB Ventures';
+  document.getElementById('f-job-start').value  = '08/15/2026';
+  document.getElementById('f-job-stime').value  = '08:00';
+  document.getElementById('f-job-end').value    = '08/16/2026';
+  document.getElementById('f-job-etime').value  = '17:00';
+  document.getElementById('job-form-title').textContent = 'Add / Edit Job - 5023705541  Drake Job';
+  const note = document.querySelector('[style*="fffde6"]');
+  if (note) {
+    const banner = document.createElement('div');
+    banner.className = 'msg-success show';
+    banner.style.marginBottom = '8px';
+    banner.innerHTML = '&#10004; Record has been added successfully.';
+    note.parentNode.insertBefore(banner, note);
+  }
+
+  runGuided([
     { selector: '#tab-shifts', prompt: 'Click the "Shifts" tab to add shifts to this job',
       onConfirm: () => { showJobTab('shifts', document.getElementById('tab-shifts')); }},
-    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to schedule a shift for this job', skipClick: true },
+    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to open the shift form',
+      onConfirm: () => { showAddShiftModal(); }},
+    { selector: '#f-shift-name', prompt: '* Shift Name — enter the name of this shift', type: 'Staff One Call' },
+    { selector: '#f-shift-branch-prota', prompt: '* Select Branch — check the branch this shift belongs to',
+      onConfirm: () => { document.getElementById('f-shift-branch-prota').checked = true; }},
+    { selector: '#btn-shift-save', prompt: 'Click "Save" to add this shift to the job — the shift row will appear below',
+      onConfirm: () => {
+        closeAddShiftModal();
+        document.getElementById('job-tab-shifts').innerHTML = `
+          <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px;">Existing Shift</div>
+          <div class="msg-success show" style="margin-bottom:12px;">&#10004; Shift record added successfully.</div>
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="background:#555;color:#fff;">
+                <th style="padding:6px 10px;text-align:left;">Shift Name</th>
+                <th style="padding:6px 10px;text-align:left;">#</th>
+                <th style="padding:6px 10px;text-align:left;">Start Date</th>
+                <th style="padding:6px 10px;text-align:left;">Finish Date</th>
+                <th style="padding:6px 10px;text-align:left;">Attire</th>
+                <th style="padding:6px 10px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#fff;">
+                <td style="padding:6px 10px;">Staff One Call</td>
+                <td style="padding:6px 10px;">1</td>
+                <td style="padding:6px 10px;">08/15/2026 08:00</td>
+                <td style="padding:6px 10px;">08/15/2026 17:00</td>
+                <td style="padding:6px 10px;"></td>
+                <td style="padding:6px 10px;white-space:nowrap;">
+                  <span title="Edit Shift" style="cursor:pointer;margin-right:4px;font-size:15px;">🖊</span>
+                  <span id="btn-add-role" title="Add Role" style="cursor:pointer;margin-right:4px;font-size:15px;">👥</span>
+                  <span title="Delete Shift" style="cursor:pointer;font-size:15px;color:#c00;">✕</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;">
+            <button class="btn" style="padding:5px 18px;">Add New Shift</button>
+          </div>`;
+      }},
+    { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
+      onConfirm: () => {
+        showAddRolePanel({role:'Event Staff', min:'5', max:'7', stime:'08:00', etime:'17:00'});
+      }},
+    { selector: '#f-role-name', prompt: '* Role Name — "Event Staff" selected for this shift', skipClick: true },
   ]);
+}
+
+function autoFillRoleForm() {
+  const min = document.getElementById('f-role-min');
+  const max = document.getElementById('f-role-max');
+  const st  = document.getElementById('f-role-stime');
+  const et  = document.getElementById('f-role-etime');
+  if (min) min.value = '5';
+  if (max) max.value = '7';
+  if (st)  st.value  = '08:00';
+  if (et)  et.value  = '17:00';
+}
+
+function toggleShiftRoles() {
+  const row = document.getElementById('shift-roles-row');
+  const btn = document.getElementById('btn-expand-shift');
+  if (!row) return;
+  const expanded = row.style.display !== 'none';
+  row.style.display = expanded ? 'none' : '';
+  if (btn) btn.textContent = expanded ? '+' : '−';
+}
+
+function showAddRolePanel(prefill) {
+  // prefill = {role, min, max, stime, etime} — values baked into HTML at creation
+  const p = prefill || {};
+  const roles = ['Administrative','C&T Event Staff','C&T Event Staff 1','Crowd Control - Overnight',
+    'Crowd Management Manager','Event Manager','Event Staff','Event Staff 1','Parkers',
+    'Security Guard','Security Guard 2','Security Staff','Sign In Staff','Supervisor',
+    'Ticket Taker','Training','Usher','Workers'];
+  const roleOpts = roles.map(r =>
+    `<option${p.role === r ? ' selected' : ''}>${r.replace(/&/g,'&amp;')}</option>`).join('');
+  const modal = document.createElement('div');
+  modal.id = 'add-role-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:300;display:flex;align-items:center;justify-content:center;';
+  modal.innerHTML = `
+    <div style="background:#fff;border:1px solid #aaa;border-radius:4px;padding:20px 28px 24px 28px;width:680px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+      <div style="font-size:16px;font-weight:bold;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #222;">Add Role</div>
+      <div style="display:flex;gap:24px;align-items:stretch;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Location :</span>
+            <select style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;"><option>Select</option></select>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Role Name :</span>
+            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" onchange="autoFillRoleForm()">${roleOpts}</select>
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Min :</span>
+            <input id="f-role-min" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" value="${p.min||''}">
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Max :</span>
+            <input id="f-role-max" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" value="${p.max||''}">
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:10px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Start Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:24px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
+            <input id="f-role-stime" style="border:1px solid #aaa;padding:2px;width:46px;height:24px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="${p.stime||''}">
+            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:20px;">
+            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Finish Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:24px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
+            <input id="f-role-etime" style="border:1px solid #aaa;padding:2px;width:46px;height:24px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="${p.etime||''}">
+            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="display:flex;gap:10px;margin-left:120px;">
+            <button id="btn-role-save" class="btn" style="padding:6px 22px;">Save</button>
+            <button class="btn" style="padding:6px 22px;" onclick="document.getElementById('add-role-modal').remove()">Back</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;min-width:210px;">
+          <div style="font-size:12px;color:#444;margin-bottom:6px;">Select Access</div>
+          <div style="flex:1;border:1px solid #aaa;border-radius:2px;background:#fff;min-height:200px;"></div>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function showAddShiftModal() {
+  const branches = [
+    'Atlanta','Buffalo','Cleveland','Columbus','Connecticut','Corporate',
+    'Dallas','Denver','Des Moines','El Paso','Oklahoma City','Orange County',
+    'Orlando','Pensacola','Philadelphia','Phoenix','Prota Branch Test',
+    'Prota India Test','Prota LA Branch Test','Reno'
+  ];
+  // Build two-column branch list
+  const half = Math.ceil(branches.length / 2);
+  const left = branches.slice(0, half);
+  const right = branches.slice(half);
+  const branchRows = left.map((b, i) => `
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:3px;">
+      <label style="width:130px;font-size:11px;display:flex;align-items:center;gap:4px;">
+        <input type="checkbox" ${b === 'Prota LA Branch Test' ? 'id="f-shift-branch-prota"' : ''}> ${b}
+      </label>
+      ${right[i] ? `<label style="width:130px;font-size:11px;display:flex;align-items:center;gap:4px;"><input type="checkbox"> ${right[i]}</label>` : ''}
+    </div>`).join('');
+
+  const modal = document.createElement('div');
+  modal.id = 'add-shift-modal';
+  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:300;display:flex;align-items:center;justify-content:center;';
+  modal.innerHTML = `
+    <div style="background:#fff;border:1px solid #aaa;border-radius:4px;padding:20px 24px;width:660px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
+      <div style="font-size:15px;font-weight:bold;margin-bottom:14px;border-bottom:1px solid #ddd;padding-bottom:8px;">Add Shift</div>
+      <div style="display:flex;gap:20px;">
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Shift Name :</span>
+            <input id="f-shift-name" style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;">
+            <span style="color:#c00;margin-left:3px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Shift# :</span>
+            <input style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;" value="1">
+            <span style="color:#c00;margin-left:3px;">*</span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Attire :</span>
+            <input style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;">
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Access Group :</span>
+            <select style="border:1px solid #aaa;padding:2px 3px;width:180px;height:22px;font-size:12px;background:#fff;"><option>Select</option></select>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
+            <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
+            <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
+            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="08:00">
+            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:8px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">End Date :</span>
+            <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
+            <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
+            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="17:00">
+            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
+          </div>
+          <div style="display:flex;align-items:center;margin-bottom:16px;">
+            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">CMI Shift :</span>
+            <input type="checkbox">
+          </div>
+          <div style="display:flex;gap:8px;margin-left:110px;">
+            <button id="btn-shift-save" class="btn" style="padding:5px 18px;">Save</button>
+            <button class="btn" style="padding:5px 18px;" onclick="closeAddShiftModal()">Back</button>
+          </div>
+        </div>
+        <div style="border:1px solid #ccc;border-radius:3px;padding:10px;min-width:280px;">
+          <div style="font-weight:bold;font-size:12px;margin-bottom:8px;text-align:center;">Select Branch</div>
+          <div style="max-height:220px;overflow-y:auto;">${branchRows}</div>
+        </div>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+function closeAddShiftModal() {
+  const m = document.getElementById('add-shift-modal');
+  if (m) m.remove();
 }
 
 // ── ESS / Employee Self-Service ────────────────────────────────────────────
