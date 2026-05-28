@@ -2315,9 +2315,41 @@ function slide_record_maintenance_7() {
           note.parentNode.insertBefore(banner, note);
         }
       }},
-    { selector: '#tab-shifts', prompt: 'Click the "Shifts" tab to add shifts to this job',
-      onConfirm: () => { showJobTab('shifts', document.getElementById('tab-shifts')); }},
-    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to schedule a shift for this job', skipClick: true },
+  ]);
+}
+
+// ── Manage Job slide 4 — Shifts and Roles ──────────────────────────────────
+function slide_manage_job_4() {
+  setNav('records');
+  document.getElementById('content').innerHTML = addEditJobFormHTML();
+  // Pre-fill all fields as if job was already saved
+  document.getElementById('f-job-num').value    = '5023705541';
+  document.getElementById('f-job-name').value   = 'Drake Job';
+  document.getElementById('f-job-class').value  = 'Events';
+  document.getElementById('f-job-dept').value   = 'Staff';
+  document.getElementById('f-job-event').value  = '2026 DRAKE CONCERT';
+  document.getElementById('f-job-venue').value  = 'AB Convention Center';
+  document.getElementById('f-job-client').value = 'AB Ventures';
+  document.getElementById('f-job-start').value  = '08/15/2026';
+  document.getElementById('f-job-stime').value  = '08:00';
+  document.getElementById('f-job-end').value    = '08/16/2026';
+  document.getElementById('f-job-etime').value  = '17:00';
+  document.getElementById('job-form-title').textContent = 'Add / Edit Job - 5023705541  Drake Job';
+  // Show success banner
+  const note = document.querySelector('[style*="fffde6"]');
+  if (note) {
+    const banner = document.createElement('div');
+    banner.className = 'msg-success show';
+    banner.style.marginBottom = '8px';
+    banner.innerHTML = '&#10004; Record has been added successfully.';
+    note.parentNode.insertBefore(banner, note);
+  }
+  // Open directly on Shifts tab
+  showJobTab('shifts', document.getElementById('tab-shifts'));
+
+  runGuided([
+    { selector: '#tab-shifts', prompt: 'After saving a Job, click the "Shifts" tab to manage shifts', skipClick: true },
+    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to add a shift to this job', skipClick: true },
   ]);
 }
 
