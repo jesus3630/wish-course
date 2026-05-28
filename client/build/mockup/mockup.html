@@ -1792,15 +1792,17 @@ function addEditEventHTML(eventNum, eventName, showTabs) {
   const extraTabs = showTabs ? `
       <span class="tab" id="tab-evt-clients">Clients</span>
       <span class="tab" id="tab-evt-venues">Venues</span>
-      <span class="tab" id="tab-evt-jobs">Jobs</span>` : '';
+      <span class="tab" id="tab-evt-sharedbranches">Shared Branches</span>
+      <span class="tab" id="tab-evt-credential">Event Credential</span>` : '';
   const lbl = 'text-align:right;width:170px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
   const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
   const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
   const row = 'display:flex;align-items:center;margin-bottom:7px;';
+  const header = (eventNum && eventName) ? `Add / Edit Event - ${eventNum}&nbsp;&nbsp;${eventName}` : 'Add / Edit Event';
   return `
-    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Add / Edit Event</div>
+    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">${header}</div>
+    <div class="msg-success" id="evt-saved-msg">&#10004; Record has been added successfully.</div>
     <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:10px;font-size:12px;">Note: All the * marked fields are mandatory</div>
-    <div class="msg-success" id="evt-saved-msg">&#10004; Event saved successfully.</div>
     <div class="tabs" id="event-tabs" style="margin-bottom:14px;">
       <span class="tab active" id="tab-evt-ri">Event Info</span>
       <span class="tab" id="tab-evt-udf">User Defined Field</span>${extraTabs}
@@ -1921,20 +1923,21 @@ function slide_record_maintenance_4() {
     { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2026' },
     { selector: '#btn-evt-save', prompt: 'Click "Save" — an Event# will be generated and new tabs will appear',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+        document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
         document.getElementById('f-evt-start').value = '08/15/2026';
         document.getElementById('f-evt-end').value = '08/16/2026';
         document.getElementById('f-evt-type').value = 'Entertainment /Concert';
+        document.getElementById('f-evtnum').value = '119369';
         document.getElementById('evt-saved-msg').classList.add('show');
       }},
-    { selector: '#event-tabs', prompt: 'Event saved — new tabs have appeared for Clients, Venues, and Jobs.', skipClick: true },
+    { selector: '#event-tabs', prompt: 'Event saved — new tabs have appeared: Clients, Venues, Shared Branches, and Event Credential.', skipClick: true },
   ]);
 }
 
 // Slide 5 — Manage Event Tabs-Clients
 function slide_record_maintenance_5() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+  document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
   document.getElementById('f-evt-start').value = '08/15/2026';
   document.getElementById('f-evt-end').value = '08/16/2026';
   document.getElementById('f-evt-loadin').value = '08/14/2026';
@@ -1989,7 +1992,7 @@ function slide_record_maintenance_5() {
 // Slide 6 — Manage Event Tabs-Venues
 function slide_record_maintenance_6() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+  document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
   document.getElementById('f-evt-start').value = '08/15/2026';
   document.getElementById('f-evt-end').value = '08/16/2026';
   document.getElementById('f-evt-loadin').value = '08/14/2026';
