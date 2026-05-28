@@ -28,7 +28,7 @@ const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 // PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  ssl: process.env.DATABASE_URL?.includes('localhost') ? false : { rejectUnauthorized: false },
 });
 
 // Seed files (committed to git)
