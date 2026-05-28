@@ -256,6 +256,7 @@ app.use('/mockup', express.static(path.join(__dirname, '../scripts/record-slides
 // ─── Public: course data ──────────────────────────────────────────────────────
 app.get('/api/course', async (req, res) => {
   try {
+    res.set('Cache-Control', 'no-store');
     res.json(await getCourseData());
   } catch (e) {
     res.status(500).json({ error: 'Failed to load course data' });
