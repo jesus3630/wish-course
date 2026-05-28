@@ -566,36 +566,74 @@ function slide_manage_job_5() {
   document.getElementById('content').innerHTML = `
     <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
     <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
-    <div style="${row}">
-      <span style="${lbl}">Branch Name :</span>
-      <select style="${sel}"><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
-      <span id="copy-setting-btn" style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
-    </div>
-    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
-    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
-    <div style="${row}">
-      <span style="${lbl}">Start Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">End Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Venue Name :</span>
-      <select style="${sel}"><option>Grand Bell Arena</option></select>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Sorting :</span>
-      <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5" checked> Start Date</label>
-      <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5"> JobName</label>
-    </div>
-    <div style="margin-bottom:20px;padding-left:145px;">
-      <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
-      <button class="btn" style="padding:5px 20px;">Add New</button>
+    <div style="display:flex;align-items:flex-start;gap:20px;">
+      <div>
+        <div style="${row}">
+          <span style="${lbl}">Branch Name :</span>
+          <select style="${sel}"><option>Prota LA Branch Test</option></select>
+          <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
+          <span id="copy-setting-btn" style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
+        </div>
+        <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
+        <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
+        <div style="${row}">
+          <span style="${lbl}">Start Date :</span>
+          <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
+          <span style="color:#c00;margin-left:4px;">*</span>
+        </div>
+        <div style="${row}">
+          <span style="${lbl}">End Date :</span>
+          <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
+          <span style="color:#c00;margin-left:4px;">*</span>
+        </div>
+        <div style="${row}">
+          <span style="${lbl}">Venue Name :</span>
+          <select style="${sel}"><option>Grand Bell Arena</option></select>
+        </div>
+        <div style="${row}">
+          <span style="${lbl}">Sorting :</span>
+          <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5" checked> Start Date</label>
+          <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5"> JobName</label>
+        </div>
+        <div style="margin-bottom:20px;padding-left:145px;">
+          <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
+          <button class="btn" style="padding:5px 20px;">Add New</button>
+        </div>
+      </div>
+      <!-- Copy Setting inline panel — hidden until clicked -->
+      <div id="copy-setting-panel" style="display:none;border:1px solid #aaa;border-radius:3px;padding:14px 16px;background:#fff;min-width:310px;font-size:12px;">
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <input type="radio" name="cs-type" id="cs-daily" checked style="margin-right:6px;"> <label for="cs-daily" style="font-size:12px;">Daily</label>
+        </div>
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <input type="radio" name="cs-type" id="cs-weekly" style="margin-right:6px;"> <label for="cs-weekly" style="font-size:12px;margin-right:10px;">Weekly</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Sun</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox" checked> Mon</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox" checked> Tue</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Wed</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Thu</label>
+          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Fri</label>
+          <label style="font-size:11px;"><input type="checkbox"> Sat</label>
+        </div>
+        <div style="display:flex;align-items:center;margin-bottom:10px;">
+          <input type="radio" name="cs-type" style="margin-right:6px;"> <span style="font-size:12px;margin-right:8px;">Monthly</span>
+          <input style="border:1px solid #aaa;width:50px;height:22px;font-size:12px;padding:2px 4px;">
+        </div>
+        <div style="display:flex;align-items:center;margin-bottom:8px;">
+          <span style="width:90px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
+          <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:22px;font-size:12px;" value="08/17/2026">${calBtn()}
+          <span style="color:#c00;margin-left:3px;">*</span>
+        </div>
+        <div style="display:flex;align-items:center;margin-bottom:10px;">
+          <span style="width:90px;text-align:right;padding-right:8px;font-size:12px;color:#444;">End Date :</span>
+          <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:22px;font-size:12px;" value="08/26/2026">${calBtn()}
+          <span style="color:#c00;margin-left:3px;">*</span>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <input type="checkbox" id="cs-sched-check" checked style="margin-right:6px;">
+          <label for="cs-sched-check" style="font-size:12px;">Copy Scheduling Information</label>
+        </div>
+      </div>
     </div>
     <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
     <table style="width:100%;border-collapse:collapse;font-size:13px;">
@@ -637,32 +675,16 @@ function slide_manage_job_5() {
       <span>Current Page: 1</span>
     </div>`;
   runGuided([
-    { selector: '#copy-setting-btn', prompt: '"Copy Setting" lets you copy filter settings from another branch into this search — no action needed here', skipClick: true },
-    { selector: '#copy-icon', prompt: 'Click the Copy icon to copy this job\'s settings to a new job',
+    { selector: '#copy-setting-btn', prompt: 'Click "Copy Setting" to expand the copy options',
       onConfirm: () => {
-        showDialog('Copy Job Settings',
-          `<div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">Copy Type :</span>
-            <label style="font-size:12px;margin-right:12px;"><input type="radio" name="ctype5" id="r-daily5" checked> Daily</label>
-            <label style="font-size:12px;"><input type="radio" name="ctype5"> Weekly</label>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">Start Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;height:22px;font-size:12px;" value="08/17/2026">
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:14px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;">End Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;height:22px;font-size:12px;" value="08/20/2026">
-          </div>
-          <div style="display:flex;gap:8px;padding-left:110px;">
-            <button class="btn" id="dlg-copy5-btn" style="padding:5px 18px;">Copy</button>
-            <button class="btn" style="padding:5px 18px;" onclick="closeDialog()">Cancel</button>
-          </div>`);
+        const panel = document.getElementById('copy-setting-panel');
+        if (panel) panel.style.display = '';
+        document.getElementById('copy-setting-btn').innerHTML = 'Copy Setting &#9650;';
       }},
-    { selector: '#r-daily5', prompt: '"Daily" is selected — the job will be copied once for each day in the date range', skipClick: true },
-    { selector: '#dlg-copy5-btn', prompt: 'Click "Copy" to create the copied jobs',
+    { selector: '#cs-daily', prompt: '● Daily is selected — copies the job once for each day in the date range', skipClick: true },
+    { selector: '#cs-sched-check', prompt: '☑ Copy Scheduling Information — shifts and roles will also be copied over', skipClick: true },
+    { selector: '#copy-icon', prompt: 'Click the Copy icon to execute the copy with these settings',
       onConfirm: () => {
-        closeDialog();
         document.getElementById('content').insertAdjacentHTML('afterbegin',
           '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job copied successfully.</div>');
       }},
