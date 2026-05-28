@@ -244,7 +244,7 @@
         "slide_name": "Shifts and Roles",
         "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
         "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name, such as \"Staff One Call\", and set the start and end time within the job's time window.\r\n\r\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\r\n\r\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer, always leave wiggle room above the minimum). Save.\r\n\r\nYou can add multiple shifts and multiple roles under each shift.",
-        "simulation_url": "mockup/mockup.html#slide_manage_job_4"
+        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=4"
       },
       {
         "slide_number": 5,

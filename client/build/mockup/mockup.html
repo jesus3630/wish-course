@@ -331,10 +331,10 @@ function runGuided(steps) {
     const rect = el.getBoundingClientRect();
     const viewH = window.innerHeight;
     if (rect.bottom > viewH * 0.55) {
-      tip.style.bottom = '';
+      tip.style.bottom = 'auto';
       tip.style.top = '72px';
     } else {
-      tip.style.top = '';
+      tip.style.top = 'auto';
       tip.style.bottom = '66px';
     }
   }
