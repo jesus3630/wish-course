@@ -1789,40 +1789,50 @@ function slide_introduction_7() {
 
 // Shared helper: Add/Edit Event form HTML
 function addEditEventHTML(eventNum, eventName, showTabs) {
-  const tabs = showTabs ? `
-    <div class="tabs" id="event-tabs">
-      <span class="tab active" id="tab-evt-ri">Record Information</span>
+  const extraTabs = showTabs ? `
       <span class="tab" id="tab-evt-clients">Clients</span>
       <span class="tab" id="tab-evt-venues">Venues</span>
-      <span class="tab" id="tab-evt-jobs">Jobs</span>
-    </div>` : '';
+      <span class="tab" id="tab-evt-jobs">Jobs</span>` : '';
+  const lbl = 'text-align:right;width:170px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
+  const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
+  const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
+  const row = 'display:flex;align-items:center;margin-bottom:7px;';
   return `
-    <div class="page-title">Add / Edit Event</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Add / Edit Event</div>
+    <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:10px;font-size:12px;">Note: All the * marked fields are mandatory</div>
     <div class="msg-success" id="evt-saved-msg">&#10004; Event saved successfully.</div>
-    ${tabs}
-    <div id="sec-evt-ri">
-      <div class="form-row"><span class="form-label">Event# :</span>
-        <input class="form-input" id="f-evtnum" value="${eventNum}" style="width:130px" readonly></div>
-      <div class="form-row"><span class="form-label">Event Name :</span>
-        <input class="form-input" id="f-evtname" value="${eventName}"> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Branch Name :</span>
-        <select class="form-select"><option>Prota LA Branch Test</option></select> <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Start Date :</span>
-        <input class="form-input" id="f-evt-start" value="" style="width:100px">${calBtn()} <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">End Date :</span>
-        <input class="form-input" id="f-evt-end" value="" style="width:100px">${calBtn()} <span class="req">*</span></div>
-      <div class="form-row"><span class="form-label">Load In Date :</span>
-        <input class="form-input" id="f-evt-loadin" value="" style="width:100px">${calBtn()}</div>
-      <div class="form-row"><span class="form-label">Load Out Date :</span>
-        <input class="form-input" id="f-evt-loadout" value="" style="width:100px">${calBtn()}</div>
-      <div class="form-row"><span class="form-label">Notes :</span>
-        <textarea class="form-input" style="width:200px;height:46px;resize:vertical;padding:3px;"></textarea></div>
+    <div class="tabs" id="event-tabs" style="margin-bottom:14px;">
+      <span class="tab active" id="tab-evt-ri">Event Info</span>
+      <span class="tab" id="tab-evt-udf">User Defined Field</span>${extraTabs}
     </div>
-    <div style="margin-top:14px">
-      <button class="btn" id="btn-evt-save">Save</button>
-      <button class="btn">Reset</button>
-      <button class="btn">Back</button>
+    <div id="sec-evt-ri">
+      <div style="${row}"><span style="${lbl}">Event Name :</span>
+        <input style="${inp}" id="f-evtname" value="${eventName}"> <span class="req" style="margin-left:4px;">*</span></div>
+      <div style="${row}"><span style="${lbl}">Event Type :</span>
+        <select style="${sel}" id="f-evt-type"><option>--Select--</option><option>Concert</option><option>Sports</option><option>Corporate</option><option>Festival</option><option>Other</option></select> <span class="req" style="margin-left:4px;">*</span></div>
+      <div style="${row}"><span style="${lbl}">Start Date:</span>
+        <input style="border:1px solid #aaa;padding:2px 4px;width:120px;background:#fff;height:22px;font-size:12px;" id="f-evt-start" value="">${calBtn()} <span class="req" style="margin-left:4px;">*</span></div>
+      <div style="${row}"><span style="${lbl}">End Date:</span>
+        <input style="border:1px solid #aaa;padding:2px 4px;width:120px;background:#fff;height:22px;font-size:12px;" id="f-evt-end" value="">${calBtn()} <span class="req" style="margin-left:4px;">*</span></div>
+      <div style="${row}"><span style="${lbl}">Status:</span>
+        <select style="${sel}" id="f-evt-status"><option>Active</option><option>Inactive</option></select></div>
+      <div style="${row}"><span style="${lbl}">Event #:</span>
+        <input style="${inp}" id="f-evtnum" value="${eventNum}" readonly></div>
+      <div style="${row};margin-top:4px;"><span style="${lbl}">Count As Worked :</span>
+        <span style="display:flex;align-items:center;gap:12px;font-size:12px;">
+          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" checked style="accent-color:#c07800;width:14px;height:14px;">Yes</label>
+          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" style="accent-color:#c07800;width:14px;height:14px;">No</label>
+        </span></div>
+      <div style="${row}"><span style="${lbl}">Allow for scheduling :</span>
+        <input type="checkbox" style="width:14px;height:14px;accent-color:#c07800;cursor:pointer;"></div>
+      <div style="margin:10px 0 6px 0;font-weight:bold;font-size:12px;color:#222;">Other Information</div>
+      <div style="${row}"><span style="${lbl}">Notes :</span>
+        <textarea style="border:1px solid #aaa;padding:3px;width:200px;height:70px;font-size:12px;resize:vertical;"></textarea></div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:6px;">
+      <button class="btn" id="btn-evt-save" style="padding:4px 18px;">Save</button>
+      <button class="btn" style="padding:4px 18px;">Reset</button>
+      <button class="btn" style="padding:4px 18px;">Back</button>
     </div>`;
 }
 
