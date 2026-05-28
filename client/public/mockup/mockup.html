@@ -1914,16 +1914,16 @@ function slide_record_maintenance_4() {
   runGuided([
     { selector: '#btn-addnew-evt', prompt: 'Click "Add New" to create a new Event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditEventHTML('', '', false); }},
-    { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2025 DRAKE CONCERT' },
+    { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2026 DRAKE CONCERT' },
     { selector: '#f-evt-type', prompt: '* Event Type — select the type that applies',
       onConfirm: () => { document.getElementById('f-evt-type').value = 'Entertainment /Concert'; }},
-    { selector: '#f-evt-start', prompt: '* Start Date — set the event start date', type: '08/15/2025' },
-    { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2025' },
+    { selector: '#f-evt-start', prompt: '* Start Date — set the event start date', type: '08/15/2026' },
+    { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2026' },
     { selector: '#btn-evt-save', prompt: 'Click "Save" — an Event# will be generated and new tabs will appear',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
-        document.getElementById('f-evt-start').value = '08/15/2025';
-        document.getElementById('f-evt-end').value = '08/16/2025';
+        document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+        document.getElementById('f-evt-start').value = '08/15/2026';
+        document.getElementById('f-evt-end').value = '08/16/2026';
         document.getElementById('f-evt-type').value = 'Entertainment /Concert';
         document.getElementById('evt-saved-msg').classList.add('show');
       }},
@@ -1934,11 +1934,11 @@ function slide_record_maintenance_4() {
 // Slide 5 — Manage Event Tabs-Clients
 function slide_record_maintenance_5() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
-  document.getElementById('f-evt-start').value = '08/15/2025';
-  document.getElementById('f-evt-end').value = '08/16/2025';
-  document.getElementById('f-evt-loadin').value = '08/14/2025';
-  document.getElementById('f-evt-loadout').value = '08/17/2025';
+  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+  document.getElementById('f-evt-start').value = '08/15/2026';
+  document.getElementById('f-evt-end').value = '08/16/2026';
+  document.getElementById('f-evt-loadin').value = '08/14/2026';
+  document.getElementById('f-evt-loadout').value = '08/17/2026';
 
   runGuided([
     { selector: '#tab-evt-clients', prompt: 'Click the "Clients" tab to add a client to this event',
@@ -1989,11 +1989,11 @@ function slide_record_maintenance_5() {
 // Slide 6 — Manage Event Tabs-Venues
 function slide_record_maintenance_6() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
-  document.getElementById('f-evt-start').value = '08/15/2025';
-  document.getElementById('f-evt-end').value = '08/16/2025';
-  document.getElementById('f-evt-loadin').value = '08/14/2025';
-  document.getElementById('f-evt-loadout').value = '08/17/2025';
+  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2026-0841', '2026 DRAKE CONCERT', true);
+  document.getElementById('f-evt-start').value = '08/15/2026';
+  document.getElementById('f-evt-end').value = '08/16/2026';
+  document.getElementById('f-evt-loadin').value = '08/14/2026';
+  document.getElementById('f-evt-loadout').value = '08/17/2026';
 
   runGuided([
     { selector: '#tab-evt-venues', prompt: 'Click the "Venues" tab to add a venue to this event',
@@ -2057,17 +2057,17 @@ function slide_record_maintenance_7() {
     <div class="form-row"><span class="form-label">Branch Name :</span>
       <select class="form-select"><option>Prota LA Branch Test</option></select>&nbsp;<span class="req">*</span></div>
     <div class="form-row"><span class="form-label">Event Name :</span>
-      <select class="form-select" id="f-srch-event"><option>2025 DRAKE CONCERT</option></select></div>
+      <select class="form-select" id="f-srch-event"><option>2026 DRAKE CONCERT</option></select></div>
     <div class="form-row"><span class="form-label">Start Date :</span>
-      <input class="form-input" value="08/15/2025" style="width:100px">${calBtn()}
+      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}
       &nbsp;&nbsp;<span class="form-label" style="width:auto">End Date :</span>
-      <input class="form-input" value="08/16/2025" style="width:100px">${calBtn()}</div>
+      <input class="form-input" value="08/16/2026" style="width:100px">${calBtn()}</div>
     <div style="margin:12px 0 0 160px;">
       <button class="btn" id="btn-srch-job2">Search</button>
       <button class="btn" id="btn-addnew-job2">Add New</button>
     </div>`;
   runGuided([
-    { selector: '#btn-addnew-job2', prompt: 'Click "Add New" to create a Job under the 2025 DRAKE CONCERT event',
+    { selector: '#btn-addnew-job2', prompt: 'Click "Add New" to create a Job under the 2026 DRAKE CONCERT event',
       onConfirm: () => {
         document.getElementById('content').innerHTML = `
           <div class="page-title">Add / Edit Job</div>
@@ -2087,7 +2087,7 @@ function slide_record_maintenance_7() {
           <div class="form-row"><span class="form-label">Branch Name :</span>
             <select class="form-select"><option>Prota LA Branch Test</option></select> <span class="req">*</span></div>
           <div class="form-row"><span class="form-label">Event Name :</span>
-            <select class="form-select" id="f-job2event"><option>2025 DRAKE CONCERT</option></select> <span class="req">*</span></div>
+            <select class="form-select" id="f-job2event"><option>2026 DRAKE CONCERT</option></select> <span class="req">*</span></div>
           <div class="form-row"><span class="form-label">Venue Name :</span>
             <select class="form-select" id="f-job2venue"><option>The Forum</option></select> <span class="req">*</span></div>
           <div class="form-row"><span class="form-label">Client Name :</span>
@@ -2106,7 +2106,7 @@ function slide_record_maintenance_7() {
     { selector: '#f-job2class', prompt: 'Select "Events" as the Job Class — use this for jobs you will schedule staff for',
       onConfirm: () => { document.getElementById('f-job2class').value = 'Events'; }},
     { selector: '#f-job2event', prompt: 'The Event auto-populated from your search. Venue and Client also filled in automatically.', skipClick: true },
-    { selector: '#f-job2start', prompt: 'Set the Job Start Date', type: '08/15/2025' },
+    { selector: '#f-job2start', prompt: 'Set the Job Start Date', type: '08/15/2026' },
     { selector: '#btn-job2-save', prompt: 'Click "Save" to save the Job',
       onConfirm: () => {
         document.getElementById('job2-saved-msg').classList.add('show');
