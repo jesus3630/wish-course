@@ -877,26 +877,27 @@ function slide_manage_job_9() {
   runGuided([
     { selector: '#delete-icon', prompt: 'Click the Delete icon to delete this job',
       onConfirm: () => {
+        // Show the confirm dialog, then auto-simulate OK after 1.2s
         const m = document.createElement('div');
         m.id = 'delete-confirm-modal';
         m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
         m.innerHTML = `
           <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
             <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
-            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to delete this job?</div>
+            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to delete this Record!</div>
             <div style="display:flex;justify-content:flex-end;gap:8px;">
               <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('delete-confirm-modal').remove()">Cancel</button>
-              <button id="delete-confirm-ok" style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
+              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
             </div>
           </div>`;
         document.body.appendChild(m);
-      }},
-    { selector: '#delete-confirm-ok', prompt: 'Click "OK" to confirm the deletion',
-      onConfirm: () => {
-        document.getElementById('delete-confirm-modal').remove();
-        document.getElementById('drake-job-row').remove();
-        document.getElementById('content').insertAdjacentHTML('afterbegin',
-          '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job deleted successfully.</div>');
+        setTimeout(() => {
+          m.remove();
+          const row = document.getElementById('drake-job-row');
+          if (row) row.remove();
+          document.getElementById('content').insertAdjacentHTML('afterbegin',
+            '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job deleted successfully.</div>');
+        }, 1200);
       }},
   ]);
 }
