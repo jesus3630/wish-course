@@ -539,6 +539,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
           {(slide as any)?.acronym_card && <WishAcronymCard />}
           {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
+          {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
 
           {/* Screenshot / video below the text */}
           {!(slide as any)?.hierarchy_card && module.video_url && slide?.video_start !== undefined ? (
@@ -789,6 +790,50 @@ function RecordHierarchyCard() {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+// ─── Generic animated menu/list card ─────────────────────────────────────────
+function RecordMenuCard({ items }: { items: { label: string; icon?: string; color?: string }[] }) {
+  const [step, setStep] = useState(-1);
+
+  useEffect(() => {
+    setStep(-1);
+    const timers = items.map((_, i) => setTimeout(() => setStep(i), 300 + i * 500));
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const colors = ['#1B3A6B','#2a8a3a','#D4782A','#7a4aaa','#c83030','#1a7a8a','#8a6a1a'];
+  const icons  = ['📋','👥','📄','🎪','🏟️','📊','⚙️'];
+
+  return (
+    <div style={{ padding: '24px 8px 8px', maxWidth: 480, margin: '0 auto' }}>
+      {items.map((item, i) => {
+        const color = item.color || colors[i % colors.length];
+        const icon  = item.icon  || icons[i % icons.length];
+        const visible = step >= i;
+        return (
+          <div key={i} style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateX(0)' : 'translateX(-28px)',
+            transition: 'opacity 0.45s cubic-bezier(0.22,1,0.36,1), transform 0.45s cubic-bezier(0.22,1,0.36,1)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+            background: '#fff',
+            border: `2px solid ${color}`,
+            borderLeft: `6px solid ${color}`,
+            borderRadius: 7,
+            padding: '11px 16px',
+            marginBottom: 10,
+            boxShadow: '0 2px 6px rgba(0,0,0,0.08)',
+          }}>
+            <span style={{ fontSize: 22 }}>{icon}</span>
+            <span style={{ fontWeight: 700, fontSize: 15, color }}>{item.label}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
