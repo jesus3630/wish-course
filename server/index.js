@@ -29,6 +29,7 @@ const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL?.includes('localhost') ? false : { rejectUnauthorized: false },
+  connectionTimeoutMillis: 5000,  // fail fast if DB unreachable
 });
 
 // Seed files (committed to git)
@@ -103,7 +104,7 @@ async function initDB() {
     const newIds = jsonCourseData.filter(m => !dbMap.has(m.id)).map(m => m.id);
 
     // Merge each module: DB base + apply simulation_url / screenshot from JSON slides
-    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'image_below', 'video_start', 'video_end'];
+    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'video_start', 'video_end'];
     const merged = jsonCourseData.map(jsonMod => {
       const dbMod = dbMap.get(jsonMod.id);
       if (!dbMod) return jsonMod; // new module — use JSON fully
@@ -154,8 +155,13 @@ async function initDB() {
 
 // ─── DB helpers ───────────────────────────────────────────────────────────────
 async function getCourseData() {
-  const r = await pool.query('SELECT data FROM course_data WHERE id = 1');
-  return r.rows[0]?.data;
+  try {
+    const r = await pool.query('SELECT data FROM course_data WHERE id = 1');
+    return r.rows[0]?.data;
+  } catch (e) {
+    console.warn('[DB fallback] getCourseData using JSON file:', e.message);
+    return JSON.parse(fs.readFileSync(COURSE_SEED_PATH, 'utf8'));
+  }
 }
 async function setCourseData(data) {
   await pool.query(
@@ -164,8 +170,13 @@ async function setCourseData(data) {
   );
 }
 async function getQuizData() {
-  const r = await pool.query('SELECT data FROM quiz_data WHERE id = 1');
-  return r.rows[0]?.data;
+  try {
+    const r = await pool.query('SELECT data FROM quiz_data WHERE id = 1');
+    return r.rows[0]?.data;
+  } catch (e) {
+    console.warn('[DB fallback] getQuizData using JSON file:', e.message);
+    return JSON.parse(fs.readFileSync(QUIZ_SEED_PATH, 'utf8'));
+  }
 }
 async function setQuizData(data) {
   await pool.query(
