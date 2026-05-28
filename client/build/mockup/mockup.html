@@ -2390,9 +2390,94 @@ function slide_manage_job_4() {
             <button class="btn" style="padding:5px 18px;">Add New Shift</button>
           </div>`;
       }},
-    { selector: '#btn-add-role', prompt: 'Click the 👥 people icon to add roles to this shift',
+    { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
       onConfirm: () => { showAddRolePanel(); }},
+    { selector: '#f-role-name', prompt: '* Role Name — select the role for this shift',
+      onConfirm: () => { document.getElementById('f-role-name').value = 'Event Staff'; }},
+    { selector: '#f-role-min', prompt: '* Min — minimum number of staff needed', type: '5' },
+    { selector: '#f-role-max', prompt: '* Max — maximum number of staff allowed', type: '10' },
+    { selector: '#btn-role-save', prompt: 'Click "Save" — the role will appear under the shift row',
+      onConfirm: () => {
+        document.getElementById('add-role-modal').remove();
+        document.getElementById('job-tab-shifts').innerHTML = `
+          <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px;">Existing Shift</div>
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="background:#555;color:#fff;">
+                <th style="padding:6px 8px;width:24px;"></th>
+                <th style="padding:6px 10px;text-align:left;">Shift Name</th>
+                <th style="padding:6px 10px;text-align:left;">#</th>
+                <th style="padding:6px 10px;text-align:left;">Start Date</th>
+                <th style="padding:6px 10px;text-align:left;">Finish Date</th>
+                <th style="padding:6px 10px;text-align:left;">Attire</th>
+                <th style="padding:6px 10px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#fff;">
+                <td style="padding:4px 8px;">
+                  <span id="btn-expand-shift" onclick="toggleShiftRoles()" style="cursor:pointer;font-weight:bold;font-size:13px;border:1px solid #aaa;padding:0 4px;border-radius:2px;background:#f0f0f0;">+</span>
+                </td>
+                <td style="padding:6px 10px;">Staff One Call</td>
+                <td style="padding:6px 10px;">1</td>
+                <td style="padding:6px 10px;">08/15/2026 08:00</td>
+                <td style="padding:6px 10px;">08/15/2026 17:00</td>
+                <td style="padding:6px 10px;"></td>
+                <td style="padding:6px 10px;white-space:nowrap;">
+                  <span title="Edit Shift" style="cursor:pointer;margin-right:4px;font-size:15px;">🖊</span>
+                  <span title="Add Role" style="cursor:pointer;margin-right:4px;font-size:15px;" onclick="showAddRolePanel()">👥</span>
+                  <span title="Delete Shift" style="cursor:pointer;font-size:15px;color:#c00;">✕</span>
+                </td>
+              </tr>
+              <tr id="shift-roles-row" style="display:none;background:#f9f9f9;">
+                <td></td>
+                <td colspan="6" style="padding:6px 10px;">
+                  <table style="width:100%;border-collapse:collapse;font-size:11px;">
+                    <thead>
+                      <tr style="background:#999;color:#fff;">
+                        <th style="padding:4px 8px;text-align:left;">Role Name</th>
+                        <th style="padding:4px 8px;text-align:left;">Min</th>
+                        <th style="padding:4px 8px;text-align:left;">Max</th>
+                        <th style="padding:4px 8px;text-align:left;">Start Date</th>
+                        <th style="padding:4px 8px;text-align:left;">Finish Date</th>
+                        <th style="padding:4px 8px;"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background:#fff;">
+                        <td style="padding:4px 8px;">Event Staff</td>
+                        <td style="padding:4px 8px;">5</td>
+                        <td style="padding:4px 8px;">10</td>
+                        <td style="padding:4px 8px;">08/15/2026 08:00</td>
+                        <td style="padding:4px 8px;">08/15/2026 17:00</td>
+                        <td style="padding:4px 8px;white-space:nowrap;">
+                          <span style="cursor:pointer;margin-right:4px;font-size:13px;">🖊</span>
+                          <span style="cursor:pointer;font-size:13px;color:#c00;">✕</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;">
+            <button class="btn" style="padding:5px 18px;">Add New Shift</button>
+          </div>`;
+      }},
+    { selector: '#btn-expand-shift', prompt: 'Click + to expand the shift and see the roles assigned to it',
+      onConfirm: () => { toggleShiftRoles(); }},
+    { selector: '#shift-roles-row', prompt: 'The Event Staff role is now visible under the shift — Min: 5, Max: 10', skipClick: true },
   ]);
+}
+
+function toggleShiftRoles() {
+  const row = document.getElementById('shift-roles-row');
+  const btn = document.getElementById('btn-expand-shift');
+  if (!row) return;
+  const expanded = row.style.display !== 'none';
+  row.style.display = expanded ? 'none' : '';
+  if (btn) btn.textContent = expanded ? '+' : '−';
 }
 
 function showAddRolePanel() {
