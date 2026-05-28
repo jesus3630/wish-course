@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './index.css';
 import { CourseProgress, Module, QuizQuestion } from './types';
-import { getProgress, createProgress, saveProgress, syncProgressToServer, fetchProgressFromServer, clearProgress } from './utils/progress';
+import { getProgress, createProgress, saveProgress, clearProgress } from './utils/progress';
 import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
@@ -36,51 +36,28 @@ export default function App() {
     });
   }, []);
 
-  // Resume session from localStorage, then refresh from server
+  // Resume session from localStorage
   useEffect(() => {
     if (isAdmin) return;
     const saved = getProgress();
     if (saved) {
       setProgress(saved);
       setView('dashboard');
-      fetchProgressFromServer(saved.user_email).then(serverProgress => {
-        if (serverProgress) {
-          const merged = { ...serverProgress, user_name: saved.user_name };
-          saveProgress(merged);
-          setProgress(merged);
-        }
-      });
     }
   }, []);
 
-  async function handleLogin(username: string): Promise<string | null> {
-    let assignedModules: string[] | null = null;
-    let name = '';
-    let email = '';
-    try {
-      const loginRes = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username }),
-      });
-      if (loginRes.status === 403) return 'invalid_credentials';
-      if (!loginRes.ok) return null;
-      const loginData = await loginRes.json();
-      assignedModules = loginData.assigned_modules ?? null;
-      name = loginData.name || username;
-      email = loginData.email || '';
-    } catch {
-      return null;
+  function handleEnter() {
+    const existing = getProgress();
+    if (existing) {
+      setProgress(existing);
+    } else {
+      // Anonymous session — random ID stored in localStorage
+      const anonId = 'anon_' + Math.random().toString(36).slice(2, 10);
+      const p = createProgress('Trainee', anonId + '@wish.local', null);
+      saveProgress(p);
+      setProgress(p);
     }
-    const serverProgress = await fetchProgressFromServer(email);
-    const p = serverProgress
-      ? { ...serverProgress, user_name: name, assigned_modules: assignedModules }
-      : createProgress(name, email, assignedModules);
-    saveProgress(p);
-    setProgress(p);
-    if (!serverProgress) syncProgressToServer(p);
     setView('dashboard');
-    return null;
   }
 
   function handleStartModule(index: number) {
@@ -91,11 +68,9 @@ export default function App() {
   function handleProgressUpdate(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
-    syncProgressToServer(updated);
   }
 
-  async function handleLogout() {
-    if (progress) await syncProgressToServer(progress);
+  function handleLogout() {
     clearProgress();
     setProgress(null);
     setView('login');
@@ -108,7 +83,6 @@ export default function App() {
   function handleModuleComplete(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
-    syncProgressToServer(updated);
     const assignedMods = updated.assigned_modules ? modules.filter(m => updated.assigned_modules!.includes(m.id)) : modules;
     const allComplete = assignedMods.every(m => updated.modules[m.id]?.completed === true);
     if (allComplete) {
@@ -131,7 +105,7 @@ export default function App() {
   }
 
   if (view === 'login') {
-    return <LoginScreen onLogin={handleLogin} />;
+    return <LoginScreen onEnter={handleEnter} />;
   }
 
   if (showCertificate && progress) {
