@@ -325,9 +325,18 @@ function runGuided(steps) {
   }
 
   function placeTip(el, text) {
-    // Prompt is CSS-anchored (bottom:66px, centered) — never overlaps content
     tip.textContent = text;
     tip.style.display = 'block';
+    // Flip to top when target element is in the lower 50% of the viewport
+    const rect = el.getBoundingClientRect();
+    const viewH = window.innerHeight;
+    if (rect.bottom > viewH * 0.55) {
+      tip.style.bottom = '';
+      tip.style.top = '72px';
+    } else {
+      tip.style.top = '';
+      tip.style.bottom = '66px';
+    }
   }
 
   function showStep(i) {
