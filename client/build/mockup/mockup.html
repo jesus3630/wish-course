@@ -806,6 +806,10 @@ function slide_manage_job_6() {
           opt.value = opt.textContent = 'Canceled';
           jc.appendChild(opt);
         }
+        // Give the Back button an id so later steps can target it
+        document.querySelectorAll('#content .btn').forEach(b => {
+          if (b.textContent.trim() === 'Back') b.id = 'btn-job-back';
+        });
       }},
     { selector: '#f-job-class', prompt: 'Change Job Class to "Canceled" — do this immediately when a job is canceled',
       onConfirm: () => { document.getElementById('f-job-class').value = 'Canceled'; }},
@@ -813,6 +817,105 @@ function slide_manage_job_6() {
       onConfirm: () => {
         document.getElementById('content').insertAdjacentHTML('afterbegin',
           '<div class="msg-success show" style="margin-bottom:8px;">&#10004; Record has been updated successfully.</div>');
+      }},
+    { selector: '#btn-job-back', prompt: 'Click "Back" to return to the search results — next we\'ll delete the job',
+      onConfirm: () => {
+        const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
+        const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
+        const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
+        const row = 'display:flex;align-items:center;margin-bottom:10px;';
+        document.getElementById('content').innerHTML = `
+          <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
+          <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
+          <div style="${row}">
+            <span style="${lbl}">Branch Name :</span>
+            <select style="${sel}"><option>Prota LA Branch Test</option></select>
+            <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
+            <span style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
+          </div>
+          <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
+          <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
+          <div style="${row}">
+            <span style="${lbl}">Start Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="${row}">
+            <span style="${lbl}">End Date :</span>
+            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
+            <span style="color:#c00;margin-left:4px;">*</span>
+          </div>
+          <div style="${row}">
+            <span style="${lbl}">Venue Name :</span>
+            <select style="${sel}"><option>Grand Bell Arena</option></select>
+          </div>
+          <div style="${row}">
+            <span style="${lbl}">Sorting :</span>
+            <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6b" checked> Start Date</label>
+            <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6b"> JobName</label>
+          </div>
+          <div style="margin-bottom:20px;padding-left:145px;">
+            <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
+            <button class="btn" style="padding:5px 20px;">Add New</button>
+          </div>
+          <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
+          <table style="width:100%;border-collapse:collapse;font-size:13px;">
+            <thead>
+              <tr style="background:#333;color:#fff;">
+                <th style="padding:8px 10px;text-align:left;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+                <th style="padding:8px 10px;text-align:left;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+                <th style="padding:8px 10px;text-align:left;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+                <th style="padding:8px 10px;text-align:left;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+                <th style="padding:8px 10px;text-align:left;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
+                <th style="padding:8px 10px;text-align:center;">Copy</th>
+                <th style="padding:8px 10px;text-align:center;">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="job6-delete-row">
+                <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
+                <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
+                <td style="padding:8px 10px;">AB Convention Center</td>
+                <td style="padding:8px 10px;">08/15/2026 08:00</td>
+                <td style="padding:8px 10px;">08/16/2026 17:00</td>
+                <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#444;">&#128203;</span></td>
+                <td style="padding:8px 10px;text-align:center;"><span id="job6-delete-icon" style="cursor:pointer;font-size:17px;color:#c00;">&#10006;</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
+            <span>Total Pages: 1</span>
+            <div style="display:flex;gap:3px;">
+              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
+              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
+              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
+              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
+            </div>
+            <span>Current Page: 1</span>
+          </div>`;
+      }},
+    { selector: '#job6-delete-icon', prompt: 'Click the Delete (✖) icon to permanently delete this job',
+      onConfirm: () => {
+        const m = document.createElement('div');
+        m.id = 'job6-delete-modal';
+        m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
+        m.innerHTML = `
+          <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
+            <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
+            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to delete this Record!</div>
+            <div style="display:flex;justify-content:flex-end;gap:8px;">
+              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('job6-delete-modal').remove()">Cancel</button>
+              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
+            </div>
+          </div>`;
+        document.body.appendChild(m);
+        setTimeout(() => {
+          m.remove();
+          const r = document.getElementById('job6-delete-row');
+          if (r) r.remove();
+          document.getElementById('content').insertAdjacentHTML('afterbegin',
+            '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job deleted successfully.</div>');
+        }, 1200);
       }},
   ]);
 }
