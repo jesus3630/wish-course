@@ -1935,13 +1935,60 @@ function slide_record_maintenance_4() {
 }
 
 // Slide 5 — Manage Event Tabs-Clients
+function clientsTabHTML() {
+  const lbl = 'text-align:right;width:130px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
+  const sel = 'border:1px solid #aaa;padding:2px 3px;width:180px;background:#fff;height:22px;font-size:12px;';
+  const inp = 'border:1px solid #aaa;padding:2px 4px;width:162px;background:#fff;height:22px;font-size:12px;';
+  const row = 'display:flex;align-items:center;margin-bottom:8px;';
+  const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;">
+    <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
+  </span>`;
+  return `
+    <div id="sec-evt-clients" style="margin-top:6px;">
+      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Existing Clients</div>
+      <div id="existing-clients-list" style="margin-bottom:18px;font-size:12px;color:#888;min-height:10px;"></div>
+      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Add Clients</div>
+      <div style="${row}"><span style="${lbl}">Client Type :</span>
+        <select style="${sel}" id="f-client-type"><option>All</option><option>Corporate</option><option>Individual</option></select></div>
+      <div style="${row}"><span style="${lbl}">Branch Name :</span>
+        <select style="${sel}" id="f-client-branch"><option>Prota LA Branch Test</option></select></div>
+      <div style="${row}"><span style="${lbl}">Client Name :</span>
+        <input style="${inp}" id="f-client-name" placeholder="">${srchIcon}</div>
+      <div style="${row}"><span style="${lbl}">Status :</span>
+        <select style="${sel}" id="f-client-status"><option>All</option><option>Active</option><option>Inactive</option></select></div>
+      <div style="margin:10px 0 0 138px;display:flex;gap:6px;">
+        <button class="btn" id="btn-client-search" style="padding:4px 18px;">Search</button>
+        <button class="btn" style="padding:4px 18px;">Back</button>
+      </div>
+      <div id="client-search-results" style="display:none;margin-top:14px;">
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead><tr style="background:#e8e8e8;">
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Client Name</th>
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Status</th>
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:center;">Select</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td style="padding:5px 8px;border:1px solid #ccc;">Forum Entertainment LLC</td>
+              <td style="padding:5px 8px;border:1px solid #ccc;">Active</td>
+              <td style="padding:5px 8px;border:1px solid #ccc;text-align:center;"><input type="checkbox" id="chk-select-client"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:18px;text-align:center;">
+        <button class="btn" id="btn-client-add" style="padding:4px 28px;">Add</button>
+      </div>
+      <div id="client-added-msg" class="msg-success" style="display:none;margin-top:10px;">&#10004; Client added successfully.</div>
+    </div>`;
+}
+
 function slide_record_maintenance_5() {
   setNav('records');
   document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
   document.getElementById('f-evt-start').value = '08/15/2026';
   document.getElementById('f-evt-end').value = '08/16/2026';
-  document.getElementById('f-evt-loadin').value = '08/14/2026';
-  document.getElementById('f-evt-loadout').value = '08/17/2026';
+  document.getElementById('f-evt-type').value = 'Entertainment /Concert';
 
   runGuided([
     { selector: '#tab-evt-clients', prompt: 'Click the "Clients" tab to add a client to this event',
@@ -1949,43 +1996,33 @@ function slide_record_maintenance_5() {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.getElementById('tab-evt-clients').classList.add('active');
         document.getElementById('sec-evt-ri').style.display = 'none';
-        document.getElementById('content').insertAdjacentHTML('beforeend', `
-          <div id="sec-evt-clients" style="margin-top:4px">
-            <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
-              <span style="font-weight:bold;font-size:12px">Search Client :</span>
-              <input class="form-input" id="f-client-srch" placeholder="Client name..." style="width:200px">
-              <button class="btn btn-sm" id="btn-client-srch">Search</button>
-            </div>
-            <div id="client-results" style="display:none">
-              <table><thead><tr><th>Client Name</th><th>Status</th><th>Add</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>Forum Entertainment LLC</td>
-                  <td><input type="checkbox" id="chk-client-status" checked> Active</td>
-                  <td><button class="btn btn-sm btn-blue" id="btn-add-client">Add</button></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <div id="client-added-list" style="margin-top:12px;display:none">
-              <div style="font-weight:bold;font-size:12px;margin-bottom:6px;border-bottom:1px solid #ddd;padding-bottom:4px">Clients on this Event:</div>
-              <table><thead><tr><th>Client Name</th><th>Status</th><th></th></tr></thead>
-              <tbody>
-                <tr><td>Forum Entertainment LLC</td><td><span style="color:#2a9a2a">&#10004; Active</span></td>
-                  <td><button class="btn btn-sm" style="background:#c06060;border-color:#a04040">Remove</button></td></tr>
-              </tbody></table>
-            </div>
-          </div>`);
+        document.querySelector('.btn#btn-evt-save')?.closest('div[style*="margin-top:16px"]') && (document.querySelector('.btn#btn-evt-save').closest('div[style*="margin-top:16px"]').style.display = 'none');
+        document.getElementById('content').insertAdjacentHTML('beforeend', clientsTabHTML());
       }},
-    { selector: '#f-client-srch', prompt: 'Search for your client by name', type: 'Forum' },
-    { selector: '#btn-client-srch', prompt: 'Click "Search" to find the client',
-      onConfirm: () => { document.getElementById('client-results').style.display = 'block'; }},
-    { selector: '#chk-client-status', prompt: 'Confirm the client Status is checked (Active)' },
-    { selector: '#btn-add-client', prompt: 'Click "Add" to attach this client to the event',
+    { selector: '#f-client-name', prompt: 'Type a client name to search, or leave blank to see all', type: 'Forum' },
+    { selector: '#btn-client-search', prompt: 'Click "Search" to find matching clients',
+      onConfirm: () => { document.getElementById('client-search-results').style.display = 'block'; }},
+    { selector: '#chk-select-client', prompt: 'Check the box to select this client',
+      onConfirm: () => { document.getElementById('chk-select-client').checked = true; }},
+    { selector: '#btn-client-add', prompt: 'Click "Add" to attach this client to the event',
       onConfirm: () => {
-        document.getElementById('client-results').style.display = 'none';
-        document.getElementById('client-added-list').style.display = 'block';
+        document.getElementById('client-search-results').style.display = 'none';
+        document.getElementById('client-added-msg').style.display = 'block';
+        const existing = document.getElementById('existing-clients-list');
+        existing.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead><tr style="background:#e8e8e8;">
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Client Name</th>
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Status</th>
+            <th style="padding:5px 8px;border:1px solid #ccc;text-align:center;">Remove</th>
+          </tr></thead>
+          <tbody><tr>
+            <td style="padding:5px 8px;border:1px solid #ccc;">Forum Entertainment LLC</td>
+            <td style="padding:5px 8px;border:1px solid #ccc;color:#2a8a2a;">Active</td>
+            <td style="padding:5px 8px;border:1px solid #ccc;text-align:center;"><button class="btn" style="padding:2px 10px;background:#c06060;border-color:#a04040;font-size:11px;">Remove</button></td>
+          </tr></tbody>
+        </table>`;
       }},
-    { selector: '#client-added-list', prompt: 'Client added. You can add multiple clients to one event for billing purposes.', skipClick: true },
+    { selector: '#existing-clients-list', prompt: 'Client added — it now appears under "Existing Clients". You can add multiple clients per event.', skipClick: true },
   ]);
 }
 
