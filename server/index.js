@@ -437,6 +437,29 @@ app.put('/api/admin/quiz', adminAuth, async (req, res) => {
   }
 });
 
+// ─── Admin: patch individual slide fields ─────────────────────────────────────
+app.patch('/api/admin/slide', async (req, res) => {
+  if (req.headers['x-admin-password'] !== ADMIN_PASSWORD) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  try {
+    const { moduleId, slideIndex, fields } = req.body;
+    if (!moduleId || slideIndex === undefined || !fields) {
+      return res.status(400).json({ error: 'Missing moduleId, slideIndex, or fields' });
+    }
+    const data = await getCourseData();
+    const mod = data.find(m => m.id === moduleId);
+    if (!mod) return res.status(404).json({ error: `Module not found: ${moduleId}` });
+    if (!mod.slides[slideIndex]) return res.status(404).json({ error: `Slide index ${slideIndex} not found` });
+    Object.assign(mod.slides[slideIndex], fields);
+    await setCourseData(data);
+    res.json({ ok: true, updated: mod.slides[slideIndex] });
+  } catch (e) {
+    console.error('PATCH slide failed:', e);
+    res.status(500).json({ error: 'Failed to patch slide' });
+  }
+});
+
 // ─── Admin: user completion list ─────────────────────────────────────────────
 app.get('/api/admin/users', adminAuth, async (req, res) => {
   try {
