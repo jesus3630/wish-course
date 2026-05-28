@@ -149,8 +149,7 @@
                 "slide_number": 3,
                 "slide_name": "Record Hierarchy",
                 "instructions": "",
-                "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up.",
-                "simulation_url": "/mockup/mockup.html?module=record_maintenance&slide=3"
+                "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up."
             },
             {
                 "slide_number": 4,
