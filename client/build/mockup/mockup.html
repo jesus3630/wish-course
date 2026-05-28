@@ -2400,19 +2400,19 @@ function slide_manage_job_4() {
           </div>`;
       }},
     { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
-      onConfirm: () => { showAddRolePanel(); }},
-    { selector: '#f-role-name', prompt: '* Role Name — select the role for this shift (Min, Max, and times will auto-fill)',
       onConfirm: () => {
-        document.getElementById('f-role-name').value = 'Event Staff';
-        document.getElementById('f-role-min').value = '5';
-        document.getElementById('f-role-max').value = '7';
-        document.getElementById('f-role-stime').value = '08:00';
-        document.getElementById('f-role-etime').value = '17:00';
+        showAddRolePanel();
+        setTimeout(() => {
+          const rn = document.getElementById('f-role-name');
+          if (rn) rn.value = 'Event Staff';
+          autoFillRoleForm();
+        }, 80);
       }},
-    { selector: '#f-role-min', prompt: '* Min — auto-filled to 5 (minimum staff required for this role)', skipClick: true },
-    { selector: '#f-role-max', prompt: '* Max — auto-filled to 7 (maximum staff allowed for this role)', skipClick: true },
-    { selector: '#f-role-stime', prompt: '* Start Time — auto-filled to 08:00 to match the shift', skipClick: true },
-    { selector: '#f-role-etime', prompt: '* Finish Time — auto-filled to 17:00 to match the shift', skipClick: true },
+    { selector: '#f-role-name', prompt: '* Role Name — "Event Staff" selected for this shift', skipClick: true },
+    { selector: '#f-role-min', prompt: '* Min — set to 5 (minimum staff required for this role)', skipClick: true },
+    { selector: '#f-role-max', prompt: '* Max — set to 7 (maximum staff allowed for this role)', skipClick: true },
+    { selector: '#f-role-stime', prompt: '* Start Time — set to 08:00 to match the shift', skipClick: true },
+    { selector: '#f-role-etime', prompt: '* Finish Time — set to 17:00 to match the shift', skipClick: true },
     { selector: '#btn-role-save', prompt: 'Click "Save" — the role will appear under the shift row',
       onConfirm: () => {
         document.getElementById('add-role-modal').remove();
