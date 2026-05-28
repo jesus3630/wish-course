@@ -1937,12 +1937,37 @@ function slide_record_maintenance_4() {
 // Slide 5 — Manage Event Tabs-Clients
 function clientsTabHTML() {
   const lbl = 'text-align:right;width:130px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:180px;background:#fff;height:22px;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:162px;background:#fff;height:22px;font-size:12px;';
+  const sel = 'border:1px solid #aaa;padding:2px 3px;width:196px;background:#fff;height:22px;font-size:12px;';
+  const inp = 'border:1px solid #aaa;padding:2px 4px;width:178px;background:#fff;height:22px;font-size:12px;';
   const row = 'display:flex;align-items:center;margin-bottom:8px;';
   const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;">
     <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
   </span>`;
+  const chk = '<span style="color:#3a9a3a;font-size:16px;font-weight:bold;">&#10004;</span>';
+  const clients = [
+    ['AB Ventures','Defence Street','San Francisco','California','(317) 279-6962'],
+    ['ABA','3106','Santa Clara','California','(317) 279-6962'],
+    ['AJ Super Bowl 2026','3106','Santa Clara','California','(317) 279-6962'],
+    ['aPost Super Bowl','712','Santa Clara','California','(317) 279-6962'],
+    ['Arizona Club','3106','Santa Clara','California','(317) 279-6962'],
+    ['C Phoenix Speedway LLC','4561 Playa Vista Dr','Playa Vista','California','(635) 894-1252'],
+    ['Creative Entertainment','2345','Anaheim','California','(555) 656-1235'],
+    ['Crocket LLC','100 Ocean Drive','Los Angeles','California','(323) 289-7430'],
+    ['JAD','3106','Santa Clara','California','(317) 279-6962'],
+    ['Landigo Plus','7895 Abber st','Playa Vista','California','(856) 554-2565'],
+  ];
+  const th = 'padding:6px 8px;border:1px solid #555;text-align:left;color:#fff;font-size:12px;';
+  const td = 'padding:5px 8px;border:1px solid #ccc;font-size:12px;';
+  const rows = clients.map((c, i) => `<tr style="background:${i%2===0?'#fff':'#f7f7f7'}">
+    <td style="${td}text-align:center;"><input type="checkbox" class="chk-client"></td>
+    <td style="${td}text-align:center;">${chk}</td>
+    <td style="${td}">${c[0]}</td>
+    <td style="${td}">${c[1]}</td>
+    <td style="${td}">${c[2]}</td>
+    <td style="${td}">${c[3]}</td>
+    <td style="${td}">${c[4]}</td>
+  </tr>`).join('');
+  const pagerBtn = (label) => `<button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">${label}</button>`;
   return `
     <div id="sec-evt-clients" style="margin-top:6px;">
       <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Existing Clients</div>
@@ -1953,30 +1978,33 @@ function clientsTabHTML() {
       <div style="${row}"><span style="${lbl}">Branch Name :</span>
         <select style="${sel}" id="f-client-branch"><option>Prota LA Branch Test</option></select></div>
       <div style="${row}"><span style="${lbl}">Client Name :</span>
-        <input style="${inp}" id="f-client-name" placeholder="">${srchIcon}</div>
+        <input style="${inp}" id="f-client-name">${srchIcon}</div>
       <div style="${row}"><span style="${lbl}">Status :</span>
         <select style="${sel}" id="f-client-status"><option>All</option><option>Active</option><option>Inactive</option></select></div>
-      <div style="margin:10px 0 0 138px;display:flex;gap:6px;">
+      <div style="margin:10px 0 14px 138px;display:flex;gap:6px;">
         <button class="btn" id="btn-client-search" style="padding:4px 18px;">Search</button>
         <button class="btn" style="padding:4px 18px;">Back</button>
       </div>
-      <div id="client-search-results" style="display:none;margin-top:14px;">
-        <table style="width:100%;border-collapse:collapse;font-size:12px;">
-          <thead><tr style="background:#e8e8e8;">
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Client Name</th>
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Status</th>
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:center;">Select</th>
+      <div id="client-search-results" style="display:none;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:#444;">
+            <th style="${th}width:50px;text-align:center;">Select</th>
+            <th style="${th}width:55px;text-align:center;">Status</th>
+            <th style="${th}">Client Name</th>
+            <th style="${th}">Address</th>
+            <th style="${th}">City</th>
+            <th style="${th}">State</th>
+            <th style="${th}">Phone</th>
           </tr></thead>
-          <tbody>
-            <tr>
-              <td style="padding:5px 8px;border:1px solid #ccc;">Forum Entertainment LLC</td>
-              <td style="padding:5px 8px;border:1px solid #ccc;">Active</td>
-              <td style="padding:5px 8px;border:1px solid #ccc;text-align:center;"><input type="checkbox" id="chk-select-client"></td>
-            </tr>
-          </tbody>
+          <tbody id="client-results-body">${rows}</tbody>
         </table>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;padding:4px 0;">
+          <span style="font-weight:bold;">Total Pages: 2</span>
+          <span>${pagerBtn('&#9664;&#9664; First')}${pagerBtn('&#9664; Previous')}${pagerBtn('Next &#9654;')}${pagerBtn('Last &#9654;&#9654;')}</span>
+          <span style="font-weight:bold;">Current Page: 1</span>
+        </div>
       </div>
-      <div style="margin-top:18px;text-align:center;">
+      <div style="margin-top:16px;text-align:center;">
         <button class="btn" id="btn-client-add" style="padding:4px 28px;">Add</button>
       </div>
       <div id="client-added-msg" class="msg-success" style="display:none;margin-top:10px;">&#10004; Client added successfully.</div>
@@ -1999,30 +2027,31 @@ function slide_record_maintenance_5() {
         document.querySelector('.btn#btn-evt-save')?.closest('div[style*="margin-top:16px"]') && (document.querySelector('.btn#btn-evt-save').closest('div[style*="margin-top:16px"]').style.display = 'none');
         document.getElementById('content').insertAdjacentHTML('beforeend', clientsTabHTML());
       }},
-    { selector: '#f-client-name', prompt: 'Type a client name to search, or leave blank to see all', type: 'Forum' },
-    { selector: '#btn-client-search', prompt: 'Click "Search" to find matching clients',
+    { selector: '#btn-client-search', prompt: 'Click "Search" to see all available clients',
       onConfirm: () => { document.getElementById('client-search-results').style.display = 'block'; }},
-    { selector: '#chk-select-client', prompt: 'Check the box to select this client',
-      onConfirm: () => { document.getElementById('chk-select-client').checked = true; }},
-    { selector: '#btn-client-add', prompt: 'Click "Add" to attach this client to the event',
+    { selector: '.chk-client', prompt: 'Check the box next to the client you want to add to this event',
+      onConfirm: () => { document.querySelectorAll('.chk-client')[6].checked = true; }},
+    { selector: '#btn-client-add', prompt: 'Click "Add" to attach the selected client to this event',
       onConfirm: () => {
+        const td = 'padding:5px 8px;border:1px solid #ccc;font-size:12px;';
+        const th = 'padding:6px 8px;border:1px solid #555;text-align:left;color:#fff;font-size:12px;';
         document.getElementById('client-search-results').style.display = 'none';
         document.getElementById('client-added-msg').style.display = 'block';
-        const existing = document.getElementById('existing-clients-list');
-        existing.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:12px;">
-          <thead><tr style="background:#e8e8e8;">
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Client Name</th>
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:left;">Status</th>
-            <th style="padding:5px 8px;border:1px solid #ccc;text-align:center;">Remove</th>
-          </tr></thead>
-          <tbody><tr>
-            <td style="padding:5px 8px;border:1px solid #ccc;">Forum Entertainment LLC</td>
-            <td style="padding:5px 8px;border:1px solid #ccc;color:#2a8a2a;">Active</td>
-            <td style="padding:5px 8px;border:1px solid #ccc;text-align:center;"><button class="btn" style="padding:2px 10px;background:#c06060;border-color:#a04040;font-size:11px;">Remove</button></td>
-          </tr></tbody>
-        </table>`;
+        document.getElementById('existing-clients-list').innerHTML = `
+          <table style="width:100%;border-collapse:collapse;">
+            <thead><tr style="background:#444;">
+              <th style="${th}">Client Name</th>
+              <th style="${th}">Status</th>
+              <th style="${th}text-align:center;">Remove</th>
+            </tr></thead>
+            <tbody><tr style="background:#fff;">
+              <td style="${td}">Creative Entertainment</td>
+              <td style="${td}color:#2a8a2a;font-weight:bold;">&#10004; Active</td>
+              <td style="${td}text-align:center;"><button class="btn" style="padding:2px 10px;background:#c06060;border-color:#a04040;font-size:11px;">Remove</button></td>
+            </tr></tbody>
+          </table>`;
       }},
-    { selector: '#existing-clients-list', prompt: 'Client added — it now appears under "Existing Clients". You can add multiple clients per event.', skipClick: true },
+    { selector: '#existing-clients-list', prompt: 'Client added — appears under "Existing Clients". You can add multiple clients per event.', skipClick: true },
   ]);
 }
 
