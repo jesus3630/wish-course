@@ -538,9 +538,10 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           </div>
 
           {(slide as any)?.acronym_card && <WishAcronymCard />}
+          {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
 
           {/* Screenshot / video below the text */}
-          {module.video_url && slide?.video_start !== undefined ? (
+          {!(slide as any)?.hierarchy_card && module.video_url && slide?.video_start !== undefined ? (
             <div style={styles.screenshotWrap}>
               <video
                 ref={videoRef}
@@ -730,6 +731,62 @@ function WishAcronymCard() {
         }}>
           <span style={{ color: '#D4782A', textShadow: '0 0 22px rgba(212,120,42,0.30)' }}>{letter}</span>
           <span style={{ color: '#1B3A6B' }}>{rest}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Record Hierarchy animated card ──────────────────────────────────────────
+function RecordHierarchyCard() {
+  const [step, setStep] = useState(-1);
+
+  useEffect(() => {
+    setStep(-1);
+    const delays = [200, 800, 1400, 2000, 2600];
+    const timers = delays.map((ms, i) => setTimeout(() => setStep(i), ms));
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const shown = (i: number): React.CSSProperties => ({
+    opacity: step >= i ? 1 : 0,
+    transform: step >= i ? 'translateY(0) scale(1)' : 'translateY(22px) scale(0.95)',
+    transition: 'opacity 0.5s cubic-bezier(0.22,1,0.36,1), transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+  });
+
+  const levels = [
+    { label: 'Company & Branch', sub: 'Already in WISH (CSC + all locations)', color: '#1B3A6B', icon: '🏢', indent: 0 },
+    { label: 'Event',            sub: 'Must exist first',                        color: '#2a8a3a', icon: '1️⃣', indent: 1 },
+    { label: 'Job',              sub: 'Created under an Event',                  color: '#D4782A', icon: '2️⃣', indent: 2 },
+    { label: 'Shift',            sub: 'Created under a Job',                     color: '#7a4aaa', icon: '3️⃣', indent: 3 },
+    { label: 'Role',             sub: 'Created under a Shift',                   color: '#c83030', icon: '4️⃣', indent: 4 },
+  ];
+
+  return (
+    <div style={{ padding: '24px 8px 8px', maxWidth: 520, margin: '0 auto' }}>
+      {levels.map((lvl, i) => (
+        <div key={lvl.label} style={{
+          ...shown(i),
+          marginLeft: lvl.indent * 24,
+          marginBottom: 10,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 10,
+        }}>
+          {lvl.indent > 0 && (
+            <div style={{ width: 2, height: 10, background: '#ccc', marginLeft: -13, marginRight: 3, flexShrink: 0 }} />
+          )}
+          <div style={{
+            background: lvl.color,
+            color: '#fff',
+            borderRadius: 6,
+            padding: '10px 16px',
+            flex: 1,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          }}>
+            <div style={{ fontWeight: 800, fontSize: 14 }}>{lvl.icon}&nbsp; {lvl.label}</div>
+            <div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>{lvl.sub}</div>
+          </div>
         </div>
       ))}
     </div>
