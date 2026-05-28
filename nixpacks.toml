@@ -5,9 +5,13 @@ cmds = ["npm install", "cd client && npm install"]
 cmds = [
   "cp -r client/build/audio /tmp/wish_audio_backup || true",
   "cp -r client/build/screenshots /tmp/wish_screenshots_backup || true",
+  "cp -r client/build/mockup /tmp/wish_mockup_backup || true",
+  "find client/build -maxdepth 1 -name '*.png' -exec cp {} /tmp/ \\; || true",
   "cd client && npm run build",
   "cp -r /tmp/wish_audio_backup client/build/audio || true",
-  "cp -r /tmp/wish_screenshots_backup client/build/screenshots || true"
+  "cp -r /tmp/wish_screenshots_backup client/build/screenshots || true",
+  "cp -r /tmp/wish_mockup_backup client/build/mockup || true",
+  "find /tmp -maxdepth 1 -name '*.png' -exec cp {} client/build/ \\; || true"
 ]
 
 [start]
