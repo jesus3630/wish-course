@@ -2352,7 +2352,7 @@ function slide_manage_job_4() {
     { selector: '#f-shift-name', prompt: '* Shift Name — enter the name of this shift', type: 'Staff One Call' },
     { selector: '#f-shift-branch-prota', prompt: '* Select Branch — check the branch this shift belongs to',
       onConfirm: () => { document.getElementById('f-shift-branch-prota').checked = true; }},
-    { selector: '#btn-shift-save', prompt: 'Click "Save" to add this shift to the job',
+    { selector: '#btn-shift-save', prompt: 'Click "Save" to add this shift to the job — the shift row will appear below',
       onConfirm: () => {
         closeAddShiftModal();
         document.getElementById('job-tab-shifts').innerHTML = `
@@ -2376,7 +2376,11 @@ function slide_manage_job_4() {
                 <td style="padding:6px 10px;">08/15/2026 08:00</td>
                 <td style="padding:6px 10px;">08/15/2026 17:00</td>
                 <td style="padding:6px 10px;"></td>
-                <td style="padding:6px 10px;white-space:nowrap;">✏️ 👥 ❌</td>
+                <td style="padding:6px 10px;white-space:nowrap;">
+                  <span title="Edit Shift" style="cursor:pointer;margin-right:4px;font-size:15px;">🖊</span>
+                  <span id="btn-add-role" title="Add Role" style="cursor:pointer;margin-right:4px;font-size:15px;" onclick="showAddRolePanel()">👥</span>
+                  <span title="Delete Shift" style="cursor:pointer;font-size:15px;color:#c00;">✕</span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -2384,7 +2388,14 @@ function slide_manage_job_4() {
             <button class="btn" style="padding:5px 18px;">Add New Shift</button>
           </div>`;
       }},
+    { selector: '#btn-add-role', prompt: 'Click the 👥 people icon to add roles to this shift',
+      onConfirm: () => { showAddRolePanel(); }},
   ]);
+}
+
+function showAddRolePanel() {
+  // Placeholder — will be built once screenshot is provided
+  alert('Add Role screen coming soon.');
 }
 
 function showAddShiftModal() {
