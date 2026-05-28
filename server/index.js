@@ -308,7 +308,10 @@ app.use('/mockup', express.static(path.join(__dirname, '../scripts/record-slides
 app.get('/api/course', async (req, res) => {
   try {
     res.set('Cache-Control', 'no-store');
-    res.json(await getCourseData());
+    let data = await getCourseData();
+    const maxModules = parseInt(process.env.MAX_MODULES);
+    if (maxModules > 0 && Array.isArray(data)) data = data.slice(0, maxModules);
+    res.json(data);
   } catch (e) {
     res.status(500).json({ error: 'Failed to load course data' });
   }
