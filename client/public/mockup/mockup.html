@@ -2170,15 +2170,18 @@ function addEditJobFormHTML() {
   const row = 'display:flex;align-items:center;margin-bottom:7px;';
   const req = '<span style="color:#c00;margin-left:4px;">*</span>';
   return `
-    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Add / Edit Job</div>
+    <div id="job-form-title" style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Add / Edit Job</div>
     <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:10px;font-size:12px;">Note: All the * marked fields are mandatory</div>
     <div class="tabs" style="margin-bottom:14px;">
-      <span class="tab active">Record Information</span>
-      <span class="tab">Job Over-rides</span>
-      <span class="tab">Invoice</span>
-      <span class="tab">Contact</span>
-      <span class="tab">Job Order Information</span>
+      <span class="tab active" id="tab-record-info" onclick="showJobTab('record-info',this)">Record Information</span>
+      <span class="tab" onclick="showJobTab('overrides',this)">Job Over-rides</span>
+      <span class="tab" onclick="showJobTab('invoice',this)">Invoice</span>
+      <span class="tab" onclick="showJobTab('contact',this)">Contact</span>
+      <span class="tab" onclick="showJobTab('joborder',this)">Job Order Information</span>
+      <span class="tab" id="tab-shifts" onclick="showJobTab('shifts',this)">Shifts</span>
+      <span class="tab" onclick="showJobTab('jobnotes',this)">JobNotes</span>
     </div>
+    <div id="job-tab-record-info">
     <div style="${row}"><span style="${lbl}">Job# :</span>
       <input style="${inp}" id="f-job-num" value="" readonly></div>
     <div style="${row}"><span style="${lbl}">Job Name :</span>
@@ -2219,7 +2222,28 @@ function addEditJobFormHTML() {
       <button class="btn" id="btn-job-save" style="padding:4px 18px;">Save</button>
       <button class="btn" style="padding:4px 18px;">Reset</button>
       <button class="btn" style="padding:4px 18px;">Back</button>
-    </div>`;
+    </div>
+    </div>
+    <div id="job-tab-shifts" style="display:none;">
+      <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:18px;">Existing Shift</div>
+      <button class="btn" id="btn-add-shift" style="padding:5px 18px;">Add New Shift</button>
+    </div>
+    <div id="job-tab-overrides" style="display:none;"></div>
+    <div id="job-tab-invoice" style="display:none;"></div>
+    <div id="job-tab-contact" style="display:none;"></div>
+    <div id="job-tab-joborder" style="display:none;"></div>
+    <div id="job-tab-jobnotes" style="display:none;"></div>`;
+}
+
+function showJobTab(name, el) {
+  ['record-info','shifts','overrides','invoice','contact','joborder','jobnotes'].forEach(t => {
+    const p = document.getElementById('job-tab-' + t);
+    if (p) p.style.display = 'none';
+  });
+  const panel = document.getElementById('job-tab-' + name);
+  if (panel) panel.style.display = '';
+  document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
 }
 
 function slide_record_maintenance_7() {
@@ -2279,16 +2303,21 @@ function slide_record_maintenance_7() {
       onConfirm: () => { document.getElementById('f-job-etime').value = '17:00'; }},
     { selector: '#btn-job-save', prompt: 'Click "Save" to create this Job',
       onConfirm: () => {
-        document.getElementById('f-job-num').value = '1012699001';
+        document.getElementById('f-job-num').value = '5023705541';
+        const title = document.getElementById('job-form-title');
+        if (title) title.textContent = 'Add / Edit Job - 5023705541  Drake Job';
         const note = document.querySelector('[style*="fffde6"]');
         if (note) {
           const banner = document.createElement('div');
           banner.className = 'msg-success show';
           banner.style.marginBottom = '8px';
-          banner.innerHTML = '&#10004; Record has been Added Successfully.';
+          banner.innerHTML = '&#10004; Record has been added successfully.';
           note.parentNode.insertBefore(banner, note);
         }
       }},
+    { selector: '#tab-shifts', prompt: 'Click the "Shifts" tab to add shifts to this job',
+      onConfirm: () => { showJobTab('shifts', document.getElementById('tab-shifts')); }},
+    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to schedule a shift for this job', skipClick: true },
   ]);
 }
 
