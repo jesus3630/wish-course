@@ -2479,6 +2479,17 @@ function slide_manage_job_4() {
   ]);
 }
 
+function autoFillRoleForm() {
+  const min = document.getElementById('f-role-min');
+  const max = document.getElementById('f-role-max');
+  const st  = document.getElementById('f-role-stime');
+  const et  = document.getElementById('f-role-etime');
+  if (min) min.value = '5';
+  if (max) max.value = '7';
+  if (st)  st.value  = '08:00';
+  if (et)  et.value  = '17:00';
+}
+
 function toggleShiftRoles() {
   const row = document.getElementById('shift-roles-row');
   const btn = document.getElementById('btn-expand-shift');
@@ -2503,12 +2514,7 @@ function showAddRolePanel() {
           </div>
           <div style="display:flex;align-items:center;margin-bottom:8px;">
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Role Name :</span>
-            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 3px;width:185px;height:22px;font-size:12px;background:#fff;" onchange="
-              document.getElementById('f-role-min').value='5';
-              document.getElementById('f-role-max').value='7';
-              document.getElementById('f-role-stime').value='08:00';
-              document.getElementById('f-role-etime').value='17:00';
-            ">
+            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 3px;width:185px;height:22px;font-size:12px;background:#fff;" onchange="autoFillRoleForm()">
               <option>Administrative</option>
               <option>C&amp;T Event Staff</option>
               <option>C&amp;T Event Staff 1</option>
