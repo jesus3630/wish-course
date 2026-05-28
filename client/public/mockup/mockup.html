@@ -2349,11 +2349,41 @@ function slide_manage_job_4() {
       onConfirm: () => { showJobTab('shifts', document.getElementById('tab-shifts')); }},
     { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to open the shift form',
       onConfirm: () => { showAddShiftModal(); }},
-    { selector: '#f-shift-name', prompt: '* Shift Name — enter the name of this shift', type: 'Drake Concert Shift' },
+    { selector: '#f-shift-name', prompt: '* Shift Name — enter the name of this shift', type: 'Staff One Call' },
     { selector: '#f-shift-branch-prota', prompt: '* Select Branch — check the branch this shift belongs to',
       onConfirm: () => { document.getElementById('f-shift-branch-prota').checked = true; }},
     { selector: '#btn-shift-save', prompt: 'Click "Save" to add this shift to the job',
-      onConfirm: () => { closeAddShiftModal(); }},
+      onConfirm: () => {
+        closeAddShiftModal();
+        document.getElementById('job-tab-shifts').innerHTML = `
+          <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px;">Existing Shift</div>
+          <div class="msg-success show" style="margin-bottom:12px;">&#10004; Shift record added successfully.</div>
+          <table style="width:100%;border-collapse:collapse;font-size:12px;">
+            <thead>
+              <tr style="background:#555;color:#fff;">
+                <th style="padding:6px 10px;text-align:left;">Shift Name</th>
+                <th style="padding:6px 10px;text-align:left;">#</th>
+                <th style="padding:6px 10px;text-align:left;">Start Date</th>
+                <th style="padding:6px 10px;text-align:left;">Finish Date</th>
+                <th style="padding:6px 10px;text-align:left;">Attire</th>
+                <th style="padding:6px 10px;"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#fff;">
+                <td style="padding:6px 10px;">Staff One Call</td>
+                <td style="padding:6px 10px;">1</td>
+                <td style="padding:6px 10px;">08/15/2026 08:00</td>
+                <td style="padding:6px 10px;">08/15/2026 17:00</td>
+                <td style="padding:6px 10px;"></td>
+                <td style="padding:6px 10px;white-space:nowrap;">✏️ 👥 ❌</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:12px;">
+            <button class="btn" style="padding:5px 18px;">Add New Shift</button>
+          </div>`;
+      }},
   ]);
 }
 
@@ -2406,14 +2436,14 @@ function showAddShiftModal() {
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
             <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
             <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="00:00">
+            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="08:00">
             <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
           </div>
           <div style="display:flex;align-items:center;margin-bottom:8px;">
             <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">End Date :</span>
             <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
             <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="00:00">
+            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="17:00">
             <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
           </div>
           <div style="display:flex;align-items:center;margin-bottom:16px;">
