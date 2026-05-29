@@ -64,7 +64,6 @@ interface Props {
   onProgressUpdate: (p: CourseProgress) => void;
   onComplete: (p: CourseProgress) => void;
   onBack: () => void;
-  userName?: string;
 }
 
 type PlayerView = 'slides' | 'quiz';
@@ -78,7 +77,6 @@ export default function ModulePlayer({
   onProgressUpdate,
   onComplete,
   onBack,
-  userName,
 }: Props) {
   const mp = getModuleProgress(progress, module.id);
   const isMobile = useIsMobile();
@@ -97,16 +95,6 @@ export default function ModulePlayer({
   const rafRef = useRef<number | null>(null);
   const autoPlayRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const progressRef = useRef(progress);
-
-  // Inject name-flash keyframe once on mount
-  useEffect(() => {
-    if (!document.getElementById('wish-name-flash-style')) {
-      const s = document.createElement('style');
-      s.id = 'wish-name-flash-style';
-      s.textContent = `@keyframes nameFlash { 0%{transform:scale(1);color:#1B3A6B;} 25%{transform:scale(1.22);color:#D4782A;} 60%{transform:scale(1.08);color:#D4782A;} 100%{transform:scale(1);color:#1B3A6B;} }`;
-      document.head.appendChild(s);
-    }
-  }, []);
   const timingsRef = useRef<Timing[] | null>(null);
   const wordsRef = useRef<string[]>([]);
   // Stores Promise so in-flight prefetches are reused instead of duplicated
@@ -510,22 +498,6 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           {!isMobile && <span style={styles.moduleTitle}>{module.name}</span>}
         </div>
         <div style={styles.topRight}>
-          {userName && !isMobile && (
-            <span
-              key={slideIndex}
-              style={{
-                fontSize: '12px',
-                fontWeight: 600,
-                color: '#1B3A6B',
-                marginRight: '10px',
-                whiteSpace: 'nowrap' as const,
-                animation: 'nameFlash 0.55s ease',
-                display: 'inline-block',
-              }}
-            >
-              👤 {userName}
-            </span>
-          )}
           <div style={styles.miniProgress}>
             <div style={{ ...styles.miniProgressFill, width: `${slideProgress}%` }} />
           </div>
@@ -877,13 +849,6 @@ function AnimatedCursor({ key: _key }: { key?: number }) {
       const s = document.createElement('style');
       s.id = 'wish-cursor-style';
       s.textContent = `@keyframes wish-ripple { 0% { transform:scale(0.3); opacity:0.9; } 100% { transform:scale(2.8); opacity:0; } }`;
-      // Inject name-flash animation if not already present
-      if (!document.getElementById('wish-name-flash-style')) {
-        const ns = document.createElement('style');
-        ns.id = 'wish-name-flash-style';
-        ns.textContent = `@keyframes nameFlash { 0%{transform:scale(1);color:#1B3A6B;} 25%{transform:scale(1.22);color:#D4782A;} 60%{transform:scale(1.08);color:#D4782A;} 100%{transform:scale(1);color:#1B3A6B;} }`;
-        document.head.appendChild(ns);
-      }
       document.head.appendChild(s);
     }
   }, []);
