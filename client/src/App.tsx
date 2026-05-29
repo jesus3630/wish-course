@@ -124,6 +124,7 @@ export default function App() {
         onProgressUpdate={handleProgressUpdate}
         onComplete={handleModuleComplete}
         onBack={() => setView('dashboard')}
+        userName={progress.user_name}
       />
     );
   }
