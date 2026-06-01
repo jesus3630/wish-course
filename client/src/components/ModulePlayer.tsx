@@ -14,7 +14,7 @@ function SimFrame({ src }: { src: string }) {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => setScale(Math.min(el.offsetWidth / 1280, 0.65));
+    const measure = () => setScale(el.offsetWidth / 1280);
     measure();
     const obs = new ResizeObserver(measure);
     obs.observe(el);
@@ -520,79 +520,107 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             </div>
           </div>
 
-          <h2 style={styles.slideName}>{slideName}</h2>
-
-          {slide?.instructions && (
-            <div style={styles.instructionsTag}>
-              📹 {slide.instructions}
-            </div>
-          )}
-
-          {/* Script always first */}
-          <div style={styles.slideContent}>
-            {slideText ? (
-              <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
-            ) : (
-              <p style={styles.emptyText}>No narration text for this slide.</p>
-            )}
-          </div>
-
-          {(slide as any)?.acronym_card && <WishAcronymCard />}
-          {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
-          {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
-
-          {/* Screenshot / video below the text */}
-          {!(slide as any)?.hierarchy_card && module.video_url && slide?.video_start !== undefined ? (
-            <div style={styles.screenshotWrap}>
-              <video
-                ref={videoRef}
-                src={module.video_url}
-                muted
-                playsInline
-                onTimeUpdate={handleVideoTimeUpdate}
-                style={{ ...styles.screenshotImg, background: '#000' }}
-              />
-            </div>
-          ) : slide?.screenshot ? (
-            <div style={{ ...styles.screenshotWrap, position: 'relative', marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
-              <img
-                key={slide.screenshot}
-                src={slide.screenshot}
-                alt="WISH system screenshot"
-                style={styles.screenshotImg}
-              />
-            </div>
-          ) : null}
-
-          {(slide as any)?.image_below && (
-            <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
-              <img
-                src={(slide as any).image_below}
-                alt=""
-                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                style={{ maxWidth: '280px', maxHeight: '380px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
-              />
-            </div>
-          )}
-
-          {slideText && (
-            <button
-              style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
-              onClick={handlePlayNarration}
-            >
-              {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Play'}
-            </button>
-          )}
-
-          {(slide as any)?.simulation_url && (
-            <div style={{ marginTop: '24px', borderTop: '2px solid #E5E7EB', borderBottom: '2px solid #E5E7EB' }}>
-              <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px' }}>
-                Your turn — click through the steps below
+          {(slide as any)?.simulation_url ? (
+            /* ── Side-by-side layout for sim slides ── */
+            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginTop: '4px' }}>
+              {/* Left: script */}
+              <div style={{ flex: '0 0 42%', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+                <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
+                {slide?.instructions && (
+                  <div style={styles.instructionsTag}>📹 {slide.instructions}</div>
+                )}
+                <div style={{ ...styles.slideContent, flex: 1 }}>
+                  {slideText ? (
+                    <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                  ) : (
+                    <p style={styles.emptyText}>No narration text for this slide.</p>
+                  )}
+                </div>
+                {slideText && (
+                  <button
+                    style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A', alignSelf: 'flex-start' }}
+                    onClick={handlePlayNarration}
+                  >
+                    {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Play'}
+                  </button>
+                )}
               </div>
-              <div style={{ position: 'relative' }}>
-                <SimFrame src={(slide as any).simulation_url} />
+
+              {/* Right: interactive sim */}
+              <div style={{ flex: '0 0 58%', minWidth: 0 }}>
+                <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
+                  Your turn — click through the steps below
+                </div>
+                <div style={{ border: '2px solid #2e7d32', borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
+                  <SimFrame src={(slide as any).simulation_url} />
+                </div>
               </div>
             </div>
+          ) : (
+            /* ── Standard stacked layout for non-sim slides ── */
+            <>
+              <h2 style={styles.slideName}>{slideName}</h2>
+
+              {slide?.instructions && (
+                <div style={styles.instructionsTag}>
+                  📹 {slide.instructions}
+                </div>
+              )}
+
+              <div style={styles.slideContent}>
+                {slideText ? (
+                  <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                ) : (
+                  <p style={styles.emptyText}>No narration text for this slide.</p>
+                )}
+              </div>
+
+              {(slide as any)?.acronym_card && <WishAcronymCard />}
+              {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
+              {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
+
+              {!(slide as any)?.hierarchy_card && module.video_url && slide?.video_start !== undefined ? (
+                <div style={styles.screenshotWrap}>
+                  <video
+                    ref={videoRef}
+                    src={module.video_url}
+                    muted
+                    playsInline
+                    onTimeUpdate={handleVideoTimeUpdate}
+                    style={{ ...styles.screenshotImg, background: '#000' }}
+                  />
+                </div>
+              ) : slide?.screenshot ? (
+                <div style={{ ...styles.screenshotWrap, position: 'relative', marginLeft: isMobile ? '-16px' : '-48px', marginRight: isMobile ? '-16px' : '-48px' }}>
+                  <img
+                    key={slide.screenshot}
+                    src={slide.screenshot}
+                    alt="WISH system screenshot"
+                    style={styles.screenshotImg}
+                  />
+                </div>
+              ) : null}
+
+              {(slide as any)?.image_below && (
+                <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
+                  <img
+                    src={(slide as any).image_below}
+                    alt=""
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                    style={{ maxWidth: '280px', maxHeight: '380px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
+                  />
+                </div>
+              )}
+
+              {slideText && (
+                <button
+                  style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A' }}
+                  onClick={handlePlayNarration}
+                >
+                  {audioLoading ? '⏳ Loading...' : isPlaying ? '⏸ Pause' : '▶ Play'}
+                </button>
+              )}
+            </>
           )}
         </div>
       </div>
