@@ -215,10 +215,11 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#cc3010"/><circle cx="13" cy="13" r="8.5" fill="#e84020"/><rect x="8.5" y="9" width="9" height="8" rx=".5" fill="#fff" opacity=".9"/><line x1="10" y1="8" x2="10" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="16" y1="8" x2="16" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="8.5" y1="12" x2="17.5" y2="12" stroke="#cc3010" stroke-width=".8"/><rect x="10" y="13.5" width="1.8" height="1.8" fill="#cc3010"/><rect x="13.2" y="13.5" width="1.8" height="1.8" fill="#cc3010"/></svg></span>Scheduling
     </a>
     <div class="nav-sub" id="sub-scheduling">
-      <span class="nav-sub-item">Schedule by Employee</span>
-      <span class="nav-sub-item">Schedule by Job</span>
-      <span class="nav-sub-item">Schedule by Job Admin</span>
-      <span class="nav-sub-item">Mail By</span>
+      <span class="nav-sub-item" id="sub-sched-post">Post Scheduling</span>
+      <span class="nav-sub-item" id="sub-sched-emp">Schedule by Employee</span>
+      <span class="nav-sub-item" id="sub-sched-job">Schedule by Job</span>
+      <span class="nav-sub-item" id="sub-sched-admin">Schedule by Job Admin</span>
+      <span class="nav-sub-item" id="sub-sched-cal">Event Calendar</span>
     </div>
 
     <a class="nav-item" id="nav-payroll">
@@ -846,15 +847,59 @@ function schedEmpHTML() {
 }
 
 function slide_scheduling_3() {
-  setNav('scheduling');
-  document.getElementById('content').innerHTML = schedEmpHTML();
+  // Step 1: Start on the Home dashboard with Scheduling tab collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td>Sierra Erica WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#c07800">Dosier Stadium</td></tr>
+            <tr><td>LA WISH Training Job May 2026</td><td>Dosier Stadium</td></tr>
+            <tr><td>KC DC Staff WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 Foothill Interviews</td><td>Foothill Employment and Training Connection</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 Youngblud</td><td>ADDITION FINANCIAL ARENA</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24 HR Red Shirts</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24-Hour Security Coverage 6/1/2026</td><td>Georgia International Convention Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-emp-last', prompt: 'Click here and type the employee\'s last name', type: 'Smith' },
+    { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" in the menu to expand it',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.add('active');
+        document.getElementById('sub-scheduling').classList.add('show');
+      }},
+    { selector: '#sub-sched-emp', prompt: 'Click "Schedule by Employee"',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = schedEmpHTML();
+      }},
+    { selector: '#f-emp-last', prompt: 'Type the employee\'s last name to search', type: 'Smith' },
     { selector: '#btn-empsearch', prompt: 'Click "Search" to load the schedule',
       onConfirm: () => { document.getElementById('cal-section').style.display = ''; }},
-    { selector: '#cal-s1', prompt: 'Click the shift on the calendar to view or edit it',
+    { selector: '#cal-s1', prompt: 'Click the shift on the calendar to assign the employee',
       onConfirm: () => { document.getElementById('cal-s1').classList.add('selected'); }},
-    { selector: '#btn-cal-save', prompt: 'Click "Save" to save schedule changes' },
+    { selector: '#btn-cal-save', prompt: 'Click "Save Schedule" to save your changes' },
   ]);
 }
 

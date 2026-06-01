@@ -215,10 +215,11 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#cc3010"/><circle cx="13" cy="13" r="8.5" fill="#e84020"/><rect x="8.5" y="9" width="9" height="8" rx=".5" fill="#fff" opacity=".9"/><line x1="10" y1="8" x2="10" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="16" y1="8" x2="16" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="8.5" y1="12" x2="17.5" y2="12" stroke="#cc3010" stroke-width=".8"/><rect x="10" y="13.5" width="1.8" height="1.8" fill="#cc3010"/><rect x="13.2" y="13.5" width="1.8" height="1.8" fill="#cc3010"/></svg></span>Scheduling
     </a>
     <div class="nav-sub" id="sub-scheduling">
-      <span class="nav-sub-item">Schedule by Employee</span>
-      <span class="nav-sub-item">Schedule by Job</span>
-      <span class="nav-sub-item">Schedule by Job Admin</span>
-      <span class="nav-sub-item">Mail By</span>
+      <span class="nav-sub-item" id="sub-sched-post">Post Scheduling</span>
+      <span class="nav-sub-item" id="sub-sched-emp">Schedule by Employee</span>
+      <span class="nav-sub-item" id="sub-sched-job">Schedule by Job</span>
+      <span class="nav-sub-item" id="sub-sched-admin">Schedule by Job Admin</span>
+      <span class="nav-sub-item" id="sub-sched-cal">Event Calendar</span>
     </div>
 
     <a class="nav-item" id="nav-payroll">
@@ -325,18 +326,9 @@ function runGuided(steps) {
   }
 
   function placeTip(el, text) {
+    // Prompt is CSS-anchored (bottom:66px, centered) — never overlaps content
     tip.textContent = text;
     tip.style.display = 'block';
-    // Flip to top when target element is in the lower 50% of the viewport
-    const rect = el.getBoundingClientRect();
-    const viewH = window.innerHeight;
-    if (rect.bottom > viewH * 0.55) {
-      tip.style.bottom = 'auto';
-      tip.style.top = '72px';
-    } else {
-      tip.style.top = 'auto';
-      tip.style.bottom = '66px';
-    }
   }
 
   function showStep(i) {
@@ -470,8 +462,56 @@ const MOD = params.get('module') || 'manage_job';
 const SLIDE = parseInt(params.get('slide') || '3');
 
 // ── Manage Job ─────────────────────────────────────────────────────────────
-// Slide 3 module 3 = identical demo to slide 7 module 2
-function slide_manage_job_3() { slide_record_maintenance_7(); }
+function slide_manage_job_3() {
+  setNav('records');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Jobs</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div class="form-row"><span class="form-label">Branch Name :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span>
+      &nbsp;&nbsp;<a href="#" style="color:#c07800;font-size:12px;font-weight:bold;">Copy Setting &#9660;</a></div>
+    <div class="form-row"><span class="form-label">Job# :</span><input class="form-input" id="f-job" placeholder=""></div>
+    <div class="form-row"><span class="form-label">Job Name :</span><input class="form-input" id="f-jobname" placeholder=""></div>
+    <div class="form-row"><span class="form-label">Start Date :</span>
+      <input class="form-input" id="f-start" value="05/21/2026" style="width:100px">
+      <button style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>
+      &nbsp;<span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">End Date :</span>
+      <input class="form-input" id="f-end" value="06/05/2026" style="width:100px">
+      <button style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>
+      &nbsp;<span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">Venue Name :</span>
+      <select class="form-select"><option>--All--</option></select></div>
+    <div class="form-row"><span class="form-label">Sorting :</span>
+      <label><input type="radio" name="sort" checked> Start Date</label>
+      &nbsp;<label><input type="radio" name="sort"> Job Name</label></div>
+    <div style="margin:14px 0 0 160px;">
+      <button class="btn" id="btn-search">Search</button>
+      <button class="btn" id="btn-addnew">Add New</button>
+    </div>
+  `;
+  runGuided([
+    { selector: '#btn-addnew', prompt: 'Click "Add New" to create a new job',
+      onConfirm: () => { document.getElementById('content').innerHTML = addEditJobHTML('', ''); }},
+    { selector: '#f-jname', prompt: 'Type the Job Name here', type: 'DRAKE N3' },
+    { selector: '#f-jobclass', prompt: 'Select the Job Class',
+      onConfirm: () => { document.getElementById('f-jobclass').value = 'Events'; }},
+    { selector: '#f-event', prompt: 'Select the Event Name',
+      onConfirm: () => { document.getElementById('f-event').value = '2023 DRAKE'; }},
+    { selector: '#f-dept', prompt: 'Select the Department Name',
+      onConfirm: () => { document.getElementById('f-dept').value = 'Staff'; }},
+    { selector: '#f-venue', prompt: 'Select the Venue Name',
+      onConfirm: () => { document.getElementById('f-venue').value = 'The Forum'; }},
+    { selector: '#f-client', prompt: 'Select the Client Name',
+      onConfirm: () => { document.getElementById('f-client').value = 'Forum Entertainment LLC'; }},
+    { selector: '#f-startdt', prompt: 'Enter the Start Date', type: '05/21/2026' },
+    { selector: '#f-starttime', prompt: 'Enter the Start Time', type: '08:00' },
+    { selector: '#f-finishdt', prompt: 'Enter the Finish Date', type: '06/05/2026' },
+    { selector: '#f-finishtime', prompt: 'Enter the Finish Time', type: '17:00' },
+    { selector: '#btn-save', prompt: 'Click "Save" to save the job',
+      onConfirm: () => { const m = document.querySelector('.msg-success'); if(m) m.style.display='block'; }},
+  ]);
+}
 
 function calBtn() {
   return `<button style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>`;
@@ -559,363 +599,73 @@ function slide_manage_job_4() {
 
 function slide_manage_job_5() {
   setNav('records');
-  const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
-  const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
-  const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
-  const row = 'display:flex;align-items:center;margin-bottom:10px;';
   document.getElementById('content').innerHTML = `
-    <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
-    <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
-    <div style="display:flex;align-items:flex-start;gap:20px;">
-      <div>
-        <div style="${row}">
-          <span style="${lbl}">Branch Name :</span>
-          <select style="${sel}"><option>Prota LA Branch Test</option></select>
-          <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
-          <span id="copy-setting-btn" style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
-        </div>
-        <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
-        <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
-        <div style="${row}">
-          <span style="${lbl}">Start Date :</span>
-          <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
-          <span style="color:#c00;margin-left:4px;">*</span>
-        </div>
-        <div style="${row}">
-          <span style="${lbl}">End Date :</span>
-          <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
-          <span style="color:#c00;margin-left:4px;">*</span>
-        </div>
-        <div style="${row}">
-          <span style="${lbl}">Venue Name :</span>
-          <select style="${sel}"><option>Grand Bell Arena</option></select>
-        </div>
-        <div style="${row}">
-          <span style="${lbl}">Sorting :</span>
-          <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5" checked> Start Date</label>
-          <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt5"> JobName</label>
-        </div>
-        <div style="margin-bottom:20px;padding-left:145px;">
-          <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
-          <button class="btn" style="padding:5px 20px;">Add New</button>
-        </div>
-      </div>
-      <!-- Copy Setting inline panel — hidden until clicked -->
-      <div id="copy-setting-panel" style="display:none;border:1px solid #aaa;border-radius:3px;padding:14px 16px;background:#fff;min-width:310px;font-size:12px;">
-        <div style="display:flex;align-items:center;margin-bottom:8px;">
-          <input type="radio" name="cs-type" id="cs-daily" checked style="margin-right:6px;"> <label for="cs-daily" style="font-size:12px;">Daily</label>
-        </div>
-        <div style="display:flex;align-items:center;margin-bottom:8px;">
-          <input type="radio" name="cs-type" id="cs-weekly" style="margin-right:6px;"> <label for="cs-weekly" style="font-size:12px;margin-right:10px;">Weekly</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Sun</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox" checked> Mon</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox" checked> Tue</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Wed</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Thu</label>
-          <label style="font-size:11px;margin-right:4px;"><input type="checkbox"> Fri</label>
-          <label style="font-size:11px;"><input type="checkbox"> Sat</label>
-        </div>
-        <div style="display:flex;align-items:center;margin-bottom:10px;">
-          <input type="radio" name="cs-type" style="margin-right:6px;"> <span style="font-size:12px;margin-right:8px;">Monthly</span>
-          <input style="border:1px solid #aaa;width:50px;height:22px;font-size:12px;padding:2px 4px;">
-        </div>
-        <div style="display:flex;align-items:center;margin-bottom:8px;">
-          <span style="width:90px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
-          <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:22px;font-size:12px;" value="08/17/2026">${calBtn()}
-          <span style="color:#c00;margin-left:3px;">*</span>
-        </div>
-        <div style="display:flex;align-items:center;margin-bottom:10px;">
-          <span style="width:90px;text-align:right;padding-right:8px;font-size:12px;color:#444;">End Date :</span>
-          <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:22px;font-size:12px;" value="08/26/2026">${calBtn()}
-          <span style="color:#c00;margin-left:3px;">*</span>
-        </div>
-        <div style="display:flex;align-items:center;">
-          <input type="checkbox" id="cs-sched-check" checked style="margin-right:6px;">
-          <label for="cs-sched-check" style="font-size:12px;">Copy Scheduling Information</label>
-        </div>
-      </div>
-    </div>
-    <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <thead>
-        <tr style="background:#333;color:#fff;">
-          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;white-space:nowrap;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:center;">Copy</th>
-          <th style="padding:8px 10px;text-align:center;">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background:#fff;border-bottom:1px solid #eee;">
-          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
-          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
-          <td style="padding:8px 10px;">AB Convention Center</td>
-          <td style="padding:8px 10px;">08/15/2026 08:00</td>
-          <td style="padding:8px 10px;">08/16/2026 17:00</td>
-          <td style="padding:8px 10px;text-align:center;">
-            <span id="copy-icon" style="cursor:pointer;font-size:17px;color:#444;" title="Copy">&#128203;</span>
-          </td>
-          <td style="padding:8px 10px;text-align:center;">
-            <span style="cursor:pointer;font-size:17px;color:#c00;" title="Delete">&#10006;</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
-      <span>Total Pages: 1</span>
-      <div style="display:flex;gap:3px;">
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
-      </div>
-      <span>Current Page: 1</span>
-    </div>`;
+    <div class="page-title">Manage Jobs</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table><thead><tr><th>Job#</th><th>Job Name</th><th>Branch</th><th>Start</th><th>Finish</th><th>Venue</th><th style="width:60px">Copy</th></tr></thead>
+    <tbody>
+      <tr><td>1012698342</td><td>DRAKE N3</td><td>Los Angeles</td><td>08/15/2023</td><td>08/16/2023</td><td>The Forum</td>
+        <td><span id="copy-btn" style="cursor:pointer;font-size:16px;color:#3a6aaa" title="Copy">&#10697;</span></td></tr>
+      <tr><td>1012698123</td><td>BEYONCE TOUR</td><td>Los Angeles</td><td>07/20/2023</td><td>07/21/2023</td><td>SoFi Stadium</td>
+        <td><span style="cursor:pointer;font-size:16px;color:#3a6aaa">&#10697;</span></td></tr>
+      <tr><td>1012697980</td><td>LA CLIPPERS</td><td>Los Angeles</td><td>06/10/2023</td><td>06/11/2023</td><td>Crypto.com Arena</td>
+        <td><span style="cursor:pointer;font-size:16px;color:#3a6aaa">&#10697;</span></td></tr>
+    </tbody></table>`;
   runGuided([
-    { selector: '#copy-setting-btn', prompt: 'Click "Copy Setting" to expand the copy options',
+    { selector: '#copy-btn', prompt: 'Click the Copy icon to copy this job to new dates',
+      onConfirm: () => showDialog('Copy Job Settings',
+        `<div class="form-row"><span class="form-label" style="width:110px">Copy Type :</span>
+          <label><input type="radio" name="ctype" id="r-daily"> Daily</label>
+          <label style="margin-left:12px"><input type="radio" name="ctype"> Weekly</label></div>
+        <div class="form-row" style="margin-top:8px"><span class="form-label" style="width:110px">Start Date :</span>
+          <input class="form-input" value="08/17/2023" style="width:110px"></div>
+        <div class="form-row"><span class="form-label" style="width:110px">End Date :</span>
+          <input class="form-input" value="08/20/2023" style="width:110px"></div>
+        <div style="margin-top:14px">
+          <button class="btn" id="dlg-copy-btn">Copy</button>
+          <button class="btn btn-secondary" onclick="closeDialog()">Cancel</button>
+        </div>`)
+    },
+    { selector: '#r-daily', prompt: 'Select "Daily" to copy the job for each day in the date range' },
+    { selector: '#dlg-copy-btn', prompt: 'Click "Copy" to create the copies',
       onConfirm: () => {
-        const panel = document.getElementById('copy-setting-panel');
-        if (panel) panel.style.display = '';
-        document.getElementById('copy-setting-btn').innerHTML = 'Copy Setting &#9650;';
-      }},
-    { selector: '#cs-daily', prompt: '● Daily is selected — copies the job once for each day in the date range', skipClick: true },
-    { selector: '#cs-sched-check', prompt: '☑ Copy Scheduling Information — shifts and roles will also be copied over', skipClick: true },
-    { selector: '#copy-icon', prompt: 'Click the Copy icon — a confirmation dialog will appear',
-      onConfirm: () => {
-        const m = document.createElement('div');
-        m.id = 'copy-confirm-modal';
-        m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
-        m.innerHTML = `
-          <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
-            <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
-            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to copy this job?</div>
-            <div style="display:flex;justify-content:flex-end;gap:8px;">
-              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('copy-confirm-modal').remove()">Cancel</button>
-              <button id="copy-confirm-ok" style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
-            </div>
-          </div>`;
-        document.body.appendChild(m);
-      }},
-    { selector: '#copy-confirm-ok', prompt: 'Click "OK" to confirm the copy',
-      onConfirm: () => {
-        document.getElementById('copy-confirm-modal').remove();
-        document.getElementById('content').insertAdjacentHTML('afterbegin',
-          '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job copied successfully.</div>');
+        closeDialog();
+        document.getElementById('content').insertAdjacentHTML('afterbegin','<div class="msg-success show">&#10004; Job copied successfully. 3 new jobs created.</div>');
       }},
   ]);
 }
 
 function slide_manage_job_6() {
   setNav('records');
-  const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
-  const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
-  const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
-  const row = 'display:flex;align-items:center;margin-bottom:10px;';
   document.getElementById('content').innerHTML = `
-    <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
-    <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
-    <div style="${row}">
-      <span style="${lbl}">Branch Name :</span>
-      <select style="${sel}"><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
-      <span style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
-    </div>
-    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
-    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
-    <div style="${row}">
-      <span style="${lbl}">Start Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">End Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Venue Name :</span>
-      <select style="${sel}"><option>Grand Bell Arena</option></select>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Sorting :</span>
-      <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6" checked> Start Date</label>
-      <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6"> JobName</label>
-    </div>
-    <div style="margin-bottom:20px;padding-left:145px;">
-      <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
-      <button class="btn" style="padding:5px 20px;">Add New</button>
-    </div>
-    <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;">
-      <thead>
-        <tr style="background:#333;color:#fff;">
-          <th style="padding:8px 10px;text-align:left;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:center;">Copy</th>
-          <th style="padding:8px 10px;text-align:center;">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="background:#fff;border-bottom:1px solid #eee;">
-          <td style="padding:8px 10px;"><span id="job6-link" style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
-          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
-          <td style="padding:8px 10px;">AB Convention Center</td>
-          <td style="padding:8px 10px;">08/15/2026 08:00</td>
-          <td style="padding:8px 10px;">08/16/2026 17:00</td>
-          <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#444;">&#128203;</span></td>
-          <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#c00;">&#10006;</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
-      <span>Total Pages: 1</span>
-      <div style="display:flex;gap:3px;">
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
-      </div>
-      <span>Current Page: 1</span>
-    </div>`;
+    <div class="page-title">Manage Jobs</div>
+    <div class="note-bar">To fully delete a job, first cancel it, then delete its shifts, then delete the job.</div>
+    <table><thead><tr><th>Job#</th><th>Job Name</th><th>Branch</th><th>Start</th><th>Finish</th><th>Job Class</th><th style="width:50px">Edit</th></tr></thead>
+    <tbody>
+      <tr><td>1012698342</td><td>DRAKE N3</td><td>Los Angeles</td><td>05/21/2026</td><td>06/05/2026</td>
+        <td id="job-class-cell">Active</td>
+        <td><span id="edit-btn" style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold" title="Edit">&#9998;</span></td></tr>
+      <tr><td>1012698123</td><td>BEYONCE TOUR</td><td>Los Angeles</td><td>07/20/2023</td><td>07/21/2023</td><td>Active</td>
+        <td><span style="cursor:pointer;font-size:14px;color:#3a6aaa;font-weight:bold">&#9998;</span></td></tr>
+    </tbody></table>`;
   runGuided([
-    { selector: '#job6-link', prompt: 'Click the job number to open the Add / Edit Job form',
+    { selector: '#edit-btn', prompt: 'Click the Edit icon to open the job record',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = addEditJobFormHTML();
-        document.getElementById('f-job-num').value    = '5023705541';
-        document.getElementById('f-job-name').value   = 'Drake Job';
-        document.getElementById('f-job-class').value  = 'Events';
-        document.getElementById('f-job-dept').value   = 'Staff';
-        document.getElementById('f-job-event').value  = '2026 DRAKE CONCERT';
-        document.getElementById('f-job-venue').value  = 'AB Convention Center';
-        document.getElementById('f-job-client').value = 'AB Ventures';
-        document.getElementById('f-job-start').value  = '08/15/2026';
-        document.getElementById('f-job-stime').value  = '08:00';
-        document.getElementById('f-job-end').value    = '08/16/2026';
-        document.getElementById('f-job-etime').value  = '17:00';
-        document.getElementById('job-form-title').textContent = 'Add / Edit Job - 5023705541  Drake Job';
-        // Add Canceled option to Job Class
-        const jc = document.getElementById('f-job-class');
-        if (jc && !jc.querySelector('option[value="Canceled"]')) {
-          const opt = document.createElement('option');
-          opt.value = opt.textContent = 'Canceled';
-          jc.appendChild(opt);
+        document.getElementById('content').innerHTML = addEditJobHTML('1012698342', 'DRAKE N3') +
+          `<style>#f-jobclass-cancel{width:160px}</style>`;
+        // Replace job class select with one that has Canceled option
+        const jc = document.getElementById('f-jobclass');
+        if (jc) {
+          jc.innerHTML = '<option>Events</option><option>Canceled</option>';
+          jc.id = 'f-jobclass';
         }
-        // Give the Back button an id so later steps can target it
-        document.querySelectorAll('#content .btn').forEach(b => {
-          if (b.textContent.trim() === 'Back') b.id = 'btn-job-back';
-        });
       }},
-    { selector: '#f-job-class', prompt: 'Change Job Class to "Canceled" — do this immediately when a job is canceled',
-      onConfirm: () => { document.getElementById('f-job-class').value = 'Canceled'; }},
-    { selector: '#btn-job-save', prompt: 'Click "Save" — the job is now marked Canceled',
+    { selector: '#f-jobclass', prompt: 'Change the Job Class to "Canceled"',
+      onConfirm: () => { document.getElementById('f-jobclass').value = 'Canceled'; }},
+    { selector: '#btn-save', prompt: 'Click "Save" — the job is now marked as canceled',
       onConfirm: () => {
-        document.getElementById('content').insertAdjacentHTML('afterbegin',
-          '<div class="msg-success show" style="margin-bottom:8px;">&#10004; Record has been updated successfully.</div>');
-      }},
-    { selector: '#btn-job-back', prompt: 'Click "Back" to return to the search results — next we\'ll delete the job',
-      onConfirm: () => {
-        const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
-        const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
-        const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
-        const row = 'display:flex;align-items:center;margin-bottom:10px;';
-        document.getElementById('content').innerHTML = `
-          <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
-          <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
-          <div style="${row}">
-            <span style="${lbl}">Branch Name :</span>
-            <select style="${sel}"><option>Prota LA Branch Test</option></select>
-            <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
-            <span style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
-          </div>
-          <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
-          <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
-          <div style="${row}">
-            <span style="${lbl}">Start Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="${row}">
-            <span style="${lbl}">End Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="${row}">
-            <span style="${lbl}">Venue Name :</span>
-            <select style="${sel}"><option>Grand Bell Arena</option></select>
-          </div>
-          <div style="${row}">
-            <span style="${lbl}">Sorting :</span>
-            <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6b" checked> Start Date</label>
-            <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt6b"> JobName</label>
-          </div>
-          <div style="margin-bottom:20px;padding-left:145px;">
-            <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
-            <button class="btn" style="padding:5px 20px;">Add New</button>
-          </div>
-          <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
-          <table style="width:100%;border-collapse:collapse;font-size:13px;">
-            <thead>
-              <tr style="background:#333;color:#fff;">
-                <th style="padding:8px 10px;text-align:left;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-                <th style="padding:8px 10px;text-align:left;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-                <th style="padding:8px 10px;text-align:left;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-                <th style="padding:8px 10px;text-align:left;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-                <th style="padding:8px 10px;text-align:left;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-                <th style="padding:8px 10px;text-align:center;">Copy</th>
-                <th style="padding:8px 10px;text-align:center;">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr id="job6-delete-row">
-                <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
-                <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
-                <td style="padding:8px 10px;">AB Convention Center</td>
-                <td style="padding:8px 10px;">08/15/2026 08:00</td>
-                <td style="padding:8px 10px;">08/16/2026 17:00</td>
-                <td style="padding:8px 10px;text-align:center;"><span style="cursor:pointer;font-size:17px;color:#444;">&#128203;</span></td>
-                <td style="padding:8px 10px;text-align:center;"><span id="job6-delete-icon" style="cursor:pointer;font-size:17px;color:#c00;">&#10006;</span></td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
-            <span>Total Pages: 1</span>
-            <div style="display:flex;gap:3px;">
-              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
-              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
-              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
-              <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
-            </div>
-            <span>Current Page: 1</span>
-          </div>`;
-      }},
-    { selector: '#job6-delete-icon', prompt: 'Click the Delete (✖) icon to permanently delete this job',
-      onConfirm: () => {
-        const m = document.createElement('div');
-        m.id = 'job6-delete-modal';
-        m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
-        m.innerHTML = `
-          <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
-            <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
-            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to delete this Record!</div>
-            <div style="display:flex;justify-content:flex-end;gap:8px;">
-              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('job6-delete-modal').remove()">Cancel</button>
-              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
-            </div>
-          </div>`;
-        document.body.appendChild(m);
-        setTimeout(() => {
-          m.remove();
-          const r = document.getElementById('job6-delete-row');
-          if (r) r.remove();
-          document.getElementById('content').insertAdjacentHTML('afterbegin',
-            '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job deleted successfully.</div>');
-        }, 1200);
+        const m = document.querySelector('.msg-success');
+        if (m) { m.textContent = '✔ Job class updated to Canceled.'; m.style.display = 'block'; }
       }},
   ]);
 }
@@ -968,113 +718,6 @@ function slide_manage_job_7() {
       onConfirm: () => {
         const m = document.querySelector('.msg-success');
         if (m) { m.textContent = '✔ Shift shared with San Diego Branch.'; m.style.display = 'block'; }
-      }},
-  ]);
-}
-
-function slide_manage_job_9() {
-  setNav('records');
-  const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
-  const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
-  const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
-  const row = 'display:flex;align-items:center;margin-bottom:10px;';
-  document.getElementById('content').innerHTML = `
-    <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
-    <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
-    <div style="${row}">
-      <span style="${lbl}">Branch Name :</span>
-      <select style="${sel}"><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00;margin-left:6px;margin-right:18px;">*</span>
-      <span style="color:#1a6abf;font-weight:bold;font-size:13px;cursor:pointer;">Copy Setting &#9660;</span>
-    </div>
-    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" value="5023705541"></div>
-    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" value=""></div>
-    <div style="${row}">
-      <span style="${lbl}">Start Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="05/28/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">End Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 6px;width:110px;background:#fff;height:24px;font-size:13px;" value="06/12/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Venue Name :</span>
-      <select style="${sel}"><option>Grand Bell Arena</option></select>
-    </div>
-    <div style="${row}">
-      <span style="${lbl}">Sorting :</span>
-      <label style="font-size:13px;margin-right:16px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt9" checked> Start Date</label>
-      <label style="font-size:13px;display:flex;align-items:center;gap:4px;"><input type="radio" name="srt9"> JobName</label>
-    </div>
-    <div style="margin-bottom:20px;padding-left:145px;">
-      <button class="btn" style="padding:5px 20px;margin-right:8px;">Search</button>
-      <button class="btn" style="padding:5px 20px;">Add New</button>
-    </div>
-    <div style="font-size:16px;font-weight:bold;padding-bottom:6px;border-bottom:2px solid #1a3c6a;margin-bottom:10px;">Search Result</div>
-    <table style="width:100%;border-collapse:collapse;font-size:13px;" id="jobs-table-9">
-      <thead>
-        <tr style="background:#333;color:#fff;">
-          <th style="padding:8px 10px;text-align:left;">Job# <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Job Name <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Venue <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">Start Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:left;">End Date <span style="opacity:.7;font-size:10px;">&#8597;</span></th>
-          <th style="padding:8px 10px;text-align:center;">Copy</th>
-          <th style="padding:8px 10px;text-align:center;">Delete</th>
-        </tr>
-      </thead>
-      <tbody id="jobs-tbody-9">
-        <tr id="drake-job-row">
-          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">5023705541</span></td>
-          <td style="padding:8px 10px;"><span style="color:#1a6abf;cursor:pointer;">Drake Job</span></td>
-          <td style="padding:8px 10px;">AB Convention Center</td>
-          <td style="padding:8px 10px;">08/15/2026 08:00</td>
-          <td style="padding:8px 10px;">08/16/2026 17:00</td>
-          <td style="padding:8px 10px;text-align:center;">
-            <span style="cursor:pointer;font-size:17px;color:#444;" title="Copy">&#128203;</span>
-          </td>
-          <td style="padding:8px 10px;text-align:center;">
-            <span id="delete-icon" style="cursor:pointer;font-size:17px;color:#c00;" title="Delete">&#10006;</span>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:12px;color:#333;">
-      <span>Total Pages: 1</span>
-      <div style="display:flex;gap:3px;">
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664;&#9664; First</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">&#9664; Previous</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Next &#9654;</button>
-        <button style="padding:3px 9px;font-size:11px;background:#e8851a;color:#fff;border:none;border-radius:2px;cursor:pointer;">Last &#9654;&#9654;</button>
-      </div>
-      <span>Current Page: 1</span>
-    </div>`;
-  runGuided([
-    { selector: '#delete-icon', prompt: 'Click the Delete icon to delete this job',
-      onConfirm: () => {
-        // Show the confirm dialog, then auto-simulate OK after 1.2s
-        const m = document.createElement('div');
-        m.id = 'delete-confirm-modal';
-        m.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:9000;display:flex;align-items:flex-start;justify-content:center;padding-top:55px;';
-        m.innerHTML = `
-          <div style="background:#fff;border-radius:6px;padding:18px 22px 16px;min-width:330px;box-shadow:0 4px 24px rgba(0,0,0,0.5);">
-            <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #ddd;">wish.schedulingsite.com says</div>
-            <div style="font-size:13px;color:#333;margin-bottom:18px;">Are you sure you want to delete this Record!</div>
-            <div style="display:flex;justify-content:flex-end;gap:8px;">
-              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;" onclick="document.getElementById('delete-confirm-modal').remove()">Cancel</button>
-              <button style="padding:5px 20px;border:1px solid #aaa;background:#fff;border-radius:3px;cursor:pointer;font-size:12px;">OK</button>
-            </div>
-          </div>`;
-        document.body.appendChild(m);
-        setTimeout(() => {
-          m.remove();
-          const row = document.getElementById('drake-job-row');
-          if (row) row.remove();
-          document.getElementById('content').insertAdjacentHTML('afterbegin',
-            '<div class="msg-success show" style="margin-bottom:12px;">&#10004; Job deleted successfully.</div>');
-        }, 1200);
       }},
   ]);
 }
@@ -1204,15 +847,59 @@ function schedEmpHTML() {
 }
 
 function slide_scheduling_3() {
-  setNav('scheduling');
-  document.getElementById('content').innerHTML = schedEmpHTML();
+  // Step 1: Start on the Home dashboard with Scheduling tab collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td>Sierra Erica WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#c07800">Dosier Stadium</td></tr>
+            <tr><td>LA WISH Training Job May 2026</td><td>Dosier Stadium</td></tr>
+            <tr><td>KC DC Staff WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 Foothill Interviews</td><td>Foothill Employment and Training Connection</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060126 Youngblud</td><td>ADDITION FINANCIAL ARENA</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24 HR Red Shirts</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24-Hour Security Coverage 6/1/2026</td><td>Georgia International Convention Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-emp-last', prompt: 'Click here and type the employee\'s last name', type: 'Smith' },
+    { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" in the menu to expand it',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.add('active');
+        document.getElementById('sub-scheduling').classList.add('show');
+      }},
+    { selector: '#sub-sched-emp', prompt: 'Click "Schedule by Employee"',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = schedEmpHTML();
+      }},
+    { selector: '#f-emp-last', prompt: 'Type the employee\'s last name to search', type: 'Smith' },
     { selector: '#btn-empsearch', prompt: 'Click "Search" to load the schedule',
       onConfirm: () => { document.getElementById('cal-section').style.display = ''; }},
-    { selector: '#cal-s1', prompt: 'Click the shift on the calendar to view or edit it',
+    { selector: '#cal-s1', prompt: 'Click the shift on the calendar to assign the employee',
       onConfirm: () => { document.getElementById('cal-s1').classList.add('selected'); }},
-    { selector: '#btn-cal-save', prompt: 'Click "Save" to save schedule changes' },
+    { selector: '#btn-cal-save', prompt: 'Click "Save Schedule" to save your changes' },
   ]);
 }
 
@@ -2147,52 +1834,40 @@ function slide_introduction_7() {
 
 // Shared helper: Add/Edit Event form HTML
 function addEditEventHTML(eventNum, eventName, showTabs) {
-  const extraTabs = showTabs ? `
+  const tabs = showTabs ? `
+    <div class="tabs" id="event-tabs">
+      <span class="tab active" id="tab-evt-ri">Record Information</span>
       <span class="tab" id="tab-evt-clients">Clients</span>
       <span class="tab" id="tab-evt-venues">Venues</span>
-      <span class="tab" id="tab-evt-sharedbranches">Shared Branches</span>
-      <span class="tab" id="tab-evt-credential">Event Credential</span>` : '';
-  const lbl = 'text-align:right;width:170px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:7px;';
-  const header = (eventNum && eventName) ? `Add / Edit Event - ${eventNum}&nbsp;&nbsp;${eventName}` : 'Add / Edit Event';
+      <span class="tab" id="tab-evt-jobs">Jobs</span>
+    </div>` : '';
   return `
-    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">${header}</div>
-    <div class="msg-success" id="evt-saved-msg">&#10004; Record has been added successfully.</div>
-    <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:10px;font-size:12px;">Note: All the * marked fields are mandatory</div>
-    <div class="tabs" id="event-tabs" style="margin-bottom:14px;">
-      <span class="tab active" id="tab-evt-ri">Event Info</span>
-      <span class="tab" id="tab-evt-udf">User Defined Field</span>${extraTabs}
-    </div>
+    <div class="page-title">Add / Edit Event</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div class="msg-success" id="evt-saved-msg">&#10004; Event saved successfully.</div>
+    ${tabs}
     <div id="sec-evt-ri">
-      <div style="${row}"><span style="${lbl}">Event Name :</span>
-        <input style="${inp}" id="f-evtname" value="${eventName}"> <span class="req" style="margin-left:4px;">*</span></div>
-      <div style="${row}"><span style="${lbl}">Event Type :</span>
-        <select style="${sel}" id="f-evt-type"><option>--Select--</option><option>Sporting</option><option>Entertainment /Concert</option><option>Convention</option><option>Campus Security</option><option>Racing</option><option>Private Party</option><option>Fair</option><option>Other</option></select> <span class="req" style="margin-left:4px;">*</span></div>
-      <div style="${row}"><span style="${lbl}">Start Date:</span>
-        <input style="border:1px solid #aaa;padding:2px 4px;width:120px;background:#fff;height:22px;font-size:12px;" id="f-evt-start" value="">${calBtn()} <span class="req" style="margin-left:4px;">*</span></div>
-      <div style="${row}"><span style="${lbl}">End Date:</span>
-        <input style="border:1px solid #aaa;padding:2px 4px;width:120px;background:#fff;height:22px;font-size:12px;" id="f-evt-end" value="">${calBtn()} <span class="req" style="margin-left:4px;">*</span></div>
-      <div style="${row}"><span style="${lbl}">Status:</span>
-        <select style="${sel}" id="f-evt-status"><option>Active</option><option>Inactive</option></select></div>
-      <div style="${row}"><span style="${lbl}">Event #:</span>
-        <input style="${inp}" id="f-evtnum" value="${eventNum}" readonly></div>
-      <div style="${row};margin-top:4px;"><span style="${lbl}">Count As Worked :</span>
-        <span style="display:flex;align-items:center;gap:12px;font-size:12px;">
-          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" checked style="accent-color:#c07800;width:14px;height:14px;">Yes</label>
-          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" style="accent-color:#c07800;width:14px;height:14px;">No</label>
-        </span></div>
-      <div style="${row}"><span style="${lbl}">Allow for scheduling :</span>
-        <input type="checkbox" style="width:14px;height:14px;accent-color:#c07800;cursor:pointer;"></div>
-      <div style="margin:10px 0 6px 0;font-weight:bold;font-size:12px;color:#222;">Other Information</div>
-      <div style="${row}"><span style="${lbl}">Notes :</span>
-        <textarea style="border:1px solid #aaa;padding:3px;width:200px;height:70px;font-size:12px;resize:vertical;"></textarea></div>
+      <div class="form-row"><span class="form-label">Event# :</span>
+        <input class="form-input" id="f-evtnum" value="${eventNum}" style="width:130px" readonly></div>
+      <div class="form-row"><span class="form-label">Event Name :</span>
+        <input class="form-input" id="f-evtname" value="${eventName}"> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Branch Name :</span>
+        <select class="form-select"><option>Prota LA Branch Test</option></select> <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Start Date :</span>
+        <input class="form-input" id="f-evt-start" value="" style="width:100px">${calBtn()} <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">End Date :</span>
+        <input class="form-input" id="f-evt-end" value="" style="width:100px">${calBtn()} <span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Load In Date :</span>
+        <input class="form-input" id="f-evt-loadin" value="" style="width:100px">${calBtn()}</div>
+      <div class="form-row"><span class="form-label">Load Out Date :</span>
+        <input class="form-input" id="f-evt-loadout" value="" style="width:100px">${calBtn()}</div>
+      <div class="form-row"><span class="form-label">Notes :</span>
+        <textarea class="form-input" style="width:200px;height:46px;resize:vertical;padding:3px;"></textarea></div>
     </div>
-    <div style="margin-top:16px;display:flex;gap:6px;">
-      <button class="btn" id="btn-evt-save" style="padding:4px 18px;">Save</button>
-      <button class="btn" style="padding:4px 18px;">Reset</button>
-      <button class="btn" style="padding:4px 18px;">Back</button>
+    <div style="margin-top:14px">
+      <button class="btn" id="btn-evt-save">Save</button>
+      <button class="btn">Reset</button>
+      <button class="btn">Back</button>
     </div>`;
 }
 
@@ -2251,130 +1926,56 @@ function slide_record_maintenance_3() {
 // Slide 4 — Manage Event (create)
 function slide_record_maintenance_4() {
   setNav('records');
-  const lbl = 'text-align:right;width:120px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:7px;';
-  const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;vertical-align:middle;">
-    <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
-  </span>`;
   document.getElementById('content').innerHTML = `
-    <div class="page-title" style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Manage Event</div>
-    <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
-    <div style="${row}"><span style="${lbl}">Branch Name :</span><select style="${sel}"><option>Prota LA Branch Test</option></select></div>
-    <div style="${row}"><span style="${lbl}">Event# :</span><input style="${inp}" id="f-srch-evtnum"></div>
-    <div style="${row}"><span style="${lbl}">Event Name :</span><input style="${inp}" id="f-srch-evtname"></div>
-    <div style="${row}"><span style="${lbl}">Client Name :</span><input style="${inp}" id="f-srch-client">${srchIcon}</div>
-    <div style="${row}"><span style="${lbl}">Event Type :</span><select style="${sel}" id="f-srch-evttype"><option>All</option><option>Sporting</option><option>Entertainment /Concert</option><option>Convention</option><option>Campus Security</option><option>Racing</option><option>Private Party</option><option>Fair</option><option>Other</option></select></div>
-    <div style="${row}"><span style="${lbl}">Status :</span><select style="${sel}" id="f-srch-status"><option>Active</option><option>Inactive</option><option>All</option></select></div>
-    <div style="margin:14px 0 0 128px;">
-      <button class="btn" id="btn-srch-evt" style="padding:4px 18px;font-size:12px;">Search</button>
-      <button class="btn" id="btn-addnew-evt" style="padding:4px 18px;font-size:12px;">Add New</button>
+    <div class="page-title">Manage Event</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div class="form-row">
+      <span class="form-label">Branch Name :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select>&nbsp;<span class="req">*</span>
+    </div>
+    <div class="form-row">
+      <span class="form-label">Event Name :</span>
+      <input class="form-input" id="f-srch-evtname" placeholder="">
+    </div>
+    <div class="form-row">
+      <span class="form-label">Start Date :</span>
+      <input class="form-input" value="" style="width:100px">${calBtn()}
+      &nbsp;&nbsp;<span class="form-label" style="width:auto">End Date :</span>
+      <input class="form-input" value="" style="width:100px">${calBtn()}
+    </div>
+    <div style="margin:12px 0 0 160px;">
+      <button class="btn" id="btn-srch-evt">Search</button>
+      <button class="btn" id="btn-addnew-evt">Add New</button>
     </div>`;
   runGuided([
     { selector: '#btn-addnew-evt', prompt: 'Click "Add New" to create a new Event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditEventHTML('', '', false); }},
-    { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2026 DRAKE CONCERT' },
-    { selector: '#f-evt-type', prompt: '* Event Type — select the type that applies',
-      onConfirm: () => { document.getElementById('f-evt-type').value = 'Entertainment /Concert'; }},
-    { selector: '#f-evt-start', prompt: '* Start Date — set the event start date', type: '08/15/2026' },
-    { selector: '#f-evt-end', prompt: '* End Date — set the event end date', type: '08/16/2026' },
+    { selector: '#f-evtname', prompt: 'Click here and type the Event Name', type: '2025 DRAKE CONCERT' },
+    { selector: '#f-evt-start', prompt: 'Set the Event Start Date', type: '08/15/2025' },
+    { selector: '#f-evt-end', prompt: 'Set the Event End Date', type: '08/16/2025' },
+    { selector: '#f-evt-loadin', prompt: 'Set the Load In Date — when your branch moves into the venue', type: '08/14/2025' },
+    { selector: '#f-evt-loadout', prompt: 'Set the Load Out Date — when your branch moves out', type: '08/17/2025' },
     { selector: '#btn-evt-save', prompt: 'Click "Save" — an Event# will be generated and new tabs will appear',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
-        document.getElementById('f-evt-start').value = '08/15/2026';
-        document.getElementById('f-evt-end').value = '08/16/2026';
-        document.getElementById('f-evt-type').value = 'Entertainment /Concert';
-        document.getElementById('f-evtnum').value = '119369';
+        document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
+        document.getElementById('f-evt-start').value = '08/15/2025';
+        document.getElementById('f-evt-end').value = '08/16/2025';
+        document.getElementById('f-evt-loadin').value = '08/14/2025';
+        document.getElementById('f-evt-loadout').value = '08/17/2025';
         document.getElementById('evt-saved-msg').classList.add('show');
       }},
-    { selector: '#event-tabs', prompt: 'Event saved — new tabs have appeared: Clients, Venues, Shared Branches, and Event Credential.', skipClick: true },
+    { selector: '#event-tabs', prompt: 'New tabs have appeared — Clients, Venues, and Jobs. You\'ll use these next.', skipClick: true },
   ]);
 }
 
 // Slide 5 — Manage Event Tabs-Clients
-function clientsTabHTML() {
-  const lbl = 'text-align:right;width:130px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:196px;background:#fff;height:22px;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:178px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:8px;';
-  const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;">
-    <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
-  </span>`;
-  const chk = '<span style="color:#3a9a3a;font-size:16px;font-weight:bold;">&#10004;</span>';
-  const clients = [
-    ['AB Ventures','Defence Street','San Francisco','California','(317) 279-6962'],
-    ['ABA','3106','Santa Clara','California','(317) 279-6962'],
-    ['AJ Super Bowl 2026','3106','Santa Clara','California','(317) 279-6962'],
-    ['aPost Super Bowl','712','Santa Clara','California','(317) 279-6962'],
-    ['Arizona Club','3106','Santa Clara','California','(317) 279-6962'],
-    ['C Phoenix Speedway LLC','4561 Playa Vista Dr','Playa Vista','California','(635) 894-1252'],
-    ['Creative Entertainment','2345','Anaheim','California','(555) 656-1235'],
-    ['Crocket LLC','100 Ocean Drive','Los Angeles','California','(323) 289-7430'],
-    ['JAD','3106','Santa Clara','California','(317) 279-6962'],
-    ['Landigo Plus','7895 Abber st','Playa Vista','California','(856) 554-2565'],
-  ];
-  const th = 'padding:6px 8px;border:1px solid #555;text-align:left;color:#fff;font-size:12px;';
-  const td = 'padding:5px 8px;border:1px solid #ccc;font-size:12px;';
-  const rows = clients.map((c, i) => `<tr style="background:${i%2===0?'#fff':'#f7f7f7'}">
-    <td style="${td}text-align:center;"><input type="checkbox" class="chk-client"></td>
-    <td style="${td}text-align:center;">${chk}</td>
-    <td style="${td}">${c[0]}</td>
-    <td style="${td}">${c[1]}</td>
-    <td style="${td}">${c[2]}</td>
-    <td style="${td}">${c[3]}</td>
-    <td style="${td}">${c[4]}</td>
-  </tr>`).join('');
-  const pagerBtn = (label) => `<button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">${label}</button>`;
-  return `
-    <div id="sec-evt-clients" style="margin-top:6px;">
-      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Existing Clients</div>
-      <div id="existing-clients-list" style="margin-bottom:18px;font-size:12px;color:#888;min-height:10px;"></div>
-      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Add Clients</div>
-      <div style="${row}"><span style="${lbl}">Client Type :</span>
-        <select style="${sel}" id="f-client-type"><option>All</option><option>Corporate</option><option>Individual</option></select></div>
-      <div style="${row}"><span style="${lbl}">Branch Name :</span>
-        <select style="${sel}" id="f-client-branch"><option>Prota LA Branch Test</option></select></div>
-      <div style="${row}"><span style="${lbl}">Client Name :</span>
-        <input style="${inp}" id="f-client-name">${srchIcon}</div>
-      <div style="${row}"><span style="${lbl}">Status :</span>
-        <select style="${sel}" id="f-client-status"><option>All</option><option>Active</option><option>Inactive</option></select></div>
-      <div style="margin:10px 0 14px 138px;display:flex;gap:6px;">
-        <button class="btn" id="btn-client-search" style="padding:4px 18px;">Search</button>
-        <button class="btn" style="padding:4px 18px;">Back</button>
-      </div>
-      <div id="client-search-results" style="display:none;">
-        <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="background:#444;">
-            <th style="${th}width:50px;text-align:center;">Select</th>
-            <th style="${th}width:55px;text-align:center;">Status</th>
-            <th style="${th}">Client Name</th>
-            <th style="${th}">Address</th>
-            <th style="${th}">City</th>
-            <th style="${th}">State</th>
-            <th style="${th}">Phone</th>
-          </tr></thead>
-          <tbody id="client-results-body">${rows}</tbody>
-        </table>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;padding:4px 0;">
-          <span style="font-weight:bold;">Total Pages: 2</span>
-          <span>${pagerBtn('&#9664;&#9664; First')}${pagerBtn('&#9664; Previous')}${pagerBtn('Next &#9654;')}${pagerBtn('Last &#9654;&#9654;')}</span>
-          <span style="font-weight:bold;">Current Page: 1</span>
-        </div>
-      </div>
-      <div style="margin-top:16px;text-align:center;">
-        <button class="btn" id="btn-client-add" style="padding:4px 28px;">Add</button>
-      </div>
-      <div id="client-added-msg" class="msg-success" style="display:none;margin-top:10px;">&#10004; Client added successfully.</div>
-    </div>`;
-}
-
 function slide_record_maintenance_5() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
-  document.getElementById('f-evt-start').value = '08/15/2026';
-  document.getElementById('f-evt-end').value = '08/16/2026';
-  document.getElementById('f-evt-type').value = 'Entertainment /Concert';
+  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
+  document.getElementById('f-evt-start').value = '08/15/2025';
+  document.getElementById('f-evt-end').value = '08/16/2025';
+  document.getElementById('f-evt-loadin').value = '08/14/2025';
+  document.getElementById('f-evt-loadout').value = '08/17/2025';
 
   runGuided([
     { selector: '#tab-evt-clients', prompt: 'Click the "Clients" tab to add a client to this event',
@@ -2382,140 +1983,54 @@ function slide_record_maintenance_5() {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.getElementById('tab-evt-clients').classList.add('active');
         document.getElementById('sec-evt-ri').style.display = 'none';
-        document.querySelector('.btn#btn-evt-save')?.closest('div[style*="margin-top:16px"]') && (document.querySelector('.btn#btn-evt-save').closest('div[style*="margin-top:16px"]').style.display = 'none');
-        document.getElementById('content').insertAdjacentHTML('beforeend', clientsTabHTML());
+        document.getElementById('content').insertAdjacentHTML('beforeend', `
+          <div id="sec-evt-clients" style="margin-top:4px">
+            <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
+              <span style="font-weight:bold;font-size:12px">Search Client :</span>
+              <input class="form-input" id="f-client-srch" placeholder="Client name..." style="width:200px">
+              <button class="btn btn-sm" id="btn-client-srch">Search</button>
+            </div>
+            <div id="client-results" style="display:none">
+              <table><thead><tr><th>Client Name</th><th>Status</th><th>Add</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Forum Entertainment LLC</td>
+                  <td><input type="checkbox" id="chk-client-status" checked> Active</td>
+                  <td><button class="btn btn-sm btn-blue" id="btn-add-client">Add</button></td>
+                </tr>
+              </tbody></table>
+            </div>
+            <div id="client-added-list" style="margin-top:12px;display:none">
+              <div style="font-weight:bold;font-size:12px;margin-bottom:6px;border-bottom:1px solid #ddd;padding-bottom:4px">Clients on this Event:</div>
+              <table><thead><tr><th>Client Name</th><th>Status</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>Forum Entertainment LLC</td><td><span style="color:#2a9a2a">&#10004; Active</span></td>
+                  <td><button class="btn btn-sm" style="background:#c06060;border-color:#a04040">Remove</button></td></tr>
+              </tbody></table>
+            </div>
+          </div>`);
       }},
-    { selector: '#btn-client-search', prompt: 'Click "Search" to see all available clients',
-      onConfirm: () => { document.getElementById('client-search-results').style.display = 'block'; }},
-    { selector: '.chk-client', prompt: 'Check the box next to the client you want to add to this event',
-      onConfirm: () => { document.querySelectorAll('.chk-client')[0].checked = true; }},
-    { selector: '#btn-client-add', prompt: 'Click "Add" to attach the selected client to this event',
+    { selector: '#f-client-srch', prompt: 'Search for your client by name', type: 'Forum' },
+    { selector: '#btn-client-srch', prompt: 'Click "Search" to find the client',
+      onConfirm: () => { document.getElementById('client-results').style.display = 'block'; }},
+    { selector: '#chk-client-status', prompt: 'Confirm the client Status is checked (Active)' },
+    { selector: '#btn-add-client', prompt: 'Click "Add" to attach this client to the event',
       onConfirm: () => {
-        const td = 'padding:5px 8px;border:1px solid #ccc;font-size:12px;';
-        const th = 'padding:6px 8px;border:1px solid #555;text-align:left;color:#fff;font-size:12px;';
-        // Green success banner above the note banner
-        const content = document.getElementById('content');
-        const noteBanner = content.querySelector('[style*="fffde6"]');
-        if (noteBanner && !document.getElementById('client-success-banner')) {
-          const banner = document.createElement('div');
-          banner.id = 'client-success-banner';
-          banner.className = 'msg-success show';
-          banner.style.marginBottom = '8px';
-          banner.innerHTML = '&#10004; Record has been Added Successfully.';
-          noteBanner.parentNode.insertBefore(banner, noteBanner);
-        }
-        // Existing Clients table: Name | Address | City | State | Phone | remove icon
-        document.getElementById('existing-clients-list').innerHTML = `
-          <table style="width:100%;border-collapse:collapse;">
-            <thead><tr style="background:#444;">
-              <th style="${th}">Client Name</th>
-              <th style="${th}">Address</th>
-              <th style="${th}">City</th>
-              <th style="${th}">State</th>
-              <th style="${th}">Phone</th>
-              <th style="${th}width:30px;"></th>
-            </tr></thead>
-            <tbody><tr style="background:#f0f0f0;">
-              <td style="${td}">AB Ventures</td>
-              <td style="${td}">Defence Street</td>
-              <td style="${td}">San Francisco</td>
-              <td style="${td}">California</td>
-              <td style="${td}">(317) 279-6962</td>
-              <td style="${td}text-align:center;cursor:pointer;font-size:16px;color:#c00;">&#128683;</td>
-            </tr></tbody>
-          </table>`;
-        // Remove AB Ventures from search results (row 0), search table stays visible
-        const tbody = document.getElementById('client-results-body');
-        if (tbody && tbody.rows[0]) tbody.deleteRow(0);
+        document.getElementById('client-results').style.display = 'none';
+        document.getElementById('client-added-list').style.display = 'block';
       }},
-    { selector: '#existing-clients-list', prompt: 'Client added — appears under "Existing Clients". Search list stays open so you can keep adding more.', skipClick: true },
+    { selector: '#client-added-list', prompt: 'Client added. You can add multiple clients to one event for billing purposes.', skipClick: true },
   ]);
 }
 
 // Slide 6 — Manage Event Tabs-Venues
 function slide_record_maintenance_6() {
   setNav('records');
-  document.getElementById('content').innerHTML = addEditEventHTML('119369', '2026 DRAKE CONCERT', true);
-  document.getElementById('f-evt-start').value = '08/15/2026';
-  document.getElementById('f-evt-end').value = '08/16/2026';
-  document.getElementById('f-evt-type').value = 'Entertainment /Concert';
-
-  const lbl = 'text-align:right;width:130px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:196px;background:#fff;height:22px;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:178px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:8px;';
-  const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;">
-    <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
-  </span>`;
-  const th = 'padding:6px 8px;border:1px solid #555;text-align:left;color:#fff;font-size:12px;';
-  const td = 'padding:5px 8px;border:1px solid #ccc;font-size:12px;';
-
-  const venuesHTML = `
-    <div id="sec-evt-venues" style="margin-top:6px;">
-      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Existing Venues</div>
-      <div id="existing-venues-list" style="margin-bottom:18px;">
-        <div style="background:#fffde6;border:1px solid #e0d080;padding:8px 12px;font-size:12px;display:flex;align-items:center;gap:8px;">
-          <span style="font-size:16px;">&#9888;</span> No Records found.
-        </div>
-      </div>
-      <div style="font-weight:bold;font-size:14px;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Add Venues</div>
-      <div style="${row}"><span style="${lbl}">Branch Name :</span>
-        <select style="${sel}"><option>Prota LA Branch Test</option></select></div>
-      <div style="${row}"><span style="${lbl}">Venue Name :</span>
-        <input style="${inp}" id="f-venue-name">${srchIcon}</div>
-      <div style="${row}"><span style="${lbl}">Status :</span>
-        <select style="${sel}" id="f-venue-status"><option>All</option><option>Active</option><option>Inactive</option></select></div>
-      <div style="margin:10px 0 14px 138px;display:flex;gap:6px;">
-        <button class="btn" id="btn-venue-search" style="padding:4px 18px;">Search</button>
-        <button class="btn" style="padding:4px 18px;">Back</button>
-      </div>
-      <div id="venue-search-results" style="display:none;">
-        <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="background:#444;">
-            <th style="${th}width:50px;text-align:center;">Select</th>
-            <th style="${th}">Venue Name</th>
-            <th style="${th}">Address</th>
-            <th style="${th}">City</th>
-            <th style="${th}">State</th>
-            <th style="${th}">Phone</th>
-          </tr></thead>
-          <tbody id="venue-results-body">
-            ${[
-              ['AB Convention Center','Defence Area','San Francisco','California','(317) 279-6962'],
-              ['ABA Hall','3106','Santa Clara','California','(317) 279-6962'],
-              ['AJ Super Bowl 2026','3106','Santa Clara','California','(317) 279-6962'],
-              ['aPost Super Bowl Venue','3106','Santa Clara','California','(317) 279-6962'],
-              ['Crocket Arena','100 Ocean Drive','Los Angeles','California','(323) 289-7430'],
-              ['Dosier Stadium','2001 Stadium Park Drive','Los Alamitos','California','(323) 289-7430'],
-              ['Grand Bell Arena','10010 Grand Ave','Los Alamitos','California','(898) 555-2123'],
-              ['JAD Venue','3106','Santa Clara','California','(317) 279-6962'],
-              ['Majestic Hall','8615 State Street','South Bay','California','(818) 885-5150'],
-              ['Phoenix Speedway Venue','2312 Playa Vista Dr','Playa Vista','California','(123) 456-7897'],
-            ].map((v,i) => `<tr style="background:${i%2===0?'#fff':'#f7f7f7'}">
-              <td style="${td}text-align:center;"><input type="checkbox" class="chk-venue"></td>
-              <td style="${td}">${v[0]}</td>
-              <td style="${td}">${v[1]}</td>
-              <td style="${td}">${v[2]}</td>
-              <td style="${td}">${v[3]}</td>
-              <td style="${td}">${v[4]}</td>
-            </tr>`).join('')}
-          </tbody>
-        </table>
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:12px;padding:4px 0;">
-          <span style="font-weight:bold;">Total Pages: 2</span>
-          <span>
-            <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">&#9664;&#9664; First</button>
-            <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">&#9664; Previous</button>
-            <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">Next &#9654;</button>
-            <button class="btn" style="padding:2px 8px;font-size:11px;margin:0 1px;">Last &#9654;&#9654;</button>
-          </span>
-          <span style="font-weight:bold;">Current Page: 1</span>
-        </div>
-      </div>
-      <div style="margin-top:16px;text-align:center;">
-        <button class="btn" id="btn-venue-add" style="padding:4px 28px;">Add</button>
-      </div>
-    </div>`;
+  document.getElementById('content').innerHTML = addEditEventHTML('EVT-2025-0841', '2025 DRAKE CONCERT', true);
+  document.getElementById('f-evt-start').value = '08/15/2025';
+  document.getElementById('f-evt-end').value = '08/16/2025';
+  document.getElementById('f-evt-loadin').value = '08/14/2025';
+  document.getElementById('f-evt-loadout').value = '08/17/2025';
 
   runGuided([
     { selector: '#tab-evt-venues', prompt: 'Click the "Venues" tab to add a venue to this event',
@@ -2523,451 +2038,118 @@ function slide_record_maintenance_6() {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.getElementById('tab-evt-venues').classList.add('active');
         document.getElementById('sec-evt-ri').style.display = 'none';
-        document.querySelector('#btn-evt-save')?.closest('div[style*="margin-top:16px"]') && (document.querySelector('#btn-evt-save').closest('div[style*="margin-top:16px"]').style.display = 'none');
-        document.getElementById('content').insertAdjacentHTML('beforeend', venuesHTML);
+        document.getElementById('content').insertAdjacentHTML('beforeend', `
+          <div id="sec-evt-venues" style="margin-top:4px">
+            <div style="color:#555;font-size:12px;margin-bottom:10px">
+              Always search first — the venue may already be in the system.
+            </div>
+            <div style="margin-bottom:10px;display:flex;gap:8px;align-items:center">
+              <span style="font-weight:bold;font-size:12px">Search Venue :</span>
+              <input class="form-input" id="f-venue-srch" placeholder="Venue name..." style="width:200px">
+              <button class="btn btn-sm" id="btn-venue-srch">Search</button>
+            </div>
+            <div id="venue-results" style="display:none">
+              <table><thead><tr><th>Venue Name</th><th>Address</th><th>Add</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>The Forum</td>
+                  <td>3900 W Manchester Blvd, Inglewood CA</td>
+                  <td><button class="btn btn-sm btn-blue" id="btn-add-venue">Add</button></td>
+                </tr>
+                <tr>
+                  <td>SoFi Stadium</td>
+                  <td>1001 Stadium Dr, Inglewood CA</td>
+                  <td><button class="btn btn-sm btn-blue">Add</button></td>
+                </tr>
+              </tbody></table>
+            </div>
+            <div id="venue-added-list" style="margin-top:12px;display:none">
+              <div style="font-weight:bold;font-size:12px;margin-bottom:6px;border-bottom:1px solid #ddd;padding-bottom:4px">Venues on this Event:</div>
+              <table><thead><tr><th>Venue Name</th><th>Address</th><th></th></tr></thead>
+              <tbody>
+                <tr><td>The Forum</td><td>3900 W Manchester Blvd, Inglewood CA</td>
+                  <td><button class="btn btn-sm" style="background:#c06060;border-color:#a04040">Remove</button></td></tr>
+              </tbody></table>
+            </div>
+          </div>`);
       }},
-    { selector: '#btn-venue-search', prompt: 'Click "Search" to see available venues',
-      onConfirm: () => { document.getElementById('venue-search-results').style.display = 'block'; }},
-    { selector: '.chk-venue', prompt: 'Check the box next to the venue for this event',
-      onConfirm: () => { document.querySelectorAll('.chk-venue')[0].checked = true; }},
-    { selector: '#btn-venue-add', prompt: 'Click "Add" to attach the venue to this event',
+    { selector: '#f-venue-srch', prompt: 'Search for the venue — always check before creating a new one', type: 'Forum' },
+    { selector: '#btn-venue-srch', prompt: 'Click "Search"',
+      onConfirm: () => { document.getElementById('venue-results').style.display = 'block'; }},
+    { selector: '#btn-add-venue', prompt: 'Click "Add" to attach The Forum to this event',
       onConfirm: () => {
-        const content = document.getElementById('content');
-        const noteBanner = content.querySelector('[style*="fffde6"]');
-        if (noteBanner && !document.getElementById('venue-success-banner')) {
-          const banner = document.createElement('div');
-          banner.id = 'venue-success-banner';
-          banner.className = 'msg-success show';
-          banner.style.marginBottom = '8px';
-          banner.innerHTML = '&#10004; Record has been Added Successfully.';
-          noteBanner.parentNode.insertBefore(banner, noteBanner);
-        }
-        document.getElementById('existing-venues-list').innerHTML = `
-          <table style="width:100%;border-collapse:collapse;">
-            <thead><tr style="background:#444;">
-              <th style="${th}">Venue Name</th>
-              <th style="${th}">Address</th>
-              <th style="${th}">City</th>
-              <th style="${th}">State</th>
-              <th style="${th}">Phone</th>
-              <th style="${th}width:30px;"></th>
-            </tr></thead>
-            <tbody><tr style="background:#f0f0f0;">
-              <td style="${td}">The Forum</td>
-              <td style="${td}">3900 W Manchester Blvd</td>
-              <td style="${td}">Inglewood</td>
-              <td style="${td}">California</td>
-              <td style="${td}">(310) 330-7300</td>
-              <td style="${td}text-align:center;cursor:pointer;font-size:16px;color:#c00;">&#128683;</td>
-            </tr></tbody>
-          </table>`;
-        const tbody = document.getElementById('venue-results-body');
-        if (tbody && tbody.rows[0]) tbody.deleteRow(0);
+        document.getElementById('venue-results').style.display = 'none';
+        document.getElementById('venue-added-list').style.display = 'block';
       }},
-    { selector: '#existing-venues-list', prompt: 'Venue added — appears under "Existing Venues". An event can have multiple venues.', skipClick: true },
+    { selector: '#venue-added-list', prompt: 'Venue added. An event can have multiple venues if needed.', skipClick: true },
   ]);
 }
 
 // Slide 7 — Manage Job (under the Event)
-function addEditJobFormHTML() {
-  const lbl = 'text-align:right;width:175px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:7px;';
-  const req = '<span style="color:#c00;margin-left:4px;">*</span>';
-  return `
-    <div id="job-form-title" style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Add / Edit Job</div>
-    <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:10px;font-size:12px;">Note: All the * marked fields are mandatory</div>
-    <div class="tabs" style="margin-bottom:14px;">
-      <span class="tab active" id="tab-record-info" onclick="showJobTab('record-info',this)">Record Information</span>
-      <span class="tab" onclick="showJobTab('overrides',this)">Job Over-rides</span>
-      <span class="tab" onclick="showJobTab('invoice',this)">Invoice</span>
-      <span class="tab" onclick="showJobTab('contact',this)">Contact</span>
-      <span class="tab" onclick="showJobTab('joborder',this)">Job Order Information</span>
-      <span class="tab" id="tab-shifts" onclick="showJobTab('shifts',this)">Shifts</span>
-      <span class="tab" onclick="showJobTab('jobnotes',this)">JobNotes</span>
-      <span class="tab" onclick="showJobTab('credential',this)">Credential</span>
-    </div>
-    <div id="job-tab-record-info">
-    <div style="${row}"><span style="${lbl}">Job# :</span>
-      <input style="${inp}" id="f-job-num" value="" readonly></div>
-    <div style="${row}"><span style="${lbl}">Job Name :</span>
-      <input style="${inp}" id="f-job-name" value="">${req}</div>
-    <div style="${row}"><span style="${lbl}">Job Class :</span>
-      <select style="${sel}" id="f-job-class" onchange="document.getElementById('f-job-dept').value='Staff'"><option>Select</option><option>Events</option><option>Office</option><option>Training</option><option>Other</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Branch Name :</span>
-      <select style="${sel}" id="f-job-branch"><option>Prota LA Branch Test</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Charge Branch :</span>
-      <select style="${sel}"><option>Prota LA Branch Test</option></select></div>
-    <div style="${row}"><span style="${lbl}">Event Name :</span>
-      <select style="${sel}" id="f-job-event"><option>--Select--</option><option>2026 DRAKE CONCERT</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Department Name :</span>
-      <select style="${sel}" id="f-job-dept"><option value="Staff">Staff</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Venue Name :</span>
-      <select style="${sel}" id="f-job-venue"><option>--Select--</option><option>AB Convention Center</option><option>Grand Bell Arena</option><option>The Forum</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Client Name :</span>
-      <select style="${sel}" id="f-job-client"><option>--Select--</option><option>AB Ventures</option><option>Forum Entertainment LLC</option></select>${req}</div>
-    <div style="${row}"><span style="${lbl}">Status :</span>
-      <select style="${sel}" id="f-job-status"><option>Active</option><option>Inactive</option></select></div>
-    <div style="${row}"><span style="${lbl}">Start Date Time :</span>
-      <input style="border:1px solid #aaa;padding:2px 4px;width:95px;background:#fff;height:22px;font-size:12px;" id="f-job-start">${calBtn()}
-      <input style="border:1px solid #aaa;padding:2px 2px;width:42px;background:#fff;height:22px;font-size:12px;margin-left:4px;text-align:center;" id="f-job-stime" value="00:00">
-      <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>${req}</div>
-    <div style="${row}"><span style="${lbl}">Finish Date Time :</span>
-      <input style="border:1px solid #aaa;padding:2px 4px;width:95px;background:#fff;height:22px;font-size:12px;" id="f-job-end">${calBtn()}
-      <input style="border:1px solid #aaa;padding:2px 2px;width:42px;background:#fff;height:22px;font-size:12px;margin-left:4px;text-align:center;" id="f-job-etime" value="00:00">
-      <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>${req}</div>
-    <div style="${row}"><span style="${lbl}">Critical Date Time :</span>
-      <input style="border:1px solid #aaa;padding:2px 4px;width:95px;background:#fff;height:22px;font-size:12px;" id="f-job-crit">${calBtn()}
-      <input style="border:1px solid #aaa;padding:2px 2px;width:42px;background:#fff;height:22px;font-size:12px;margin-left:4px;text-align:center;" value="00:00">
-      <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span></div>
-    <div style="${row}"><span style="${lbl}">Critical Time Type :</span>
-      <select style="${sel}"><option>Select</option><option>Before</option><option>After</option></select></div>
-    <div style="${row}"><span style="${lbl}">Notes :</span>
-      <textarea style="border:1px solid #aaa;padding:3px;width:200px;height:60px;font-size:12px;resize:vertical;"></textarea></div>
-    <div style="margin-top:16px;display:flex;gap:6px;">
-      <button class="btn" id="btn-job-save" style="padding:4px 18px;">Save</button>
-      <button class="btn" style="padding:4px 18px;">Reset</button>
-      <button class="btn" style="padding:4px 18px;">Back</button>
-    </div>
-    </div>
-    <div id="job-tab-shifts" style="display:none;">
-      <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:18px;">Existing Shift</div>
-      <button class="btn" id="btn-add-shift" style="padding:5px 18px;">Add New Shift</button>
-    </div>
-    <div id="job-tab-overrides" style="display:none;"></div>
-    <div id="job-tab-invoice" style="display:none;"></div>
-    <div id="job-tab-contact" style="display:none;"></div>
-    <div id="job-tab-joborder" style="display:none;"></div>
-    <div id="job-tab-jobnotes" style="display:none;"></div>
-    <div id="job-tab-credential" style="display:none;"></div>`;
-}
-
-function showJobTab(name, el) {
-  ['record-info','shifts','overrides','invoice','contact','joborder','jobnotes','credential'].forEach(t => {
-    const p = document.getElementById('job-tab-' + t);
-    if (p) p.style.display = 'none';
-  });
-  const panel = document.getElementById('job-tab-' + name);
-  if (panel) panel.style.display = '';
-  document.querySelectorAll('.tabs .tab').forEach(t => t.classList.remove('active'));
-  if (el) el.classList.add('active');
-}
-
 function slide_record_maintenance_7() {
   setNav('records');
-  const lbl = 'text-align:right;width:155px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
-  const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
-  const sel = 'border:1px solid #aaa;padding:2px 3px;width:200px;background:#fff;height:22px;font-size:12px;';
-  const row = 'display:flex;align-items:center;margin-bottom:8px;';
   document.getElementById('content').innerHTML = `
-    <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Manage Jobs</div>
-    <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
-    <div style="${row}">
-      <span style="${lbl}">Branch Name :</span>
-      <select style="${sel}"><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00;margin-left:4px;margin-right:16px;">*</span>
-      <span style="color:#1a6abf;font-weight:bold;font-size:12px;cursor:pointer;">Copy Setting &#9660;</span>
-    </div>
-    <div style="${row}"><span style="${lbl}">Job# :</span><input style="${inp}" id="f-srch-jobnum"></div>
-    <div style="${row}"><span style="${lbl}">Job Name :</span><input style="${inp}" id="f-srch-jobname"></div>
-    <div style="${row}"><span style="${lbl}">Start Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 4px;width:95px;background:#fff;height:22px;font-size:12px;" id="f-srch-start" value="05/28/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span></div>
-    <div style="${row}"><span style="${lbl}">End Date :</span>
-      <input style="border:1px solid #aaa;padding:2px 4px;width:95px;background:#fff;height:22px;font-size:12px;" id="f-srch-end" value="06/12/2026">${calBtn()}
-      <span style="color:#c00;margin-left:4px;">*</span></div>
-    <div style="${row}"><span style="${lbl}">Venue Name :</span>
-      <select style="${sel}"><option>Grand Bell Arena</option></select></div>
-    <div style="${row}"><span style="${lbl}">Sorting :</span>
-      <span style="display:flex;align-items:center;gap:14px;font-size:12px;">
-        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" checked style="accent-color:#c07800;">Start Date</label>
-        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" style="accent-color:#c07800;">JobName</label>
-      </span>
-    </div>
-    <div style="margin:14px 0 0 163px;display:flex;gap:6px;">
-      <button class="btn" id="btn-srch-job" style="padding:4px 18px;">Search</button>
-      <button class="btn" id="btn-addnew-job" style="padding:4px 18px;">Add New</button>
+    <div class="page-title">Manage Jobs</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div class="form-row"><span class="form-label">Branch Name :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select>&nbsp;<span class="req">*</span></div>
+    <div class="form-row"><span class="form-label">Event Name :</span>
+      <select class="form-select" id="f-srch-event"><option>2025 DRAKE CONCERT</option></select></div>
+    <div class="form-row"><span class="form-label">Start Date :</span>
+      <input class="form-input" value="08/15/2025" style="width:100px">${calBtn()}
+      &nbsp;&nbsp;<span class="form-label" style="width:auto">End Date :</span>
+      <input class="form-input" value="08/16/2025" style="width:100px">${calBtn()}</div>
+    <div style="margin:12px 0 0 160px;">
+      <button class="btn" id="btn-srch-job2">Search</button>
+      <button class="btn" id="btn-addnew-job2">Add New</button>
     </div>`;
-
   runGuided([
-    { selector: '#btn-addnew-job', prompt: 'Click "Add New" to create a Job under this event',
-      onConfirm: () => { document.getElementById('content').innerHTML = addEditJobFormHTML(); }},
-    { selector: '#f-job-name', prompt: '* Job Name — type the name of this job', type: 'Drake Job' },
-    { selector: '#f-job-class', prompt: '* Job Class — select the type of job (Department auto-fills to "Staff")',
+    { selector: '#btn-addnew-job2', prompt: 'Click "Add New" to create a Job under the 2025 DRAKE CONCERT event',
       onConfirm: () => {
-        document.getElementById('f-job-class').value = 'Events';
-        document.getElementById('f-job-dept').value = 'Staff';
-      }},
-    { selector: '#f-job-event', prompt: '* Event Name — select the event this job belongs to',
-      onConfirm: () => { document.getElementById('f-job-event').value = '2026 DRAKE CONCERT'; }},
-    { selector: '#f-job-venue', prompt: '* Venue Name — select where this job takes place',
-      onConfirm: () => { document.getElementById('f-job-venue').value = 'AB Convention Center'; }},
-    { selector: '#f-job-client', prompt: '* Client Name — select the client for this job',
-      onConfirm: () => { document.getElementById('f-job-client').value = 'AB Ventures'; }},
-    { selector: '#f-job-start', prompt: '* Start Date Time — set when the job begins', type: '08/15/2026',
-      onConfirm: () => { document.getElementById('f-job-stime').value = '08:00'; }},
-    { selector: '#f-job-end', prompt: '* Finish Date Time — set when the job ends', type: '08/16/2026',
-      onConfirm: () => { document.getElementById('f-job-etime').value = '17:00'; }},
-    { selector: '#btn-job-save', prompt: 'Click "Save" to create this Job',
-      onConfirm: () => {
-        document.getElementById('f-job-num').value = '5023705541';
-        const title = document.getElementById('job-form-title');
-        if (title) title.textContent = 'Add / Edit Job - 5023705541  Drake Job';
-        const note = document.querySelector('[style*="fffde6"]');
-        if (note) {
-          const banner = document.createElement('div');
-          banner.className = 'msg-success show';
-          banner.style.marginBottom = '8px';
-          banner.innerHTML = '&#10004; Record has been added successfully.';
-          note.parentNode.insertBefore(banner, note);
-        }
-      }},
-  ]);
-}
-
-// ── Manage Job slide 4 — Shifts and Roles ──────────────────────────────────
-function slide_manage_job_4() {
-  setNav('records');
-  // Restore the saved job state from the end of slide 3
-  document.getElementById('content').innerHTML = addEditJobFormHTML();
-  document.getElementById('f-job-num').value    = '5023705541';
-  document.getElementById('f-job-name').value   = 'Drake Job';
-  document.getElementById('f-job-class').value  = 'Events';
-  document.getElementById('f-job-dept').value   = 'Staff';
-  document.getElementById('f-job-event').value  = '2026 DRAKE CONCERT';
-  document.getElementById('f-job-venue').value  = 'AB Convention Center';
-  document.getElementById('f-job-client').value = 'AB Ventures';
-  document.getElementById('f-job-start').value  = '08/15/2026';
-  document.getElementById('f-job-stime').value  = '08:00';
-  document.getElementById('f-job-end').value    = '08/16/2026';
-  document.getElementById('f-job-etime').value  = '17:00';
-  document.getElementById('job-form-title').textContent = 'Add / Edit Job - 5023705541  Drake Job';
-  const note = document.querySelector('[style*="fffde6"]');
-  if (note) {
-    const banner = document.createElement('div');
-    banner.className = 'msg-success show';
-    banner.style.marginBottom = '8px';
-    banner.innerHTML = '&#10004; Record has been added successfully.';
-    note.parentNode.insertBefore(banner, note);
-  }
-
-  runGuided([
-    { selector: '#tab-shifts', prompt: 'Click the "Shifts" tab to add shifts to this job',
-      onConfirm: () => { showJobTab('shifts', document.getElementById('tab-shifts')); }},
-    { selector: '#btn-add-shift', prompt: 'Click "Add New Shift" to open the shift form',
-      onConfirm: () => { showAddShiftModal(); }},
-    { selector: '#f-shift-name', prompt: '* Shift Name — enter the name of this shift', type: 'Staff One Call' },
-    { selector: '#f-shift-branch-prota', prompt: '* Select Branch — check the branch this shift belongs to',
-      onConfirm: () => { document.getElementById('f-shift-branch-prota').checked = true; }},
-    { selector: '#btn-shift-save', prompt: 'Click "Save" to add this shift to the job — the shift row will appear below',
-      onConfirm: () => {
-        closeAddShiftModal();
-        document.getElementById('job-tab-shifts').innerHTML = `
-          <div style="font-size:15px;font-weight:bold;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px;">Existing Shift</div>
-          <div class="msg-success show" style="margin-bottom:12px;">&#10004; Shift record added successfully.</div>
-          <table style="width:100%;border-collapse:collapse;font-size:12px;">
-            <thead>
-              <tr style="background:#555;color:#fff;">
-                <th style="padding:6px 10px;text-align:left;">Shift Name</th>
-                <th style="padding:6px 10px;text-align:left;">#</th>
-                <th style="padding:6px 10px;text-align:left;">Start Date</th>
-                <th style="padding:6px 10px;text-align:left;">Finish Date</th>
-                <th style="padding:6px 10px;text-align:left;">Attire</th>
-                <th style="padding:6px 10px;"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="background:#fff;">
-                <td style="padding:6px 10px;">Staff One Call</td>
-                <td style="padding:6px 10px;">1</td>
-                <td style="padding:6px 10px;">08/15/2026 08:00</td>
-                <td style="padding:6px 10px;">08/15/2026 17:00</td>
-                <td style="padding:6px 10px;"></td>
-                <td style="padding:6px 10px;white-space:nowrap;">
-                  <span title="Edit Shift" style="cursor:pointer;margin-right:4px;font-size:15px;">🖊</span>
-                  <span id="btn-add-role" title="Add Role" style="cursor:pointer;margin-right:4px;font-size:15px;">👥</span>
-                  <span title="Delete Shift" style="cursor:pointer;font-size:15px;color:#c00;">✕</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="margin-top:12px;">
-            <button class="btn" style="padding:5px 18px;">Add New Shift</button>
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Add / Edit Job</div>
+          <div class="note-bar">Note: All the * marked fields are mandatory</div>
+          <div class="msg-success" id="job2-saved-msg">&#10004; Job saved successfully.</div>
+          <div class="tabs">
+            <span class="tab active">Record Information</span>
+            <span class="tab">Job Over-rides</span>
+            <span class="tab">Shifts</span>
+          </div>
+          <div class="form-row"><span class="form-label">Job# :</span>
+            <input class="form-input" id="f-job2num" value="" style="width:140px" readonly></div>
+          <div class="form-row"><span class="form-label">Job Name :</span>
+            <input class="form-input" id="f-job2name" value=""> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Job Class :</span>
+            <select class="form-select" id="f-job2class"><option>Select</option><option>Events</option><option>Office</option><option>Training</option></select> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Branch Name :</span>
+            <select class="form-select"><option>Prota LA Branch Test</option></select> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Event Name :</span>
+            <select class="form-select" id="f-job2event"><option>2025 DRAKE CONCERT</option></select> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Venue Name :</span>
+            <select class="form-select" id="f-job2venue"><option>The Forum</option></select> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Client Name :</span>
+            <select class="form-select" id="f-job2client"><option>Forum Entertainment LLC</option></select> <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Start Date Time :</span>
+            <input class="form-input" id="f-job2start" value="" style="width:95px">${calBtn()}${timeSpinner('f-job2stime')} <span class="req">*</span></div>
+          <div class="form-row"><span class="form-label">Finish Date Time :</span>
+            <input class="form-input" id="f-job2end" value="" style="width:95px">${calBtn()}${timeSpinner('f-job2etime')} <span class="req">*</span></div>
+          <div style="margin-top:16px">
+            <button class="btn" id="btn-job2-save">Save</button>
+            <button class="btn">Reset</button>
+            <button class="btn">Back</button>
           </div>`;
       }},
-    { selector: '#btn-add-role', prompt: 'Click the 👥 icon to add roles to this shift',
+    { selector: '#f-job2name', prompt: 'Click here and type the Job Name', type: 'DRAKE CONCERT N1' },
+    { selector: '#f-job2class', prompt: 'Select "Events" as the Job Class — use this for jobs you will schedule staff for',
+      onConfirm: () => { document.getElementById('f-job2class').value = 'Events'; }},
+    { selector: '#f-job2event', prompt: 'The Event auto-populated from your search. Venue and Client also filled in automatically.', skipClick: true },
+    { selector: '#f-job2start', prompt: 'Set the Job Start Date', type: '08/15/2025' },
+    { selector: '#btn-job2-save', prompt: 'Click "Save" to save the Job',
       onConfirm: () => {
-        showAddRolePanel({role:'Event Staff', min:'5', max:'7', stime:'08:00', etime:'17:00'});
+        document.getElementById('job2-saved-msg').classList.add('show');
+        document.getElementById('f-job2num').value = '1012699001';
       }},
-    { selector: '#f-role-name', prompt: '* Role Name — "Event Staff" selected for this shift', skipClick: true },
   ]);
-}
-
-function autoFillRoleForm() {
-  const min = document.getElementById('f-role-min');
-  const max = document.getElementById('f-role-max');
-  const st  = document.getElementById('f-role-stime');
-  const et  = document.getElementById('f-role-etime');
-  if (min) min.value = '5';
-  if (max) max.value = '7';
-  if (st)  st.value  = '08:00';
-  if (et)  et.value  = '17:00';
-}
-
-function toggleShiftRoles() {
-  const row = document.getElementById('shift-roles-row');
-  const btn = document.getElementById('btn-expand-shift');
-  if (!row) return;
-  const expanded = row.style.display !== 'none';
-  row.style.display = expanded ? 'none' : '';
-  if (btn) btn.textContent = expanded ? '+' : '−';
-}
-
-function showAddRolePanel(prefill) {
-  // prefill = {role, min, max, stime, etime} — values baked into HTML at creation
-  const p = prefill || {};
-  const roles = ['Administrative','C&T Event Staff','C&T Event Staff 1','Crowd Control - Overnight',
-    'Crowd Management Manager','Event Manager','Event Staff','Event Staff 1','Parkers',
-    'Security Guard','Security Guard 2','Security Staff','Sign In Staff','Supervisor',
-    'Ticket Taker','Training','Usher','Workers'];
-  const roleOpts = roles.map(r =>
-    `<option${p.role === r ? ' selected' : ''}>${r.replace(/&/g,'&amp;')}</option>`).join('');
-  const modal = document.createElement('div');
-  modal.id = 'add-role-modal';
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:300;display:flex;align-items:center;justify-content:center;';
-  modal.innerHTML = `
-    <div style="background:#fff;border:1px solid #aaa;border-radius:4px;padding:20px 28px 24px 28px;width:680px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-      <div style="font-size:16px;font-weight:bold;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #222;">Add Role</div>
-      <div style="display:flex;gap:24px;align-items:stretch;">
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Location :</span>
-            <select style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;"><option>Select</option></select>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Role Name :</span>
-            <select id="f-role-name" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" onchange="autoFillRoleForm()">${roleOpts}</select>
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Min :</span>
-            <input id="f-role-min" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" value="${p.min||''}">
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Max :</span>
-            <input id="f-role-max" style="border:1px solid #aaa;padding:2px 4px;width:200px;height:24px;font-size:12px;background:#fff;" value="${p.max||''}">
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:10px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Start Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:24px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
-            <input id="f-role-stime" style="border:1px solid #aaa;padding:2px;width:46px;height:24px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="${p.stime||''}">
-            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:20px;">
-            <span style="width:120px;text-align:right;padding-right:10px;font-size:12px;color:#444;">Finish Date :</span>
-            <input style="border:1px solid #aaa;padding:2px 4px;width:95px;height:24px;font-size:12px;background:#fff;" value="08/15/2026">${calBtn()}
-            <input id="f-role-etime" style="border:1px solid #aaa;padding:2px;width:46px;height:24px;font-size:12px;text-align:center;background:#fff;margin-left:4px;" value="${p.etime||''}">
-            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
-            <span style="color:#c00;margin-left:4px;">*</span>
-          </div>
-          <div style="display:flex;gap:10px;margin-left:120px;">
-            <button id="btn-role-save" class="btn" style="padding:6px 22px;">Save</button>
-            <button class="btn" style="padding:6px 22px;" onclick="document.getElementById('add-role-modal').remove()">Back</button>
-          </div>
-        </div>
-        <div style="display:flex;flex-direction:column;min-width:210px;">
-          <div style="font-size:12px;color:#444;margin-bottom:6px;">Select Access</div>
-          <div style="flex:1;border:1px solid #aaa;border-radius:2px;background:#fff;min-height:200px;"></div>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(modal);
-}
-
-function showAddShiftModal() {
-  const branches = [
-    'Atlanta','Buffalo','Cleveland','Columbus','Connecticut','Corporate',
-    'Dallas','Denver','Des Moines','El Paso','Oklahoma City','Orange County',
-    'Orlando','Pensacola','Philadelphia','Phoenix','Prota Branch Test',
-    'Prota India Test','Prota LA Branch Test','Reno'
-  ];
-  // Build two-column branch list
-  const half = Math.ceil(branches.length / 2);
-  const left = branches.slice(0, half);
-  const right = branches.slice(half);
-  const branchRows = left.map((b, i) => `
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:3px;">
-      <label style="width:130px;font-size:11px;display:flex;align-items:center;gap:4px;">
-        <input type="checkbox" ${b === 'Prota LA Branch Test' ? 'id="f-shift-branch-prota"' : ''}> ${b}
-      </label>
-      ${right[i] ? `<label style="width:130px;font-size:11px;display:flex;align-items:center;gap:4px;"><input type="checkbox"> ${right[i]}</label>` : ''}
-    </div>`).join('');
-
-  const modal = document.createElement('div');
-  modal.id = 'add-shift-modal';
-  modal.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:300;display:flex;align-items:center;justify-content:center;';
-  modal.innerHTML = `
-    <div style="background:#fff;border:1px solid #aaa;border-radius:4px;padding:20px 24px;width:660px;box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-      <div style="font-size:15px;font-weight:bold;margin-bottom:14px;border-bottom:1px solid #ddd;padding-bottom:8px;">Add Shift</div>
-      <div style="display:flex;gap:20px;">
-        <div style="flex:1;">
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Shift Name :</span>
-            <input id="f-shift-name" style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;">
-            <span style="color:#c00;margin-left:3px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Shift# :</span>
-            <input style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;" value="1">
-            <span style="color:#c00;margin-left:3px;">*</span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Attire :</span>
-            <input style="border:1px solid #aaa;padding:2px 4px;width:180px;height:22px;font-size:12px;background:#fff;">
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Access Group :</span>
-            <select style="border:1px solid #aaa;padding:2px 3px;width:180px;height:22px;font-size:12px;background:#fff;"><option>Select</option></select>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">Start Date :</span>
-            <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
-            <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="08:00">
-            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:8px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">End Date :</span>
-            <select style="border:1px solid #aaa;padding:2px 3px;width:100px;height:22px;font-size:12px;background:#fff;"><option>08/15/2026</option></select>
-            <span style="color:#c00;margin-left:3px;margin-right:6px;">*</span>
-            <input style="border:1px solid #aaa;padding:2px;width:42px;height:22px;font-size:12px;text-align:center;background:#fff;" value="17:00">
-            <span style="display:flex;flex-direction:column;margin-left:2px;"><span style="font-size:8px;cursor:pointer;line-height:1;">▲</span><span style="font-size:8px;cursor:pointer;line-height:1;">▼</span></span>
-          </div>
-          <div style="display:flex;align-items:center;margin-bottom:16px;">
-            <span style="width:110px;text-align:right;padding-right:8px;font-size:12px;color:#444;">CMI Shift :</span>
-            <input type="checkbox">
-          </div>
-          <div style="display:flex;gap:8px;margin-left:110px;">
-            <button id="btn-shift-save" class="btn" style="padding:5px 18px;">Save</button>
-            <button class="btn" style="padding:5px 18px;" onclick="closeAddShiftModal()">Back</button>
-          </div>
-        </div>
-        <div style="border:1px solid #ccc;border-radius:3px;padding:10px;min-width:280px;">
-          <div style="font-weight:bold;font-size:12px;margin-bottom:8px;text-align:center;">Select Branch</div>
-          <div style="max-height:220px;overflow-y:auto;">${branchRows}</div>
-        </div>
-      </div>
-    </div>`;
-  document.body.appendChild(modal);
-}
-
-function closeAddShiftModal() {
-  const m = document.getElementById('add-shift-modal');
-  if (m) m.remove();
 }
 
 // ── ESS / Employee Self-Service ────────────────────────────────────────────
@@ -2998,7 +2180,6 @@ const routes = {
   'manage_job-5':   slide_manage_job_5,
   'manage_job-6':   slide_manage_job_6,
   'manage_job-7':   slide_manage_job_7,
-  'manage_job-9':   slide_manage_job_9,
   'mss-3':          slide_mss_3,
   'mss-4':          slide_mss_4,
   'mss-6':          slide_mss_6,
