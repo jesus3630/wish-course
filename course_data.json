@@ -37,7 +37,9 @@
         "instructions": "Show video of Home page, cookies accepted, iD and password submitted and \"Your Name\" in the upper right corner of the page.",
         "text": "It is important that you do NOT share your login credentials with anyone. All actions performed using your credentials will be recorded in the system as being completed by you. Some tasks may require you to complete multiple training sessions before you can perform them. You will not be able to complete certain work duties until all assigned training is finished. Your system access and available features are determined by your assigned and completed training.\r\n\r\nYou will have access to all menus necessary for your role. If you attempt to open a menu for which you have not completed the required training, access will be restricted. If you believe you need access to additional menus, please contact your administrator to arrange the necessary training and obtain the appropriate permissions for your position.",
         "image_below": "/audit-addeditjob.png",
-        "image_below_2": "/audit-roster.png"
+        "image_below_2": "/audit-roster.png",
+        "image_below_caption": "Notice \"Order Taken By: Quintero Matthew\" — WISH records the name of whoever created or modified this job. If you share your login, someone else's work will show under your name.",
+        "image_below_2_caption": "Notice the Scheduler column — WISH logs which scheduler is assigned to each employee. Every action is tied to a real person's account."
       },
       {
         "slide_number": 5,

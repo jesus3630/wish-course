@@ -602,31 +602,46 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               ) : null}
 
               {(slide as any)?.image_below && (
-                <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap', margin: '28px 0 8px' }}>
-                  <div style={{ textAlign: 'center' }}>
-                    <p style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                      {(slide as any)?.image_below_2 ? 'Audit Trail — Job Creator' : ''}
-                    </p>
-                    <img
-                      src={(slide as any).image_below}
-                      alt=""
-                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                      style={{ maxWidth: '420px', maxHeight: '480px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
-                    />
-                  </div>
+                <div style={{ margin: '28px 0 8px' }}>
+                  {/* Lead-in label when two audit images are present */}
                   {(slide as any)?.image_below_2 && (
-                    <div style={{ textAlign: 'center' }}>
-                      <p style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-                        Audit Trail — Scheduler Assignment
-                      </p>
-                      <img
-                        src={(slide as any).image_below_2}
-                        alt=""
-                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                        style={{ maxWidth: '420px', maxHeight: '480px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
-                      />
+                    <div style={{ background: '#FFF3E8', border: '1.5px solid #D4782A', borderRadius: '8px', padding: '10px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                      <span style={{ fontSize: '18px' }}>🔍</span>
+                      <span style={{ fontSize: '14px', fontWeight: 600, color: '#92400E' }}>
+                        WISH keeps a full audit trail — every action is recorded under the account that performed it.
+                      </span>
                     </div>
                   )}
+                  <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <div style={{ flex: '1 1 340px', maxWidth: '460px' }}>
+                      <img
+                        src={(slide as any).image_below}
+                        alt=""
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                        style={{ width: '100%', height: 'auto', borderRadius: '10px 10px 0 0', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
+                      />
+                      {(slide as any)?.image_below_caption && (
+                        <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#1E40AF', lineHeight: '1.5' }}>
+                          <span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_caption}
+                        </div>
+                      )}
+                    </div>
+                    {(slide as any)?.image_below_2 && (
+                      <div style={{ flex: '1 1 340px', maxWidth: '460px' }}>
+                        <img
+                          src={(slide as any).image_below_2}
+                          alt=""
+                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                          style={{ width: '100%', height: 'auto', borderRadius: '10px 10px 0 0', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
+                        />
+                        {(slide as any)?.image_below_2_caption && (
+                          <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#1E40AF', lineHeight: '1.5' }}>
+                            <span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_2_caption}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
               )}
 
