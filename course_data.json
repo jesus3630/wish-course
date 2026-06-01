@@ -39,7 +39,19 @@
         "image_below": "/audit-addeditjob.png",
         "image_below_2": "/audit-roster.png",
         "image_below_caption": "Notice \"Order Taken By: Quintero Matthew\" — WISH records the name of whoever created or modified this job. If you share your login, someone else's work will show under your name.",
-        "image_below_2_caption": "Notice the Scheduler column — WISH logs which scheduler is assigned to each employee. Every action is tied to a real person's account."
+        "image_below_2_caption": "Notice the Scheduler column — WISH logs which scheduler is assigned to each employee. Every action is tied to a real person's account.",
+        "image_below_highlight": {
+          "x": 28,
+          "y": 44,
+          "w": 42,
+          "h": 8
+        },
+        "image_below_2_highlight": {
+          "x": 46,
+          "y": 0,
+          "w": 30,
+          "h": 100
+        }
       },
       {
         "slide_number": 5,

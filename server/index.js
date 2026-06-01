@@ -152,7 +152,7 @@ async function initDB() {
     const newIds = jsonCourseData.filter(m => !dbMap.has(m.id)).map(m => m.id);
 
     // Merge each module: DB base + apply simulation_url / screenshot from JSON slides
-    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'video_start', 'video_end'];
+    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'image_below_highlight', 'image_below_2_highlight', 'video_start', 'video_end'];
     const merged = jsonCourseData.map(jsonMod => {
       const dbMod = dbMap.get(jsonMod.id);
       if (!dbMod) return jsonMod; // new module — use JSON fully

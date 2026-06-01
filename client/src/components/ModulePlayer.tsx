@@ -8,6 +8,66 @@ import { useIsMobile } from '../utils/useIsMobile';
 type Timing = { word: string; start: number; end: number };
 type PrefetchEntry = { url: string; timings: Timing[] };
 
+// ─── Audit Image with pulsing gold highlight + click-to-zoom ─────────────────
+const PULSE_STYLE = `
+  @keyframes audit-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.7), 0 0 0 0 rgba(245,158,11,0.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(245,158,11,0.3), 0 0 0 12px rgba(245,158,11,0.1); }
+  }
+`;
+type HighlightBox = { x: number; y: number; w: number; h: number };
+function AuditImageHighlight({ src, highlight, caption }: { src: string; highlight: HighlightBox; caption: string }) {
+  const [zoomed, setZoomed] = useState(false);
+  const cx = highlight.x + highlight.w / 2;
+  const cy = highlight.y + highlight.h / 2;
+  return (
+    <div style={{ flex: '1 1 340px', maxWidth: '480px' }}>
+      <style>{PULSE_STYLE}</style>
+      <div
+        style={{ position: 'relative', overflow: 'hidden', borderRadius: '10px 10px 0 0', cursor: zoomed ? 'zoom-out' : 'zoom-in', userSelect: 'none' }}
+        onClick={() => setZoomed(z => !z)}
+      >
+        <img
+          src={src}
+          alt=""
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+          style={{
+            width: '100%', height: 'auto', display: 'block',
+            transformOrigin: `${cx}% ${cy}%`,
+            transform: zoomed ? 'scale(3.5)' : 'scale(1)',
+            transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1)',
+          }}
+        />
+        {/* Gold highlight box — fades out when zoomed */}
+        <div style={{
+          position: 'absolute',
+          left: `${highlight.x}%`, top: `${highlight.y}%`,
+          width: `${highlight.w}%`, height: `${highlight.h}%`,
+          border: '3px solid #F59E0B',
+          background: 'rgba(245,158,11,0.22)',
+          borderRadius: '5px',
+          animation: 'audit-pulse 1.8s ease-in-out infinite',
+          opacity: zoomed ? 0 : 1,
+          transition: 'opacity 0.2s',
+          pointerEvents: 'none',
+        }} />
+        {/* Zoom hint badge */}
+        <div style={{
+          position: 'absolute', bottom: '8px', right: '8px',
+          background: 'rgba(0,0,0,0.55)', color: '#fff',
+          fontSize: '11px', fontWeight: 600, padding: '3px 8px', borderRadius: '20px',
+          pointerEvents: 'none', opacity: 0.9,
+        }}>
+          {zoomed ? 'Click to zoom out' : 'Click to zoom in'}
+        </div>
+      </div>
+      <div style={{ background: '#FFFBEB', border: '1.5px solid #F59E0B', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#78350F', lineHeight: '1.55' }}>
+        <span style={{ fontWeight: 700, color: '#B45309' }}>What to notice: </span>{caption}
+      </div>
+    </div>
+  );
+}
+
 function SimFrame({ src }: { src: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.7);
@@ -603,43 +663,40 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
               {(slide as any)?.image_below && (
                 <div style={{ margin: '28px 0 8px' }}>
-                  {/* Lead-in label when two audit images are present */}
                   {(slide as any)?.image_below_2 && (
                     <div style={{ background: '#FFF3E8', border: '1.5px solid #D4782A', borderRadius: '8px', padding: '10px 16px', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                       <span style={{ fontSize: '18px' }}>🔍</span>
                       <span style={{ fontSize: '14px', fontWeight: 600, color: '#92400E' }}>
-                        WISH keeps a full audit trail — every action is recorded under the account that performed it.
+                        WISH keeps a full audit trail — every action is recorded under the account that performed it. Click each image to zoom in.
                       </span>
                     </div>
                   )}
                   <div style={{ display: 'flex', gap: '24px', justifyContent: 'center', flexWrap: 'wrap' }}>
-                    <div style={{ flex: '1 1 340px', maxWidth: '460px' }}>
-                      <img
+                    {(slide as any)?.image_below_highlight ? (
+                      <AuditImageHighlight
                         src={(slide as any).image_below}
-                        alt=""
-                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                        style={{ width: '100%', height: 'auto', borderRadius: '10px 10px 0 0', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
+                        highlight={(slide as any).image_below_highlight}
+                        caption={(slide as any).image_below_caption || ''}
                       />
-                      {(slide as any)?.image_below_caption && (
-                        <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#1E40AF', lineHeight: '1.5' }}>
-                          <span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_caption}
-                        </div>
-                      )}
-                    </div>
-                    {(slide as any)?.image_below_2 && (
-                      <div style={{ flex: '1 1 340px', maxWidth: '460px' }}>
-                        <img
-                          src={(slide as any).image_below_2}
-                          alt=""
-                          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                          style={{ width: '100%', height: 'auto', borderRadius: '10px 10px 0 0', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
-                        />
-                        {(slide as any)?.image_below_2_caption && (
-                          <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#1E40AF', lineHeight: '1.5' }}>
-                            <span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_2_caption}
-                          </div>
-                        )}
+                    ) : (
+                      <div style={{ flex: '1 1 340px', maxWidth: '480px' }}>
+                        <img src={(slide as any).image_below} alt="" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} style={{ width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #E5E7EB', display: 'block' }} />
+                        {(slide as any)?.image_below_caption && <div style={{ background: '#FFFBEB', border: '1.5px solid #F59E0B', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#78350F' }}><span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_caption}</div>}
                       </div>
+                    )}
+                    {(slide as any)?.image_below_2 && (
+                      (slide as any)?.image_below_2_highlight ? (
+                        <AuditImageHighlight
+                          src={(slide as any).image_below_2}
+                          highlight={(slide as any).image_below_2_highlight}
+                          caption={(slide as any).image_below_2_caption || ''}
+                        />
+                      ) : (
+                        <div style={{ flex: '1 1 340px', maxWidth: '480px' }}>
+                          <img src={(slide as any).image_below_2} alt="" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} style={{ width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #E5E7EB', display: 'block' }} />
+                          {(slide as any)?.image_below_2_caption && <div style={{ background: '#FFFBEB', border: '1.5px solid #F59E0B', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#78350F' }}><span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_2_caption}</div>}
+                        </div>
+                      )
                     )}
                   </div>
                 </div>
