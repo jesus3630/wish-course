@@ -812,10 +812,12 @@ function slide_mss_6() {
 
 // ── Scheduling ─────────────────────────────────────────────────────────────
 function schedEmpHTML() {
-  const hrs = Array.from({length:24},(_,i)=>i).map(h=>`<th style="width:22px;text-align:center;padding:2px 0;font-size:10px">${h}</th>`).join('');
-  const hrsLabel = `<th style="width:36px;background:#5a5a5a;color:#fff;font-size:10px;padding:2px 4px">Hours</th>`;
+  const cell = `<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>`;
+  const cells24 = Array.from({length:24},()=>cell).join('');
+  const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;text-align:center;font-size:9px;background:#5a5a5a;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
+  const hrLabel = `<td style="width:38px;background:#5a5a5a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td>`;
   const days = [
-    {label:'Saturday',date:'5/30/2026'},
+    {label:'Saturday',date:'5/30/2026',orange:true},
     {label:'Sunday',date:'5/31/2026'},
     {label:'Monday',date:'6/1/2026'},
     {label:'Tuesday',date:'6/2/2026'},
@@ -823,86 +825,139 @@ function schedEmpHTML() {
     {label:'Thursday',date:'6/4/2026'},
     {label:'Friday',date:'6/5/2026'},
   ];
-  const dayHeaders = days.map((d,i)=>`<th style="background:${i===0?'#e07820':'#d0d0d0'};color:${i===0?'#fff':'#333'};text-align:center;padding:3px 2px;font-size:10px;font-weight:bold">${d.label}<br>${d.date}</th>`).join('');
   const calRows = days.map(d=>`<tr>
-    <td style="font-size:10px;color:#333;padding:2px 4px;white-space:nowrap;background:#e8e8e8">${d.label}<br>${d.date}</td>
-    ${Array.from({length:24},()=>`<td style="border:1px solid #ddd;height:16px;width:22px"></td>`).join('')}
-    <td style="font-size:10px;color:#333;padding:2px 4px;background:#e8e8e8"></td>
+    <td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">${d.label}<br>${d.date}</td>
+    ${cells24}
+    <td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc"></td>
   </tr>`).join('');
   return `
   <div class="page-title">Schedule by Employee</div>
-  <div style="display:flex;gap:40px;margin-bottom:10px">
-    <div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:90px">Branch :</span><select class="form-select" style="width:160px"><option>Prota LA Branch Test</option></select></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:90px">Department :</span><select class="form-select" style="width:160px"><option>Staff</option></select></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:90px">Start Date :</span><input class="form-input" value="05/30/2026" style="width:90px">&nbsp;<button style="padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px"><svg width="14" height="14" viewBox="0 0 16 16"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/></svg></button></div>
-    </div>
-    <div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Branch Name :</span><select class="form-select" style="width:160px"><option>Prota LA Branch Test</option></select></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Department :</span><select class="form-select" style="width:160px"><option>Staff</option></select></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Employee# :</span><input class="form-input" id="f-emp-last" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">First Name :</span><input class="form-input" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Last Name :</span><input class="form-input" id="f-emp-name" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">SSN#(last 4 digits) :</span><input class="form-input" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Phone :</span><input class="form-input" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:4px"><span class="form-label" style="width:105px">Email :</span><input class="form-input" style="width:130px"></div>
-      <div class="form-row" style="margin-bottom:6px">
-        <span class="form-label" style="width:105px">Status :</span>
-        <label style="font-size:12px;margin-right:8px"><input type="radio" name="status"> All</label>
-        <label style="font-size:12px"><input type="radio" name="status" checked> Active</label>
+  <div style="display:flex;gap:30px;margin-bottom:8px">
+    <!-- Left column -->
+    <div style="min-width:220px">
+      <div class="form-row" style="margin-bottom:5px">
+        <span style="display:inline-block;width:80px;text-align:right;padding-right:6px;font-size:12px;color:#444">Branch:</span>
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:145px"><option>Prota LA Branch Test</option></select>
+        <span style="font-size:11px;color:#555;margin-left:2px">&#9660;</span>
       </div>
-      <div style="margin-left:105px;margin-bottom:6px"><label style="font-size:11px"><input type="checkbox"> Excluded WorkGroup Employee</label></div>
-      <div style="margin-left:105px">
-        <button class="btn btn-sm" id="btn-empsearch">Search</button>
-        <button class="btn btn-sm btn-secondary">Clear</button>
+      <div class="form-row" style="margin-bottom:5px">
+        <span style="display:inline-block;width:80px;text-align:right;padding-right:6px;font-size:12px;color:#444">Department :</span>
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:145px"><option>Staff</option></select>
+      </div>
+      <div class="form-row" style="margin-bottom:5px">
+        <span style="display:inline-block;width:80px;text-align:right;padding-right:6px;font-size:12px;color:#444">Start Date :</span>
+        <input style="border:1px solid #999;height:22px;font-size:12px;width:80px;padding:2px 4px" value="05/30/2026">
+        <button style="margin-left:3px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;height:22px;vertical-align:top">
+          <svg width="14" height="14" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="0" x2="5" y2="16" stroke="#ccc" stroke-width=".8"/><line x1="9" y1="0" x2="9" y2="16" stroke="#ccc" stroke-width=".8"/><line x1="13" y1="0" x2="13" y2="16" stroke="#ccc" stroke-width=".8"/><line x1="0" y1="8" x2="16" y2="8" stroke="#ccc" stroke-width=".8"/><line x1="0" y1="11" x2="16" y2="11" stroke="#ccc" stroke-width=".8"/><line x1="0" y1="14" x2="16" y2="14" stroke="#ccc" stroke-width=".8"/></svg>
+        </button>
+      </div>
+    </div>
+    <!-- Right column -->
+    <div style="min-width:310px">
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Branch Name :</span>
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:150px"><option>Prota LA Branch Test</option></select>
+        <span style="font-size:11px;color:#555;margin-left:2px">&#9660;</span>
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Department :</span>
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:150px"><option>Staff</option></select>
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Employee# :</span>
+        <input id="f-emp-last" style="border:2px solid #3a7abf;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">First Name :</span>
+        <input style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Last Name :</span>
+        <input id="f-emp-name" style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444;line-height:1.3">SSN#(last 4<br>digits) :</span>
+        <input style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Phone :</span>
+        <input style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Email :</span>
+        <input style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+      </div>
+      <div style="display:flex;align-items:center;margin-bottom:4px">
+        <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Status :</span>
+        <label style="font-size:12px;margin-right:8px"><input type="radio" name="s3status"> All</label>
+        <label style="font-size:12px"><input type="radio" name="s3status" checked> Active</label>
+      </div>
+      <div style="margin-left:111px;margin-bottom:5px">
+        <label style="font-size:11px"><input type="checkbox"> Excluded WorkGroup Employee</label>
+      </div>
+      <div style="margin-left:111px">
+        <button class="btn btn-sm" id="btn-empsearch" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px">Search</button>
+        <button style="background:#e8e4dc;color:#333;border:1px solid #aaa;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px;margin-left:3px">Clear</button>
       </div>
     </div>
   </div>
-  <hr style="border:none;border-top:2px solid #7ab030;margin-bottom:8px">
-  <div style="display:flex;align-items:center;margin-bottom:4px;gap:4px">
-    <button style="background:#e07820;color:#fff;border:none;padding:2px 7px;cursor:pointer;font-size:13px;border-radius:2px">&#9664;</button>
-    ${days.map((d,i)=>`<div style="background:${i===0?'#e07820':'#d4d4d4'};color:${i===0?'#fff':'#333'};text-align:center;padding:3px 0;font-size:10px;font-weight:bold;flex:1;border-radius:2px">${d.label}<br>${d.date}</div>`).join('')}
-    <button style="background:#e07820;color:#fff;border:none;padding:2px 7px;cursor:pointer;font-size:13px;border-radius:2px">&#9654;</button>
+  <div style="border-top:2px solid #7ab030;margin:6px 0 8px"></div>
+  <!-- Week nav -->
+  <div style="display:flex;align-items:stretch;gap:2px;margin-bottom:0">
+    <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:2px 0 0 2px">&#9664;</button>
+    ${days.map(d=>`<div style="background:${d.orange?'#e07820':'#d4d4d4'};color:${d.orange?'#fff':'#333'};text-align:center;padding:4px 2px;font-size:10px;font-weight:bold;flex:1">${d.label}<br>${d.date}</div>`).join('')}
+    <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:0 2px 2px 0">&#9654;</button>
   </div>
+  <!-- Calendar grid -->
   <div id="cal-section" style="overflow-x:auto">
-    <table style="border-collapse:collapse;font-size:10px;width:100%">
+    <table style="border-collapse:collapse;width:100%;table-layout:fixed">
       <thead>
-        <tr>${hrsLabel}<th colspan="24" style="background:#5a5a5a"></th>${hrsLabel}</tr>
-        <tr style="background:#5a5a5a;color:#fff">
-          ${hrsLabel}${hrs}${hrsLabel}
-        </tr>
+        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}${hrLabel}</tr>
       </thead>
       <tbody>${calRows}</tbody>
       <tfoot>
-        <tr style="background:#5a5a5a;color:#fff">${hrsLabel}${hrs}${hrsLabel}</tr>
+        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}${hrLabel}</tr>
       </tfoot>
     </table>
-    <div style="text-align:right;margin-top:8px">
-      <button class="btn" id="btn-cal-save">Save Sched</button>
+    <div style="text-align:right;margin-top:6px">
+      <button class="btn" id="btn-cal-save" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
     </div>
-    <div style="margin-top:14px;font-size:12px;font-weight:bold">Branch :Prota LA Branch Test &nbsp;&nbsp; Department :Staff</div>
-    <div style="display:flex;gap:20px;margin:6px 0 8px">
-      <span style="font-size:12px">Sort By Venue : <select class="form-select" style="width:130px"><option>Ascending Order</option></select></span>
-      <span style="font-size:12px">Sort by Date : <select class="form-select" style="width:130px"><option>Ascending Order</option></select></span>
+    <div style="margin-top:12px;font-size:12px;font-weight:bold">Branch :Prota LA Branch Test &nbsp;&nbsp; Department :Staff</div>
+    <div style="display:flex;gap:16px;margin:5px 0 6px;align-items:center">
+      <span style="font-size:12px">Sort By Venue :
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:130px;margin-left:3px"><option>Ascending Order</option></select>
+        <span style="font-size:11px">&#9660;</span>
+      </span>
+      <span style="font-size:12px">Sort by Date :
+        <select style="border:1px solid #999;height:22px;font-size:12px;width:130px;margin-left:3px"><option>Ascending Order</option></select>
+        <span style="font-size:11px">&#9660;</span>
+      </span>
     </div>
-    <div style="text-align:right;font-size:12px;margin-bottom:4px">Min: 27| Max: 32| Sched: 0| Var: -27</div>
-    <table>
-      <thead><tr><th></th><th>Job</th><th>Venue</th><th>#</th><th>Start</th><th>Finish</th><th>Min</th><th>Max</th><th>Sched</th><th>Var</th></tr></thead>
+    <div style="text-align:right;font-size:12px;margin-bottom:3px;color:#333">Min: 27| Max: 32| Sched: 0| Var: -27</div>
+    <table style="width:100%;border-collapse:collapse">
+      <thead><tr>
+        <th style="width:22px"></th>
+        <th>Job</th><th>Venue</th><th style="width:30px">#</th>
+        <th>Start</th><th>Finish</th>
+        <th style="width:35px">Min</th><th style="width:35px">Max</th>
+        <th style="width:40px">Sched</th><th style="width:35px">Var</th>
+      </tr></thead>
       <tbody>
         <tr>
-          <td id="cal-s1" style="color:#2a8a3a;cursor:pointer;font-weight:bold">+</td>
-          <td><a href="#" style="color:#c07800;font-size:11px">Sierra Erica WISH Training<br>May 2026-5/30/2026 \<br>5023704828</a></td>
+          <td id="cal-s1" style="color:#2a8a3a;font-weight:bold;font-size:14px;cursor:pointer;text-align:center">+</td>
+          <td style="font-size:11px"><a href="#" style="color:#c07800">Sierra Erica WISH Training<br>May 2026-5/30/2026 \<br>5023704828</a></td>
           <td style="font-size:11px">Grand Bell Arena</td>
           <td></td>
           <td style="font-size:11px">05/30/2026 10:00</td>
           <td style="font-size:11px">05/30/2026 22:00</td>
-          <td style="font-size:11px">27</td><td style="font-size:11px">32</td><td style="font-size:11px">0</td>
-          <td style="color:#c00;font-size:11px;font-weight:bold">-27</td>
+          <td style="font-size:11px">27</td><td style="font-size:11px">32</td>
+          <td style="font-size:11px">0</td>
+          <td style="font-size:11px;color:#c00;font-weight:bold">-27</td>
         </tr>
       </tbody>
     </table>
-    <div style="text-align:right;margin-top:10px">
-      <button class="btn">Save Sched</button>
+    <div style="text-align:right;margin-top:8px">
+      <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
     </div>
   </div>`;
 }
@@ -955,9 +1010,8 @@ function slide_scheduling_3() {
       onConfirm: () => {
         document.getElementById('content').innerHTML = schedEmpHTML();
       }},
-    { selector: '#f-emp-name', prompt: 'Type the employee\'s last name to search', type: 'Smith' },
-    { selector: '#btn-empsearch', prompt: 'Click "Search" to find the employee' },
-    { selector: '#cal-s1', prompt: 'Click "+" next to the job to expand scheduling options',
+    { selector: '#btn-empsearch', prompt: 'Click Search to find the employee' },
+    { selector: '#cal-s1', prompt: 'Click "+" next to the job to schedule the employee',
       onConfirm: () => { document.getElementById('cal-s1').textContent = '−'; }},
     { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes' },
   ]);
