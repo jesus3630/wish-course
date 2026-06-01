@@ -35,7 +35,9 @@
         "slide_number": 4,
         "slide_name": "Do Not Share Your Login Credentials",
         "instructions": "Show video of Home page, cookies accepted, iD and password submitted and \"Your Name\" in the upper right corner of the page.",
-        "text": "It is important that you do NOT share your login credentials with anyone. All actions performed using your credentials will be recorded in the system as being completed by you. Some tasks may require you to complete multiple training sessions before you can perform them. You will not be able to complete certain work duties until all assigned training is finished. Your system access and available features are determined by your assigned and completed training.\r\n\r\nYou will have access to all menus necessary for your role. If you attempt to open a menu for which you have not completed the required training, access will be restricted. If you believe you need access to additional menus, please contact your administrator to arrange the necessary training and obtain the appropriate permissions for your position."
+        "text": "It is important that you do NOT share your login credentials with anyone. All actions performed using your credentials will be recorded in the system as being completed by you. Some tasks may require you to complete multiple training sessions before you can perform them. You will not be able to complete certain work duties until all assigned training is finished. Your system access and available features are determined by your assigned and completed training.\r\n\r\nYou will have access to all menus necessary for your role. If you attempt to open a menu for which you have not completed the required training, access will be restricted. If you believe you need access to additional menus, please contact your administrator to arrange the necessary training and obtain the appropriate permissions for your position.",
+        "image_below": "/audit-addeditjob.png",
+        "image_below_2": "/audit-roster.png"
       },
       {
         "slide_number": 5,
@@ -150,7 +152,7 @@
         "slide_name": "Record Hierarchy",
         "instructions": "",
         "text": "Before creating anything in WISH, understand the hierarchy, the order records must exist.\r\n\r\nAt the top: Company and Branch (already created, CSC and all locations are already in WISH).\r\n\r\nBelow that:\r\n1. Event, must exist first\r\n2. Job, created under an Event\r\n3. Shift, created under a Job\r\n4. Role, created under a Shift\r\n\r\nNothing can exist without the level above it. You cannot create a Job without an Event. When deleting, work in reverse order from the bottom up.",
-        "simulation_url": null
+        "simulation_url": "/mockup/mockup.html?module=record_maintenance&slide=3"
       },
       {
         "slide_number": 4,
@@ -304,13 +306,15 @@
         "slide_number": 3,
         "slide_name": "Accessing MSS",
         "instructions": "Tools menu ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manager Portal. Show event list and variance column.",
-        "text": "Go to the Tools menu in the navigation and select (Manager Portal) MSS.\r\n\r\nYou will see a list of upcoming events for your branch. The variance column shows the difference between employees you have scheduled and the minimum required for each shift."
+        "text": "Go to the Tools menu in the navigation and select (Manager Portal) MSS.\r\n\r\nYou will see a list of upcoming events for your branch. The variance column shows the difference between employees you have scheduled and the minimum required for each shift.",
+        "simulation_url": "/mockup/mockup.html?module=mss&slide=3"
       },
       {
         "slide_number": 4,
         "slide_name": "Publishing Shifts ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Web Shift Tab",
         "instructions": "Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
-        "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\r\n\r\nTo enable auto-scheduling, where employees can apply without needing your approval, check the Auto Schedule box at the top (selects all jobs) or check individually.\r\n\r\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\r\n\r\nTo disable publishing, click the green checkmark and confirm."
+        "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\r\n\r\nTo enable auto-scheduling, where employees can apply without needing your approval, check the Auto Schedule box at the top (selects all jobs) or check individually.\r\n\r\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\r\n\r\nTo disable publishing, click the green checkmark and confirm.",
+        "simulation_url": "/mockup/mockup.html?module=mss&slide=4"
       },
       {
         "slide_number": 5,
@@ -322,7 +326,8 @@
         "slide_number": 6,
         "slide_name": "Web Shift Approval Tab",
         "instructions": "Web Shift Approval tab. Set date range. Show All Published Shifts. Expand event. Show employees listed. Approve/Deny buttons.",
-        "text": "The Web Shift Approval tab shows applications for published shifts.\r\n\r\nSet your date range and click Show All Published Shifts. Shifts with pending activity show small breadcrumb indicators.\r\n\r\nOpen a shift role to see applicants. Approve or deny each one. The system enforces your headcount limits, it will not let you approve more than the maximum allows.\r\n\r\nIf you approve one applicant for a full role, go back and deny others who applied."
+        "text": "The Web Shift Approval tab shows applications for published shifts.\r\n\r\nSet your date range and click Show All Published Shifts. Shifts with pending activity show small breadcrumb indicators.\r\n\r\nOpen a shift role to see applicants. Approve or deny each one. The system enforces your headcount limits, it will not let you approve more than the maximum allows.\r\n\r\nIf you approve one applicant for a full role, go back and deny others who applied.",
+        "simulation_url": "/mockup/mockup.html?module=mss&slide=6"
       },
       {
         "slide_number": 7,
@@ -364,13 +369,15 @@
         "slide_number": 3,
         "slide_name": "Schedule by Employee",
         "instructions": "Scheduling ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
-        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code."
+        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code.",
+        "simulation_url": "/mockup/mockup.html?module=scheduling&slide=3"
       },
       {
         "slide_number": 4,
         "slide_name": "Schedule by Job",
         "instructions": "Scheduling ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
-        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once."
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "simulation_url": "/mockup/mockup.html?module=scheduling&slide=4"
       },
       {
         "slide_number": 5,
@@ -418,7 +425,8 @@
         "slide_number": 4,
         "slide_name": "Using Schedule by Job Admin",
         "instructions": "Scheduling ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
-        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding."
+        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding.",
+        "simulation_url": "/mockup/mockup.html?module=schedule_by_job_admin&slide=4"
       },
       {
         "slide_number": 5,
@@ -520,7 +528,8 @@
         "slide_number": 3,
         "slide_name": "Job Administration",
         "instructions": "Reports ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Job Administration. Show the full report list on the right side. Scroll through so all report names are visible.",
-        "text": "Job Administration is where you'll spend most of your time in the Reports menu. These are the reports that support your day-to-day event operations.\r\n\r\nThe reports you'll use most often:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Alpha Roster, who is scheduled for a job, in alphabetical order\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Sign-In and Sign-Out Sheets, paper backup when electronic sign-in isn't available\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Not Sign-In, after an event, who was scheduled but didn't sign in electronically"
+        "text": "Job Administration is where you'll spend most of your time in the Reports menu. These are the reports that support your day-to-day event operations.\r\n\r\nThe reports you'll use most often:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Alpha Roster, who is scheduled for a job, in alphabetical order\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Sign-In and Sign-Out Sheets, paper backup when electronic sign-in isn't available\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Not Sign-In, after an event, who was scheduled but didn't sign in electronically",
+        "simulation_url": "/mockup/mockup.html?module=general_reporting&slide=3"
       },
       {
         "slide_number": 4,
@@ -586,7 +595,8 @@
         "slide_number": 3,
         "slide_name": "Navigating to Payroll Reports",
         "instructions": "Reports ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Payroll Reports. Show the full list of available reports: Employee Time Register, Employee Time Register (Break), Emp Time Register With Notes, Financial Analysis Report, Export PerDiem Report, Manage Temp Cost Code Number, Employee Estimate Hours.",
-        "text": "Go to Reports to Payroll Reports to access this section.\r\n\r\nReports available here:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Time Register, the primary report. Shows each employee's hours worked by job and shift.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Time Register (Break), same as above, with break time broken out separately.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Emp Time Register With Notes, includes any notes attached to an employee's timesheet entry.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Financial Analysis Report, a cost-facing view of hours and pay across jobs.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Export PerDiem Report, exports per diem payments for payroll processing.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Manage Temp Cost Code Number, for branches that use cost codes to categorize labor.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Estimate Hours, projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register."
+        "text": "Go to Reports to Payroll Reports to access this section.\r\n\r\nReports available here:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Time Register, the primary report. Shows each employee's hours worked by job and shift.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Time Register (Break), same as above, with break time broken out separately.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Emp Time Register With Notes, includes any notes attached to an employee's timesheet entry.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Financial Analysis Report, a cost-facing view of hours and pay across jobs.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Export PerDiem Report, exports per diem payments for payroll processing.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Manage Temp Cost Code Number, for branches that use cost codes to categorize labor.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Estimate Hours, projected hours based on scheduled shifts before actuals are entered.\r\n\r\nFor most day-to-day payroll review, you'll be working with the Employee Time Register.",
+        "simulation_url": "/mockup/mockup.html?module=payroll_reporting&slide=3"
       },
       {
         "slide_number": 4,
@@ -640,7 +650,8 @@
         "slide_number": 3,
         "slide_name": "Reports You Already Know",
         "instructions": "Briefly hover over Summary Roster, Detailed Roster, Job Administration, Payroll Reports to show they are all still there.",
-        "text": "The first four sections of the Reports menu work the same way they do in General Reporting and Payroll Reporting:\r\n\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Job Administration, alpha rosters, sign-in sheets, employee schedules, post-event follow-up\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary Roster, high-level overviews by employee, job, client, venue, and branch\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Detailed Roster, employee-level detail on timesheets, licensing, availability, and training\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Payroll Reports, Employee Time Register and related reports for verifying hours before payroll is finalized\r\n\r\nIf you haven't completed the General Reporting and Payroll Reporting modules, review those first. This module focuses on the two sections that are new to you: Billing Reports and Manager Reports."
+        "text": "The first four sections of the Reports menu work the same way they do in General Reporting and Payroll Reporting:\r\n\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Job Administration, alpha rosters, sign-in sheets, employee schedules, post-event follow-up\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary Roster, high-level overviews by employee, job, client, venue, and branch\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Detailed Roster, employee-level detail on timesheets, licensing, availability, and training\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Payroll Reports, Employee Time Register and related reports for verifying hours before payroll is finalized\r\n\r\nIf you haven't completed the General Reporting and Payroll Reporting modules, review those first. This module focuses on the two sections that are new to you: Billing Reports and Manager Reports.",
+        "simulation_url": "/mockup/mockup.html?module=admin_reporting&slide=3"
       },
       {
         "slide_number": 4,
@@ -694,7 +705,8 @@
         "slide_number": 3,
         "slide_name": "Finding an Employee",
         "instructions": "Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Employee. Show the search filters: Branch Name, Department, WorkGroup, Employee#, First Name, Last Name, Status, SSN last 4 digits. Type a last name. Click Search. Show the results list with Last Name, First Name, Employee#, Branch, Status columns.",
-        "text": "Go to Records to Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee number\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ First or last name\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Last 4 digits of their SSN, useful if you're not sure of the spelling\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Status, defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name, it appears as a blue link."
+        "text": "Go to Records to Manage Employee to look up an employee.\r\n\r\nYou can search by:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee number\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ First or last name\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Last 4 digits of their SSN, useful if you're not sure of the spelling\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Status, defaults to Active; change this if you're looking for an inactive employee\r\n\r\nLeave fields blank to broaden your search, or fill in multiple fields to narrow it down. Click Search when ready.\r\n\r\nYour results will show Last Name, First Name, Employee Number, Branch Name, and Status. To open an employee's record, click their last name, it appears as a blue link.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=3"
       },
       {
         "slide_number": 4,
@@ -754,7 +766,8 @@
         "slide_number": 3,
         "slide_name": "Disciplinary Action Tab",
         "instructions": "Open an employee record. Click the Disciplinary Action tab. Show any existing records. Show clicking Add New ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â fill in date, type, and notes fields. Click Save.",
-        "text": "The Disciplinary Action tab is where formal disciplinary records are logged for an employee.\r\n\r\nWhat you can do here:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ View the full history of disciplinary actions on file\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Add a new disciplinary action record\r\n\r\nWhen adding a new record, fill in:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Date, the date the action occurred\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Type, the category of disciplinary action\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Notes, a clear description of what happened and any actions taken\r\n\r\nBe precise and factual when writing notes. These records are part of the employee's permanent file and may be referenced during reviews or investigations.\r\n\r\nClick Save after entering the record."
+        "text": "The Disciplinary Action tab is where formal disciplinary records are logged for an employee.\r\n\r\nWhat you can do here:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ View the full history of disciplinary actions on file\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Add a new disciplinary action record\r\n\r\nWhen adding a new record, fill in:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Date, the date the action occurred\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Type, the category of disciplinary action\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Notes, a clear description of what happened and any actions taken\r\n\r\nBe precise and factual when writing notes. These records are part of the employee's permanent file and may be referenced during reviews or investigations.\r\n\r\nClick Save after entering the record.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=3"
       },
       {
         "slide_number": 4,
@@ -802,13 +815,15 @@
         "slide_number": 3,
         "slide_name": "Personal Info & Contact Info",
         "instructions": "Open an employee record. Show the Personal Info tab ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â name, date of birth, status dropdown. Then show the Contact Info tab ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â address, phone, email fields. Make a small edit and click Save.",
-        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Legal name\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Date of birth\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee status, Active, Inactive, etc.\r\n\r\nContact Info includes:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Home address\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Phone number\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Email address, this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes."
+        "text": "Personal Info and Contact Info are the foundation of the employee record.\r\n\r\nPersonal Info includes:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Legal name\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Date of birth\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee status, Active, Inactive, etc.\r\n\r\nContact Info includes:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Home address\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Phone number\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Email address, this is the address WISH uses for all Mail By communications and login credential delivery\r\n\r\nKeep these fields accurate. An outdated email address means the employee won't receive schedule communications or their login credentials. An incorrect status can prevent them from being scheduled or paid correctly.\r\n\r\nAlways click Save after making any changes.",
+        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=3"
       },
       {
         "slide_number": 4,
         "slide_name": "Shared Branches",
         "instructions": "Click the Shared Branches tab. Show existing shared branches if any. Show adding a new branch ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â select from dropdown, click Add. Show removing a branch.",
-        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ That branch can search for them in Manage Employee\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ That branch can schedule them for their jobs\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Large events where staff from multiple locations are needed\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed."
+        "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ That branch can search for them in Manage Employee\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ That branch can schedule them for their jobs\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Large events where staff from multiple locations are needed\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed.",
+        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=4"
       },
       {
         "slide_number": 5,
@@ -856,7 +871,8 @@
         "slide_number": 3,
         "slide_name": "Reading the Import Screen",
         "instructions": "Show the Import From Hiring Portal screen. Point out Branch Name, Employee Type filters. Show the summary count row: Total, Duplicate, Import, Hired, Rehired. Highlight the column headers in the employee list: SSN, Name, Branch, BG Status, E-Verify Status, Status, Hiring Status.",
-        "text": "Before importing anyone, understand what you're looking at.\r\n\r\nAt the top, set your filters:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Branch Name, select your branch\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Type, Regular Employee in most cases\r\n\r\nClick Search to pull the applicant list.\r\n\r\nAbove the list you'll see a summary row:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Total, all applicants returned by your search\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Duplicate, applicants already in WISH under a matching SSN\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Import, applicants successfully imported in this session\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Hired, applicants whose hiring status is Hired\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Rehired, returning employees being brought back\r\n\r\nThe list itself shows each applicant's SSN, name, branch, Background Check status, E-Verify status, current status, and hiring status. Review these columns carefully before taking any action."
+        "text": "Before importing anyone, understand what you're looking at.\r\n\r\nAt the top, set your filters:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Branch Name, select your branch\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Employee Type, Regular Employee in most cases\r\n\r\nClick Search to pull the applicant list.\r\n\r\nAbove the list you'll see a summary row:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Total, all applicants returned by your search\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Duplicate, applicants already in WISH under a matching SSN\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Import, applicants successfully imported in this session\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Hired, applicants whose hiring status is Hired\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Rehired, returning employees being brought back\r\n\r\nThe list itself shows each applicant's SSN, name, branch, Background Check status, E-Verify status, current status, and hiring status. Review these columns carefully before taking any action.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=3"
       },
       {
         "slide_number": 4,
@@ -910,7 +926,8 @@
         "slide_number": 3,
         "slide_name": "Reading the Manage Employee Task Screen",
         "instructions": "Show the Manage Employee Task screen fully loaded. Point out the employee list with columns for name, employee number, status. Zoom in on the task column at the far right ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â show a checkmark on one row and an X on another.",
-        "text": "The Manage Employee Task screen displays your employees in a list with their basic information, name, employee number, and current status.\r\n\r\nAt the end of each row you'll see the task indicator:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Checkmark, the employee has completed all assigned tasks. No action needed.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ X, the employee has one or more pending tasks that still need to be completed.\r\n\r\nEmployees with an X need your attention. They may be missing a required training, a document submission, or another compliance item that needs to be resolved before they can fully perform their role in WISH."
+        "text": "The Manage Employee Task screen displays your employees in a list with their basic information, name, employee number, and current status.\r\n\r\nAt the end of each row you'll see the task indicator:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Checkmark, the employee has completed all assigned tasks. No action needed.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ X, the employee has one or more pending tasks that still need to be completed.\r\n\r\nEmployees with an X need your attention. They may be missing a required training, a document submission, or another compliance item that needs to be resolved before they can fully perform their role in WISH.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=3"
       },
       {
         "slide_number": 4,
@@ -958,7 +975,8 @@
         "slide_number": 3,
         "slide_name": "Mail By Employee",
         "instructions": "Tools ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Mail By Employee. Show the employee search field. Search for and select one or more employees. Show the message composition area. Show the Send button.",
-        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results, you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Following up with an individual about a schedule or assignment\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Sending a document or reminder to a specific group\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Direct communication when you know exactly who needs to receive it"
+        "text": "Use Mail By Employee when you need to reach a specific person or a select group of employees by name.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Employee\r\n2. Search for the employee by name or employee number\r\n3. Select them from the results, you can select multiple employees\r\n4. Type your subject and message\r\n5. Click Send\r\n\r\nCommon uses:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Following up with an individual about a schedule or assignment\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Sending a document or reminder to a specific group\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Direct communication when you know exactly who needs to receive it",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=3"
       },
       {
         "slide_number": 4,
@@ -1012,19 +1030,22 @@
         "slide_number": 3,
         "slide_name": "Configuring Sign-In",
         "instructions": "Time Clock ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Sign-In Config. Select Event, Venue, Job. Select shifts. Click Add to Shift List. Click Go to Sign-In.",
-        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly, those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes, the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour."
+        "text": "Go to Time Clock to Sign-In Config. Do not use the Sign-In or Sign-Out pages directly, those show logs. Use Sign-In Config to set up your active session.\r\n\r\nSelect your event, and your venue and job will auto-populate. Select the shifts you want, click Add to Shift List, then click Go to Sign-In.\r\n\r\nThe late sign-in parameter defaults to 15 minutes, the CSC standard. Do not change this unless instructed. The 15-minute interval means sign-in times snap to the nearest quarter hour.",
+        "simulation_url": "/mockup/mockup.html?module=sign_in_sign_out&slide=3"
       },
       {
         "slide_number": 4,
         "slide_name": "Signing Employees In",
         "instructions": "Sign-in screen. Scan employee ID. Show auto-capture. Show late warning popup. Click Pause. Click Correction tab. Update time. Click OK.",
-        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift, they will receive their scheduled time, not the early clock time."
+        "text": "In the sign-in window, employees can scan their ID badge or you can type the number manually.\r\n\r\nIf an employee is on time, they are signed in immediately. If they are late, a warning appears. Click Pause to freeze the screen and give yourself time to act. Click the Correction tab and update the time before clicking OK. Not everyone will have the permission to correct times, check with your manager before doing so.\r\n\r\nIf an employee does not know their ID number, use the employee search link on the sign-in screen.\r\n\r\nYou can sign in employees up to two hours before their shift, they will receive their scheduled time, not the early clock time.",
+        "simulation_url": "/mockup/mockup.html?module=sign_in_sign_out&slide=4"
       },
       {
         "slide_number": 5,
         "slide_name": "Signing Out",
         "instructions": "Time Clock ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Sign-In/Sign-Out Config. Show Sign-Out tab. Show 2-hour minimum parameter. Show correction process.",
-        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter, if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times."
+        "text": "Sign-out works the same as sign-in. There is a 2-hour minimum parameter, if you try to sign someone out before they have worked two hours, the system sets the sign-out time to give them at least that minimum.\r\n\r\nIf you need to sign someone out early, use the Correction tab to adjust the time.\r\n\r\nAt the end of the event, match your sign-out count to your sign-in count as closely as possible. Click the numbers in the shift columns to see exactly who is signed in, who is signed out, and their times.",
+        "simulation_url": "/mockup/mockup.html?module=sign_in_sign_out&slide=5"
       },
       {
         "slide_number": 6,
@@ -1066,19 +1087,22 @@
         "slide_number": 3,
         "slide_name": "Accessing Process Hours",
         "instructions": "Screen recording: Payroll ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Process Hours. Select event. Show job list. Click job/shift. Show sign-in and sign-out columns.",
-        "text": "Go to Payroll to Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count, giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours."
+        "text": "Go to Payroll to Manage Process Hours. Select your event from the dropdown.\r\nYou will see all jobs for that event. Click into a job to expand the shifts. For each shift, you will see the min, max, scheduled count, and sign-in count, giving you an at-a-glance view of what happened.\r\n\r\nThe sign-in count reflects what was captured electronically. This is your starting point for approving hours.",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=3"
       },
       {
         "slide_number": 4,
         "slide_name": "Approving Hours",
         "instructions": "Open shift. Show sign-in and sign-out buttons. Click Sign-In button ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
-        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\r\n\r\nReview the times. If everything looks correct, click Approve Hours, this is your save button and finalizes the hours.\r\n\r\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\r\n\r\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times."
+        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\r\n\r\nReview the times. If everything looks correct, click Approve Hours, this is your save button and finalizes the hours.\r\n\r\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\r\n\r\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times.",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=4"
       },
       {
         "slide_number": 5,
         "slide_name": "Autofill and Bulk Approval",
         "instructions": "Show Autofill Sign-In and Autofill Sign-Out buttons. Click both. Click Approve Hours. Back button. Move to next shift.",
-        "text": "For jobs where no electronic sign-ins were done and you want to give everyone the full scheduled time, use Autofill Sign-In and Autofill Sign-Out.\r\n\r\nThese buttons instantly populate every employee with the shift's scheduled start and end time. Click Approve Hours to finalize.\r\n\r\nThis is the fastest way to process hours for clean sessions where you are confident everyone worked their full shift."
+        "text": "For jobs where no electronic sign-ins were done and you want to give everyone the full scheduled time, use Autofill Sign-In and Autofill Sign-Out.\r\n\r\nThese buttons instantly populate every employee with the shift's scheduled start and end time. Click Approve Hours to finalize.\r\n\r\nThis is the fastest way to process hours for clean sessions where you are confident everyone worked their full shift.",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=5"
       },
       {
         "slide_number": 6,
@@ -1132,31 +1156,36 @@
         "slide_number": 4,
         "slide_name": "Check Bill for Job",
         "instructions": "Billing ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Check Bill for Job. Click View Unbilled. Show report with Hours Processed column showing Yes/No.",
-        "text": "Go to Billing to Check Bill for Job. Click View Unbilled to see everything that has not been invoiced yet.\r\n\r\nThe report shows an Hours Processed column. If it shows Yes, the job is ready to bill. If it shows No, go back to Manage Process Hours and complete the approval for that job first."
+        "text": "Go to Billing to Check Bill for Job. Click View Unbilled to see everything that has not been invoiced yet.\r\n\r\nThe report shows an Hours Processed column. If it shows Yes, the job is ready to bill. If it shows No, go back to Manage Process Hours and complete the approval for that job first.",
+        "simulation_url": "/mockup/mockup.html?module=billing&slide=4"
       },
       {
         "slide_number": 5,
         "slide_name": "Manage Billing Process",
         "instructions": "Billing ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Billing Process. Select event. Show client and contract auto-populating. Hit Search. Select all days. Click Get Invoice Data.",
-        "text": "Go to Billing to Manage Billing Process. Select your event, your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method, in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data."
+        "text": "Go to Billing to Manage Billing Process. Select your event, your client and contract will auto-populate.\r\n\r\nClick Search to pull up all days worked for that event. Select the days you want to bill for. Choose your calculation method, in most cases this is Calculate Regular Hours.\r\n\r\nClick Get Invoice Data. WISH will calculate the bill from the sign-in and sign-out data.",
+        "simulation_url": "/mockup/mockup.html?module=billing&slide=5"
       },
       {
         "slide_number": 6,
         "slide_name": "Reviewing and Adjusting the Bill",
         "instructions": "Walk through Sign-In/Sign-Out tab, Billing Tax tab, Summary tab, Billable Items tab, Invoice Setup tab.",
-        "text": "After pulling invoice data, review the tabs:\r\n\r\nSign-In/Sign-Out, Adjust times, change roles, or update rates for employees who worked different positions. Use the change fields at the top to apply changes to multiple employees at once.\r\n\r\nBilling Tax, Apply tax rates to specific roles if applicable.\r\n\r\nSummary, Clean overview of all staff used across roles and job days.\r\n\r\nBillable Items, Add additional charges to the client: radios, carts, jackets, wristbands, etc.\r\n\r\nInvoice Setup, Set the Attention To field (the client contact who should receive the invoice). This is required before generating."
+        "text": "After pulling invoice data, review the tabs:\r\n\r\nSign-In/Sign-Out, Adjust times, change roles, or update rates for employees who worked different positions. Use the change fields at the top to apply changes to multiple employees at once.\r\n\r\nBilling Tax, Apply tax rates to specific roles if applicable.\r\n\r\nSummary, Clean overview of all staff used across roles and job days.\r\n\r\nBillable Items, Add additional charges to the client: radios, carts, jackets, wristbands, etc.\r\n\r\nInvoice Setup, Set the Attention To field (the client contact who should receive the invoice). This is required before generating.",
+        "simulation_url": "/mockup/mockup.html?module=billing&slide=6"
       },
       {
         "slide_number": 7,
         "slide_name": "Generating and Printing the Invoice",
         "instructions": "Click Generate Invoice. Select Summary or Detailed. PDF opens. Show invoice number, client info, remit-to, role breakdown, totals.",
-        "text": "Select your invoice type:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary, Clean totals by role. Most clients prefer this.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Detailed, Full breakdown showing each employee's times, regular and overtime hours.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary with Cover and Sign-In Sheets, Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown, your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing to Print Invoice, select your event, choose the invoice."
+        "text": "Select your invoice type:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary, Clean totals by role. Most clients prefer this.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Detailed, Full breakdown showing each employee's times, regular and overtime hours.\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Summary with Cover and Sign-In Sheets, Includes everything.\r\n\r\nClick Generate Invoice. Your invoice opens as a PDF. Copy the invoice number.\r\n\r\nTo make changes, use the invoice reference dropdown, your most recent invoice appears at the top. Edit, go back to Invoice Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.\r\n\r\nTo print any previous invoice: Billing to Print Invoice, select your event, choose the invoice.",
+        "simulation_url": "/mockup/mockup.html?module=billing&slide=7"
       },
       {
         "slide_number": 8,
         "slide_name": "Managing Contracts",
         "instructions": "Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Contract. Search for client. Open contract. Show contract info, rates, and billing roles.",
-        "text": "Client contracts are managed under Records to Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Contract dates and payment terms, standard is net 30 days with 150% late fee\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Bill rates by role, what you charge the client per hour for each position\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tax rates, set appropriately for your location\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Contract document, upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate."
+        "text": "Client contracts are managed under Records to Manage Contract. If a contract does not exist, you will need to create one before billing is possible.\r\n\r\nInside a contract you will find:\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Contract dates and payment terms, standard is net 30 days with 150% late fee\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Bill rates by role, what you charge the client per hour for each position\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Tax rates, set appropriately for your location\r\nÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢ Contract document, upload the PDF directly into WISH\r\n\r\nTo update a rate, deactivate the current rate and enter the new one. If a role is missing, add it here with its bill rate.",
+        "simulation_url": "/mockup/mockup.html?module=billing&slide=8"
       },
       {
         "slide_number": 9,

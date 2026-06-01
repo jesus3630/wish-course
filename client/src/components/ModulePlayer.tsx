@@ -602,13 +602,31 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               ) : null}
 
               {(slide as any)?.image_below && (
-                <div style={{ textAlign: 'center', margin: '28px 0 8px' }}>
-                  <img
-                    src={(slide as any).image_below}
-                    alt=""
-                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                    style={{ maxWidth: '280px', maxHeight: '380px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'inline-block' }}
-                  />
+                <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap', margin: '28px 0 8px' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <p style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                      {(slide as any)?.image_below_2 ? 'Audit Trail — Job Creator' : ''}
+                    </p>
+                    <img
+                      src={(slide as any).image_below}
+                      alt=""
+                      onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                      style={{ maxWidth: '420px', maxHeight: '480px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
+                    />
+                  </div>
+                  {(slide as any)?.image_below_2 && (
+                    <div style={{ textAlign: 'center' }}>
+                      <p style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', marginBottom: '8px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                        Audit Trail — Scheduler Assignment
+                      </p>
+                      <img
+                        src={(slide as any).image_below_2}
+                        alt=""
+                        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                        style={{ maxWidth: '420px', maxHeight: '480px', width: 'auto', height: 'auto', borderRadius: '10px', boxShadow: '0 4px 18px rgba(0,0,0,0.12)', border: '1px solid #E5E7EB', display: 'block' }}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
 
