@@ -816,7 +816,7 @@ function schedEmpHTML() {
   const cells24 = Array.from({length:24},()=>cell).join('');
   const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;text-align:center;font-size:9px;background:#5a5a5a;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
   const hrLabel = `<td style="width:38px;background:#5a5a5a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td>`;
-  const days = [
+  const days2 = [
     {label:'Saturday',date:'5/30/2026',orange:true},
     {label:'Sunday',date:'5/31/2026'},
     {label:'Monday',date:'6/1/2026'},
@@ -825,7 +825,7 @@ function schedEmpHTML() {
     {label:'Thursday',date:'6/4/2026'},
     {label:'Friday',date:'6/5/2026'},
   ];
-  const calRows = days.map(d=>`<tr>
+  const calRows = days2.map(d=>`<tr>
     <td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">${d.label}<br>${d.date}</td>
     ${cells24}
     <td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc"></td>
@@ -869,7 +869,7 @@ function schedEmpHTML() {
       </div>
       <div style="display:flex;align-items:center;margin-bottom:4px">
         <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">First Name :</span>
-        <input style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
+        <input id="f-emp-fname" style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
       </div>
       <div style="display:flex;align-items:center;margin-bottom:4px">
         <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Last Name :</span>
@@ -898,14 +898,104 @@ function schedEmpHTML() {
       <div style="margin-left:111px">
         <button class="btn btn-sm" id="btn-empsearch" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px">Search</button>
         <button style="background:#e8e4dc;color:#333;border:1px solid #aaa;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px;margin-left:3px">Clear</button>
+        <span id="emp-extra-btns" style="display:none">
+          <button style="background:#e8e4dc;color:#333;border:1px solid #aaa;padding:3px 8px;border-radius:2px;cursor:pointer;font-size:12px;margin-left:3px">...</button>
+        </span>
+      </div>
+      <div id="emp-extra-row" style="display:none;margin-left:111px;margin-top:4px">
+        <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px">Emp Mail Sched</button>
+        <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px;margin-left:3px">Non-Availability</button>
+      </div>
+    </div>
+  </div>
+  <!-- Hours Estimation (shown after employee selected) -->
+  <div id="emp-hours-est" style="display:none;margin:6px 0 8px">
+    <div style="background:#fffde8;border:1px solid #d4c060;padding:8px 14px;font-size:11px;max-width:320px">
+      <div style="font-weight:bold;margin-bottom:4px">Hours Estimation</div>
+      <div style="text-align:center;line-height:1.8">
+        ESOP Participant :NO<br>
+        Notes :<br>
+        Estimated Hours :0<br>
+        Average Hours :0<br><br>
+        Expired Job Training :<br>
+        Guard Card Expired :<br>
+        <span style="color:#c00">Background Check:01 Jan 2028</span>
       </div>
     </div>
   </div>
   <div style="border-top:2px solid #7ab030;margin:6px 0 8px"></div>
+  <!-- Search results table (shown after Search click) -->
+  <div id="emp-search-results" style="display:none;margin-bottom:8px">
+    <table style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead>
+        <tr style="background:#4a4a4a;color:#fff">
+          <th style="padding:4px 6px">Employee #</th>
+          <th style="padding:4px 6px">Last Name <span style="font-size:9px">&#8597;</span></th>
+          <th style="padding:4px 6px">First Name <span style="font-size:9px">&#8597;</span></th>
+          <th style="padding:4px 6px">SSN <span style="font-size:9px">&#8597;</span></th>
+          <th style="padding:4px 6px">Job Title <span style="font-size:9px">&#8597;</span></th>
+          <th style="padding:4px 6px">Phone No <span style="font-size:9px">&#8597;</span></th>
+          <th style="padding:4px 6px">Last Worked <span style="font-size:9px">&#8597;</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="emp-row-1"><td style="padding:3px 6px">3951657</td><td><a href="#" id="emp-link-1" style="color:#c07800">Nagdev</a></td><td style="color:#333">Priyanka</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">1234567911</td><td><a href="#" style="color:#c07800">-2611</a></td><td style="color:#333">Prota</td><td>xxxxx3333</td><td>Supervisor</td><td></td><td></td></tr>
+        <tr><td style="padding:3px 6px">3951664</td><td><a href="#" style="color:#c07800">Banik</a></td><td style="color:#333">Shiny</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951660</td><td><a href="#" style="color:#c07800">Bhattacharyya</a></td><td style="color:#333">Shreya</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952376</td><td><a href="#" style="color:#c07800">Bisht</a></td><td style="color:#333">Mahendra singh</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952379</td><td><a href="#" style="color:#c07800">Chaudhary</a></td><td style="color:#333">Prachi</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951163</td><td><a href="#" style="color:#c07800">Chauhan</a></td><td style="color:#333">Vikrant</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">10111</td><td><a href="#" style="color:#c07800">cscadmin</a></td><td style="color:#333">cscadmin</td><td>xxxxx3333</td><td>Unclassified</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951244</td><td><a href="#" style="color:#c07800">Dahiya</a></td><td style="color:#333">Naman</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>07 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952223</td><td><a href="#" style="color:#c07800">Das</a></td><td style="color:#333">Tirthamoy</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951662</td><td><a href="#" style="color:#c07800">Das</a></td><td style="color:#333">Tulika</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">1234565</td><td><a href="#" style="color:#c07800">-Devadoss</a></td><td style="color:#333">Paul</td><td>xxxxx3333</td><td>Supervisor in Training</td><td>(818) 885-5150</td><td>23 Mar 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952394</td><td><a href="#" style="color:#c07800">Garg</a></td><td style="color:#333">Mayank</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3950683</td><td><a href="#" style="color:#c07800">Gopal</a></td><td style="color:#333">Tgopalakrishnan</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951623</td><td><a href="#" style="color:#c07800">Goswami</a></td><td style="color:#333">Ragini</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951628</td><td><a href="#" style="color:#c07800">Goyal</a></td><td style="color:#333">Aashish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>21 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952377</td><td><a href="#" style="color:#c07800">Gupta</a></td><td style="color:#333">Tanupriya</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951551</td><td><a href="#" style="color:#c07800">Handa</a></td><td style="color:#333">Ankish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952313</td><td><a href="#" style="color:#c07800">Kapoor</a></td><td style="color:#333">Kopal</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952311</td><td><a href="#" style="color:#c07800">Kathuria</a></td><td style="color:#333">Raghav</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+      </tbody>
+    </table>
+    <div style="padding:5px 8px;font-size:11px;border-top:1px solid #ddd;background:#f9f9f9">
+      Total Pages: 4 &nbsp;&nbsp; Goto page: <select style="font-size:11px;height:20px;border:1px solid #999;width:40px"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+    </div>
+  </div>
+  <!-- Selected employee single row (shown after clicking name) -->
+  <div id="emp-sel-row" style="display:none;margin-bottom:6px">
+    <table style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead>
+        <tr style="background:#4a4a4a;color:#fff">
+          <th style="padding:4px 6px">Employee #</th>
+          <th style="padding:4px 6px">Last Name</th>
+          <th style="padding:4px 6px">First Name</th>
+          <th style="padding:4px 6px">SSN</th>
+          <th style="padding:4px 6px">Job Title</th>
+          <th style="padding:4px 6px">Phone No</th>
+          <th style="padding:4px 6px">Last Worked</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#e07820;color:#fff;font-weight:bold">
+          <td style="padding:3px 6px">3951657</td>
+          <td><a href="#" style="color:#fff">Nagdev</a></td>
+          <td>Priyanka</td>
+          <td>xxxxx3333</td>
+          <td>Supervisor</td>
+          <td>(1.2) 345-6e+009</td>
+          <td>26 May 2026</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <!-- Week nav -->
   <div style="display:flex;align-items:stretch;gap:2px;margin-bottom:0">
     <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:2px 0 0 2px">&#9664;</button>
-    ${days.map(d=>`<div style="background:${d.orange?'#e07820':'#d4d4d4'};color:${d.orange?'#fff':'#333'};text-align:center;padding:4px 2px;font-size:10px;font-weight:bold;flex:1">${d.label}<br>${d.date}</div>`).join('')}
+    ${days2.map(d=>`<div style="background:${d.orange?'#e07820':'#d4d4d4'};color:${d.orange?'#fff':'#333'};text-align:center;padding:4px 2px;font-size:10px;font-weight:bold;flex:1">${d.label}<br>${d.date}</div>`).join('')}
     <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:0 2px 2px 0">&#9654;</button>
   </div>
   <!-- Calendar grid -->
@@ -1012,7 +1102,21 @@ function slide_scheduling_3() {
         document.getElementById('sub-scheduling').classList.remove('show');
         document.getElementById('content').innerHTML = schedEmpHTML();
       }},
-    { selector: '#btn-empsearch', prompt: 'Click Search to find the employee' },
+    { selector: '#btn-empsearch', prompt: 'Click Search to find employees',
+      onConfirm: () => {
+        document.getElementById('emp-search-results').style.display = '';
+      }},
+    { selector: '#emp-link-1', prompt: 'Click the employee name to select them',
+      onConfirm: () => {
+        document.getElementById('emp-search-results').style.display = 'none';
+        document.getElementById('f-emp-last').value = '3951657';
+        document.getElementById('f-emp-fname').value = 'Priyanka';
+        document.getElementById('f-emp-name').value = 'Nagdev';
+        document.getElementById('emp-hours-est').style.display = '';
+        document.getElementById('emp-sel-row').style.display = '';
+        document.getElementById('emp-extra-btns').style.display = '';
+        document.getElementById('emp-extra-row').style.display = '';
+      }},
     { selector: '#cal-s1', prompt: 'Click "+" next to the job to schedule the employee',
       onConfirm: () => { document.getElementById('cal-s1').textContent = '−'; }},
     { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes' },
