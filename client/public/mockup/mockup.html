@@ -865,7 +865,7 @@ function schedEmpHTML() {
       </div>
       <div style="display:flex;align-items:center;margin-bottom:4px">
         <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">Employee# :</span>
-        <input id="f-emp-last" style="border:2px solid #3a7abf;height:22px;font-size:12px;width:115px;padding:2px 4px">
+        <input id="f-emp-last" style="border:1px solid #999;height:22px;font-size:12px;width:115px;padding:2px 4px">
       </div>
       <div style="display:flex;align-items:center;margin-bottom:4px">
         <span style="display:inline-block;width:105px;text-align:right;padding-right:6px;font-size:12px;color:#444">First Name :</span>
@@ -1008,6 +1008,8 @@ function slide_scheduling_3() {
       }},
     { selector: '#sub-sched-emp', prompt: 'Click "Schedule by Employee"',
       onConfirm: () => {
+        // collapse sub-menu, keep Scheduling active
+        document.getElementById('sub-scheduling').classList.remove('show');
         document.getElementById('content').innerHTML = schedEmpHTML();
       }},
     { selector: '#btn-empsearch', prompt: 'Click Search to find the employee' },
