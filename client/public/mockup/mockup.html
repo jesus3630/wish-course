@@ -1275,9 +1275,6 @@ function slide_scheduling_3() {
     { selector: '#reason-select', prompt: 'Click the Reason dropdown to select a reason for the absence',
       onConfirm: () => {
         document.getElementById('reason-dropdown').style.display = '';
-        const ro = document.getElementById('reschedule-option');
-        ro.style.background = '#4a4a4a';
-        ro.style.color = '#fff';
       }},
     { selector: '#reschedule-option', prompt: 'Click "Reschedule" to select it as the reason',
       onConfirm: () => {
