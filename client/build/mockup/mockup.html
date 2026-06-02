@@ -1027,7 +1027,7 @@ function schedEmpHTML() {
         <span style="font-size:11px">&#9660;</span>
       </span>
     </div>
-    <div style="text-align:right;font-size:12px;margin-bottom:3px;color:#333">Min: 27| Max: 32| Sched: 0| Var: -27</div>
+    <div id="sched-summary" style="text-align:right;font-size:12px;margin-bottom:3px;color:#333">Min: 27| Max: 32| Sched: 0| Var: -27</div>
     <table style="width:100%;border-collapse:collapse">
       <thead><tr>
         <th style="width:22px"></th>
@@ -1120,7 +1120,7 @@ function schedEmpHTML() {
                 <div style="padding:3px 8px;font-size:11px">Other</div>
                 <div style="padding:3px 8px;font-size:11px">Other Job</div>
                 <div style="padding:3px 8px;font-size:11px">Personal Vehicle</div>
-                <div style="padding:3px 8px;font-size:11px">Reschedule</div>
+                <div id="reschedule-option" style="padding:3px 8px;font-size:11px;cursor:pointer">Reschedule</div>
                 <div style="padding:3px 8px;font-size:11px">Schedule Conflict</div>
                 <div style="padding:3px 8px;font-size:11px">Sick</div>
               </div>
@@ -1267,6 +1267,17 @@ function slide_scheduling_3() {
     { selector: '#reason-select', prompt: 'Click the Reason dropdown to select a reason for the absence',
       onConfirm: () => {
         document.getElementById('reason-dropdown').style.display = '';
+        const ro = document.getElementById('reschedule-option');
+        ro.style.background = '#4a4a4a';
+        ro.style.color = '#fff';
+      }},
+    { selector: '#reschedule-option', prompt: 'Click "Reschedule" to select it as the reason',
+      onConfirm: () => {
+        document.getElementById('reason-dropdown').style.display = 'none';
+        document.getElementById('reason-select').innerHTML = 'Reschedule &#9660;';
+        document.getElementById('td-sched-sierra').textContent = '1';
+        document.getElementById('td-var-sierra').textContent = '-26';
+        document.getElementById('sched-summary').textContent = 'Min: 27| Max: 32| Sched: 1| Var: -26';
       }},
   ]);
 }
