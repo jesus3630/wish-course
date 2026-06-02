@@ -812,10 +812,10 @@ function slide_mss_6() {
 
 // ── Scheduling ─────────────────────────────────────────────────────────────
 function schedEmpHTML() {
-  const cell = `<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>`;
+  const cell = `<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:20px;width:20px;padding:0;background-image:linear-gradient(to bottom,transparent 49%,rgba(0,0,0,0.07) 49%,rgba(0,0,0,0.07) 51%,transparent 51%)"></td>`;
   const cells24 = Array.from({length:24},()=>cell).join('');
-  const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;text-align:center;font-size:9px;background:#5a5a5a;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
-  const hrLabel = `<td style="width:38px;background:#5a5a5a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td>`;
+  const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;height:16px;text-align:center;font-size:9px;background:#5a5a5a;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
+  const hrLabel = `<td style="width:38px;background:#3a3a3a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td>`;
   const days2 = [
     {label:'Saturday',date:'5/30/2026',orange:true},
     {label:'Sunday',date:'5/31/2026'},
@@ -1233,13 +1233,13 @@ function slide_scheduling_3() {
         document.getElementById('td-var-staff1').textContent = '-11';
         document.getElementById('td-sched-secguard').textContent = '1';
         document.getElementById('td-var-secguard').textContent = '-11';
-        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>';
+        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:20px;width:20px;padding:0;background-image:linear-gradient(to bottom,transparent 49%,rgba(0,0,0,0.07) 49%,rgba(0,0,0,0.07) 51%,transparent 51%)"></td>';
         const e = n => Array.from({length:n},()=>ec).join('');
         document.getElementById('cal-sat-row').innerHTML =
           '<td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">Saturday<br>5/30/2026</td>' +
           e(10) +
-          '<td colspan="4" style="background:#3a9a3a;border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;padding:0 2px;overflow:hidden;white-space:nowrap">' +
-          '<span id="cal-green-label" style="color:#fff;font-size:8px;line-height:18px;display:block;cursor:pointer">Sierra Erica WISH Training May 2026-5/30/2026 Staff 1 Call 10:00 14:00</span>' +
+          '<td colspan="4" style="background:#3a9a3a;border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:20px;padding:0 3px;overflow:hidden;white-space:nowrap">' +
+          '<span id="cal-green-label" style="color:#fff;font-size:9px;line-height:20px;display:block;cursor:pointer;font-weight:bold">Sierra Erica WISH Training May 2026-5/30/2026 Staff 1 Call 10:00 14:00</span>' +
           '</td>' +
           e(10) +
           '<td id="cal-sat-hrs" style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">4.00</td>';
@@ -1294,7 +1294,7 @@ function slide_scheduling_3() {
         document.getElementById('sched-delete-overlay').style.display = 'none';
         document.getElementById('sd-alert-box').style.display = 'none';
         // Rebuild Saturday row with no green bar
-        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>';
+        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:20px;width:20px;padding:0;background-image:linear-gradient(to bottom,transparent 49%,rgba(0,0,0,0.07) 49%,rgba(0,0,0,0.07) 51%,transparent 51%)"></td>';
         const e24 = Array.from({length:24},()=>ec).join('');
         document.getElementById('cal-sat-row').innerHTML =
           '<td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">Saturday<br>5/30/2026</td>' +
