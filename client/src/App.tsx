@@ -10,6 +10,7 @@ import AdminPanel from './components/AdminPanel';
 import Certificate from './components/Certificate';
 
 type AppView = 'login' | 'dashboard' | 'module';
+const _BUILD = '20260602';
 
 const isAdmin = window.location.pathname === '/admin';
 
@@ -100,7 +101,7 @@ export default function App() {
   if (!dataLoaded) {
     return (
       <div style={{ minHeight: '100vh', background: '#F4F7FA', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ fontSize: '18px', color: '#1B3A6B', fontWeight: 600, fontFamily: 'system-ui, sans-serif' }}>Loading...</div>
+        <div style={{ fontSize: '18px', color: '#1B3A6B', fontWeight: 600, fontFamily: 'system-ui, sans-serif' }} data-v={_BUILD}>Loading...</div>
       </div>
     );
   }
