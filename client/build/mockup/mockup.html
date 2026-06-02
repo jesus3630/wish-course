@@ -1311,46 +1311,77 @@ function slide_scheduling_3() {
   ]);
 }
 
-function slide_scheduling_4() {
-  setNav('scheduling');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Schedule by Job</div>
-    <div style="display:flex;gap:20px">
-      <div style="flex:1">
-        <div class="form-row"><span class="form-label">Event :</span><input class="form-input" value="LA WISH Training W Alex Mark 202"></div>
-        <div class="form-row"><span class="form-label">Job Name :</span><input class="form-input" value="LA WISH Job Alex Mark 2022-3/25"></div>
-        <div class="form-row"><span class="form-label">Branch Name :</span><input class="form-input" value="Prota Branch Test"></div>
-        <div class="form-row"><span class="form-label">Department :</span><input class="form-input" value="Staff"></div>
-        <div class="form-row"><span class="form-label">Start :</span><input class="form-input" value="03/25/2022 08:00"></div>
-        <div class="form-row"><span class="form-label">Finish :</span><input class="form-input" value="03/25/2022 22:00"></div>
-        <div class="msg-success" id="sched-msg" style="display:none">&#10004; Schedule created successfully.</div>
-      </div>
-      <div style="flex:1">
-        <div class="form-row"><span class="form-label" style="width:120px">Branch Name :</span><select class="form-select"><option>Prota Branch Test</option></select></div>
-        <div class="form-row"><span class="form-label" style="width:120px">Department :</span><select class="form-select"><option>Staff</option></select></div>
-        <div class="form-row"><span class="form-label" style="width:120px">Last Name :</span><input class="form-input" id="f-sch-last" style="width:130px"></div>
-        <div class="form-row"><span class="form-label" style="width:120px">Status :</span><select class="form-select"><option>Active</option></select></div>
-        <div style="margin:4px 0 8px 120px"><label><input type="checkbox" id="chk-roles" checked> Check Emp Roles</label></div>
-        <div style="margin-left:120px"><button class="btn" id="btn-schsearch">Search</button></div>
-      </div>
-    </div>
-    <div id="sch-results" style="margin-top:14px;display:none">
-      <table><thead><tr><th style="width:40px">Select</th><th></th><th>Last Name</th><th>First Name</th><th>Emp#</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" class="sch-chk" id="sc1"></td><td><span class="check-green">&#10004;</span></td><td>testemp26</td><td>testemp26</td><td>1234567932</td></tr>
-        <tr><td><input type="checkbox" class="sch-chk" id="sc2"></td><td><span class="check-green">&#10004;</span></td><td>testemp22</td><td>testemp22</td><td>1234567928</td></tr>
-        <tr><td><input type="checkbox" class="sch-chk" id="sc3"></td><td><span class="check-green">&#10004;</span></td><td>Raheja</td><td>Deepak</td><td>4122000</td></tr>
-      </tbody></table>
-      <div style="margin-top:10px"><button class="btn" id="btn-schsave">Save</button></div>
+function schedJobSearchHTML() {
+  return `
+    <div style="padding:10px 16px">
+      <div style="font-size:16px;font-weight:bold;color:#1a1a1a;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:14px;">Schedule by Job</div>
+      <div class="form-row"><span class="form-label">Branch Name :</span><select class="form-select" id="sj-branch"><option>Prota LA Branch Test</option></select><span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Job# :</span><input class="form-input" id="sj-jobnum" style="width:160px"></div>
+      <div class="form-row"><span class="form-label">Job Name :</span><input class="form-input" id="sj-jobname" style="width:220px"></div>
+      <div class="form-row"><span class="form-label">Start Date :</span><input class="form-input" id="sj-start" value="06/02/2026" style="width:100px">${calBtn()}<span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">End Date :</span><input class="form-input" id="sj-end" value="06/17/2026" style="width:100px">${calBtn()}<span class="req">*</span></div>
+      <div class="form-row"><span class="form-label">Venue Name :</span><select class="form-select" id="sj-venue"><option>Crocket Arena</option></select></div>
+      <div class="form-row"><span class="form-label">Sorting :</span><label style="margin-right:10px"><input type="radio" name="sj-sort" checked> Start Date</label><label><input type="radio" name="sj-sort"> JobName</label></div>
+      <div style="margin-top:12px;margin-left:130px"><button class="btn" id="sj-search">Search</button></div>
     </div>`;
+}
+
+function slide_scheduling_4() {
+  // Start on dashboard with Scheduling nav collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td>Sierra Erica WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#c07800">Dosier Stadium</td></tr>
+            <tr><td>LA WISH Training Job May 2026</td><td>Dosier Stadium</td></tr>
+            <tr><td>KC DC Staff WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060226 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060226 Torrance Interviews</td><td>Torrance Office</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24 HR Red Shirts 6/2/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24 Hour Security Coverage 6/2/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>24 Hour Security Coverage 6/2/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>AC Office Hours 6/2/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>ACWM Dispatch 6/2/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>ANGELS vs COL 6/2/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>Command 6/2/2026</td><td>Iowa Events Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>Donison Garage Watch 6/2/2026</td><td>Virginia Ave Garage</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-sch-last', prompt: 'Click here and type the employee\'s last name', type: 'test' },
-    { selector: '#btn-schsearch', prompt: 'Click "Search" to find employees',
-      onConfirm: () => { document.getElementById('sch-results').style.display = ''; }},
-    { selector: '#sc1', prompt: 'Click to select employees — all will be checked',
-      onConfirm: () => { ['sc1','sc2','sc3'].forEach(id => document.getElementById(id).checked = true); }},
-    { selector: '#btn-schsave', prompt: 'Click "Save" to schedule the selected employees',
-      onConfirm: () => { document.getElementById('sched-msg').style.display = ''; }},
+    { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" in the menu to expand it',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.add('active');
+        document.getElementById('sub-scheduling').classList.add('show');
+      }},
+    { selector: '#sub-sched-job', prompt: 'Click "Schedule by Job"',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.remove('active');
+        document.getElementById('sub-scheduling').classList.remove('show');
+        document.getElementById('content').innerHTML = schedJobSearchHTML();
+      }},
   ]);
 }
 
