@@ -25,7 +25,7 @@ export default function App() {
   useEffect(() => {
     if (isAdmin) { setDataLoaded(true); return; }
     Promise.all([
-      fetch('/api/course?v=4').then(r => r.json()),
+      fetch('/api/course?t=' + Date.now()).then(r => r.json()),
       fetch('/api/quiz').then(r => r.json()),
     ]).then(([courseData, quizJson]) => {
       setModules(courseData as Module[]);
