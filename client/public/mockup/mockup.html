@@ -1194,7 +1194,8 @@ function slide_scheduling_3() {
         document.getElementById('job-shift-1').style.display = 'none';
         document.getElementById('job-shift-2').style.display = 'none';
         document.getElementById('job-security-guard').style.display = 'none';
-        // Reset Sierra Erica Sched/Var back to original state
+        // Reset Sierra Erica + sign and Sched/Var
+        document.getElementById('cal-s1').textContent = '+';
         document.getElementById('td-sched-sierra').textContent = '0';
         document.getElementById('td-var-sierra').textContent = '-27';
         // Update calendar footer cell to show 4.00 Hours with orange highlight
