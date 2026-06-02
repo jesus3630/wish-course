@@ -1469,8 +1469,10 @@ function drakeJobDetailHTML() {
           </div>
         </div>
       </div>
+      <!-- Success notification (hidden until SaveSched) -->
+      <div id="sched-success" style="display:none;background:#d4edda;border:1px solid #c3e6cb;color:#155724;padding:6px 12px;margin-bottom:8px;font-size:13px;">&#10003; Schedule created successfully.</div>
       <!-- Shifts/Role + Employee table -->
-      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <table id="emp-table" style="width:100%;border-collapse:collapse;font-size:12px;">
         <thead><tr>
           <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;width:18px;"></th>
           <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Shifts/Role</th>
@@ -1516,7 +1518,7 @@ function drakeJobDetailHTML() {
       <!-- Footer -->
       <div style="margin-top:20px;display:flex;justify-content:flex-end;gap:8px;">
         <button class="btn" style="background:#e8a020;">Back</button>
-        <button class="btn">SaveSched</button>
+        <button class="btn" id="btn-savesched">SaveSched</button>
       </div>
     </div>`;
 }
@@ -1736,6 +1738,16 @@ function slide_scheduling_4() {
       }},
     { selector: '#btn-emp-search', prompt: 'Click "Search" to find available employees for this role',
       onConfirm: () => {
+        // add max-7 enforcement on the employee checkboxes
+        setTimeout(() => {
+          const allEmpChk = document.querySelectorAll('#emp-table tbody input[type="checkbox"]');
+          allEmpChk.forEach(c => {
+            c.addEventListener('change', () => {
+              const checked = document.querySelectorAll('#emp-table tbody input[type="checkbox"]:checked');
+              if (checked.length > 7) { c.checked = false; }
+            });
+          });
+        }, 50);
         const employees = [
           ['Nagdev','Priyanka','3951657'],
           ['Banik','Shiny','3951664'],
@@ -1757,7 +1769,7 @@ function slide_scheduling_4() {
           ['Kathuria','Raghav','3952311'],
         ];
         const chk = '<input type="checkbox"><span style="color:#2a9a2a;margin-left:4px;font-size:13px">&#10004;</span>';
-        const tbody = document.querySelector('#content table tbody');
+        const tbody = document.querySelector('#emp-table tbody');
         // Fill the shift row (row 0) right columns with first employee
         const r0 = tbody.rows[0];
         r0.cells[9].innerHTML = chk;
@@ -1781,6 +1793,11 @@ function slide_scheduling_4() {
             <td style="padding:2px 6px">${employees[i][2]}</td>`;
           tbody.appendChild(tr);
         }
+      }},
+    { selector: '#emp-table', prompt: 'Max 7 — check up to 7 employees you\'d like to schedule, then click Next →', skipClick: true },
+    { selector: '#btn-savesched', prompt: 'Click "SaveSched" to finalize the schedule',
+      onConfirm: () => {
+        document.getElementById('sched-success').style.display = '';
       }},
   ]);
 }
