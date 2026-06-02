@@ -1133,10 +1133,18 @@ function schedEmpHTML() {
           <textarea style="border:1px solid #ccc;flex:1;height:75px;font-size:11px;padding:3px;resize:both"></textarea>
         </div>
         <div>
-          <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
+          <button id="sd-yes-btn" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
           <button style="background:#e8e8e8;color:#333;border:1px solid #999;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">No</button>
         </div>
       </div>
+    </div>
+  </div>
+  <!-- Fake browser alert dialog -->
+  <div id="sd-alert-box" style="display:none;position:fixed;top:8px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #ccc;border-radius:4px;box-shadow:0 6px 24px rgba(0,0,0,0.35);padding:20px 24px;min-width:330px;z-index:9999">
+    <div style="font-size:11px;color:#666;margin-bottom:10px">wish.schedulingsite.com says</div>
+    <div style="font-size:13px;color:#222;margin-bottom:22px">Scheduling information removed successfully.</div>
+    <div style="text-align:right">
+      <button id="sd-alert-ok" style="background:#3a3a3a;color:#fff;border:none;padding:5px 22px;border-radius:3px;cursor:pointer;font-size:13px">OK</button>
     </div>
   </div>`;
 }
@@ -1234,7 +1242,7 @@ function slide_scheduling_3() {
           '<span id="cal-green-label" style="color:#fff;font-size:8px;line-height:18px;display:block;cursor:pointer">Sierra Erica WISH Training May 2026-5/30/2026 Staff 1 Call 10:00 14:00</span>' +
           '</td>' +
           e(10) +
-          '<td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">4.00</td>';
+          '<td id="cal-sat-hrs" style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">4.00</td>';
       }},
     { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes',
       onConfirm: () => {
@@ -1278,6 +1286,30 @@ function slide_scheduling_3() {
         document.getElementById('td-sched-sierra').textContent = '1';
         document.getElementById('td-var-sierra').textContent = '-26';
         document.getElementById('sched-summary').textContent = 'Min: 27| Max: 32| Sched: 1| Var: -26';
+      }},
+    { selector: '#sd-yes-btn', prompt: 'Click "Yes" to confirm removing the employee from this job',
+      onConfirm: () => {
+        document.getElementById('sd-alert-box').style.display = '';
+      }},
+    { selector: '#sd-alert-ok', prompt: 'Click OK to dismiss the confirmation',
+      onConfirm: () => {
+        // Close modal and alert
+        document.getElementById('sched-delete-overlay').style.display = 'none';
+        document.getElementById('sd-alert-box').style.display = 'none';
+        // Rebuild Saturday row with no green bar
+        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>';
+        const e24 = Array.from({length:24},()=>ec).join('');
+        document.getElementById('cal-sat-row').innerHTML =
+          '<td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">Saturday<br>5/30/2026</td>' +
+          e24 +
+          '<td id="cal-sat-hrs" style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">0.00</td>';
+        // Update footer to 0.00
+        const fc = document.getElementById('cal-tfoot-end');
+        fc.innerHTML = '0.00<br>Hours';
+        // Reset Sched/Var
+        document.getElementById('td-sched-sierra').textContent = '0';
+        document.getElementById('td-var-sierra').textContent = '-27';
+        document.getElementById('sched-summary').textContent = 'Min: 27| Max: 32| Sched: 0| Var: -27';
       }},
   ]);
 }
