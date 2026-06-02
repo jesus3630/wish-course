@@ -1740,10 +1740,10 @@ function slide_scheduling_4() {
       onConfirm: () => {
         // add max-7 enforcement on the employee checkboxes
         setTimeout(() => {
-          const allEmpChk = document.querySelectorAll('#emp-table tbody input[type="checkbox"]');
+          const allEmpChk = document.querySelectorAll('#emp-table tbody input[type="checkbox"]:not(#role-chk)');
           allEmpChk.forEach(c => {
             c.addEventListener('change', () => {
-              const checked = document.querySelectorAll('#emp-table tbody input[type="checkbox"]:checked');
+              const checked = document.querySelectorAll('#emp-table tbody input[type="checkbox"]:not(#role-chk):checked');
               if (checked.length > 7) { c.checked = false; }
             });
           });
