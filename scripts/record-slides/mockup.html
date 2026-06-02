@@ -1460,8 +1460,8 @@ function drakeJobDetailHTML() {
           <div style="display:flex;align-items:center;margin-bottom:4px;"><span style="width:100px;text-align:right;padding-right:6px;">First Name :</span><input class="form-input" style="width:120px"></div>
           <div style="display:flex;align-items:center;margin-bottom:4px;"><span style="width:100px;text-align:right;padding-right:6px;">Last Name :</span><input class="form-input" style="width:120px"></div>
           <div style="display:flex;align-items:center;margin-bottom:4px;"><span style="width:100px;text-align:right;padding-right:6px;">Status :</span><select class="form-select" style="width:90px"><option>Active</option></select></div>
-          <div style="margin:4px 0 6px 100px;"><label><input type="checkbox"> Check Emp Roles</label></div>
-          <div style="margin-left:100px;margin-bottom:8px;"><button class="btn">Search</button></div>
+          <div style="margin:4px 0 6px 100px;"><label><input type="checkbox" id="chk-emp-roles"> Check Emp Roles</label></div>
+          <div style="margin-left:100px;margin-bottom:8px;"><button class="btn" id="btn-emp-search">Search</button></div>
           <div style="margin-left:100px;line-height:1.9;">
             <label style="display:block"><input type="checkbox" checked> Excluded WorkGroup Emp</label>
             <label style="display:block"><input type="checkbox"> Show Non-Avail. Emp</label>
@@ -1729,6 +1729,58 @@ function slide_scheduling_4() {
     { selector: '#role-chk', prompt: 'Check the box next to "Event Staff" to select this role',
       onConfirm: () => {
         document.getElementById('role-chk').checked = true;
+      }},
+    { selector: '#chk-emp-roles', prompt: 'Check "Check Emp Roles" to filter employees by role',
+      onConfirm: () => {
+        document.getElementById('chk-emp-roles').checked = true;
+      }},
+    { selector: '#btn-emp-search', prompt: 'Click "Search" to find available employees for this role',
+      onConfirm: () => {
+        const employees = [
+          ['Nagdev','Priyanka','3951657'],
+          ['Banik','Shiny','3951664'],
+          ['Bhattacharyya','Shreya','3951660'],
+          ['Bisht','Mahendra singh','3952376'],
+          ['Chaudhary','Prachi','3952379'],
+          ['Chauhan','Vikrant','3951163'],
+          ['cscadmin','cscadmin','10111'],
+          ['Dahlya','Naman','3951244'],
+          ['Das','Tulika','3951662'],
+          ['Das','Tirthamoy','3952223'],
+          ['Garg','Mayank','3952394'],
+          ['Gopal','Tgopalakrishnan','3950683'],
+          ['Goswami','Ragini','3951623'],
+          ['Goyal','Aashish','3951628'],
+          ['Gupta','Tanupriya','3952377'],
+          ['Handa','Ankish','3951551'],
+          ['Kapoor','Kopal','3952313'],
+          ['Kathuria','Raghav','3952311'],
+        ];
+        const chk = '<input type="checkbox"><span style="color:#2a9a2a;margin-left:4px;font-size:13px">&#10004;</span>';
+        const tbody = document.querySelector('#content table tbody');
+        // Fill the shift row (row 0) right columns with first employee
+        const r0 = tbody.rows[0];
+        r0.cells[9].innerHTML = chk;
+        r0.cells[10].textContent = employees[0][0];
+        r0.cells[11].textContent = employees[0][1];
+        r0.cells[12].textContent = employees[0][2];
+        // Fill the role row (row 1) right columns with second employee
+        const r1 = tbody.rows[1];
+        r1.cells[9].innerHTML = chk;
+        r1.cells[10].textContent = employees[1][0];
+        r1.cells[11].textContent = employees[1][1];
+        r1.cells[12].textContent = employees[1][2];
+        // Append remaining employees as new rows
+        for (let i = 2; i < employees.length; i++) {
+          const tr = document.createElement('tr');
+          tr.style.borderBottom = '1px solid #ddd';
+          tr.innerHTML = `<td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td style="padding:2px 6px">${chk}</td>
+            <td style="padding:2px 6px">${employees[i][0]}</td>
+            <td style="padding:2px 6px">${employees[i][1]}</td>
+            <td style="padding:2px 6px">${employees[i][2]}</td>`;
+          tbody.appendChild(tr);
+        }
       }},
   ]);
 }
