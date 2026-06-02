@@ -965,6 +965,10 @@ function schedEmpHTML() {
       Total Pages: 4 &nbsp;&nbsp; Goto page: <select style="font-size:11px;height:20px;border:1px solid #999;width:40px"><option>1</option><option>2</option><option>3</option><option>4</option></select>
     </div>
   </div>
+  <!-- Success banner — shown after Save Sched -->
+  <div id="sched-success" style="display:none;background:#d4edda;border:1px solid #28a745;color:#155724;padding:6px 10px;margin-bottom:6px;font-size:12px;border-radius:2px">
+    &#10004; Scheduling information created successfully.
+  </div>
   <!-- Selected employee single row (shown after clicking name) -->
   <div id="emp-sel-row" style="display:none;margin-bottom:6px">
     <table style="width:100%;border-collapse:collapse;font-size:11px">
@@ -1006,7 +1010,7 @@ function schedEmpHTML() {
       </thead>
       <tbody>${calRows}</tbody>
       <tfoot>
-        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}${hrLabel}</tr>
+        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}<td id="cal-tfoot-end" style="width:38px;background:#5a5a5a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td></tr>
       </tfoot>
     </table>
     <div style="text-align:right;margin-top:6px">
@@ -1182,7 +1186,23 @@ function slide_scheduling_3() {
           e(10) +
           '<td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">4.00</td>';
       }},
-    { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes' },
+    { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes',
+      onConfirm: () => {
+        // Show success banner
+        document.getElementById('sched-success').style.display = '';
+        // Collapse shift + role rows
+        document.getElementById('job-shift-1').style.display = 'none';
+        document.getElementById('job-shift-2').style.display = 'none';
+        document.getElementById('job-security-guard').style.display = 'none';
+        // Reset Sierra Erica Sched/Var back to original state
+        document.getElementById('td-sched-sierra').textContent = '0';
+        document.getElementById('td-var-sierra').textContent = '-27';
+        // Update calendar footer cell to show 4.00 Hours with orange highlight
+        const fc = document.getElementById('cal-tfoot-end');
+        fc.style.background = '#e07820';
+        fc.style.lineHeight = '1.2';
+        fc.innerHTML = '4.00<br>Hours';
+      }},
   ]);
 }
 
