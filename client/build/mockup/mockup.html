@@ -1312,13 +1312,53 @@ function slide_scheduling_3() {
 }
 
 function schedJobSearchHTML() {
+  const calBtnWithId = (btnId) => `<button id="${btnId}" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>`;
   return `
-    <div style="padding:10px 16px">
+    <div style="padding:10px 16px;position:relative">
       <div style="font-size:16px;font-weight:bold;color:#1a1a1a;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:14px;">Schedule by Job</div>
       <div class="form-row"><span class="form-label">Branch Name :</span><select class="form-select" id="sj-branch"><option>Prota LA Branch Test</option></select><span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Job# :</span><input class="form-input" id="sj-jobnum" style="width:160px"></div>
       <div class="form-row"><span class="form-label">Job Name :</span><input class="form-input" id="sj-jobname" style="width:220px"></div>
-      <div class="form-row"><span class="form-label">Start Date :</span><input class="form-input" id="sj-start" value="06/02/2026" style="width:100px">${calBtn()}<span class="req">*</span></div>
+      <div class="form-row" style="position:relative">
+        <span class="form-label">Start Date :</span>
+        <input class="form-input" id="sj-start" value="06/02/2026" style="width:100px">
+        ${calBtnWithId('sj-cal-start')}
+        <span class="req">*</span>
+        <!-- Calendar popup -->
+        <div id="sj-cal-popup" style="display:none;position:absolute;left:130px;top:26px;z-index:200;background:#fff;border:1px solid #aaa;box-shadow:2px 4px 10px rgba(0,0,0,.25);width:210px;font-size:12px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;background:#e8e8e8;padding:4px 8px;border-bottom:1px solid #ccc;">
+            <span style="cursor:pointer;font-weight:bold;color:#444;">&#9664;</span>
+            <span style="font-weight:bold;color:#222;">June, 2026</span>
+            <span style="cursor:pointer;font-weight:bold;color:#444;">&#9654;</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;text-align:center;">
+            <thead><tr style="background:#3a6aaa;color:#fff;">
+              <th style="padding:3px 0;font-weight:normal">Su</th><th style="padding:3px 0;font-weight:normal">Mo</th><th style="padding:3px 0;font-weight:normal">Tu</th><th style="padding:3px 0;font-weight:normal">We</th><th style="padding:3px 0;font-weight:normal">Th</th><th style="padding:3px 0;font-weight:normal">Fr</th><th style="padding:3px 0;font-weight:normal">Sa</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="color:#bbb;padding:3px 0">31</td><td style="padding:3px 0;cursor:pointer">1</td><td style="padding:3px 0;background:#3a6aaa;color:#fff;border-radius:2px;cursor:pointer">2</td><td style="padding:3px 0;cursor:pointer">3</td><td style="padding:3px 0;cursor:pointer">4</td><td style="padding:3px 0;cursor:pointer">5</td><td style="padding:3px 0;cursor:pointer">6</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">7</td><td style="padding:3px 0;cursor:pointer">8</td><td style="padding:3px 0;cursor:pointer">9</td><td style="padding:3px 0;cursor:pointer">10</td><td style="padding:3px 0;cursor:pointer">11</td><td style="padding:3px 0;cursor:pointer">12</td><td style="padding:3px 0;cursor:pointer">13</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">14</td><td style="padding:3px 0;cursor:pointer">15</td><td style="padding:3px 0;cursor:pointer">16</td><td style="padding:3px 0;cursor:pointer">17</td><td style="padding:3px 0;cursor:pointer">18</td><td style="padding:3px 0;cursor:pointer">19</td><td style="padding:3px 0;cursor:pointer">20</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">21</td><td style="padding:3px 0;cursor:pointer">22</td><td style="padding:3px 0;cursor:pointer">23</td><td style="padding:3px 0;cursor:pointer">24</td><td style="padding:3px 0;cursor:pointer">25</td><td style="padding:3px 0;cursor:pointer">26</td><td style="padding:3px 0;cursor:pointer">27</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">28</td><td style="padding:3px 0;cursor:pointer">29</td><td style="padding:3px 0;cursor:pointer">30</td><td style="color:#bbb;padding:3px 0">1</td><td style="color:#bbb;padding:3px 0">2</td><td style="color:#bbb;padding:3px 0">3</td><td style="color:#bbb;padding:3px 0">4</td>
+              </tr>
+              <tr>
+                <td style="color:#bbb;padding:3px 0">5</td><td style="color:#bbb;padding:3px 0">6</td><td style="color:#bbb;padding:3px 0">7</td><td style="color:#bbb;padding:3px 0">8</td><td style="color:#bbb;padding:3px 0">9</td><td style="color:#bbb;padding:3px 0">10</td><td style="color:#bbb;padding:3px 0">11</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="border-top:1px solid #ddd;padding:4px 8px;font-size:11px;color:#555;text-align:center;">Today: June 2, 2026</div>
+        </div>
+      </div>
       <div class="form-row"><span class="form-label">End Date :</span><input class="form-input" id="sj-end" value="06/17/2026" style="width:100px">${calBtn()}<span class="req">*</span></div>
       <div class="form-row"><span class="form-label">Venue Name :</span><select class="form-select" id="sj-venue"><option>Crocket Arena</option></select></div>
       <div class="form-row"><span class="form-label">Sorting :</span><label style="margin-right:10px"><input type="radio" name="sj-sort" checked> Start Date</label><label><input type="radio" name="sj-sort"> JobName</label></div>
@@ -1381,6 +1421,10 @@ function slide_scheduling_4() {
         document.getElementById('nav-scheduling').classList.remove('active');
         document.getElementById('sub-scheduling').classList.remove('show');
         document.getElementById('content').innerHTML = schedJobSearchHTML();
+      }},
+    { selector: '#sj-cal-start', prompt: 'Click the calendar icon next to Start Date',
+      onConfirm: () => {
+        document.getElementById('sj-cal-popup').style.display = '';
       }},
   ]);
 }
