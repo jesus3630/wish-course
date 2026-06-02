@@ -1329,7 +1329,7 @@ function schedJobSearchHTML() {
           <div style="display:flex;align-items:center;justify-content:space-between;background:#e8e8e8;padding:4px 8px;border-bottom:1px solid #ccc;">
             <span style="cursor:pointer;font-weight:bold;color:#444;">&#9664;</span>
             <span style="font-weight:bold;color:#222;">June, 2026</span>
-            <span style="cursor:pointer;font-weight:bold;color:#444;">&#9654;</span>
+            <span id="sj-cal-next" style="cursor:pointer;font-weight:bold;color:#444;">&#9654;</span>
           </div>
           <table style="width:100%;border-collapse:collapse;text-align:center;">
             <thead><tr style="background:#3a6aaa;color:#fff;">
@@ -1425,6 +1425,47 @@ function slide_scheduling_4() {
     { selector: '#sj-cal-start', prompt: 'Click the calendar icon next to Start Date',
       onConfirm: () => {
         document.getElementById('sj-cal-popup').style.display = '';
+      }},
+    { selector: '#sj-cal-next', prompt: 'Click the forward arrow to navigate to August 2026',
+      onConfirm: () => {
+        document.getElementById('sj-cal-popup').innerHTML = `
+          <div style="display:flex;align-items:center;justify-content:space-between;background:#e8e8e8;padding:4px 8px;border-bottom:1px solid #ccc;">
+            <span style="cursor:pointer;font-weight:bold;color:#444;">&#9664;</span>
+            <span style="font-weight:bold;color:#1a6aaa;">August, 2026</span>
+            <span style="cursor:pointer;font-weight:bold;color:#444;">&#9654;</span>
+          </div>
+          <table style="width:100%;border-collapse:collapse;text-align:center;">
+            <thead><tr style="background:#3a6aaa;color:#fff;">
+              <th style="padding:3px 0;font-weight:normal">Su</th><th style="padding:3px 0;font-weight:normal">Mo</th><th style="padding:3px 0;font-weight:normal">Tu</th><th style="padding:3px 0;font-weight:normal">We</th><th style="padding:3px 0;font-weight:normal">Th</th><th style="padding:3px 0;font-weight:normal">Fr</th><th style="padding:3px 0;font-weight:normal">Sa</th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td style="color:#bbb;padding:3px 0">26</td><td style="color:#bbb;padding:3px 0">27</td><td style="color:#bbb;padding:3px 0">28</td><td style="color:#bbb;padding:3px 0">29</td><td style="color:#bbb;padding:3px 0">30</td><td style="color:#bbb;padding:3px 0">31</td><td style="padding:3px 0;cursor:pointer">1</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">2</td><td style="padding:3px 0;cursor:pointer">3</td><td style="padding:3px 0;cursor:pointer">4</td><td style="padding:3px 0;cursor:pointer">5</td><td style="padding:3px 0;cursor:pointer">6</td><td style="padding:3px 0;cursor:pointer">7</td><td style="padding:3px 0;cursor:pointer">8</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">9</td><td style="padding:3px 0;cursor:pointer">10</td><td style="padding:3px 0;cursor:pointer">11</td><td style="padding:3px 0;cursor:pointer">12</td><td style="padding:3px 0;cursor:pointer">13</td><td style="padding:3px 0;cursor:pointer">14</td><td id="sj-cal-day-15" style="padding:3px 0;cursor:pointer">15</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">16</td><td style="padding:3px 0;cursor:pointer">17</td><td style="padding:3px 0;cursor:pointer">18</td><td style="padding:3px 0;cursor:pointer">19</td><td style="padding:3px 0;cursor:pointer">20</td><td style="padding:3px 0;cursor:pointer">21</td><td style="padding:3px 0;cursor:pointer">22</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">23</td><td style="padding:3px 0;cursor:pointer">24</td><td style="padding:3px 0;cursor:pointer">25</td><td style="padding:3px 0;cursor:pointer">26</td><td style="padding:3px 0;cursor:pointer">27</td><td style="padding:3px 0;cursor:pointer">28</td><td style="padding:3px 0;cursor:pointer">29</td>
+              </tr>
+              <tr>
+                <td style="padding:3px 0;cursor:pointer">30</td><td style="padding:3px 0;cursor:pointer">31</td><td style="color:#bbb;padding:3px 0">1</td><td style="color:#bbb;padding:3px 0">2</td><td style="color:#bbb;padding:3px 0">3</td><td style="color:#bbb;padding:3px 0">4</td><td style="color:#bbb;padding:3px 0">5</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="border-top:1px solid #ddd;padding:4px 8px;font-size:11px;color:#555;text-align:center;">Today: June 2, 2026</div>`;
+      }},
+    { selector: '#sj-cal-day-15', prompt: 'Click the 15th to select August 15, 2026 as the start date',
+      onConfirm: () => {
+        document.getElementById('sj-cal-popup').style.display = 'none';
+        document.getElementById('sj-start').value = '08/15/2026';
+        document.getElementById('sj-venue').innerHTML = '<option>--All--</option>';
       }},
   ]);
 }
