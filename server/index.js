@@ -305,9 +305,12 @@ app.use('/screenshots', express.static(SCREENSHOTS_DIR));
 app.use('/mockup', express.static(path.join(__dirname, '../scripts/record-slides')));
 
 // ─── Public: course data ──────────────────────────────────────────────────────
-app.get('/api/course', async (req, res) => {
+app.get(['/api/course', '/api/course-v2'], async (req, res) => {
   try {
-    res.set('Cache-Control', 'no-store');
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+    res.set('Surrogate-Control', 'no-store');
     let data = await getCourseData();
     const maxModules = parseInt(process.env.MAX_MODULES);
     if (maxModules > 0 && Array.isArray(data)) data = data.slice(0, maxModules);
