@@ -1390,6 +1390,120 @@ function schedJobSearchHTML() {
       <div class="form-row"><span class="form-label">Venue Name :</span><select class="form-select" id="sj-venue"><option>Crocket Arena</option></select></div>
       <div class="form-row"><span class="form-label">Sorting :</span><label style="margin-right:10px"><input type="radio" name="sj-sort" checked> Start Date</label><label><input type="radio" name="sj-sort"> JobName</label></div>
       <div style="margin-top:12px;margin-left:130px"><button class="btn" id="sj-search">Search</button></div>
+      <!-- Search results (shown after clicking Search) -->
+      <div id="sj-results" style="display:none;margin-top:18px;">
+        <div style="font-size:15px;font-weight:bold;color:#1a1a1a;margin-bottom:6px;">Search Result</div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead><tr style="background:#3d3d3d;color:#fff;">
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Date</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Job#</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Job Name</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Event</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Venue</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Need</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Sch</th>
+            <th style="padding:5px 8px;font-weight:normal;text-align:left">Var</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #ddd;">
+              <td style="padding:5px 8px">08/15/2026</td>
+              <td style="padding:5px 8px;color:#c07800">5023705541</td>
+              <td style="padding:5px 8px"><span id="drake-job-link" style="color:#c07800;cursor:pointer">Drake Job</span></td>
+              <td style="padding:5px 8px"></td>
+              <td style="padding:5px 8px;color:#c07800">AB Convention Center</td>
+              <td style="padding:5px 8px"></td>
+              <td style="padding:5px 8px"></td>
+              <td style="padding:5px 8px"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 8px;font-size:11px;color:#555;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;">
+          <span>Total Pages: 1</span>
+          <span style="display:flex;gap:3px;">
+            <button style="font-size:10px;padding:1px 5px;background:#e8e8e8;border:1px solid #999;cursor:pointer;">&#9664;&#9664; First</button>
+            <button style="font-size:10px;padding:1px 5px;background:#e8e8e8;border:1px solid #999;cursor:pointer;">&#9664; Previous</button>
+            <button style="font-size:10px;padding:1px 5px;background:#e8e8e8;border:1px solid #999;cursor:pointer;">Next &#9654;</button>
+            <button style="font-size:10px;padding:1px 5px;background:#e8e8e8;border:1px solid #999;cursor:pointer;">Last &#9654;&#9654;</button>
+          </span>
+          <span>Current Page: 1</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function drakeJobDetailHTML() {
+  return `
+    <div style="padding:10px 16px">
+      <div style="font-size:16px;font-weight:bold;color:#1a1a1a;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:14px;">Schedule by Job</div>
+      <div style="display:flex;gap:16px;margin-bottom:14px;">
+        <!-- Left: job info -->
+        <div style="flex:0 0 42%;border:1px solid #ccc;border-radius:3px;padding:8px 12px;font-size:12px;">
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Event</span><span style="color:#c07800;cursor:pointer">2026 DRAKE CONCERT</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Job Name</span><span style="color:#c07800;cursor:pointer">Drake Job</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Branch Name</span><span style="color:#c07800;cursor:pointer">Prota LA Branch Test</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Department</span><span>Staff</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Start</span><span style="color:#c07800">08/15/2026 08:00</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Finish</span><span style="color:#c07800">08/16/2026 17:00</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Venue</span><span style="color:#c07800;cursor:pointer">AB Convention Center</span></div>
+          <div style="display:flex;margin-bottom:5px;"><span style="width:110px;text-align:right;color:#555;padding-right:8px;">Client</span><span>AB Ventures</span></div>
+        </div>
+        <!-- Right: employee search -->
+        <div style="flex:1;font-size:12px;">
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">Branch Name :</span><select class="form-select" style="width:160px"><option>Prota LA Branch Test</option></select></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">Department :</span><select class="form-select" style="width:130px"><option>Staff</option></select></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">WorkGroup :</span><select class="form-select" style="width:130px"><option>--select--</option></select></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">Employee# :</span><input class="form-input" style="width:120px"></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">First Name :</span><input class="form-input" style="width:120px"></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">Last Name :</span><input class="form-input" style="width:120px"></div>
+          <div class="form-row" style="margin-bottom:4px;"><span class="form-label" style="width:110px">Status :</span><select class="form-select" style="width:100px"><option>Active</option></select></div>
+          <div style="margin:4px 0 6px 110px;"><label style="font-size:12px;"><input type="checkbox"> Check Emp Roles</label></div>
+          <div style="margin-left:110px;margin-bottom:8px;"><button class="btn" style="padding:4px 14px">Search</button></div>
+          <div style="margin-left:110px;font-size:12px;line-height:1.8;">
+            <label><input type="checkbox" checked> Excluded WorkGroup Emp</label><br>
+            <label><input type="checkbox"> Show Non-Avail. Emp</label><br>
+            <label><input type="checkbox"> Show Shared Emp</label>
+          </div>
+        </div>
+      </div>
+      <!-- Shifts table -->
+      <table style="width:100%;border-collapse:collapse;font-size:12px;">
+        <thead>
+          <tr>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:left;width:20px;"></th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:left">Shifts/Role</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:center">#</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:left">Start</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:left">Finish</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:center">Min</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:center">Max</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:center">Sched</th>
+            <th style="background:#3d3d3d;color:#fff;padding:5px 6px;font-weight:normal;text-align:center">Var</th>
+            <th style="background:#fff;color:#555;padding:5px 6px;font-weight:normal;text-align:center;border-bottom:1px solid #ccc">Select</th>
+            <th style="background:#fff;color:#555;padding:5px 6px;font-weight:normal;text-align:left;border-bottom:1px solid #ccc">Last Name</th>
+            <th style="background:#fff;color:#555;padding:5px 6px;font-weight:normal;text-align:left;border-bottom:1px solid #ccc">First Name</th>
+            <th style="background:#fff;color:#555;padding:5px 6px;font-weight:normal;text-align:left;border-bottom:1px solid #ccc">Emp#</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:5px 6px;color:#2a8aaa;font-weight:bold;cursor:pointer">+</td>
+            <td style="padding:5px 6px">Staff One Call</td>
+            <td style="padding:5px 6px;text-align:center">1</td>
+            <td style="padding:5px 6px">08/15/2026 08:00</td>
+            <td style="padding:5px 6px">08/15/2026 17:00</td>
+            <td style="padding:5px 6px;text-align:center">5</td>
+            <td style="padding:5px 6px;text-align:center">7</td>
+            <td style="padding:5px 6px;text-align:center">0</td>
+            <td style="padding:5px 6px;text-align:center;color:#c07800">-5</td>
+            <td></td><td></td><td></td><td></td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Footer buttons -->
+      <div style="margin-top:16px;display:flex;justify-content:flex-end;gap:8px;">
+        <button class="btn" style="background:#aaa;">Back</button>
+        <button class="btn">SaveSched</button>
+      </div>
     </div>`;
 }
 
@@ -1584,6 +1698,14 @@ function slide_scheduling_4() {
         document.getElementById('sj-cal-end-popup').style.display = 'none';
         document.getElementById('sj-end').value = '08/16/2026';
         document.getElementById('sj-venue').innerHTML = '<option>AB Convention Center</option>';
+      }},
+    { selector: '#sj-search', prompt: 'Click "Search" to find matching jobs',
+      onConfirm: () => {
+        document.getElementById('sj-results').style.display = '';
+      }},
+    { selector: '#drake-job-link', prompt: 'Click "Drake Job" to open the scheduling page',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = drakeJobDetailHTML();
       }},
   ]);
 }
