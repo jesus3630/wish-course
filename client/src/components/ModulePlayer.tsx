@@ -109,6 +109,11 @@ function normalizeText(text: string): string {
     .trim();
 }
 
+// Only show instructions if they are plain ASCII text (no garbled multi-byte characters).
+function isCleanText(s: string): boolean {
+  return s.length > 0 && /^[\x20-\x7E\s]*$/.test(s);
+}
+
 // Pure punctuation/symbol tokens (•, →, —, etc.) should not consume a timing slot.
 // ElevenLabs assigns the inter-paragraph pause duration to these, causing highlight lag.
 function isWordToken(w: string): boolean {
@@ -586,7 +591,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               {/* Left: script */}
               <div style={{ flex: '0 0 42%', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
                 <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
-                {slide?.instructions && (
+                {slide?.instructions && isCleanText(slide.instructions) && (
                   <div style={styles.instructionsTag}>📹 {slide.instructions}</div>
                 )}
                 <div style={{ ...styles.slideContent, flex: 1 }}>
