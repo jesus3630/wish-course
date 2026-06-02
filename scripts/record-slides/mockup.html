@@ -825,10 +825,10 @@ function schedEmpHTML() {
     {label:'Thursday',date:'6/4/2026'},
     {label:'Friday',date:'6/5/2026'},
   ];
-  const calRows = days2.map(d=>`<tr>
+  const calRows = days2.map((d,i)=>`<tr${i===0?' id="cal-sat-row"':''}>
     <td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">${d.label}<br>${d.date}</td>
     ${cells24}
-    <td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc"></td>
+    <td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc"${i===0?' id="cal-sat-hrs"':''}></td>
   </tr>`).join('');
   return `
   <div class="page-title">Schedule by Employee</div>
@@ -1041,8 +1041,8 @@ function schedEmpHTML() {
           <td style="font-size:11px">05/30/2026 10:00</td>
           <td style="font-size:11px">05/30/2026 22:00</td>
           <td style="font-size:11px">27</td><td style="font-size:11px">32</td>
-          <td style="font-size:11px">0</td>
-          <td style="font-size:11px;color:#c00;font-weight:bold">-27</td>
+          <td id="td-sched-sierra" style="font-size:11px">0</td>
+          <td id="td-var-sierra" style="font-size:11px;color:#c00;font-weight:bold">-27</td>
         </tr>
         <!-- Shift rows — shown when + is clicked -->
         <tr id="job-shift-1" style="display:none;background:#f9f9f9">
@@ -1053,20 +1053,20 @@ function schedEmpHTML() {
           <td style="font-size:11px">05/30/2026 10:00</td>
           <td style="font-size:11px">05/30/2026 14:00</td>
           <td style="font-size:11px">12</td><td style="font-size:11px">14</td>
-          <td style="font-size:11px">0</td>
-          <td style="font-size:11px;color:#c00;font-weight:bold">12</td>
+          <td id="td-sched-staff1" style="font-size:11px">0</td>
+          <td id="td-var-staff1" style="font-size:11px;color:#c00;font-weight:bold">-12</td>
         </tr>
         <!-- Security Guard role row — shown when Staff 1 Call + is clicked -->
         <tr id="job-security-guard" style="display:none;background:#f9f9f9">
-          <td style="text-align:center;font-size:14px">&#10004;</td>
+          <td id="chk-security-guard" style="text-align:center;font-size:14px;cursor:pointer;color:#2a8a3a">&#10004;</td>
           <td style="font-size:11px;padding-left:28px"><a href="#" style="color:#1a6aaa">Security Guard</a></td>
           <td style="font-size:11px"></td>
           <td style="font-size:11px"></td>
           <td style="font-size:11px">05/30/2026 10:00</td>
           <td style="font-size:11px">05/30/2026 14:00</td>
           <td style="font-size:11px">12</td><td style="font-size:11px">14</td>
-          <td style="font-size:11px">0</td>
-          <td style="font-size:11px;color:#c00;font-weight:bold">12</td>
+          <td id="td-sched-secguard" style="font-size:11px">0</td>
+          <td id="td-var-secguard" style="font-size:11px;color:#c00;font-weight:bold">-12</td>
         </tr>
         <tr id="job-shift-2" style="display:none;background:#f9f9f9">
           <td style="color:#2a8a3a;font-weight:bold;font-size:14px;text-align:center">+</td>
@@ -1162,6 +1162,25 @@ function slide_scheduling_3() {
       onConfirm: () => {
         document.getElementById('cal-shift1').textContent = '−';
         document.getElementById('job-security-guard').style.display = '';
+      }},
+    { selector: '#chk-security-guard', prompt: 'Click the checkmark to schedule this employee as Security Guard',
+      onConfirm: () => {
+        document.getElementById('td-sched-sierra').textContent = '1';
+        document.getElementById('td-var-sierra').textContent = '-26';
+        document.getElementById('td-sched-staff1').textContent = '1';
+        document.getElementById('td-var-staff1').textContent = '-11';
+        document.getElementById('td-sched-secguard').textContent = '1';
+        document.getElementById('td-var-secguard').textContent = '-11';
+        const ec = '<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;width:20px;padding:0"></td>';
+        const e = n => Array.from({length:n},()=>ec).join('');
+        document.getElementById('cal-sat-row').innerHTML =
+          '<td style="font-size:10px;padding:2px 4px;white-space:nowrap;background:#f0f0f0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;min-width:55px">Saturday<br>5/30/2026</td>' +
+          e(10) +
+          '<td colspan="4" style="background:#3a9a3a;border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:18px;padding:0 2px;overflow:hidden;white-space:nowrap">' +
+          '<span style="color:#fff;font-size:8px;line-height:18px;display:block">Sierra Erica WISH Training May 2026-5/30/2026 Staff 1 Call 10:00 14:00</span>' +
+          '</td>' +
+          e(10) +
+          '<td style="font-size:10px;padding:2px 4px;background:#f0f0f0;border-left:1px solid #ccc;border-bottom:1px solid #ccc;font-weight:bold">4.00</td>';
       }},
     { selector: '#btn-cal-save', prompt: 'Click "Save Sched" to save your schedule changes' },
   ]);
