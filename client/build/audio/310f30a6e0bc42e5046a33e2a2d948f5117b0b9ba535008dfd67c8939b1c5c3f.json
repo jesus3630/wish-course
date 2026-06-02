@@ -1,0 +1,662 @@
+[
+  {
+    "word": "As",
+    "start": 0,
+    "end": 0.197
+  },
+  {
+    "word": "an",
+    "start": 0.255,
+    "end": 0.325
+  },
+  {
+    "word": "Admin",
+    "start": 0.406,
+    "end": 0.731
+  },
+  {
+    "word": "Reporting",
+    "start": 0.801,
+    "end": 1.231
+  },
+  {
+    "word": "user,",
+    "start": 1.289,
+    "end": 1.672
+  },
+  {
+    "word": "your",
+    "start": 1.788,
+    "end": 1.939
+  },
+  {
+    "word": "reports",
+    "start": 1.997,
+    "end": 2.392
+  },
+  {
+    "word": "touch",
+    "start": 2.438,
+    "end": 2.705
+  },
+  {
+    "word": "every",
+    "start": 2.821,
+    "end": 3.146
+  },
+  {
+    "word": "phase",
+    "start": 3.216,
+    "end": 3.564
+  },
+  {
+    "word": "of",
+    "start": 3.611,
+    "end": 3.68
+  },
+  {
+    "word": "event",
+    "start": 3.75,
+    "end": 4.005
+  },
+  {
+    "word": "operations:",
+    "start": 4.063,
+    "end": 5.132
+  },
+  {
+    "word": "Before",
+    "start": 5.132,
+    "end": 5.561
+  },
+  {
+    "word": "the",
+    "start": 5.619,
+    "end": 5.7
+  },
+  {
+    "word": "event:",
+    "start": 5.77,
+    "end": 6.455
+  },
+  {
+    "word": "Labour",
+    "start": 6.455,
+    "end": 6.803
+  },
+  {
+    "word": "Cost",
+    "start": 6.873,
+    "end": 7.163
+  },
+  {
+    "word": "Estimation,",
+    "start": 7.245,
+    "end": 8.057
+  },
+  {
+    "word": "plan",
+    "start": 8.231,
+    "end": 8.487
+  },
+  {
+    "word": "your",
+    "start": 8.545,
+    "end": 8.673
+  },
+  {
+    "word": "labor",
+    "start": 8.731,
+    "end": 8.975
+  },
+  {
+    "word": "budget",
+    "start": 9.044,
+    "end": 9.578
+  },
+  {
+    "word": "Employee",
+    "start": 9.578,
+    "end": 10.147
+  },
+  {
+    "word": "Credential",
+    "start": 10.194,
+    "end": 10.6
+  },
+  {
+    "word": "Report",
+    "start": 10.658,
+    "end": 11.088
+  },
+  {
+    "word": "and",
+    "start": 11.157,
+    "end": 11.355
+  },
+  {
+    "word": "job",
+    "start": 11.436,
+    "end": 11.691
+  },
+  {
+    "word": "Credential",
+    "start": 11.749,
+    "end": 12.144
+  },
+  {
+    "word": "Report,",
+    "start": 12.19,
+    "end": 12.655
+  },
+  {
+    "word": "verify",
+    "start": 12.899,
+    "end": 13.468
+  },
+  {
+    "word": "employees",
+    "start": 13.526,
+    "end": 14.245
+  },
+  {
+    "word": "are",
+    "start": 14.338,
+    "end": 14.536
+  },
+  {
+    "word": "licensed",
+    "start": 14.617,
+    "end": 15.081
+  },
+  {
+    "word": "for",
+    "start": 15.116,
+    "end": 15.232
+  },
+  {
+    "word": "the",
+    "start": 15.278,
+    "end": 15.348
+  },
+  {
+    "word": "roles",
+    "start": 15.418,
+    "end": 15.731
+  },
+  {
+    "word": "you're",
+    "start": 15.778,
+    "end": 15.94
+  },
+  {
+    "word": "filling",
+    "start": 15.963,
+    "end": 16.509
+  },
+  {
+    "word": "Schedule",
+    "start": 16.509,
+    "end": 16.95
+  },
+  {
+    "word": "Efficiency,",
+    "start": 16.973,
+    "end": 17.844
+  },
+  {
+    "word": "review",
+    "start": 18.042,
+    "end": 18.471
+  },
+  {
+    "word": "past",
+    "start": 18.727,
+    "end": 19.226
+  },
+  {
+    "word": "events",
+    "start": 19.365,
+    "end": 20.073
+  },
+  {
+    "word": "to",
+    "start": 20.329,
+    "end": 20.456
+  },
+  {
+    "word": "improve",
+    "start": 20.538,
+    "end": 21.246
+  },
+  {
+    "word": "future",
+    "start": 21.42,
+    "end": 21.85
+  },
+  {
+    "word": "scheduling",
+    "start": 21.908,
+    "end": 22.825
+  },
+  {
+    "word": "During",
+    "start": 22.825,
+    "end": 23.243
+  },
+  {
+    "word": "and",
+    "start": 23.324,
+    "end": 23.44
+  },
+  {
+    "word": "after",
+    "start": 23.533,
+    "end": 23.87
+  },
+  {
+    "word": "the",
+    "start": 23.939,
+    "end": 24.009
+  },
+  {
+    "word": "event:",
+    "start": 24.09,
+    "end": 25.042
+  },
+  {
+    "word": "job",
+    "start": 25.042,
+    "end": 25.321
+  },
+  {
+    "word": "Administration",
+    "start": 25.379,
+    "end": 26.064
+  },
+  {
+    "word": "reports,",
+    "start": 26.134,
+    "end": 26.865
+  },
+  {
+    "word": "alpha",
+    "start": 27.097,
+    "end": 27.399
+  },
+  {
+    "word": "rosters,",
+    "start": 27.457,
+    "end": 28.154
+  },
+  {
+    "word": "sign-in",
+    "start": 28.316,
+    "end": 28.769
+  },
+  {
+    "word": "sheets,",
+    "start": 28.85,
+    "end": 29.466
+  },
+  {
+    "word": "no-show",
+    "start": 29.733,
+    "end": 30.209
+  },
+  {
+    "word": "follow-up",
+    "start": 30.302,
+    "end": 30.987
+  },
+  {
+    "word": "Payroll",
+    "start": 30.987,
+    "end": 31.428
+  },
+  {
+    "word": "Reports,",
+    "start": 31.509,
+    "end": 32.206
+  },
+  {
+    "word": "verify",
+    "start": 32.508,
+    "end": 33.031
+  },
+  {
+    "word": "hours",
+    "start": 33.123,
+    "end": 33.53
+  },
+  {
+    "word": "before",
+    "start": 33.588,
+    "end": 34.006
+  },
+  {
+    "word": "finalizing",
+    "start": 34.075,
+    "end": 34.842
+  },
+  {
+    "word": "Payroll",
+    "start": 34.842,
+    "end": 35.26
+  },
+  {
+    "word": "UnBilled",
+    "start": 35.376,
+    "end": 35.794
+  },
+  {
+    "word": "Hour",
+    "start": 35.829,
+    "end": 36.014
+  },
+  {
+    "word": "Report,",
+    "start": 36.084,
+    "end": 36.688
+  },
+  {
+    "word": "confirm",
+    "start": 36.931,
+    "end": 37.489
+  },
+  {
+    "word": "all",
+    "start": 37.605,
+    "end": 37.895
+  },
+  {
+    "word": "worked",
+    "start": 37.988,
+    "end": 38.255
+  },
+  {
+    "word": "hours",
+    "start": 38.29,
+    "end": 38.696
+  },
+  {
+    "word": "are",
+    "start": 38.766,
+    "end": 38.94
+  },
+  {
+    "word": "captured",
+    "start": 38.998,
+    "end": 39.509
+  },
+  {
+    "word": "for",
+    "start": 39.555,
+    "end": 39.695
+  },
+  {
+    "word": "billing",
+    "start": 39.753,
+    "end": 40.473
+  },
+  {
+    "word": "For",
+    "start": 40.473,
+    "end": 40.67
+  },
+  {
+    "word": "billing",
+    "start": 40.728,
+    "end": 41.088
+  },
+  {
+    "word": "and",
+    "start": 41.169,
+    "end": 41.367
+  },
+  {
+    "word": "closeout:",
+    "start": 41.436,
+    "end": 42.435
+  },
+  {
+    "word": "Billing",
+    "start": 42.435,
+    "end": 42.748
+  },
+  {
+    "word": "Invoice",
+    "start": 42.795,
+    "end": 43.375
+  },
+  {
+    "word": "Ledger",
+    "start": 43.584,
+    "end": 43.956
+  },
+  {
+    "word": "and",
+    "start": 44.037,
+    "end": 44.315
+  },
+  {
+    "word": "Billing",
+    "start": 44.397,
+    "end": 44.687
+  },
+  {
+    "word": "Invoice",
+    "start": 44.733,
+    "end": 45.175
+  },
+  {
+    "word": "Register,",
+    "start": 45.233,
+    "end": 45.86
+  },
+  {
+    "word": "confirm",
+    "start": 46.069,
+    "end": 46.51
+  },
+  {
+    "word": "invoices",
+    "start": 46.591,
+    "end": 47.137
+  },
+  {
+    "word": "have",
+    "start": 47.183,
+    "end": 47.299
+  },
+  {
+    "word": "been",
+    "start": 47.322,
+    "end": 47.45
+  },
+  {
+    "word": "generated",
+    "start": 47.497,
+    "end": 48.391
+  },
+  {
+    "word": "Billing",
+    "start": 48.391,
+    "end": 48.727
+  },
+  {
+    "word": "Ledger",
+    "start": 48.797,
+    "end": 49.076
+  },
+  {
+    "word": "Details,",
+    "start": 49.157,
+    "end": 49.911
+  },
+  {
+    "word": "audit-level",
+    "start": 50.086,
+    "end": 50.736
+  },
+  {
+    "word": "review",
+    "start": 50.817,
+    "end": 51.189
+  },
+  {
+    "word": "of",
+    "start": 51.432,
+    "end": 51.606
+  },
+  {
+    "word": "billing",
+    "start": 51.734,
+    "end": 52.164
+  },
+  {
+    "word": "transactions",
+    "start": 52.222,
+    "end": 53.731
+  },
+  {
+    "word": "The",
+    "start": 53.731,
+    "end": 53.917
+  },
+  {
+    "word": "goal",
+    "start": 54.01,
+    "end": 54.474
+  },
+  {
+    "word": "is",
+    "start": 54.857,
+    "end": 55.055
+  },
+  {
+    "word": "a",
+    "start": 55.113,
+    "end": 55.136
+  },
+  {
+    "word": "clean",
+    "start": 55.252,
+    "end": 55.728
+  },
+  {
+    "word": "handoff",
+    "start": 55.844,
+    "end": 56.541
+  },
+  {
+    "word": "at",
+    "start": 56.657,
+    "end": 56.901
+  },
+  {
+    "word": "every",
+    "start": 57.075,
+    "end": 57.493
+  },
+  {
+    "word": "stage:",
+    "start": 57.562,
+    "end": 58.282
+  },
+  {
+    "word": "scheduling",
+    "start": 58.607,
+    "end": 59.176
+  },
+  {
+    "word": "feeds",
+    "start": 59.257,
+    "end": 59.664
+  },
+  {
+    "word": "payroll,",
+    "start": 59.733,
+    "end": 60.523
+  },
+  {
+    "word": "payroll",
+    "start": 60.848,
+    "end": 61.37
+  },
+  {
+    "word": "feeds",
+    "start": 61.44,
+    "end": 61.777
+  },
+  {
+    "word": "billing.",
+    "start": 61.823,
+    "end": 62.299
+  },
+  {
+    "word": "Your",
+    "start": 62.81,
+    "end": 63.112
+  },
+  {
+    "word": "reports",
+    "start": 63.193,
+    "end": 63.727
+  },
+  {
+    "word": "give",
+    "start": 63.797,
+    "end": 64.006
+  },
+  {
+    "word": "you",
+    "start": 64.041,
+    "end": 64.122
+  },
+  {
+    "word": "the",
+    "start": 64.18,
+    "end": 64.25
+  },
+  {
+    "word": "visibility",
+    "start": 64.296,
+    "end": 64.981
+  },
+  {
+    "word": "to",
+    "start": 65.062,
+    "end": 65.19
+  },
+  {
+    "word": "make",
+    "start": 65.306,
+    "end": 65.538
+  },
+  {
+    "word": "sure",
+    "start": 65.585,
+    "end": 65.91
+  },
+  {
+    "word": "that",
+    "start": 65.956,
+    "end": 66.131
+  },
+  {
+    "word": "chain",
+    "start": 66.212,
+    "end": 66.607
+  },
+  {
+    "word": "is",
+    "start": 66.699,
+    "end": 66.862
+  },
+  {
+    "word": "intact.",
+    "start": 66.943,
+    "end": 67.802
+  }
+]

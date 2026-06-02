@@ -1,0 +1,382 @@
+[
+  {
+    "word": "With",
+    "start": 0,
+    "end": 0.209
+  },
+  {
+    "word": "General",
+    "start": 0.279,
+    "end": 0.604
+  },
+  {
+    "word": "Reporting",
+    "start": 0.662,
+    "end": 1.115
+  },
+  {
+    "word": "access,",
+    "start": 1.184,
+    "end": 1.625
+  },
+  {
+    "word": "you",
+    "start": 1.73,
+    "end": 1.869
+  },
+  {
+    "word": "have",
+    "start": 1.985,
+    "end": 2.194
+  },
+  {
+    "word": "access",
+    "start": 2.241,
+    "end": 2.589
+  },
+  {
+    "word": "to",
+    "start": 2.624,
+    "end": 2.682
+  },
+  {
+    "word": "the",
+    "start": 2.74,
+    "end": 2.81
+  },
+  {
+    "word": "full",
+    "start": 2.879,
+    "end": 3.077
+  },
+  {
+    "word": "Reports",
+    "start": 3.146,
+    "end": 3.518
+  },
+  {
+    "word": "menu",
+    "start": 3.599,
+    "end": 3.878
+  },
+  {
+    "word": "in",
+    "start": 3.982,
+    "end": 4.075
+  },
+  {
+    "word": "WISH.",
+    "start": 4.168,
+    "end": 4.574
+  },
+  {
+    "word": "The",
+    "start": 4.574,
+    "end": 4.667
+  },
+  {
+    "word": "Reports",
+    "start": 4.737,
+    "end": 5.085
+  },
+  {
+    "word": "menu",
+    "start": 5.12,
+    "end": 5.352
+  },
+  {
+    "word": "has",
+    "start": 5.41,
+    "end": 5.55
+  },
+  {
+    "word": "three",
+    "start": 5.631,
+    "end": 5.863
+  },
+  {
+    "word": "sections:",
+    "start": 5.909,
+    "end": 6.722
+  },
+  {
+    "word": "•",
+    "start": 6.722,
+    "end": 9.311
+  },
+  {
+    "word": "Job",
+    "start": 9.404,
+    "end": 9.671
+  },
+  {
+    "word": "Administration",
+    "start": 9.706,
+    "end": 10.368
+  },
+  {
+    "word": "—",
+    "start": 10.437,
+    "end": 13.235
+  },
+  {
+    "word": "your",
+    "start": 13.421,
+    "end": 13.56
+  },
+  {
+    "word": "daily",
+    "start": 13.618,
+    "end": 13.839
+  },
+  {
+    "word": "reports.",
+    "start": 13.886,
+    "end": 14.512
+  },
+  {
+    "word": "Alpha",
+    "start": 14.768,
+    "end": 15.07
+  },
+  {
+    "word": "rosters,",
+    "start": 15.139,
+    "end": 15.72
+  },
+  {
+    "word": "sign-in",
+    "start": 15.882,
+    "end": 16.254
+  },
+  {
+    "word": "sheets,",
+    "start": 16.324,
+    "end": 16.788
+  },
+  {
+    "word": "schedules,",
+    "start": 16.893,
+    "end": 17.554
+  },
+  {
+    "word": "and",
+    "start": 17.601,
+    "end": 17.763
+  },
+  {
+    "word": "post-event",
+    "start": 17.868,
+    "end": 18.46
+  },
+  {
+    "word": "follow-up.",
+    "start": 18.529,
+    "end": 19.412
+  },
+  {
+    "word": "•",
+    "start": 19.412,
+    "end": 19.969
+  },
+  {
+    "word": "Summary",
+    "start": 20.201,
+    "end": 20.584
+  },
+  {
+    "word": "Roster",
+    "start": 20.654,
+    "end": 21.072
+  },
+  {
+    "word": "—",
+    "start": 21.235,
+    "end": 21.397
+  },
+  {
+    "word": "high-level",
+    "start": 22.187,
+    "end": 22.581
+  },
+  {
+    "word": "overviews",
+    "start": 22.639,
+    "end": 22.988
+  },
+  {
+    "word": "across",
+    "start": 23.034,
+    "end": 23.301
+  },
+  {
+    "word": "employees,",
+    "start": 23.348,
+    "end": 24.137
+  },
+  {
+    "word": "jobs,",
+    "start": 24.822,
+    "end": 25.484
+  },
+  {
+    "word": "clients,",
+    "start": 26.413,
+    "end": 27.098
+  },
+  {
+    "word": "venues,",
+    "start": 27.887,
+    "end": 28.595
+  },
+  {
+    "word": "and",
+    "start": 28.967,
+    "end": 29.187
+  },
+  {
+    "word": "branches.",
+    "start": 29.257,
+    "end": 30.778
+  },
+  {
+    "word": "•",
+    "start": 30.778,
+    "end": 30.952
+  },
+  {
+    "word": "Detailed",
+    "start": 31.219,
+    "end": 31.684
+  },
+  {
+    "word": "Roster",
+    "start": 31.707,
+    "end": 32.125
+  },
+  {
+    "word": "—",
+    "start": 32.287,
+    "end": 32.728
+  },
+  {
+    "word": "deeper",
+    "start": 33.228,
+    "end": 33.541
+  },
+  {
+    "word": "employee-level",
+    "start": 33.588,
+    "end": 34.215
+  },
+  {
+    "word": "reports",
+    "start": 34.261,
+    "end": 34.667
+  },
+  {
+    "word": "covering",
+    "start": 34.725,
+    "end": 35.004
+  },
+  {
+    "word": "timesheets,",
+    "start": 35.05,
+    "end": 35.817
+  },
+  {
+    "word": "licensing,",
+    "start": 35.991,
+    "end": 36.711
+  },
+  {
+    "word": "sign-in",
+    "start": 36.827,
+    "end": 37.198
+  },
+  {
+    "word": "activity,",
+    "start": 37.256,
+    "end": 37.837
+  },
+  {
+    "word": "and",
+    "start": 37.86,
+    "end": 38.069
+  },
+  {
+    "word": "availability.",
+    "start": 38.116,
+    "end": 39.149
+  },
+  {
+    "word": "We'll",
+    "start": 39.149,
+    "end": 39.37
+  },
+  {
+    "word": "cover",
+    "start": 39.416,
+    "end": 39.648
+  },
+  {
+    "word": "each",
+    "start": 39.741,
+    "end": 39.95
+  },
+  {
+    "word": "one",
+    "start": 40.032,
+    "end": 40.241
+  },
+  {
+    "word": "so",
+    "start": 40.287,
+    "end": 40.368
+  },
+  {
+    "word": "you",
+    "start": 40.45,
+    "end": 40.542
+  },
+  {
+    "word": "know",
+    "start": 40.6,
+    "end": 40.728
+  },
+  {
+    "word": "where",
+    "start": 40.763,
+    "end": 40.926
+  },
+  {
+    "word": "to",
+    "start": 40.949,
+    "end": 40.995
+  },
+  {
+    "word": "go",
+    "start": 41.065,
+    "end": 41.262
+  },
+  {
+    "word": "when",
+    "start": 41.587,
+    "end": 41.785
+  },
+  {
+    "word": "you",
+    "start": 41.82,
+    "end": 41.889
+  },
+  {
+    "word": "need",
+    "start": 41.936,
+    "end": 42.098
+  },
+  {
+    "word": "something.",
+    "start": 42.145,
+    "end": 42.632
+  }
+]

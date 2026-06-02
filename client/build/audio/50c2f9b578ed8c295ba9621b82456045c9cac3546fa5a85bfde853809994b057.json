@@ -1,0 +1,537 @@
+[
+  {
+    "word": "To",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "populate",
+    "start": 0.209,
+    "end": 0.708
+  },
+  {
+    "word": "times,",
+    "start": 0.743,
+    "end": 1.115
+  },
+  {
+    "word": "use",
+    "start": 1.149,
+    "end": 1.347
+  },
+  {
+    "word": "Autofill",
+    "start": 1.405,
+    "end": 1.869
+  },
+  {
+    "word": "Sign-In",
+    "start": 1.939,
+    "end": 2.38
+  },
+  {
+    "word": "and",
+    "start": 2.473,
+    "end": 2.635
+  },
+  {
+    "word": "Autofill",
+    "start": 2.705,
+    "end": 3.146
+  },
+  {
+    "word": "Sign-Out.",
+    "start": 3.228,
+    "end": 3.924
+  },
+  {
+    "word": "One",
+    "start": 3.994,
+    "end": 4.226
+  },
+  {
+    "word": "click",
+    "start": 4.261,
+    "end": 4.54
+  },
+  {
+    "word": "fills",
+    "start": 4.598,
+    "end": 4.865
+  },
+  {
+    "word": "every",
+    "start": 4.981,
+    "end": 5.306
+  },
+  {
+    "word": "employee",
+    "start": 5.364,
+    "end": 5.875
+  },
+  {
+    "word": "with",
+    "start": 5.933,
+    "end": 6.084
+  },
+  {
+    "word": "the",
+    "start": 6.118,
+    "end": 6.188
+  },
+  {
+    "word": "shift's",
+    "start": 6.235,
+    "end": 6.594
+  },
+  {
+    "word": "scheduled",
+    "start": 6.722,
+    "end": 7.21
+  },
+  {
+    "word": "start",
+    "start": 7.268,
+    "end": 7.605
+  },
+  {
+    "word": "and",
+    "start": 7.663,
+    "end": 7.79
+  },
+  {
+    "word": "end",
+    "start": 7.883,
+    "end": 8.081
+  },
+  {
+    "word": "time.",
+    "start": 8.15,
+    "end": 8.591
+  },
+  {
+    "word": "Employees",
+    "start": 8.661,
+    "end": 9.125
+  },
+  {
+    "word": "who",
+    "start": 9.16,
+    "end": 9.265
+  },
+  {
+    "word": "already",
+    "start": 9.346,
+    "end": 9.659
+  },
+  {
+    "word": "have",
+    "start": 9.729,
+    "end": 9.892
+  },
+  {
+    "word": "a",
+    "start": 9.927,
+    "end": 9.95
+  },
+  {
+    "word": "different",
+    "start": 10.019,
+    "end": 10.344
+  },
+  {
+    "word": "time",
+    "start": 10.368,
+    "end": 10.6
+  },
+  {
+    "word": "recorded",
+    "start": 10.646,
+    "end": 11.088
+  },
+  {
+    "word": "keep",
+    "start": 11.157,
+    "end": 11.378
+  },
+  {
+    "word": "their",
+    "start": 11.436,
+    "end": 11.61
+  },
+  {
+    "word": "time",
+    "start": 11.656,
+    "end": 11.993
+  },
+  {
+    "word": "—",
+    "start": 12.04,
+    "end": 12.098
+  },
+  {
+    "word": "autofill",
+    "start": 12.144,
+    "end": 12.632
+  },
+  {
+    "word": "will",
+    "start": 12.678,
+    "end": 12.841
+  },
+  {
+    "word": "not",
+    "start": 12.887,
+    "end": 13.05
+  },
+  {
+    "word": "overwrite",
+    "start": 13.108,
+    "end": 13.642
+  },
+  {
+    "word": "individual",
+    "start": 13.688,
+    "end": 14.234
+  },
+  {
+    "word": "entries.",
+    "start": 14.304,
+    "end": 15.511
+  },
+  {
+    "word": "For",
+    "start": 15.511,
+    "end": 15.639
+  },
+  {
+    "word": "employees",
+    "start": 15.662,
+    "end": 15.917
+  },
+  {
+    "word": "with",
+    "start": 15.941,
+    "end": 16.034
+  },
+  {
+    "word": "different",
+    "start": 16.057,
+    "end": 16.266
+  },
+  {
+    "word": "arrival",
+    "start": 16.289,
+    "end": 16.556
+  },
+  {
+    "word": "times,",
+    "start": 16.602,
+    "end": 16.928
+  },
+  {
+    "word": "use",
+    "start": 16.997,
+    "end": 17.183
+  },
+  {
+    "word": "autofill",
+    "start": 17.241,
+    "end": 17.659
+  },
+  {
+    "word": "first,",
+    "start": 17.717,
+    "end": 18.193
+  },
+  {
+    "word": "then",
+    "start": 18.309,
+    "end": 18.46
+  },
+  {
+    "word": "go",
+    "start": 18.518,
+    "end": 18.599
+  },
+  {
+    "word": "back",
+    "start": 18.657,
+    "end": 18.797
+  },
+  {
+    "word": "and",
+    "start": 18.843,
+    "end": 18.913
+  },
+  {
+    "word": "correct",
+    "start": 18.948,
+    "end": 19.157
+  },
+  {
+    "word": "the",
+    "start": 19.18,
+    "end": 19.25
+  },
+  {
+    "word": "exceptions",
+    "start": 19.284,
+    "end": 19.679
+  },
+  {
+    "word": "manually",
+    "start": 19.76,
+    "end": 20.19
+  },
+  {
+    "word": "using",
+    "start": 20.26,
+    "end": 20.469
+  },
+  {
+    "word": "the",
+    "start": 20.503,
+    "end": 20.573
+  },
+  {
+    "word": "Tab",
+    "start": 20.62,
+    "end": 20.84
+  },
+  {
+    "word": "key",
+    "start": 20.921,
+    "end": 21.084
+  },
+  {
+    "word": "to",
+    "start": 21.154,
+    "end": 21.223
+  },
+  {
+    "word": "move",
+    "start": 21.281,
+    "end": 21.444
+  },
+  {
+    "word": "through",
+    "start": 21.467,
+    "end": 21.641
+  },
+  {
+    "word": "each",
+    "start": 21.664,
+    "end": 21.804
+  },
+  {
+    "word": "field.",
+    "start": 21.839,
+    "end": 22.965
+  },
+  {
+    "word": "If",
+    "start": 22.965,
+    "end": 23.092
+  },
+  {
+    "word": "employees",
+    "start": 23.15,
+    "end": 23.51
+  },
+  {
+    "word": "earned",
+    "start": 23.568,
+    "end": 23.754
+  },
+  {
+    "word": "a",
+    "start": 23.789,
+    "end": 23.812
+  },
+  {
+    "word": "rate",
+    "start": 23.905,
+    "end": 24.137
+  },
+  {
+    "word": "different",
+    "start": 24.207,
+    "end": 24.613
+  },
+  {
+    "word": "from",
+    "start": 24.671,
+    "end": 24.857
+  },
+  {
+    "word": "their",
+    "start": 24.927,
+    "end": 25.17
+  },
+  {
+    "word": "default,",
+    "start": 25.286,
+    "end": 25.913
+  },
+  {
+    "word": "enter",
+    "start": 26.029,
+    "end": 26.25
+  },
+  {
+    "word": "it",
+    "start": 26.297,
+    "end": 26.343
+  },
+  {
+    "word": "in",
+    "start": 26.378,
+    "end": 26.424
+  },
+  {
+    "word": "the",
+    "start": 26.447,
+    "end": 26.517
+  },
+  {
+    "word": "Override",
+    "start": 26.61,
+    "end": 27.365
+  },
+  {
+    "word": "Rate",
+    "start": 27.643,
+    "end": 27.934
+  },
+  {
+    "word": "field",
+    "start": 27.992,
+    "end": 28.27
+  },
+  {
+    "word": "at",
+    "start": 28.317,
+    "end": 28.375
+  },
+  {
+    "word": "the",
+    "start": 28.41,
+    "end": 28.479
+  },
+  {
+    "word": "top",
+    "start": 28.526,
+    "end": 28.769
+  },
+  {
+    "word": "of",
+    "start": 28.827,
+    "end": 28.886
+  },
+  {
+    "word": "the",
+    "start": 28.944,
+    "end": 29.013
+  },
+  {
+    "word": "role",
+    "start": 29.083,
+    "end": 29.35
+  },
+  {
+    "word": "and",
+    "start": 29.396,
+    "end": 29.524
+  },
+  {
+    "word": "click",
+    "start": 29.605,
+    "end": 29.884
+  },
+  {
+    "word": "outside",
+    "start": 29.965,
+    "end": 30.418
+  },
+  {
+    "word": "the",
+    "start": 30.453,
+    "end": 30.523
+  },
+  {
+    "word": "box",
+    "start": 30.581,
+    "end": 30.917
+  },
+  {
+    "word": "—",
+    "start": 30.94,
+    "end": 30.987
+  },
+  {
+    "word": "everyone",
+    "start": 31.057,
+    "end": 31.475
+  },
+  {
+    "word": "on",
+    "start": 31.509,
+    "end": 31.567
+  },
+  {
+    "word": "that",
+    "start": 31.614,
+    "end": 31.742
+  },
+  {
+    "word": "page",
+    "start": 31.8,
+    "end": 32.16
+  },
+  {
+    "word": "updates",
+    "start": 32.241,
+    "end": 32.728
+  },
+  {
+    "word": "at",
+    "start": 32.775,
+    "end": 32.903
+  },
+  {
+    "word": "once.",
+    "start": 33.019,
+    "end": 33.471
+  },
+  {
+    "word": "Per",
+    "start": 33.715,
+    "end": 33.936
+  },
+  {
+    "word": "Diem",
+    "start": 34.017,
+    "end": 34.4
+  },
+  {
+    "word": "works",
+    "start": 34.644,
+    "end": 34.934
+  },
+  {
+    "word": "the",
+    "start": 34.981,
+    "end": 35.05
+  },
+  {
+    "word": "same",
+    "start": 35.12,
+    "end": 35.41
+  },
+  {
+    "word": "way.",
+    "start": 35.457,
+    "end": 35.991
+  }
+]

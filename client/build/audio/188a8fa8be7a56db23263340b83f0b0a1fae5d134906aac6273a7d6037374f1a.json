@@ -1,0 +1,522 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "to",
+    "start": 0.221,
+    "end": 0.279
+  },
+  {
+    "word": "Records",
+    "start": 0.372,
+    "end": 0.789
+  },
+  {
+    "word": "→",
+    "start": 0.836,
+    "end": 0.859
+  },
+  {
+    "word": "Manage",
+    "start": 0.964,
+    "end": 1.312
+  },
+  {
+    "word": "Employee",
+    "start": 1.347,
+    "end": 1.916
+  },
+  {
+    "word": "to",
+    "start": 1.962,
+    "end": 2.113
+  },
+  {
+    "word": "look",
+    "start": 2.229,
+    "end": 2.415
+  },
+  {
+    "word": "up",
+    "start": 2.485,
+    "end": 2.612
+  },
+  {
+    "word": "an",
+    "start": 2.728,
+    "end": 2.902
+  },
+  {
+    "word": "employee.",
+    "start": 2.961,
+    "end": 4.04
+  },
+  {
+    "word": "You",
+    "start": 4.04,
+    "end": 4.156
+  },
+  {
+    "word": "can",
+    "start": 4.203,
+    "end": 4.319
+  },
+  {
+    "word": "search",
+    "start": 4.365,
+    "end": 4.609
+  },
+  {
+    "word": "by:",
+    "start": 4.667,
+    "end": 5.468
+  },
+  {
+    "word": "•",
+    "start": 5.468,
+    "end": 6.049
+  },
+  {
+    "word": "Employee",
+    "start": 6.281,
+    "end": 6.803
+  },
+  {
+    "word": "number",
+    "start": 6.861,
+    "end": 7.43
+  },
+  {
+    "word": "•",
+    "start": 7.43,
+    "end": 7.628
+  },
+  {
+    "word": "First",
+    "start": 7.941,
+    "end": 8.231
+  },
+  {
+    "word": "or",
+    "start": 8.29,
+    "end": 8.348
+  },
+  {
+    "word": "last",
+    "start": 8.417,
+    "end": 8.649
+  },
+  {
+    "word": "name",
+    "start": 8.731,
+    "end": 9.207
+  },
+  {
+    "word": "•",
+    "start": 9.207,
+    "end": 9.625
+  },
+  {
+    "word": "Last",
+    "start": 9.834,
+    "end": 10.147
+  },
+  {
+    "word": "4",
+    "start": 10.263,
+    "end": 10.461
+  },
+  {
+    "word": "digits",
+    "start": 10.53,
+    "end": 10.89
+  },
+  {
+    "word": "of",
+    "start": 10.937,
+    "end": 11.041
+  },
+  {
+    "word": "their",
+    "start": 11.088,
+    "end": 11.227
+  },
+  {
+    "word": "SSN",
+    "start": 11.297,
+    "end": 11.889
+  },
+  {
+    "word": "—",
+    "start": 12.121,
+    "end": 12.632
+  },
+  {
+    "word": "useful",
+    "start": 12.794,
+    "end": 13.154
+  },
+  {
+    "word": "if",
+    "start": 13.212,
+    "end": 13.282
+  },
+  {
+    "word": "you're",
+    "start": 13.305,
+    "end": 13.491
+  },
+  {
+    "word": "not",
+    "start": 13.526,
+    "end": 13.63
+  },
+  {
+    "word": "sure",
+    "start": 13.688,
+    "end": 13.932
+  },
+  {
+    "word": "of",
+    "start": 13.967,
+    "end": 14.025
+  },
+  {
+    "word": "the",
+    "start": 14.083,
+    "end": 14.141
+  },
+  {
+    "word": "spelling",
+    "start": 14.187,
+    "end": 14.954
+  },
+  {
+    "word": "•",
+    "start": 14.954,
+    "end": 15.383
+  },
+  {
+    "word": "Status",
+    "start": 15.581,
+    "end": 16.091
+  },
+  {
+    "word": "—",
+    "start": 16.405,
+    "end": 16.811
+  },
+  {
+    "word": "defaults",
+    "start": 17.009,
+    "end": 17.45
+  },
+  {
+    "word": "to",
+    "start": 17.485,
+    "end": 17.543
+  },
+  {
+    "word": "Active;",
+    "start": 17.636,
+    "end": 18.251
+  },
+  {
+    "word": "change",
+    "start": 18.611,
+    "end": 19.006
+  },
+  {
+    "word": "this",
+    "start": 19.052,
+    "end": 19.249
+  },
+  {
+    "word": "if",
+    "start": 19.308,
+    "end": 19.389
+  },
+  {
+    "word": "you're",
+    "start": 19.435,
+    "end": 19.609
+  },
+  {
+    "word": "looking",
+    "start": 19.644,
+    "end": 19.9
+  },
+  {
+    "word": "for",
+    "start": 19.969,
+    "end": 20.132
+  },
+  {
+    "word": "an",
+    "start": 20.213,
+    "end": 20.318
+  },
+  {
+    "word": "inactive",
+    "start": 20.434,
+    "end": 21.072
+  },
+  {
+    "word": "employee",
+    "start": 21.107,
+    "end": 22.28
+  },
+  {
+    "word": "Leave",
+    "start": 22.28,
+    "end": 22.732
+  },
+  {
+    "word": "fields",
+    "start": 22.849,
+    "end": 23.441
+  },
+  {
+    "word": "blank",
+    "start": 23.719,
+    "end": 24.23
+  },
+  {
+    "word": "to",
+    "start": 24.544,
+    "end": 24.683
+  },
+  {
+    "word": "broaden",
+    "start": 24.764,
+    "end": 25.089
+  },
+  {
+    "word": "your",
+    "start": 25.124,
+    "end": 25.24
+  },
+  {
+    "word": "search,",
+    "start": 25.298,
+    "end": 25.786
+  },
+  {
+    "word": "or",
+    "start": 25.96,
+    "end": 26.123
+  },
+  {
+    "word": "fill",
+    "start": 26.192,
+    "end": 26.424
+  },
+  {
+    "word": "in",
+    "start": 26.506,
+    "end": 26.61
+  },
+  {
+    "word": "multiple",
+    "start": 26.726,
+    "end": 27.156
+  },
+  {
+    "word": "fields",
+    "start": 27.214,
+    "end": 27.609
+  },
+  {
+    "word": "to",
+    "start": 27.667,
+    "end": 27.76
+  },
+  {
+    "word": "narrow",
+    "start": 27.876,
+    "end": 28.212
+  },
+  {
+    "word": "it",
+    "start": 28.282,
+    "end": 28.363
+  },
+  {
+    "word": "down.",
+    "start": 28.421,
+    "end": 28.955
+  },
+  {
+    "word": "Click",
+    "start": 29.327,
+    "end": 29.582
+  },
+  {
+    "word": "Search",
+    "start": 29.652,
+    "end": 30
+  },
+  {
+    "word": "when",
+    "start": 30.325,
+    "end": 30.534
+  },
+  {
+    "word": "ready.",
+    "start": 30.604,
+    "end": 31.266
+  },
+  {
+    "word": "Your",
+    "start": 31.266,
+    "end": 31.475
+  },
+  {
+    "word": "results",
+    "start": 31.533,
+    "end": 31.928
+  },
+  {
+    "word": "will",
+    "start": 31.986,
+    "end": 32.183
+  },
+  {
+    "word": "show",
+    "start": 32.253,
+    "end": 32.566
+  },
+  {
+    "word": "Last",
+    "start": 33.007,
+    "end": 33.321
+  },
+  {
+    "word": "Name,",
+    "start": 33.39,
+    "end": 33.866
+  },
+  {
+    "word": "First",
+    "start": 34.11,
+    "end": 34.424
+  },
+  {
+    "word": "Name,",
+    "start": 34.505,
+    "end": 34.958
+  },
+  {
+    "word": "Employee",
+    "start": 35.202,
+    "end": 35.84
+  },
+  {
+    "word": "Number,",
+    "start": 35.91,
+    "end": 36.421
+  },
+  {
+    "word": "Branch",
+    "start": 36.653,
+    "end": 37.059
+  },
+  {
+    "word": "Name,",
+    "start": 37.141,
+    "end": 37.594
+  },
+  {
+    "word": "and",
+    "start": 37.803,
+    "end": 38.151
+  },
+  {
+    "word": "Status.",
+    "start": 38.325,
+    "end": 39.103
+  },
+  {
+    "word": "To",
+    "start": 39.428,
+    "end": 39.567
+  },
+  {
+    "word": "open",
+    "start": 39.683,
+    "end": 39.997
+  },
+  {
+    "word": "an",
+    "start": 40.078,
+    "end": 40.229
+  },
+  {
+    "word": "employee's",
+    "start": 40.275,
+    "end": 40.67
+  },
+  {
+    "word": "record,",
+    "start": 40.728,
+    "end": 40.995
+  },
+  {
+    "word": "click",
+    "start": 41.018,
+    "end": 41.204
+  },
+  {
+    "word": "their",
+    "start": 41.251,
+    "end": 41.378
+  },
+  {
+    "word": "last",
+    "start": 41.425,
+    "end": 41.611
+  },
+  {
+    "word": "name",
+    "start": 41.669,
+    "end": 41.854
+  },
+  {
+    "word": "—",
+    "start": 41.878,
+    "end": 41.924
+  },
+  {
+    "word": "it",
+    "start": 41.97,
+    "end": 42.087
+  },
+  {
+    "word": "appears",
+    "start": 42.11,
+    "end": 42.388
+  },
+  {
+    "word": "as",
+    "start": 42.435,
+    "end": 42.516
+  },
+  {
+    "word": "a",
+    "start": 42.563,
+    "end": 42.586
+  },
+  {
+    "word": "blue",
+    "start": 42.632,
+    "end": 42.818
+  },
+  {
+    "word": "link.",
+    "start": 42.853,
+    "end": 43.282
+  }
+]

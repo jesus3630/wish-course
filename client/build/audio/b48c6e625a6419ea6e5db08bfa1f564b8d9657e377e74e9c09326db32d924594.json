@@ -1,0 +1,517 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "Training",
+    "start": 0.221,
+    "end": 0.534
+  },
+  {
+    "word": "Records",
+    "start": 0.592,
+    "end": 0.906
+  },
+  {
+    "word": "tab",
+    "start": 0.952,
+    "end": 1.265
+  },
+  {
+    "word": "shows",
+    "start": 1.324,
+    "end": 1.637
+  },
+  {
+    "word": "which",
+    "start": 1.707,
+    "end": 1.916
+  },
+  {
+    "word": "WISH",
+    "start": 2.032,
+    "end": 2.322
+  },
+  {
+    "word": "training",
+    "start": 2.38,
+    "end": 2.705
+  },
+  {
+    "word": "modules",
+    "start": 2.752,
+    "end": 3.251
+  },
+  {
+    "word": "an",
+    "start": 3.332,
+    "end": 3.437
+  },
+  {
+    "word": "employee",
+    "start": 3.483,
+    "end": 4.11
+  },
+  {
+    "word": "has",
+    "start": 4.156,
+    "end": 4.307
+  },
+  {
+    "word": "been",
+    "start": 4.365,
+    "end": 4.516
+  },
+  {
+    "word": "assigned",
+    "start": 4.551,
+    "end": 5.143
+  },
+  {
+    "word": "and",
+    "start": 5.224,
+    "end": 5.422
+  },
+  {
+    "word": "completed.",
+    "start": 5.48,
+    "end": 6.095
+  },
+  {
+    "word": "What",
+    "start": 6.095,
+    "end": 6.293
+  },
+  {
+    "word": "you",
+    "start": 6.362,
+    "end": 6.444
+  },
+  {
+    "word": "can",
+    "start": 6.502,
+    "end": 6.629
+  },
+  {
+    "word": "do",
+    "start": 6.699,
+    "end": 6.815
+  },
+  {
+    "word": "here:",
+    "start": 6.896,
+    "end": 7.279
+  },
+  {
+    "word": "•",
+    "start": 7.279,
+    "end": 7.314
+  },
+  {
+    "word": "View",
+    "start": 7.43,
+    "end": 7.651
+  },
+  {
+    "word": "training",
+    "start": 7.721,
+    "end": 8.034
+  },
+  {
+    "word": "completion",
+    "start": 8.081,
+    "end": 8.533
+  },
+  {
+    "word": "status",
+    "start": 8.591,
+    "end": 9.021
+  },
+  {
+    "word": "for",
+    "start": 9.091,
+    "end": 9.276
+  },
+  {
+    "word": "each",
+    "start": 9.427,
+    "end": 9.648
+  },
+  {
+    "word": "module",
+    "start": 9.706,
+    "end": 10.333
+  },
+  {
+    "word": "•",
+    "start": 10.333,
+    "end": 10.426
+  },
+  {
+    "word": "Confirm",
+    "start": 10.507,
+    "end": 10.971
+  },
+  {
+    "word": "whether",
+    "start": 11.041,
+    "end": 11.308
+  },
+  {
+    "word": "an",
+    "start": 11.366,
+    "end": 11.424
+  },
+  {
+    "word": "employee",
+    "start": 11.459,
+    "end": 11.923
+  },
+  {
+    "word": "has",
+    "start": 11.981,
+    "end": 12.132
+  },
+  {
+    "word": "finished",
+    "start": 12.225,
+    "end": 12.585
+  },
+  {
+    "word": "the",
+    "start": 12.62,
+    "end": 12.689
+  },
+  {
+    "word": "training",
+    "start": 12.736,
+    "end": 13.049
+  },
+  {
+    "word": "required",
+    "start": 13.107,
+    "end": 13.525
+  },
+  {
+    "word": "for",
+    "start": 13.56,
+    "end": 13.664
+  },
+  {
+    "word": "their",
+    "start": 13.699,
+    "end": 13.862
+  },
+  {
+    "word": "role",
+    "start": 13.908,
+    "end": 14.489
+  },
+  {
+    "word": "This",
+    "start": 14.489,
+    "end": 14.698
+  },
+  {
+    "word": "is",
+    "start": 14.756,
+    "end": 14.825
+  },
+  {
+    "word": "useful",
+    "start": 14.907,
+    "end": 15.371
+  },
+  {
+    "word": "before",
+    "start": 15.522,
+    "end": 16.265
+  },
+  {
+    "word": "scheduling",
+    "start": 16.439,
+    "end": 17.182
+  },
+  {
+    "word": "someone",
+    "start": 17.356,
+    "end": 17.74
+  },
+  {
+    "word": "for",
+    "start": 17.774,
+    "end": 17.902
+  },
+  {
+    "word": "a",
+    "start": 17.949,
+    "end": 17.983
+  },
+  {
+    "word": "position",
+    "start": 18.041,
+    "end": 18.726
+  },
+  {
+    "word": "that",
+    "start": 18.877,
+    "end": 19.086
+  },
+  {
+    "word": "requires",
+    "start": 19.156,
+    "end": 19.945
+  },
+  {
+    "word": "specific",
+    "start": 20.271,
+    "end": 20.932
+  },
+  {
+    "word": "training.",
+    "start": 20.979,
+    "end": 21.513
+  },
+  {
+    "word": "If",
+    "start": 21.838,
+    "end": 22.024
+  },
+  {
+    "word": "a",
+    "start": 22.093,
+    "end": 22.117
+  },
+  {
+    "word": "module",
+    "start": 22.198,
+    "end": 22.778
+  },
+  {
+    "word": "shows",
+    "start": 22.825,
+    "end": 23.278
+  },
+  {
+    "word": "as",
+    "start": 23.394,
+    "end": 23.754
+  },
+  {
+    "word": "incomplete,",
+    "start": 23.87,
+    "end": 24.856
+  },
+  {
+    "word": "the",
+    "start": 25.1,
+    "end": 25.228
+  },
+  {
+    "word": "employee",
+    "start": 25.286,
+    "end": 25.82
+  },
+  {
+    "word": "may",
+    "start": 25.89,
+    "end": 26.076
+  },
+  {
+    "word": "not",
+    "start": 26.157,
+    "end": 26.343
+  },
+  {
+    "word": "have",
+    "start": 26.401,
+    "end": 26.644
+  },
+  {
+    "word": "the",
+    "start": 26.691,
+    "end": 26.784
+  },
+  {
+    "word": "access",
+    "start": 26.9,
+    "end": 27.48
+  },
+  {
+    "word": "or",
+    "start": 27.55,
+    "end": 27.724
+  },
+  {
+    "word": "knowledge",
+    "start": 27.805,
+    "end": 28.235
+  },
+  {
+    "word": "needed",
+    "start": 28.293,
+    "end": 28.606
+  },
+  {
+    "word": "to",
+    "start": 28.665,
+    "end": 28.746
+  },
+  {
+    "word": "perform",
+    "start": 28.839,
+    "end": 29.291
+  },
+  {
+    "word": "that",
+    "start": 29.338,
+    "end": 29.501
+  },
+  {
+    "word": "role",
+    "start": 29.582,
+    "end": 29.884
+  },
+  {
+    "word": "in",
+    "start": 29.942,
+    "end": 30.07
+  },
+  {
+    "word": "WISH.",
+    "start": 30.186,
+    "end": 31.126
+  },
+  {
+    "word": "Training",
+    "start": 31.126,
+    "end": 31.556
+  },
+  {
+    "word": "assignments",
+    "start": 31.614,
+    "end": 32.218
+  },
+  {
+    "word": "and",
+    "start": 32.287,
+    "end": 32.461
+  },
+  {
+    "word": "completions",
+    "start": 32.531,
+    "end": 33.146
+  },
+  {
+    "word": "are",
+    "start": 33.193,
+    "end": 33.309
+  },
+  {
+    "word": "managed",
+    "start": 33.344,
+    "end": 33.785
+  },
+  {
+    "word": "by",
+    "start": 33.843,
+    "end": 34.122
+  },
+  {
+    "word": "administrators,",
+    "start": 34.296,
+    "end": 35.515
+  },
+  {
+    "word": "if",
+    "start": 35.724,
+    "end": 35.863
+  },
+  {
+    "word": "a",
+    "start": 35.921,
+    "end": 35.956
+  },
+  {
+    "word": "training",
+    "start": 36.002,
+    "end": 36.304
+  },
+  {
+    "word": "record",
+    "start": 36.362,
+    "end": 36.676
+  },
+  {
+    "word": "looks",
+    "start": 36.722,
+    "end": 36.966
+  },
+  {
+    "word": "incorrect,",
+    "start": 37.059,
+    "end": 37.883
+  },
+  {
+    "word": "flag",
+    "start": 38.092,
+    "end": 38.441
+  },
+  {
+    "word": "it",
+    "start": 38.487,
+    "end": 38.545
+  },
+  {
+    "word": "with",
+    "start": 38.58,
+    "end": 38.708
+  },
+  {
+    "word": "your",
+    "start": 38.754,
+    "end": 38.87
+  },
+  {
+    "word": "administrator",
+    "start": 38.905,
+    "end": 39.613
+  },
+  {
+    "word": "rather",
+    "start": 39.683,
+    "end": 39.961
+  },
+  {
+    "word": "than",
+    "start": 40.008,
+    "end": 40.147
+  },
+  {
+    "word": "attempting",
+    "start": 40.182,
+    "end": 40.577
+  },
+  {
+    "word": "to",
+    "start": 40.612,
+    "end": 40.67
+  },
+  {
+    "word": "change",
+    "start": 40.739,
+    "end": 41.03
+  },
+  {
+    "word": "it",
+    "start": 41.064,
+    "end": 41.134
+  },
+  {
+    "word": "yourself.",
+    "start": 41.18,
+    "end": 42.028
+  }
+]

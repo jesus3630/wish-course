@@ -1,0 +1,277 @@
+[
+  {
+    "word": "Welcome",
+    "start": 0,
+    "end": 0.406
+  },
+  {
+    "word": "to",
+    "start": 0.43,
+    "end": 0.499
+  },
+  {
+    "word": "the",
+    "start": 0.569,
+    "end": 0.639
+  },
+  {
+    "word": "WISH,",
+    "start": 0.708,
+    "end": 1.126
+  },
+  {
+    "word": "Workforce",
+    "start": 1.219,
+    "end": 1.73
+  },
+  {
+    "word": "Information",
+    "start": 1.776,
+    "end": 2.299
+  },
+  {
+    "word": "Systems",
+    "start": 2.357,
+    "end": 2.775
+  },
+  {
+    "word": "Hosted,",
+    "start": 2.844,
+    "end": 3.286
+  },
+  {
+    "word": "training",
+    "start": 3.332,
+    "end": 3.773
+  },
+  {
+    "word": "series.",
+    "start": 3.843,
+    "end": 4.342
+  },
+  {
+    "word": "WISH",
+    "start": 4.47,
+    "end": 4.795
+  },
+  {
+    "word": "is",
+    "start": 4.888,
+    "end": 5.05
+  },
+  {
+    "word": "ProtaTECH’s",
+    "start": 5.12,
+    "end": 5.759
+  },
+  {
+    "word": "all-in-one",
+    "start": 5.828,
+    "end": 6.432
+  },
+  {
+    "word": "workforce",
+    "start": 6.478,
+    "end": 7.036
+  },
+  {
+    "word": "application",
+    "start": 7.07,
+    "end": 7.674
+  },
+  {
+    "word": "which",
+    "start": 7.732,
+    "end": 7.906
+  },
+  {
+    "word": "supports",
+    "start": 7.941,
+    "end": 8.382
+  },
+  {
+    "word": "the",
+    "start": 8.429,
+    "end": 8.522
+  },
+  {
+    "word": "entire",
+    "start": 8.591,
+    "end": 9.067
+  },
+  {
+    "word": "employee",
+    "start": 9.125,
+    "end": 9.59
+  },
+  {
+    "word": "lifecycle",
+    "start": 9.648,
+    "end": 10.333
+  },
+  {
+    "word": "—",
+    "start": 10.356,
+    "end": 10.403
+  },
+  {
+    "word": "from",
+    "start": 10.612,
+    "end": 10.809
+  },
+  {
+    "word": "hiring",
+    "start": 10.879,
+    "end": 11.262
+  },
+  {
+    "word": "and",
+    "start": 11.32,
+    "end": 11.389
+  },
+  {
+    "word": "staff",
+    "start": 11.447,
+    "end": 11.738
+  },
+  {
+    "word": "management",
+    "start": 11.807,
+    "end": 12.237
+  },
+  {
+    "word": "to",
+    "start": 12.283,
+    "end": 12.434
+  },
+  {
+    "word": "timesheets",
+    "start": 12.55,
+    "end": 13.119
+  },
+  {
+    "word": "and",
+    "start": 13.154,
+    "end": 13.247
+  },
+  {
+    "word": "payroll",
+    "start": 13.316,
+    "end": 13.769
+  },
+  {
+    "word": "—",
+    "start": 13.897,
+    "end": 13.943
+  },
+  {
+    "word": "all",
+    "start": 14.06,
+    "end": 14.28
+  },
+  {
+    "word": "within",
+    "start": 14.338,
+    "end": 14.64
+  },
+  {
+    "word": "one",
+    "start": 14.756,
+    "end": 15
+  },
+  {
+    "word": "integrated",
+    "start": 15.081,
+    "end": 15.615
+  },
+  {
+    "word": "system.",
+    "start": 15.662,
+    "end": 16.091
+  },
+  {
+    "word": "In",
+    "start": 16.37,
+    "end": 16.521
+  },
+  {
+    "word": "this",
+    "start": 16.567,
+    "end": 16.695
+  },
+  {
+    "word": "module,",
+    "start": 16.776,
+    "end": 20.201
+  },
+  {
+    "word": "we’ll",
+    "start": 20.584,
+    "end": 23.765
+  },
+  {
+    "word": "focus",
+    "start": 24.149,
+    "end": 26.366
+  },
+  {
+    "word": "on",
+    "start": 26.749,
+    "end": 26.958
+  },
+  {
+    "word": "the",
+    "start": 27.005,
+    "end": 27.074
+  },
+  {
+    "word": "portion",
+    "start": 27.144,
+    "end": 27.574
+  },
+  {
+    "word": "of",
+    "start": 27.643,
+    "end": 27.736
+  },
+  {
+    "word": "WISH",
+    "start": 27.852,
+    "end": 28.177
+  },
+  {
+    "word": "relevant",
+    "start": 28.293,
+    "end": 28.758
+  },
+  {
+    "word": "to",
+    "start": 28.804,
+    "end": 28.874
+  },
+  {
+    "word": "your",
+    "start": 28.99,
+    "end": 29.152
+  },
+  {
+    "word": "role",
+    "start": 29.222,
+    "end": 29.57
+  },
+  {
+    "word": "and",
+    "start": 29.617,
+    "end": 29.733
+  },
+  {
+    "word": "access",
+    "start": 29.814,
+    "end": 30.267
+  },
+  {
+    "word": "level.",
+    "start": 30.325,
+    "end": 30.929
+  }
+]

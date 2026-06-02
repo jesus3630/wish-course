@@ -1,0 +1,312 @@
+[
+  {
+    "word": "Congratulations!",
+    "start": 0,
+    "end": 1.045
+  },
+  {
+    "word": "You've",
+    "start": 1.08,
+    "end": 1.335
+  },
+  {
+    "word": "completed",
+    "start": 1.37,
+    "end": 1.823
+  },
+  {
+    "word": "the",
+    "start": 1.869,
+    "end": 1.997
+  },
+  {
+    "word": "Workforce",
+    "start": 2.09,
+    "end": 2.543
+  },
+  {
+    "word": "Scheduler",
+    "start": 2.566,
+    "end": 2.961
+  },
+  {
+    "word": "Maintenance",
+    "start": 3.019,
+    "end": 3.379
+  },
+  {
+    "word": "module.",
+    "start": 3.413,
+    "end": 3.971
+  },
+  {
+    "word": "You",
+    "start": 3.971,
+    "end": 4.11
+  },
+  {
+    "word": "now",
+    "start": 4.203,
+    "end": 4.365
+  },
+  {
+    "word": "know",
+    "start": 4.423,
+    "end": 4.563
+  },
+  {
+    "word": "how",
+    "start": 4.632,
+    "end": 4.737
+  },
+  {
+    "word": "to",
+    "start": 4.783,
+    "end": 4.841
+  },
+  {
+    "word": "search",
+    "start": 4.911,
+    "end": 5.155
+  },
+  {
+    "word": "for",
+    "start": 5.19,
+    "end": 5.317
+  },
+  {
+    "word": "employees",
+    "start": 5.375,
+    "end": 5.933
+  },
+  {
+    "word": "in",
+    "start": 6.002,
+    "end": 6.072
+  },
+  {
+    "word": "WISH,",
+    "start": 6.165,
+    "end": 6.513
+  },
+  {
+    "word": "open",
+    "start": 6.571,
+    "end": 6.827
+  },
+  {
+    "word": "their",
+    "start": 6.873,
+    "end": 7.024
+  },
+  {
+    "word": "records,",
+    "start": 7.082,
+    "end": 7.477
+  },
+  {
+    "word": "and",
+    "start": 7.5,
+    "end": 7.628
+  },
+  {
+    "word": "update",
+    "start": 7.709,
+    "end": 8.104
+  },
+  {
+    "word": "the",
+    "start": 8.139,
+    "end": 8.208
+  },
+  {
+    "word": "three",
+    "start": 8.266,
+    "end": 8.51
+  },
+  {
+    "word": "areas",
+    "start": 8.568,
+    "end": 8.94
+  },
+  {
+    "word": "within",
+    "start": 8.986,
+    "end": 9.23
+  },
+  {
+    "word": "your",
+    "start": 9.276,
+    "end": 9.404
+  },
+  {
+    "word": "access:",
+    "start": 9.462,
+    "end": 10.019
+  },
+  {
+    "word": "Licensing,",
+    "start": 10.136,
+    "end": 10.844
+  },
+  {
+    "word": "Background",
+    "start": 10.96,
+    "end": 11.447
+  },
+  {
+    "word": "Check,",
+    "start": 11.494,
+    "end": 11.865
+  },
+  {
+    "word": "and",
+    "start": 11.889,
+    "end": 12.063
+  },
+  {
+    "word": "Employee",
+    "start": 12.132,
+    "end": 12.527
+  },
+  {
+    "word": "Notes.",
+    "start": 12.597,
+    "end": 13.073
+  },
+  {
+    "word": "Remember",
+    "start": 13.073,
+    "end": 13.502
+  },
+  {
+    "word": "—",
+    "start": 13.595,
+    "end": 19.191
+  },
+  {
+    "word": "always",
+    "start": 19.47,
+    "end": 19.783
+  },
+  {
+    "word": "verify",
+    "start": 19.853,
+    "end": 20.387
+  },
+  {
+    "word": "guard",
+    "start": 20.48,
+    "end": 20.735
+  },
+  {
+    "word": "card",
+    "start": 20.794,
+    "end": 21.165
+  },
+  {
+    "word": "and",
+    "start": 21.223,
+    "end": 21.351
+  },
+  {
+    "word": "background",
+    "start": 21.42,
+    "end": 21.989
+  },
+  {
+    "word": "check",
+    "start": 22.047,
+    "end": 22.291
+  },
+  {
+    "word": "status",
+    "start": 22.361,
+    "end": 22.895
+  },
+  {
+    "word": "before",
+    "start": 23.174,
+    "end": 23.626
+  },
+  {
+    "word": "scheduling",
+    "start": 23.684,
+    "end": 24.207
+  },
+  {
+    "word": "employees",
+    "start": 24.288,
+    "end": 25.054
+  },
+  {
+    "word": "for",
+    "start": 25.112,
+    "end": 25.263
+  },
+  {
+    "word": "positions",
+    "start": 25.333,
+    "end": 25.867
+  },
+  {
+    "word": "that",
+    "start": 25.925,
+    "end": 26.064
+  },
+  {
+    "word": "require",
+    "start": 26.123,
+    "end": 26.587
+  },
+  {
+    "word": "them.",
+    "start": 26.633,
+    "end": 26.993
+  },
+  {
+    "word": "When",
+    "start": 27.237,
+    "end": 27.458
+  },
+  {
+    "word": "in",
+    "start": 27.527,
+    "end": 27.609
+  },
+  {
+    "word": "doubt,",
+    "start": 27.678,
+    "end": 28.05
+  },
+  {
+    "word": "check",
+    "start": 28.119,
+    "end": 28.375
+  },
+  {
+    "word": "with",
+    "start": 28.421,
+    "end": 28.537
+  },
+  {
+    "word": "your",
+    "start": 28.584,
+    "end": 28.7
+  },
+  {
+    "word": "administrator",
+    "start": 28.735,
+    "end": 29.397
+  },
+  {
+    "word": "before",
+    "start": 29.478,
+    "end": 29.803
+  },
+  {
+    "word": "scheduling.",
+    "start": 29.838,
+    "end": 30.65
+  }
+]
