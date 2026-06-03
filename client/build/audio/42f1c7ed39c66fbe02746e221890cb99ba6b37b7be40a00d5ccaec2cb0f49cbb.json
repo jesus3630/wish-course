@@ -1,0 +1,552 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.128
+  },
+  {
+    "word": "Licensing",
+    "start": 0.197,
+    "end": 0.604
+  },
+  {
+    "word": "tab",
+    "start": 0.662,
+    "end": 0.952
+  },
+  {
+    "word": "is",
+    "start": 1.022,
+    "end": 1.091
+  },
+  {
+    "word": "where",
+    "start": 1.149,
+    "end": 1.335
+  },
+  {
+    "word": "guard",
+    "start": 1.405,
+    "end": 1.637
+  },
+  {
+    "word": "card",
+    "start": 1.695,
+    "end": 1.904
+  },
+  {
+    "word": "information",
+    "start": 1.95,
+    "end": 2.426
+  },
+  {
+    "word": "is",
+    "start": 2.473,
+    "end": 2.543
+  },
+  {
+    "word": "stored",
+    "start": 2.589,
+    "end": 2.891
+  },
+  {
+    "word": "for",
+    "start": 2.914,
+    "end": 3.042
+  },
+  {
+    "word": "employees",
+    "start": 3.088,
+    "end": 3.553
+  },
+  {
+    "word": "who",
+    "start": 3.599,
+    "end": 3.715
+  },
+  {
+    "word": "work",
+    "start": 3.785,
+    "end": 3.971
+  },
+  {
+    "word": "positions",
+    "start": 4.029,
+    "end": 4.505
+  },
+  {
+    "word": "that",
+    "start": 4.551,
+    "end": 4.714
+  },
+  {
+    "word": "require",
+    "start": 4.772,
+    "end": 5.283
+  },
+  {
+    "word": "a",
+    "start": 5.341,
+    "end": 5.399
+  },
+  {
+    "word": "license.",
+    "start": 5.503,
+    "end": 6.362
+  },
+  {
+    "word": "What",
+    "start": 6.362,
+    "end": 6.548
+  },
+  {
+    "word": "you",
+    "start": 6.606,
+    "end": 6.664
+  },
+  {
+    "word": "can",
+    "start": 6.711,
+    "end": 6.815
+  },
+  {
+    "word": "do",
+    "start": 6.861,
+    "end": 6.989
+  },
+  {
+    "word": "here:",
+    "start": 7.07,
+    "end": 7.639
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 7.639,
+    "end": 12.399
+  },
+  {
+    "word": "View",
+    "start": 12.632,
+    "end": 12.841
+  },
+  {
+    "word": "the",
+    "start": 12.887,
+    "end": 12.957
+  },
+  {
+    "word": "current",
+    "start": 13.015,
+    "end": 13.293
+  },
+  {
+    "word": "guard",
+    "start": 13.351,
+    "end": 13.56
+  },
+  {
+    "word": "card",
+    "start": 13.607,
+    "end": 13.816
+  },
+  {
+    "word": "number",
+    "start": 13.862,
+    "end": 14.106
+  },
+  {
+    "word": "and",
+    "start": 14.176,
+    "end": 14.292
+  },
+  {
+    "word": "expiration",
+    "start": 14.385,
+    "end": 14.977
+  },
+  {
+    "word": "date",
+    "start": 15.035,
+    "end": 15.778
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 15.778,
+    "end": 20.701
+  },
+  {
+    "word": "Add",
+    "start": 21.27,
+    "end": 21.467
+  },
+  {
+    "word": "a",
+    "start": 21.49,
+    "end": 21.514
+  },
+  {
+    "word": "guard",
+    "start": 21.583,
+    "end": 21.804
+  },
+  {
+    "word": "card",
+    "start": 21.839,
+    "end": 22.036
+  },
+  {
+    "word": "number",
+    "start": 22.071,
+    "end": 22.268
+  },
+  {
+    "word": "if",
+    "start": 22.338,
+    "end": 22.408
+  },
+  {
+    "word": "one",
+    "start": 22.477,
+    "end": 22.617
+  },
+  {
+    "word": "hasn't",
+    "start": 22.64,
+    "end": 22.849
+  },
+  {
+    "word": "been",
+    "start": 22.884,
+    "end": 22.988
+  },
+  {
+    "word": "entered",
+    "start": 23.035,
+    "end": 23.22
+  },
+  {
+    "word": "yet",
+    "start": 23.243,
+    "end": 24.103
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 24.103,
+    "end": 29.49
+  },
+  {
+    "word": "Update",
+    "start": 29.815,
+    "end": 30.209
+  },
+  {
+    "word": "the",
+    "start": 30.244,
+    "end": 30.314
+  },
+  {
+    "word": "expiration",
+    "start": 30.372,
+    "end": 30.813
+  },
+  {
+    "word": "date",
+    "start": 30.848,
+    "end": 30.987
+  },
+  {
+    "word": "when",
+    "start": 31.011,
+    "end": 31.103
+  },
+  {
+    "word": "a",
+    "start": 31.138,
+    "end": 31.161
+  },
+  {
+    "word": "card",
+    "start": 31.196,
+    "end": 31.429
+  },
+  {
+    "word": "is",
+    "start": 31.463,
+    "end": 31.533
+  },
+  {
+    "word": "renewed",
+    "start": 31.591,
+    "end": 32.183
+  },
+  {
+    "word": "Before",
+    "start": 32.183,
+    "end": 32.462
+  },
+  {
+    "word": "scheduling",
+    "start": 32.497,
+    "end": 32.868
+  },
+  {
+    "word": "an",
+    "start": 32.903,
+    "end": 32.961
+  },
+  {
+    "word": "employee",
+    "start": 33.007,
+    "end": 33.321
+  },
+  {
+    "word": "for",
+    "start": 33.379,
+    "end": 33.495
+  },
+  {
+    "word": "a",
+    "start": 33.53,
+    "end": 33.553
+  },
+  {
+    "word": "licensed",
+    "start": 33.6,
+    "end": 33.925
+  },
+  {
+    "word": "position,",
+    "start": 33.948,
+    "end": 34.412
+  },
+  {
+    "word": "always",
+    "start": 34.436,
+    "end": 34.737
+  },
+  {
+    "word": "check",
+    "start": 34.795,
+    "end": 34.97
+  },
+  {
+    "word": "this",
+    "start": 35.028,
+    "end": 35.155
+  },
+  {
+    "word": "tab",
+    "start": 35.213,
+    "end": 35.434
+  },
+  {
+    "word": "to",
+    "start": 35.504,
+    "end": 35.55
+  },
+  {
+    "word": "confirm",
+    "start": 35.596,
+    "end": 35.933
+  },
+  {
+    "word": "their",
+    "start": 35.968,
+    "end": 36.095
+  },
+  {
+    "word": "guard",
+    "start": 36.154,
+    "end": 36.351
+  },
+  {
+    "word": "card",
+    "start": 36.397,
+    "end": 36.618
+  },
+  {
+    "word": "is",
+    "start": 36.664,
+    "end": 36.746
+  },
+  {
+    "word": "active",
+    "start": 36.815,
+    "end": 37.152
+  },
+  {
+    "word": "and",
+    "start": 37.187,
+    "end": 37.256
+  },
+  {
+    "word": "not",
+    "start": 37.338,
+    "end": 37.593
+  },
+  {
+    "word": "expired.",
+    "start": 38.545,
+    "end": 39.509
+  },
+  {
+    "word": "If",
+    "start": 39.892,
+    "end": 40.043
+  },
+  {
+    "word": "the",
+    "start": 40.101,
+    "end": 40.171
+  },
+  {
+    "word": "card",
+    "start": 40.229,
+    "end": 40.577
+  },
+  {
+    "word": "is",
+    "start": 40.658,
+    "end": 40.948
+  },
+  {
+    "word": "expired,",
+    "start": 41.9,
+    "end": 42.655
+  },
+  {
+    "word": "do",
+    "start": 42.829,
+    "end": 42.98
+  },
+  {
+    "word": "not",
+    "start": 43.096,
+    "end": 43.294
+  },
+  {
+    "word": "schedule",
+    "start": 43.352,
+    "end": 43.805
+  },
+  {
+    "word": "them",
+    "start": 43.839,
+    "end": 44.025
+  },
+  {
+    "word": "for",
+    "start": 44.106,
+    "end": 44.257
+  },
+  {
+    "word": "a",
+    "start": 44.315,
+    "end": 44.35
+  },
+  {
+    "word": "licensed",
+    "start": 44.466,
+    "end": 45.012
+  },
+  {
+    "word": "role",
+    "start": 45.105,
+    "end": 45.604
+  },
+  {
+    "word": "until",
+    "start": 45.72,
+    "end": 46.022
+  },
+  {
+    "word": "the",
+    "start": 46.068,
+    "end": 46.138
+  },
+  {
+    "word": "record",
+    "start": 46.219,
+    "end": 46.544
+  },
+  {
+    "word": "has",
+    "start": 46.603,
+    "end": 46.719
+  },
+  {
+    "word": "been",
+    "start": 46.777,
+    "end": 46.939
+  },
+  {
+    "word": "updated",
+    "start": 47.02,
+    "end": 47.589
+  },
+  {
+    "word": "with",
+    "start": 47.659,
+    "end": 47.822
+  },
+  {
+    "word": "a",
+    "start": 47.868,
+    "end": 47.903
+  },
+  {
+    "word": "valid",
+    "start": 48.019,
+    "end": 48.472
+  },
+  {
+    "word": "card.",
+    "start": 48.553,
+    "end": 49.354
+  },
+  {
+    "word": "After",
+    "start": 49.354,
+    "end": 49.644
+  },
+  {
+    "word": "making",
+    "start": 49.702,
+    "end": 49.993
+  },
+  {
+    "word": "any",
+    "start": 50.074,
+    "end": 50.283
+  },
+  {
+    "word": "changes,",
+    "start": 50.341,
+    "end": 50.979
+  },
+  {
+    "word": "click",
+    "start": 51.107,
+    "end": 51.386
+  },
+  {
+    "word": "Save",
+    "start": 51.479,
+    "end": 51.815
+  },
+  {
+    "word": "to",
+    "start": 51.862,
+    "end": 51.955
+  },
+  {
+    "word": "record",
+    "start": 52.071,
+    "end": 52.466
+  },
+  {
+    "word": "them.",
+    "start": 52.524,
+    "end": 52.988
+  }
+]

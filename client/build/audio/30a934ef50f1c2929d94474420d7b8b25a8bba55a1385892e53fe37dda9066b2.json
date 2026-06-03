@@ -1,0 +1,132 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "Payroll",
+    "start": 0.197,
+    "end": 0.522
+  },
+  {
+    "word": "menu",
+    "start": 0.58,
+    "end": 0.906
+  },
+  {
+    "word": "is",
+    "start": 0.998,
+    "end": 1.091
+  },
+  {
+    "word": "where",
+    "start": 1.126,
+    "end": 1.312
+  },
+  {
+    "word": "payroll",
+    "start": 1.405,
+    "end": 1.811
+  },
+  {
+    "word": "staff",
+    "start": 1.869,
+    "end": 2.171
+  },
+  {
+    "word": "review",
+    "start": 2.241,
+    "end": 2.635
+  },
+  {
+    "word": "and",
+    "start": 2.728,
+    "end": 2.844
+  },
+  {
+    "word": "approve",
+    "start": 2.879,
+    "end": 3.286
+  },
+  {
+    "word": "employees'",
+    "start": 3.32,
+    "end": 3.773
+  },
+  {
+    "word": "work",
+    "start": 3.808,
+    "end": 4.029
+  },
+  {
+    "word": "hours",
+    "start": 4.098,
+    "end": 4.505
+  },
+  {
+    "word": "after",
+    "start": 4.656,
+    "end": 5.016
+  },
+  {
+    "word": "an",
+    "start": 5.062,
+    "end": 5.12
+  },
+  {
+    "word": "event.",
+    "start": 5.166,
+    "end": 5.608
+  },
+  {
+    "word": "This",
+    "start": 5.933,
+    "end": 6.153
+  },
+  {
+    "word": "ensures",
+    "start": 6.211,
+    "end": 6.594
+  },
+  {
+    "word": "that",
+    "start": 6.629,
+    "end": 6.757
+  },
+  {
+    "word": "everyone",
+    "start": 6.838,
+    "end": 7.326
+  },
+  {
+    "word": "is",
+    "start": 7.372,
+    "end": 7.465
+  },
+  {
+    "word": "properly",
+    "start": 7.558,
+    "end": 7.976
+  },
+  {
+    "word": "compensated",
+    "start": 8.046,
+    "end": 8.673
+  },
+  {
+    "word": "for",
+    "start": 8.719,
+    "end": 8.824
+  },
+  {
+    "word": "their",
+    "start": 8.858,
+    "end": 9.009
+  },
+  {
+    "word": "time.",
+    "start": 9.056,
+    "end": 9.659
+  }
+]

@@ -1,0 +1,512 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "to",
+    "start": 0.232,
+    "end": 0.29
+  },
+  {
+    "word": "Records",
+    "start": 0.372,
+    "end": 0.662
+  },
+  {
+    "word": "to",
+    "start": 0.708,
+    "end": 0.766
+  },
+  {
+    "word": "Manage",
+    "start": 0.848,
+    "end": 1.161
+  },
+  {
+    "word": "job.",
+    "start": 1.207,
+    "end": 1.602
+  },
+  {
+    "word": "Use",
+    "start": 1.718,
+    "end": 1.962
+  },
+  {
+    "word": "the",
+    "start": 1.997,
+    "end": 2.067
+  },
+  {
+    "word": "filter",
+    "start": 2.125,
+    "end": 2.45
+  },
+  {
+    "word": "page",
+    "start": 2.508,
+    "end": 2.821
+  },
+  {
+    "word": "to",
+    "start": 2.868,
+    "end": 2.937
+  },
+  {
+    "word": "search",
+    "start": 3.019,
+    "end": 3.262
+  },
+  {
+    "word": "for",
+    "start": 3.309,
+    "end": 3.437
+  },
+  {
+    "word": "existing",
+    "start": 3.506,
+    "end": 3.947
+  },
+  {
+    "word": "jobs",
+    "start": 4.017,
+    "end": 4.354
+  },
+  {
+    "word": "by",
+    "start": 4.412,
+    "end": 4.574
+  },
+  {
+    "word": "name",
+    "start": 4.69,
+    "end": 4.981
+  },
+  {
+    "word": "or",
+    "start": 5.039,
+    "end": 5.178
+  },
+  {
+    "word": "job",
+    "start": 5.259,
+    "end": 5.492
+  },
+  {
+    "word": "number.",
+    "start": 5.55,
+    "end": 5.886
+  },
+  {
+    "word": "To",
+    "start": 5.909,
+    "end": 6.026
+  },
+  {
+    "word": "create",
+    "start": 6.107,
+    "end": 6.397
+  },
+  {
+    "word": "a",
+    "start": 6.42,
+    "end": 6.444
+  },
+  {
+    "word": "new",
+    "start": 6.525,
+    "end": 6.676
+  },
+  {
+    "word": "job,",
+    "start": 6.734,
+    "end": 7.047
+  },
+  {
+    "word": "click",
+    "start": 7.094,
+    "end": 7.384
+  },
+  {
+    "word": "Add",
+    "start": 7.512,
+    "end": 7.779
+  },
+  {
+    "word": "New.",
+    "start": 7.872,
+    "end": 8.173
+  },
+  {
+    "word": "Fill",
+    "start": 8.255,
+    "end": 8.487
+  },
+  {
+    "word": "in",
+    "start": 8.557,
+    "end": 8.626
+  },
+  {
+    "word": "all",
+    "start": 8.707,
+    "end": 8.916
+  },
+  {
+    "word": "asterisk-marked",
+    "start": 8.986,
+    "end": 9.625
+  },
+  {
+    "word": "fields:",
+    "start": 9.671,
+    "end": 10.019
+  },
+  {
+    "word": "job",
+    "start": 10.101,
+    "end": 10.368
+  },
+  {
+    "word": "Name",
+    "start": 10.426,
+    "end": 10.635
+  },
+  {
+    "word": "job",
+    "start": 10.681,
+    "end": 10.925
+  },
+  {
+    "word": "Class,",
+    "start": 10.983,
+    "end": 11.459
+  },
+  {
+    "word": "use",
+    "start": 11.575,
+    "end": 11.796
+  },
+  {
+    "word": "Events",
+    "start": 11.831,
+    "end": 12.109
+  },
+  {
+    "word": "for",
+    "start": 12.156,
+    "end": 12.272
+  },
+  {
+    "word": "jobs",
+    "start": 12.341,
+    "end": 12.655
+  },
+  {
+    "word": "you",
+    "start": 12.69,
+    "end": 12.759
+  },
+  {
+    "word": "will",
+    "start": 12.794,
+    "end": 12.91
+  },
+  {
+    "word": "schedule",
+    "start": 12.945,
+    "end": 13.351
+  },
+  {
+    "word": "employees",
+    "start": 13.398,
+    "end": 13.908
+  },
+  {
+    "word": "for",
+    "start": 13.967,
+    "end": 14.234
+  },
+  {
+    "word": "and",
+    "start": 14.326,
+    "end": 14.454
+  },
+  {
+    "word": "bill",
+    "start": 14.512,
+    "end": 14.686
+  },
+  {
+    "word": "a",
+    "start": 14.733,
+    "end": 14.756
+  },
+  {
+    "word": "client;",
+    "start": 14.826,
+    "end": 15.406
+  },
+  {
+    "word": "Office",
+    "start": 15.987,
+    "end": 16.59
+  },
+  {
+    "word": "for",
+    "start": 16.799,
+    "end": 16.95
+  },
+  {
+    "word": "in-office",
+    "start": 17.032,
+    "end": 17.624
+  },
+  {
+    "word": "hours;",
+    "start": 17.647,
+    "end": 18.309
+  },
+  {
+    "word": "Training",
+    "start": 18.738,
+    "end": 19.145
+  },
+  {
+    "word": "for",
+    "start": 19.214,
+    "end": 19.354
+  },
+  {
+    "word": "training",
+    "start": 19.412,
+    "end": 19.771
+  },
+  {
+    "word": "shifts",
+    "start": 19.853,
+    "end": 20.294
+  },
+  {
+    "word": "Branch",
+    "start": 20.874,
+    "end": 21.2
+  },
+  {
+    "word": "Name,",
+    "start": 21.258,
+    "end": 21.676
+  },
+  {
+    "word": "auto-fills",
+    "start": 22.186,
+    "end": 22.778
+  },
+  {
+    "word": "for",
+    "start": 22.837,
+    "end": 22.953
+  },
+  {
+    "word": "you",
+    "start": 23.011,
+    "end": 23.196
+  },
+  {
+    "word": "Event,",
+    "start": 23.998,
+    "end": 24.671
+  },
+  {
+    "word": "select",
+    "start": 25.042,
+    "end": 25.391
+  },
+  {
+    "word": "the",
+    "start": 25.426,
+    "end": 25.495
+  },
+  {
+    "word": "event",
+    "start": 25.565,
+    "end": 25.855
+  },
+  {
+    "word": "from",
+    "start": 25.913,
+    "end": 26.052
+  },
+  {
+    "word": "the",
+    "start": 26.099,
+    "end": 26.157
+  },
+  {
+    "word": "dropdown",
+    "start": 26.203,
+    "end": 26.668
+  },
+  {
+    "word": "Venue",
+    "start": 26.726,
+    "end": 27.039
+  },
+  {
+    "word": "and",
+    "start": 27.097,
+    "end": 27.213
+  },
+  {
+    "word": "Client,",
+    "start": 27.272,
+    "end": 27.864
+  },
+  {
+    "word": "these",
+    "start": 28.235,
+    "end": 28.572
+  },
+  {
+    "word": "auto-populate",
+    "start": 28.618,
+    "end": 29.466
+  },
+  {
+    "word": "from",
+    "start": 29.501,
+    "end": 29.628
+  },
+  {
+    "word": "the",
+    "start": 29.675,
+    "end": 29.733
+  },
+  {
+    "word": "event",
+    "start": 29.803,
+    "end": 30.163
+  },
+  {
+    "word": "Start",
+    "start": 30.488,
+    "end": 30.825
+  },
+  {
+    "word": "and",
+    "start": 30.894,
+    "end": 31.034
+  },
+  {
+    "word": "End",
+    "start": 31.138,
+    "end": 31.335
+  },
+  {
+    "word": "Date/Time,",
+    "start": 31.428,
+    "end": 32.833
+  },
+  {
+    "word": "use",
+    "start": 33.065,
+    "end": 33.298
+  },
+  {
+    "word": "military",
+    "start": 33.356,
+    "end": 33.727
+  },
+  {
+    "word": "time",
+    "start": 33.774,
+    "end": 33.959
+  },
+  {
+    "word": "format",
+    "start": 33.983,
+    "end": 34.366
+  },
+  {
+    "word": "After",
+    "start": 34.749,
+    "end": 35.12
+  },
+  {
+    "word": "saving,",
+    "start": 35.178,
+    "end": 35.55
+  },
+  {
+    "word": "copy",
+    "start": 35.585,
+    "end": 35.863
+  },
+  {
+    "word": "the",
+    "start": 35.91,
+    "end": 35.979
+  },
+  {
+    "word": "job",
+    "start": 36.014,
+    "end": 36.223
+  },
+  {
+    "word": "number",
+    "start": 36.281,
+    "end": 36.479
+  },
+  {
+    "word": "to",
+    "start": 36.514,
+    "end": 36.56
+  },
+  {
+    "word": "your",
+    "start": 36.618,
+    "end": 36.711
+  },
+  {
+    "word": "clipboard,",
+    "start": 36.746,
+    "end": 37.199
+  },
+  {
+    "word": "you",
+    "start": 37.233,
+    "end": 37.315
+  },
+  {
+    "word": "will",
+    "start": 37.349,
+    "end": 37.512
+  },
+  {
+    "word": "use",
+    "start": 37.593,
+    "end": 37.849
+  },
+  {
+    "word": "it",
+    "start": 37.895,
+    "end": 37.965
+  },
+  {
+    "word": "throughout",
+    "start": 38,
+    "end": 38.418
+  },
+  {
+    "word": "the",
+    "start": 38.464,
+    "end": 38.534
+  },
+  {
+    "word": "system.",
+    "start": 38.592,
+    "end": 39.242
+  }
+]

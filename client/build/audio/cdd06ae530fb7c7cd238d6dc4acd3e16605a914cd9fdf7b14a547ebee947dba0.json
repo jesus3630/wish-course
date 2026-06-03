@@ -1,0 +1,407 @@
+[
+  {
+    "word": "From",
+    "start": 0,
+    "end": 0.406
+  },
+  {
+    "word": "Manage",
+    "start": 0.58,
+    "end": 1.08
+  },
+  {
+    "word": "job",
+    "start": 1.149,
+    "end": 1.416
+  },
+  {
+    "word": "search",
+    "start": 1.486,
+    "end": 1.73
+  },
+  {
+    "word": "results,",
+    "start": 1.788,
+    "end": 2.345
+  },
+  {
+    "word": "click",
+    "start": 2.461,
+    "end": 2.717
+  },
+  {
+    "word": "the",
+    "start": 2.798,
+    "end": 2.868
+  },
+  {
+    "word": "copy",
+    "start": 2.926,
+    "end": 3.216
+  },
+  {
+    "word": "icon",
+    "start": 3.286,
+    "end": 3.599
+  },
+  {
+    "word": "for",
+    "start": 3.657,
+    "end": 3.762
+  },
+  {
+    "word": "the",
+    "start": 3.808,
+    "end": 3.878
+  },
+  {
+    "word": "job",
+    "start": 3.971,
+    "end": 4.261
+  },
+  {
+    "word": "you",
+    "start": 4.319,
+    "end": 4.4
+  },
+  {
+    "word": "want",
+    "start": 4.47,
+    "end": 4.667
+  },
+  {
+    "word": "to",
+    "start": 4.702,
+    "end": 4.76
+  },
+  {
+    "word": "copy.",
+    "start": 4.83,
+    "end": 5.283
+  },
+  {
+    "word": "Open",
+    "start": 5.364,
+    "end": 5.654
+  },
+  {
+    "word": "the",
+    "start": 5.712,
+    "end": 5.782
+  },
+  {
+    "word": "copy",
+    "start": 5.851,
+    "end": 6.2
+  },
+  {
+    "word": "settings",
+    "start": 6.269,
+    "end": 6.618
+  },
+  {
+    "word": "link.",
+    "start": 6.687,
+    "end": 6.978
+  },
+  {
+    "word": "Choose",
+    "start": 7.094,
+    "end": 7.43
+  },
+  {
+    "word": "from:",
+    "start": 7.477,
+    "end": 7.906
+  },
+  {
+    "word": "Daily,",
+    "start": 8.081,
+    "end": 8.615
+  },
+  {
+    "word": "copies",
+    "start": 8.673,
+    "end": 9.033
+  },
+  {
+    "word": "the",
+    "start": 9.079,
+    "end": 9.149
+  },
+  {
+    "word": "job",
+    "start": 9.207,
+    "end": 9.462
+  },
+  {
+    "word": "to",
+    "start": 9.532,
+    "end": 9.752
+  },
+  {
+    "word": "specific",
+    "start": 9.88,
+    "end": 10.391
+  },
+  {
+    "word": "dates",
+    "start": 10.449,
+    "end": 10.82
+  },
+  {
+    "word": "Weekly,",
+    "start": 11.029,
+    "end": 11.587
+  },
+  {
+    "word": "repeats",
+    "start": 11.668,
+    "end": 12.086
+  },
+  {
+    "word": "on",
+    "start": 12.121,
+    "end": 12.19
+  },
+  {
+    "word": "the",
+    "start": 12.225,
+    "end": 12.295
+  },
+  {
+    "word": "same",
+    "start": 12.353,
+    "end": 12.643
+  },
+  {
+    "word": "days",
+    "start": 12.701,
+    "end": 13.026
+  },
+  {
+    "word": "of",
+    "start": 13.096,
+    "end": 13.177
+  },
+  {
+    "word": "the",
+    "start": 13.224,
+    "end": 13.293
+  },
+  {
+    "word": "week",
+    "start": 13.363,
+    "end": 13.584
+  },
+  {
+    "word": "over",
+    "start": 13.677,
+    "end": 13.944
+  },
+  {
+    "word": "a",
+    "start": 14.002,
+    "end": 14.036
+  },
+  {
+    "word": "date",
+    "start": 14.118,
+    "end": 14.396
+  },
+  {
+    "word": "range",
+    "start": 14.466,
+    "end": 14.977
+  },
+  {
+    "word": "Monthly,",
+    "start": 15.093,
+    "end": 15.65
+  },
+  {
+    "word": "copies",
+    "start": 15.732,
+    "end": 16.126
+  },
+  {
+    "word": "for",
+    "start": 16.184,
+    "end": 16.359
+  },
+  {
+    "word": "every",
+    "start": 16.486,
+    "end": 16.811
+  },
+  {
+    "word": "day",
+    "start": 16.881,
+    "end": 17.102
+  },
+  {
+    "word": "of",
+    "start": 17.194,
+    "end": 17.287
+  },
+  {
+    "word": "the",
+    "start": 17.334,
+    "end": 17.403
+  },
+  {
+    "word": "month",
+    "start": 17.45,
+    "end": 17.682
+  },
+  {
+    "word": "Daily",
+    "start": 17.729,
+    "end": 17.879
+  },
+  {
+    "word": "is",
+    "start": 18.483,
+    "end": 19.145
+  },
+  {
+    "word": "the",
+    "start": 19.749,
+    "end": 20.016
+  },
+  {
+    "word": "most",
+    "start": 20.619,
+    "end": 20.759
+  },
+  {
+    "word": "commonly",
+    "start": 20.817,
+    "end": 21.153
+  },
+  {
+    "word": "used",
+    "start": 21.212,
+    "end": 21.374
+  },
+  {
+    "word": "option.",
+    "start": 21.432,
+    "end": 21.746
+  },
+  {
+    "word": "Always",
+    "start": 21.769,
+    "end": 22.082
+  },
+  {
+    "word": "double-check",
+    "start": 22.117,
+    "end": 22.547
+  },
+  {
+    "word": "your",
+    "start": 22.593,
+    "end": 22.709
+  },
+  {
+    "word": "start",
+    "start": 22.744,
+    "end": 22.953
+  },
+  {
+    "word": "and",
+    "start": 22.976,
+    "end": 23.046
+  },
+  {
+    "word": "end",
+    "start": 23.104,
+    "end": 23.255
+  },
+  {
+    "word": "dates",
+    "start": 23.29,
+    "end": 23.51
+  },
+  {
+    "word": "before",
+    "start": 23.557,
+    "end": 23.835
+  },
+  {
+    "word": "confirming,",
+    "start": 23.87,
+    "end": 24.346
+  },
+  {
+    "word": "do",
+    "start": 24.369,
+    "end": 24.439
+  },
+  {
+    "word": "not",
+    "start": 24.509,
+    "end": 24.636
+  },
+  {
+    "word": "include",
+    "start": 24.683,
+    "end": 24.996
+  },
+  {
+    "word": "the",
+    "start": 25.02,
+    "end": 25.089
+  },
+  {
+    "word": "original",
+    "start": 25.147,
+    "end": 25.507
+  },
+  {
+    "word": "date",
+    "start": 25.565,
+    "end": 25.763
+  },
+  {
+    "word": "again.",
+    "start": 25.786,
+    "end": 26.146
+  },
+  {
+    "word": "Copied",
+    "start": 26.227,
+    "end": 26.61
+  },
+  {
+    "word": "jobs",
+    "start": 26.657,
+    "end": 26.97
+  },
+  {
+    "word": "receive",
+    "start": 27.017,
+    "end": 27.365
+  },
+  {
+    "word": "new",
+    "start": 27.423,
+    "end": 27.562
+  },
+  {
+    "word": "unique",
+    "start": 27.655,
+    "end": 27.98
+  },
+  {
+    "word": "job",
+    "start": 28.015,
+    "end": 28.259
+  },
+  {
+    "word": "numbers.",
+    "start": 28.317,
+    "end": 28.886
+  }
+]
