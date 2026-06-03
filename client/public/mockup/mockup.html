@@ -2837,6 +2837,22 @@ function slide_introduction_9() {
         document.getElementById('nav-reports').classList.remove('active');
         document.getElementById('sub-reports').classList.remove('show');
       }},
+    { selector: '#nav-scheduling', prompt: 'Click "Scheduling" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-scheduling').innerHTML = `
+          <span class="nav-sub-item">Post Scheduling</span>
+          <span class="nav-sub-item">Schedule by Employee</span>
+          <span class="nav-sub-item">Schedule by Job</span>
+          <span class="nav-sub-item">Schedule by Job Admin</span>
+          <span class="nav-sub-item">Event Calendar</span>`;
+        document.getElementById('nav-scheduling').classList.add('active');
+        document.getElementById('sub-scheduling').classList.add('show');
+      }},
+    { selector: '#nav-scheduling', prompt: 'Click "Scheduling" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.remove('active');
+        document.getElementById('sub-scheduling').classList.remove('show');
+      }},
   ]);
 }
 
