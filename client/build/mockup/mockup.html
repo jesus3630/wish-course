@@ -2776,6 +2776,22 @@ function slide_introduction_9() {
         document.getElementById('nav-billing').classList.remove('active');
         document.getElementById('sub-billing').classList.remove('show');
       }},
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-inventory').innerHTML = `
+          <span class="nav-sub-item">Manage Asset Tag</span>
+          <span class="nav-sub-item">Item Creation</span>
+          <span class="nav-sub-item">Item Job Equipment</span>
+          <span class="nav-sub-item">Check-In Check-Out Report</span>
+          <span class="nav-sub-item">Check-In Check-Out</span>`;
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+      }},
   ]);
 }
 
