@@ -84,7 +84,7 @@ function stripBulletsForTts(text) {
   return text
     .replace(/^[•]\s*/gm, '')
     .replace(/\n{3,}/g, '\n\n')
-    .replace(/\bJob\b/g, 'job')
+    .replace(/\b[Jj]ob(s)?\b/g, (m, s) => 'jahb' + (s || ''))
     .trim();
 }
 
