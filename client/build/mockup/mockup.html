@@ -2748,6 +2748,13 @@ function slide_introduction_9() {
     <span class="nav-sub-item">Manage Job Training</span>
     <span class="nav-sub-item">Broadcast Message</span>`;
 
+  // Update Billing sub-items to match real WISH
+  document.getElementById('sub-billing').innerHTML = `
+    <span class="nav-sub-item">Manage Billing Process</span>
+    <span class="nav-sub-item">Manage Advance Billing Process</span>
+    <span class="nav-sub-item">Check Bill for Job</span>
+    <span class="nav-sub-item">Print Invoice</span>`;
+
   runGuided([
     { selector: '#nav-admin', prompt: 'Click "Admin" to expand its submenu',
       onConfirm: () => {
@@ -2758,6 +2765,16 @@ function slide_introduction_9() {
       onConfirm: () => {
         document.getElementById('nav-admin').classList.remove('active');
         document.getElementById('sub-admin').classList.remove('show');
+      }},
+    { selector: '#nav-billing', prompt: 'Click "Billing" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('nav-billing').classList.add('active');
+        document.getElementById('sub-billing').classList.add('show');
+      }},
+    { selector: '#nav-billing', prompt: 'Click "Billing" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-billing').classList.remove('active');
+        document.getElementById('sub-billing').classList.remove('show');
       }},
   ]);
 }
