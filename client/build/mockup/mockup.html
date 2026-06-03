@@ -2792,6 +2792,34 @@ function slide_introduction_9() {
         document.getElementById('nav-inventory').classList.remove('active');
         document.getElementById('sub-inventory').classList.remove('show');
       }},
+    { selector: '#nav-records', prompt: 'Click "Records" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-records').innerHTML = `
+          <span class="nav-sub-item">Manage Branch Info</span>
+          <span class="nav-sub-item">Training Registration</span>
+          <span class="nav-sub-item">Manage Client</span>
+          <span class="nav-sub-item">Manage Event</span>
+          <span class="nav-sub-item">Manage Venue</span>
+          <span class="nav-sub-item">Manage Contract</span>
+          <span class="nav-sub-item">Manage Employee</span>
+          <span class="nav-sub-item">Manage Employee Status</span>
+          <span class="nav-sub-item">Manage WorkGroup</span>
+          <span class="nav-sub-item">Manage Job</span>
+          <span class="nav-sub-item">Manage Access Location</span>
+          <span class="nav-sub-item">Manage Access Group</span>
+          <span class="nav-sub-item">Manage License</span>
+          <span class="nav-sub-item">Job Search</span>
+          <span class="nav-sub-item">Manage Credentials</span>
+          <span class="nav-sub-item">Manage Employee Card</span>
+          <span class="nav-sub-item">Manage Employee Task</span>`;
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#nav-records', prompt: 'Click "Records" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+      }},
   ]);
 }
 
