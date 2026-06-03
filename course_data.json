@@ -317,7 +317,7 @@
       },
       {
         "slide_number": 4,
-        "slide_name": "Publishing Shifts ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Web Shift Tab",
+        "slide_name": "Publishing Shifts — Web Shift Tab",
         "instructions": "Click Web Shift tab. Find event. Check auto-schedule or select individually. Click Add to Web Shift. Show green check appearing.",
         "text": "Click the Web Shift tab. Shifts with an unchecked box on the left are not published yet.\r\n\r\nTo enable auto-scheduling, where employees can apply without needing your approval, check the Auto Schedule box at the top (selects all jobs) or check individually.\r\n\r\nClick Add to Web Shift. A green checkmark confirms employees can now see and self-schedule for the shift.\r\n\r\nTo disable publishing, click the green checkmark and confirm.",
         "simulation_url": "/mockup/mockup.html?module=mss&slide=4"
