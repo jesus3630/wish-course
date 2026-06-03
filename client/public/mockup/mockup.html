@@ -1728,13 +1728,13 @@ function slide_scheduling_4() {
         document.getElementById('shift-plus').textContent = '−';
         document.getElementById('role-row').style.display = '';
       }},
-    { selector: '#role-chk', prompt: 'Check the box next to "Event Staff" to select this role',
-      onConfirm: () => {
-        document.getElementById('role-chk').checked = true;
-      }},
     { selector: '#chk-emp-roles', prompt: 'Check "Check Emp Roles" to filter employees by role',
       onConfirm: () => {
         document.getElementById('chk-emp-roles').checked = true;
+      }},
+    { selector: '#role-chk', prompt: 'Check the box next to "Event Staff" to select this role',
+      onConfirm: () => {
+        document.getElementById('role-chk').checked = true;
       }},
     { selector: '#btn-emp-search', prompt: 'Click "Search" to find available employees for this role',
       onConfirm: () => {
@@ -1794,8 +1794,7 @@ function slide_scheduling_4() {
           tbody.appendChild(tr);
         }
       }},
-    { selector: '#emp-table', prompt: 'Max 7 — check up to 7 employees you\'d like to schedule, then click Next →', skipClick: true },
-    { selector: '#btn-savesched', prompt: 'Click "SaveSched" to finalize the schedule',
+    { selector: '#btn-savesched', prompt: 'Select up to 7 employees above, then click "SaveSched" to finalize the schedule',
       onConfirm: () => {
         document.getElementById('sched-success').style.display = '';
       }},
