@@ -2853,6 +2853,24 @@ function slide_introduction_9() {
         document.getElementById('nav-scheduling').classList.remove('active');
         document.getElementById('sub-scheduling').classList.remove('show');
       }},
+    { selector: '#nav-payroll', prompt: 'Click "Payroll" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-payroll').innerHTML = `
+          <span class="nav-sub-item">Manage Process Hours</span>
+          <span class="nav-sub-item">Process Payroll</span>
+          <span class="nav-sub-item">Process Payroll (Break)</span>
+          <span class="nav-sub-item">Process Payroll for workGroup</span>
+          <span class="nav-sub-item">SignOut Exceptions</span>
+          <span class="nav-sub-item">Employee Re-Deployment</span>
+          <span class="nav-sub-item">Payroll Exception</span>`;
+        document.getElementById('nav-payroll').classList.add('active');
+        document.getElementById('sub-payroll').classList.add('show');
+      }},
+    { selector: '#nav-payroll', prompt: 'Click "Payroll" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-payroll').classList.remove('active');
+        document.getElementById('sub-payroll').classList.remove('show');
+      }},
   ]);
 }
 
