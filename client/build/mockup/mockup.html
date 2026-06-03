@@ -2820,6 +2820,23 @@ function slide_introduction_9() {
         document.getElementById('nav-records').classList.remove('active');
         document.getElementById('sub-records').classList.remove('show');
       }},
+    { selector: '#nav-reports', prompt: 'Click "Reports" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-reports').innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+        document.getElementById('nav-reports').classList.add('active');
+        document.getElementById('sub-reports').classList.add('show');
+      }},
+    { selector: '#nav-reports', prompt: 'Click "Reports" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.remove('active');
+        document.getElementById('sub-reports').classList.remove('show');
+      }},
   ]);
 }
 
