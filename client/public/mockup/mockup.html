@@ -2871,6 +2871,21 @@ function slide_introduction_9() {
         document.getElementById('nav-payroll').classList.remove('active');
         document.getElementById('sub-payroll').classList.remove('show');
       }},
+    { selector: '#nav-timeclock', prompt: 'Click "Time Clock" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('sub-timeclock').innerHTML = `
+          <span class="nav-sub-item">Sign-In Config</span>
+          <span class="nav-sub-item">Sign-In</span>
+          <span class="nav-sub-item">Sign-Out Config</span>
+          <span class="nav-sub-item">Sign-Out</span>`;
+        document.getElementById('nav-timeclock').classList.add('active');
+        document.getElementById('sub-timeclock').classList.add('show');
+      }},
+    { selector: '#nav-timeclock', prompt: 'Click "Time Clock" again to collapse the submenu',
+      onConfirm: () => {
+        document.getElementById('nav-timeclock').classList.remove('active');
+        document.getElementById('sub-timeclock').classList.remove('show');
+      }},
   ]);
 }
 
