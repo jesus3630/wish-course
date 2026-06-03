@@ -1,0 +1,87 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "the",
+    "start": 0.186,
+    "end": 0.267
+  },
+  {
+    "word": "Inventory",
+    "start": 0.337,
+    "end": 0.813
+  },
+  {
+    "word": "menu,",
+    "start": 0.882,
+    "end": 1.231
+  },
+  {
+    "word": "you",
+    "start": 1.265,
+    "end": 1.358
+  },
+  {
+    "word": "can",
+    "start": 1.405,
+    "end": 1.521
+  },
+  {
+    "word": "track",
+    "start": 1.579,
+    "end": 1.939
+  },
+  {
+    "word": "important",
+    "start": 2.009,
+    "end": 2.426
+  },
+  {
+    "word": "items",
+    "start": 2.485,
+    "end": 2.775
+  },
+  {
+    "word": "used",
+    "start": 2.844,
+    "end": 3.019
+  },
+  {
+    "word": "at",
+    "start": 3.042,
+    "end": 3.1
+  },
+  {
+    "word": "events—like",
+    "start": 3.158,
+    "end": 3.82
+  },
+  {
+    "word": "radios,",
+    "start": 3.878,
+    "end": 4.656
+  },
+  {
+    "word": "jackets,",
+    "start": 4.83,
+    "end": 5.399
+  },
+  {
+    "word": "and",
+    "start": 5.433,
+    "end": 5.596
+  },
+  {
+    "word": "other",
+    "start": 5.666,
+    "end": 5.863
+  },
+  {
+    "word": "supplies.",
+    "start": 5.909,
+    "end": 6.78
+  }
+]
