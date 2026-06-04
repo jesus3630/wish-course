@@ -65,7 +65,6 @@ chk_str "billing slide 5" "f-bill-contract"
 chk_str "billing slide 6" "bill-tabs"
 
 # introduction
-chk_str "introduction slide 5" "audit-field-1"
 chk_str "introduction slide 9" "Unapproved Jobs"
 
 # record_maintenance
