@@ -1,5 +1,18 @@
 # WISH Training Portal — CLAUDE.md
 
+## ⚠️ Mockup — DO NOT REMOVE THESE FUNCTIONS
+`client/public/mockup/mockup.html` and `client/build/mockup/mockup.html` must always contain:
+- `addEditJobFormHTML()` — pixel-matched Add/Edit Job form used by manage_job slides 4 and 6
+- `showAddShiftModal()` — Add Shift modal with full branch list (pixel-matched to real WISH)
+- `showAddRolePanel()` — Add Role modal with 18 real role names, min/max, time fields
+- `closeAddShiftModal()`, `showJobTab()`, `autoFillRoleForm()` — helpers for the above
+
+These were destroyed twice by merge commits (1423706, 4ae7099) that pulled in stale code.
+A pre-push git hook now blocks any push where these functions are missing.
+If they disappear: `git show 3b4f77a:client/public/mockup/mockup.html` has the good version.
+
+---
+
 ## What This Is
 ProtaTECH's WISH (Workforce Information Systems Hosted) training course for Los Angeles County staff.
 Employees complete assigned modules, take quizzes, and get certificates.
