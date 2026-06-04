@@ -11,8 +11,8 @@ type PrefetchEntry = { url: string; timings: Timing[] };
 // ─── Audit Image with pulsing gold highlight + click-to-zoom ─────────────────
 const PULSE_STYLE = `
   @keyframes audit-pulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(245,158,11,0.7), 0 0 0 0 rgba(245,158,11,0.4); }
-    50%      { box-shadow: 0 0 0 6px rgba(245,158,11,0.3), 0 0 0 12px rgba(245,158,11,0.1); }
+    0%,100% { box-shadow: 0 0 0 2px rgba(245,158,11,0.9), 0 0 8px 5px rgba(245,158,11,0.5), 0 0 20px 10px rgba(245,158,11,0.18); }
+    50%      { box-shadow: 0 0 0 2px rgba(245,158,11,1),   0 0 14px 7px rgba(245,158,11,0.75), 0 0 30px 14px rgba(245,158,11,0.32); }
   }
 `;
 type HighlightBox = { x: number; y: number; w: number; h: number };
@@ -43,9 +43,9 @@ function AuditImageHighlight({ src, highlight, caption }: { src: string; highlig
           position: 'absolute',
           left: `${highlight.x}%`, top: `${highlight.y}%`,
           width: `${highlight.w}%`, height: `${highlight.h}%`,
-          border: '3px solid #F59E0B',
-          background: 'rgba(245,158,11,0.22)',
-          borderRadius: '5px',
+          border: 'none',
+          background: 'rgba(245,158,11,0.12)',
+          borderRadius: '4px',
           animation: 'audit-pulse 1.8s ease-in-out infinite',
           opacity: zoomed ? 0 : 1,
           transition: 'opacity 0.2s',
