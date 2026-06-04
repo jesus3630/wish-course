@@ -811,42 +811,42 @@ function WishLogoCard() {
   const [iVisible, setIVisible] = useState(false);
   const [sVisible, setSVisible] = useState(false);
   const [hVisible, setHVisible] = useState(false);
+  const [phase2, setPhase2] = useState(false);
+  const [orVisible, setOrVisible] = useState(false);
 
   useEffect(() => {
     setWVisible(false); setIVisible(false); setSVisible(false); setHVisible(false);
-    // W rolls in (200ms) → I drops down (900ms) → S slides right (1400ms) → H slams (1900ms)
-    const t1 = setTimeout(() => setWVisible(true), 200);
-    const t2 = setTimeout(() => setIVisible(true), 900);
-    const t3 = setTimeout(() => setSVisible(true), 1400);
-    const t4 = setTimeout(() => setHVisible(true), 1900);
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); };
+    setPhase2(false); setOrVisible(false);
+    const timers = [
+      setTimeout(() => setWVisible(true), 200),   // W rolls in
+      setTimeout(() => setIVisible(true), 900),   // I drops down
+      setTimeout(() => setSVisible(true), 1400),  // S slides from right
+      setTimeout(() => setHVisible(true), 1900),  // H slams
+      setTimeout(() => setPhase2(true),  2800),   // white wipe + W comes forward
+      setTimeout(() => setOrVisible(true), 3300), // "orkforce" slides in
+    ];
+    return () => timers.forEach(clearTimeout);
   }, []);
 
-  // W: rolls in from left — translate + full 360° spin
+  // ── Phase 1 letter styles ────────────────────────────────────────────────
   const wStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: wVisible ? 1 : 0,
     transform: wVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-80px) rotate(-360deg)',
     transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
   };
-
-  // I: drops down from above with bounce overshoot
   const iStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: iVisible ? 1 : 0,
     transform: iVisible ? 'translateY(0)' : 'translateY(-80px)',
     transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
   };
-
-  // S: slides in from the right
   const sStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: sVisible ? 1 : 0,
     transform: sVisible ? 'translateX(0)' : 'translateX(100px)',
     transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
   };
-
-  // H: slams in from the screen — zooms from large scale, overshoots, settles hard
   const hStyle: React.CSSProperties = hVisible
     ? { display: 'inline-block', animation: 'wishSlamIn 0.45s forwards' }
     : { display: 'inline-block', opacity: 0 };
@@ -860,8 +860,22 @@ function WishLogoCard() {
           75%  { transform: scale(1.07); }
           100% { transform: scale(1); }
         }
+        @keyframes wishWForward {
+          0%   { transform: scale(0.55); opacity: 0; }
+          65%  { transform: scale(1.10); opacity: 1; }
+          100% { transform: scale(1);    opacity: 1; }
+        }
       `}</style>
-      <div style={{ textAlign: 'center', padding: '32px 0 12px', userSelect: 'none' }}>
+
+      <div style={{
+        position: 'relative',
+        textAlign: 'center',
+        padding: '32px 16px 12px',
+        userSelect: 'none',
+        overflow: 'hidden',      /* clips the white panel when translated off-right */
+      }}>
+
+        {/* ── Phase 1: WISH letters ── */}
         <div style={{
           fontSize: 'clamp(72px, 16vw, 130px)',
           fontWeight: 900,
@@ -875,6 +889,57 @@ function WishLogoCard() {
           <span style={sStyle}>S</span>
           <span style={hStyle}>H</span>
         </div>
+
+        {/* ── White panel slides in from right, covering ISH ── */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0, bottom: 0,
+          background: 'white',
+          zIndex: 1,
+          transform: phase2 ? 'translateX(0)' : 'translateX(100%)',
+          transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
+        }} />
+
+        {/* ── Phase 2: W comes forward + "orkforce" ── */}
+        <div style={{
+          position: 'absolute',
+          top: 0, left: 0, right: 0, bottom: 0,
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'center',
+          gap: '4px',
+          zIndex: 2,
+          pointerEvents: 'none',
+        }}>
+          {/* W zooms forward */}
+          {phase2 && (
+            <span style={{
+              display: 'inline-block',
+              fontSize: 'clamp(72px, 16vw, 130px)',
+              fontWeight: 900,
+              fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+              color: '#D4782A',
+              lineHeight: 1,
+              animation: 'wishWForward 0.55s cubic-bezier(0.22,1,0.36,1) forwards',
+            }}>W</span>
+          )}
+          {/* "orkforce" slides in after W lands */}
+          {phase2 && (
+            <span style={{
+              display: 'inline-block',
+              fontSize: 'clamp(32px, 7vw, 58px)',
+              fontWeight: 900,
+              fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+              color: '#1B3A6B',
+              lineHeight: 1,
+              paddingBottom: '6px',
+              opacity: orVisible ? 1 : 0,
+              transform: orVisible ? 'translateX(0)' : 'translateX(-18px)',
+              transition: 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+            }}>orkforce</span>
+          )}
+        </div>
+
       </div>
     </>
   );
