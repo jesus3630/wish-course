@@ -1,0 +1,55 @@
+#!/bin/sh
+# Shared pre-push hook — committed to repo so all collaborators get it.
+# Install once: git config core.hooksPath .githooks
+# (This is documented in CLAUDE.md)
+
+git fetch origin main --quiet 2>/dev/null
+
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse origin/main 2>/dev/null)
+
+if [ "$LOCAL" != "$REMOTE" ]; then
+  BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null)
+  if [ "$BEHIND" -gt 0 ]; then
+    echo ""
+    echo "⚠️  WARNING: You are $BEHIND commit(s) behind origin/main."
+    echo "   Someone else pushed changes you don't have yet."
+    echo ""
+    echo "   Run: git pull origin main"
+    echo "   Then push again."
+    echo ""
+    exit 1
+  fi
+fi
+
+# ── Guard: critical mockup functions must never be removed ───────────────────
+MOCKUP="client/build/mockup/mockup.html"
+FAILED=0
+
+for fn in addEditJobFormHTML showAddShiftModal showAddRolePanel closeAddShiftModal showJobTab autoFillRoleForm; do
+  if ! grep -q "function ${fn}(" "$MOCKUP" 2>/dev/null; then
+    echo "❌ MISSING from mockup: $fn"
+    FAILED=1
+  fi
+done
+
+if ! grep -q "copy-setting-btn" "$MOCKUP" 2>/dev/null; then
+  echo "❌ MISSING: slide_manage_job_5 detailed version (copy-setting-btn)"
+  FAILED=1
+fi
+
+if ! grep -q "job6-link" "$MOCKUP" 2>/dev/null; then
+  echo "❌ MISSING: slide_manage_job_6 detailed version (job6-link)"
+  FAILED=1
+fi
+
+if [ $FAILED -eq 1 ]; then
+  echo ""
+  echo "❌ PUSH BLOCKED — interactive demos built by Jesus Gonzalez on 2026-05-28 are missing."
+  echo "   These must not be overwritten. Restore from:"
+  echo "   git show 3b4f77a:client/public/mockup/mockup.html"
+  echo ""
+  exit 1
+fi
+
+exit 0

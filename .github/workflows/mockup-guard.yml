@@ -1,0 +1,67 @@
+name: Mockup Guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify critical mockup functions are present
+        run: |
+          MOCKUP="client/build/mockup/mockup.html"
+          FAILED=0
+
+          check() {
+            if ! grep -q "function $1(" "$MOCKUP"; then
+              echo "❌ MISSING: $1"
+              FAILED=1
+            else
+              echo "✅ OK: $1"
+            fi
+          }
+
+          check addEditJobFormHTML
+          check showAddShiftModal
+          check showAddRolePanel
+          check closeAddShiftModal
+          check showJobTab
+          check autoFillRoleForm
+
+          # Verify detailed slide content (not just function presence)
+          if ! grep -q "copy-setting-btn" "$MOCKUP"; then
+            echo "❌ MISSING: slide_manage_job_5 detailed version (copy-setting-btn)"
+            FAILED=1
+          else
+            echo "✅ OK: slide_manage_job_5 detailed version"
+          fi
+
+          if ! grep -q "job6-link" "$MOCKUP"; then
+            echo "❌ MISSING: slide_manage_job_6 detailed version (job6-link)"
+            FAILED=1
+          else
+            echo "✅ OK: slide_manage_job_6 detailed version"
+          fi
+
+          if ! grep -q "btn-add-role.*👥\|👥.*btn-add-role\|btn-add-role" "$MOCKUP"; then
+            echo "❌ MISSING: slide_manage_job_4 detailed version (btn-add-role)"
+            FAILED=1
+          else
+            echo "✅ OK: slide_manage_job_4 detailed version"
+          fi
+
+          if [ $FAILED -eq 1 ]; then
+            echo ""
+            echo "PUSH REJECTED — critical interactive demos were removed."
+            echo "These changes were built by Jesus Gonzalez on 2026-05-28 and must not be overwritten."
+            echo "Restore from: git show 3b4f77a:client/public/mockup/mockup.html"
+            exit 1
+          fi
+
+          echo ""
+          echo "All critical mockup functions verified."

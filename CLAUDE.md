@@ -154,6 +154,12 @@ railway up --detach                    # deploy
 4. **Edit content via admin panel** — not by editing JSON files directly
 5. **After React changes:** rebuild client, commit the build, then deploy
 
+### First-time setup (run once after cloning)
+```bash
+git config core.hooksPath .githooks
+```
+This installs the shared pre-push hook that guards critical code. Without it your pushes may be rejected by GitHub Actions.
+
 ---
 
 ## After React Changes — Full Flow
