@@ -1,0 +1,412 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "Background",
+    "start": 0.221,
+    "end": 0.662
+  },
+  {
+    "word": "Check",
+    "start": 0.708,
+    "end": 0.917
+  },
+  {
+    "word": "tab",
+    "start": 0.975,
+    "end": 1.289
+  },
+  {
+    "word": "shows",
+    "start": 1.358,
+    "end": 1.625
+  },
+  {
+    "word": "the",
+    "start": 1.66,
+    "end": 1.741
+  },
+  {
+    "word": "status",
+    "start": 1.8,
+    "end": 2.194
+  },
+  {
+    "word": "and",
+    "start": 2.229,
+    "end": 2.31
+  },
+  {
+    "word": "history",
+    "start": 2.368,
+    "end": 2.728
+  },
+  {
+    "word": "of",
+    "start": 2.81,
+    "end": 2.914
+  },
+  {
+    "word": "an",
+    "start": 2.972,
+    "end": 3.03
+  },
+  {
+    "word": "employee's",
+    "start": 3.077,
+    "end": 3.622
+  },
+  {
+    "word": "background",
+    "start": 3.692,
+    "end": 4.11
+  },
+  {
+    "word": "check.",
+    "start": 4.145,
+    "end": 4.632
+  },
+  {
+    "word": "What",
+    "start": 4.632,
+    "end": 4.841
+  },
+  {
+    "word": "you",
+    "start": 4.899,
+    "end": 4.992
+  },
+  {
+    "word": "can",
+    "start": 5.05,
+    "end": 5.166
+  },
+  {
+    "word": "do",
+    "start": 5.224,
+    "end": 5.341
+  },
+  {
+    "word": "here:",
+    "start": 5.422,
+    "end": 6.42
+  },
+  {
+    "word": "*",
+    "start": 6.42,
+    "end": 9.218
+  },
+  {
+    "word": "View",
+    "start": 9.601,
+    "end": 9.961
+  },
+  {
+    "word": "the",
+    "start": 10.112,
+    "end": 10.205
+  },
+  {
+    "word": "current",
+    "start": 10.275,
+    "end": 10.635
+  },
+  {
+    "word": "background",
+    "start": 10.716,
+    "end": 11.238
+  },
+  {
+    "word": "check",
+    "start": 11.285,
+    "end": 11.517
+  },
+  {
+    "word": "status",
+    "start": 11.564,
+    "end": 12.365
+  },
+  {
+    "word": "*",
+    "start": 12.365,
+    "end": 13.317
+  },
+  {
+    "word": "Update",
+    "start": 14.013,
+    "end": 14.454
+  },
+  {
+    "word": "the",
+    "start": 14.489,
+    "end": 14.559
+  },
+  {
+    "word": "status",
+    "start": 14.605,
+    "end": 15.105
+  },
+  {
+    "word": "when",
+    "start": 15.279,
+    "end": 15.464
+  },
+  {
+    "word": "a",
+    "start": 15.499,
+    "end": 15.534
+  },
+  {
+    "word": "new",
+    "start": 15.604,
+    "end": 15.755
+  },
+  {
+    "word": "check",
+    "start": 15.813,
+    "end": 16.068
+  },
+  {
+    "word": "has",
+    "start": 16.138,
+    "end": 16.266
+  },
+  {
+    "word": "been",
+    "start": 16.324,
+    "end": 16.475
+  },
+  {
+    "word": "completed",
+    "start": 16.521,
+    "end": 17.264
+  },
+  {
+    "word": "*",
+    "start": 17.264,
+    "end": 17.775
+  },
+  {
+    "word": "Record",
+    "start": 18.019,
+    "end": 18.413
+  },
+  {
+    "word": "the",
+    "start": 18.46,
+    "end": 18.541
+  },
+  {
+    "word": "date",
+    "start": 18.611,
+    "end": 18.913
+  },
+  {
+    "word": "of",
+    "start": 18.971,
+    "end": 19.087
+  },
+  {
+    "word": "the",
+    "start": 19.145,
+    "end": 19.215
+  },
+  {
+    "word": "most",
+    "start": 19.273,
+    "end": 19.482
+  },
+  {
+    "word": "recent",
+    "start": 19.552,
+    "end": 19.888
+  },
+  {
+    "word": "check",
+    "start": 19.923,
+    "end": 20.91
+  },
+  {
+    "word": "This",
+    "start": 20.91,
+    "end": 21.189
+  },
+  {
+    "word": "information",
+    "start": 21.247,
+    "end": 21.757
+  },
+  {
+    "word": "directly",
+    "start": 21.816,
+    "end": 22.315
+  },
+  {
+    "word": "affects",
+    "start": 22.361,
+    "end": 22.64
+  },
+  {
+    "word": "whether",
+    "start": 22.721,
+    "end": 23.046
+  },
+  {
+    "word": "an",
+    "start": 23.081,
+    "end": 23.127
+  },
+  {
+    "word": "employee",
+    "start": 23.151,
+    "end": 23.545
+  },
+  {
+    "word": "can",
+    "start": 23.592,
+    "end": 23.685
+  },
+  {
+    "word": "be",
+    "start": 23.731,
+    "end": 23.801
+  },
+  {
+    "word": "scheduled",
+    "start": 23.836,
+    "end": 24.196
+  },
+  {
+    "word": "for",
+    "start": 24.219,
+    "end": 24.323
+  },
+  {
+    "word": "certain",
+    "start": 24.393,
+    "end": 24.648
+  },
+  {
+    "word": "positions.",
+    "start": 24.695,
+    "end": 25.275
+  },
+  {
+    "word": "If",
+    "start": 25.449,
+    "end": 25.6
+  },
+  {
+    "word": "a",
+    "start": 25.658,
+    "end": 25.682
+  },
+  {
+    "word": "background",
+    "start": 25.751,
+    "end": 26.181
+  },
+  {
+    "word": "check",
+    "start": 26.216,
+    "end": 26.401
+  },
+  {
+    "word": "is",
+    "start": 26.448,
+    "end": 26.518
+  },
+  {
+    "word": "pending",
+    "start": 26.587,
+    "end": 26.889
+  },
+  {
+    "word": "or",
+    "start": 26.959,
+    "end": 27.075
+  },
+  {
+    "word": "expired,",
+    "start": 27.145,
+    "end": 27.795
+  },
+  {
+    "word": "flag",
+    "start": 27.969,
+    "end": 28.271
+  },
+  {
+    "word": "it",
+    "start": 28.317,
+    "end": 28.375
+  },
+  {
+    "word": "with",
+    "start": 28.41,
+    "end": 28.526
+  },
+  {
+    "word": "your",
+    "start": 28.573,
+    "end": 28.7
+  },
+  {
+    "word": "administrator",
+    "start": 28.735,
+    "end": 29.316
+  },
+  {
+    "word": "before",
+    "start": 29.397,
+    "end": 29.943
+  },
+  {
+    "word": "scheduling",
+    "start": 29.989,
+    "end": 30.395
+  },
+  {
+    "word": "that",
+    "start": 30.43,
+    "end": 30.546
+  },
+  {
+    "word": "employee.",
+    "start": 30.581,
+    "end": 31.278
+  },
+  {
+    "word": "After",
+    "start": 31.278,
+    "end": 31.568
+  },
+  {
+    "word": "making",
+    "start": 31.626,
+    "end": 31.893
+  },
+  {
+    "word": "any",
+    "start": 31.951,
+    "end": 32.114
+  },
+  {
+    "word": "updates,",
+    "start": 32.183,
+    "end": 32.613
+  },
+  {
+    "word": "click",
+    "start": 32.648,
+    "end": 32.973
+  },
+  {
+    "word": "Save.",
+    "start": 33.298,
+    "end": 34.134
+  }
+]

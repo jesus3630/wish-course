@@ -1,0 +1,422 @@
+[
+  {
+    "word": "Admin",
+    "start": 0,
+    "end": 0.313
+  },
+  {
+    "word": "Reporting",
+    "start": 0.36,
+    "end": 0.743
+  },
+  {
+    "word": "gives",
+    "start": 0.801,
+    "end": 1.01
+  },
+  {
+    "word": "you",
+    "start": 1.045,
+    "end": 1.138
+  },
+  {
+    "word": "access",
+    "start": 1.254,
+    "end": 1.73
+  },
+  {
+    "word": "to",
+    "start": 1.776,
+    "end": 1.858
+  },
+  {
+    "word": "the",
+    "start": 1.939,
+    "end": 2.02
+  },
+  {
+    "word": "complete",
+    "start": 2.09,
+    "end": 2.531
+  },
+  {
+    "word": "Reports",
+    "start": 2.566,
+    "end": 2.914
+  },
+  {
+    "word": "menu",
+    "start": 2.961,
+    "end": 3.17
+  },
+  {
+    "word": "in",
+    "start": 3.239,
+    "end": 3.286
+  },
+  {
+    "word": "WISH,",
+    "start": 3.344,
+    "end": 3.773
+  },
+  {
+    "word": "all",
+    "start": 3.889,
+    "end": 4.122
+  },
+  {
+    "word": "six",
+    "start": 4.191,
+    "end": 4.4
+  },
+  {
+    "word": "sections.",
+    "start": 4.447,
+    "end": 5.19
+  },
+  {
+    "word": "You",
+    "start": 5.19,
+    "end": 5.306
+  },
+  {
+    "word": "have",
+    "start": 5.364,
+    "end": 5.503
+  },
+  {
+    "word": "everything",
+    "start": 5.538,
+    "end": 5.968
+  },
+  {
+    "word": "from",
+    "start": 6.037,
+    "end": 6.188
+  },
+  {
+    "word": "General",
+    "start": 6.258,
+    "end": 6.525
+  },
+  {
+    "word": "Reporting",
+    "start": 6.571,
+    "end": 6.978
+  },
+  {
+    "word": "and",
+    "start": 7.036,
+    "end": 7.14
+  },
+  {
+    "word": "Payroll",
+    "start": 7.221,
+    "end": 7.593
+  },
+  {
+    "word": "Reporting,",
+    "start": 7.651,
+    "end": 8.15
+  },
+  {
+    "word": "plus",
+    "start": 8.185,
+    "end": 8.452
+  },
+  {
+    "word": "two",
+    "start": 8.51,
+    "end": 8.742
+  },
+  {
+    "word": "additional",
+    "start": 8.858,
+    "end": 9.381
+  },
+  {
+    "word": "sections",
+    "start": 9.439,
+    "end": 9.845
+  },
+  {
+    "word": "that",
+    "start": 9.892,
+    "end": 10.031
+  },
+  {
+    "word": "are",
+    "start": 10.066,
+    "end": 10.182
+  },
+  {
+    "word": "exclusive",
+    "start": 10.217,
+    "end": 10.774
+  },
+  {
+    "word": "to",
+    "start": 10.809,
+    "end": 10.867
+  },
+  {
+    "word": "this",
+    "start": 10.925,
+    "end": 11.053
+  },
+  {
+    "word": "permission",
+    "start": 11.099,
+    "end": 11.471
+  },
+  {
+    "word": "level:",
+    "start": 11.517,
+    "end": 12.144
+  },
+  {
+    "word": "*",
+    "start": 12.144,
+    "end": 14.942
+  },
+  {
+    "word": "Billing",
+    "start": 15.151,
+    "end": 15.465
+  },
+  {
+    "word": "Reports,",
+    "start": 15.523,
+    "end": 16.115
+  },
+  {
+    "word": "invoice",
+    "start": 16.324,
+    "end": 16.997
+  },
+  {
+    "word": "and",
+    "start": 17.09,
+    "end": 17.276
+  },
+  {
+    "word": "cost",
+    "start": 17.369,
+    "end": 17.671
+  },
+  {
+    "word": "reports",
+    "start": 17.729,
+    "end": 18.1
+  },
+  {
+    "word": "for",
+    "start": 18.147,
+    "end": 18.332
+  },
+  {
+    "word": "client",
+    "start": 18.425,
+    "end": 18.866
+  },
+  {
+    "word": "billing",
+    "start": 18.913,
+    "end": 19.168
+  },
+  {
+    "word": "oversight",
+    "start": 19.226,
+    "end": 19.9
+  },
+  {
+    "word": "*",
+    "start": 19.9,
+    "end": 20.225
+  },
+  {
+    "word": "Manager",
+    "start": 20.434,
+    "end": 20.863
+  },
+  {
+    "word": "Reports,",
+    "start": 20.921,
+    "end": 21.49
+  },
+  {
+    "word": "credential,",
+    "start": 21.641,
+    "end": 22.338
+  },
+  {
+    "word": "scheduling",
+    "start": 22.547,
+    "end": 23.058
+  },
+  {
+    "word": "efficiency,",
+    "start": 23.104,
+    "end": 23.917
+  },
+  {
+    "word": "and",
+    "start": 24.045,
+    "end": 24.277
+  },
+  {
+    "word": "MVR",
+    "start": 24.393,
+    "end": 24.927
+  },
+  {
+    "word": "reports",
+    "start": 25.008,
+    "end": 25.449
+  },
+  {
+    "word": "for",
+    "start": 25.519,
+    "end": 25.809
+  },
+  {
+    "word": "branch",
+    "start": 25.925,
+    "end": 26.297
+  },
+  {
+    "word": "management",
+    "start": 26.355,
+    "end": 27.411
+  },
+  {
+    "word": "As",
+    "start": 27.411,
+    "end": 27.667
+  },
+  {
+    "word": "an",
+    "start": 27.713,
+    "end": 27.783
+  },
+  {
+    "word": "admin-level",
+    "start": 27.864,
+    "end": 28.572
+  },
+  {
+    "word": "user,",
+    "start": 28.642,
+    "end": 29.13
+  },
+  {
+    "word": "you",
+    "start": 29.281,
+    "end": 29.385
+  },
+  {
+    "word": "have",
+    "start": 29.466,
+    "end": 29.629
+  },
+  {
+    "word": "a",
+    "start": 29.664,
+    "end": 29.687
+  },
+  {
+    "word": "full",
+    "start": 29.803,
+    "end": 30.128
+  },
+  {
+    "word": "view",
+    "start": 30.221,
+    "end": 30.488
+  },
+  {
+    "word": "of",
+    "start": 30.604,
+    "end": 30.72
+  },
+  {
+    "word": "event",
+    "start": 30.802,
+    "end": 31.069
+  },
+  {
+    "word": "operations",
+    "start": 31.127,
+    "end": 31.719
+  },
+  {
+    "word": "from",
+    "start": 31.766,
+    "end": 31.905
+  },
+  {
+    "word": "scheduling",
+    "start": 31.963,
+    "end": 32.462
+  },
+  {
+    "word": "through",
+    "start": 32.509,
+    "end": 32.741
+  },
+  {
+    "word": "billing.",
+    "start": 32.822,
+    "end": 33.391
+  },
+  {
+    "word": "These",
+    "start": 33.716,
+    "end": 33.983
+  },
+  {
+    "word": "reports",
+    "start": 34.053,
+    "end": 34.715
+  },
+  {
+    "word": "support",
+    "start": 34.924,
+    "end": 35.411
+  },
+  {
+    "word": "oversight,",
+    "start": 35.527,
+    "end": 36.363
+  },
+  {
+    "word": "auditing,",
+    "start": 36.41,
+    "end": 37.06
+  },
+  {
+    "word": "and",
+    "start": 37.083,
+    "end": 37.338
+  },
+  {
+    "word": "decision-making",
+    "start": 37.42,
+    "end": 38.395
+  },
+  {
+    "word": "across",
+    "start": 38.511,
+    "end": 39.045
+  },
+  {
+    "word": "your",
+    "start": 39.091,
+    "end": 39.242
+  },
+  {
+    "word": "branch.",
+    "start": 39.3,
+    "end": 40.032
+  }
+]

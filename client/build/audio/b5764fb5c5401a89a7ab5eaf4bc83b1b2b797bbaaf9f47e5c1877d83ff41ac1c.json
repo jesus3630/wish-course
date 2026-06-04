@@ -1,0 +1,597 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "Pay",
+    "start": 0.232,
+    "end": 0.441
+  },
+  {
+    "word": "Rates",
+    "start": 0.511,
+    "end": 0.72
+  },
+  {
+    "word": "tab",
+    "start": 0.766,
+    "end": 1.126
+  },
+  {
+    "word": "shows",
+    "start": 1.196,
+    "end": 1.463
+  },
+  {
+    "word": "what",
+    "start": 1.521,
+    "end": 1.683
+  },
+  {
+    "word": "an",
+    "start": 1.753,
+    "end": 1.834
+  },
+  {
+    "word": "employee",
+    "start": 1.892,
+    "end": 2.334
+  },
+  {
+    "word": "is",
+    "start": 2.38,
+    "end": 2.485
+  },
+  {
+    "word": "paid",
+    "start": 2.566,
+    "end": 2.868
+  },
+  {
+    "word": "per",
+    "start": 2.937,
+    "end": 3.088
+  },
+  {
+    "word": "hour",
+    "start": 3.181,
+    "end": 3.553
+  },
+  {
+    "word": "for",
+    "start": 3.669,
+    "end": 3.82
+  },
+  {
+    "word": "each",
+    "start": 3.913,
+    "end": 4.133
+  },
+  {
+    "word": "role",
+    "start": 4.191,
+    "end": 4.4
+  },
+  {
+    "word": "they're",
+    "start": 4.423,
+    "end": 4.586
+  },
+  {
+    "word": "qualified",
+    "start": 4.609,
+    "end": 5.132
+  },
+  {
+    "word": "for.",
+    "start": 5.19,
+    "end": 5.538
+  },
+  {
+    "word": "Important",
+    "start": 5.538,
+    "end": 6.026
+  },
+  {
+    "word": "rule:",
+    "start": 6.072,
+    "end": 6.397
+  },
+  {
+    "word": "never",
+    "start": 6.548,
+    "end": 6.803
+  },
+  {
+    "word": "edit",
+    "start": 6.885,
+    "end": 7.163
+  },
+  {
+    "word": "an",
+    "start": 7.245,
+    "end": 7.361
+  },
+  {
+    "word": "existing",
+    "start": 7.419,
+    "end": 7.872
+  },
+  {
+    "word": "pay",
+    "start": 7.93,
+    "end": 8.104
+  },
+  {
+    "word": "rate",
+    "start": 8.173,
+    "end": 8.359
+  },
+  {
+    "word": "directly.",
+    "start": 8.394,
+    "end": 8.986
+  },
+  {
+    "word": "Changing",
+    "start": 9.021,
+    "end": 9.404
+  },
+  {
+    "word": "a",
+    "start": 9.462,
+    "end": 9.485
+  },
+  {
+    "word": "rate",
+    "start": 9.567,
+    "end": 9.764
+  },
+  {
+    "word": "that's",
+    "start": 9.787,
+    "end": 9.973
+  },
+  {
+    "word": "already",
+    "start": 10.043,
+    "end": 10.426
+  },
+  {
+    "word": "in",
+    "start": 10.472,
+    "end": 10.53
+  },
+  {
+    "word": "the",
+    "start": 10.577,
+    "end": 10.646
+  },
+  {
+    "word": "system",
+    "start": 10.704,
+    "end": 11.111
+  },
+  {
+    "word": "will",
+    "start": 11.18,
+    "end": 11.401
+  },
+  {
+    "word": "alter",
+    "start": 11.459,
+    "end": 11.796
+  },
+  {
+    "word": "historical",
+    "start": 11.865,
+    "end": 12.388
+  },
+  {
+    "word": "payroll",
+    "start": 12.457,
+    "end": 12.829
+  },
+  {
+    "word": "records.",
+    "start": 12.899,
+    "end": 13.433
+  },
+  {
+    "word": "The",
+    "start": 13.433,
+    "end": 13.537
+  },
+  {
+    "word": "correct",
+    "start": 13.595,
+    "end": 13.909
+  },
+  {
+    "word": "process",
+    "start": 13.955,
+    "end": 14.443
+  },
+  {
+    "word": "to",
+    "start": 14.478,
+    "end": 14.571
+  },
+  {
+    "word": "update",
+    "start": 14.722,
+    "end": 15.105
+  },
+  {
+    "word": "a",
+    "start": 15.128,
+    "end": 15.151
+  },
+  {
+    "word": "pay",
+    "start": 15.186,
+    "end": 15.302
+  },
+  {
+    "word": "rate:",
+    "start": 15.349,
+    "end": 16.068
+  },
+  {
+    "word": "1.",
+    "start": 16.068,
+    "end": 19.11
+  },
+  {
+    "word": "Find",
+    "start": 19.551,
+    "end": 19.935
+  },
+  {
+    "word": "the",
+    "start": 20.051,
+    "end": 20.144
+  },
+  {
+    "word": "current",
+    "start": 20.19,
+    "end": 20.492
+  },
+  {
+    "word": "active",
+    "start": 20.55,
+    "end": 20.91
+  },
+  {
+    "word": "rate",
+    "start": 20.945,
+    "end": 21.63
+  },
+  {
+    "word": "2.",
+    "start": 21.63,
+    "end": 22.024
+  },
+  {
+    "word": "Deactivate",
+    "start": 22.233,
+    "end": 22.93
+  },
+  {
+    "word": "it,",
+    "start": 22.965,
+    "end": 23.15
+  },
+  {
+    "word": "this",
+    "start": 23.267,
+    "end": 23.464
+  },
+  {
+    "word": "closes",
+    "start": 23.545,
+    "end": 23.952
+  },
+  {
+    "word": "it",
+    "start": 23.998,
+    "end": 24.056
+  },
+  {
+    "word": "out",
+    "start": 24.103,
+    "end": 24.253
+  },
+  {
+    "word": "without",
+    "start": 24.311,
+    "end": 24.602
+  },
+  {
+    "word": "deleting",
+    "start": 24.648,
+    "end": 24.985
+  },
+  {
+    "word": "the",
+    "start": 25.02,
+    "end": 25.089
+  },
+  {
+    "word": "history",
+    "start": 25.124,
+    "end": 25.937
+  },
+  {
+    "word": "3.",
+    "start": 25.937,
+    "end": 26.366
+  },
+  {
+    "word": "Add",
+    "start": 26.61,
+    "end": 26.912
+  },
+  {
+    "word": "a",
+    "start": 26.97,
+    "end": 27.017
+  },
+  {
+    "word": "new",
+    "start": 27.109,
+    "end": 27.249
+  },
+  {
+    "word": "rate",
+    "start": 27.318,
+    "end": 27.562
+  },
+  {
+    "word": "with",
+    "start": 27.609,
+    "end": 27.771
+  },
+  {
+    "word": "the",
+    "start": 27.806,
+    "end": 27.887
+  },
+  {
+    "word": "updated",
+    "start": 27.957,
+    "end": 28.375
+  },
+  {
+    "word": "amount",
+    "start": 28.41,
+    "end": 28.712
+  },
+  {
+    "word": "and",
+    "start": 28.781,
+    "end": 28.99
+  },
+  {
+    "word": "an",
+    "start": 29.048,
+    "end": 29.106
+  },
+  {
+    "word": "effective",
+    "start": 29.141,
+    "end": 29.571
+  },
+  {
+    "word": "start",
+    "start": 29.606,
+    "end": 29.861
+  },
+  {
+    "word": "date",
+    "start": 29.907,
+    "end": 30.43
+  },
+  {
+    "word": "If",
+    "start": 30.43,
+    "end": 30.581
+  },
+  {
+    "word": "a",
+    "start": 30.639,
+    "end": 30.662
+  },
+  {
+    "word": "role",
+    "start": 30.732,
+    "end": 30.964
+  },
+  {
+    "word": "is",
+    "start": 30.988,
+    "end": 31.081
+  },
+  {
+    "word": "missing",
+    "start": 31.15,
+    "end": 31.452
+  },
+  {
+    "word": "from",
+    "start": 31.51,
+    "end": 31.649
+  },
+  {
+    "word": "the",
+    "start": 31.684,
+    "end": 31.754
+  },
+  {
+    "word": "employee's",
+    "start": 31.8,
+    "end": 32.253
+  },
+  {
+    "word": "pay",
+    "start": 32.3,
+    "end": 32.451
+  },
+  {
+    "word": "rate",
+    "start": 32.509,
+    "end": 32.636
+  },
+  {
+    "word": "list,",
+    "start": 32.659,
+    "end": 33.066
+  },
+  {
+    "word": "add",
+    "start": 33.275,
+    "end": 33.472
+  },
+  {
+    "word": "it",
+    "start": 33.519,
+    "end": 33.577
+  },
+  {
+    "word": "here.",
+    "start": 33.635,
+    "end": 34.111
+  },
+  {
+    "word": "An",
+    "start": 34.807,
+    "end": 34.947
+  },
+  {
+    "word": "employee",
+    "start": 34.981,
+    "end": 35.446
+  },
+  {
+    "word": "cannot",
+    "start": 35.504,
+    "end": 35.864
+  },
+  {
+    "word": "be",
+    "start": 35.922,
+    "end": 36.026
+  },
+  {
+    "word": "scheduled",
+    "start": 36.073,
+    "end": 36.491
+  },
+  {
+    "word": "for",
+    "start": 36.514,
+    "end": 36.63
+  },
+  {
+    "word": "a",
+    "start": 36.677,
+    "end": 36.7
+  },
+  {
+    "word": "role",
+    "start": 36.769,
+    "end": 37.025
+  },
+  {
+    "word": "they",
+    "start": 37.048,
+    "end": 37.164
+  },
+  {
+    "word": "don't",
+    "start": 37.222,
+    "end": 37.42
+  },
+  {
+    "word": "have",
+    "start": 37.466,
+    "end": 37.721
+  },
+  {
+    "word": "an",
+    "start": 37.756,
+    "end": 37.814
+  },
+  {
+    "word": "active",
+    "start": 37.861,
+    "end": 38.128
+  },
+  {
+    "word": "pay",
+    "start": 38.163,
+    "end": 38.302
+  },
+  {
+    "word": "rate",
+    "start": 38.36,
+    "end": 38.488
+  },
+  {
+    "word": "for,",
+    "start": 38.523,
+    "end": 39.08
+  },
+  {
+    "word": "WISH",
+    "start": 39.358,
+    "end": 39.776
+  },
+  {
+    "word": "uses",
+    "start": 39.893,
+    "end": 40.241
+  },
+  {
+    "word": "this",
+    "start": 40.299,
+    "end": 40.496
+  },
+  {
+    "word": "to",
+    "start": 40.554,
+    "end": 40.624
+  },
+  {
+    "word": "filter",
+    "start": 40.705,
+    "end": 40.972
+  },
+  {
+    "word": "results",
+    "start": 41.019,
+    "end": 41.367
+  },
+  {
+    "word": "in",
+    "start": 41.402,
+    "end": 41.46
+  },
+  {
+    "word": "Schedule",
+    "start": 41.506,
+    "end": 41.913
+  },
+  {
+    "word": "by",
+    "start": 41.947,
+    "end": 42.064
+  },
+  {
+    "word": "job.",
+    "start": 42.133,
+    "end": 42.772
+  }
+]

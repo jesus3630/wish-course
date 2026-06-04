@@ -1,0 +1,497 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.128
+  },
+  {
+    "word": "Disciplinary",
+    "start": 0.174,
+    "end": 0.731
+  },
+  {
+    "word": "Action",
+    "start": 0.801,
+    "end": 1.091
+  },
+  {
+    "word": "tab",
+    "start": 1.161,
+    "end": 1.463
+  },
+  {
+    "word": "is",
+    "start": 1.521,
+    "end": 1.602
+  },
+  {
+    "word": "where",
+    "start": 1.649,
+    "end": 1.823
+  },
+  {
+    "word": "formal",
+    "start": 1.892,
+    "end": 2.159
+  },
+  {
+    "word": "disciplinary",
+    "start": 2.206,
+    "end": 2.694
+  },
+  {
+    "word": "records",
+    "start": 2.763,
+    "end": 3.1
+  },
+  {
+    "word": "are",
+    "start": 3.158,
+    "end": 3.309
+  },
+  {
+    "word": "logged",
+    "start": 3.379,
+    "end": 3.669
+  },
+  {
+    "word": "for",
+    "start": 3.692,
+    "end": 3.785
+  },
+  {
+    "word": "an",
+    "start": 3.82,
+    "end": 3.855
+  },
+  {
+    "word": "employee.",
+    "start": 3.889,
+    "end": 5.224
+  },
+  {
+    "word": "What",
+    "start": 5.224,
+    "end": 5.387
+  },
+  {
+    "word": "you",
+    "start": 5.433,
+    "end": 5.503
+  },
+  {
+    "word": "can",
+    "start": 5.538,
+    "end": 5.642
+  },
+  {
+    "word": "do",
+    "start": 5.689,
+    "end": 5.828
+  },
+  {
+    "word": "here:",
+    "start": 5.909,
+    "end": 7.105
+  },
+  {
+    "word": "*",
+    "start": 7.105,
+    "end": 7.384
+  },
+  {
+    "word": "View",
+    "start": 7.663,
+    "end": 7.999
+  },
+  {
+    "word": "the",
+    "start": 8.15,
+    "end": 8.266
+  },
+  {
+    "word": "full",
+    "start": 8.336,
+    "end": 8.557
+  },
+  {
+    "word": "history",
+    "start": 8.615,
+    "end": 8.94
+  },
+  {
+    "word": "of",
+    "start": 8.986,
+    "end": 9.033
+  },
+  {
+    "word": "disciplinary",
+    "start": 9.079,
+    "end": 9.59
+  },
+  {
+    "word": "actions",
+    "start": 9.648,
+    "end": 9.973
+  },
+  {
+    "word": "on",
+    "start": 10.019,
+    "end": 10.112
+  },
+  {
+    "word": "file",
+    "start": 10.17,
+    "end": 10.728
+  },
+  {
+    "word": "*",
+    "start": 10.728,
+    "end": 12.016
+  },
+  {
+    "word": "Add",
+    "start": 12.26,
+    "end": 12.574
+  },
+  {
+    "word": "a",
+    "start": 12.632,
+    "end": 12.69
+  },
+  {
+    "word": "new",
+    "start": 12.783,
+    "end": 12.934
+  },
+  {
+    "word": "disciplinary",
+    "start": 12.98,
+    "end": 13.502
+  },
+  {
+    "word": "action",
+    "start": 13.572,
+    "end": 13.827
+  },
+  {
+    "word": "record",
+    "start": 13.897,
+    "end": 14.756
+  },
+  {
+    "word": "When",
+    "start": 14.756,
+    "end": 14.942
+  },
+  {
+    "word": "adding",
+    "start": 14.988,
+    "end": 15.256
+  },
+  {
+    "word": "a",
+    "start": 15.302,
+    "end": 15.314
+  },
+  {
+    "word": "new",
+    "start": 15.372,
+    "end": 15.464
+  },
+  {
+    "word": "record,",
+    "start": 15.522,
+    "end": 15.975
+  },
+  {
+    "word": "fill",
+    "start": 16.219,
+    "end": 16.428
+  },
+  {
+    "word": "in:",
+    "start": 16.497,
+    "end": 17.612
+  },
+  {
+    "word": "*",
+    "start": 17.612,
+    "end": 17.983
+  },
+  {
+    "word": "Date,",
+    "start": 18.262,
+    "end": 18.912
+  },
+  {
+    "word": "the",
+    "start": 19.295,
+    "end": 19.4
+  },
+  {
+    "word": "date",
+    "start": 19.458,
+    "end": 19.899
+  },
+  {
+    "word": "the",
+    "start": 20.7,
+    "end": 20.828
+  },
+  {
+    "word": "action",
+    "start": 20.863,
+    "end": 21.072
+  },
+  {
+    "word": "occurred",
+    "start": 21.106,
+    "end": 21.617
+  },
+  {
+    "word": "*",
+    "start": 21.617,
+    "end": 22.291
+  },
+  {
+    "word": "Type,",
+    "start": 22.465,
+    "end": 22.952
+  },
+  {
+    "word": "the",
+    "start": 23.742,
+    "end": 23.835
+  },
+  {
+    "word": "category",
+    "start": 23.893,
+    "end": 24.404
+  },
+  {
+    "word": "of",
+    "start": 24.485,
+    "end": 24.578
+  },
+  {
+    "word": "disciplinary",
+    "start": 24.671,
+    "end": 25.321
+  },
+  {
+    "word": "action",
+    "start": 25.391,
+    "end": 25.925
+  },
+  {
+    "word": "*",
+    "start": 25.925,
+    "end": 26.853
+  },
+  {
+    "word": "Notes,",
+    "start": 27.167,
+    "end": 27.829
+  },
+  {
+    "word": "a",
+    "start": 28.258,
+    "end": 28.339
+  },
+  {
+    "word": "clear",
+    "start": 28.432,
+    "end": 28.63
+  },
+  {
+    "word": "description",
+    "start": 28.676,
+    "end": 29.152
+  },
+  {
+    "word": "of",
+    "start": 29.222,
+    "end": 29.291
+  },
+  {
+    "word": "what",
+    "start": 29.35,
+    "end": 29.5
+  },
+  {
+    "word": "happened",
+    "start": 29.559,
+    "end": 29.907
+  },
+  {
+    "word": "and",
+    "start": 29.988,
+    "end": 30.127
+  },
+  {
+    "word": "any",
+    "start": 30.197,
+    "end": 30.383
+  },
+  {
+    "word": "actions",
+    "start": 30.452,
+    "end": 30.801
+  },
+  {
+    "word": "taken",
+    "start": 30.847,
+    "end": 31.88
+  },
+  {
+    "word": "Be",
+    "start": 31.88,
+    "end": 32.055
+  },
+  {
+    "word": "precise",
+    "start": 32.113,
+    "end": 32.635
+  },
+  {
+    "word": "and",
+    "start": 32.682,
+    "end": 32.798
+  },
+  {
+    "word": "factual",
+    "start": 32.891,
+    "end": 33.401
+  },
+  {
+    "word": "when",
+    "start": 33.518,
+    "end": 33.715
+  },
+  {
+    "word": "writing",
+    "start": 33.761,
+    "end": 34.063
+  },
+  {
+    "word": "notes.",
+    "start": 34.121,
+    "end": 34.667
+  },
+  {
+    "word": "These",
+    "start": 35.166,
+    "end": 35.398
+  },
+  {
+    "word": "records",
+    "start": 35.456,
+    "end": 35.747
+  },
+  {
+    "word": "are",
+    "start": 35.781,
+    "end": 35.898
+  },
+  {
+    "word": "part",
+    "start": 35.933,
+    "end": 36.107
+  },
+  {
+    "word": "of",
+    "start": 36.13,
+    "end": 36.177
+  },
+  {
+    "word": "the",
+    "start": 36.211,
+    "end": 36.281
+  },
+  {
+    "word": "employee's",
+    "start": 36.328,
+    "end": 36.804
+  },
+  {
+    "word": "permanent",
+    "start": 36.873,
+    "end": 37.187
+  },
+  {
+    "word": "file",
+    "start": 37.233,
+    "end": 37.581
+  },
+  {
+    "word": "and",
+    "start": 37.628,
+    "end": 37.79
+  },
+  {
+    "word": "may",
+    "start": 37.86,
+    "end": 38.057
+  },
+  {
+    "word": "be",
+    "start": 38.15,
+    "end": 38.371
+  },
+  {
+    "word": "referenced",
+    "start": 38.464,
+    "end": 39.079
+  },
+  {
+    "word": "during",
+    "start": 39.323,
+    "end": 39.718
+  },
+  {
+    "word": "reviews",
+    "start": 39.996,
+    "end": 40.763
+  },
+  {
+    "word": "or",
+    "start": 41.088,
+    "end": 41.413
+  },
+  {
+    "word": "investigations.",
+    "start": 41.564,
+    "end": 42.841
+  },
+  {
+    "word": "Click",
+    "start": 42.841,
+    "end": 43.131
+  },
+  {
+    "word": "Save",
+    "start": 43.247,
+    "end": 43.665
+  },
+  {
+    "word": "after",
+    "start": 43.735,
+    "end": 44.118
+  },
+  {
+    "word": "entering",
+    "start": 44.234,
+    "end": 44.745
+  },
+  {
+    "word": "the",
+    "start": 44.919,
+    "end": 45.047
+  },
+  {
+    "word": "record.",
+    "start": 45.116,
+    "end": 45.743
+  }
+]

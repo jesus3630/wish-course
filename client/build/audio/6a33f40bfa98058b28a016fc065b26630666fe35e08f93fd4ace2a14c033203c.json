@@ -1,0 +1,342 @@
+[
+  {
+    "word": "Schedule",
+    "start": 0,
+    "end": 0.592
+  },
+  {
+    "word": "by",
+    "start": 0.627,
+    "end": 0.743
+  },
+  {
+    "word": "jahb",
+    "start": 0.813,
+    "end": 1.091
+  },
+  {
+    "word": "Admin",
+    "start": 1.265,
+    "end": 1.741
+  },
+  {
+    "word": "works",
+    "start": 1.858,
+    "end": 2.125
+  },
+  {
+    "word": "exactly",
+    "start": 2.183,
+    "end": 2.728
+  },
+  {
+    "word": "like",
+    "start": 2.798,
+    "end": 2.961
+  },
+  {
+    "word": "Schedule",
+    "start": 2.984,
+    "end": 3.344
+  },
+  {
+    "word": "by",
+    "start": 3.367,
+    "end": 3.471
+  },
+  {
+    "word": "jahb",
+    "start": 3.529,
+    "end": 3.843
+  },
+  {
+    "word": "with",
+    "start": 3.936,
+    "end": 4.133
+  },
+  {
+    "word": "one",
+    "start": 4.203,
+    "end": 4.389
+  },
+  {
+    "word": "key",
+    "start": 4.435,
+    "end": 4.609
+  },
+  {
+    "word": "difference:",
+    "start": 4.679,
+    "end": 5.143
+  },
+  {
+    "word": "it",
+    "start": 5.201,
+    "end": 5.329
+  },
+  {
+    "word": "bypasses",
+    "start": 5.41,
+    "end": 6.142
+  },
+  {
+    "word": "certain",
+    "start": 6.223,
+    "end": 6.548
+  },
+  {
+    "word": "restrictions.",
+    "start": 6.594,
+    "end": 7.349
+  },
+  {
+    "word": "With",
+    "start": 7.349,
+    "end": 7.535
+  },
+  {
+    "word": "admin",
+    "start": 7.616,
+    "end": 7.941
+  },
+  {
+    "word": "scheduling,",
+    "start": 7.999,
+    "end": 8.533
+  },
+  {
+    "word": "you",
+    "start": 8.557,
+    "end": 8.661
+  },
+  {
+    "word": "can:",
+    "start": 8.742,
+    "end": 9.474
+  },
+  {
+    "word": "*",
+    "start": 9.474,
+    "end": 12.272
+  },
+  {
+    "word": "Double-book",
+    "start": 12.399,
+    "end": 12.875
+  },
+  {
+    "word": "an",
+    "start": 12.922,
+    "end": 12.968
+  },
+  {
+    "word": "employee",
+    "start": 13.003,
+    "end": 13.468
+  },
+  {
+    "word": "who",
+    "start": 13.502,
+    "end": 13.63
+  },
+  {
+    "word": "is",
+    "start": 13.688,
+    "end": 13.781
+  },
+  {
+    "word": "already",
+    "start": 13.851,
+    "end": 14.199
+  },
+  {
+    "word": "scheduled",
+    "start": 14.245,
+    "end": 14.721
+  },
+  {
+    "word": "for",
+    "start": 14.745,
+    "end": 14.884
+  },
+  {
+    "word": "another",
+    "start": 14.942,
+    "end": 15.209
+  },
+  {
+    "word": "shift",
+    "start": 15.256,
+    "end": 15.557
+  },
+  {
+    "word": "at",
+    "start": 15.604,
+    "end": 15.673
+  },
+  {
+    "word": "the",
+    "start": 15.708,
+    "end": 15.778
+  },
+  {
+    "word": "same",
+    "start": 15.825,
+    "end": 16.045
+  },
+  {
+    "word": "time",
+    "start": 16.08,
+    "end": 16.487
+  },
+  {
+    "word": "*",
+    "start": 16.487,
+    "end": 19.285
+  },
+  {
+    "word": "Schedule",
+    "start": 19.528,
+    "end": 20.063
+  },
+  {
+    "word": "an",
+    "start": 20.097,
+    "end": 20.167
+  },
+  {
+    "word": "employee",
+    "start": 20.213,
+    "end": 20.689
+  },
+  {
+    "word": "who",
+    "start": 20.724,
+    "end": 20.84
+  },
+  {
+    "word": "has",
+    "start": 20.887,
+    "end": 20.98
+  },
+  {
+    "word": "exceeded",
+    "start": 21.038,
+    "end": 21.572
+  },
+  {
+    "word": "their",
+    "start": 21.618,
+    "end": 21.758
+  },
+  {
+    "word": "weekly",
+    "start": 21.804,
+    "end": 22.141
+  },
+  {
+    "word": "hour",
+    "start": 22.257,
+    "end": 22.733
+  },
+  {
+    "word": "limit",
+    "start": 23.244,
+    "end": 23.905
+  },
+  {
+    "word": "*",
+    "start": 23.905,
+    "end": 25.415
+  },
+  {
+    "word": "Override",
+    "start": 25.693,
+    "end": 26.32
+  },
+  {
+    "word": "overlap",
+    "start": 26.39,
+    "end": 26.843
+  },
+  {
+    "word": "warnings",
+    "start": 26.901,
+    "end": 27.261
+  },
+  {
+    "word": "when",
+    "start": 27.307,
+    "end": 27.458
+  },
+  {
+    "word": "necessary",
+    "start": 27.516,
+    "end": 28.677
+  },
+  {
+    "word": "This",
+    "start": 28.677,
+    "end": 28.956
+  },
+  {
+    "word": "access",
+    "start": 29.037,
+    "end": 29.548
+  },
+  {
+    "word": "gives",
+    "start": 29.606,
+    "end": 29.827
+  },
+  {
+    "word": "managers",
+    "start": 29.896,
+    "end": 30.314
+  },
+  {
+    "word": "flexibility",
+    "start": 30.384,
+    "end": 31.092
+  },
+  {
+    "word": "in",
+    "start": 31.138,
+    "end": 31.196
+  },
+  {
+    "word": "high-pressure",
+    "start": 31.289,
+    "end": 31.881
+  },
+  {
+    "word": "situations",
+    "start": 31.916,
+    "end": 32.543
+  },
+  {
+    "word": "such",
+    "start": 32.578,
+    "end": 32.764
+  },
+  {
+    "word": "as",
+    "start": 32.81,
+    "end": 32.903
+  },
+  {
+    "word": "last-minute",
+    "start": 33.054,
+    "end": 33.681
+  },
+  {
+    "word": "event",
+    "start": 33.716,
+    "end": 33.96
+  },
+  {
+    "word": "changes.",
+    "start": 34.006,
+    "end": 34.784
+  }
+]

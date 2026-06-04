@@ -1,0 +1,557 @@
+[
+  {
+    "word": "Before",
+    "start": 0,
+    "end": 0.441
+  },
+  {
+    "word": "importing",
+    "start": 0.499,
+    "end": 0.929
+  },
+  {
+    "word": "anyone,",
+    "start": 0.975,
+    "end": 1.556
+  },
+  {
+    "word": "understand",
+    "start": 1.939,
+    "end": 2.519
+  },
+  {
+    "word": "what",
+    "start": 2.601,
+    "end": 2.763
+  },
+  {
+    "word": "you're",
+    "start": 2.81,
+    "end": 2.984
+  },
+  {
+    "word": "looking",
+    "start": 3.007,
+    "end": 3.251
+  },
+  {
+    "word": "at.",
+    "start": 3.32,
+    "end": 3.738
+  },
+  {
+    "word": "At",
+    "start": 3.738,
+    "end": 3.913
+  },
+  {
+    "word": "the",
+    "start": 3.959,
+    "end": 4.029
+  },
+  {
+    "word": "top,",
+    "start": 4.098,
+    "end": 4.528
+  },
+  {
+    "word": "set",
+    "start": 4.656,
+    "end": 4.865
+  },
+  {
+    "word": "your",
+    "start": 4.911,
+    "end": 5.016
+  },
+  {
+    "word": "filters:",
+    "start": 5.062,
+    "end": 5.77
+  },
+  {
+    "word": "*",
+    "start": 5.77,
+    "end": 5.793
+  },
+  {
+    "word": "Branch",
+    "start": 5.909,
+    "end": 6.269
+  },
+  {
+    "word": "Name,",
+    "start": 6.327,
+    "end": 6.641
+  },
+  {
+    "word": "select",
+    "start": 6.792,
+    "end": 7.21
+  },
+  {
+    "word": "your",
+    "start": 7.256,
+    "end": 7.384
+  },
+  {
+    "word": "branch",
+    "start": 7.43,
+    "end": 7.988
+  },
+  {
+    "word": "*",
+    "start": 7.988,
+    "end": 8.371
+  },
+  {
+    "word": "Employee",
+    "start": 8.58,
+    "end": 9.137
+  },
+  {
+    "word": "Type,",
+    "start": 9.207,
+    "end": 9.659
+  },
+  {
+    "word": "Regular",
+    "start": 9.903,
+    "end": 10.298
+  },
+  {
+    "word": "Employee",
+    "start": 10.356,
+    "end": 10.971
+  },
+  {
+    "word": "in",
+    "start": 11.355,
+    "end": 11.505
+  },
+  {
+    "word": "most",
+    "start": 11.587,
+    "end": 11.807
+  },
+  {
+    "word": "cases",
+    "start": 11.854,
+    "end": 12.353
+  },
+  {
+    "word": "Click",
+    "start": 12.353,
+    "end": 12.608
+  },
+  {
+    "word": "Search",
+    "start": 12.69,
+    "end": 12.992
+  },
+  {
+    "word": "to",
+    "start": 13.05,
+    "end": 13.131
+  },
+  {
+    "word": "pull",
+    "start": 13.201,
+    "end": 13.398
+  },
+  {
+    "word": "the",
+    "start": 13.456,
+    "end": 13.537
+  },
+  {
+    "word": "applicant",
+    "start": 13.595,
+    "end": 14.013
+  },
+  {
+    "word": "list.",
+    "start": 14.06,
+    "end": 14.478
+  },
+  {
+    "word": "Above",
+    "start": 14.478,
+    "end": 14.861
+  },
+  {
+    "word": "the",
+    "start": 14.896,
+    "end": 14.965
+  },
+  {
+    "word": "list",
+    "start": 15.035,
+    "end": 15.313
+  },
+  {
+    "word": "you'll",
+    "start": 15.464,
+    "end": 15.696
+  },
+  {
+    "word": "see",
+    "start": 15.754,
+    "end": 15.929
+  },
+  {
+    "word": "a",
+    "start": 15.975,
+    "end": 16.01
+  },
+  {
+    "word": "summary",
+    "start": 16.08,
+    "end": 16.428
+  },
+  {
+    "word": "row:",
+    "start": 16.497,
+    "end": 17.09
+  },
+  {
+    "word": "*",
+    "start": 17.09,
+    "end": 17.206
+  },
+  {
+    "word": "Total,",
+    "start": 17.322,
+    "end": 17.821
+  },
+  {
+    "word": "all",
+    "start": 17.844,
+    "end": 18.158
+  },
+  {
+    "word": "applicants",
+    "start": 18.274,
+    "end": 18.761
+  },
+  {
+    "word": "returned",
+    "start": 18.808,
+    "end": 19.4
+  },
+  {
+    "word": "by",
+    "start": 19.702,
+    "end": 20.073
+  },
+  {
+    "word": "your",
+    "start": 20.294,
+    "end": 20.456
+  },
+  {
+    "word": "search",
+    "start": 20.503,
+    "end": 20.944
+  },
+  {
+    "word": "*",
+    "start": 20.944,
+    "end": 21.594
+  },
+  {
+    "word": "Duplicate,",
+    "start": 21.652,
+    "end": 22.244
+  },
+  {
+    "word": "applicants",
+    "start": 22.465,
+    "end": 22.941
+  },
+  {
+    "word": "already",
+    "start": 22.999,
+    "end": 23.417
+  },
+  {
+    "word": "in",
+    "start": 23.556,
+    "end": 23.881
+  },
+  {
+    "word": "WISH",
+    "start": 24.044,
+    "end": 24.346
+  },
+  {
+    "word": "under",
+    "start": 24.45,
+    "end": 24.683
+  },
+  {
+    "word": "a",
+    "start": 24.741,
+    "end": 24.764
+  },
+  {
+    "word": "matching",
+    "start": 24.822,
+    "end": 25.24
+  },
+  {
+    "word": "SSN",
+    "start": 25.437,
+    "end": 26.215
+  },
+  {
+    "word": "*",
+    "start": 26.215,
+    "end": 26.621
+  },
+  {
+    "word": "Import,",
+    "start": 26.703,
+    "end": 27.353
+  },
+  {
+    "word": "applicants",
+    "start": 27.515,
+    "end": 28.142
+  },
+  {
+    "word": "successfully",
+    "start": 28.409,
+    "end": 29.048
+  },
+  {
+    "word": "imported",
+    "start": 29.129,
+    "end": 29.628
+  },
+  {
+    "word": "in",
+    "start": 29.721,
+    "end": 29.837
+  },
+  {
+    "word": "this",
+    "start": 29.907,
+    "end": 30.023
+  },
+  {
+    "word": "session",
+    "start": 30.07,
+    "end": 30.569
+  },
+  {
+    "word": "*",
+    "start": 30.569,
+    "end": 30.975
+  },
+  {
+    "word": "Hired,",
+    "start": 31.114,
+    "end": 31.637
+  },
+  {
+    "word": "applicants",
+    "start": 31.776,
+    "end": 32.264
+  },
+  {
+    "word": "whose",
+    "start": 32.287,
+    "end": 32.67
+  },
+  {
+    "word": "hiring",
+    "start": 32.786,
+    "end": 33.134
+  },
+  {
+    "word": "status",
+    "start": 33.192,
+    "end": 33.68
+  },
+  {
+    "word": "is",
+    "start": 34.04,
+    "end": 34.435
+  },
+  {
+    "word": "Hired",
+    "start": 34.667,
+    "end": 35.224
+  },
+  {
+    "word": "*",
+    "start": 35.224,
+    "end": 35.329
+  },
+  {
+    "word": "Rehired,",
+    "start": 35.433,
+    "end": 36.188
+  },
+  {
+    "word": "returning",
+    "start": 36.35,
+    "end": 36.826
+  },
+  {
+    "word": "employees",
+    "start": 36.873,
+    "end": 37.314
+  },
+  {
+    "word": "being",
+    "start": 37.372,
+    "end": 37.558
+  },
+  {
+    "word": "brought",
+    "start": 37.592,
+    "end": 37.825
+  },
+  {
+    "word": "back",
+    "start": 37.871,
+    "end": 38.521
+  },
+  {
+    "word": "The",
+    "start": 38.521,
+    "end": 38.649
+  },
+  {
+    "word": "list",
+    "start": 38.73,
+    "end": 38.939
+  },
+  {
+    "word": "itself",
+    "start": 38.997,
+    "end": 39.427
+  },
+  {
+    "word": "shows",
+    "start": 39.485,
+    "end": 39.74
+  },
+  {
+    "word": "each",
+    "start": 39.856,
+    "end": 40.089
+  },
+  {
+    "word": "applicant's",
+    "start": 40.158,
+    "end": 40.681
+  },
+  {
+    "word": "SSN,",
+    "start": 40.797,
+    "end": 41.668
+  },
+  {
+    "word": "name,",
+    "start": 41.877,
+    "end": 42.399
+  },
+  {
+    "word": "branch,",
+    "start": 42.573,
+    "end": 43.223
+  },
+  {
+    "word": "Background",
+    "start": 43.432,
+    "end": 43.978
+  },
+  {
+    "word": "Check",
+    "start": 44.024,
+    "end": 44.257
+  },
+  {
+    "word": "status,",
+    "start": 44.315,
+    "end": 44.976
+  },
+  {
+    "word": "E-Verify",
+    "start": 45.151,
+    "end": 45.824
+  },
+  {
+    "word": "status,",
+    "start": 45.894,
+    "end": 46.428
+  },
+  {
+    "word": "current",
+    "start": 46.521,
+    "end": 46.846
+  },
+  {
+    "word": "status,",
+    "start": 46.88,
+    "end": 47.275
+  },
+  {
+    "word": "and",
+    "start": 47.298,
+    "end": 47.438
+  },
+  {
+    "word": "hiring",
+    "start": 47.531,
+    "end": 47.925
+  },
+  {
+    "word": "status.",
+    "start": 47.983,
+    "end": 48.517
+  },
+  {
+    "word": "Review",
+    "start": 48.901,
+    "end": 49.307
+  },
+  {
+    "word": "these",
+    "start": 49.377,
+    "end": 49.551
+  },
+  {
+    "word": "columns",
+    "start": 49.597,
+    "end": 49.969
+  },
+  {
+    "word": "carefully",
+    "start": 50.027,
+    "end": 50.514
+  },
+  {
+    "word": "before",
+    "start": 50.584,
+    "end": 51.025
+  },
+  {
+    "word": "taking",
+    "start": 51.072,
+    "end": 51.42
+  },
+  {
+    "word": "any",
+    "start": 51.536,
+    "end": 51.815
+  },
+  {
+    "word": "action.",
+    "start": 51.884,
+    "end": 52.616
+  }
+]

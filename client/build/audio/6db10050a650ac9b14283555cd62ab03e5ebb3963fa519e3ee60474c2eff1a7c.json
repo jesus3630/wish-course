@@ -1,0 +1,357 @@
+[
+  {
+    "word": "WISH",
+    "start": 0,
+    "end": 0.313
+  },
+  {
+    "word": "offers",
+    "start": 0.395,
+    "end": 0.824
+  },
+  {
+    "word": "two",
+    "start": 0.906,
+    "end": 1.184
+  },
+  {
+    "word": "manual",
+    "start": 1.3,
+    "end": 1.672
+  },
+  {
+    "word": "scheduling",
+    "start": 1.718,
+    "end": 2.183
+  },
+  {
+    "word": "methods",
+    "start": 2.241,
+    "end": 2.589
+  },
+  {
+    "word": "found",
+    "start": 2.647,
+    "end": 2.949
+  },
+  {
+    "word": "under",
+    "start": 3.019,
+    "end": 3.204
+  },
+  {
+    "word": "the",
+    "start": 3.262,
+    "end": 3.379
+  },
+  {
+    "word": "Scheduling",
+    "start": 3.471,
+    "end": 3.994
+  },
+  {
+    "word": "menu:",
+    "start": 4.052,
+    "end": 4.76
+  },
+  {
+    "word": "Schedule",
+    "start": 4.76,
+    "end": 5.248
+  },
+  {
+    "word": "by",
+    "start": 5.283,
+    "end": 5.457
+  },
+  {
+    "word": "Employee,",
+    "start": 5.526,
+    "end": 6.211
+  },
+  {
+    "word": "Used",
+    "start": 6.362,
+    "end": 6.664
+  },
+  {
+    "word": "when",
+    "start": 6.687,
+    "end": 6.838
+  },
+  {
+    "word": "working",
+    "start": 6.896,
+    "end": 7.198
+  },
+  {
+    "word": "with",
+    "start": 7.256,
+    "end": 7.43
+  },
+  {
+    "word": "one",
+    "start": 7.5,
+    "end": 7.663
+  },
+  {
+    "word": "employee",
+    "start": 7.697,
+    "end": 8.15
+  },
+  {
+    "word": "at",
+    "start": 8.197,
+    "end": 8.278
+  },
+  {
+    "word": "a",
+    "start": 8.324,
+    "end": 8.359
+  },
+  {
+    "word": "time,",
+    "start": 8.417,
+    "end": 8.835
+  },
+  {
+    "word": "such",
+    "start": 8.882,
+    "end": 9.102
+  },
+  {
+    "word": "as",
+    "start": 9.149,
+    "end": 9.242
+  },
+  {
+    "word": "on",
+    "start": 9.311,
+    "end": 9.392
+  },
+  {
+    "word": "the",
+    "start": 9.427,
+    "end": 9.497
+  },
+  {
+    "word": "phone.",
+    "start": 9.532,
+    "end": 9.903
+  },
+  {
+    "word": "You",
+    "start": 10.077,
+    "end": 10.217
+  },
+  {
+    "word": "select",
+    "start": 10.298,
+    "end": 10.612
+  },
+  {
+    "word": "the",
+    "start": 10.646,
+    "end": 10.728
+  },
+  {
+    "word": "employee",
+    "start": 10.786,
+    "end": 11.331
+  },
+  {
+    "word": "and",
+    "start": 11.378,
+    "end": 11.494
+  },
+  {
+    "word": "assign",
+    "start": 11.54,
+    "end": 11.865
+  },
+  {
+    "word": "them",
+    "start": 11.9,
+    "end": 12.016
+  },
+  {
+    "word": "to",
+    "start": 12.063,
+    "end": 12.144
+  },
+  {
+    "word": "multiple",
+    "start": 12.26,
+    "end": 12.713
+  },
+  {
+    "word": "days",
+    "start": 12.759,
+    "end": 13.073
+  },
+  {
+    "word": "or",
+    "start": 13.166,
+    "end": 13.305
+  },
+  {
+    "word": "shifts.",
+    "start": 13.375,
+    "end": 14.072
+  },
+  {
+    "word": "Schedule",
+    "start": 14.072,
+    "end": 14.536
+  },
+  {
+    "word": "by",
+    "start": 14.571,
+    "end": 14.699
+  },
+  {
+    "word": "job,",
+    "start": 14.78,
+    "end": 15.244
+  },
+  {
+    "word": "Used",
+    "start": 15.36,
+    "end": 15.558
+  },
+  {
+    "word": "to",
+    "start": 15.581,
+    "end": 15.639
+  },
+  {
+    "word": "schedule",
+    "start": 15.685,
+    "end": 16.103
+  },
+  {
+    "word": "multiple",
+    "start": 16.138,
+    "end": 16.487
+  },
+  {
+    "word": "employees",
+    "start": 16.51,
+    "end": 17.125
+  },
+  {
+    "word": "at",
+    "start": 17.172,
+    "end": 17.241
+  },
+  {
+    "word": "once",
+    "start": 17.311,
+    "end": 17.473
+  },
+  {
+    "word": "to",
+    "start": 17.497,
+    "end": 17.555
+  },
+  {
+    "word": "the",
+    "start": 17.613,
+    "end": 17.682
+  },
+  {
+    "word": "same",
+    "start": 17.717,
+    "end": 17.938
+  },
+  {
+    "word": "role",
+    "start": 17.973,
+    "end": 18.216
+  },
+  {
+    "word": "and",
+    "start": 18.251,
+    "end": 18.321
+  },
+  {
+    "word": "shift.",
+    "start": 18.356,
+    "end": 18.751
+  },
+  {
+    "word": "Ideal",
+    "start": 18.994,
+    "end": 19.343
+  },
+  {
+    "word": "for",
+    "start": 19.389,
+    "end": 19.494
+  },
+  {
+    "word": "bulk",
+    "start": 19.552,
+    "end": 19.749
+  },
+  {
+    "word": "scheduling",
+    "start": 19.795,
+    "end": 20.213
+  },
+  {
+    "word": "from",
+    "start": 20.26,
+    "end": 20.388
+  },
+  {
+    "word": "a",
+    "start": 20.434,
+    "end": 20.457
+  },
+  {
+    "word": "list.",
+    "start": 20.515,
+    "end": 21.061
+  },
+  {
+    "word": "In",
+    "start": 21.061,
+    "end": 21.2
+  },
+  {
+    "word": "this",
+    "start": 21.247,
+    "end": 21.386
+  },
+  {
+    "word": "module,",
+    "start": 21.456,
+    "end": 21.874
+  },
+  {
+    "word": "you",
+    "start": 21.897,
+    "end": 21.978
+  },
+  {
+    "word": "will",
+    "start": 22.001,
+    "end": 22.106
+  },
+  {
+    "word": "learn",
+    "start": 22.141,
+    "end": 22.326
+  },
+  {
+    "word": "both",
+    "start": 22.396,
+    "end": 22.628
+  },
+  {
+    "word": "methods.",
+    "start": 22.698,
+    "end": 23.36
+  }
+]

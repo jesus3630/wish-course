@@ -1,0 +1,507 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "first",
+    "start": 0.209,
+    "end": 0.418
+  },
+  {
+    "word": "four",
+    "start": 0.441,
+    "end": 0.592
+  },
+  {
+    "word": "sections",
+    "start": 0.65,
+    "end": 0.987
+  },
+  {
+    "word": "of",
+    "start": 1.033,
+    "end": 1.103
+  },
+  {
+    "word": "the",
+    "start": 1.149,
+    "end": 1.219
+  },
+  {
+    "word": "Reports",
+    "start": 1.277,
+    "end": 1.625
+  },
+  {
+    "word": "menu",
+    "start": 1.66,
+    "end": 1.939
+  },
+  {
+    "word": "work",
+    "start": 2.055,
+    "end": 2.241
+  },
+  {
+    "word": "the",
+    "start": 2.299,
+    "end": 2.368
+  },
+  {
+    "word": "same",
+    "start": 2.415,
+    "end": 2.612
+  },
+  {
+    "word": "way",
+    "start": 2.647,
+    "end": 2.775
+  },
+  {
+    "word": "they",
+    "start": 2.821,
+    "end": 2.949
+  },
+  {
+    "word": "do",
+    "start": 3.03,
+    "end": 3.239
+  },
+  {
+    "word": "in",
+    "start": 3.355,
+    "end": 3.483
+  },
+  {
+    "word": "General",
+    "start": 3.564,
+    "end": 3.843
+  },
+  {
+    "word": "Reporting",
+    "start": 3.889,
+    "end": 4.319
+  },
+  {
+    "word": "and",
+    "start": 4.4,
+    "end": 4.551
+  },
+  {
+    "word": "Payroll",
+    "start": 4.621,
+    "end": 4.969
+  },
+  {
+    "word": "Reporting:",
+    "start": 5.027,
+    "end": 5.573
+  },
+  {
+    "word": "*",
+    "start": 5.573,
+    "end": 5.596
+  },
+  {
+    "word": "jahb",
+    "start": 5.875,
+    "end": 6.2
+  },
+  {
+    "word": "Administration,",
+    "start": 6.281,
+    "end": 7.129
+  },
+  {
+    "word": "alpha",
+    "start": 7.221,
+    "end": 7.523
+  },
+  {
+    "word": "rosters,",
+    "start": 7.593,
+    "end": 8.185
+  },
+  {
+    "word": "sign-in",
+    "start": 8.301,
+    "end": 8.696
+  },
+  {
+    "word": "sheets,",
+    "start": 8.754,
+    "end": 9.149
+  },
+  {
+    "word": "employee",
+    "start": 9.207,
+    "end": 9.718
+  },
+  {
+    "word": "schedules,",
+    "start": 9.764,
+    "end": 10.31
+  },
+  {
+    "word": "post-event",
+    "start": 10.379,
+    "end": 10.937
+  },
+  {
+    "word": "follow-up",
+    "start": 10.983,
+    "end": 11.552
+  },
+  {
+    "word": "*",
+    "start": 11.552,
+    "end": 11.622
+  },
+  {
+    "word": "Summary",
+    "start": 11.773,
+    "end": 12.109
+  },
+  {
+    "word": "Roster,",
+    "start": 12.179,
+    "end": 12.62
+  },
+  {
+    "word": "high-level",
+    "start": 12.667,
+    "end": 13.12
+  },
+  {
+    "word": "overviews",
+    "start": 13.189,
+    "end": 13.642
+  },
+  {
+    "word": "by",
+    "start": 13.689,
+    "end": 13.793
+  },
+  {
+    "word": "employee,",
+    "start": 13.851,
+    "end": 14.478
+  },
+  {
+    "word": "jahb,",
+    "start": 14.583,
+    "end": 15.558
+  },
+  {
+    "word": "client,",
+    "start": 15.848,
+    "end": 16.521
+  },
+  {
+    "word": "venue,",
+    "start": 16.777,
+    "end": 17.543
+  },
+  {
+    "word": "and",
+    "start": 17.706,
+    "end": 18.054
+  },
+  {
+    "word": "branch",
+    "start": 18.251,
+    "end": 19.064
+  },
+  {
+    "word": "*",
+    "start": 19.064,
+    "end": 19.819
+  },
+  {
+    "word": "Detailed",
+    "start": 19.981,
+    "end": 20.399
+  },
+  {
+    "word": "Roster,",
+    "start": 20.434,
+    "end": 21.096
+  },
+  {
+    "word": "employee-level",
+    "start": 21.502,
+    "end": 22.233
+  },
+  {
+    "word": "detail",
+    "start": 22.292,
+    "end": 22.651
+  },
+  {
+    "word": "on",
+    "start": 22.721,
+    "end": 22.814
+  },
+  {
+    "word": "timesheets,",
+    "start": 22.86,
+    "end": 23.72
+  },
+  {
+    "word": "licensing,",
+    "start": 23.94,
+    "end": 24.73
+  },
+  {
+    "word": "availability,",
+    "start": 24.927,
+    "end": 25.902
+  },
+  {
+    "word": "and",
+    "start": 26.018,
+    "end": 26.39
+  },
+  {
+    "word": "training",
+    "start": 26.552,
+    "end": 27.261
+  },
+  {
+    "word": "*",
+    "start": 27.261,
+    "end": 27.818
+  },
+  {
+    "word": "Payroll",
+    "start": 27.98,
+    "end": 28.375
+  },
+  {
+    "word": "Reports,",
+    "start": 28.433,
+    "end": 29.141
+  },
+  {
+    "word": "Employee",
+    "start": 29.362,
+    "end": 29.85
+  },
+  {
+    "word": "Time",
+    "start": 29.908,
+    "end": 30.163
+  },
+  {
+    "word": "Register",
+    "start": 30.186,
+    "end": 30.604
+  },
+  {
+    "word": "and",
+    "start": 30.674,
+    "end": 30.767
+  },
+  {
+    "word": "related",
+    "start": 30.836,
+    "end": 31.173
+  },
+  {
+    "word": "reports",
+    "start": 31.22,
+    "end": 31.614
+  },
+  {
+    "word": "for",
+    "start": 31.649,
+    "end": 31.777
+  },
+  {
+    "word": "verifying",
+    "start": 31.846,
+    "end": 32.369
+  },
+  {
+    "word": "hours",
+    "start": 32.439,
+    "end": 32.787
+  },
+  {
+    "word": "before",
+    "start": 32.857,
+    "end": 33.158
+  },
+  {
+    "word": "payroll",
+    "start": 33.216,
+    "end": 33.681
+  },
+  {
+    "word": "is",
+    "start": 33.762,
+    "end": 33.878
+  },
+  {
+    "word": "finalized",
+    "start": 33.936,
+    "end": 34.575
+  },
+  {
+    "word": "If",
+    "start": 34.575,
+    "end": 34.633
+  },
+  {
+    "word": "you",
+    "start": 34.656,
+    "end": 34.726
+  },
+  {
+    "word": "haven't",
+    "start": 34.761,
+    "end": 34.935
+  },
+  {
+    "word": "completed",
+    "start": 34.958,
+    "end": 35.295
+  },
+  {
+    "word": "the",
+    "start": 35.318,
+    "end": 35.388
+  },
+  {
+    "word": "General",
+    "start": 35.434,
+    "end": 35.643
+  },
+  {
+    "word": "Reporting",
+    "start": 35.678,
+    "end": 36.003
+  },
+  {
+    "word": "and",
+    "start": 36.038,
+    "end": 36.107
+  },
+  {
+    "word": "Payroll",
+    "start": 36.154,
+    "end": 36.467
+  },
+  {
+    "word": "Reporting",
+    "start": 36.514,
+    "end": 36.85
+  },
+  {
+    "word": "modules,",
+    "start": 36.897,
+    "end": 37.419
+  },
+  {
+    "word": "review",
+    "start": 37.535,
+    "end": 37.837
+  },
+  {
+    "word": "those",
+    "start": 37.895,
+    "end": 38.116
+  },
+  {
+    "word": "first.",
+    "start": 38.162,
+    "end": 38.603
+  },
+  {
+    "word": "This",
+    "start": 38.696,
+    "end": 38.894
+  },
+  {
+    "word": "module",
+    "start": 38.963,
+    "end": 39.288
+  },
+  {
+    "word": "focuses",
+    "start": 39.323,
+    "end": 39.718
+  },
+  {
+    "word": "on",
+    "start": 39.776,
+    "end": 39.846
+  },
+  {
+    "word": "the",
+    "start": 39.881,
+    "end": 39.95
+  },
+  {
+    "word": "two",
+    "start": 39.997,
+    "end": 40.171
+  },
+  {
+    "word": "sections",
+    "start": 40.241,
+    "end": 40.682
+  },
+  {
+    "word": "that",
+    "start": 40.728,
+    "end": 40.867
+  },
+  {
+    "word": "are",
+    "start": 40.902,
+    "end": 41.007
+  },
+  {
+    "word": "new",
+    "start": 41.065,
+    "end": 41.216
+  },
+  {
+    "word": "to",
+    "start": 41.274,
+    "end": 41.343
+  },
+  {
+    "word": "you:",
+    "start": 41.436,
+    "end": 41.773
+  },
+  {
+    "word": "Billing",
+    "start": 42.017,
+    "end": 42.319
+  },
+  {
+    "word": "Reports",
+    "start": 42.365,
+    "end": 42.725
+  },
+  {
+    "word": "and",
+    "start": 42.771,
+    "end": 42.899
+  },
+  {
+    "word": "Manager",
+    "start": 42.98,
+    "end": 43.352
+  },
+  {
+    "word": "Reports.",
+    "start": 43.41,
+    "end": 44.118
+  }
+]

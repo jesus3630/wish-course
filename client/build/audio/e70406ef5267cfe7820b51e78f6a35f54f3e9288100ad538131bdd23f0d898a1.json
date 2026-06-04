@@ -1,0 +1,477 @@
+[
+  {
+    "word": "After",
+    "start": 0,
+    "end": 0.279
+  },
+  {
+    "word": "saving",
+    "start": 0.348,
+    "end": 0.65
+  },
+  {
+    "word": "the",
+    "start": 0.697,
+    "end": 0.766
+  },
+  {
+    "word": "job,",
+    "start": 0.824,
+    "end": 1.231
+  },
+  {
+    "word": "click",
+    "start": 1.324,
+    "end": 1.614
+  },
+  {
+    "word": "the",
+    "start": 1.695,
+    "end": 1.776
+  },
+  {
+    "word": "Shifts",
+    "start": 1.858,
+    "end": 2.159
+  },
+  {
+    "word": "tab.",
+    "start": 2.218,
+    "end": 2.601
+  },
+  {
+    "word": "Click",
+    "start": 2.659,
+    "end": 2.926
+  },
+  {
+    "word": "Add",
+    "start": 3.042,
+    "end": 3.297
+  },
+  {
+    "word": "New",
+    "start": 3.355,
+    "end": 3.506
+  },
+  {
+    "word": "Shift.",
+    "start": 3.553,
+    "end": 3.889
+  },
+  {
+    "word": "Give",
+    "start": 3.947,
+    "end": 4.122
+  },
+  {
+    "word": "it",
+    "start": 4.145,
+    "end": 4.203
+  },
+  {
+    "word": "a",
+    "start": 4.238,
+    "end": 4.261
+  },
+  {
+    "word": "name,",
+    "start": 4.331,
+    "end": 4.609
+  },
+  {
+    "word": "such",
+    "start": 4.644,
+    "end": 4.865
+  },
+  {
+    "word": "as",
+    "start": 4.911,
+    "end": 5.05
+  },
+  {
+    "word": "\"Staff",
+    "start": 5.108,
+    "end": 5.457
+  },
+  {
+    "word": "One",
+    "start": 5.538,
+    "end": 5.7
+  },
+  {
+    "word": "Call\",",
+    "start": 5.735,
+    "end": 6.072
+  },
+  {
+    "word": "and",
+    "start": 6.095,
+    "end": 6.246
+  },
+  {
+    "word": "set",
+    "start": 6.327,
+    "end": 6.513
+  },
+  {
+    "word": "the",
+    "start": 6.56,
+    "end": 6.629
+  },
+  {
+    "word": "start",
+    "start": 6.687,
+    "end": 6.989
+  },
+  {
+    "word": "and",
+    "start": 7.059,
+    "end": 7.163
+  },
+  {
+    "word": "end",
+    "start": 7.256,
+    "end": 7.43
+  },
+  {
+    "word": "time",
+    "start": 7.488,
+    "end": 7.79
+  },
+  {
+    "word": "within",
+    "start": 7.825,
+    "end": 8.081
+  },
+  {
+    "word": "the",
+    "start": 8.139,
+    "end": 8.208
+  },
+  {
+    "word": "job's",
+    "start": 8.278,
+    "end": 8.603
+  },
+  {
+    "word": "time",
+    "start": 8.638,
+    "end": 8.893
+  },
+  {
+    "word": "window.",
+    "start": 8.928,
+    "end": 9.358
+  },
+  {
+    "word": "Shift",
+    "start": 9.358,
+    "end": 9.636
+  },
+  {
+    "word": "times",
+    "start": 9.659,
+    "end": 9.973
+  },
+  {
+    "word": "must",
+    "start": 10.043,
+    "end": 10.228
+  },
+  {
+    "word": "fall",
+    "start": 10.298,
+    "end": 10.565
+  },
+  {
+    "word": "within",
+    "start": 10.612,
+    "end": 10.867
+  },
+  {
+    "word": "the",
+    "start": 10.913,
+    "end": 10.983
+  },
+  {
+    "word": "job's",
+    "start": 11.041,
+    "end": 11.355
+  },
+  {
+    "word": "start",
+    "start": 11.378,
+    "end": 11.691
+  },
+  {
+    "word": "and",
+    "start": 11.761,
+    "end": 11.9
+  },
+  {
+    "word": "end",
+    "start": 11.993,
+    "end": 12.179
+  },
+  {
+    "word": "time.",
+    "start": 12.237,
+    "end": 12.585
+  },
+  {
+    "word": "If",
+    "start": 12.608,
+    "end": 12.701
+  },
+  {
+    "word": "you",
+    "start": 12.748,
+    "end": 12.829
+  },
+  {
+    "word": "go",
+    "start": 12.898,
+    "end": 12.991
+  },
+  {
+    "word": "outside",
+    "start": 13.061,
+    "end": 13.502
+  },
+  {
+    "word": "that",
+    "start": 13.525,
+    "end": 13.653
+  },
+  {
+    "word": "range,",
+    "start": 13.734,
+    "end": 14.083
+  },
+  {
+    "word": "WISH",
+    "start": 14.141,
+    "end": 14.477
+  },
+  {
+    "word": "will",
+    "start": 14.756,
+    "end": 15.046
+  },
+  {
+    "word": "warn",
+    "start": 15.128,
+    "end": 15.441
+  },
+  {
+    "word": "you.",
+    "start": 15.511,
+    "end": 16.161
+  },
+  {
+    "word": "Once",
+    "start": 16.161,
+    "end": 16.428
+  },
+  {
+    "word": "the",
+    "start": 16.463,
+    "end": 16.532
+  },
+  {
+    "word": "shift",
+    "start": 16.59,
+    "end": 16.823
+  },
+  {
+    "word": "is",
+    "start": 16.869,
+    "end": 16.939
+  },
+  {
+    "word": "saved,",
+    "start": 16.985,
+    "end": 17.38
+  },
+  {
+    "word": "click",
+    "start": 17.438,
+    "end": 17.763
+  },
+  {
+    "word": "Add",
+    "start": 17.914,
+    "end": 18.204
+  },
+  {
+    "word": "Role.",
+    "start": 18.285,
+    "end": 18.75
+  },
+  {
+    "word": "Select",
+    "start": 18.994,
+    "end": 19.342
+  },
+  {
+    "word": "the",
+    "start": 19.365,
+    "end": 19.435
+  },
+  {
+    "word": "role,",
+    "start": 19.493,
+    "end": 19.981
+  },
+  {
+    "word": "set",
+    "start": 20.131,
+    "end": 20.352
+  },
+  {
+    "word": "your",
+    "start": 20.399,
+    "end": 20.503
+  },
+  {
+    "word": "minimum",
+    "start": 20.538,
+    "end": 20.886
+  },
+  {
+    "word": "(the",
+    "start": 21.002,
+    "end": 21.269
+  },
+  {
+    "word": "client's",
+    "start": 21.316,
+    "end": 21.734
+  },
+  {
+    "word": "required",
+    "start": 21.78,
+    "end": 22.21
+  },
+  {
+    "word": "number)",
+    "start": 22.256,
+    "end": 22.604
+  },
+  {
+    "word": "and",
+    "start": 22.651,
+    "end": 22.848
+  },
+  {
+    "word": "maximum",
+    "start": 22.964,
+    "end": 23.568
+  },
+  {
+    "word": "(your",
+    "start": 23.684,
+    "end": 23.974
+  },
+  {
+    "word": "buffer,",
+    "start": 24.056,
+    "end": 24.578
+  },
+  {
+    "word": "always",
+    "start": 24.857,
+    "end": 25.286
+  },
+  {
+    "word": "leave",
+    "start": 25.344,
+    "end": 25.611
+  },
+  {
+    "word": "wiggle",
+    "start": 25.669,
+    "end": 25.96
+  },
+  {
+    "word": "room",
+    "start": 25.995,
+    "end": 26.215
+  },
+  {
+    "word": "above",
+    "start": 26.273,
+    "end": 26.563
+  },
+  {
+    "word": "the",
+    "start": 26.598,
+    "end": 26.668
+  },
+  {
+    "word": "minimum).",
+    "start": 26.703,
+    "end": 27.237
+  },
+  {
+    "word": "Save.",
+    "start": 27.62,
+    "end": 28.41
+  },
+  {
+    "word": "You",
+    "start": 28.41,
+    "end": 28.538
+  },
+  {
+    "word": "can",
+    "start": 28.584,
+    "end": 28.712
+  },
+  {
+    "word": "add",
+    "start": 28.781,
+    "end": 29.014
+  },
+  {
+    "word": "multiple",
+    "start": 29.083,
+    "end": 29.466
+  },
+  {
+    "word": "shifts",
+    "start": 29.501,
+    "end": 29.768
+  },
+  {
+    "word": "and",
+    "start": 29.803,
+    "end": 29.873
+  },
+  {
+    "word": "multiple",
+    "start": 29.908,
+    "end": 30.256
+  },
+  {
+    "word": "roles",
+    "start": 30.302,
+    "end": 30.604
+  },
+  {
+    "word": "under",
+    "start": 30.651,
+    "end": 30.801
+  },
+  {
+    "word": "each",
+    "start": 30.883,
+    "end": 31.103
+  },
+  {
+    "word": "shift.",
+    "start": 31.185,
+    "end": 32.044
+  }
+]

@@ -1,0 +1,342 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.128
+  },
+  {
+    "word": "this",
+    "start": 0.186,
+    "end": 0.325
+  },
+  {
+    "word": "module,",
+    "start": 0.383,
+    "end": 0.848
+  },
+  {
+    "word": "you",
+    "start": 0.987,
+    "end": 1.068
+  },
+  {
+    "word": "will",
+    "start": 1.091,
+    "end": 1.207
+  },
+  {
+    "word": "learn",
+    "start": 1.242,
+    "end": 1.405
+  },
+  {
+    "word": "how",
+    "start": 1.451,
+    "end": 1.602
+  },
+  {
+    "word": "to:",
+    "start": 1.672,
+    "end": 3.181
+  },
+  {
+    "word": "*",
+    "start": 3.181,
+    "end": 5.515
+  },
+  {
+    "word": "Publish",
+    "start": 6.606,
+    "end": 6.931
+  },
+  {
+    "word": "jahb",
+    "start": 7.001,
+    "end": 7.43
+  },
+  {
+    "word": "shifts",
+    "start": 7.57,
+    "end": 7.825
+  },
+  {
+    "word": "to",
+    "start": 7.848,
+    "end": 7.918
+  },
+  {
+    "word": "the",
+    "start": 7.976,
+    "end": 8.034
+  },
+  {
+    "word": "web",
+    "start": 8.092,
+    "end": 8.406
+  },
+  {
+    "word": "so",
+    "start": 8.533,
+    "end": 8.696
+  },
+  {
+    "word": "employees",
+    "start": 8.742,
+    "end": 9.172
+  },
+  {
+    "word": "can",
+    "start": 9.207,
+    "end": 9.311
+  },
+  {
+    "word": "apply",
+    "start": 9.334,
+    "end": 10.019
+  },
+  {
+    "word": "*",
+    "start": 10.019,
+    "end": 10.136
+  },
+  {
+    "word": "Enable",
+    "start": 10.286,
+    "end": 10.693
+  },
+  {
+    "word": "auto-scheduling",
+    "start": 10.728,
+    "end": 11.494
+  },
+  {
+    "word": "for",
+    "start": 11.598,
+    "end": 11.749
+  },
+  {
+    "word": "large",
+    "start": 11.842,
+    "end": 12.132
+  },
+  {
+    "word": "events",
+    "start": 12.156,
+    "end": 12.725
+  },
+  {
+    "word": "*",
+    "start": 12.725,
+    "end": 13.99
+  },
+  {
+    "word": "Review",
+    "start": 14.129,
+    "end": 14.489
+  },
+  {
+    "word": "and",
+    "start": 14.559,
+    "end": 14.652
+  },
+  {
+    "word": "approve",
+    "start": 14.687,
+    "end": 15.116
+  },
+  {
+    "word": "or",
+    "start": 15.186,
+    "end": 15.337
+  },
+  {
+    "word": "deny",
+    "start": 15.406,
+    "end": 15.755
+  },
+  {
+    "word": "employee",
+    "start": 15.836,
+    "end": 16.231
+  },
+  {
+    "word": "shift",
+    "start": 16.266,
+    "end": 16.498
+  },
+  {
+    "word": "applications",
+    "start": 16.544,
+    "end": 17.345
+  },
+  {
+    "word": "*",
+    "start": 17.345,
+    "end": 17.926
+  },
+  {
+    "word": "Change",
+    "start": 18.1,
+    "end": 18.402
+  },
+  {
+    "word": "the",
+    "start": 18.425,
+    "end": 18.483
+  },
+  {
+    "word": "Max",
+    "start": 18.541,
+    "end": 18.738
+  },
+  {
+    "word": "number",
+    "start": 18.785,
+    "end": 18.959
+  },
+  {
+    "word": "of",
+    "start": 19.006,
+    "end": 19.04
+  },
+  {
+    "word": "staff",
+    "start": 19.087,
+    "end": 19.365
+  },
+  {
+    "word": "that",
+    "start": 19.411,
+    "end": 19.504
+  },
+  {
+    "word": "can",
+    "start": 19.539,
+    "end": 19.62
+  },
+  {
+    "word": "apply",
+    "start": 19.655,
+    "end": 19.945
+  },
+  {
+    "word": "to",
+    "start": 20.015,
+    "end": 20.085
+  },
+  {
+    "word": "Shifts",
+    "start": 20.166,
+    "end": 20.944
+  },
+  {
+    "word": "MSS",
+    "start": 20.944,
+    "end": 21.548
+  },
+  {
+    "word": "is",
+    "start": 21.78,
+    "end": 21.954
+  },
+  {
+    "word": "the",
+    "start": 22.012,
+    "end": 22.082
+  },
+  {
+    "word": "manager's",
+    "start": 22.163,
+    "end": 22.732
+  },
+  {
+    "word": "side",
+    "start": 22.906,
+    "end": 23.347
+  },
+  {
+    "word": "of",
+    "start": 23.417,
+    "end": 23.707
+  },
+  {
+    "word": "the",
+    "start": 23.881,
+    "end": 24.009
+  },
+  {
+    "word": "scheduling",
+    "start": 24.055,
+    "end": 24.497
+  },
+  {
+    "word": "portal.",
+    "start": 24.543,
+    "end": 24.961
+  },
+  {
+    "word": "It",
+    "start": 25.17,
+    "end": 25.298
+  },
+  {
+    "word": "controls",
+    "start": 25.344,
+    "end": 25.832
+  },
+  {
+    "word": "what",
+    "start": 25.878,
+    "end": 26.018
+  },
+  {
+    "word": "employees",
+    "start": 26.064,
+    "end": 26.61
+  },
+  {
+    "word": "can",
+    "start": 26.668,
+    "end": 26.807
+  },
+  {
+    "word": "see",
+    "start": 26.888,
+    "end": 27.144
+  },
+  {
+    "word": "and",
+    "start": 27.202,
+    "end": 27.341
+  },
+  {
+    "word": "self-schedule",
+    "start": 27.411,
+    "end": 28.061
+  },
+  {
+    "word": "for",
+    "start": 28.107,
+    "end": 28.398
+  },
+  {
+    "word": "in",
+    "start": 28.572,
+    "end": 28.757
+  },
+  {
+    "word": "their",
+    "start": 28.827,
+    "end": 29.059
+  },
+  {
+    "word": "ESS",
+    "start": 29.175,
+    "end": 29.768
+  },
+  {
+    "word": "app.",
+    "start": 29.884,
+    "end": 30.418
+  }
+]
