@@ -807,28 +807,45 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
 // ─── WISH Logo animation card ─────────────────────────────────────────────────
 function WishLogoCard() {
-  const [wVisible, setWVisible] = useState(false);
-  const [iVisible, setIVisible] = useState(false);
-  const [sVisible, setSVisible] = useState(false);
-  const [hVisible, setHVisible] = useState(false);
-  const [phase2, setPhase2] = useState(false);
-  const [orVisible, setOrVisible] = useState(false);
+  const [wVisible,    setWVisible]    = useState(false);
+  const [iVisible,    setIVisible]    = useState(false);
+  const [sVisible,    setSVisible]    = useState(false);
+  const [hVisible,    setHVisible]    = useState(false);
+  const [whiteCover,  setWhiteCover]  = useState(false);
+  const [wFocus,      setWFocus]      = useState(false);
+  const [orVisible,   setOrVisible]   = useState(false);
+  const [iFocus,      setIFocus]      = useState(false);
+  const [nfVisible,   setNfVisible]   = useState(false);
 
   useEffect(() => {
     setWVisible(false); setIVisible(false); setSVisible(false); setHVisible(false);
-    setPhase2(false); setOrVisible(false);
+    setWhiteCover(false); setWFocus(false); setOrVisible(false);
+    setIFocus(false); setNfVisible(false);
+
     const timers = [
-      setTimeout(() => setWVisible(true), 200),   // W rolls in
-      setTimeout(() => setIVisible(true), 900),   // I drops down
-      setTimeout(() => setSVisible(true), 1400),  // S slides from right
-      setTimeout(() => setHVisible(true), 1900),  // H slams
-      setTimeout(() => setPhase2(true),  2800),   // white wipe + W comes forward
-      setTimeout(() => setOrVisible(true), 3300), // "orkforce" slides in
+      // ── Phase 1: WISH letters appear ──────────────────────────────────
+      setTimeout(() => setWVisible(true),  200),
+      setTimeout(() => setIVisible(true),  900),
+      setTimeout(() => setSVisible(true), 1400),
+      setTimeout(() => setHVisible(true), 1900),
+
+      // ── W focus: white wipes in, W zooms forward ──────────────────────
+      setTimeout(() => { setWhiteCover(true);  setWFocus(true);  },  2800),
+      setTimeout(() => setOrVisible(true),                            3300),
+
+      // ── Retract W word (under white so no flicker) ────────────────────
+      setTimeout(() => setOrVisible(false),                           4300),
+      setTimeout(() => setWFocus(false),                              4650), // W gone while white still covers
+      setTimeout(() => setWhiteCover(false),                          4900), // white slides back → WISH revealed
+
+      // ── I focus: white wipes in, I zooms forward ──────────────────────
+      setTimeout(() => { setWhiteCover(true);  setIFocus(true);  },  5600),
+      setTimeout(() => setNfVisible(true),                            6100),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  // ── Phase 1 letter styles ────────────────────────────────────────────────
+  // ── Phase 1 letter styles ────────────────────────────────────────────
   const wStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: wVisible ? 1 : 0,
@@ -851,6 +868,29 @@ function WishLogoCard() {
     ? { display: 'inline-block', animation: 'wishSlamIn 0.45s forwards' }
     : { display: 'inline-block', opacity: 0 };
 
+  // ── Shared focus overlay styles ──────────────────────────────────────
+  const focusLetterStyle: React.CSSProperties = {
+    display: 'inline-block',
+    fontSize: 'clamp(72px, 16vw, 130px)',
+    fontWeight: 900,
+    fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+    color: '#D4782A',
+    lineHeight: 1,
+    animation: 'wishLetterForward 0.55s cubic-bezier(0.22,1,0.36,1) forwards',
+  };
+  const restWordStyle = (visible: boolean): React.CSSProperties => ({
+    display: 'inline-block',
+    fontSize: 'clamp(32px, 7vw, 58px)',
+    fontWeight: 900,
+    fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+    color: '#1B3A6B',
+    lineHeight: 1,
+    paddingBottom: '6px',
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateX(0)' : 'translateX(-18px)',
+    transition: 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+  });
+
   return (
     <>
       <style>{`
@@ -860,7 +900,7 @@ function WishLogoCard() {
           75%  { transform: scale(1.07); }
           100% { transform: scale(1); }
         }
-        @keyframes wishWForward {
+        @keyframes wishLetterForward {
           0%   { transform: scale(0.55); opacity: 0; }
           65%  { transform: scale(1.10); opacity: 1; }
           100% { transform: scale(1);    opacity: 1; }
@@ -872,10 +912,10 @@ function WishLogoCard() {
         textAlign: 'center',
         padding: '32px 16px 12px',
         userSelect: 'none',
-        overflow: 'hidden',      /* clips the white panel when translated off-right */
+        overflow: 'hidden',
       }}>
 
-        {/* ── Phase 1: WISH letters ── */}
+        {/* ── Phase 1: WISH letters (always in DOM, revealed when white recedes) ── */}
         <div style={{
           fontSize: 'clamp(72px, 16vw, 130px)',
           fontWeight: 900,
@@ -890,17 +930,17 @@ function WishLogoCard() {
           <span style={hStyle}>H</span>
         </div>
 
-        {/* ── White panel slides in from right, covering ISH ── */}
+        {/* ── White wipe panel (z-index 1) ── */}
         <div style={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
           background: 'white',
           zIndex: 1,
-          transform: phase2 ? 'translateX(0)' : 'translateX(100%)',
+          transform: whiteCover ? 'translateX(0)' : 'translateX(100%)',
           transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
         }} />
 
-        {/* ── Phase 2: W comes forward + "orkforce" ── */}
+        {/* ── Focus overlay: W-word or I-word (z-index 2, above white) ── */}
         <div style={{
           position: 'absolute',
           top: 0, left: 0, right: 0, bottom: 0,
@@ -911,32 +951,19 @@ function WishLogoCard() {
           zIndex: 2,
           pointerEvents: 'none',
         }}>
-          {/* W zooms forward */}
-          {phase2 && (
-            <span style={{
-              display: 'inline-block',
-              fontSize: 'clamp(72px, 16vw, 130px)',
-              fontWeight: 900,
-              fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
-              color: '#D4782A',
-              lineHeight: 1,
-              animation: 'wishWForward 0.55s cubic-bezier(0.22,1,0.36,1) forwards',
-            }}>W</span>
+          {/* W focus */}
+          {wFocus && (
+            <>
+              <span key="w-focus" style={focusLetterStyle}>W</span>
+              <span style={restWordStyle(orVisible)}>orkforce</span>
+            </>
           )}
-          {/* "orkforce" slides in after W lands */}
-          {phase2 && (
-            <span style={{
-              display: 'inline-block',
-              fontSize: 'clamp(32px, 7vw, 58px)',
-              fontWeight: 900,
-              fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
-              color: '#1B3A6B',
-              lineHeight: 1,
-              paddingBottom: '6px',
-              opacity: orVisible ? 1 : 0,
-              transform: orVisible ? 'translateX(0)' : 'translateX(-18px)',
-              transition: 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
-            }}>orkforce</span>
+          {/* I focus */}
+          {iFocus && (
+            <>
+              <span key="i-focus" style={focusLetterStyle}>I</span>
+              <span style={restWordStyle(nfVisible)}>nformation</span>
+            </>
           )}
         </div>
 
