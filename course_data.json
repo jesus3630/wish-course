@@ -253,21 +253,24 @@
         "slide_name": "Shifts and Roles",
         "instructions": "Screen recording: Click Shifts tab. Add New Shift. Set name and times. Add Role. Set min/max. Save.",
         "text": "After saving the job, click the Shifts tab. Click Add New Shift. Give it a name, such as \"Staff One Call\", and set the start and end time within the job's time window.\r\n\r\nShift times must fall within the job's start and end time. If you go outside that range, WISH will warn you.\r\n\r\nOnce the shift is saved, click Add Role. Select the role, set your minimum (the client's required number) and maximum (your buffer, always leave wiggle room above the minimum). Save.\r\n\r\nYou can add multiple shifts and multiple roles under each shift.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=4"
+        "simulation_url": null,
+        "screenshot": "/screenshots/manage_job/slide_4.jpg"
       },
       {
         "slide_number": 5,
         "slide_name": "Copying a Job",
         "instructions": "Screen recording: Manage Job search results. Click copy icon. Open copy settings. Select Daily. Set dates. Click Copy.",
         "text": "From Manage Job search results, click the copy icon for the job you want to copy. Open the copy settings link.\n\nChoose from:\n• Daily, copies the job to specific dates\n• Weekly, repeats on the same days of the week over a date range\n• Monthly, copies for every day of the month\n\nDaily is the most commonly used option. Always double-check your start and end dates before confirming, do not include the original date again. Copied jobs receive new unique job numbers.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=5"
+        "simulation_url": null,
+        "screenshot": "/screenshots/manage_job/slide_5.jpg"
       },
       {
         "slide_number": 6,
         "slide_name": "Canceling or Deleting a Job",
         "instructions": "",
         "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting, open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class.",
-        "simulation_url": "/mockup/mockup.html?module=manage_job&slide=6"
+        "simulation_url": null,
+        "screenshot": "/screenshots/manage_job/slide_6.jpg"
       },
       {
         "slide_number": 7,
