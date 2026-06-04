@@ -820,12 +820,14 @@ function WishLogoCard() {
   const [ysVisible,   setYsVisible]   = useState(false);
   const [hFocus,      setHFocus]      = useState(false);
   const [osVisible,   setOsVisible]   = useState(false);
+  const [waveActive,  setWaveActive]  = useState(false);
 
   useEffect(() => {
     setWVisible(false); setIVisible(false); setSVisible(false); setHVisible(false);
     setWhiteCover(false); setWFocus(false); setOrVisible(false);
     setIFocus(false); setNfVisible(false);
     setSFocus(false); setYsVisible(false); setHFocus(false); setOsVisible(false);
+    setWaveActive(false);
 
     const timers = [
       // ── Phase 1: WISH letters appear ──────────────────────────────────
@@ -861,32 +863,43 @@ function WishLogoCard() {
       setTimeout(() => setOsVisible(false),                         15900),
       setTimeout(() => setHFocus(false),                            16250),
       setTimeout(() => setWhiteCover(false),                        16500),  // WISH final reveal
+
+      // ── Wave (starts 500ms after WISH is fully back) ──────────────────
+      setTimeout(() => setWaveActive(true),                         17000),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  // ── Phase 1 letter styles ────────────────────────────────────────────
-  const wStyle: React.CSSProperties = {
-    display: 'inline-block',
-    opacity: wVisible ? 1 : 0,
-    transform: wVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-80px) rotate(-360deg)',
-    transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
-  };
-  const iStyle: React.CSSProperties = {
-    display: 'inline-block',
-    opacity: iVisible ? 1 : 0,
-    transform: iVisible ? 'translateY(0)' : 'translateY(-80px)',
-    transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
-  };
-  const sStyle: React.CSSProperties = {
-    display: 'inline-block',
-    opacity: sVisible ? 1 : 0,
-    transform: sVisible ? 'translateX(0)' : 'translateX(100px)',
-    transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
-  };
-  const hStyle: React.CSSProperties = hVisible
-    ? { display: 'inline-block', animation: 'wishSlamIn 0.45s forwards' }
-    : { display: 'inline-block', opacity: 0 };
+  // ── Phase 1 letter styles (wave overrides entrance styles once active) ──
+  const wStyle: React.CSSProperties = waveActive
+    ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 0ms 2' }
+    : {
+        display: 'inline-block',
+        opacity: wVisible ? 1 : 0,
+        transform: wVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-80px) rotate(-360deg)',
+        transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
+      };
+  const iStyle: React.CSSProperties = waveActive
+    ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 120ms 2' }
+    : {
+        display: 'inline-block',
+        opacity: iVisible ? 1 : 0,
+        transform: iVisible ? 'translateY(0)' : 'translateY(-80px)',
+        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
+      };
+  const sStyle: React.CSSProperties = waveActive
+    ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 240ms 2' }
+    : {
+        display: 'inline-block',
+        opacity: sVisible ? 1 : 0,
+        transform: sVisible ? 'translateX(0)' : 'translateX(100px)',
+        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+      };
+  const hStyle: React.CSSProperties = waveActive
+    ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 360ms 2' }
+    : hVisible
+      ? { display: 'inline-block', animation: 'wishSlamIn 0.45s forwards' }
+      : { display: 'inline-block', opacity: 0 };
 
   // ── Shared focus overlay styles ──────────────────────────────────────
   const focusLetterStyle: React.CSSProperties = {
@@ -924,6 +937,12 @@ function WishLogoCard() {
           0%   { transform: scale(0.55); opacity: 0; }
           65%  { transform: scale(1.10); opacity: 1; }
           100% { transform: scale(1);    opacity: 1; }
+        }
+        @keyframes wishWaveBounce {
+          0%   { transform: translateY(0); }
+          35%  { transform: translateY(-26px); }
+          65%  { transform: translateY(-8px); }
+          100% { transform: translateY(0); }
         }
       `}</style>
 
