@@ -684,7 +684,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                         caption={(slide as any).image_below_caption || ''}
                       />
                     ) : (
-                      <div style={{ flex: '1 1 140px', maxWidth: '160px' }}>
+                      <div style={{ flex: '1 1 110px', maxWidth: '130px' }}>
                         <img src={(slide as any).image_below} alt="" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} style={{ width: '100%', height: 'auto', borderRadius: '10px', border: '1px solid #E5E7EB', display: 'block' }} />
                         {(slide as any)?.image_below_caption && <div style={{ background: '#FFFBEB', border: '1.5px solid #F59E0B', borderTop: 'none', borderRadius: '0 0 10px 10px', padding: '10px 14px', fontSize: '13px', color: '#78350F' }}><span style={{ fontWeight: 700 }}>What to notice: </span>{(slide as any).image_below_caption}</div>}
                       </div>
