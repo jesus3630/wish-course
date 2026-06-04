@@ -20,7 +20,7 @@ Employees complete assigned modules, take quizzes, and get certificates.
 **Live site:** https://wish-app-production.up.railway.app  
 **Admin panel:** https://wish-app-production.up.railway.app/admin (password: `wish2026`)  
 **GitHub:** https://github.com/jesus3630/wish-course  
-**Railway project:** Wish-course → service: Wish-Training  
+**Railway project:** Wish-course → service: wish-app  
 
 ---
 
@@ -140,7 +140,7 @@ railway up --detach
 ### Manual (both)
 ```bash
 git pull origin main                   # ALWAYS pull before deploy
-railway service 'Wish-Training'        # link to correct service
+railway service link wish-app          # link to correct service
 railway up --detach                    # deploy
 ```
 

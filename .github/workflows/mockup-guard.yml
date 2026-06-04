@@ -69,6 +69,7 @@ jobs:
 
           echo ""
           echo "── introduction slides ───────────────────────────────────────────"
+          check_str "introduction slide 5 (audit trail)" "audit-field-1"
           check_str "introduction slide 9 (menu demo)" "Unapproved Jobs"
 
           echo ""
