@@ -836,36 +836,33 @@ function WishLogoCard() {
       setTimeout(() => setSVisible(true), 1400),
       setTimeout(() => setHVisible(true), 1900),
 
-      // ── W focus  (word visible 1800ms) ────────────────────────────────
+      // ── W focus (white wipes in, stays up through all 4 letters) ──────
       setTimeout(() => { setWhiteCover(true); setWFocus(true); },   2800),
       setTimeout(() => setOrVisible(true),                           3300),
-      setTimeout(() => setOrVisible(false),                          5100),  // ← +800ms dwell
+      setTimeout(() => setOrVisible(false),                          5100),  // retract
       setTimeout(() => setWFocus(false),                             5450),
-      setTimeout(() => setWhiteCover(false),                         5700),  // WISH revealed
 
-      // ── I focus  (word visible 1800ms) ────────────────────────────────
-      setTimeout(() => { setWhiteCover(true); setIFocus(true); },   6400),
-      setTimeout(() => setNfVisible(true),                           6900),
-      setTimeout(() => setNfVisible(false),                          8700),
-      setTimeout(() => setIFocus(false),                             9050),
-      setTimeout(() => setWhiteCover(false),                         9300),  // WISH revealed
+      // ── I focus (white already covering — just swap content) ──────────
+      setTimeout(() => setIFocus(true),                              5500),
+      setTimeout(() => setNfVisible(true),                           6000),
+      setTimeout(() => setNfVisible(false),                          7800),  // retract
+      setTimeout(() => setIFocus(false),                             8150),
 
-      // ── S focus  (word visible 1800ms) ────────────────────────────────
-      setTimeout(() => { setWhiteCover(true); setSFocus(true); },  10000),
-      setTimeout(() => setYsVisible(true),                          10500),
-      setTimeout(() => setYsVisible(false),                         12300),
-      setTimeout(() => setSFocus(false),                            12650),
-      setTimeout(() => setWhiteCover(false),                        12900),  // WISH revealed
+      // ── S focus ───────────────────────────────────────────────────────
+      setTimeout(() => setSFocus(true),                              8200),
+      setTimeout(() => setYsVisible(true),                           8700),
+      setTimeout(() => setYsVisible(false),                         10500),  // retract
+      setTimeout(() => setSFocus(false),                            10850),
 
-      // ── H focus  (word visible 1800ms) ────────────────────────────────
-      setTimeout(() => { setWhiteCover(true); setHFocus(true); },  13600),
-      setTimeout(() => setOsVisible(true),                          14100),
-      setTimeout(() => setOsVisible(false),                         15900),
-      setTimeout(() => setHFocus(false),                            16250),
-      setTimeout(() => setWhiteCover(false),                        16500),  // WISH final reveal
+      // ── H focus ───────────────────────────────────────────────────────
+      setTimeout(() => setHFocus(true),                             10900),
+      setTimeout(() => setOsVisible(true),                          11400),
+      setTimeout(() => setOsVisible(false),                         13200),  // retract
+      setTimeout(() => setHFocus(false),                            13550),
+      setTimeout(() => setWhiteCover(false),                        13800),  // WISH final reveal
 
-      // ── Wave (starts 500ms after WISH is fully back) ──────────────────
-      setTimeout(() => setWaveActive(true),                         17000),
+      // ── Wave (500ms after WISH is back) ───────────────────────────────
+      setTimeout(() => setWaveActive(true),                         14300),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
