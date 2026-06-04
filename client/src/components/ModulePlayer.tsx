@@ -816,11 +816,16 @@ function WishLogoCard() {
   const [orVisible,   setOrVisible]   = useState(false);
   const [iFocus,      setIFocus]      = useState(false);
   const [nfVisible,   setNfVisible]   = useState(false);
+  const [sFocus,      setSFocus]      = useState(false);
+  const [ysVisible,   setYsVisible]   = useState(false);
+  const [hFocus,      setHFocus]      = useState(false);
+  const [osVisible,   setOsVisible]   = useState(false);
 
   useEffect(() => {
     setWVisible(false); setIVisible(false); setSVisible(false); setHVisible(false);
     setWhiteCover(false); setWFocus(false); setOrVisible(false);
     setIFocus(false); setNfVisible(false);
+    setSFocus(false); setYsVisible(false); setHFocus(false); setOsVisible(false);
 
     const timers = [
       // ── Phase 1: WISH letters appear ──────────────────────────────────
@@ -829,18 +834,33 @@ function WishLogoCard() {
       setTimeout(() => setSVisible(true), 1400),
       setTimeout(() => setHVisible(true), 1900),
 
-      // ── W focus: white wipes in, W zooms forward ──────────────────────
-      setTimeout(() => { setWhiteCover(true);  setWFocus(true);  },  2800),
-      setTimeout(() => setOrVisible(true),                            3300),
+      // ── W focus ───────────────────────────────────────────────────────
+      setTimeout(() => { setWhiteCover(true); setWFocus(true); },   2800),
+      setTimeout(() => setOrVisible(true),                           3300),
+      setTimeout(() => setOrVisible(false),                          4300),
+      setTimeout(() => setWFocus(false),                             4650),  // gone under white
+      setTimeout(() => setWhiteCover(false),                         4900),  // WISH revealed
 
-      // ── Retract W word (under white so no flicker) ────────────────────
-      setTimeout(() => setOrVisible(false),                           4300),
-      setTimeout(() => setWFocus(false),                              4650), // W gone while white still covers
-      setTimeout(() => setWhiteCover(false),                          4900), // white slides back → WISH revealed
+      // ── I focus ───────────────────────────────────────────────────────
+      setTimeout(() => { setWhiteCover(true); setIFocus(true); },   5600),
+      setTimeout(() => setNfVisible(true),                           6100),
+      setTimeout(() => setNfVisible(false),                          7100),
+      setTimeout(() => setIFocus(false),                             7450),  // gone under white
+      setTimeout(() => setWhiteCover(false),                         7700),  // WISH revealed
 
-      // ── I focus: white wipes in, I zooms forward ──────────────────────
-      setTimeout(() => { setWhiteCover(true);  setIFocus(true);  },  5600),
-      setTimeout(() => setNfVisible(true),                            6100),
+      // ── S focus ───────────────────────────────────────────────────────
+      setTimeout(() => { setWhiteCover(true); setSFocus(true); },   8400),
+      setTimeout(() => setYsVisible(true),                           8900),
+      setTimeout(() => setYsVisible(false),                          9900),
+      setTimeout(() => setSFocus(false),                            10250),  // gone under white
+      setTimeout(() => setWhiteCover(false),                        10500),  // WISH revealed
+
+      // ── H focus ───────────────────────────────────────────────────────
+      setTimeout(() => { setWhiteCover(true); setHFocus(true); },  11200),
+      setTimeout(() => setOsVisible(true),                          11700),
+      setTimeout(() => setOsVisible(false),                         12700),
+      setTimeout(() => setHFocus(false),                            13050),  // gone under white
+      setTimeout(() => setWhiteCover(false),                        13300),  // WISH final reveal
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
@@ -963,6 +983,20 @@ function WishLogoCard() {
             <>
               <span key="i-focus" style={focusLetterStyle}>I</span>
               <span style={restWordStyle(nfVisible)}>nformation</span>
+            </>
+          )}
+          {/* S focus */}
+          {sFocus && (
+            <>
+              <span key="s-focus" style={focusLetterStyle}>S</span>
+              <span style={restWordStyle(ysVisible)}>ystems</span>
+            </>
+          )}
+          {/* H focus */}
+          {hFocus && (
+            <>
+              <span key="h-focus" style={focusLetterStyle}>H</span>
+              <span style={restWordStyle(osVisible)}>osted</span>
             </>
           )}
         </div>
