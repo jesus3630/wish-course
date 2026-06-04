@@ -1,53 +1,82 @@
 #!/bin/sh
-# Shared pre-push hook — committed to repo so all collaborators get it.
-# Install once: git config core.hooksPath .githooks
-# (This is documented in CLAUDE.md)
+# Shared pre-push hook — committed to repo, install with:
+#   git config core.hooksPath .githooks
 
 git fetch origin main --quiet 2>/dev/null
 
-LOCAL=$(git rev-parse HEAD)
-REMOTE=$(git rev-parse origin/main 2>/dev/null)
-
-if [ "$LOCAL" != "$REMOTE" ]; then
-  BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null)
-  if [ "$BEHIND" -gt 0 ]; then
-    echo ""
-    echo "⚠️  WARNING: You are $BEHIND commit(s) behind origin/main."
-    echo "   Someone else pushed changes you don't have yet."
-    echo ""
-    echo "   Run: git pull origin main"
-    echo "   Then push again."
-    echo ""
-    exit 1
-  fi
+BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null)
+if [ "$BEHIND" -gt 0 ]; then
+  echo ""
+  echo "⚠️  You are $BEHIND commit(s) behind origin/main."
+  echo "   Run: git pull origin main — then push again."
+  echo ""
+  exit 1
 fi
 
-# ── Guard: critical mockup functions must never be removed ───────────────────
+# ── Guard: all interactive demos must be present ─────────────────────────────
 MOCKUP="client/build/mockup/mockup.html"
 FAILED=0
 
-for fn in addEditJobFormHTML showAddShiftModal showAddRolePanel closeAddShiftModal showJobTab autoFillRoleForm; do
-  if ! grep -q "function ${fn}(" "$MOCKUP" 2>/dev/null; then
-    echo "❌ MISSING from mockup: $fn"
+chk_fn() {
+  if ! grep -q "function $1(" "$MOCKUP" 2>/dev/null; then
+    echo "❌  MISSING function: $1"
     FAILED=1
   fi
-done
+}
+chk_str() {
+  if ! grep -q "$2" "$MOCKUP" 2>/dev/null; then
+    echo "❌  MISSING ($1): $2"
+    FAILED=1
+  fi
+}
 
-if ! grep -q "copy-setting-btn" "$MOCKUP" 2>/dev/null; then
-  echo "❌ MISSING: slide_manage_job_5 detailed version (copy-setting-btn)"
-  FAILED=1
-fi
+# Helper functions
+chk_fn addEditJobFormHTML
+chk_fn showAddShiftModal
+chk_fn showAddRolePanel
+chk_fn closeAddShiftModal
+chk_fn showJobTab
+chk_fn autoFillRoleForm
+chk_fn addEditEventHTML
 
-if ! grep -q "job6-link" "$MOCKUP" 2>/dev/null; then
-  echo "❌ MISSING: slide_manage_job_6 detailed version (job6-link)"
-  FAILED=1
-fi
+# manage_job slides 4/5/6
+chk_str "manage_job slide 4"  "btn-add-role"
+chk_str "manage_job slide 5"  "copy-setting-btn"
+chk_str "manage_job slide 6"  "job6-link"
+
+# scheduling
+chk_str "scheduling slide 3"  "cal-s1"
+chk_str "scheduling slide 4"  "Schedule by Job"
+
+# schedule_by_job_admin
+chk_str "schedule_by_job_admin slide 4" "jadmin-results"
+
+# sign_in_sign_out
+chk_str "sign_in_sign_out slide 4" "stab-signin"
+chk_str "sign_in_sign_out slide 5" "f-minhrs"
+
+# manual_process_hours
+chk_str "manual_process_hours slide 4" "mph-body"
+chk_str "manual_process_hours slide 5" "btn-afsi"
+
+# billing
+chk_str "billing slide 4" "btn-viewunbilled"
+chk_str "billing slide 5" "f-bill-contract"
+chk_str "billing slide 6" "bill-tabs"
+
+# introduction
+chk_str "introduction slide 9" "Unapproved Jobs"
+
+# record_maintenance
+chk_str "record_maintenance slide 4" "addEditEventHTML"
+chk_str "record_maintenance slide 5" "tab-evt-clients"
+chk_str "record_maintenance slide 6" "tab-evt-venues"
 
 if [ $FAILED -eq 1 ]; then
   echo ""
-  echo "❌ PUSH BLOCKED — interactive demos built by Jesus Gonzalez on 2026-05-28 are missing."
-  echo "   These must not be overwritten. Restore from:"
-  echo "   git show 3b4f77a:client/public/mockup/mockup.html"
+  echo "❌  PUSH BLOCKED — interactive demos built by Jesus Gonzalez are missing."
+  echo "    These must not be overwritten by collaborator merges."
+  echo "    Restore from: git show 3b4f77a:client/public/mockup/mockup.html"
   echo ""
   exit 1
 fi

@@ -12,56 +12,79 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Verify critical mockup functions are present
+      - name: Verify all interactive demos are intact
         run: |
           MOCKUP="client/build/mockup/mockup.html"
           FAILED=0
 
-          check() {
-            if ! grep -q "function $1(" "$MOCKUP"; then
-              echo "❌ MISSING: $1"
-              FAILED=1
-            else
-              echo "✅ OK: $1"
-            fi
+          ok()  { echo "✅  $1"; }
+          fail(){ echo "❌  MISSING: $1"; FAILED=1; }
+
+          check_fn() {
+            grep -q "function $1(" "$MOCKUP" && ok "$1()" || fail "$1()"
+          }
+          check_str() {
+            grep -q "$2" "$MOCKUP" && ok "$1" || fail "$1 [$2]"
           }
 
-          check addEditJobFormHTML
-          check showAddShiftModal
-          check showAddRolePanel
-          check closeAddShiftModal
-          check showJobTab
-          check autoFillRoleForm
+          echo "── Helper functions ──────────────────────────────────────────────"
+          check_fn addEditJobFormHTML
+          check_fn showAddShiftModal
+          check_fn showAddRolePanel
+          check_fn closeAddShiftModal
+          check_fn showJobTab
+          check_fn autoFillRoleForm
+          check_fn addEditEventHTML
 
-          # Verify detailed slide content (not just function presence)
-          if ! grep -q "copy-setting-btn" "$MOCKUP"; then
-            echo "❌ MISSING: slide_manage_job_5 detailed version (copy-setting-btn)"
-            FAILED=1
-          else
-            echo "✅ OK: slide_manage_job_5 detailed version"
-          fi
+          echo ""
+          echo "── manage_job slides ─────────────────────────────────────────────"
+          check_str "slide 4 (Shifts modal)"       "btn-add-role"
+          check_str "slide 5 (Copy Setting panel)" "copy-setting-btn"
+          check_str "slide 6 (cancel/delete flow)" "job6-link"
 
-          if ! grep -q "job6-link" "$MOCKUP"; then
-            echo "❌ MISSING: slide_manage_job_6 detailed version (job6-link)"
-            FAILED=1
-          else
-            echo "✅ OK: slide_manage_job_6 detailed version"
-          fi
+          echo ""
+          echo "── scheduling slides ─────────────────────────────────────────────"
+          check_str "scheduling slide 3 (calendar)"          "cal-s1"
+          check_str "scheduling slide 4 (Schedule by Job)"   "Schedule by Job"
 
-          if ! grep -q "btn-add-role.*👥\|👥.*btn-add-role\|btn-add-role" "$MOCKUP"; then
-            echo "❌ MISSING: slide_manage_job_4 detailed version (btn-add-role)"
-            FAILED=1
-          else
-            echo "✅ OK: slide_manage_job_4 detailed version"
-          fi
+          echo ""
+          echo "── schedule_by_job_admin ─────────────────────────────────────────"
+          check_str "schedule_by_job_admin slide 4"  "jadmin-results"
 
+          echo ""
+          echo "── sign_in_sign_out slides ───────────────────────────────────────"
+          check_str "sign_in_sign_out slide 4 (scan tabs)"   "stab-signin"
+          check_str "sign_in_sign_out slide 5 (min hrs)"     "f-minhrs"
+
+          echo ""
+          echo "── manual_process_hours slides ───────────────────────────────────"
+          check_str "manual_process_hours slide 4"  "mph-body"
+          check_str "manual_process_hours slide 5"  "btn-afsi"
+
+          echo ""
+          echo "── billing slides ────────────────────────────────────────────────"
+          check_str "billing slide 4 (unbilled)"    "btn-viewunbilled"
+          check_str "billing slide 5 (search form)" "f-bill-contract"
+          check_str "billing slide 6 (bill tabs)"   "bill-tabs"
+
+          echo ""
+          echo "── introduction slides ───────────────────────────────────────────"
+          check_str "introduction slide 9 (menu demo)" "Unapproved Jobs"
+
+          echo ""
+          echo "── record_maintenance slides ─────────────────────────────────────"
+          check_str "record_maintenance slide 4 (Manage Event)" "addEditEventHTML"
+          check_str "record_maintenance slide 5 (Clients tab)"  "tab-evt-clients"
+          check_str "record_maintenance slide 6 (Venues tab)"   "tab-evt-venues"
+
+          echo ""
           if [ $FAILED -eq 1 ]; then
-            echo ""
-            echo "PUSH REJECTED — critical interactive demos were removed."
-            echo "These changes were built by Jesus Gonzalez on 2026-05-28 and must not be overwritten."
+            echo "════════════════════════════════════════════════════════════════"
+            echo "PUSH REJECTED — interactive demos built by Jesus Gonzalez are missing."
+            echo "These must not be overwritten by collaborator merges."
             echo "Restore from: git show 3b4f77a:client/public/mockup/mockup.html"
+            echo "════════════════════════════════════════════════════════════════"
             exit 1
           fi
 
-          echo ""
-          echo "All critical mockup functions verified."
+          echo "All interactive demos verified. ✅"
