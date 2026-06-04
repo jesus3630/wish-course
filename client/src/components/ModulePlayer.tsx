@@ -808,21 +808,34 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 // ─── WISH Logo animation card ─────────────────────────────────────────────────
 function WishLogoCard() {
   const [wVisible, setWVisible] = useState(false);
+  const [iVisible, setIVisible] = useState(false);
 
   useEffect(() => {
     setWVisible(false);
-    const t = setTimeout(() => setWVisible(true), 200);
-    return () => clearTimeout(t);
+    setIVisible(false);
+    // W rolls in at 200ms (takes ~700ms) → I drops down at 900ms
+    const t1 = setTimeout(() => setWVisible(true), 200);
+    const t2 = setTimeout(() => setIVisible(true), 900);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
+  // W: rolls in from the left — translates + full spin
   const wStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: wVisible ? 1 : 0,
-    transform: wVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.7)',
-    transition: 'opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)',
+    transform: wVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-80px) rotate(-360deg)',
+    transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
   };
 
-  // ISH — hidden, not yet in the animation
+  // I: drops down from above with a slight bounce
+  const iStyle: React.CSSProperties = {
+    display: 'inline-block',
+    opacity: iVisible ? 1 : 0,
+    transform: iVisible ? 'translateY(0)' : 'translateY(-80px)',
+    transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
+  };
+
+  // S, H — hidden, not yet in the animation
   const hiddenStyle: React.CSSProperties = {
     display: 'inline-block',
     opacity: 0,
@@ -839,7 +852,7 @@ function WishLogoCard() {
         lineHeight: 1,
       }}>
         <span style={wStyle}>W</span>
-        <span style={hiddenStyle}>I</span>
+        <span style={iStyle}>I</span>
         <span style={hiddenStyle}>S</span>
         <span style={hiddenStyle}>H</span>
       </div>
