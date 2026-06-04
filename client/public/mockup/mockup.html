@@ -2833,108 +2833,6 @@ function slide_billing_8() {
 
 // ── Introduction ───────────────────────────────────────────────────────────
 
-function slide_introduction_5() {
-  setNav('records');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Add / Edit Job &mdash; 1163697994&nbsp;&nbsp;Diamondbacks vs Dodgers GM 1 6/1/2026</div>
-    <div style="background:#fffde7;border:1px solid #f0c040;padding:5px 10px;font-size:12px;margin-bottom:10px;color:#7a5a00;">
-      Note: All the * marked fields are mandatory
-    </div>
-    <div style="display:flex;gap:0;margin-bottom:16px;flex-wrap:wrap;">
-      <button class="btn btn-sm" style="border-radius:3px 0 0 3px;background:#e8e8e8;font-weight:bold;">Record Information</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">Job Over-rides</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">Invoice</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">Contact</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">Job Order Information</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">Shifts</button>
-      <button class="btn btn-sm" style="border-radius:0;background:#f5f5f5;">JobNotes</button>
-      <button class="btn btn-sm" style="border-radius:3px 0 0 3px;border-radius:0 3px 3px 0;background:#f5f5f5;">Credential</button>
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <tr style="height:28px;">
-        <td style="width:200px;text-align:right;padding-right:10px;color:#444;">Order Given By :</td>
-        <td><input class="form-input" style="width:220px;"></td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Order Taken Date :</td>
-        <td><input class="form-input" value="06/01/2026" style="width:100px;"></td>
-      </tr>
-      <tr id="audit-field-1" style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;font-weight:600;">Order Taken By :</td>
-        <td style="font-weight:600;color:#1a3c5a;padding-left:4px;">Quintero Matthew</td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Hours Order :</td>
-        <td><input class="form-input" style="width:80px;"></td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Hours Target :</td>
-        <td><input class="form-input" style="width:80px;"></td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Hours Processed Date :</td>
-        <td><input class="form-input" style="width:100px;"></td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Schedule Created :</td>
-        <td><input type="checkbox"></td>
-      </tr>
-      <tr style="height:28px;">
-        <td style="text-align:right;padding-right:10px;color:#444;">Job Type :</td>
-        <td>
-          <select class="form-input" style="width:160px;"><option>Regular Job</option></select>
-        </td>
-      </tr>
-    </table>
-    <div style="margin-top:16px;display:flex;gap:8px;">
-      <button class="btn">Save</button>
-      <button class="btn">Reset</button>
-      <button class="btn">Back</button>
-    </div>
-  `;
-  runGuided([
-    {
-      selector: '#audit-field-1',
-      prompt: '"Order Taken By" — WISH automatically records who created this job. You cannot change this field. If someone else used your login, their actions will appear as yours.',
-      skipClick: true,
-      onConfirm: () => {
-        setNav('scheduling');
-        document.getElementById('content').innerHTML = `
-          <div class="page-title">Job Roster &mdash; Diamondbacks vs Dodgers GM 1</div>
-          <table id="roster-table" style="width:100%;">
-            <thead>
-              <tr>
-                <th>Employee #</th>
-                <th>Name</th>
-                <th>Job Title</th>
-                <th id="scheduler-col">Scheduler</th>
-                <th>Branch Code</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td>4127518</td><td>Stephanie Battis</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4181529</td><td>Andy Brenord</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>3955404</td><td>Lissette Cartagena</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4088448</td><td>Terone Dunbar</td><td>Event Guard</td><td>Kunz Ronald</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4177054</td><td>Jorge Gutierrez Rodriguez</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>3995392</td><td>Donald Hettenbach</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4174393</td><td>MOHAMMAD KHWAJA</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4148375</td><td>Juvanda Lockhart</td><td>Supervisor</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4150623</td><td>Sunil Maheshwary-Alicea</td><td>Event Guard</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-              <tr><td>4157199</td><td>Susan Mason</td><td>Event Staff 1</td><td>Pinkowski William</td><td>182</td><td style="color:#c00;text-align:center;">✕</td></tr>
-            </tbody>
-          </table>
-        `;
-      }
-    },
-    {
-      selector: '#scheduler-col',
-      prompt: '"Scheduler" — every employee assigned to this job shows exactly who scheduled them. Your credentials are your signature on every action in WISH.',
-      skipClick: true,
-    },
-  ]);
-}
 
 function slide_introduction_6() {
   setNav('home');
@@ -3913,7 +3811,6 @@ function closeAddShiftModal() {
 
 
 const routes = {
-  'introduction-5': slide_introduction_5,
   'introduction-6': slide_introduction_6,
   'introduction-7': slide_introduction_7,
   'introduction-9': slide_introduction_9,
