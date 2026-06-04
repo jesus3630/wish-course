@@ -807,119 +807,86 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
 // ─── WISH Logo animation card ─────────────────────────────────────────────────
 function WishLogoCard() {
-  const [wVisible,    setWVisible]    = useState(false);
-  const [iVisible,    setIVisible]    = useState(false);
-  const [sVisible,    setSVisible]    = useState(false);
-  const [hVisible,    setHVisible]    = useState(false);
-  const [whiteCover,  setWhiteCover]  = useState(false);
-  const [wFocus,      setWFocus]      = useState(false);
-  const [orVisible,   setOrVisible]   = useState(false);
-  const [iFocus,      setIFocus]      = useState(false);
-  const [nfVisible,   setNfVisible]   = useState(false);
-  const [sFocus,      setSFocus]      = useState(false);
-  const [ysVisible,   setYsVisible]   = useState(false);
-  const [hFocus,      setHFocus]      = useState(false);
-  const [osVisible,   setOsVisible]   = useState(false);
-  const [waveActive,  setWaveActive]  = useState(false);
+  const [wVisible,   setWVisible]   = useState(false);
+  const [iVisible,   setIVisible]   = useState(false);
+  const [sVisible,   setSVisible]   = useState(false);
+  const [hVisible,   setHVisible]   = useState(false);
+  // Phase 2: words slide in and STAY — all accumulate
+  const [orVisible,  setOrVisible]  = useState(false); // orkforce
+  const [nfVisible,  setNfVisible]  = useState(false); // nformation
+  const [ysVisible,  setYsVisible]  = useState(false); // ystems
+  const [osVisible,  setOsVisible]  = useState(false); // osted
+  const [waveActive, setWaveActive] = useState(false);
 
   useEffect(() => {
     setWVisible(false); setIVisible(false); setSVisible(false); setHVisible(false);
-    setWhiteCover(false); setWFocus(false); setOrVisible(false);
-    setIFocus(false); setNfVisible(false);
-    setSFocus(false); setYsVisible(false); setHFocus(false); setOsVisible(false);
+    setOrVisible(false); setNfVisible(false); setYsVisible(false); setOsVisible(false);
     setWaveActive(false);
 
     const timers = [
-      // ── Phase 1: WISH letters appear ──────────────────────────────────
-      setTimeout(() => setWVisible(true),  200),
-      setTimeout(() => setIVisible(true),  900),
-      setTimeout(() => setSVisible(true), 1400),
-      setTimeout(() => setHVisible(true), 1900),
+      // ── Phase 1: letters stack in one by one ──────────────────────────
+      setTimeout(() => setWVisible(true),   200),
+      setTimeout(() => setIVisible(true),   900),
+      setTimeout(() => setSVisible(true),  1400),
+      setTimeout(() => setHVisible(true),  1900),
 
-      // ── W focus (white wipes in, stays up through all 4 letters) ──────
-      setTimeout(() => { setWhiteCover(true); setWFocus(true); },   2800),
-      setTimeout(() => setOrVisible(true),                           3300),
-      setTimeout(() => setOrVisible(false),                          5100),  // retract
-      setTimeout(() => setWFocus(false),                             5450),
+      // ── Phase 2: words slide in and STAY (accumulate row by row) ──────
+      setTimeout(() => setOrVisible(true), 2800),   // W → orkforce
+      setTimeout(() => setNfVisible(true), 3900),   // I → nformation
+      setTimeout(() => setYsVisible(true), 5000),   // S → ystems
+      setTimeout(() => setOsVisible(true), 6100),   // H → osted
 
-      // ── I focus (white already covering — just swap content) ──────────
-      setTimeout(() => setIFocus(true),                              5500),
-      setTimeout(() => setNfVisible(true),                           6000),
-      setTimeout(() => setNfVisible(false),                          7800),  // retract
-      setTimeout(() => setIFocus(false),                             8150),
-
-      // ── S focus ───────────────────────────────────────────────────────
-      setTimeout(() => setSFocus(true),                              8200),
-      setTimeout(() => setYsVisible(true),                           8700),
-      setTimeout(() => setYsVisible(false),                         10500),  // retract
-      setTimeout(() => setSFocus(false),                            10850),
-
-      // ── H focus ───────────────────────────────────────────────────────
-      setTimeout(() => setHFocus(true),                             10900),
-      setTimeout(() => setOsVisible(true),                          11400),
-      setTimeout(() => setOsVisible(false),                         13200),  // retract
-      setTimeout(() => setHFocus(false),                            13550),
-      setTimeout(() => setWhiteCover(false),                        13800),  // WISH final reveal
-
-      // ── Wave (500ms after WISH is back) ───────────────────────────────
-      setTimeout(() => setWaveActive(true),                         14300),
+      // ── Wave after all 4 rows are shown ───────────────────────────────
+      setTimeout(() => setWaveActive(true), 7600),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  // ── Phase 1 letter styles (wave overrides entrance styles once active) ──
-  const wStyle: React.CSSProperties = waveActive
+  const LTR = 'clamp(72px, 16vw, 130px)';
+  const FONT = '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif';
+
+  // Per-letter entrance styles; wave overrides them
+  const wLetterStyle: React.CSSProperties = waveActive
     ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 0ms 2' }
-    : {
-        display: 'inline-block',
-        opacity: wVisible ? 1 : 0,
-        transform: wVisible ? 'translateX(0) rotate(0deg)' : 'translateX(-80px) rotate(-360deg)',
-        transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)',
-      };
-  const iStyle: React.CSSProperties = waveActive
+    : { display: 'inline-block', opacity: wVisible ? 1 : 0,
+        transform: wVisible ? 'none' : 'translateX(-80px) rotate(-360deg)',
+        transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1)' };
+
+  const iLetterStyle: React.CSSProperties = waveActive
     ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 120ms 2' }
-    : {
-        display: 'inline-block',
-        opacity: iVisible ? 1 : 0,
-        transform: iVisible ? 'translateY(0)' : 'translateY(-80px)',
-        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)',
-      };
-  const sStyle: React.CSSProperties = waveActive
+    : { display: 'inline-block', opacity: iVisible ? 1 : 0,
+        transform: iVisible ? 'none' : 'translateY(-80px)',
+        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)' };
+
+  const sLetterStyle: React.CSSProperties = waveActive
     ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 240ms 2' }
-    : {
-        display: 'inline-block',
-        opacity: sVisible ? 1 : 0,
-        transform: sVisible ? 'translateX(0)' : 'translateX(100px)',
-        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
-      };
-  const hStyle: React.CSSProperties = waveActive
+    : { display: 'inline-block', opacity: sVisible ? 1 : 0,
+        transform: sVisible ? 'none' : 'translateX(100px)',
+        transition: 'opacity 0.45s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)' };
+
+  const hLetterStyle: React.CSSProperties = waveActive
     ? { display: 'inline-block', animation: 'wishWaveBounce 0.6s ease-in-out 360ms 2' }
     : hVisible
       ? { display: 'inline-block', animation: 'wishSlamIn 0.45s forwards' }
       : { display: 'inline-block', opacity: 0 };
 
-  // ── Shared focus overlay styles ──────────────────────────────────────
-  const focusLetterStyle: React.CSSProperties = {
-    display: 'inline-block',
-    fontSize: 'clamp(72px, 16vw, 130px)',
-    fontWeight: 900,
-    fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
-    color: '#D4782A',
-    lineHeight: 1,
-    animation: 'wishLetterForward 0.55s cubic-bezier(0.22,1,0.36,1) forwards',
-  };
   const restWordStyle = (visible: boolean): React.CSSProperties => ({
     display: 'inline-block',
     fontSize: 'clamp(32px, 7vw, 58px)',
     fontWeight: 900,
-    fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+    fontFamily: FONT,
     color: '#1B3A6B',
     lineHeight: 1,
     paddingBottom: '6px',
     opacity: visible ? 1 : 0,
-    transform: visible ? 'translateX(0)' : 'translateX(-18px)',
+    transform: visible ? 'translateX(0)' : 'translateX(-20px)',
     transition: 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
   });
+
+  const letterBaseStyle = {
+    fontSize: LTR, fontWeight: 900, fontFamily: FONT,
+    color: '#D4782A', lineHeight: 1,
+  };
 
   return (
     <>
@@ -930,11 +897,6 @@ function WishLogoCard() {
           75%  { transform: scale(1.07); }
           100% { transform: scale(1); }
         }
-        @keyframes wishLetterForward {
-          0%   { transform: scale(0.55); opacity: 0; }
-          65%  { transform: scale(1.10); opacity: 1; }
-          100% { transform: scale(1);    opacity: 1; }
-        }
         @keyframes wishWaveBounce {
           0%   { transform: translateY(0); }
           35%  { transform: translateY(-26px); }
@@ -943,80 +905,35 @@ function WishLogoCard() {
         }
       `}</style>
 
-      <div style={{
-        position: 'relative',
-        textAlign: 'center',
-        padding: '32px 16px 12px',
-        userSelect: 'none',
-        overflow: 'hidden',
-      }}>
+      <div style={{ textAlign: 'center', padding: '32px 16px 12px', userSelect: 'none' }}>
+        {/* All 4 rows always in DOM — letters animate in, words slide in and stay */}
+        <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '6px' }}>
 
-        {/* ── Phase 1: WISH letters (always in DOM, revealed when white recedes) ── */}
-        <div style={{
-          fontSize: 'clamp(72px, 16vw, 130px)',
-          fontWeight: 900,
-          fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
-          color: '#D4782A',
-          letterSpacing: '0.06em',
-          lineHeight: 1,
-        }}>
-          <span style={wStyle}>W</span>
-          <span style={iStyle}>I</span>
-          <span style={sStyle}>S</span>
-          <span style={hStyle}>H</span>
+          {/* W — orkforce */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span style={{ ...letterBaseStyle, ...wLetterStyle }}>W</span>
+            <span style={restWordStyle(orVisible)}>orkforce</span>
+          </div>
+
+          {/* I — nformation */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span style={{ ...letterBaseStyle, ...iLetterStyle }}>I</span>
+            <span style={restWordStyle(nfVisible)}>nformation</span>
+          </div>
+
+          {/* S — ystems */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span style={{ ...letterBaseStyle, ...sLetterStyle }}>S</span>
+            <span style={restWordStyle(ysVisible)}>ystems</span>
+          </div>
+
+          {/* H — osted */}
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
+            <span style={{ ...letterBaseStyle, ...hLetterStyle }}>H</span>
+            <span style={restWordStyle(osVisible)}>osted</span>
+          </div>
+
         </div>
-
-        {/* ── White wipe panel (z-index 1) ── */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0, bottom: 0,
-          background: 'white',
-          zIndex: 1,
-          transform: whiteCover ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)',
-        }} />
-
-        {/* ── Focus overlay: W-word or I-word (z-index 2, above white) ── */}
-        <div style={{
-          position: 'absolute',
-          top: 0, left: 0, right: 0, bottom: 0,
-          display: 'flex',
-          alignItems: 'baseline',
-          justifyContent: 'center',
-          gap: '4px',
-          zIndex: 2,
-          pointerEvents: 'none',
-        }}>
-          {/* W focus */}
-          {wFocus && (
-            <>
-              <span key="w-focus" style={focusLetterStyle}>W</span>
-              <span style={restWordStyle(orVisible)}>orkforce</span>
-            </>
-          )}
-          {/* I focus */}
-          {iFocus && (
-            <>
-              <span key="i-focus" style={focusLetterStyle}>I</span>
-              <span style={restWordStyle(nfVisible)}>nformation</span>
-            </>
-          )}
-          {/* S focus */}
-          {sFocus && (
-            <>
-              <span key="s-focus" style={focusLetterStyle}>S</span>
-              <span style={restWordStyle(ysVisible)}>ystems</span>
-            </>
-          )}
-          {/* H focus */}
-          {hFocus && (
-            <>
-              <span key="h-focus" style={focusLetterStyle}>H</span>
-              <span style={restWordStyle(osVisible)}>osted</span>
-            </>
-          )}
-        </div>
-
       </div>
     </>
   );
