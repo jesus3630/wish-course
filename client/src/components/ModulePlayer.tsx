@@ -807,23 +807,26 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
 // ─── WISH Logo animation card ─────────────────────────────────────────────────
 function WishLogoCard() {
-  const [step, setStep] = useState(-1);
+  const [wVisible, setWVisible] = useState(false);
 
   useEffect(() => {
-    setStep(-1);
-    // W at 200ms, I at 400ms, S at 600ms, H at 800ms
-    const timers = [200, 400, 600, 800].map((ms, i) =>
-      setTimeout(() => setStep(i), ms)
-    );
-    return () => timers.forEach(clearTimeout);
+    setWVisible(false);
+    const t = setTimeout(() => setWVisible(true), 200);
+    return () => clearTimeout(t);
   }, []);
 
-  const letterStyle = (i: number): React.CSSProperties => ({
+  const wStyle: React.CSSProperties = {
     display: 'inline-block',
-    opacity: step >= i ? 1 : 0,
-    transform: step >= i ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.7)',
+    opacity: wVisible ? 1 : 0,
+    transform: wVisible ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.7)',
     transition: 'opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)',
-  });
+  };
+
+  // ISH — hidden, not yet in the animation
+  const hiddenStyle: React.CSSProperties = {
+    display: 'inline-block',
+    opacity: 0,
+  };
 
   return (
     <div style={{ textAlign: 'center', padding: '32px 0 12px', userSelect: 'none' }}>
@@ -835,9 +838,10 @@ function WishLogoCard() {
         letterSpacing: '0.06em',
         lineHeight: 1,
       }}>
-        {['W','I','S','H'].map((letter, i) => (
-          <span key={letter} style={letterStyle(i)}>{letter}</span>
-        ))}
+        <span style={wStyle}>W</span>
+        <span style={hiddenStyle}>I</span>
+        <span style={hiddenStyle}>S</span>
+        <span style={hiddenStyle}>H</span>
       </div>
     </div>
   );
