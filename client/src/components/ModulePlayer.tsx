@@ -641,6 +641,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               </div>
 
               {(slide as any)?.acronym_card && <WishAcronymCard />}
+              {(slide as any)?.wish_logo_card && <WishLogoCard />}
               {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
               {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
 
@@ -799,6 +800,44 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             {isLastSlide ? 'Complete ✓' : 'Next →'}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── WISH Logo animation card ─────────────────────────────────────────────────
+function WishLogoCard() {
+  const [step, setStep] = useState(-1);
+
+  useEffect(() => {
+    setStep(-1);
+    // W at 200ms, I at 400ms, S at 600ms, H at 800ms
+    const timers = [200, 400, 600, 800].map((ms, i) =>
+      setTimeout(() => setStep(i), ms)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  const letterStyle = (i: number): React.CSSProperties => ({
+    display: 'inline-block',
+    opacity: step >= i ? 1 : 0,
+    transform: step >= i ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.7)',
+    transition: 'opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)',
+  });
+
+  return (
+    <div style={{ textAlign: 'center', padding: '32px 0 12px', userSelect: 'none' }}>
+      <div style={{
+        fontSize: 'clamp(72px, 16vw, 130px)',
+        fontWeight: 900,
+        fontFamily: '"Arial Black", "Arial Bold", "Helvetica Neue", sans-serif',
+        color: '#D4782A',
+        letterSpacing: '0.06em',
+        lineHeight: 1,
+      }}>
+        {['W','I','S','H'].map((letter, i) => (
+          <span key={letter} style={letterStyle(i)}>{letter}</span>
+        ))}
       </div>
     </div>
   );
