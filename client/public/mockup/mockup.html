@@ -217,7 +217,7 @@ tr:hover td{background:#f8f4f0;}
     <div class="nav-sub" id="sub-scheduling">
       <span class="nav-sub-item">Schedule by Employee</span>
       <span class="nav-sub-item">Schedule by Job</span>
-      <span class="nav-sub-item">Schedule by Job Admin</span>
+      <span class="nav-sub-item" id="sub-sched-jadmin">Schedule by Job Admin</span>
       <span class="nav-sub-item">Mail By</span>
     </div>
 
@@ -1261,24 +1261,81 @@ function slide_scheduling_4() {
 
 // ── Schedule by Job Admin ──────────────────────────────────────────────────
 function slide_schedule_by_job_admin_4() {
-  setNav('scheduling');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Schedule by Job Admin</div>
-    <div style="display:flex;gap:16px;margin-bottom:10px;align-items:flex-end">
-      <div><label>Job# :</label><br><input class="form-input" id="f-jadmin" style="width:120px"></div>
-      <div><label>Role :</label><br><select class="form-select" style="width:150px"><option>Event Staff</option><option>Supervisor</option></select></div>
-      <button class="btn" id="btn-jadmin">Search</button>
-    </div>
-    <div id="jadmin-results" style="display:none">
-      <table><thead><tr><th>Select</th><th>Last Name</th><th>First Name</th><th>Emp#</th><th>Status</th><th>Scheduled</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" id="jac1"></td><td>Smith</td><td>John</td><td>4122001</td><td>Active</td><td>&#8212;</td></tr>
-        <tr style="background:#fff8e0"><td><input type="checkbox" id="jac2"></td><td>Garcia</td><td>Maria</td><td>4122002</td><td>Active</td><td><span style="color:#2a9a2a">&#10004; Scheduled</span></td></tr>
-        <tr><td><input type="checkbox" id="jac3"></td><td>Johnson</td><td>Robert</td><td>4122003</td><td>Active</td><td>&#8212;</td></tr>
-      </tbody></table>
-      <div style="margin-top:10px"><button class="btn" id="btn-jacsave">Save</button></div>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060426 NGA</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/4/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/4/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/4/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Z6 06 04 Fiesta Load In</td><td>Pensacola Bay Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/4/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>ASAP Rocky Concert 6/4</td><td>Xfinity Mobile Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/4/2026</td><td>Iowa Events Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Compton USD HS Graduation</td><td>Galen Event Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Diamondbacks vs Dodgers GM 4 6/4/2026</td><td>Chase Field</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
+    // ── Step 1: Observe the dashboard ──────────────────────────────────────
+    { selector: '#nav-scheduling', prompt: 'This is the WISH home dashboard. Locate "Scheduling" in the left navigation menu.', skipClick: true },
+
+    // ── Step 2: Click Scheduling to expand submenu ─────────────────────────
+    { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" to expand its submenu',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.add('active');
+        document.getElementById('sub-scheduling').classList.add('show');
+      }},
+
+    // ── Step 3: Click Schedule by Job Admin → load the form ───────────────
+    { selector: '#sub-sched-jadmin', prompt: 'Click "Schedule by Job Admin"',
+      onConfirm: () => {
+        document.getElementById('nav-scheduling').classList.remove('active');
+        document.getElementById('sub-scheduling').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Schedule by Job Admin</div>
+          <div style="display:flex;gap:16px;margin-bottom:10px;align-items:flex-end">
+            <div><label>Job# :</label><br><input class="form-input" id="f-jadmin" style="width:120px"></div>
+            <div><label>Role :</label><br><select class="form-select" style="width:150px"><option>Event Staff</option><option>Supervisor</option></select></div>
+            <button class="btn" id="btn-jadmin">Search</button>
+          </div>
+          <div id="jadmin-results" style="display:none">
+            <table><thead><tr><th>Select</th><th>Last Name</th><th>First Name</th><th>Emp#</th><th>Status</th><th>Scheduled</th></tr></thead>
+            <tbody>
+              <tr><td><input type="checkbox" id="jac1"></td><td>Smith</td><td>John</td><td>4122001</td><td>Active</td><td>&#8212;</td></tr>
+              <tr style="background:#fff8e0"><td><input type="checkbox" id="jac2"></td><td>Garcia</td><td>Maria</td><td>4122002</td><td>Active</td><td><span style="color:#2a9a2a">&#10004; Scheduled</span></td></tr>
+              <tr><td><input type="checkbox" id="jac3"></td><td>Johnson</td><td>Robert</td><td>4122003</td><td>Active</td><td>&#8212;</td></tr>
+            </tbody></table>
+            <div style="margin-top:10px"><button class="btn" id="btn-jacsave">Save</button></div>
+          </div>`;
+      }},
+
+    // ── Existing steps ─────────────────────────────────────────────────────
     { selector: '#f-jadmin', prompt: 'Click here and type the Job Number', type: '12345' },
     { selector: '#btn-jadmin', prompt: 'Click "Search" to find employees for this job',
       onConfirm: () => { document.getElementById('jadmin-results').style.display = ''; }},
