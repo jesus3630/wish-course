@@ -2945,6 +2945,24 @@ function slide_introduction_6() {
 
 function slide_introduction_7() {
   setNav('home');
+  // Pulse-zoom the welcome button so users know where to click
+  const styleId = 'welcome-pulse-style';
+  if (!document.getElementById(styleId)) {
+    const s = document.createElement('style');
+    s.id = styleId;
+    s.textContent = `
+      @keyframes welcomePulse {
+        0%,100% { box-shadow: 0 0 0 0 rgba(212,120,42,0.9), 0 0 0 0 rgba(212,120,42,0.5); transform: scale(1); }
+        50%      { box-shadow: 0 0 0 6px rgba(212,120,42,0.4), 0 0 0 12px rgba(212,120,42,0.15); transform: scale(1.12); }
+      }
+      #btn-welcome.pulsing { animation: welcomePulse 1.2s ease-in-out infinite; outline: 2px solid #D4782A; }
+    `;
+    document.head.appendChild(s);
+  }
+  setTimeout(() => {
+    const btn = document.getElementById('btn-welcome');
+    if (btn) btn.classList.add('pulsing');
+  }, 300);
   document.getElementById('content').innerHTML = `
     <div class="page-title">Broadcast Messages</div>
     <div style="margin-bottom:10px;"><span style="font-size:12px;color:#444;">Search :</span><input class="form-input" style="margin-left:6px;width:200px;"></div>
@@ -2966,7 +2984,8 @@ function slide_introduction_7() {
       selector: '#btn-welcome',
       prompt: 'Click your name in the top right to open the menu',
       onConfirm: () => {
-        // Delay so btn's own onclick toggle fires first, then we force it open
+        const btn = document.getElementById('btn-welcome');
+        if (btn) btn.classList.remove('pulsing');
         setTimeout(() => document.getElementById('welcome-dropdown').classList.add('show'), 0);
       }
     },
