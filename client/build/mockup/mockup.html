@@ -2273,6 +2273,80 @@ function slide_sign_in_sign_out_3() {
         // Update SC column to 5 (blue)
         document.getElementById('signin-sc').innerHTML = '<span style="color:#3a6aaa;font-weight:bold">5</span>';
       }},
+
+    // ── Step 14: Click Ok again → Manage SignInDetails screen ─────────────
+    { selector: '#btn-signin-ok', prompt: 'Click "Ok" to view the Sign-In details',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:16px">Manage SignInDetails</div>
+          <table style="border:none">
+            <tbody>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333;white-space:nowrap">No of Sign Ins :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="1" style="width:120px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Job# :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="5023705541" style="width:120px;font-size:12px;color:#3a6aaa"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Job Name :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="Drake Job" style="width:180px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Shift # :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="1" style="width:120px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Shift Name :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="Staff One Call" style="width:180px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Role Name :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="Event Staff" style="width:180px;font-size:12px;color:#3a6aaa"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Employee# :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="3951664" style="width:120px;font-size:12px;color:#3a6aaa"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Employee Name :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="Shiny Banik" style="width:180px;font-size:12px;color:#3a6aaa"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Shift Start Time :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="8/15/2026 8:00:00 AM" style="width:200px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Shift End Time :</td>
+                <td style="padding:3px 6px"><input class="form-input" value="8/15/2026 5:00:00 PM" style="width:200px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Sign In Time :</td>
+                <td style="padding:3px 6px;display:flex;align-items:center;gap:4px">
+                  <input class="form-input" value="08/15/2026" style="width:90px;font-size:12px">
+                  ${calBtn('sic-cal')}
+                  ${timeSpinner('sic-time','08:00')}
+                  <span style="color:red;font-weight:bold">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333">Jacket :</td>
+                <td style="padding:3px 6px"><input class="form-input" style="width:200px;font-size:12px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:12px;color:#333;vertical-align:top;padding-top:6px">Remarks :</td>
+                <td style="padding:3px 6px"><textarea class="form-input" style="width:200px;height:50px;font-size:12px;resize:none"></textarea></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="display:flex;gap:8px;margin-top:14px;margin-left:120px">
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Ok</button>
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Pause</button>
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Cancel</button>
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Correction</button>
+          </div>`;
+      }},
   ]);
 }
 
