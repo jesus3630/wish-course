@@ -178,7 +178,13 @@ tr:hover td{background:#f8f4f0;}
     <a class="nav-item" id="nav-inventory">
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><rect x="2" y="3" width="22" height="20" rx="1.5" fill="#d08030"/><line x1="2" y1="9" x2="24" y2="9" stroke="#a05010" stroke-width="1.2"/><line x1="2" y1="15" x2="24" y2="15" stroke="#a05010" stroke-width="1.2"/><line x1="9" y1="3" x2="9" y2="23" stroke="#a05010" stroke-width="1.2"/><line x1="17" y1="3" x2="17" y2="23" stroke="#a05010" stroke-width="1.2"/></svg></span>Inventory
     </a>
-    <div class="nav-sub" id="sub-inventory"></div>
+    <div class="nav-sub" id="sub-inventory">
+      <span class="nav-sub-item" id="sub-inv-asset">Manage Asset Tag</span>
+      <span class="nav-sub-item" id="sub-inv-creation">Item Creation</span>
+      <span class="nav-sub-item" id="sub-inv-jobequip">Item Job Equipment</span>
+      <span class="nav-sub-item" id="sub-inv-cicorpt">Check-In Check-Out Report</span>
+      <span class="nav-sub-item" id="sub-inv-cico">Check-In Check-Out</span>
+    </div>
 
     <a class="nav-item" id="nav-records">
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><path d="M3 9 L3 23 Q3 24 4 24 L22 24 Q23 24 23 23 L23 11 L16 11 L16 9 Z" fill="#4a88d8"/><path d="M3 9 L10 9 L10 6 Q10 5 11 5 L22 5 L22 11 L16 11 L16 9 Z" fill="#6aaae8"/><line x1="7" y1="15" x2="19" y2="15" stroke="#fff" stroke-width="1.3" opacity=".9"/><line x1="7" y1="18.5" x2="16" y2="18.5" stroke="#fff" stroke-width="1.3" opacity=".9"/></svg></span>Records
@@ -226,6 +232,8 @@ tr:hover td{background:#f8f4f0;}
     </a>
     <div class="nav-sub" id="sub-payroll">
       <span class="nav-sub-item">Manage Process Hours</span>
+      <span class="nav-sub-item">Sign-Out Exceptions</span>
+      <span class="nav-sub-item">Process Payroll</span>
       <span class="nav-sub-item">Payroll Export</span>
     </div>
 
@@ -243,8 +251,30 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="4.5" fill="#d8a800"/><path d="M13 1.5v4M13 20.5v4M1.5 13h4M20.5 13h4M4.3 4.3l2.8 2.8M18.9 18.9l2.8 2.8M4.3 21.7l2.8-2.8M18.9 7.1l2.8-2.8" stroke="#e8c010" stroke-width="3" stroke-linecap="round"/><circle cx="13" cy="13" r="2.5" fill="#f0d040"/></svg></span>Tools
     </a>
     <div class="nav-sub" id="sub-tools">
-      <span class="nav-sub-item">Manager Portal</span>
-      <span class="nav-sub-item">Import from Hiring Portal</span>
+      <span class="nav-sub-item">Assign Job Training</span>
+      <span class="nav-sub-item">Assign Employee Credential</span>
+      <span class="nav-sub-item">Assign Employee Access</span>
+      <span class="nav-sub-item">Update Database Template</span>
+      <span class="nav-sub-item">Import Data</span>
+      <span class="nav-sub-item">Upload Offline Data</span>
+      <span class="nav-sub-item">Manage Duty</span>
+      <span class="nav-sub-item">Manage Scheduling Area</span>
+      <span class="nav-sub-item">Manage Job title</span>
+      <span class="nav-sub-item">Manage Master Type</span>
+      <span class="nav-sub-item">Mail By Employee</span>
+      <span class="nav-sub-item">Manage Notifications</span>
+      <span class="nav-sub-item">Mail By Available Employee</span>
+      <span class="nav-sub-item">Mail By Job</span>
+      <span class="nav-sub-item">Import From Hiring portal</span>
+      <span class="nav-sub-item">Import PayRate</span>
+      <span class="nav-sub-item" id="sub-tools-mss">Manager Portal(MSS)</span>
+      <span class="nav-sub-item">Manager Portal(NEW MSS)</span>
+      <span class="nav-sub-item">Employee Portal(ESS)</span>
+      <span class="nav-sub-item">Hiring Portal External Link</span>
+      <span class="nav-sub-item">Hiring Portal Admin Link</span>
+      <span class="nav-sub-item">Manage Support</span>
+      <span class="nav-sub-item">Import Sub-Contractor</span>
+      <span class="nav-sub-item">Employee Info</span>
     </div>
 
     <a class="nav-item" id="nav-home">
@@ -1082,23 +1112,28 @@ function slide_manage_job_9() {
 
 // ── MSS ────────────────────────────────────────────────────────────────────
 function slide_mss_3() {
-  setNav('tools');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manager Portal</div>
-    <div class="tabs">
-      <span class="tab active" id="tab-events">Events</span>
-      <span class="tab" id="tab-webshift">Web Shift</span>
-      <span class="tab" id="tab-wsa">Web Shift Approval</span>
-    </div>
-    <table><thead><tr><th>Event Name</th><th>Job#</th><th>Date</th><th>Venue</th><th>Scheduled</th><th>Confirmed</th><th id="var-col" style="background:#c06820">Variance</th></tr></thead>
-    <tbody>
-      <tr><td>2023 DRAKE</td><td>1012698342</td><td>08/15/2023</td><td>The Forum</td><td>45</td><td>42</td><td style="color:#c00;font-weight:bold">-3</td></tr>
-      <tr><td>BEYONCE TOUR</td><td>1012698123</td><td>07/20/2023</td><td>SoFi Stadium</td><td>120</td><td>120</td><td style="color:#2a9a2a">0</td></tr>
-      <tr><td>LA CLIPPERS</td><td>1012697980</td><td>06/10/2023</td><td>Crypto.com Arena</td><td>30</td><td>28</td><td style="color:#c00;font-weight:bold">-2</td></tr>
-      <tr><td>TAYLOR SWIFT</td><td>1012697855</td><td>08/03/2023</td><td>SoFi Stadium</td><td>200</td><td>195</td><td style="color:#c00;font-weight:bold">-5</td></tr>
-    </tbody></table>`;
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#var-col', prompt: 'Review the Variance column — negative numbers show under-staffed events. Click to continue.', skipClick: true },
+    { selector: '#nav-tools', prompt: 'Click "Tools" in the sidebar to expand the Tools menu',
+      onConfirm: () => { setNav('tools'); document.getElementById('content').innerHTML = homeScreenHTML(); }},
+    { selector: '#sub-tools-mss', prompt: 'Scroll down in the Tools menu and click "Manager Portal(MSS)"',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Manager Portal</div>
+          <div class="tabs">
+            <span class="tab active" id="tab-events">Events</span>
+            <span class="tab" id="tab-webshift">Web Shift</span>
+            <span class="tab" id="tab-wsa">Web Shift Approval</span>
+          </div>
+          <table><thead><tr><th>Event Name</th><th>Job#</th><th>Date</th><th>Venue</th><th>Scheduled</th><th>Confirmed</th><th id="var-col" style="background:#c06820">Variance</th></tr></thead>
+          <tbody>
+            <tr><td>2026 DRAKE CONCERT</td><td>1012698342</td><td>08/15/2026</td><td>The Forum</td><td>45</td><td>42</td><td style="color:#c00;font-weight:bold">-3</td></tr>
+            <tr><td>AB CONVENTION EVENT</td><td>1012698123</td><td>07/20/2026</td><td>AB Convention Center</td><td>120</td><td>120</td><td style="color:#2a9a2a">0</td></tr>
+            <tr><td>GRAND BELL ARENA</td><td>1012697980</td><td>06/10/2026</td><td>Grand Bell Arena</td><td>30</td><td>28</td><td style="color:#c00;font-weight:bold">-2</td></tr>
+          </tbody></table>`;
+      }},
+    { selector: '#var-col', prompt: 'The Variance column shows the difference between scheduled and confirmed staff. Negative numbers mean under-staffed events that need attention.', skipClick: true },
   ]);
 }
 
@@ -1624,7 +1659,7 @@ function slide_schedule_by_job_admin_4() {
 
 // ── Reports ────────────────────────────────────────────────────────────────
 function reportsHTML(activeSection, reportList) {
-  const sections = ['Job Administration','Employee Administration','Payroll','Billing','Admin'];
+  const sections = ['Job Administration','Summary Roster','Detailed Roster','Payroll Reports','Billing Reports','Manager Reports'];
   return `<div class="page-title">Reports</div>
     <div style="display:flex;gap:0;height:480px">
       <div style="width:200px;border-right:1px solid #ccc">
@@ -2835,57 +2870,6 @@ function addEditEventHTML(eventNum, eventName, showTabs) {
 }
 
 // Slide 3 — Record Hierarchy
-function slide_record_maintenance_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Record Hierarchy</div>
-    <div style="padding:10px 0 0 0;font-size:12px;color:#555;margin-bottom:14px">
-      Everything in WISH follows a strict hierarchy. Each level must exist before the one below it can be created.
-    </div>
-    <div style="padding:0 10px">
-      <div style="background:#3a6aaa;color:#fff;padding:9px 16px;border-radius:4px;margin-bottom:3px;font-weight:bold;font-size:13px;">
-        🏢 Company &amp; Branch — Already created (CSC + all locations)
-      </div>
-      <div style="margin-left:28px;border-left:3px solid #ccc;padding-left:12px">
-        <div id="h-event" style="background:#2a8a3a;color:#fff;padding:9px 16px;border-radius:4px;margin:6px 0 3px;font-weight:bold;font-size:13px;opacity:.35;cursor:pointer;">
-          1️⃣ &nbsp;Event — Must exist first
-        </div>
-        <div style="margin-left:28px;border-left:3px solid #ccc;padding-left:12px">
-          <div id="h-job" style="background:#e07820;color:#fff;padding:9px 16px;border-radius:4px;margin:6px 0 3px;font-weight:bold;font-size:13px;opacity:.35;cursor:pointer;">
-            2️⃣ &nbsp;Job — Created under an Event
-          </div>
-          <div style="margin-left:28px;border-left:3px solid #ccc;padding-left:12px">
-            <div id="h-shift" style="background:#7a4aaa;color:#fff;padding:9px 16px;border-radius:4px;margin:6px 0 3px;font-weight:bold;font-size:13px;opacity:.35;cursor:pointer;">
-              3️⃣ &nbsp;Shift — Created under a Job
-            </div>
-            <div style="margin-left:28px;border-left:3px solid #ccc;padding-left:12px">
-              <div id="h-role" style="background:#c83030;color:#fff;padding:9px 16px;border-radius:4px;margin:6px 0 3px;font-weight:bold;font-size:13px;opacity:.35;cursor:pointer;">
-                4️⃣ &nbsp;Role — Created under a Shift
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="h-note" style="display:none;background:#fff8e0;border:1px solid #d0a000;padding:9px 12px;margin-top:14px;border-radius:3px;font-size:12px;color:#664400;">
-      ⚠️ <strong>To delete:</strong> work in reverse — remove Roles first, then Shifts, then Jobs, then the Event. WISH will not let you skip a level.
-    </div>`;
-  runGuided([
-    { selector: '#h-event', prompt: 'Start here: create the Event first. Nothing else can exist without it.',
-      onConfirm: () => { document.getElementById('h-event').style.opacity = '1'; }},
-    { selector: '#h-job', prompt: 'Next: create a Job under that Event.',
-      onConfirm: () => { document.getElementById('h-job').style.opacity = '1'; }},
-    { selector: '#h-shift', prompt: 'Then: add a Shift under the Job.',
-      onConfirm: () => { document.getElementById('h-shift').style.opacity = '1'; }},
-    { selector: '#h-role', prompt: 'Finally: add a Role under the Shift.',
-      onConfirm: () => {
-        document.getElementById('h-role').style.opacity = '1';
-        document.getElementById('h-note').style.display = 'block';
-      }},
-    { selector: '#h-note', prompt: 'Remember — when deleting, reverse the order: Role → Shift → Job → Event.', skipClick: true },
-  ]);
-}
-
 // Slide 4 — Manage Event (create)
 function slide_record_maintenance_4() {
   setNav('records');
@@ -3610,6 +3594,672 @@ function closeAddShiftModal() {
 
 // ── ESS / Employee Self-Service ────────────────────────────────────────────
 
+// ── Home screen helper ────────────────────────────────────────────────────
+
+function homeScreenHTML() {
+  return `
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div>
+        <div style="background:#5a5a5a;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold;margin-bottom:0">Unapproved Jobs</div>
+        <table style="width:100%"><thead><tr><th>Job</th><th>Venue</th></tr></thead>
+        <tbody>
+          <tr><td><a style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</a></td><td>Grand Bell Arena</td></tr>
+          <tr><td><a style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</a></td><td>Crocket Arena</td></tr>
+          <tr><td><a style="color:#3a6aaa">Grant Sands WISH Job June 2026</a></td><td>Crocket Arena</td></tr>
+          <tr><td><a style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/30/2026</a></td><td>Grand Bell Arena</td></tr>
+        </tbody></table>
+        <div style="background:#f4f4f4;border:1px solid #ddd;padding:4px 8px;font-size:11px;display:flex;justify-content:space-between">
+          <span>Total Pages: 1</span><span>Current Page: 1</span>
+        </div>
+      </div>
+      <div>
+        <div style="background:#5a5a5a;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold">Today&#39;s Sign-In</div>
+        <table style="width:100%"><thead><tr><th>Job</th><th>Venue</th></tr></thead>
+        <tbody>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060726 NGA</span></td><td>ORANGE CO. CONVENTION CENTER</td></tr>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060826 7x24 Exchange</span></td><td>MISC ORL. VENUES</td></tr>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060826 LA Goodwill Interviews</span></td><td>Los Angeles Goodwill</td></tr>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060826 NAMB</span></td><td>ORANGE CO. CONVENTION CENTER</td></tr>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060826 NGA</span></td><td>ORANGE CO. CONVENTION CENTER</td></tr>
+          <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060826 Sheraton-One Magical Weekend</span></td><td>MISC ORL. VENUES</td></tr>
+        </tbody></table>
+        <div style="background:#f4f4f4;border:1px solid #ddd;padding:4px 8px;font-size:11px;display:flex;justify-content:space-between">
+          <span>Total Pages: 7</span><span>Current Page: 1</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ── Payroll Processing ────────────────────────────────────────────────────
+
+function slide_payroll_processing_2() {
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-payroll', prompt: 'Click "Payroll" in the sidebar to open the Payroll menu',
+      onConfirm: () => {
+        setNav('payroll');
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Payroll</div>
+          <div style="color:#555;font-size:13px;margin-bottom:14px">Select an option from the Payroll menu on the left.</div>
+          <div style="display:flex;flex-direction:column;gap:8px;max-width:320px">
+            <div id="pp-menu-mph" style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#fff8f0;cursor:pointer">
+              <div style="font-weight:bold;color:#c07800">Manage Process Hours</div>
+              <div style="font-size:11px;color:#666;margin-top:2px">Review and approve employee hours after an event</div>
+            </div>
+            <div style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#f9f9f9">
+              <div style="font-weight:bold;color:#555">Sign-Out Exceptions</div>
+              <div style="font-size:11px;color:#666;margin-top:2px">Flag overlapping hours before running payroll</div>
+            </div>
+            <div style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#f9f9f9">
+              <div style="font-weight:bold;color:#555">Process Payroll</div>
+              <div style="font-size:11px;color:#666;margin-top:2px">Finalize and submit payroll for a pay period</div>
+            </div>
+          </div>`;
+      }},
+    { selector: '#pp-menu-mph', prompt: 'In this module you will work through all three steps. Click "Manage Process Hours" to begin.', skipClick: true },
+  ]);
+}
+
+function slide_payroll_processing_3() {
+  setNav('payroll');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Process Hours</div>
+    <div class="form-row"><span class="form-label">Start Date :</span>
+      <input class="form-input" id="f-pp-date" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">Event :</span>
+      <select class="form-select" id="f-pp-event"><option>--Select Event--</option><option>2026 DRAKE CONCERT</option></select>
+      <span style="color:#c00">*</span></div>
+    <div style="margin:10px 0 10px 160px"><button class="btn" id="btn-pp-search">Search</button></div>
+    <div id="pp-results" style="display:none">
+      <table><thead><tr><th>Job#</th><th>Job Name</th><th>Shift</th><th>Role</th><th>Date</th><th>Sign-In</th><th>Sign-Out</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><a style="color:#3a6aaa;cursor:pointer" id="pp-job-link">1012698342</a></td><td>DRAKE N3</td><td>Day Shift</td><td>Event Staff</td><td>08/15/2026</td><td style="color:#c00">0 / 45</td><td style="color:#c00">0 / 45</td><td>Pending</td></tr>
+        <tr><td><a style="color:#3a6aaa">1012698343</a></td><td>DRAKE N3</td><td>Day Shift</td><td>Supervisor</td><td>08/15/2026</td><td>2 / 2</td><td>2 / 2</td><td>&#10004; Approved</td></tr>
+      </tbody></table>
+    </div>`;
+  runGuided([
+    { selector: '#f-pp-event', prompt: 'Select your Event from the dropdown',
+      onConfirm: () => { document.getElementById('f-pp-event').value = '2026 DRAKE CONCERT'; }},
+    { selector: '#btn-pp-search', prompt: 'Click Search to load the shift list',
+      onConfirm: () => { document.getElementById('pp-results').style.display = ''; }},
+    { selector: '#pp-job-link', prompt: 'Click the Job# to open the shift and review employee hours', skipClick: true },
+  ]);
+}
+
+function slide_payroll_processing_4() {
+  setNav('payroll');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
+    <div style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap">
+      <button class="btn btn-sm btn-green" id="btn-pp-afsi">Autofill Sign-In</button>
+      <button class="btn btn-sm btn-blue" id="btn-pp-afso">Autofill Sign-Out</button>
+    </div>
+    <div id="pp-af-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-bottom:8px;display:none;font-size:12px">&#10004; Times filled from scheduled shift times. Employees with existing times were not overwritten.</div>
+    <table><thead><tr><th>Employee</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th></tr></thead>
+    <tbody>
+      <tr><td>Garcia, Maria</td><td>08:00</td><td>12:30</td><td id="pp-si0">&#8212;</td><td id="pp-so0">&#8212;</td></tr>
+      <tr><td>Smith, John</td><td>08:00</td><td>12:30</td><td id="pp-si1">08:05 AM</td><td id="pp-so1">&#8212;</td></tr>
+      <tr><td>Johnson, Robert</td><td>08:00</td><td>12:30</td><td id="pp-si2">&#8212;</td><td id="pp-so2">&#8212;</td></tr>
+    </tbody></table>`;
+  runGuided([
+    { selector: '#btn-pp-afsi', prompt: 'Click "Autofill Sign-In" — fills all empty sign-in cells with the shift start time. Employees who already have a time keep their recorded time.',
+      onConfirm: () => {
+        document.getElementById('pp-si0').textContent = '08:00 AM';
+        document.getElementById('pp-si2').textContent = '08:00 AM';
+        document.getElementById('pp-af-msg').style.display = '';
+      }},
+    { selector: '#btn-pp-afso', prompt: 'Click "Autofill Sign-Out" — fills all empty sign-out cells with the shift end time.',
+      onConfirm: () => { [0,1,2].forEach(i => document.getElementById('pp-so'+i).textContent = '12:30 PM'); }},
+  ]);
+}
+
+function slide_payroll_processing_5() {
+  setNav('payroll');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
+    <table><thead><tr><th>Employee</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th><th>No Show</th></tr></thead>
+    <tbody>
+      <tr><td>Garcia, Maria</td><td>08:00</td><td>12:30</td><td>08:02 AM</td><td>12:30 PM</td><td><input type="checkbox" disabled></td></tr>
+      <tr><td>Smith, John</td><td>08:00</td><td>12:30</td><td>08:05 AM</td><td id="smith-so" style="cursor:text;border:1px dashed #aaa;padding:2px 4px;min-width:70px">&#8212;</td><td><input type="checkbox"></td></tr>
+      <tr><td>Johnson, Robert</td><td>08:00</td><td>12:30</td><td id="rj-si" style="color:#c00">&#8212;</td><td id="rj-so" style="color:#c00">&#8212;</td><td><input type="checkbox" id="rj-noshow"></td></tr>
+    </tbody></table>`;
+  runGuided([
+    { selector: '#smith-so', prompt: 'Smith has a sign-in but no sign-out. Click the Sign-Out cell and type the end time manually.', type: '12:30 PM' },
+    { selector: '#rj-noshow', prompt: 'Johnson has no times at all — they did not show up. Check the "No Show" box to mark them as absent.',
+      onConfirm: () => {
+        document.getElementById('rj-noshow').checked = true;
+        document.getElementById('rj-si').style.color = '#888';
+        document.getElementById('rj-so').style.color = '#888';
+      }},
+  ]);
+}
+
+function slide_payroll_processing_6() {
+  setNav('payroll');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
+    <table><thead><tr><th>Employee</th><th>Sign-In</th><th>Sign-Out</th><th>Hours</th><th>Approved</th></tr></thead>
+    <tbody>
+      <tr><td>Garcia, Maria</td><td>08:02 AM</td><td>12:30 PM</td><td>4.5</td><td id="ap0">&#8212;</td></tr>
+      <tr><td>Smith, John</td><td>08:05 AM</td><td>12:30 PM</td><td>4.4</td><td id="ap1">&#8212;</td></tr>
+      <tr><td>Johnson, Robert</td><td colspan="3" style="color:#888;font-style:italic">No Show</td><td id="ap2">&#8212;</td></tr>
+    </tbody></table>
+    <div style="margin-top:16px;display:flex;gap:6px">
+      <button class="btn btn-green" id="btn-pp-approve">Approve Hours</button>
+      <button class="btn btn-secondary">Back</button>
+    </div>
+    <div id="pp-approve-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:10px;display:none;font-size:12px">&#10004; Hours approved. Back on the shift list, click the Process Payroll button to finalize.</div>`;
+  runGuided([
+    { selector: '#btn-pp-approve', prompt: 'All times are entered. Scroll to the bottom and click "Approve Hours" to save this shift.',
+      onConfirm: () => {
+        [0,1,2].forEach(i => document.getElementById('ap'+i).innerHTML = '<span style="color:#2a9a2a">&#10004;</span>');
+        document.getElementById('pp-approve-msg').style.display = '';
+      }},
+    { selector: '#pp-approve-msg', prompt: 'Repeat for every shift. When all shifts are approved, go back to the shift list and click Process Payroll.', skipClick: true },
+  ]);
+}
+
+function slide_payroll_processing_7() {
+  setNav('payroll');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Sign-Out Exceptions</div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Start Date :</span>
+      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">End Date :</span>
+      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div style="margin:10px 0 10px 160px"><button class="btn" id="btn-soe-run">Run Report</button></div>
+    <div id="soe-results" style="display:none">
+      <table><thead><tr><th>Employee</th><th>Job#</th><th>Sign-In</th><th>Sign-Out</th><th>Overlap Job#</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Martinez, Lisa</td><td>1012698342</td><td>08:00 AM</td><td>01:00 PM</td><td id="overlap-cell">1012698344</td><td><button class="btn btn-sm" id="btn-soe-adj">Adj</button></td></tr>
+      </tbody></table>
+    </div>
+    <div id="soe-adj-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Overlap resolved. Employee is cleared for payroll.</div>`;
+  runGuided([
+    { selector: '#btn-soe-run', prompt: 'Click "Run Report" to flag employees with overlapping hours across jobs',
+      onConfirm: () => { document.getElementById('soe-results').style.display = ''; }},
+    { selector: '#overlap-cell', prompt: 'Martinez has hours on Job 1012698342 that overlap with Job 1012698344. Select the row and click Adj to fix the conflict.', skipClick: true },
+    { selector: '#btn-soe-adj', prompt: 'Click "Adj" to open the adjustment dialog and correct the overlap',
+      onConfirm: () => {
+        document.getElementById('soe-results').style.display = 'none';
+        document.getElementById('soe-adj-done').style.display = '';
+      }},
+  ]);
+}
+
+function slide_payroll_processing_8() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = reportsHTML('Payroll Reports',
+    ['Employee Time Register','Employee Time Register (Break)','Payroll Summary','Unapproved Hours Report','Pay Rate Audit','Overtime Report']);
+  runGuided([
+    { selector: '#card', prompt: 'After running Process Payroll, pull these three reports for the payroll department: Employee Time Register, Payroll Summary, and Unapproved Hours Report.', skipClick: true },
+  ]);
+}
+
+// ── Inventory ─────────────────────────────────────────────────────────────
+
+function slide_inventory_3() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Inventory</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+      ${[
+        ['sub-inv-asset',    'Manage Asset Tag',             'Register and search the physical tags assigned to inventory items'],
+        ['sub-inv-creation', 'Item Creation',                'Build and maintain your branch\'s inventory catalog'],
+        ['sub-inv-jobequip', 'Item Job Equipment',           'View items assigned to jobs and their current quantities'],
+        ['sub-inv-cicorpt',  'Check-In Check-Out Report',    'Full record of item activity for a selected date range'],
+        ['sub-inv-cico',     'Check-In Check-Out',           'Process the actual movement of items at events'],
+      ].map(([id, name, desc]) => `
+        <div id="${id}-card" style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#fff8f0">
+          <div style="font-weight:bold;color:#c07800">${name}</div>
+          <div style="font-size:11px;color:#666;margin-top:2px">${desc}</div>
+        </div>`).join('')}
+    </div>`;
+  runGuided([
+    { selector: '#card', prompt: 'The Inventory menu has five sections. Click Next to explore each one.', skipClick: true },
+  ]);
+}
+
+function slide_inventory_4() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Manage Asset Tag</div>
+    <div class="form-row"><span class="form-label">Branch Name :</span>
+      <select class="form-select" id="f-inv-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
+      <span style="color:#c00">*</span></div>
+    <div style="margin:8px 0 8px 160px">
+      <button class="btn" id="btn-inv-search">Search</button>
+      <button class="btn btn-secondary" id="btn-inv-addtag">Add Asset Tag</button>
+    </div>
+    <div id="inv-tags-tbl" style="display:none">
+      <table><thead><tr><th>Tag ID</th><th>Description</th><th>Status</th><th>Assigned To</th></tr></thead>
+      <tbody>
+        <tr><td>TAG-001</td><td>Radio Unit</td><td>In Use</td><td>Garcia, Maria</td></tr>
+        <tr><td>TAG-002</td><td>Safety Vest &#8212; Large</td><td>Available</td><td>&#8212;</td></tr>
+      </tbody></table>
+    </div>
+    <div id="inv-add-form" style="display:none;margin-top:12px;border:1px solid #ddd;padding:12px;border-radius:3px">
+      <div style="font-weight:bold;margin-bottom:8px">Add Asset Tag</div>
+      <div class="form-row"><span class="form-label">Tag ID :</span><input class="form-input" id="f-inv-tagid" placeholder="e.g. TAG-003"> <span style="color:#c00">*</span></div>
+      <div class="form-row"><span class="form-label">Description :</span><input class="form-input" id="f-inv-tagdesc" placeholder="Item description"> <span style="color:#c00">*</span></div>
+      <div style="margin:8px 0 0 160px">
+        <button class="btn" id="btn-inv-savtag">Save</button>
+        <button class="btn btn-secondary">Cancel</button>
+      </div>
+      <div id="inv-tag-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Asset tag saved.</div>
+    </div>`;
+  runGuided([
+    { selector: '#f-inv-branch', prompt: 'Select your Branch from the dropdown',
+      onConfirm: () => { document.getElementById('f-inv-branch').value = 'Prota LA Branch Test'; }},
+    { selector: '#btn-inv-search', prompt: 'Click Search to see all registered asset tags for this branch',
+      onConfirm: () => { document.getElementById('inv-tags-tbl').style.display = ''; }},
+    { selector: '#btn-inv-addtag', prompt: 'Click "Add Asset Tag" to register a new physical tag',
+      onConfirm: () => { document.getElementById('inv-add-form').style.display = ''; }},
+    { selector: '#f-inv-tagid', prompt: 'Enter the Tag ID printed on the physical tag', type: 'TAG-003' },
+    { selector: '#f-inv-tagdesc', prompt: 'Enter a description for this tag', type: 'Flashlight' },
+    { selector: '#btn-inv-savtag', prompt: 'Click Save to register the asset tag',
+      onConfirm: () => { document.getElementById('inv-tag-saved').style.display = ''; }},
+  ]);
+}
+
+function slide_inventory_5() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Item Creation</div>
+    <div style="margin-bottom:10px">
+      <button class="btn" id="btn-inv-additem">Add New Item</button>
+    </div>
+    <table id="inv-item-list"><thead><tr><th>Item Type</th><th>Item Name</th><th>Category</th><th>Quantity</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>Equipment</td><td>Radio Unit</td><td>Inventory Items</td><td>20</td><td>Active</td></tr>
+      <tr><td>Supply</td><td>Safety Vest</td><td>Job Equipment</td><td>150</td><td>Active</td></tr>
+    </tbody></table>
+    <div id="inv-item-form" style="display:none;margin-top:12px;border:1px solid #ddd;padding:12px;border-radius:3px">
+      <div style="font-weight:bold;margin-bottom:8px">Add New Item</div>
+      <div class="form-row"><span class="form-label">Item Type :</span>
+        <select class="form-select" id="f-inv-itype"><option>Select</option><option>Equipment</option><option>Supply</option></select>
+        <span style="color:#c00">*</span></div>
+      <div class="form-row"><span class="form-label">Item Name :</span><input class="form-input" id="f-inv-iname"> <span style="color:#c00">*</span></div>
+      <div class="form-row"><span class="form-label">Category :</span>
+        <select class="form-select"><option>Job Equipment</option><option>Inventory Items</option></select></div>
+      <div class="form-row"><span class="form-label">Quantity :</span><input class="form-input" id="f-inv-iqty" style="width:80px"></div>
+      <div style="margin:8px 0 0 160px">
+        <button class="btn" id="btn-inv-saveitem">Save</button>
+        <button class="btn btn-secondary">Cancel</button>
+      </div>
+      <div id="inv-item-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Item saved to inventory catalog.</div>
+    </div>`;
+  runGuided([
+    { selector: '#btn-inv-additem', prompt: 'Click "Add New Item" to add an item to your branch inventory catalog',
+      onConfirm: () => { document.getElementById('inv-item-form').style.display = ''; }},
+    { selector: '#f-inv-itype', prompt: 'Select the Item Type',
+      onConfirm: () => { document.getElementById('f-inv-itype').value = 'Equipment'; }},
+    { selector: '#f-inv-iname', prompt: 'Enter the Item Name', type: 'Flashlight' },
+    { selector: '#f-inv-iqty', prompt: 'Enter the available Quantity', type: '30' },
+    { selector: '#btn-inv-saveitem', prompt: 'Click Save to add this item to your catalog',
+      onConfirm: () => { document.getElementById('inv-item-saved').style.display = ''; }},
+  ]);
+}
+
+function slide_inventory_6() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Item Job Equipment</div>
+    <div style="display:flex;gap:10px;align-items:flex-end;margin-bottom:12px;flex-wrap:wrap">
+      <div><label style="font-size:12px">Branch :</label><br><select class="form-select"><option>Prota LA Branch Test</option></select></div>
+      <div><label style="font-size:12px">Category :</label><br>
+        <select class="form-select" id="f-inv-je-cat"><option>--Select--</option><option>Job Equipment</option><option>Inventory Items</option></select></div>
+      <div><label style="font-size:12px">Job :</label><br>
+        <select class="form-select" id="f-inv-je-job"><option>--Select--</option><option>DRAKE N3</option><option>AB Convention Center Event</option></select></div>
+      <button class="btn" id="btn-inv-je-search">Search</button>
+    </div>
+    <div id="inv-je-results" style="display:none">
+      <table><thead><tr><th>Item Name</th><th>Category</th><th>Assigned Qty</th><th>Checked Out</th><th>Available</th></tr></thead>
+      <tbody>
+        <tr><td>Safety Vest</td><td>Job Equipment</td><td>50</td><td>42</td><td style="color:#2a9a2a;font-weight:bold">8</td></tr>
+        <tr><td>Radio Unit</td><td>Inventory Items</td><td>15</td><td>12</td><td style="color:#c00;font-weight:bold">3</td></tr>
+      </tbody></table>
+    </div>`;
+  runGuided([
+    { selector: '#f-inv-je-cat', prompt: 'Set the Category — Job Equipment for consumables, Inventory Items for tracked gear',
+      onConfirm: () => { document.getElementById('f-inv-je-cat').value = 'Job Equipment'; }},
+    { selector: '#f-inv-je-job', prompt: 'Select the Job you want to review',
+      onConfirm: () => { document.getElementById('f-inv-je-job').value = 'DRAKE N3'; }},
+    { selector: '#btn-inv-je-search', prompt: 'Click Search to see items assigned to this job and how many are still available',
+      onConfirm: () => { document.getElementById('inv-je-results').style.display = ''; }},
+  ]);
+}
+
+function slide_inventory_7() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Check-In Check-Out Report</div>
+    <div class="form-row"><span class="form-label">Branch Name :</span>
+      <select class="form-select" id="f-inv-rpt-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
+      <span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">Check Out Start :</span>
+      <input class="form-input" id="f-inv-rpt-start" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">Check Out End :</span>
+      <input class="form-input" id="f-inv-rpt-end" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">Category :</span>
+      <select class="form-select"><option>--All--</option><option>Job Equipment</option><option>Inventory Items</option></select></div>
+    <div style="margin:10px 0 10px 160px"><button class="btn" id="btn-inv-rpt-run">Run Report</button></div>
+    <div id="inv-rpt-results" style="display:none">
+      <table><thead><tr><th>Employee</th><th>Item</th><th>Tag ID</th><th>Check Out</th><th>Check In</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Garcia, Maria</td><td>Radio Unit</td><td>TAG-001</td><td>08/15 07:45</td><td>08/15 13:10</td><td style="color:#2a9a2a">Returned</td></tr>
+        <tr><td>Smith, John</td><td>Safety Vest</td><td>&#8212;</td><td>08/15 07:50</td><td>&#8212;</td><td style="color:#c07800;font-weight:bold">Out</td></tr>
+      </tbody></table>
+    </div>`;
+  runGuided([
+    { selector: '#f-inv-rpt-branch', prompt: 'Select your Branch — required',
+      onConfirm: () => { document.getElementById('f-inv-rpt-branch').value = 'Prota LA Branch Test'; }},
+    { selector: '#f-inv-rpt-start', prompt: 'Set the date range — Check Out Start is required' },
+    { selector: '#btn-inv-rpt-run', prompt: 'Click "Run Report" to generate the full item activity log for this date range',
+      onConfirm: () => { document.getElementById('inv-rpt-results').style.display = ''; }},
+    { selector: '#inv-rpt-results', prompt: 'Items still showing "Out" were never returned. Follow up on these before closing out the event.', skipClick: true },
+  ]);
+}
+
+function slide_inventory_8() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Check-In Check-Out</div>
+    <div class="tabs" style="margin-bottom:10px">
+      <span class="tab active" id="tab-cico-emp">Employee</span>
+      <span class="tab" id="tab-cico-item">Item</span>
+    </div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Date :</span>
+      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">Employee# :</span>
+      <input class="form-input" id="f-cico-emp" style="width:120px">
+      <button class="btn btn-sm" id="btn-cico-srch" style="margin-left:4px">Search</button></div>
+    <div id="cico-emp-items" style="display:none;margin-top:10px">
+      <div style="margin-bottom:6px;font-weight:bold;font-size:12px">Garcia, Maria (4122000) &#8212; items assigned to this shift:</div>
+      <table><thead><tr><th><input type="checkbox" id="chk-cico-all"></th><th>Item</th><th>Tag ID</th><th>Qty</th></tr></thead>
+      <tbody>
+        <tr><td><input type="checkbox" class="cico-chk"></td><td>Radio Unit</td><td>TAG-001</td><td>1</td></tr>
+        <tr><td><input type="checkbox" class="cico-chk"></td><td>Safety Vest</td><td>&#8212;</td><td>1</td></tr>
+      </tbody></table>
+      <div style="margin-top:10px;display:flex;gap:6px">
+        <button class="btn btn-green" id="btn-cico-out">Check Out</button>
+        <button class="btn btn-secondary">Cancel</button>
+      </div>
+      <div id="cico-out-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Items checked out to Garcia, Maria.</div>
+    </div>`;
+  runGuided([
+    { selector: '#f-cico-emp', prompt: 'Enter the Employee# to look up their items for this event', type: '4122000' },
+    { selector: '#btn-cico-srch', prompt: 'Click Search to load the employee\'s assigned items',
+      onConfirm: () => { document.getElementById('cico-emp-items').style.display = ''; }},
+    { selector: '#chk-cico-all', prompt: 'Check the top checkbox to select all items, or check individual rows',
+      onConfirm: () => {
+        document.getElementById('chk-cico-all').checked = true;
+        document.querySelectorAll('.cico-chk').forEach(c => c.checked = true);
+      }},
+    { selector: '#btn-cico-out', prompt: 'Click "Check Out" to record that these items have been issued to this employee',
+      onConfirm: () => { document.getElementById('cico-out-msg').style.display = ''; }},
+  ]);
+}
+
+function slide_inventory_9() {
+  setNav('inventory');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Check-In Check-Out &#8212; Item Tab</div>
+    <div class="tabs" style="margin-bottom:10px">
+      <span class="tab" id="tab-cico-emp2">Employee</span>
+      <span class="tab active" id="tab-cico-item2">Item</span>
+    </div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Date :</span>
+      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
+    <div class="form-row"><span class="form-label">Category :</span>
+      <select class="form-select" id="f-cico-icat"><option>--Select--</option><option>Inventory Items</option><option>Job Equipment</option></select></div>
+    <div class="form-row"><span class="form-label">Item Type :</span>
+      <select class="form-select" id="f-cico-itype"><option>--Select--</option><option>Radio Unit</option><option>Safety Vest</option></select></div>
+    <div style="margin:8px 0 8px 160px"><button class="btn" id="btn-cico-isrch">Search</button></div>
+    <div id="cico-item-results" style="display:none">
+      <table><thead><tr><th>Item</th><th>Tag ID</th><th>Checked Out To</th><th>Check Out Date</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td>Radio Unit</td><td>TAG-001</td><td>Garcia, Maria</td><td>08/15/2026</td><td><button class="btn btn-sm btn-green" id="btn-cico-ci">Check In</button></td></tr>
+      </tbody></table>
+    </div>
+    <div id="cico-ci-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Item checked in successfully.</div>`;
+  runGuided([
+    { selector: '#tab-cico-item2', prompt: 'The Item tab lets you search by item instead of by employee — useful when you have the item in hand and need to find who has it.', skipClick: true },
+    { selector: '#f-cico-icat', prompt: 'Set the Category to Inventory Items',
+      onConfirm: () => { document.getElementById('f-cico-icat').value = 'Inventory Items'; }},
+    { selector: '#f-cico-itype', prompt: 'Select the Item Type you are looking for',
+      onConfirm: () => { document.getElementById('f-cico-itype').value = 'Radio Unit'; }},
+    { selector: '#btn-cico-isrch', prompt: 'Click Search to find where this item currently is',
+      onConfirm: () => { document.getElementById('cico-item-results').style.display = ''; }},
+    { selector: '#btn-cico-ci', prompt: 'Click "Check In" to record that the employee has returned this item',
+      onConfirm: () => {
+        document.getElementById('cico-item-results').style.display = 'none';
+        document.getElementById('cico-ci-msg').style.display = '';
+      }},
+  ]);
+}
+
+// ── General Reporting ─────────────────────────────────────────────────────
+
+function slide_general_reporting_4() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Alpha Roster</div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Job Number :</span>
+      <input class="form-input" id="f-ar-job"> <span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">Sort By :</span>
+      <select class="form-select"><option>Last Name</option><option>Employee#</option></select></div>
+    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-ar-run">Produce Report</button></div>
+    <div id="ar-results" style="display:none;margin-top:10px">
+      <table><thead><tr><th>Employee#</th><th>Last Name</th><th>First Name</th><th>Role</th><th>Shift</th></tr></thead>
+      <tbody>
+        <tr><td>4122000</td><td>Garcia</td><td>Maria</td><td>Event Staff</td><td>Day Shift</td></tr>
+        <tr><td>4122001</td><td>Johnson</td><td>Robert</td><td>Supervisor</td><td>Day Shift</td></tr>
+        <tr><td>4122002</td><td>Martinez</td><td>Lisa</td><td>Event Staff</td><td>Day Shift</td></tr>
+      </tbody></table>
+    </div>`;
+  runGuided([
+    { selector: '#f-ar-job', prompt: 'Enter the Job Number for the event you need a roster for', type: '1012698342' },
+    { selector: '#btn-ar-run', prompt: 'Click "Produce Report" to generate the Alpha Roster',
+      onConfirm: () => { document.getElementById('ar-results').style.display = ''; }},
+    { selector: '#ar-results', prompt: 'The Alpha Roster is your pre-event checklist — every scheduled employee listed alphabetically. Print this and bring it to the event.', skipClick: true },
+  ]);
+}
+
+function slide_general_reporting_5() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Sign-In Sign-Out Sheets</div>
+    <div class="note-bar">Use this report when electronic sign-in is not set up at the event location.</div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Job Number :</span>
+      <input class="form-input" id="f-siso-job"> <span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">Shift :</span>
+      <select class="form-select"><option>--All Shifts--</option><option>Day Shift</option><option>Night Shift</option></select></div>
+    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-siso-run">Produce Report</button></div>
+    <div id="siso-results" style="display:none;margin-top:10px">
+      <table><thead><tr><th>Employee</th><th>Role</th><th>Sign-In Time</th><th>Sign-In Signature</th><th>Sign-Out Time</th><th>Sign-Out Signature</th></tr></thead>
+      <tbody>
+        <tr><td>Garcia, Maria</td><td>Event Staff</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+        <tr><td>Johnson, Robert</td><td>Supervisor</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>Martinez, Lisa</td><td>Event Staff</td><td></td><td></td><td></td><td></td></tr>
+      </tbody></table>
+      <div style="margin-top:8px;color:#888;font-size:11px">Print and bring to the event. Employees fill in times and sign by hand.</div>
+    </div>`;
+  runGuided([
+    { selector: '#f-siso-job', prompt: 'Enter the Job Number', type: '1012698342' },
+    { selector: '#btn-siso-run', prompt: 'Click "Produce Report" to generate the paper sign-in sheet',
+      onConfirm: () => { document.getElementById('siso-results').style.display = ''; }},
+    { selector: '#siso-results', prompt: 'Print this sheet and take it to the event. After the event, manually enter these times into Manage Process Hours.', skipClick: true },
+  ]);
+}
+
+function slide_general_reporting_6() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Employee Not Sign-In</div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Job Number :</span>
+      <input class="form-input" id="f-ensi-job"> <span style="color:#c00">*</span></div>
+    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-ensi-run">Produce Report</button></div>
+    <div id="ensi-results" style="display:none;margin-top:10px">
+      <table><thead><tr><th>Employee#</th><th>Name</th><th>Role</th><th>Shift</th><th>Scheduled Sign-In</th></tr></thead>
+      <tbody>
+        <tr><td>4122003</td><td>Williams, David</td><td>Event Staff</td><td>Day Shift</td><td>08:00 AM</td></tr>
+        <tr><td>4122005</td><td>Brown, Ashley</td><td>Event Staff</td><td>Day Shift</td><td>08:00 AM</td></tr>
+      </tbody></table>
+      <div style="margin-top:8px;color:#888;font-size:11px">These employees were scheduled but have no electronic sign-in on record.</div>
+    </div>`;
+  runGuided([
+    { selector: '#f-ensi-job', prompt: 'Enter the Job Number to check for missing sign-ins after the event', type: '1012698342' },
+    { selector: '#btn-ensi-run', prompt: 'Click "Produce Report" to see which employees did not sign in',
+      onConfirm: () => { document.getElementById('ensi-results').style.display = ''; }},
+    { selector: '#ensi-results', prompt: 'Run this report after every event to identify no-shows and employees who need their time entered manually.', skipClick: true },
+  ]);
+}
+
+function slide_general_reporting_7() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = reportsHTML('Summary Roster',
+    ['Branch Schedule Summary','Employee Schedule Summary','Job Summary by Date','Schedule Coverage Report','WorkGroup Summary','Event Staffing Overview']);
+  runGuided([
+    { selector: '#card', prompt: 'The Summary Roster section gives high-level overviews — useful for scheduling reviews and staffing audits. Click any report to run it.', skipClick: true },
+  ]);
+}
+
+function slide_general_reporting_8() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = reportsHTML('Detailed Roster',
+    ['Employee Time Sheet Details','Employee Schedule Details','Job Credential Report','Employee Availability Report','Employee Training Report','License Expiry Report']);
+  runGuided([
+    { selector: '#card', prompt: 'The Detailed Roster section has employee-level reports covering time, credentials, licensing, and training. Click any report to run it.', skipClick: true },
+  ]);
+}
+
+// ── Payroll Reporting ─────────────────────────────────────────────────────
+
+function slide_payroll_reporting_4() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Employee Time Register</div>
+    <div class="form-row"><span class="form-label">Branch :</span>
+      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
+    <div class="form-row"><span class="form-label">Start Date :</span>
+      <input class="form-input" id="f-etr-start" value="08/15/2026" style="width:100px">${calBtn()} <span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">End Date :</span>
+      <input class="form-input" id="f-etr-end" value="08/21/2026" style="width:100px">${calBtn()} <span style="color:#c00">*</span></div>
+    <div class="form-row"><span class="form-label">Employee# :</span>
+      <input class="form-input" id="f-etr-emp" style="width:120px" placeholder="Leave blank for all"></div>
+    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-etr-run">Produce Report</button></div>
+    <div id="etr-results" style="display:none;margin-top:10px">
+      <table><thead><tr><th>Employee</th><th>Job#</th><th>Date</th><th>Reg Hours</th><th>OT Hours</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Garcia, Maria</td><td>1012698342</td><td>08/15/2026</td><td>4.5</td><td>0</td><td>4.5</td></tr>
+        <tr><td>Smith, John</td><td>1012698342</td><td>08/15/2026</td><td>4.4</td><td>0</td><td>4.4</td></tr>
+        <tr style="font-weight:bold;background:#f8f8f0"><td colspan="3">Totals</td><td>8.9</td><td>0</td><td>8.9</td></tr>
+      </tbody></table>
+    </div>`;
+  runGuided([
+    { selector: '#f-etr-start', prompt: 'Set the Start Date for the pay period you are verifying' },
+    { selector: '#f-etr-end', prompt: 'Set the End Date for the pay period' },
+    { selector: '#btn-etr-run', prompt: 'Click "Produce Report" to generate the Employee Time Register',
+      onConfirm: () => { document.getElementById('etr-results').style.display = ''; }},
+    { selector: '#etr-results', prompt: 'Review all hours before sending to payroll. Every employee and job is listed with their reg and overtime hours.', skipClick: true },
+  ]);
+}
+
+function slide_payroll_reporting_5() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Employee Time Register &#8212; Report Variations</div>
+    <div style="display:flex;gap:14px;margin-top:10px">
+      <div style="flex:1;border:2px solid #c07800;border-radius:4px;padding:14px;background:#fff8f0">
+        <div style="font-weight:bold;color:#c07800;margin-bottom:6px">Employee Time Register</div>
+        <div style="font-size:12px;color:#444;line-height:1.5">Standard report. Shows regular and overtime hours per employee for the selected date range.<br><br>Use this for the weekly payroll submission.</div>
+      </div>
+      <div style="flex:1;border:1px solid #ddd;border-radius:4px;padding:14px;background:#f9f9f9">
+        <div style="font-weight:bold;color:#555;margin-bottom:6px">Employee Time Register (Break)</div>
+        <div style="font-size:12px;color:#444;line-height:1.5">Use when employees took scheduled breaks that need to be accounted for separately. Shows shift time minus break time.<br><br>Only use when breaks were tracked.</div>
+      </div>
+    </div>`;
+  runGuided([
+    { selector: '#card', prompt: 'Use the standard Employee Time Register for most payroll submissions. Only use the Break version when your branch tracked break times separately.', skipClick: true },
+  ]);
+}
+
+function slide_payroll_reporting_6() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Payroll Report Workflow</div>
+    <div style="margin:10px 0">
+      ${[
+        ['Before the event', '#eff6ff', '#1a3c5a', ['Employee Estimate Hours — projected hours based on the schedule, useful for labor cost planning']],
+        ['After the event', '#fff8f0', '#c07800', ['Employee Time Register — verify approved hours before finalizing payroll', 'Unapproved Hours Report — catch any shifts still pending approval']],
+        ['After payroll is run', '#dff0d8', '#1a6a1a', ['Payroll Summary — confirm total hours and pay for the completed period']],
+      ].map(([phase, bg, color, items]) => `
+        <div style="background:${bg};border-left:4px solid ${color};padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
+          <div style="font-weight:bold;color:${color};margin-bottom:5px">${phase}</div>
+          ${items.map(i => `<div style="font-size:12px;color:#444;margin-bottom:2px">&#8226; ${i}</div>`).join('')}
+        </div>`).join('')}
+    </div>`;
+  runGuided([
+    { selector: '#card', prompt: 'Run these three payroll reports in order: estimate before the event, verify after the event, then confirm once payroll is finalized.', skipClick: true },
+  ]);
+}
+
+// ── Admin Reporting ───────────────────────────────────────────────────────
+
+function slide_admin_reporting_4() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = reportsHTML('Billing Reports',
+    ['Billing Invoice Ledger Report','Invoice Detail Report','Unbilled Hours Report','Revenue by Client Report','Contract Revenue Summary']);
+  runGuided([
+    { selector: '#card', prompt: 'Billing Reports give you visibility into event invoices — what\'s been billed, what hasn\'t, and total revenue by client. Click a report to run it.', skipClick: true },
+  ]);
+}
+
+function slide_admin_reporting_5() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = reportsHTML('Manager Reports',
+    ['Schedule Efficiency Report','Manager Credential Report','MVR Tracking Report','Branch Performance Summary','Employee Compliance Report']);
+  runGuided([
+    { selector: '#card', prompt: 'Manager Reports cover credential tracking, scheduling performance, and MVR status — tools for branch-level oversight and compliance.', skipClick: true },
+  ]);
+}
+
+function slide_admin_reporting_6() {
+  setNav('reports');
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Admin Reporting &#8212; Workflow Overview</div>
+    <div style="margin:8px 0">
+      ${[
+        ['Before the event', '#eff6ff', '#1a3c5a', ['Labour Cost Estimation','Employee Credential Report','Job Credential Report']],
+        ['Day of event',     '#fff8f0', '#c07800',  ['Alpha Roster','Sign-In Sign-Out Sheet','Employee Not Sign-In']],
+        ['After the event',  '#dff0d8', '#1a6a1a',  ['Employee Time Register','Payroll Summary','Billing Invoice Ledger Report']],
+        ['Ongoing compliance','#faf0ff','#6b21a8',  ['MVR Tracking Report','Manager Credential Report','Employee Compliance Report']],
+      ].map(([phase, bg, color, items]) => `
+        <div style="background:${bg};border-left:4px solid ${color};padding:10px 14px;margin-bottom:8px;border-radius:0 3px 3px 0">
+          <div style="font-weight:bold;color:${color};margin-bottom:5px">${phase}</div>
+          ${items.map(i => `<div style="font-size:12px;color:#444;margin-bottom:2px">&#8226; ${i}</div>`).join('')}
+        </div>`).join('')}
+    </div>`;
+  runGuided([
+    { selector: '#card', prompt: 'As an Admin Reporting user your reports span every phase of event operations. This overview shows which reports to run and when.', skipClick: true },
+  ]);
+}
+
+
 function showImg(src) {
   let ov = document.getElementById('ess-overlay');
   if (!ov) {
@@ -3626,8 +4276,6 @@ function slide_ess_1() { showImg('ess_slide1.png'); }
 function slide_ess_2() { showImg('ess_slide2.png'); }
 function slide_ess_3() { showImg('ess_slide3.png'); }
 function slide_ess_4() { showImg('ess_slide4b.png'); }
-
-// ── Router ─────────────────────────────────────────────────────────────────
 const routes = {
   'introduction-5': slide_introduction_5,
   'introduction-6': slide_introduction_6,
@@ -3644,9 +4292,34 @@ const routes = {
   'scheduling-3':   slide_scheduling_3,
   'scheduling-4':   slide_scheduling_4,
   'schedule_by_job_admin-4': slide_schedule_by_job_admin_4,
+  'payroll_processing-2': slide_payroll_processing_2,
+  'payroll_processing-3': slide_payroll_processing_3,
+  'payroll_processing-4': slide_payroll_processing_4,
+  'payroll_processing-5': slide_payroll_processing_5,
+  'payroll_processing-6': slide_payroll_processing_6,
+  'payroll_processing-7': slide_payroll_processing_7,
+  'payroll_processing-8': slide_payroll_processing_8,
+  'inventory-3': slide_inventory_3,
+  'inventory-4': slide_inventory_4,
+  'inventory-5': slide_inventory_5,
+  'inventory-6': slide_inventory_6,
+  'inventory-7': slide_inventory_7,
+  'inventory-8': slide_inventory_8,
+  'inventory-9': slide_inventory_9,
   'general_reporting-3':  slide_general_reporting_3,
+  'general_reporting-4':  slide_general_reporting_4,
+  'general_reporting-5':  slide_general_reporting_5,
+  'general_reporting-6':  slide_general_reporting_6,
+  'general_reporting-7':  slide_general_reporting_7,
+  'general_reporting-8':  slide_general_reporting_8,
   'payroll_reporting-3':  slide_payroll_reporting_3,
+  'payroll_reporting-4':  slide_payroll_reporting_4,
+  'payroll_reporting-5':  slide_payroll_reporting_5,
+  'payroll_reporting-6':  slide_payroll_reporting_6,
   'admin_reporting-3':    slide_admin_reporting_3,
+  'admin_reporting-4':    slide_admin_reporting_4,
+  'admin_reporting-5':    slide_admin_reporting_5,
+  'admin_reporting-6':    slide_admin_reporting_6,
   'workforce_scheduler_mntnnce-3': slide_workforce_scheduler_mntnnce_3,
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
@@ -3665,7 +4338,6 @@ const routes = {
   'billing-6': slide_billing_6,
   'billing-7': slide_billing_7,
   'billing-8': slide_billing_8,
-  'record_maintenance-3': slide_record_maintenance_3,
   'record_maintenance-4': slide_record_maintenance_4,
   'record_maintenance-5': slide_record_maintenance_5,
   'record_maintenance-6': slide_record_maintenance_6,

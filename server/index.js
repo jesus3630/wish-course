@@ -285,6 +285,10 @@ app.get('/audio/:hash.json', async (req, res, next) => {
 // ─── Serve React build ────────────────────────────────────────────────────────
 const BUILD_DIR = path.join(__dirname, '../client/build');
 // Force browsers to re-fetch index.html every time — prevents stale bundle caching
+app.get('/api/debug-env', (req, res) => {
+  res.json({ VISIBLE_MODULES: process.env.VISIBLE_MODULES || null, MAX_MODULES: process.env.MAX_MODULES || null });
+});
+
 app.get('/', (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.sendFile(path.join(BUILD_DIR, 'index.html'));
@@ -311,9 +315,18 @@ app.get(['/api/course', '/api/course-v2'], async (req, res) => {
     res.set('Pragma', 'no-cache');
     res.set('Expires', '0');
     res.set('Surrogate-Control', 'no-store');
+    res.set('CDN-Cache-Control', 'no-store');
+    res.removeHeader('ETag');
     let data = await getCourseData();
     const maxModules = parseInt(process.env.MAX_MODULES);
     if (maxModules > 0 && Array.isArray(data)) data = data.slice(0, maxModules);
+    const visibleModules = process.env.VISIBLE_MODULES;
+    console.log('[course] VISIBLE_MODULES =', visibleModules, '| data type:', typeof data, '| isArray:', Array.isArray(data), '| length:', Array.isArray(data) ? data.length : 'n/a', '| first id:', Array.isArray(data) && data[0] ? data[0].id : 'n/a');
+    if (visibleModules && Array.isArray(data)) {
+      const ids = visibleModules.split(',').map(s => s.trim());
+      data = data.filter(m => ids.includes(m.id));
+      console.log('[course] after filter, length:', data.length);
+    }
     res.json(data);
   } catch (e) {
     res.status(500).json({ error: 'Failed to load course data' });
@@ -811,7 +824,10 @@ app.get('/{*path}', (req, res) => {
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 // Start HTTP server immediately — don't block on DB
-app.listen(PORT, () => console.log(`WISH Course running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`WISH Course running on port ${PORT}`);
+  console.log(`[env] VISIBLE_MODULES="${process.env.VISIBLE_MODULES || '(not set)'}"`);
+});
 
 // Init DB with retry — keeps retrying every 10s until success, never crashes the process
 async function bootWithRetry(attempt = 1) {
