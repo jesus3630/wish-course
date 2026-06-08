@@ -152,6 +152,14 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
           })}
         </div>
 
+        {overall < 100 && (
+          <div style={{ textAlign: 'right', marginBottom: '8px' }}>
+            <button onClick={onViewCertificate} style={{ background: 'none', border: '1px dashed #9CA3AF', color: '#9CA3AF', fontSize: '11px', borderRadius: '6px', padding: '4px 12px', cursor: 'pointer' }}>
+              Preview Certificate
+            </button>
+          </div>
+        )}
+
         {overall === 100 && (
           <div style={styles.completionBanner}>
             <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '12px' }}>
