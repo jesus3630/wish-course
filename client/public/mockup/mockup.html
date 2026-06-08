@@ -2186,6 +2186,69 @@ function slide_sign_in_sign_out_3() {
             <button class="btn" id="btn-goto-signin" style="background:#e88a00;border-color:#c97a00">Goto Sign-In</button>
           </div>`;
       }},
+
+    // ── Step 11: Click Goto Sign-In → Sign-In with Employee# screen ───────
+    { selector: '#btn-goto-signin', prompt: 'Click "Goto Sign-In" to open the Sign-In screen',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:14px">Sign-In with Employee#</div>
+          <table style="border:none;margin-bottom:6px">
+            <tbody>
+              <tr>
+                <td style="text-align:right;padding-right:8px;font-size:12px;color:#333;white-space:nowrap">Branch Name :</td>
+                <td>
+                  <select class="form-input" style="width:180px;font-size:12px">
+                    <option>Prota LA Branch Test</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding-right:8px;font-size:12px;color:#333">Employee# :</td>
+                <td>
+                  <input class="form-input" id="f-empid" style="width:180px;font-size:12px">
+                  <span style="margin-left:10px;color:#3a6aaa;font-size:12px;text-decoration:underline;cursor:pointer">Inventory Checkout</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px;color:#333;margin-bottom:4px;margin-left:120px">Enter, Detect, <span style="color:#3a6aaa;text-decoration:underline;cursor:pointer">Search</span> Employee ID # for Authentication</div>
+          <div style="font-size:12px;color:#333;margin-bottom:10px;margin-left:120px"><input type="checkbox" style="margin-right:4px">Produce ID now for this Employee</div>
+          <div style="display:flex;gap:8px;margin-bottom:8px;margin-left:120px">
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Ok</button>
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Showed</button>
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Create Schedule</button>
+          </div>
+          <div style="font-size:12px;color:#333;margin-bottom:8px;margin-left:120px"><input type="checkbox" style="margin-right:4px">Show Count:</div>
+          <div style="background:#555;color:#fff;font-size:12px;padding:5px 8px;margin-bottom:4px">
+            Total: Min=5 &nbsp;|&nbsp; Scheduled=3 &nbsp;|&nbsp; Signed In=0 &nbsp;|&nbsp; Signed Out=0 &nbsp;|&nbsp; Var= -5
+          </div>
+          <table style="font-size:11px">
+            <thead>
+              <tr>
+                <th>Job#</th><th>Job Name</th><th>Venue Name</th><th>S#</th><th>Shift Name</th><th></th>
+                <th>Shift Start</th><th>Shift End</th><th>He</th><th>SC</th><th>SI</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#d0d8e8">
+                <td>5023705541</td>
+                <td style="color:#3a6aaa;cursor:pointer">Drake Job</td>
+                <td>AB Convent...</td>
+                <td>1</td>
+                <td>Staff One Call</td>
+                <td></td>
+                <td>08/15/2026<br>08:00</td>
+                <td>08/15/2026<br>17:00</td>
+                <td>5</td>
+                <td>0</td>
+                <td>*</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:10px">
+            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Reset Shift List</button>
+          </div>`;
+      }},
   ]);
 }
 
