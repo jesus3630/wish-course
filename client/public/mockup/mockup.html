@@ -233,9 +233,10 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#c87010"/><circle cx="13" cy="13" r="9.5" fill="#e89020"/><circle cx="13" cy="13" r="8" fill="#f0a830"/><line x1="13" y1="7" x2="13" y2="13" stroke="#7a4000" stroke-width="1.8" stroke-linecap="round"/><line x1="13" y1="13" x2="17" y2="16" stroke="#7a4000" stroke-width="1.8" stroke-linecap="round"/><circle cx="13" cy="13" r="1.2" fill="#5a3000"/><line x1="13" y1="5.5" x2="13" y2="7" stroke="#7a4000" stroke-width="1.2"/><line x1="13" y1="19" x2="13" y2="20.5" stroke="#7a4000" stroke-width="1.2"/><line x1="5.5" y1="13" x2="7" y2="13" stroke="#7a4000" stroke-width="1.2"/><line x1="19" y1="13" x2="20.5" y2="13" stroke="#7a4000" stroke-width="1.2"/></svg></span>Time Clock
     </a>
     <div class="nav-sub" id="sub-timeclock">
-      <span class="nav-sub-item">Sign-In Config</span>
-      <span class="nav-sub-item">Sign-In</span>
-      <span class="nav-sub-item">Sign-Out Config</span>
+      <span class="nav-sub-item" id="sub-tc-signin-config">Sign-In Config</span>
+      <span class="nav-sub-item" id="sub-tc-signin">Sign-In</span>
+      <span class="nav-sub-item" id="sub-tc-signout-config">Sign-Out Config</span>
+      <span class="nav-sub-item" id="sub-tc-signout">Sign-Out</span>
     </div>
 
     <a class="nav-item" id="nav-tools">
@@ -1302,10 +1303,7 @@ function slide_schedule_by_job_admin_4() {
     </div>`;
 
   runGuided([
-    // ── Step 1: Observe the dashboard ──────────────────────────────────────
-    { selector: '#nav-scheduling', prompt: 'This is the WISH home dashboard. Locate "Scheduling" in the left navigation menu.', skipClick: true },
-
-    // ── Step 2: Click Scheduling to expand submenu ─────────────────────────
+    // ── Step 1: Click Scheduling to expand submenu ─────────────────────────
     { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" to expand its submenu',
       onConfirm: () => {
         document.getElementById('nav-scheduling').classList.add('active');
@@ -1925,44 +1923,234 @@ function slide_mail_by_3() {
 
 // ── Sign-In / Sign-Out ─────────────────────────────────────────────────────
 function slide_sign_in_sign_out_3() {
-  setNav('timeclock');
+  // Start on home dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Sign-In Config</div>
-    <div style="display:flex;gap:20px">
-      <div style="flex:1">
-        <div class="form-row"><span class="form-label">Event :</span>
-          <select class="form-select" id="f-si-event"><option>--Select--</option><option>2023 DRAKE</option></select> <span class="req">*</span></div>
-        <div class="form-row"><span class="form-label">Venue :</span>
-          <select class="form-select" id="f-si-venue"><option>--Select--</option><option>The Forum</option></select> <span class="req">*</span></div>
-        <div class="form-row"><span class="form-label">Job :</span>
-          <select class="form-select" id="f-si-job"><option>--Select--</option><option>DRAKE N3 &#8212; 08/15/2023</option></select> <span class="req">*</span></div>
-        <div style="margin:8px 0 0 160px">
-          <table id="shift-table" style="width:100%;margin-top:4px">
-            <thead><tr><th>Select</th><th>Shift Name</th><th>Start</th><th>Finish</th><th>Role</th></tr></thead>
-            <tbody id="shift-list"></tbody>
-          </table>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</span></td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</span></td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026</span></td><td>Crocket Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/30/2026</span></td><td>Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center">
+          <span>Total Pages: 1</span>
+          <span>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">&#171; First</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">&#8249; Previous</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">Next &#8250;</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">Last &#187;</button>
+          </span>
+          <span>Current Page: 1</span>
         </div>
-        <div style="margin:10px 0 0 160px">
-          <button class="btn" id="btn-addshift">Add to Shift List</button>
-          <button class="btn btn-blue" id="btn-gosi" disabled>Go to Sign-In</button>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060826 7x24 Exchange</td><td>MISC ORL.VENUES</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">060826 LA Goodwill Interviews</span></td><td>Los Angeles Goodwill</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060826 NAMB</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td>060826 NGA</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">2026 SP FIFA Ivory Coast Friendly 7pm 6/8/2026</span></td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">24 HR Red Shirts 6/8/2026</span></td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">24-Hour Security Coverage 6/8/2026</span></td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">24-Hour Security Coverage 6/8/2026</span></td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">AC Office Hours-6/8/2026</span></td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td><span style="color:#3a6aaa">ACWM Dispatch-6/8/2026</span></td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center">
+          <span>Total Pages: 7</span>
+          <span>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">&#171; First</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">&#8249; Previous</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">Next &#8250;</button>
+            <button class="btn btn-secondary" style="padding:2px 7px;font-size:11px">Last &#187;</button>
+          </span>
+          <span>Current Page: 1</span>
         </div>
       </div>
     </div>`;
+
   runGuided([
-    { selector: '#f-si-event', prompt: 'Click to select the Event',
-      onConfirm: () => { document.getElementById('f-si-event').value = '2023 DRAKE'; }},
-    { selector: '#f-si-venue', prompt: 'Click to select the Venue',
-      onConfirm: () => { document.getElementById('f-si-venue').value = 'The Forum'; }},
-    { selector: '#f-si-job', prompt: 'Click to select the Job',
-      onConfirm: () => { document.getElementById('f-si-job').selectedIndex = 1; }},
-    { selector: '#btn-addshift', prompt: 'Click "Add to Shift List" to load the shifts for sign-in',
+    // ── Step 1: Click Time Clock to expand submenu ─────────────────────────
+    { selector: '#nav-timeclock', prompt: 'Click on "Time Clock" to expand its submenu',
       onConfirm: () => {
-        document.getElementById('shift-list').innerHTML = `
-          <tr><td><input type="checkbox" checked></td><td>Day Shift</td><td>08:00</td><td>12:30</td><td>Event Staff</td></tr>
-          <tr><td><input type="checkbox" checked></td><td>Day Shift</td><td>08:00</td><td>12:30</td><td>Supervisor</td></tr>`;
-        document.getElementById('btn-gosi').disabled = false;
+        document.getElementById('nav-timeclock').classList.add('active');
+        document.getElementById('sub-timeclock').classList.add('show');
       }},
-    { selector: '#btn-gosi', prompt: 'Click "Go to Sign-In" to open the sign-in screen' },
+
+    // ── Step 2: Click Sign-In Config ──────────────────────────────────────
+    { selector: '#sub-tc-signin-config', prompt: 'Click "Sign-In Config" to open the Sign-In configuration screen',
+      onConfirm: () => {
+        document.getElementById('nav-timeclock').classList.remove('active');
+        document.getElementById('sub-timeclock').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Sign-In Config</div>
+          <div style="background:#fffde7;border:1px solid #e6d97a;padding:7px 14px;font-size:12px;color:#7a6000;margin-bottom:14px;border-radius:2px">
+            Note: All the * marked fields are mandatory
+          </div>
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px">
+            <table style="border-collapse:separate;border-spacing:0 4px">
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px;width:150px">Job No :</td>
+                <td style="padding:3px 6px"><input class="form-input" id="f-sic-jobno" style="width:180px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Branch Name :</td>
+                <td style="padding:3px 6px">
+                  <select class="form-select" id="f-sic-branch" style="width:185px"><option>Prota LA Branch Test</option></select>
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Start Time :</td>
+                <td style="padding:3px 6px;display:flex;align-items:center;gap:6px">
+                  <input class="form-input" value="06/08/2026" style="width:90px"> ${calBtn()}
+                  ${timeSpinner('f-sic-start')}
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">End Time :</td>
+                <td style="padding:3px 6px;display:flex;align-items:center;gap:6px">
+                  <input class="form-input" value="06/08/2026" style="width:90px"> ${calBtn()}
+                  ${timeSpinner('f-sic-end')}
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Event :</td>
+                <td style="padding:3px 6px;position:relative">
+                  <div id="f-sic-event" style="display:flex;align-items:center;background:#fff;border:1px solid #aaa;padding:3px 6px;width:185px;cursor:pointer;font-size:12px;border-radius:2px">
+                    <span id="event-val">All</span><span style="margin-left:auto">&#9660;</span>
+                  </div>
+                  <div id="event-dd" style="display:none;position:absolute;top:100%;left:6px;width:185px;border:1px solid #aaa;z-index:200;box-shadow:0 2px 4px rgba(0,0,0,.2)">
+                    <div style="background:#555;color:#fff;padding:5px 8px;font-size:12px">All</div>
+                    <div id="event-opt-grant" style="background:#fff;padding:5px 8px;font-size:12px;cursor:pointer">Grant Sands Event June 2026</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Venue :</td>
+                <td style="padding:3px 6px;position:relative">
+                  <div id="f-sic-venue" style="display:flex;align-items:center;background:#fff;border:1px solid #aaa;padding:3px 6px;width:185px;cursor:pointer;font-size:12px;border-radius:2px">
+                    <span id="venue-val">All</span><span style="margin-left:auto">&#9660;</span>
+                  </div>
+                  <div id="venue-dd" style="display:none;position:absolute;top:100%;left:6px;width:185px;border:1px solid #aaa;z-index:200;box-shadow:0 2px 4px rgba(0,0,0,.2)">
+                    <div style="background:#555;color:#fff;padding:5px 8px;font-size:12px">All</div>
+                    <div id="venue-opt-crocket" style="background:#fff;padding:5px 8px;font-size:12px;cursor:pointer">Crocket Arena</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Job :</td>
+                <td style="padding:3px 6px"><select class="form-select" style="width:185px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:3px 10px;font-size:13px">Late Sign-In param :</td>
+                <td style="padding:3px 6px"><select class="form-select" style="width:80px"><option>15</option><option>30</option><option>45</option><option>60</option></select></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:10px 6px"><button class="btn" id="btn-sic-search">Search</button></td>
+              </tr>
+            </table>
+            <div id="sic-results" style="display:none;margin-top:16px">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+                <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;flex:1">Search Result</div>
+                <button class="btn" id="btn-sic-addshift-top" style="margin-left:12px">Add To Shift List</button>
+              </div>
+              <table>
+                <thead>
+                  <tr><th>Job#</th><th>Job Name</th><th>Shift#</th><th>Shift Name</th><th>Start Time</th><th>End Time</th><th>Select</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5023705541</td>
+                    <td>Drake Job</td>
+                    <td>1</td>
+                    <td>Staff One Call</td>
+                    <td>08/15/2026 08:00</td>
+                    <td>08/15/2026 17:00</td>
+                    <td><input type="checkbox" id="sic-select-cb"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="text-align:right;margin-top:6px">
+                <button class="btn" id="btn-sic-addshift-bottom">Add To Shift List</button>
+              </div>
+            </div>
+          </div>`;
+      }},
+
+    // ── Step 3: Type Job No ────────────────────────────────────────────────
+    { selector: '#f-sic-jobno', prompt: 'Click the Job No field and type the Job Number',
+      type: '5023705541' },
+
+    // ── Step 4: Click Event dropdown ───────────────────────────────────────
+    { selector: '#f-sic-event', prompt: 'Click the Event dropdown to see available events',
+      onConfirm: () => { document.getElementById('event-dd').style.display = ''; }},
+
+    // ── Step 5: Select Grant Sands Event ──────────────────────────────────
+    { selector: '#event-opt-grant', prompt: 'Click "Grant Sands Event June 2026" to select this event',
+      onConfirm: () => {
+        document.getElementById('event-dd').style.display = 'none';
+        document.getElementById('event-val').textContent = 'Grant Sands Event June 2026';
+      }},
+
+    // ── Step 6: Click Venue dropdown ──────────────────────────────────────
+    { selector: '#f-sic-venue', prompt: 'Click the Venue dropdown to see available venues',
+      onConfirm: () => { document.getElementById('venue-dd').style.display = ''; }},
+
+    // ── Step 7: Select Crocket Arena ──────────────────────────────────────
+    { selector: '#venue-opt-crocket', prompt: 'Click "Crocket Arena" to select this venue',
+      onConfirm: () => {
+        document.getElementById('venue-dd').style.display = 'none';
+        document.getElementById('venue-val').textContent = 'Crocket Arena';
+      }},
+
+    // ── Step 8: Click Search → show results ───────────────────────────────
+    { selector: '#btn-sic-search', prompt: 'Click "Search" to find shifts for this job',
+      onConfirm: () => {
+        document.getElementById('sic-results').style.display = '';
+      }},
+
+    // ── Step 9: Click checkbox to select shift ────────────────────────────
+    { selector: '#sic-select-cb', prompt: 'Click the checkbox to select this shift',
+      onConfirm: () => {
+        document.getElementById('sic-select-cb').checked = true;
+      }},
+
+    // ── Step 10: Click Add To Shift List → show shift confirmation table ──
+    { selector: '#btn-sic-addshift-top', prompt: 'Click "Add To Shift List" to add this shift',
+      onConfirm: () => {
+        document.getElementById('sic-results').innerHTML = `
+          <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:8px">Search Result</div>
+          <table>
+            <thead>
+              <tr><th>Shift#</th><th>Shift Start Time</th><th>Shift End Time</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>08/15/2026 08:00</td>
+                <td>08/15/2026 17:00</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="text-align:center;margin-top:12px">
+            <button class="btn" id="btn-goto-signin" style="background:#e88a00;border-color:#c97a00">Goto Sign-In</button>
+          </div>`;
+      }},
   ]);
 }
 
