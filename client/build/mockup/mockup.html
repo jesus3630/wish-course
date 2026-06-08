@@ -2214,12 +2214,12 @@ function slide_sign_in_sign_out_3() {
           <div style="font-size:12px;color:#333;margin-bottom:4px;margin-left:120px">Enter, Detect, <span style="color:#3a6aaa;text-decoration:underline;cursor:pointer">Search</span> Employee ID # for Authentication</div>
           <div style="font-size:12px;color:#333;margin-bottom:10px;margin-left:120px"><input type="checkbox" style="margin-right:4px">Produce ID now for this Employee</div>
           <div style="display:flex;gap:8px;margin-bottom:8px;margin-left:120px">
-            <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Ok</button>
+            <button class="btn" id="btn-signin-ok" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Ok</button>
             <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Showed</button>
             <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Create Schedule</button>
           </div>
           <div style="font-size:12px;color:#333;margin-bottom:8px;margin-left:120px"><input type="checkbox" style="margin-right:4px">Show Count:</div>
-          <div style="background:#555;color:#fff;font-size:12px;padding:5px 8px;margin-bottom:4px">
+          <div id="signin-stats" style="background:#555;color:#fff;font-size:12px;padding:5px 8px;margin-bottom:4px">
             Total: Min=5 &nbsp;|&nbsp; Scheduled=3 &nbsp;|&nbsp; Signed In=0 &nbsp;|&nbsp; Signed Out=0 &nbsp;|&nbsp; Var= -5
           </div>
           <table style="font-size:11px">
@@ -2240,7 +2240,7 @@ function slide_sign_in_sign_out_3() {
                 <td>08/15/2026<br>08:00</td>
                 <td>08/15/2026<br>17:00</td>
                 <td>5</td>
-                <td>0</td>
+                <td id="signin-sc">0</td>
                 <td>*</td>
               </tr>
             </tbody>
@@ -2248,6 +2248,26 @@ function slide_sign_in_sign_out_3() {
           <div style="margin-top:10px">
             <button class="btn" style="background:#e88a00;border-color:#c97a00;padding:4px 14px">Reset Shift List</button>
           </div>`;
+      }},
+
+    // ── Step 12: Click Employee# field and type ID ────────────────────────
+    { selector: '#f-empid', prompt: 'Click the Employee# field and type the Employee ID',
+      type: '3951664' },
+
+    // ── Step 13: Click Ok → success banner + updated stats ────────────────
+    { selector: '#btn-signin-ok', prompt: 'Click "Ok" to sign in this employee',
+      onConfirm: () => {
+        // Show success banner
+        const banner = document.createElement('div');
+        banner.id = 'signin-success';
+        banner.style.cssText = 'background:#e6f4e6;border:1px solid #6ab66a;color:#2a7a2a;font-size:12px;padding:6px 10px;margin-bottom:10px;display:flex;align-items:center;gap:6px';
+        banner.innerHTML = '<span style="color:#4caf50;font-size:15px">&#10003;</span> Employee Scheduled Successfully';
+        const content = document.getElementById('content');
+        content.insertBefore(banner, content.firstChild);
+        // Update stats bar
+        document.getElementById('signin-stats').textContent = 'Total: Min=5  |  Scheduled=5  |  Signed In=1  |  Signed Out=1  |  Var= -4';
+        // Update SC column to 5 (blue)
+        document.getElementById('signin-sc').innerHTML = '<span style="color:#3a6aaa;font-weight:bold">5</span>';
       }},
   ]);
 }
