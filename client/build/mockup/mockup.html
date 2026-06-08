@@ -1319,37 +1319,308 @@ function slide_schedule_by_job_admin_4() {
         document.getElementById('sub-scheduling').classList.remove('show');
         document.getElementById('content').innerHTML = `
           <div class="page-title">Schedule by Job Admin</div>
-          <div style="display:flex;gap:16px;margin-bottom:10px;align-items:flex-end">
-            <div><label>Job# :</label><br><input class="form-input" id="f-jadmin" style="width:120px"></div>
-            <div><label>Role :</label><br><select class="form-select" style="width:150px"><option>Event Staff</option><option>Supervisor</option></select></div>
-            <button class="btn" id="btn-jadmin">Search</button>
-          </div>
-          <div id="jadmin-results" style="display:none">
-            <table><thead><tr><th>Select</th><th>Last Name</th><th>First Name</th><th>Emp#</th><th>Status</th><th>Scheduled</th></tr></thead>
-            <tbody>
-              <tr><td><input type="checkbox" id="jac1"></td><td>Smith</td><td>John</td><td>4122001</td><td>Active</td><td>&#8212;</td></tr>
-              <tr style="background:#fff8e0"><td><input type="checkbox" id="jac2"></td><td>Garcia</td><td>Maria</td><td>4122002</td><td>Active</td><td><span style="color:#2a9a2a">&#10004; Scheduled</span></td></tr>
-              <tr><td><input type="checkbox" id="jac3"></td><td>Johnson</td><td>Robert</td><td>4122003</td><td>Active</td><td>&#8212;</td></tr>
-            </tbody></table>
-            <div style="margin-top:10px"><button class="btn" id="btn-jacsave">Save</button></div>
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:20px;max-width:620px">
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:5px 10px;white-space:nowrap;width:130px;font-size:13px">Branch Name :</td>
+                <td style="padding:5px 10px">
+                  <select class="form-select" id="f-branch" style="width:200px"><option>Prota LA Branch Test</option></select>
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">Job# :</td>
+                <td style="padding:5px 10px"><input class="form-input" id="f-jadmin" style="width:180px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">Job Name :</td>
+                <td style="padding:5px 10px"><input class="form-input" id="f-jobname" style="width:180px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">Start Date :</td>
+                <td style="padding:5px 10px">
+                  <input class="form-input" id="f-startdate" value="06/08/2026" style="width:100px"> ${calBtn()}
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">End Date :</td>
+                <td style="padding:5px 10px">
+                  <input class="form-input" id="f-enddate" value="06/23/2026" style="width:100px"> ${calBtn()}
+                  &nbsp;<span class="req">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">Venue Name :</td>
+                <td style="padding:5px 10px">
+                  <select class="form-select" id="f-venue" style="width:200px"><option>--All--</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 10px;font-size:13px">Sorting :</td>
+                <td style="padding:5px 10px;font-size:13px">
+                  <input type="radio" name="jadmin-sort" checked> Start Date&nbsp;&nbsp;
+                  <input type="radio" name="jadmin-sort"> JobName
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:10px 10px">
+                  <button class="btn" id="btn-jadmin">Search</button>
+                </td>
+              </tr>
+            </table>
+            <div id="jadmin-results" style="display:none;margin-top:12px">
+              <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:8px">Search Result</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th><th>Job#</th><th>Job Name</th><th>Event</th><th>Venue</th><th>Need</th><th>Sch</th><th>Var</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="jac1-row">
+                    <td style="color:#c07800;font-weight:bold">08/15/2026</td>
+                    <td><span style="color:#3a6aaa;cursor:pointer">5023705541</span></td>
+                    <td><span id="jac1" style="color:#3a6aaa;cursor:pointer">Drake Job</span></td>
+                    <td></td>
+                    <td>AB Convention Center</td>
+                    <td>5</td><td>3</td><td>-2</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div style="padding:6px 0;font-size:12px;color:#555;border-top:1px solid #eee;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
+                <span>Total Pages: 1</span>
+                <span>
+                  <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">&#171; First</button>
+                  <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">&#8249; Previous</button>
+                  <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">Next &#8250;</button>
+                  <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">Last &#187;</button>
+                </span>
+                <span>Current Page: 1</span>
+              </div>
+              <div style="margin-top:10px"><button class="btn" id="btn-jacsave">Save</button></div>
+            </div>
           </div>`;
       }},
 
     // ── Existing steps ─────────────────────────────────────────────────────
-    { selector: '#f-jadmin', prompt: 'Click here and type the Job Number', type: '12345' },
+    { selector: '#f-jadmin', prompt: 'Click here and type the Job Number', type: '5023705541' },
     { selector: '#btn-jadmin', prompt: 'Click "Search" to find employees for this job',
       onConfirm: () => { document.getElementById('jadmin-results').style.display = ''; }},
-    { selector: '#jac1', prompt: 'Click to select the employee to schedule',
-      onConfirm: () => { document.getElementById('jac1').checked = true; }},
-    { selector: '#btn-jacsave', prompt: 'Click "Save" to save the schedule assignment',
+    { selector: '#jac1', prompt: 'Click the Job Name to open the scheduling detail screen',
       onConfirm: () => {
-        showDialog('Schedule Overlap Warning',
-          `<p style="margin-bottom:12px">Employee <b>Smith, John</b> is already scheduled for an overlapping shift on 08/15/2023.<br><br>Do you want to continue?</p>
-          <button class="btn" id="dlg-confirm">Confirm</button>
-          <button class="btn btn-secondary" onclick="closeDialog()">Cancel</button>`);
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Schedule by Job Admin</div>
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 16px 0 16px">
+
+            <!-- TOP: job details (left) + employee filter (right) -->
+            <div style="display:flex;gap:20px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #ddd">
+
+              <!-- Left: job detail fields with bordered value cells -->
+              <div style="flex:1.1">
+                <table style="border-collapse:separate;border-spacing:2px 3px;width:1%">
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap;width:82px">Event :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#c07800;cursor:pointer">2026 DRAKE CONCERT</span></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Job Name :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#3a6aaa;cursor:pointer">Drake Job</span></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Branch Name :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#3a6aaa;cursor:pointer">Prota LA Branch Test</span></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Department :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden">Staff</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Start :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#c07800">08/15/2026 08:00</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Finish :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#c07800">08/16/2026 17:00</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Venue :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#3a6aaa;cursor:pointer">AB Convention Center</span></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Client :</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden">AB Ventures</td>
+                  </tr>
+                </table>
+              </div>
+
+              <!-- Right: employee search filter -->
+              <div style="flex:1">
+                <table style="border-collapse:separate;border-spacing:0">
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap;width:88px">Branch Name :</td>
+                    <td style="padding:3px 4px;font-size:12px"><select class="form-select" style="width:148px"><option>Prota LA Branch Test</option></select>&nbsp;<span class="req">*</span></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">Department :</td>
+                    <td style="padding:3px 4px;font-size:12px"><select class="form-select" style="width:148px"><option>Staff</option></select></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">WorkGroup :</td>
+                    <td style="padding:3px 4px;font-size:12px"><select class="form-select" style="width:148px"><option>--select--</option></select></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">Employee# :</td>
+                    <td style="padding:3px 4px;font-size:12px"><input class="form-input" style="width:141px"></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">First Name :</td>
+                    <td style="padding:3px 4px;font-size:12px"><input class="form-input" style="width:141px"></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">Last Name :</td>
+                    <td style="padding:3px 4px;font-size:12px"><input class="form-input" style="width:141px"></td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:right;padding:3px 6px;font-size:12px;white-space:nowrap">Status :</td>
+                    <td style="padding:3px 4px;font-size:12px"><select class="form-select" style="width:148px"><option>Active</option></select></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="padding:3px 4px;font-size:12px"><input type="checkbox" id="check-emp-roles"> Check Emp Roles</td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="padding:5px 4px"><button class="btn" id="btn-emp-search">Search</button></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td style="padding:3px 4px;font-size:11px;line-height:1.9">
+                      <div><input type="checkbox" checked> Excluded WorkGroup Emp</div>
+                      <div><input type="checkbox"> Show Non-Avail. Emp</div>
+                      <div><input type="checkbox"> Show Shared Emp</div>
+                      <div><input type="checkbox"> Override Credential</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- BOTTOM: Shifts/Role table (left) + Employee results (right) -->
+            <div style="display:flex;gap:16px;padding-bottom:14px">
+              <div style="flex:1.1">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="width:20px"></th>
+                      <th>Shifts/Role</th><th>#</th>
+                      <th>Start</th><th>Finish</th>
+                      <th>Min</th><th>Max</th><th>Sched</th><th>Var</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="shift-plus" style="color:#2a8a3a;font-weight:bold;cursor:pointer">+</td>
+                      <td>Staff &nbsp;<span style="color:#c07800">One Call</span></td><td>1</td>
+                      <td>08/15/2026 08:00</td><td>08/15/2026 17:00</td>
+                      <td>5</td><td>7</td><td>3</td>
+                      <td style="color:#cc0000;font-weight:bold">-2</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div style="flex:1">
+                <table>
+                  <thead><tr><th>Select</th><th>Last Name</th><th>First Name</th><th>Emp#</th></tr></thead>
+                  <tbody id="emp-results"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Bottom buttons centered -->
+            <div style="display:flex;gap:8px;justify-content:center;padding:12px 0;border-top:1px solid #eee">
+              <button class="btn">Back</button>
+              <button class="btn" id="btn-savesched">SaveSched</button>
+            </div>
+          </div>`;
       }},
-    { selector: '#dlg-confirm', prompt: 'Click "Confirm" to proceed with the overlapping schedule',
+    { selector: '#shift-plus', prompt: 'Click "+" to expand the shift and view available roles',
+      onConfirm: () => {
+        // Change + to —
+        const plusCell = document.getElementById('shift-plus');
+        plusCell.textContent = '—';
+        plusCell.style.color = '#888';
+        plusCell.style.cursor = 'default';
+        // Insert child row after the parent row
+        const parentRow = plusCell.closest('tr');
+        const childRow = document.createElement('tr');
+        childRow.id = 'shift-child-row';
+        childRow.style.background = '#f5f5ff';
+        childRow.innerHTML = `
+          <td><input type="checkbox" id="shift-role-cb"></td>
+          <td style="padding-left:18px"><span id="evt-staff-link" style="color:#3a6aaa;cursor:pointer">Event Staff</span></td>
+          <td></td>
+          <td>08/15/2026 08:00</td>
+          <td>08/15/2026 17:00</td>
+          <td>5</td><td>7</td><td>3</td>
+          <td style="color:#cc0000;font-weight:bold">-2</td>`;
+        parentRow.parentNode.insertBefore(childRow, parentRow.nextSibling);
+      }},
+    { selector: '#check-emp-roles', prompt: 'Click "Check Emp Roles" to filter employees by their assigned roles',
+      onConfirm: () => { document.getElementById('check-emp-roles').checked = true; }},
+
+    { selector: '#shift-role-cb', prompt: 'Click the checkbox to select the "Event Staff" role',
+      onConfirm: () => { document.getElementById('shift-role-cb').checked = true; }},
+
+    { selector: '#btn-emp-search', prompt: 'Click "Search" to find available employees for this role',
+      onConfirm: () => {
+        // [lastName, firstName, empNum, isOrange, isTarget]
+        const rows = [
+          ['Khan','Kashan','3960401',false,false],['Thareja','Yashika','3960410',false,false],
+          ['raheja','deepak','8050014',false,false],['Test','Sup1','850551',false,false],
+          ['test','Sup3','850553',false,false],['test','Sup4','850554',false,false],
+          ['test','Sup5','850555',false,false],['testomp','testomp','1',false,false],
+          ['test','Emp12','850603',false,false],['test','Emp13','850604',false,false],
+          ['test','Emp14','850605',false,false],['test','Emp18','850609',false,false],
+          ['Test','Emp19','850610',false,false],['Test','5Aug','2',true,true],
+          ['Test','6Aug','3',true,false],['Test','7Aug','4',true,false],
+          ['Test','8Aug','5',false,false],['Test','9Aug','6',false,false]
+        ];
+        const clr = r => r[3] ? '#c07800' : '#333';
+        const dot = r => r[3]
+          ? `<span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#cc0000;color:#fff;font-size:10px;line-height:16px;text-align:center">&#10003;</span>`
+          : `<span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#2a9a2a;color:#fff;font-size:10px;line-height:16px;text-align:center">&#10003;</span>`;
+        document.getElementById('emp-results').innerHTML = rows.map(r => `
+          <tr ${r[4] ? 'id="emp-orange-row"' : ''}>
+            <td style="text-align:center">
+              <input type="checkbox" ${r[4] ? 'id="emp-orange-cb"' : ''}>&nbsp;${dot(r)}
+            </td>
+            <td style="color:${clr(r)}">${r[0]}</td>
+            <td style="color:${clr(r)}">${r[1]}</td>
+            <td style="color:${clr(r)}">${r[2]}</td>
+          </tr>`).join('');
+        // Make results panel scrollable
+        document.getElementById('emp-results').closest('table').parentElement.style.maxHeight = '280px';
+        document.getElementById('emp-results').closest('table').parentElement.style.overflowY = 'auto';
+      }},
+
+    { selector: '#emp-orange-cb', prompt: 'Select one of the highlighted employees to schedule them',
+      onConfirm: () => {
+        document.getElementById('emp-orange-cb').checked = true;
+        document.getElementById('emp-orange-row').style.background = '#d0d0d0';
+        showDialog('wish.schedulingsite.com says',
+          `<div style="font-size:14px;margin-bottom:20px;line-height:1.5">Schedule overlapped, Are you sure you want to continue!</div>
+           <div style="display:flex;gap:16px;align-items:center">
+             <button id="dlg-overlap-ok" style="background:#333;color:#fff;border:none;padding:7px 22px;border-radius:5px;font-size:14px;cursor:pointer;font-weight:bold">OK</button>
+             <span onclick="closeDialog()" style="font-size:14px;cursor:pointer;color:#333">Cancel</span>
+           </div>`);
+      }},
+
+    { selector: '#dlg-overlap-ok', prompt: 'Click "OK" to confirm the overlapping schedule',
       onConfirm: () => { closeDialog(); }},
+
+    { selector: '#btn-savesched', prompt: 'Click "SaveSched" to save the schedule' },
   ]);
 }
 
