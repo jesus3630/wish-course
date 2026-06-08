@@ -1568,7 +1568,8 @@ function slide_scheduling_4() {
     </div>`;
 
   runGuided([
-    { selector: '#nav-scheduling', prompt: 'Click on "Scheduling" in the menu to expand it',
+    { selector: '#nav-scheduling', prompt: 'This is the WISH home dashboard. Notice the navigation menu on the left — locate "Scheduling".', skipClick: true },
+    { selector: '#nav-scheduling', prompt: 'Hover over and click "Scheduling" to expand its submenu',
       onConfirm: () => {
         document.getElementById('nav-scheduling').classList.add('active');
         document.getElementById('sub-scheduling').classList.add('show');
