@@ -2153,15 +2153,15 @@ function slide_sign_in_sign_out_3() {
         document.getElementById('venue-val').textContent = 'Crocket Arena';
       }},
 
-    // ── Step 8: Click Search → show results ───────────────────────────────
+    // ── Step 8: Highlight Late Sign-In param warning ──────────────────────
+    { selector: '#late-signin-select', prompt: '⚠️ Do NOT change the Late Sign-In param unless instructed to do so.',
+      skipClick: true },
+
+    // ── Step 9: Click Search → show results ───────────────────────────────
     { selector: '#btn-sic-search', prompt: 'Click "Search" to find shifts for this job',
       onConfirm: () => {
         document.getElementById('sic-results').style.display = '';
       }},
-
-    // ── Step 9: Highlight Late Sign-In param warning ──────────────────────
-    { selector: '#late-signin-select', prompt: '⚠️ Do NOT change the Late Sign-In param unless instructed to do so.',
-      skipClick: true },
 
     // ── Step 10: Click checkbox to select shift ───────────────────────────
     { selector: '#sic-select-cb', prompt: 'Click the checkbox to select this shift',
