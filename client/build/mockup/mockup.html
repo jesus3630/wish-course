@@ -2258,24 +2258,8 @@ function slide_sign_in_sign_out_3() {
     { selector: '#f-empid', prompt: 'Click the Employee# field and type the Employee ID',
       type: '3951664' },
 
-    // ── Step 13: Click Ok → success banner + updated stats ────────────────
-    { selector: '#btn-signin-ok', prompt: 'Click "Ok" to sign in this employee',
-      onConfirm: () => {
-        // Show success banner
-        const banner = document.createElement('div');
-        banner.id = 'signin-success';
-        banner.style.cssText = 'background:#e6f4e6;border:1px solid #6ab66a;color:#2a7a2a;font-size:12px;padding:6px 10px;margin-bottom:10px;display:flex;align-items:center;gap:6px';
-        banner.innerHTML = '<span style="color:#4caf50;font-size:15px">&#10003;</span> Employee Scheduled Successfully';
-        const content = document.getElementById('content');
-        content.insertBefore(banner, content.firstChild);
-        // Update stats bar
-        document.getElementById('signin-stats').textContent = 'Total: Min=5  |  Scheduled=5  |  Signed In=1  |  Signed Out=1  |  Var= -4';
-        // Update SC column to 5 (blue)
-        document.getElementById('signin-sc').innerHTML = '<span style="color:#3a6aaa;font-weight:bold">5</span>';
-      }},
-
-    // ── Step 14: Click Ok again → Manage SignInDetails screen ─────────────
-    { selector: '#btn-signin-ok', prompt: 'Click "Ok" to view the Sign-In details',
+    // ── Step 13: Click Ok → Manage SignInDetails screen ──────────────────
+    { selector: '#btn-signin-ok', prompt: 'Click "Ok" to proceed to Sign-In details',
       onConfirm: () => {
         document.getElementById('content').innerHTML = `
           <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:16px">Manage SignInDetails</div>
