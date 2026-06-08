@@ -2091,8 +2091,8 @@ function slide_sign_in_sign_out_3() {
                 <td style="padding:3px 6px"><select class="form-select" style="width:185px"><option>All</option></select></td>
               </tr>
               <tr>
-                <td style="text-align:right;padding:3px 10px;font-size:13px">Late Sign-In param :</td>
-                <td style="padding:3px 6px"><select class="form-select" style="width:80px"><option>15</option><option>30</option><option>45</option><option>60</option></select></td>
+                <td id="late-signin-label" style="text-align:right;padding:3px 10px;font-size:13px">Late Sign-In param :</td>
+                <td style="padding:3px 6px"><select class="form-select" id="late-signin-select" style="width:80px"><option>15</option><option>30</option><option>45</option><option>60</option></select></td>
               </tr>
               <tr>
                 <td></td>
@@ -2159,7 +2159,11 @@ function slide_sign_in_sign_out_3() {
         document.getElementById('sic-results').style.display = '';
       }},
 
-    // ── Step 9: Click checkbox to select shift ────────────────────────────
+    // ── Step 9: Highlight Late Sign-In param warning ──────────────────────
+    { selector: '#late-signin-select', prompt: '⚠️ Do NOT change the Late Sign-In param unless instructed to do so.',
+      skipClick: true },
+
+    // ── Step 10: Click checkbox to select shift ───────────────────────────
     { selector: '#sic-select-cb', prompt: 'Click the checkbox to select this shift',
       onConfirm: () => {
         document.getElementById('sic-select-cb').checked = true;
