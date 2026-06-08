@@ -632,16 +632,23 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 </div>
               )}
 
-              <div style={styles.slideContent}>
-                {slideText ? (
-                  <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
-                ) : (
-                  <p style={styles.emptyText}>No narration text for this slide.</p>
-                )}
-              </div>
+              {!(slide as any)?.wish_logo_card && (
+                <div style={styles.slideContent}>
+                  {slideText ? (
+                    <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                  ) : (
+                    <p style={styles.emptyText}>No narration text for this slide.</p>
+                  )}
+                </div>
+              )}
 
               {(slide as any)?.acronym_card && <WishAcronymCard />}
               {(slide as any)?.wish_logo_card && <WishLogoCard />}
+              {(slide as any)?.wish_logo_card && slideText && (
+                <div style={{ ...styles.slideContent, marginTop: '24px' }}>
+                  <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                </div>
+              )}
               {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
               {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
 
