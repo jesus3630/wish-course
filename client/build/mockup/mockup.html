@@ -1416,6 +1416,7 @@ function mssWebShiftContent() {
     <div style="background:#fff;border:1px solid #ddd;padding:16px;">
       <div style="font-size:14px;font-weight:bold;margin-bottom:10px;">Web Shift</div>
       <div style="background:#ffffe0;border:1px solid #d4d400;color:#886600;padding:5px 10px;margin-bottom:12px;font-size:12px;">Note: All the * marked fields are mandatory</div>
+      <div id="ws-disabled-banner" style="display:none;background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-bottom:12px;font-size:13px;align-items:center;gap:8px;"><span style="color:#3c763d;font-weight:bold;">&#10004;</span> Web shift has been disabled successfully.</div>
       <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;"><option>Prota LA Branch Test</option></select></div>
       <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Job#:</span><input id="f-ws-job" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:180px;background:#fff;"></div>
       <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Job Name:</span><input id="f-ws-jobname" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:180px;background:#fff;"></div>
@@ -1463,7 +1464,7 @@ function mssWebShiftContent() {
             </tr>
             <!-- Role detail row — Auto Schedule checkbox now sits directly under the Auto Schedule column -->
             <tr class="ws-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
-              <td style="padding:4px 8px;text-align:center;"><span style="color:#2a8a2a;font-weight:bold;font-size:14px;">&#10003;</span></td>
+              <td style="padding:4px 8px;text-align:center;"><span id="ws-disable-check" title="Disable this role" style="color:#2a8a2a;font-weight:bold;font-size:15px;cursor:pointer;">&#10003;</span></td>
               <td style="padding:4px 8px;font-size:11px;padding-left:24px;white-space:nowrap;">
                 <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="0">
                 <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="7">
@@ -1472,7 +1473,7 @@ function mssWebShiftContent() {
                 Event Staff
               </td>
               <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &ndash; 17:00</td>
-              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" checked style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
+              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-role-autosched" checked style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
@@ -1484,6 +1485,43 @@ function mssWebShiftContent() {
         <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-top:8px;display:none;font-size:12px;">&#10004;&nbsp; Web shift has been activated successfully.</div>
       </div>
     </div>`;
+}
+
+// Browser-style confirm dialog (matches real WISH "wish.schedulingsite.com says" prompt)
+function openWsDisableConfirm() {
+  if (document.getElementById('mss-confirm-overlay')) return;
+  const ov = document.createElement('div');
+  ov.id = 'mss-confirm-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9000;display:flex;align-items:flex-start;justify-content:center;';
+  ov.innerHTML = `
+    <div style="margin-top:40px;background:#3a3a3c;color:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.5);width:440px;max-width:90%;font-family:-apple-system,Arial,sans-serif;overflow:hidden;">
+      <div style="padding:18px 22px 6px;">
+        <div style="font-size:15px;font-weight:600;margin-bottom:8px;">wish.schedulingsite.com says</div>
+        <div style="font-size:13px;color:#e5e5e5;margin-bottom:6px;">Are you sure you want to disable this?</div>
+      </div>
+      <div style="display:flex;justify-content:flex-end;gap:10px;padding:12px 18px 16px;">
+        <button id="mss-confirm-cancel" style="background:#5a5a5c;color:#fff;border:none;border-radius:6px;padding:7px 18px;font-size:13px;cursor:pointer;">Cancel</button>
+        <button id="mss-confirm-ok" style="background:#1a1a1c;color:#fff;border:none;border-radius:6px;padding:7px 22px;font-size:13px;font-weight:600;cursor:pointer;">OK</button>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  // Cancel keeps the tutorial alive: it just hints to use OK, leaving OK in the DOM
+  const cancel = document.getElementById('mss-confirm-cancel');
+  if (cancel) cancel.onclick = () => {
+    const msg = ov.querySelector('div > div:nth-child(2)');
+    if (msg) { msg.textContent = 'Click OK to confirm and continue the tutorial.'; msg.style.color = '#ffd27f'; }
+  };
+}
+
+function applyWsDisabled() {
+  const ov = document.getElementById('mss-confirm-overlay');
+  if (ov) ov.remove();
+  const chk = document.getElementById('ws-disable-check');
+  if (chk) { chk.innerHTML = '&#10006;'; chk.style.color = '#c0392b'; chk.title = 'Role disabled — click to re-enable'; }
+  const auto = document.getElementById('ws-role-autosched');
+  if (auto) { auto.disabled = true; auto.style.opacity = '0.45'; }
+  const banner = document.getElementById('ws-disabled-banner');
+  if (banner) { banner.style.display = 'flex'; banner.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
 }
 
 function slide_mss_4() {
@@ -1503,6 +1541,10 @@ function slide_mss_4() {
         document.getElementById('ws-expand-icon').textContent = '−';
       }},
     { selector: '#ws-autosched', prompt: 'The Auto Schedule checkbox enables employees to self-schedule for this shift without needing individual approval. Check it if you want that feature enabled.', skipClick: true },
+    { selector: '#ws-disable-check', prompt: 'The green check next to a role means it is active. Click it to disable that role for this web shift — a confirmation will appear.',
+      onConfirm: () => { openWsDisableConfirm(); }},
+    { selector: '#mss-confirm-ok', prompt: 'Click OK to confirm. The role is then marked disabled and you will see a confirmation message.',
+      onConfirm: () => { applyWsDisabled(); }},
     { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs, or check individual jobs you want to publish',
       onConfirm: () => {
         document.getElementById('chk-ws-all').checked = true;
