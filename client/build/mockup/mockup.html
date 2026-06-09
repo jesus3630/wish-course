@@ -1644,16 +1644,17 @@ function slide_mss_5() {
 
 function slide_mss_6() {
   showMSSOverlay(`
-    <div style="background:#fff;border:1px solid #ddd;padding:16px;">
-      <div style="font-size:14px;font-weight:bold;margin-bottom:12px;">Web Shift Approval</div>
-      <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
-        <span style="font-size:12px;">Date From :</span>
-        <input class="form-input" value="08/15/2026" style="width:100px;">
-        <span style="font-size:12px;">Date To :</span>
-        <input class="form-input" value="08/17/2026" style="width:100px;">
-        <button class="btn btn-sm" id="btn-show-shifts">Show All Published Shifts</button>
-      </div>
-      <div id="wsa-results" style="display:none;">
+    <div style="font-size:15px;font-weight:bold;color:#333;background:#e9e9e9;border:1px solid #ccc;padding:9px 14px;margin-bottom:14px;">Web Shift Approval</div>
+    <div style="background:#ffffe0;border:1px solid #d4d400;color:#c00;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
+    <div style="background:#fff;border:1px solid #ddd;padding:18px 20px;">
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;width:200px;"><option>Prota LA Branch Test</option></select></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job#:</span><input id="f-wsa-job" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job Name:</span><input id="f-wsa-jobname" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Start Date:</span><input id="f-wsa-start" value="06/08/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="06/24/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:14px;padding-left:100px;"><input type="checkbox" id="wsa-showall" style="margin-right:6px;"><label for="wsa-showall" style="font-size:12px;color:#444;">Show All Published Shift</label></div>
+      <div style="padding-left:100px;"><button class="btn" id="btn-wsa-search">Search</button></div>
+      <div id="wsa-results" style="display:none;margin-top:16px;">
         <table style="width:100%;border-collapse:collapse;">
           <thead><tr style="background:#5a5a5a;color:#fff;">
             <th style="padding:5px 8px;font-size:11px;">Employee</th>
@@ -1666,22 +1667,26 @@ function slide_mss_6() {
             <th style="padding:5px 8px;font-size:11px;">Action</th>
           </tr></thead>
           <tbody>
-            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Smith, John</td><td style="padding:4px 8px;font-size:11px;">4122001</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
+            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Smith, John</td><td style="padding:4px 8px;font-size:11px;">4122001</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
               <td style="padding:4px 8px;"><button class="btn btn-sm btn-green" id="app1">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
-            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Garcia, Maria</td><td style="padding:4px 8px;font-size:11px;">4122002</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
+            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Garcia, Maria</td><td style="padding:4px 8px;font-size:11px;">4122002</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
               <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
-            <tr><td style="padding:4px 8px;font-size:11px;">Johnson, Robert</td><td style="padding:4px 8px;font-size:11px;">4122003</td><td style="padding:4px 8px;font-size:11px;">Evening Shift</td><td style="padding:4px 8px;font-size:11px;">Supervisor</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">17:00</td><td style="padding:4px 8px;font-size:11px;">22:00</td>
+            <tr><td style="padding:4px 8px;font-size:11px;">Johnson, Robert</td><td style="padding:4px 8px;font-size:11px;">4122003</td><td style="padding:4px 8px;font-size:11px;">Evening Shift</td><td style="padding:4px 8px;font-size:11px;">Supervisor</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">17:00</td><td style="padding:4px 8px;font-size:11px;">22:00</td>
               <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
           </tbody>
         </table>
       </div>
     </div>`);
   runGuided([
-    { selector: '#mss-ol-wsapproval', prompt: 'Click "Web Shift Approval" in the MSS sidebar to review employee shift requests',
+    { selector: '#mss-ol-wsapproval', prompt: 'Click "Web Shift Approval" in the MSS sidebar — this is where you review the shift requests employees submitted online.',
       onConfirm: () => { document.getElementById('mss-ol-wsapproval').style.background = '#e4eef8'; document.getElementById('mss-ol-wsapproval').style.fontWeight = 'bold'; }},
-    { selector: '#btn-show-shifts', prompt: 'Set your date range then click "Show All Published Shifts" to see pending employee requests',
+    { selector: '#f-wsa-start', prompt: 'Set the Start Date for the range of published shifts you want to review — required field.' },
+    { selector: '#f-wsa-end', prompt: 'Set the End Date — required field.' },
+    { selector: '#wsa-showall', prompt: 'Check "Show All Published Shift" to include every published shift in the range, not just the ones with pending requests.',
+      onConfirm: () => { document.getElementById('wsa-showall').checked = true; }},
+    { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the employees who requested these shifts.',
       onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
-    { selector: '#app1', prompt: 'Click "Approve" to approve an employee\'s shift request. Click "Deny" to reject it.',
+    { selector: '#app1', prompt: 'Click "Approve" to confirm an employee\'s shift request. Click "Deny" to reject it.',
       onConfirm: () => {
         const btn = document.getElementById('app1');
         btn.textContent = '✔ Approved';
