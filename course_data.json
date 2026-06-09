@@ -1288,7 +1288,8 @@
         "slide_number": 5,
         "slide_name": "Auto-Schedule vs. Manual Approval",
         "instructions": "",
-        "text": "You have two options for how employees get scheduled through ESS:\r\n\r\nAuto-Schedule, Employees who apply are automatically accepted on a first-come, first-served basis until the maximum headcount is reached. No action required from you. Ideal for large events.\r\n\r\nManual Approval, Employees apply and you review each employees scheduling request individually. Gives you more control but takes significantly more time.\r\n\r\nMost high-volume branches use auto-scheduling for large events."
+        "text": "You have two options for how employees get scheduled through ESS:\r\n\r\nAuto-Schedule, Employees who apply are automatically accepted on a first-come, first-served basis until the maximum headcount is reached. No action required from you. Ideal for large events.\r\n\r\nManual Approval, Employees apply and you review each employees scheduling request individually. Gives you more control but takes significantly more time.\r\n\r\nMost high-volume branches use auto-scheduling for large events.",
+        "simulation_url": "/mockup/mockup.html?module=mss&slide=5"
       },
       {
         "slide_number": 6,

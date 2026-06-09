@@ -1575,6 +1575,73 @@ function slide_mss_4() {
   ]);
 }
 
+// Slide 5 — animated side-by-side comparison (Auto-Schedule vs Manual Approval)
+function slide_mss_5() {
+  const card = (accent, bg, icon, title, tag, tagBg, points) => `
+    <div class="cmp-card" style="flex:1;min-width:0;background:${bg};border:2px solid ${accent};border-radius:14px;padding:22px 20px;box-shadow:0 6px 22px rgba(0,0,0,.08);">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+        <div style="width:46px;height:46px;border-radius:12px;background:${accent};display:flex;align-items:center;justify-content:center;font-size:24px;">${icon}</div>
+        <div style="font-size:19px;font-weight:800;color:#1B3A6B;line-height:1.1;">${title}</div>
+      </div>
+      <div style="display:inline-block;background:${tagBg};color:#fff;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:3px 10px;border-radius:20px;margin-bottom:14px;">${tag}</div>
+      <div>${points.map(p => `
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;font-size:13.5px;color:#37414f;line-height:1.4;">
+          <span style="color:${accent};font-weight:900;font-size:14px;flex-shrink:0;margin-top:1px;">${p.s}</span>
+          <span>${p.t}</span>
+        </div>`).join('')}
+      </div>
+    </div>`;
+
+  const auto = card('#2a9d8f', '#effbf8', '&#9889;', 'Auto-Schedule', 'Fastest', '#2a9d8f', [
+    { s: '&#10003;', t: 'Employees who apply are <strong>automatically accepted</strong>, first-come, first-served' },
+    { s: '&#10003;', t: 'Fills until the <strong>maximum headcount</strong> is reached' },
+    { s: '&#10003;', t: '<strong>No action required</strong> from you' },
+    { s: '&#9733;', t: 'Ideal for <strong>large, high-volume events</strong>' },
+  ]);
+
+  const manual = card('#D4782A', '#fff6ee', '&#9995;', 'Manual Approval', 'More Control', '#D4782A', [
+    { s: '&#10003;', t: 'Employees apply and <strong>you review each request</strong> individually' },
+    { s: '&#10003;', t: 'Gives you the <strong>most control</strong> over who gets scheduled' },
+    { s: '&#10006;', t: 'Takes <strong>significantly more time</strong>' },
+    { s: '&#9733;', t: 'Best for <strong>small or specialized</strong> shifts' },
+  ]);
+
+  document.getElementById('content').innerHTML = `
+    <style>
+      .cmp-wrap{font-family:'Segoe UI',Arial,sans-serif;padding:26px 22px;max-width:1000px;margin:0 auto;}
+      .cmp-reveal{opacity:0;transform:translateY(20px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1);}
+      .cmp-reveal.show{opacity:1;transform:translateY(0);}
+      .cmp-row{display:flex;gap:18px;align-items:stretch;}
+      @media(max-width:760px){.cmp-row{flex-direction:column;}}
+      .cmp-vs{display:flex;align-items:center;justify-content:center;font-weight:900;color:#1B3A6B;font-size:18px;}
+      .cmp-vs span{background:#1B3A6B;color:#fff;border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(27,58,107,.3);}
+    </style>
+    <div class="cmp-wrap">
+      <div class="cmp-reveal" id="cmp-0" style="text-align:center;font-size:22px;font-weight:900;color:#1B3A6B;letter-spacing:.5px;margin-bottom:6px;">Two Ways Employees Get Scheduled</div>
+      <div class="cmp-reveal" id="cmp-1" style="text-align:center;font-size:13px;color:#6B7280;margin-bottom:22px;">Through ESS, you choose how shifts get filled</div>
+      <div class="cmp-row">
+        <div class="cmp-reveal" id="cmp-2" style="flex:1;display:flex;">${auto}</div>
+        <div class="cmp-reveal cmp-vs" id="cmp-3"><span>VS</span></div>
+        <div class="cmp-reveal" id="cmp-4" style="flex:1;display:flex;">${manual}</div>
+      </div>
+      <div class="cmp-reveal" id="cmp-5" style="margin-top:22px;background:#1B3A6B;color:#fff;border-radius:12px;padding:14px 20px;text-align:center;font-size:14px;line-height:1.5;">
+        <strong>Bottom line:</strong> Most high-volume branches use <strong>Auto-Schedule</strong> for large events to save time &mdash; switch to <strong>Manual Approval</strong> when you need to hand-pick who works.
+      </div>
+      <div style="text-align:center;margin-top:18px;">
+        <button class="btn" id="cmp-replay" style="background:#D4782A;color:#fff;border:none;border-radius:8px;padding:9px 22px;font-size:13px;font-weight:700;cursor:pointer;">&#8635; Replay</button>
+      </div>
+    </div>`;
+
+  function play() {
+    const ids = ['cmp-0','cmp-1','cmp-2','cmp-3','cmp-4','cmp-5'];
+    ids.forEach(id => { const e = document.getElementById(id); if (e) e.classList.remove('show'); });
+    const delays = [150, 500, 900, 1300, 1500, 2100];
+    delays.forEach((ms, i) => setTimeout(() => { const e = document.getElementById(ids[i]); if (e) e.classList.add('show'); }, ms));
+  }
+  document.getElementById('cmp-replay').onclick = play;
+  play();
+}
+
 function slide_mss_6() {
   showMSSOverlay(`
     <div style="background:#fff;border:1px solid #ddd;padding:16px;">
@@ -4522,6 +4589,7 @@ const routes = {
   'manage_job-9':   slide_manage_job_9,
   'mss-3':          slide_mss_3,
   'mss-4':          slide_mss_4,
+  'mss-5':          slide_mss_5,
   'mss-6':          slide_mss_6,
   'scheduling-3':   slide_scheduling_3,
   'scheduling-4':   slide_scheduling_4,
