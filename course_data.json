@@ -1302,7 +1302,8 @@
         "slide_number": 7,
         "slide_name": "Web shift Report Tab",
         "instructions": "Web Shift Report in left nav. Set Branch and date range. Click Produce Report. Show results table with employee names, shift, status, and Approved By column.",
-        "text": "The Web Shift Report is your paper trail after the Web Shift Approval tab does its job.\r\n\r\nSelect your branch, set your date range, and click Produce Report. You'll see every employee who applied for a published shift, when they applied, what shift and role they applied for, and whether they were approved or are still pending.\r\n\r\nIf you see Pending next to a name, that's your cue, go back to the Web Shift Approval tab and take action before the event."
+        "text": "The Web Shift Report is your paper trail after the Web Shift Approval tab does its job.\r\n\r\nSelect your branch, set your date range, and click Produce Report. You'll see every employee who applied for a published shift, when they applied, what shift and role they applied for, and whether they were approved or are still pending.\r\n\r\nIf you see Pending next to a name, that's your cue, go back to the Web Shift Approval tab and take action before the event.",
+        "simulation_url": "/mockup/mockup.html?module=mss&slide=7"
       },
       {
         "slide_number": 8,
