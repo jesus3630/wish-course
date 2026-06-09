@@ -53,6 +53,17 @@ body {
   }
 }
 
+/* JS-driven stacked override — triggered by ResizeObserver when container < 900px */
+.sim-layout.sim-stacked {
+  flex-direction: column !important;
+  gap: 20px;
+}
+.sim-layout.sim-stacked .sim-text,
+.sim-layout.sim-stacked .sim-demo {
+  flex: none !important;
+  width: 100%;
+}
+
 @media print {
   body * { visibility: hidden; }
   .cert-printable, .cert-printable * { visibility: visible; }

@@ -154,6 +154,8 @@ export default function ModulePlayer({
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [simReady, setSimReady] = useState(false);
+  const [narrowLayout, setNarrowLayout] = useState(false);
+  const slideAreaRef = useRef<HTMLDivElement>(null);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -167,6 +169,17 @@ export default function ModulePlayer({
   const blobUrlsRef = useRef<string[]>([]);
   const narrationTokenRef = useRef<symbol | null>(null);
   useEffect(() => { progressRef.current = progress; }, [progress]);
+
+  useEffect(() => {
+    const el = slideAreaRef.current;
+    if (!el) return;
+    const ro = new ResizeObserver(entries => {
+      const w = entries[0]?.contentRect.width ?? el.offsetWidth;
+      setNarrowLayout(w < 900);
+    });
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const slide = module.slides[slideIndex];
   const questions: QuizQuestion[] = quizData[module.id] ?? [];
@@ -571,7 +584,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       </div>
 
       {/* Slide area */}
-      <div style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
+      <div ref={slideAreaRef} style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
         <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : '40px 48px', opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           {/* Character inline top-right — hidden on mobile to avoid clipping */}
           {!isMobile && (
@@ -587,7 +600,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
           {(slide as any)?.simulation_url ? (
             /* ── Responsive sim layout: side-by-side on wide, stacked on narrow ── */
-            <div className="sim-layout">
+            <div className={narrowLayout ? 'sim-layout sim-stacked' : 'sim-layout'}>
               {/* Text / script */}
               <div className="sim-text">
                 <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
