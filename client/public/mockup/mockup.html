@@ -1425,7 +1425,7 @@ function mssWebShiftContent() {
       <div id="ws-results" style="display:none;margin-top:14px;">
         <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:6px;">Search Result</div>
         <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px;">
-          <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view" checked> Expand</label>
+          <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view" id="ws-expand-radio" checked> Expand</label>
           <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view"> Collapse</label>
         </div>
         <table style="width:100%;border-collapse:collapse;">
@@ -1507,12 +1507,13 @@ function slide_mss_4() {
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
       onConfirm: () => { document.getElementById('ws-results').style.display = ''; }},
     { selector: '#ws-var-col', prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
-    { selector: '#ws-autosched', prompt: 'Check "Auto Schedule" to expand the job and see its shift details. This lets you review exactly what will be published.',
+    { selector: '#ws-expand-radio', prompt: 'Click "Expand" to open the job and see its shift details before publishing.',
       onConfirm: () => {
-        document.getElementById('ws-autosched').checked = true;
+        document.getElementById('ws-expand-radio').checked = true;
         document.getElementById('ws-sub-rows').style.display = '';
         document.getElementById('ws-expand-icon').textContent = '−';
       }},
+    { selector: '#ws-autosched', prompt: 'The Auto Schedule checkbox enables employees to self-schedule for this shift without needing individual approval. Check it if you want that feature enabled.', skipClick: true },
     { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs, or check individual jobs you want to publish',
       onConfirm: () => {
         document.getElementById('chk-ws-all').checked = true;
