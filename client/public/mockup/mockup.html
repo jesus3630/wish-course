@@ -395,6 +395,7 @@ function runGuided(steps) {
         showStep(i + 1); return;
       }
       el.classList.add('guided-target');
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
 
       if (s.skipClick) {
         // Observation step — prompt is CSS-anchored above the bar, never overlaps content
@@ -1170,7 +1171,7 @@ function slide_mss_3() {
   runGuided([
     { selector: '#nav-tools', prompt: 'Click "Tools" in the sidebar to open the Tools menu',
       onConfirm: () => { setNav('tools'); document.getElementById('content').innerHTML = homeScreenHTML(); }},
-    { selector: '#sub-tools-mss', prompt: 'Scroll down and click "Manager Portal(MSS)" — this opens the separate MSS portal',
+    { selector: '#sub-tools-mss', prompt: 'The menu expanded — scroll down to find "Manager Portal(MSS)" and click it to open the MSS portal',
       onConfirm: () => {
         document.getElementById('card').innerHTML = mssPortalHTML();
       }},
