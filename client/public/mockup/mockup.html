@@ -1863,6 +1863,75 @@ function mssWebShiftReportContent() {
     </div>`;
 }
 
+// "Produce Report" opens the report in its own viewer page
+function openWebShiftReport() {
+  if (document.getElementById('rpt-overlay')) return;
+  const rows = [
+    ['4168684','Aldape','Gabriel','Security Guard','05/19/26 21:15','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
+    ['4139725','Alvarado','Izaak','Security Guard','05/21/26 09:14','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
+    ['4139725','Alvarado','Izaak','Security Guard','05/19/26 18:31','Denied','GONZALEZ STEFANIE','05/21/26 13:47'],
+    ['4169587','Amaro','Sebastian','Security Guard','05/19/26 22:28','Approved','Swanson Jamie','05/21/26 11:17'],
+    ['4181936','Aranda','Rodrigo','Security Guard','05/19/26 15:14','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
+    ['4184649','Arellano','Peter','Event Staff','05/27/26 02:32','Denied','Iniguez Yamilet','05/27/26 17:36'],
+    ['4185342','Bidon','Logan','Security Guard','06/06/26 18:53','Denied','Swanson Jamie','06/08/26 18:05'],
+    ['4181190','Bryant','Tiffany','Event Staff','05/21/26 13:51','Denied','GONZALEZ STEFANIE','05/22/26 11:36'],
+    ['4168692','Carrillo Casarreal','Zeus','Security Guard','05/20/26 05:39','Approved','Iniguez Yamilet','05/21/26 07:15'],
+    ['4183773','Castillo','Natalie','Security Guard','05/22/26 10:33','Denied','GONZALEZ STEFANIE','05/22/26 11:59'],
+    ['4146428','Cook','Damian','Security Guard','06/07/26 02:16','Denied','Swanson Jamie','06/08/26 18:05'],
+    ['4185328','Davis','Brad','Event Staff','05/21/26 19:23','Denied','GONZALEZ STEFANIE','05/22/26 11:53'],
+    ['4185997','Davis','Briona','Event Staff','05/21/26 18:44','Denied','GONZALEZ STEFANIE','05/22/26 11:36'],
+    ['4167150','Dawkins','Joshua','Security Guard','05/19/26 15:19','Denied','GONZALEZ STEFANIE','05/22/26 11:59'],
+    ['4185327','DeCriscio','Blake','Security Guard','05/19/26 15:20','Denied','Swanson Jamie','05/20/26 18:08'],
+  ];
+  const td = 'padding:4px 7px;font-size:11px;border-bottom:1px solid #e3e3e3;vertical-align:top;';
+  const body = rows.map(r => `
+    <tr>
+      <td style="${td}">${r[0]}</td>
+      <td style="${td}">${r[1]}</td>
+      <td style="${td}">${r[2]}</td>
+      <td style="${td}">415pm Main Call</td>
+      <td style="${td}">${r[3]}</td>
+      <td style="${td}white-space:nowrap;">06/08/26 08:00</td>
+      <td style="${td}white-space:nowrap;">06/08/26 23:59</td>
+      <td style="${td}white-space:nowrap;">${r[4]}</td>
+      <td style="${td}font-weight:bold;color:${r[5] === 'Approved' ? '#1a7a1a' : '#b33'};">${r[5]}</td>
+      <td style="${td}">${r[6]}</td>
+      <td style="${td}white-space:nowrap;">${r[7]}</td>
+    </tr>`).join('');
+  const th = 'padding:5px 7px;font-size:11px;text-align:left;border:1px solid #b8c4d6;font-weight:bold;color:#1a3c5a;white-space:nowrap;';
+  const ov = document.createElement('div');
+  ov.id = 'rpt-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9000;background:#fff;overflow:auto;font-family:Arial,Helvetica,sans-serif;';
+  ov.innerHTML = `
+    <div style="background:#2b2b2b;color:#ddd;padding:6px 12px;display:flex;align-items:center;gap:10px;font-size:11px;position:sticky;top:0;z-index:2;">
+      <span style="background:#444;border-radius:3px;padding:3px 8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%;">wish.schedulingsite.com/Reports/rep.aspx?repId=42&amp;rpt=EmpWebShiftAppStatus.rdlc</span>
+      <span id="rpt-close" style="margin-left:auto;cursor:pointer;border:1px solid #888;border-radius:3px;padding:3px 12px;background:#333;color:#fff;">Close &#10006;</span>
+    </div>
+    <div style="background:#eee;border-bottom:1px solid #ccc;padding:6px 12px;display:flex;align-items:center;gap:10px;font-size:12px;color:#333;">
+      <span style="letter-spacing:2px;">&#9198; &#9664; <span style="border:1px solid #aaa;background:#fff;padding:0 6px;">1</span> of 2 &#9654; &#9197;</span>
+      <input style="border:1px solid #aaa;width:130px;padding:2px 5px;" placeholder="">
+      <span style="color:#06c;cursor:pointer;">Find | Next</span>
+      <span style="margin-left:auto;color:#888;">&#128190; &#8635;</span>
+    </div>
+    <div style="padding:22px 28px;">
+      <div style="font-size:22px;font-weight:900;font-style:italic;color:#c07800;font-family:Impact,Arial,sans-serif;letter-spacing:1px;">WISH</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #333;padding-bottom:5px;margin-top:6px;">
+        <div style="font-size:18px;font-weight:bold;color:#222;">Employee Web Shift Approval Status Report</div>
+        <div style="font-size:11px;font-weight:bold;color:#222;">Print Date : 06/09/26 12:00</div>
+      </div>
+      <div style="font-size:12px;font-weight:bold;margin-top:8px;color:#222;">Branch Name : Orange County</div>
+      <div style="font-size:12px;font-weight:bold;background:#f0f0f0;padding:4px 6px;margin-top:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#222;">Job# : 1413677847 , Job Name : ANGELS vs HOU-6/8/2026</div>
+      <table style="width:100%;border-collapse:collapse;margin-top:8px;">
+        <thead><tr style="background:#c9d6e8;">
+          <th style="${th}">Employee#</th><th style="${th}">Last Name</th><th style="${th}">First Name</th><th style="${th}">Shift Name</th><th style="${th}">Role Name</th><th style="${th}">Start Date</th><th style="${th}">Finish Date</th><th style="${th}">Applied Date</th><th style="${th}">Status</th><th style="${th}">Approved By</th><th style="${th}">Approved Date</th>
+        </tr></thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>`;
+  document.body.appendChild(ov);
+  document.getElementById('rpt-close').onclick = () => ov.remove();
+}
+
 function slide_mss_7() {
   showMSSOverlay(mssWebShiftReportContent());
   runGuided([
@@ -1870,11 +1939,8 @@ function slide_mss_7() {
       onConfirm: () => { document.getElementById('mss-ol-main').innerHTML = mssWebShiftReportContent(); }},
     { selector: '#rpt-start', prompt: 'Set the Start Date for the date range you want the report to cover — required field.' },
     { selector: '#rpt-end', prompt: 'Set the End Date — required field. You can also narrow the report by Employee#, name, or job, but those fields are optional.' },
-    { selector: '#btn-rpt-produce', prompt: 'Click "Produce Report" to generate the Employee Web Shift Approval Report for this range — a record of who was approved or denied for web shifts.',
-      onConfirm: () => {
-        const msg = document.getElementById('rpt-msg');
-        if (msg) { msg.style.display = 'flex'; msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
-      }},
+    { selector: '#btn-rpt-produce', prompt: 'Click "Produce Report" — the report opens in its own viewer page showing every employee, their Status (Approved or Denied), who approved it, and when.',
+      onConfirm: () => { openWebShiftReport(); }},
   ]);
 }
 
