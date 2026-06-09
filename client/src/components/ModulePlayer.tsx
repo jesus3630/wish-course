@@ -171,14 +171,13 @@ export default function ModulePlayer({
   useEffect(() => { progressRef.current = progress; }, [progress]);
 
   useEffect(() => {
-    const el = slideAreaRef.current;
-    if (!el) return;
-    const ro = new ResizeObserver(entries => {
-      const w = entries[0]?.contentRect.width ?? el.offsetWidth;
-      setNarrowLayout(w < 900);
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
+    const check = () => {
+      const isSplit = window.outerWidth < window.screen.width * 0.8;
+      setNarrowLayout(isSplit);
+    };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
   }, []);
 
   const slide = module.slides[slideIndex];
