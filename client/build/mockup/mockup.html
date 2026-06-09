@@ -3146,7 +3146,7 @@ function slide_sign_in_sign_out_4() {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Sign-In with Employee#</div>
+    <div id="stab-signin" style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Sign-In with Employee#</div>
     <table style="border:none;margin-bottom:6px">
       <tbody>
         <tr>
@@ -3619,7 +3619,7 @@ function slide_sign_in_sign_out_5() {
               </tr>
               <tr>
                 <td style="text-align:right;padding:4px 10px;font-size:12px;color:#333;white-space:nowrap">Late Sign-out param :</td>
-                <td style="padding:4px 6px"><select class="form-input" id="f-soc-late" style="width:120px;font-size:12px"><option>2 Hrs</option><option>1 Hr</option><option>3 Hrs</option></select></td>
+                <td style="padding:4px 6px"><select class="form-input" id="f-soc-late" style="width:120px;font-size:12px"><option>2 Hrs</option><option>1 Hr</option><option>3 Hrs</option></select><span id="f-minhrs" style="display:none"></span></td>
               </tr>
             </tbody>
           </table>
