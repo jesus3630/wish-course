@@ -1687,7 +1687,7 @@ function openWebScheduleRequest() {
           </tr></thead>
           <tbody>
             ${emp('wsr-chk-1', '4157445', 'Geoffrey', 'Watson', '12.00', '06/08/2026 17:26:30')}
-            ${emp('', '4069494', 'Ashley', 'Neveu', '0.00', '06/08/2026 20:44:02')}
+            ${emp('wsr-chk-2', '4069494', 'Ashley', 'Neveu', '0.00', '06/08/2026 20:44:02')}
             ${emp('', '3946539', 'William', 'Hicks', '0.00', '06/08/2026 20:46:03')}
             ${emp('', '4178600', 'Marissa', 'Thammavongsa', '14.00', '06/09/2026 08:48:09')}
             ${emp('', '4175839', 'Lamark', 'Beasley', '38.00', '06/09/2026 09:18:41')}
@@ -1698,6 +1698,7 @@ function openWebScheduleRequest() {
           <button class="btn" id="wsr-deny" style="margin-left:8px;background:#c06060;border-color:#a05050;color:#fff;">Deny</button>
         </div>
         <div id="wsr-done" style="display:none;text-align:center;margin-top:12px;color:#1a6a1a;font-size:13px;font-weight:bold;">&#10004; Selected employee(s) approved and scheduled for this role.</div>
+        <div id="wsr-denied" style="display:none;text-align:center;margin-top:8px;color:#a33;font-size:13px;font-weight:bold;">&#10006; Selected request denied. The employee will not be scheduled for this role.</div>
       </div>
     </div>`;
   document.body.appendChild(ov);
@@ -1827,10 +1828,19 @@ function slide_mss_6() {
       onConfirm: () => { openWebScheduleRequest(); }},
     { selector: '#wsr-chk-1', prompt: 'Check the box next to each employee you want to schedule for this role.',
       onConfirm: () => { const c = document.getElementById('wsr-chk-1'); if (c) c.checked = true; }},
-    { selector: '#wsr-approve', prompt: 'Click "Approve" to schedule the selected employees. Approve as many as needed to reach the Max for the role — or use "Deny" to reject a request.',
+    { selector: '#wsr-approve', prompt: 'Click "Approve" to schedule the selected employees. Approve as many as needed to reach the Max for the role.',
       onConfirm: () => {
+        const c1 = document.getElementById('wsr-chk-1'); if (c1) c1.checked = false;
         const done = document.getElementById('wsr-done');
         if (done) { done.style.display = 'block'; done.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      }},
+    { selector: '#wsr-chk-2', prompt: 'To turn a request down instead, check the box next to the employee you want to reject.',
+      onConfirm: () => { const c = document.getElementById('wsr-chk-2'); if (c) c.checked = true; }},
+    { selector: '#wsr-deny', prompt: 'Click "Deny" to reject the selected request. The employee will not be scheduled for this role.',
+      onConfirm: () => {
+        const c2 = document.getElementById('wsr-chk-2'); if (c2) c2.checked = false;
+        const den = document.getElementById('wsr-denied');
+        if (den) { den.style.display = 'block'; den.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
       }},
   ]);
 }
