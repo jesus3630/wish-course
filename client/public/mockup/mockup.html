@@ -440,21 +440,22 @@ function runGuided(steps) {
         showStep(i + 1); return;
       }
       el.classList.add('guided-target');
-      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+      el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' });
 
-      // Position bouncing arrow above the target
+      // Position arrow after scroll settles
       setTimeout(() => {
         const arrow = document.getElementById('guided-arrow');
-        if (arrow) {
-          const rect = el.getBoundingClientRect();
-          arrow.style.left = (rect.left + rect.width / 2 - 55) + 'px';
-          arrow.style.top  = Math.max(4, rect.top - 54) + 'px';
-          arrow.style.display = 'flex';
-          // Update label for skipClick vs clickable
-          const lbl = arrow.querySelector('.arrow-label');
-          if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
-        }
-      }, 200);
+        if (!arrow) return;
+        const rect = el.getBoundingClientRect();
+        const arrowW = 110;
+        const centerX = rect.left + rect.width / 2;
+        const topY = rect.top - 58;
+        arrow.style.left = Math.max(4, Math.min(1280 - arrowW - 4, centerX - arrowW / 2)) + 'px';
+        arrow.style.top  = Math.max(4, topY) + 'px';
+        arrow.style.display = 'flex';
+        const lbl = arrow.querySelector('.arrow-label');
+        if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
+      }, 80);
 
       if (s.skipClick) {
         // Observation step — prompt is CSS-anchored above the bar, never overlaps content
