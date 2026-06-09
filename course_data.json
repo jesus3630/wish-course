@@ -1274,7 +1274,7 @@
         "slide_number": 3,
         "slide_name": "Accessing MSS",
         "instructions": "Tools menu ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manager Portal. Show event list and variance column.",
-        "text": "Go to the Tools menu in the navigation and select (Manager Portal) MSS.\r\n\r\nYou will see a list of upcoming events for your branch. The variance column shows the difference between employees you have scheduled and the minimum required for each shift.",
+        "text": "Go to the Tools menu in the sidebar and select Manager Portal (MSS).\n\nThis opens the WISH Manager Self-Service portal — a separate system from the main WISH application, built specifically for managers.\n\nThe three sections you will use most often are:\n\n* Web Shift — publish open shifts to the portal so employees can request them online\n* Web Shift Approval — review and approve or deny employee requests that come in\n* Web Shift Report — view a summary of all web shift activity for your branch\n\nYour upcoming events are listed on the home screen for quick reference.",
         "simulation_url": "/mockup/mockup.html?module=mss&slide=3"
       },
       {

@@ -1138,7 +1138,7 @@ function showMSSOverlay(innerHTML) {
           ['wsapproval-icon.png','Web Shift Approval','mss-ol-wsapproval',false],
           ['empapproval-icon.png','Employee Approval','',false],
           ['reqsched-icon.png','Request Schedule','',false],
-          ['wsreport-icon.png','Web Shift Report','',false],
+          ['wsreport-icon.png','Web Shift Report','mss-ol-wsreport',false],
           ['payrate-icon.png','Emp PayRate Change','',false],
           ['payrateapproval-icon.png','PayRate Approval','',false],
         ].map(([, label, id, active]) => `
@@ -1230,8 +1230,9 @@ function slide_mss_3() {
             </table>
           </div>`);
       }},
-    { selector: '#mss-ol-home', prompt: 'This is the WISH Manager Self-Service portal — a completely separate portal from the main WISH system, designed specifically for managers.', skipClick: true },
-    { selector: '#mss-ol-webshift', prompt: 'From here you can publish shifts to the web, approve employee schedule requests, and manage payrate changes.', skipClick: true },
+    { selector: '#mss-ol-webshift', prompt: 'Web Shift — publish open shifts to the portal so employees can request them online. This is where you start the web scheduling process.', skipClick: true },
+    { selector: '#mss-ol-wsapproval', prompt: 'Web Shift Approval — review and approve or deny employee shift requests. Employees who requested shifts from the portal appear here.', skipClick: true },
+    { selector: '#mss-ol-wsreport', prompt: 'Web Shift Report — view a full summary of web shift activity for your branch, including who was approved and scheduling totals.', skipClick: true },
   ]);
 }
 
