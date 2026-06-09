@@ -1450,44 +1450,33 @@ function mssWebShiftContent() {
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
             </tr>
-            <tr id="ws-sub-rows" style="display:none;">
-              <td colspan="8" style="padding:0;">
-                <table style="width:100%;border-collapse:collapse;margin-left:24px;width:calc(100% - 24px);">
-                  <!-- Shift header row -->
-                  <tr style="background:#f0f0f0;border-bottom:1px solid #ddd;">
-                    <td style="padding:4px 6px;font-size:11px;width:18px;"><span style="color:#555;">&#8722;</span></td>
-                    <td style="padding:4px 6px;font-size:11px;color:#444;font-weight:bold;" colspan="2">Staff One Call</td>
-                    <td style="padding:4px 6px;font-size:11px;">08/15/2026 08:00</td>
-                    <td style="padding:4px 6px;font-size:11px;">08/15/2026 17:00</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">7</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">0</td>
-                  </tr>
-                  <!-- Role detail row — matches screenshot exactly -->
-                  <tr style="background:#fff;border-bottom:1px solid #eee;">
-                    <td style="padding:4px 6px;font-size:12px;text-align:center;">
-                      <span style="color:#2a8a2a;font-weight:bold;font-size:14px;">&#10003;</span>
-                    </td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">
-                      <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="0">
-                    </td>
-                    <td style="padding:4px 6px;font-size:11px;">
-                      <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="7">
-                      <span style="color:#c00;margin:0 2px;">*</span>
-                      <span style="color:#555;font-size:10px;">&#9654;</span>
-                      Event Staff
-                    </td>
-                    <td style="padding:4px 6px;font-size:11px;">08/15/2026 08:00</td>
-                    <td style="padding:4px 6px;font-size:11px;">08/15/2026<br>17:00</td>
-                    <td style="padding:4px 6px;text-align:center;"><input type="checkbox" checked style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">7</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 6px;font-size:11px;text-align:center;">0</td>
-                  </tr>
-                </table>
+            <!-- Shift header row (flattened into parent table so columns align) -->
+            <tr class="ws-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
+              <td style="padding:4px 8px;text-align:center;"><span style="color:#555;">&#8722;</span></td>
+              <td style="padding:4px 8px;font-size:11px;color:#444;font-weight:bold;padding-left:24px;">Staff One Call</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:4px 8px;"></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">0</td>
+            </tr>
+            <!-- Role detail row — Auto Schedule checkbox now sits directly under the Auto Schedule column -->
+            <tr class="ws-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
+              <td style="padding:4px 8px;text-align:center;"><span style="color:#2a8a2a;font-weight:bold;font-size:14px;">&#10003;</span></td>
+              <td style="padding:4px 8px;font-size:11px;padding-left:24px;white-space:nowrap;">
+                <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="0">
+                <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="7">
+                <span style="color:#c00;margin:0 2px;">*</span>
+                <span style="color:#555;font-size:10px;">&#9654;</span>
+                Event Staff
               </td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" checked style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">0</td>
             </tr>
           </tbody>
         </table>
@@ -1510,7 +1499,7 @@ function slide_mss_4() {
     { selector: '#ws-expand-radio', prompt: 'Click "Expand" to open the job and see its shift details before publishing.',
       onConfirm: () => {
         document.getElementById('ws-expand-radio').checked = true;
-        document.getElementById('ws-sub-rows').style.display = '';
+        document.querySelectorAll('.ws-sub-rows').forEach(r => { r.style.display = ''; });
         document.getElementById('ws-expand-icon').textContent = '−';
       }},
     { selector: '#ws-autosched', prompt: 'The Auto Schedule checkbox enables employees to self-schedule for this shift without needing individual approval. Check it if you want that feature enabled.', skipClick: true },
