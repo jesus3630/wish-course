@@ -1654,27 +1654,58 @@ function slide_mss_6() {
       <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="06/24/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
       <div style="display:flex;align-items:center;margin-bottom:14px;padding-left:100px;"><input type="checkbox" id="wsa-showall" style="margin-right:6px;"><label for="wsa-showall" style="font-size:12px;color:#444;">Show All Published Shift</label></div>
       <div style="padding-left:100px;"><button class="btn" id="btn-wsa-search">Search</button></div>
-      <div id="wsa-results" style="display:none;margin-top:16px;">
+      <div id="wsa-results" style="display:none;margin-top:18px;">
+        <div style="font-size:15px;font-weight:bold;color:#333;border-bottom:1px solid #ccc;padding-bottom:8px;margin-bottom:14px;">Search Result</div>
+        <div style="display:flex;gap:18px;align-items:center;margin-bottom:14px;background:#f3f3f3;border:1px solid #ddd;padding:7px 16px;width:fit-content;">
+          <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="radio" name="wsa-view" id="wsa-expand-radio"> Expand</label>
+          <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="radio" name="wsa-view" checked> Collapse</label>
+        </div>
         <table style="width:100%;border-collapse:collapse;">
           <thead><tr style="background:#5a5a5a;color:#fff;">
-            <th style="padding:5px 8px;font-size:11px;">Employee</th>
-            <th style="padding:5px 8px;font-size:11px;">Emp#</th>
-            <th style="padding:5px 8px;font-size:11px;">Shift</th>
-            <th style="padding:5px 8px;font-size:11px;">Role</th>
-            <th style="padding:5px 8px;font-size:11px;">Date</th>
-            <th style="padding:5px 8px;font-size:11px;">Start</th>
-            <th style="padding:5px 8px;font-size:11px;">Finish</th>
-            <th style="padding:5px 8px;font-size:11px;">Action</th>
+            <th style="padding:6px 8px;font-size:11px;width:28px;"></th>
+            <th style="padding:6px 8px;font-size:11px;text-align:left;">Job &#9650;&#9660;</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:left;">Venue &#9650;&#9660;</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:center;">Approve</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:center;">Min</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:center;">Max</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:center;">Sched</th>
+            <th style="padding:6px 8px;font-size:11px;text-align:center;" id="wsa-var-col">Var</th>
           </tr></thead>
           <tbody>
-            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Smith, John</td><td style="padding:4px 8px;font-size:11px;">4122001</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
-              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green" id="app1">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
-            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Garcia, Maria</td><td style="padding:4px 8px;font-size:11px;">4122002</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
-              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
-            <tr><td style="padding:4px 8px;font-size:11px;">Johnson, Robert</td><td style="padding:4px 8px;font-size:11px;">4122003</td><td style="padding:4px 8px;font-size:11px;">Evening Shift</td><td style="padding:4px 8px;font-size:11px;">Supervisor</td><td style="padding:4px 8px;font-size:11px;">06/15/2026</td><td style="padding:4px 8px;font-size:11px;">17:00</td><td style="padding:4px 8px;font-size:11px;">22:00</td>
-              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
+            <tr style="border-bottom:1px solid #ddd;background:#f7f7f7;">
+              <td style="padding:5px 8px;text-align:center;"><span id="wsa-expand-icon" style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
+              <td style="padding:5px 8px;font-size:12px;font-weight:bold;">Drake Job</td>
+              <td style="padding:5px 8px;font-size:12px;">AB Convention Center</td>
+              <td style="padding:5px 8px;"></td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">5</td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">7</td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">6</td>
+              <td id="wsa-var-val" style="padding:5px 8px;font-size:12px;text-align:center;color:#c00;font-weight:bold;">1</td>
+            </tr>
+            <tr class="wsa-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
+              <td style="padding:4px 8px;text-align:center;"><span style="color:#555;">&#8722;</span></td>
+              <td style="padding:4px 8px;font-size:11px;font-weight:bold;color:#444;padding-left:24px;">Staff One Call</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">06/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:4px 8px;"></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+            </tr>
+            <tr class="wsa-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
+              <td style="padding:4px 8px;"></td>
+              <td style="padding:4px 8px;font-size:11px;padding-left:24px;white-space:nowrap;"><span style="color:#555;font-size:10px;">&#9654;</span> Event Staff &mdash; <strong>Garcia, Maria</strong></td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">06/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="wsa-approve-chk" style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+            </tr>
           </tbody>
         </table>
+        <div style="margin-top:12px;"><button class="btn" id="btn-wsa-approve">Approve Selected</button></div>
+        <div id="wsa-done" style="display:none;background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-top:8px;font-size:13px;align-items:center;gap:8px;"><span style="color:#3c763d;font-weight:bold;">&#10004;</span> Shift request approved successfully.</div>
       </div>
     </div>`);
   runGuided([
@@ -1684,14 +1715,21 @@ function slide_mss_6() {
     { selector: '#f-wsa-end', prompt: 'Set the End Date — required field.' },
     { selector: '#wsa-showall', prompt: 'Check "Show All Published Shift" to include every published shift in the range, not just the ones with pending requests.',
       onConfirm: () => { document.getElementById('wsa-showall').checked = true; }},
-    { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the employees who requested these shifts.',
+    { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the published shifts and the employees who requested them.',
       onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
-    { selector: '#app1', prompt: 'Click "Approve" to confirm an employee\'s shift request. Click "Deny" to reject it.',
+    { selector: '#wsa-var-col', also: ['#wsa-var-val'], prompt: 'The Var column shows how many requests are still waiting on you. Red means there is a pending request to review. Click Next.', skipClick: true },
+    { selector: '#wsa-expand-radio', prompt: 'Click "Expand" to open the job and see the employee who requested the shift.',
       onConfirm: () => {
-        const btn = document.getElementById('app1');
-        btn.textContent = '✔ Approved';
-        btn.style.background = '#4a4a4a';
-        btn.disabled = true;
+        document.getElementById('wsa-expand-radio').checked = true;
+        document.querySelectorAll('.wsa-sub-rows').forEach(r => { r.style.display = ''; });
+        document.getElementById('wsa-expand-icon').textContent = '−';
+      }},
+    { selector: '#wsa-approve-chk', prompt: 'Check the Approve box next to the employee\'s request to approve them for this shift.',
+      onConfirm: () => { document.getElementById('wsa-approve-chk').checked = true; }},
+    { selector: '#btn-wsa-approve', prompt: 'Click "Approve Selected" to confirm. The employee is now scheduled and the request clears.',
+      onConfirm: () => {
+        const done = document.getElementById('wsa-done');
+        if (done) { done.style.display = 'flex'; done.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
       }},
   ]);
 }
