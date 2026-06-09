@@ -1650,8 +1650,8 @@ function slide_mss_6() {
       <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;width:200px;"><option>Prota LA Branch Test</option></select></div>
       <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job#:</span><input id="f-wsa-job" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
       <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job Name:</span><input id="f-wsa-jobname" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
-      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Start Date:</span><input id="f-wsa-start" value="06/08/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
-      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="06/24/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Start Date:</span><input id="f-wsa-start" value="08/15/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="08/17/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
       <div style="display:flex;align-items:center;margin-bottom:14px;padding-left:100px;"><input type="checkbox" id="wsa-showall" style="margin-right:6px;"><label for="wsa-showall" style="font-size:12px;color:#444;">Show All Published Shift</label></div>
       <div style="padding-left:100px;"><button class="btn" id="btn-wsa-search">Search</button></div>
       <div id="wsa-results" style="display:none;margin-top:18px;">
@@ -1685,22 +1685,29 @@ function slide_mss_6() {
             <tr class="wsa-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
               <td style="padding:4px 8px;text-align:center;"><span style="color:#555;">&#8722;</span></td>
               <td style="padding:4px 8px;font-size:11px;font-weight:bold;color:#444;padding-left:24px;">Staff One Call</td>
-              <td style="padding:4px 8px;font-size:11px;color:#555;">06/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &nbsp; 08/15/2026 17:00</td>
               <td style="padding:4px 8px;"></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#2a8a2a;">1</td>
             </tr>
             <tr class="wsa-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
               <td style="padding:4px 8px;"></td>
-              <td style="padding:4px 8px;font-size:11px;padding-left:24px;white-space:nowrap;"><span style="color:#555;font-size:10px;">&#9654;</span> Event Staff &mdash; <strong>Garcia, Maria</strong></td>
-              <td style="padding:4px 8px;font-size:11px;color:#555;">06/15/2026 08:00 &ndash; 17:00</td>
-              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="wsa-approve-chk" style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
+              <td style="padding:4px 8px;font-size:11px;padding-left:40px;white-space:nowrap;"><span style="color:#555;font-size:10px;">&#9654;</span> Event Staff</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &nbsp; 08/15/2026 17:00</td>
+              <td style="padding:4px 8px;text-align:center;"><a href="#" id="wsa-show" onclick="return false;" style="color:#1a6aaa;text-decoration:underline;font-size:11px;cursor:pointer;">Show</a></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#2a8a2a;">1</td>
+            </tr>
+            <tr class="wsa-emp-row" style="display:none;background:#eef5ff;border-bottom:1px solid #dde;">
+              <td style="padding:4px 8px;"></td>
+              <td style="padding:5px 8px;font-size:11px;padding-left:56px;white-space:nowrap;color:#333;"><strong>Garcia, Maria</strong> &middot; Emp# 4122002</td>
+              <td style="padding:5px 8px;font-size:11px;color:#555;">Requested 08/15/2026 08:00 &ndash; 17:00</td>
+              <td style="padding:5px 8px;text-align:center;"><input type="checkbox" id="wsa-approve-chk" style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;" colspan="4"><span style="color:#888;">Pending</span></td>
             </tr>
           </tbody>
         </table>
@@ -1718,11 +1725,16 @@ function slide_mss_6() {
     { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the published shifts and the employees who requested them.',
       onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
     { selector: '#wsa-var-col', also: ['#wsa-var-val'], prompt: 'The Var column shows how many requests are still waiting on you. Red means there is a pending request to review. Click Next.', skipClick: true },
-    { selector: '#wsa-expand-radio', prompt: 'Click "Expand" to open the job and see the employee who requested the shift.',
+    { selector: '#wsa-expand-radio', prompt: 'Click "Expand" to open the job and see its shift and role breakdown.',
       onConfirm: () => {
         document.getElementById('wsa-expand-radio').checked = true;
         document.querySelectorAll('.wsa-sub-rows').forEach(r => { r.style.display = ''; });
         document.getElementById('wsa-expand-icon').textContent = '−';
+      }},
+    { selector: '#wsa-show', prompt: 'Click "Show" in the Approve column to see the employees who requested this role.',
+      onConfirm: () => {
+        document.querySelectorAll('.wsa-emp-row').forEach(r => { r.style.display = ''; });
+        const sh = document.getElementById('wsa-show'); if (sh) sh.textContent = 'Hide';
       }},
     { selector: '#wsa-approve-chk', prompt: 'Check the Approve box next to the employee\'s request to approve them for this shift.',
       onConfirm: () => { document.getElementById('wsa-approve-chk').checked = true; }},
