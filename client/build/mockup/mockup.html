@@ -1686,11 +1686,11 @@ function openWebScheduleRequest() {
             <th style="padding:7px 10px;font-size:11px;text-align:left;">Branch</th>
           </tr></thead>
           <tbody>
-            ${emp('wsr-chk-1', '4157445', 'Geoffrey', 'Watson', '12.00', '06/08/2026 17:26:30')}
-            ${emp('wsr-chk-2', '4069494', 'Ashley', 'Neveu', '0.00', '06/08/2026 20:44:02')}
-            ${emp('', '3946539', 'William', 'Hicks', '0.00', '06/08/2026 20:46:03')}
-            ${emp('', '4178600', 'Marissa', 'Thammavongsa', '14.00', '06/09/2026 08:48:09')}
-            ${emp('', '4175839', 'Lamark', 'Beasley', '38.00', '06/09/2026 09:18:41')}
+            ${emp('wsr-chk-1', '7611204', 'Geoffrey', 'Wallace', '12.00', '06/08/2026 17:26:30')}
+            ${emp('wsr-chk-2', '7628350', 'Ashton', 'Nolan', '0.00', '06/08/2026 20:44:02')}
+            ${emp('', '7634918', 'Wesley', 'Hartman', '0.00', '06/08/2026 20:46:03')}
+            ${emp('', '7647265', 'Mariah', 'Thompson', '14.00', '06/09/2026 08:48:09')}
+            ${emp('', '7659832', 'Lamar', 'Bishop', '38.00', '06/09/2026 09:18:41')}
           </tbody>
         </table>
         <div style="text-align:center;margin-top:18px;">
@@ -1867,21 +1867,21 @@ function mssWebShiftReportContent() {
 function openWebShiftReport() {
   if (document.getElementById('rpt-overlay')) return;
   const rows = [
-    ['4168684','Aldape','Gabriel','Security Guard','05/19/26 21:15','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
-    ['4139725','Alvarado','Izaak','Security Guard','05/21/26 09:14','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
-    ['4139725','Alvarado','Izaak','Security Guard','05/19/26 18:31','Denied','GONZALEZ STEFANIE','05/21/26 13:47'],
-    ['4169587','Amaro','Sebastian','Security Guard','05/19/26 22:28','Approved','Swanson Jamie','05/21/26 11:17'],
-    ['4181936','Aranda','Rodrigo','Security Guard','05/19/26 15:14','Approved','GONZALEZ STEFANIE','05/21/26 13:47'],
-    ['4184649','Arellano','Peter','Event Staff','05/27/26 02:32','Denied','Iniguez Yamilet','05/27/26 17:36'],
-    ['4185342','Bidon','Logan','Security Guard','06/06/26 18:53','Denied','Swanson Jamie','06/08/26 18:05'],
-    ['4181190','Bryant','Tiffany','Event Staff','05/21/26 13:51','Denied','GONZALEZ STEFANIE','05/22/26 11:36'],
-    ['4168692','Carrillo Casarreal','Zeus','Security Guard','05/20/26 05:39','Approved','Iniguez Yamilet','05/21/26 07:15'],
-    ['4183773','Castillo','Natalie','Security Guard','05/22/26 10:33','Denied','GONZALEZ STEFANIE','05/22/26 11:59'],
-    ['4146428','Cook','Damian','Security Guard','06/07/26 02:16','Denied','Swanson Jamie','06/08/26 18:05'],
-    ['4185328','Davis','Brad','Event Staff','05/21/26 19:23','Denied','GONZALEZ STEFANIE','05/22/26 11:53'],
-    ['4185997','Davis','Briona','Event Staff','05/21/26 18:44','Denied','GONZALEZ STEFANIE','05/22/26 11:36'],
-    ['4167150','Dawkins','Joshua','Security Guard','05/19/26 15:19','Denied','GONZALEZ STEFANIE','05/22/26 11:59'],
-    ['4185327','DeCriscio','Blake','Security Guard','05/19/26 15:20','Denied','Swanson Jamie','05/20/26 18:08'],
+    ['7401582','Bennett','Marcus','Security Guard','05/19/26 21:15','Approved','RIVERA MORGAN','05/21/26 13:47'],
+    ['7418036','Brooks','Devin','Security Guard','05/21/26 09:14','Approved','RIVERA MORGAN','05/21/26 13:47'],
+    ['7418036','Brooks','Devin','Security Guard','05/19/26 18:31','Denied','RIVERA MORGAN','05/21/26 13:47'],
+    ['7426914','Carter','Sienna','Security Guard','05/19/26 22:28','Approved','HOLT JAMIE','05/21/26 11:17'],
+    ['7433270','Diaz','Roman','Security Guard','05/19/26 15:14','Approved','RIVERA MORGAN','05/21/26 13:47'],
+    ['7449185','Ellis','Parker','Event Staff','05/27/26 02:32','Denied','VEGA YAEL','05/27/26 17:36'],
+    ['7455603','Foster','Logan','Security Guard','06/06/26 18:53','Denied','HOLT JAMIE','06/08/26 18:05'],
+    ['7462947','Grant','Tiffany','Event Staff','05/21/26 13:51','Denied','RIVERA MORGAN','05/22/26 11:36'],
+    ['7470318','Hayes','Zane','Security Guard','05/20/26 05:39','Approved','VEGA YAEL','05/21/26 07:15'],
+    ['7488642','Ingram','Natalie','Security Guard','05/22/26 10:33','Denied','RIVERA MORGAN','05/22/26 11:59'],
+    ['7491755','Jensen','Damian','Security Guard','06/07/26 02:16','Denied','HOLT JAMIE','06/08/26 18:05'],
+    ['7503489','Kelly','Brandon','Event Staff','05/21/26 19:23','Denied','RIVERA MORGAN','05/22/26 11:53'],
+    ['7517260','Kelly','Briana','Event Staff','05/21/26 18:44','Denied','RIVERA MORGAN','05/22/26 11:36'],
+    ['7524813','Lawson','Joshua','Security Guard','05/19/26 15:19','Denied','RIVERA MORGAN','05/22/26 11:59'],
+    ['7539074','Mercer','Blake','Security Guard','05/19/26 15:20','Denied','HOLT JAMIE','05/20/26 18:08'],
   ];
   const td = 'padding:4px 7px;font-size:11px;border-bottom:1px solid #e3e3e3;vertical-align:top;';
   const body = rows.map(r => `
@@ -1920,7 +1920,7 @@ function openWebShiftReport() {
         <div style="font-size:11px;font-weight:bold;color:#222;">Print Date : 06/09/26 12:00</div>
       </div>
       <div style="font-size:12px;font-weight:bold;margin-top:8px;color:#222;">Branch Name : Orange County</div>
-      <div style="font-size:12px;font-weight:bold;background:#f0f0f0;padding:4px 6px;margin-top:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#222;">Job# : 1413677847 , Job Name : ANGELS vs HOU-6/8/2026</div>
+      <div style="font-size:12px;font-weight:bold;background:#f0f0f0;padding:4px 6px;margin-top:5px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;color:#222;">Job# : 1490023311 , Job Name : ANGELS vs HOU-6/8/2026</div>
       <table style="width:100%;border-collapse:collapse;margin-top:8px;">
         <thead><tr style="background:#c9d6e8;">
           <th style="${th}">Employee#</th><th style="${th}">Last Name</th><th style="${th}">First Name</th><th style="${th}">Shift Name</th><th style="${th}">Role Name</th><th style="${th}">Start Date</th><th style="${th}">Finish Date</th><th style="${th}">Applied Date</th><th style="${th}">Status</th><th style="${th}">Approved By</th><th style="${th}">Approved Date</th>
