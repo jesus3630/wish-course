@@ -1702,17 +1702,8 @@ function slide_mss_6() {
               <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;color:#2a8a2a;">1</td>
             </tr>
-            <tr class="wsa-emp-row" style="display:none;background:#eef5ff;border-bottom:1px solid #dde;">
-              <td style="padding:4px 8px;"></td>
-              <td style="padding:5px 8px;font-size:11px;padding-left:56px;white-space:nowrap;color:#333;"><strong>Garcia, Maria</strong> &middot; Emp# 4122002</td>
-              <td style="padding:5px 8px;font-size:11px;color:#555;">Requested 08/15/2026 08:00 &ndash; 17:00</td>
-              <td style="padding:5px 8px;text-align:center;"><input type="checkbox" id="wsa-approve-chk" style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
-              <td style="padding:5px 8px;font-size:11px;text-align:center;" colspan="4"><span style="color:#888;">Pending</span></td>
-            </tr>
           </tbody>
         </table>
-        <div style="margin-top:12px;"><button class="btn" id="btn-wsa-approve">Approve Selected</button></div>
-        <div id="wsa-done" style="display:none;background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-top:8px;font-size:13px;align-items:center;gap:8px;"><span style="color:#3c763d;font-weight:bold;">&#10004;</span> Shift request approved successfully.</div>
       </div>
     </div>`);
   runGuided([
@@ -1731,18 +1722,7 @@ function slide_mss_6() {
         document.querySelectorAll('.wsa-sub-rows').forEach(r => { r.style.display = ''; });
         document.getElementById('wsa-expand-icon').textContent = '−';
       }},
-    { selector: '#wsa-show', prompt: 'Click "Show" in the Approve column to see the employees who requested this role.',
-      onConfirm: () => {
-        document.querySelectorAll('.wsa-emp-row').forEach(r => { r.style.display = ''; });
-        const sh = document.getElementById('wsa-show'); if (sh) sh.textContent = 'Hide';
-      }},
-    { selector: '#wsa-approve-chk', prompt: 'Check the Approve box next to the employee\'s request to approve them for this shift.',
-      onConfirm: () => { document.getElementById('wsa-approve-chk').checked = true; }},
-    { selector: '#btn-wsa-approve', prompt: 'Click "Approve Selected" to confirm. The employee is now scheduled and the request clears.',
-      onConfirm: () => {
-        const done = document.getElementById('wsa-done');
-        if (done) { done.style.display = 'flex'; done.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
-      }},
+    { selector: '#wsa-show', prompt: 'In the Approve column, click "Show" to open the employee\'s request for this role, where you review it and approve or deny.' },
   ]);
 }
 
