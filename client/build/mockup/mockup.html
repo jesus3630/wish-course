@@ -112,8 +112,46 @@ tr:hover td{background:#f8f4f0;}
 .highlight{animation:pulse-border 1s infinite;border-color:#c07800!important;background:#fff8f0!important;}
 
 /* ── Guided interactive mode ── */
-@keyframes guided-pulse{0%,100%{box-shadow:0 0 0 0 rgba(192,120,0,.7);}50%{box-shadow:0 0 0 8px rgba(192,120,0,0);}}
-.guided-target{outline:2px solid #c07800!important;outline-offset:2px;animation:guided-pulse 1.2s infinite!important;position:relative!important;z-index:20!important;cursor:pointer!important;}
+@keyframes guided-pulse{
+  0%  { box-shadow: 0 0 0 0 rgba(255,140,0,.9), 0 0 0 0 rgba(255,200,0,.5); }
+  50% { box-shadow: 0 0 0 18px rgba(255,140,0,0), 0 0 0 32px rgba(255,200,0,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(255,140,0,.9), 0 0 0 0 rgba(255,200,0,.5); }
+}
+@keyframes guided-arrow-bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+.guided-target{
+  outline: 5px solid #ff8c00 !important;
+  outline-offset: 4px !important;
+  animation: guided-pulse 1s infinite !important;
+  position: relative !important;
+  z-index: 20 !important;
+  cursor: pointer !important;
+  background: rgba(255,200,0,0.15) !important;
+}
+#guided-arrow{
+  position:fixed;
+  z-index:10000;
+  pointer-events:none;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  animation: guided-arrow-bounce 0.8s ease-in-out infinite;
+}
+#guided-arrow .arrow-label{
+  background:#ff8c00;
+  color:#fff;
+  font-size:14px;
+  font-weight:bold;
+  padding:4px 12px;
+  border-radius:4px;
+  white-space:nowrap;
+  box-shadow:0 2px 8px rgba(0,0,0,0.4);
+}
+#guided-arrow .arrow-down{
+  width:0;height:0;
+  border-left:14px solid transparent;
+  border-right:14px solid transparent;
+  border-top:18px solid #ff8c00;
+}
 #guided-prompt{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);background:#1a3c5a;color:#fff;padding:9px 16px 9px 40px;border-radius:4px;font-size:13px;max-width:420px;width:max-content;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;text-align:left;}
 #guided-prompt::before{content:'☝';position:absolute;left:12px;top:7px;font-size:17px;}
 #guided-bar{position:fixed;bottom:24px;left:0;width:100%;height:34px;background:#1a3c5a;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;font-size:12px;z-index:9997;}
@@ -124,6 +162,12 @@ tr:hover td{background:#f8f4f0;}
 </style>
 </head>
 <body>
+
+<!-- Guided arrow indicator -->
+<div id="guided-arrow">
+  <div class="arrow-label">👆 Click here</div>
+  <div class="arrow-down"></div>
+</div>
 
 <!-- Cursor -->
 <div id="cursor">
@@ -376,6 +420,8 @@ function runGuided(steps) {
     }
     if (_gs && _gs.el) _gs.el.classList.remove('guided-target');
     _gs = null;
+    const _arrow = document.getElementById('guided-arrow');
+    if (_arrow) _arrow.style.display = 'none';
 
     if (i >= steps.length) {
       tip.style.display = 'none';
@@ -396,6 +442,20 @@ function runGuided(steps) {
       }
       el.classList.add('guided-target');
       el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+
+      // Position bouncing arrow above the target
+      setTimeout(() => {
+        const arrow = document.getElementById('guided-arrow');
+        if (arrow) {
+          const rect = el.getBoundingClientRect();
+          arrow.style.left = (rect.left + rect.width / 2 - 55) + 'px';
+          arrow.style.top  = Math.max(4, rect.top - 54) + 'px';
+          arrow.style.display = 'flex';
+          // Update label for skipClick vs clickable
+          const lbl = arrow.querySelector('.arrow-label');
+          if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
+        }
+      }, 200);
 
       if (s.skipClick) {
         // Observation step — prompt is CSS-anchored above the bar, never overlaps content
