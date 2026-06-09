@@ -1111,6 +1111,47 @@ function slide_manage_job_9() {
 }
 
 // ── MSS ────────────────────────────────────────────────────────────────────
+function showMSSOverlay(innerHTML) {
+  let ov = document.getElementById('mss-overlay');
+  if (!ov) {
+    ov = document.createElement('div');
+    ov.id = 'mss-overlay';
+    ov.style.cssText = 'position:fixed;top:0;left:0;width:1280px;height:720px;z-index:8000;background:#e8e8e8;overflow-y:auto;font-family:Arial,Helvetica,sans-serif;font-size:13px;';
+    document.body.appendChild(ov);
+  }
+  ov.innerHTML = `
+    <div style="background:#fff;border-bottom:1px solid #ccc;padding:8px 16px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="wishlogo.png" style="height:40px;width:auto;" onerror="this.style.display='none'">
+        <span style="font-size:13px;font-weight:bold;color:#333;">Welcome to WISH Manager Portal</span>
+      </div>
+      <button style="background:#1a3c5a;color:#fff;border:none;padding:4px 12px;font-size:12px;border-radius:2px;cursor:pointer;">Welcome Jesus Gonzalez</button>
+    </div>
+    <div style="display:flex;min-height:660px;">
+      <div style="width:170px;background:#fff;border-right:1px solid #ddd;flex-shrink:0;">
+        ${[
+          ['home-icon.png','Home','mss-ol-home',true],
+          ['upload-icon.png','Upload Documents','',false],
+          ['approve-icon.png','Approve Hours','',false],
+          ['emp-icon.png','Manage Employee','',false],
+          ['webshift-icon.png','Web Shift','mss-ol-webshift',false],
+          ['wsapproval-icon.png','Web Shift Approval','mss-ol-wsapproval',false],
+          ['empapproval-icon.png','Employee Approval','',false],
+          ['reqsched-icon.png','Request Schedule','',false],
+          ['wsreport-icon.png','Web Shift Report','',false],
+          ['payrate-icon.png','Emp PayRate Change','',false],
+          ['payrateapproval-icon.png','PayRate Approval','',false],
+        ].map(([, label, id, active]) => `
+          <div id="${id}" style="display:flex;align-items:center;gap:8px;padding:9px 12px;cursor:pointer;border-bottom:1px solid #f2f2f2;${active?'background:#e4eef8;font-weight:bold;':'background:#fff;'}" onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='${active?'#e4eef8':'#fff'}'">
+            <span style="font-size:13px;width:20px;text-align:center;">${label==='Home'?'🏠':label==='Upload Documents'?'📄':label==='Approve Hours'?'⏰':label==='Manage Employee'?'👤':label==='Web Shift'?'📋':label==='Web Shift Approval'?'✅':label==='Employee Approval'?'👍':label==='Request Schedule'?'📅':label==='Web Shift Report'?'📊':label==='Emp PayRate Change'?'💵':'✔'}</span>
+            <span style="font-size:12px;color:#222;">${label}</span>
+          </div>`).join('')}
+      </div>
+      <div id="mss-ol-main" style="flex:1;padding:16px 20px;">${innerHTML}</div>
+    </div>`;
+  ov.style.display = 'block';
+}
+
 function mssPortalHTML() {
   return `
     <div style="position:relative;width:100%;min-height:520px;background:#f0f0f0;font-family:Arial,sans-serif;font-size:13px;">
@@ -1171,12 +1212,26 @@ function slide_mss_3() {
   runGuided([
     { selector: '#nav-tools', prompt: 'Click "Tools" in the sidebar to open the Tools menu',
       onConfirm: () => { setNav('tools'); document.getElementById('content').innerHTML = homeScreenHTML(); }},
-    { selector: '#sub-tools-mss', prompt: 'The menu expanded — scroll down to find "Manager Portal(MSS)" and click it to open the MSS portal',
+    { selector: '#sub-tools-mss', prompt: 'Scroll down and click "Manager Portal(MSS)" — this opens the MSS portal in its own full screen',
       onConfirm: () => {
-        document.getElementById('card').innerHTML = mssPortalHTML();
+        showMSSOverlay(`
+          <div style="background:#fff;border:1px solid #ddd;padding:16px;">
+            <div style="font-size:14px;font-weight:bold;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px;">Upcoming Events</div>
+            <table style="width:100%;border-collapse:collapse;">
+              <thead><tr style="background:#5a5a5a;color:#fff;">
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Event Name</th>
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Start Time</th>
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Time Finish</th>
+              </tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 10px;font-size:12px;">Grant Sands Event June 2026</td><td style="padding:6px 10px;font-size:12px;">Tuesday June 02, 2026</td><td style="padding:6px 10px;font-size:12px;">Tuesday June 09, 2026</td></tr>
+                <tr><td style="padding:6px 10px;font-size:12px;">2026 DRAKE CONCERT</td><td style="padding:6px 10px;font-size:12px;">Saturday August 15, 2026</td><td style="padding:6px 10px;font-size:12px;">Sunday August 16, 2026</td></tr>
+              </tbody>
+            </table>
+          </div>`);
       }},
-    { selector: '#mss-home', prompt: 'This is the WISH Manager Self-Service portal — a separate portal from the main WISH system. It gives managers a focused view for approvals, scheduling, and employee management.', skipClick: true },
-    { selector: '#mss-webshift', prompt: 'From here you can publish shifts to the web, approve employee requests, and manage payrate changes — all without needing full WISH access.', skipClick: true },
+    { selector: '#mss-ol-home', prompt: 'This is the WISH Manager Self-Service portal — a completely separate portal from the main WISH system, designed specifically for managers.', skipClick: true },
+    { selector: '#mss-ol-webshift', prompt: 'From here you can publish shifts to the web, approve employee schedule requests, and manage payrate changes.', skipClick: true },
   ]);
 }
 
@@ -1295,12 +1350,90 @@ function mssWebShiftHTML() {
     </div>`;
 }
 
+function mssWebShiftContent() {
+  return `
+    <div style="background:#fff;border:1px solid #ddd;padding:16px;">
+      <div style="font-size:14px;font-weight:bold;margin-bottom:10px;">Web Shift</div>
+      <div style="background:#ffffe0;border:1px solid #d4d400;color:#886600;padding:5px 10px;margin-bottom:12px;font-size:12px;">Note: All the * marked fields are mandatory</div>
+      <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;"><option>Prota LA Branch Test</option></select></div>
+      <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Job#:</span><input id="f-ws-job" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:180px;background:#fff;"></div>
+      <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Job Name:</span><input id="f-ws-jobname" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:180px;background:#fff;"></div>
+      <div style="display:flex;align-items:center;margin-bottom:8px;"><span style="width:110px;color:#444;font-size:12px;">Start Date:</span><input id="f-ws-start" value="08/15/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:110px;color:#444;font-size:12px;">End Date:</span><input id="f-ws-end" value="08/17/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <button class="btn" id="btn-ws-search">Search</button>
+      <div id="ws-results" style="display:none;margin-top:14px;">
+        <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:6px;">Search Result</div>
+        <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px;">
+          <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view" checked> Expand</label>
+          <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view"> Collapse</label>
+        </div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:#5a5a5a;color:#fff;">
+            <th style="padding:5px 8px;font-size:11px;width:24px;"><input type="checkbox" id="chk-ws-all"></th>
+            <th style="padding:5px 8px;font-size:11px;">Job &#9650;&#9660;</th>
+            <th style="padding:5px 8px;font-size:11px;">Venue &#9650;&#9660;</th>
+            <th style="padding:5px 8px;font-size:11px;text-align:center;">Auto Schedule</th>
+            <th style="padding:5px 8px;font-size:11px;text-align:center;">Min</th>
+            <th style="padding:5px 8px;font-size:11px;text-align:center;">Max</th>
+            <th style="padding:5px 8px;font-size:11px;text-align:center;">Sched</th>
+            <th style="padding:5px 8px;font-size:11px;text-align:center;" id="ws-var-col">Var</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #ddd;">
+              <td style="padding:4px 8px;"><input type="checkbox" class="ws-chk" id="ws-chk-1"></td>
+              <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;" id="ws-expand-icon">&#43;</span><strong>Drake Job</strong></td>
+              <td style="padding:4px 8px;font-size:11px;">AB Convention Center</td>
+              <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-autosched"></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
+            </tr>
+            <tr id="ws-sub-rows" style="display:none;">
+              <td colspan="8" style="padding:0 0 0 20px;">
+                <table style="width:100%;border-collapse:collapse;">
+                  <tr style="background:#f8f8f8;border-bottom:1px solid #eee;">
+                    <td style="padding:3px 6px;font-size:11px;width:20px;"></td>
+                    <td style="padding:3px 6px;font-size:11px;color:#555;">Staff One Call</td>
+                    <td style="padding:3px 6px;font-size:11px;">08/15/2026 08:00</td>
+                    <td style="padding:3px 6px;font-size:11px;">08/15/2026 17:00</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">7</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">0</td>
+                  </tr>
+                  <tr style="background:#fff;">
+                    <td style="padding:3px 6px;font-size:11px;"><input type="checkbox"></td>
+                    <td style="padding:3px 6px;font-size:11px;">
+                      <span style="display:flex;gap:4px;align-items:center;">
+                        <input style="width:30px;border:1px solid #aaa;font-size:11px;padding:1px 3px;" value="0">
+                        <input style="width:30px;border:1px solid #aaa;font-size:11px;padding:1px 3px;" value="7">
+                        <span style="color:#c00;">*</span> Event Staff
+                      </span>
+                    </td>
+                    <td style="padding:3px 6px;font-size:11px;">08/15/2026 08:00</td>
+                    <td style="padding:3px 6px;font-size:11px;">08/15/2026 17:00</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;"><input type="checkbox" checked style="accent-color:#3a6aaa;"></td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">7</td>
+                    <td style="padding:3px 6px;font-size:11px;text-align:center;">0</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:10px;"><button class="btn" id="btn-ws-add">Add WebShift</button></div>
+        <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-top:8px;display:none;font-size:12px;">&#10004;&nbsp; Web shift has been activated successfully.</div>
+      </div>
+    </div>`;
+}
+
 function slide_mss_4() {
-  setNav('tools');
-  document.getElementById('card').innerHTML = mssPortalHTML();
+  showMSSOverlay(mssWebShiftContent());
   runGuided([
-    { selector: '#mss-webshift', prompt: 'Click "Web Shift" in the MSS sidebar to open the Web Shift search screen',
-      onConfirm: () => { document.getElementById('card').innerHTML = mssWebShiftHTML(); }},
+    { selector: '#mss-ol-webshift', prompt: 'You are now in the MSS portal. Click "Web Shift" in the sidebar to open the Web Shift screen',
+      onConfirm: () => { document.getElementById('mss-ol-main').innerHTML = mssWebShiftContent(); }},
     { selector: '#f-ws-start', prompt: 'Set the Start Date for the date range you want to search — required field' },
     { selector: '#f-ws-end', prompt: 'Set the End Date — required field' },
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
@@ -1327,34 +1460,50 @@ function slide_mss_4() {
 }
 
 function slide_mss_6() {
-  setNav('tools');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manager Portal &#8212; Web Shift Approval</div>
-    <div class="tabs">
-      <span class="tab">Events</span>
-      <span class="tab">Web Shift</span>
-      <span class="tab active">Web Shift Approval</span>
-    </div>
-    <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
-      <span>Date From :</span><input class="form-input" value="08/01/2023" style="width:100px">
-      <span>Date To :</span><input class="form-input" value="08/31/2023" style="width:100px">
-      <button class="btn btn-sm">Show All Published Shifts</button>
-    </div>
-    <table><thead><tr><th>Employee</th><th>Emp#</th><th>Shift</th><th>Role</th><th>Date</th><th>Start</th><th>Finish</th><th>Action</th></tr></thead>
-    <tbody>
-      <tr><td>Smith, John</td><td>4122001</td><td>Day Shift</td><td>Event Staff</td><td>08/15/2023</td><td>08:00</td><td>12:30</td>
-        <td><button class="btn btn-sm btn-green" id="app1">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050">Deny</button></td></tr>
-      <tr><td>Garcia, Maria</td><td>4122002</td><td>Day Shift</td><td>Event Staff</td><td>08/15/2023</td><td>08:00</td><td>12:30</td>
-        <td><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050">Deny</button></td></tr>
-      <tr><td>Johnson, Robert</td><td>4122003</td><td>Evening Shift</td><td>Supervisor</td><td>08/15/2023</td><td>17:00</td><td>22:00</td>
-        <td><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050">Deny</button></td></tr>
-    </tbody></table>`;
+  showMSSOverlay(`
+    <div style="background:#fff;border:1px solid #ddd;padding:16px;">
+      <div style="font-size:14px;font-weight:bold;margin-bottom:12px;">Web Shift Approval</div>
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px;flex-wrap:wrap;">
+        <span style="font-size:12px;">Date From :</span>
+        <input class="form-input" value="08/15/2026" style="width:100px;">
+        <span style="font-size:12px;">Date To :</span>
+        <input class="form-input" value="08/17/2026" style="width:100px;">
+        <button class="btn btn-sm" id="btn-show-shifts">Show All Published Shifts</button>
+      </div>
+      <div id="wsa-results" style="display:none;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:#5a5a5a;color:#fff;">
+            <th style="padding:5px 8px;font-size:11px;">Employee</th>
+            <th style="padding:5px 8px;font-size:11px;">Emp#</th>
+            <th style="padding:5px 8px;font-size:11px;">Shift</th>
+            <th style="padding:5px 8px;font-size:11px;">Role</th>
+            <th style="padding:5px 8px;font-size:11px;">Date</th>
+            <th style="padding:5px 8px;font-size:11px;">Start</th>
+            <th style="padding:5px 8px;font-size:11px;">Finish</th>
+            <th style="padding:5px 8px;font-size:11px;">Action</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Smith, John</td><td style="padding:4px 8px;font-size:11px;">4122001</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
+              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green" id="app1">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
+            <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;font-size:11px;">Garcia, Maria</td><td style="padding:4px 8px;font-size:11px;">4122002</td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td>
+              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
+            <tr><td style="padding:4px 8px;font-size:11px;">Johnson, Robert</td><td style="padding:4px 8px;font-size:11px;">4122003</td><td style="padding:4px 8px;font-size:11px;">Evening Shift</td><td style="padding:4px 8px;font-size:11px;">Supervisor</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">17:00</td><td style="padding:4px 8px;font-size:11px;">22:00</td>
+              <td style="padding:4px 8px;"><button class="btn btn-sm btn-green">Approve</button> <button class="btn btn-sm" style="background:#c06060;border-color:#a05050;color:#fff;">Deny</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>`);
   runGuided([
-    { selector: '#app1', prompt: 'Click "Approve" to approve this employee\'s web shift request',
+    { selector: '#mss-ol-wsapproval', prompt: 'Click "Web Shift Approval" in the MSS sidebar to review employee shift requests',
+      onConfirm: () => { document.getElementById('mss-ol-wsapproval').style.background = '#e4eef8'; document.getElementById('mss-ol-wsapproval').style.fontWeight = 'bold'; }},
+    { selector: '#btn-show-shifts', prompt: 'Set your date range then click "Show All Published Shifts" to see pending employee requests',
+      onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
+    { selector: '#app1', prompt: 'Click "Approve" to approve an employee\'s shift request. Click "Deny" to reject it.',
       onConfirm: () => {
-        document.getElementById('app1').textContent = '✔ Approved';
-        document.getElementById('app1').style.background = '#4a4a4a';
-        document.getElementById('app1').disabled = true;
+        const btn = document.getElementById('app1');
+        btn.textContent = '✔ Approved';
+        btn.style.background = '#4a4a4a';
+        btn.disabled = true;
       }},
   ]);
 }
