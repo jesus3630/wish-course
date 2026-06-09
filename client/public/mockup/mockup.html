@@ -1110,29 +1110,72 @@ function slide_manage_job_9() {
 }
 
 // ── MSS ────────────────────────────────────────────────────────────────────
+function mssPortalHTML() {
+  return `
+    <div style="position:relative;width:100%;min-height:520px;background:#f0f0f0;font-family:Arial,sans-serif;font-size:13px;">
+      <!-- MSS Header -->
+      <div style="background:#fff;border-bottom:1px solid #ccc;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="wishlogo.png" style="height:44px;width:auto;" onerror="this.style.display='none'">
+          <span style="font-size:14px;font-weight:bold;color:#333">Welcome to WISH Manager Portal</span>
+        </div>
+        <button style="background:#1a3c5a;color:#fff;border:none;padding:5px 14px;font-size:12px;border-radius:2px;cursor:pointer;">Welcome Jesus Gonzalez</button>
+      </div>
+      <!-- MSS Layout -->
+      <div style="display:flex;margin-top:0;">
+        <!-- MSS Sidebar -->
+        <div style="width:160px;background:#fff;border-right:1px solid #ddd;min-height:480px;padding:6px 0;">
+          ${[
+            ['🏠','Home','#mss-home'],
+            ['📄','Upload Documents',''],
+            ['⏰','Approve Hours',''],
+            ['👤','Manage Employee',''],
+            ['📋','Web Shift','#mss-webshift'],
+            ['✅','Web Shift Approval',''],
+            ['👍','Employee Approval',''],
+            ['📅','Request Schedule',''],
+            ['📊','Web Shift Report',''],
+            ['💵','Emp PayRate Change',''],
+            ['✔','PayRate Approval',''],
+          ].map(([icon, label, id]) => `
+            <div id="${id ? id.replace('#','') : ''}" style="display:flex;align-items:center;gap:6px;padding:7px 10px;cursor:pointer;border-bottom:1px solid #f0f0f0;${label==='Home'?'background:#e8f0f8;font-weight:bold;':''}" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='${label==='Home'?'#e8f0f8':''}'">
+              <span style="font-size:14px;width:18px;text-align:center;">${icon}</span>
+              <span style="font-size:11px;color:#333;">${label}</span>
+            </div>`).join('')}
+        </div>
+        <!-- MSS Main -->
+        <div id="mss-main" style="flex:1;padding:16px 20px;">
+          <div style="background:#fff;border:1px solid #ddd;border-radius:2px;padding:16px;">
+            <div style="font-size:14px;font-weight:bold;color:#333;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px;">Upcoming Events</div>
+            <table style="width:100%;border-collapse:collapse;">
+              <thead><tr style="background:#5a5a5a;color:#fff;">
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Event Name</th>
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Start Time</th>
+                <th style="padding:6px 10px;text-align:left;font-size:12px;">Time Finish</th>
+              </tr></thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #eee;"><td style="padding:6px 10px;font-size:12px;">Grant Sands Event June 2026</td><td style="padding:6px 10px;font-size:12px;">Tuesday June 02, 2026</td><td style="padding:6px 10px;font-size:12px;">Tuesday June 09, 2026</td></tr>
+                <tr><td style="padding:6px 10px;font-size:12px;">2026 DRAKE CONCERT</td><td style="padding:6px 10px;font-size:12px;">Saturday August 15, 2026</td><td style="padding:6px 10px;font-size:12px;">Sunday August 16, 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
 function slide_mss_3() {
   setNav('home');
   document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#nav-tools', prompt: 'Click "Tools" in the sidebar to expand the Tools menu',
+    { selector: '#nav-tools', prompt: 'Click "Tools" in the sidebar to open the Tools menu',
       onConfirm: () => { setNav('tools'); document.getElementById('content').innerHTML = homeScreenHTML(); }},
-    { selector: '#sub-tools-mss', prompt: 'Scroll down in the Tools menu and click "Manager Portal(MSS)"',
+    { selector: '#sub-tools-mss', prompt: 'Scroll down and click "Manager Portal(MSS)" — this opens the separate MSS portal',
       onConfirm: () => {
-        document.getElementById('content').innerHTML = `
-          <div class="page-title">Manager Portal</div>
-          <div class="tabs">
-            <span class="tab active" id="tab-events">Events</span>
-            <span class="tab" id="tab-webshift">Web Shift</span>
-            <span class="tab" id="tab-wsa">Web Shift Approval</span>
-          </div>
-          <table><thead><tr><th>Event Name</th><th>Job#</th><th>Date</th><th>Venue</th><th>Scheduled</th><th>Confirmed</th><th id="var-col" style="background:#c06820">Variance</th></tr></thead>
-          <tbody>
-            <tr><td>2026 DRAKE CONCERT</td><td>1012698342</td><td>08/15/2026</td><td>The Forum</td><td>45</td><td>42</td><td style="color:#c00;font-weight:bold">-3</td></tr>
-            <tr><td>AB CONVENTION EVENT</td><td>1012698123</td><td>07/20/2026</td><td>AB Convention Center</td><td>120</td><td>120</td><td style="color:#2a9a2a">0</td></tr>
-            <tr><td>GRAND BELL ARENA</td><td>1012697980</td><td>06/10/2026</td><td>Grand Bell Arena</td><td>30</td><td>28</td><td style="color:#c00;font-weight:bold">-2</td></tr>
-          </tbody></table>`;
+        document.getElementById('card').innerHTML = mssPortalHTML();
       }},
-    { selector: '#var-col', prompt: 'The Variance column shows the difference between scheduled and confirmed staff. Negative numbers mean under-staffed events that need attention.', skipClick: true },
+    { selector: '#mss-home', prompt: 'This is the WISH Manager Self-Service portal — a separate portal from the main WISH system. It gives managers a focused view for approvals, scheduling, and employee management.', skipClick: true },
+    { selector: '#mss-webshift', prompt: 'From here you can publish shifts to the web, approve employee requests, and manage payrate changes — all without needing full WISH access.', skipClick: true },
   ]);
 }
 
