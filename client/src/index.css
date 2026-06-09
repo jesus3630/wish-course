@@ -22,6 +22,37 @@ body {
 
 .app { min-height: 100vh; display: flex; flex-direction: column; }
 
+/* ── Sim slide layout: side-by-side on wide screens, stacked on narrow ── */
+.sim-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+.sim-layout .sim-text {
+  flex: 0 0 42%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.sim-layout .sim-demo {
+  flex: 0 0 55%;
+  min-width: 0;
+}
+
+@media (max-width: 1000px) {
+  .sim-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .sim-layout .sim-text,
+  .sim-layout .sim-demo {
+    flex: none;
+    width: 100%;
+  }
+}
+
 @media print {
   body * { visibility: hidden; }
   .cert-printable, .cert-printable * { visibility: visible; }

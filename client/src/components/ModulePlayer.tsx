@@ -586,10 +586,10 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           </div>
 
           {(slide as any)?.simulation_url ? (
-            /* ── Stacked layout for sim slides: text top, demo bottom ── */
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '4px' }}>
-              {/* Top: script */}
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+            /* ── Responsive sim layout: side-by-side on wide, stacked on narrow ── */
+            <div className="sim-layout">
+              {/* Text / script */}
+              <div className="sim-text">
                 <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
                 {slide?.instructions && isCleanText(slide.instructions) && (
                   <div style={styles.instructionsTag}>📹 {slide.instructions}</div>
@@ -611,8 +611,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 )}
               </div>
 
-              {/* Bottom: interactive sim */}
-              <div>
+              {/* Interactive sim */}
+              <div className="sim-demo">
                 <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
                   Your turn — click through the steps below
                 </div>
