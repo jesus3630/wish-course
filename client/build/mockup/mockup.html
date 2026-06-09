@@ -1241,32 +1241,53 @@ function mssWebShiftHTML() {
                   <th style="padding:5px 8px;font-size:11px;text-align:center;" id="ws-var-col">Var</th>
                 </tr></thead>
                 <tbody>
-                  <tr style="border-bottom:1px solid #eee;">
+                  <tr style="border-bottom:1px solid #ddd;">
                     <td style="padding:4px 8px;"><input type="checkbox" class="ws-chk" id="ws-chk-1"></td>
-                    <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;">&#43;</span><strong>Drake Job</strong></td>
+                    <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;" id="ws-expand-icon">&#43;</span><strong>Drake Job</strong></td>
                     <td style="padding:4px 8px;font-size:11px;">AB Convention Center</td>
-                    <td style="padding:4px 8px;text-align:center;"><input type="checkbox"></td>
+                    <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-autosched"></td>
                     <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
                     <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
                     <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;" id="ws-var-1">0</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
                   </tr>
-                  <tr>
-                    <td style="padding:4px 8px;"><input type="checkbox" class="ws-chk" id="ws-chk-2"></td>
-                    <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;">&#43;</span><strong>Grand Bell Event</strong></td>
-                    <td style="padding:4px 8px;font-size:11px;">Grand Bell Arena</td>
-                    <td style="padding:4px 8px;text-align:center;"><input type="checkbox"></td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;">10</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;">15</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;">8</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;" id="ws-var-2">-2</td>
+                  <tr id="ws-sub-rows" style="display:none;">
+                    <td colspan="8" style="padding:0 0 0 20px;">
+                      <table style="width:100%;border-collapse:collapse;">
+                        <tr style="background:#f8f8f8;border-bottom:1px solid #eee;">
+                          <td style="padding:3px 6px;font-size:11px;width:20px;"></td>
+                          <td style="padding:3px 6px;font-size:11px;color:#555;">Staff One Call</td>
+                          <td style="padding:3px 6px;font-size:11px;">08/15/2026 08:00</td>
+                          <td style="padding:3px 6px;font-size:11px;">08/15/2026 17:00</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">7</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">0</td>
+                        </tr>
+                        <tr style="background:#fff;">
+                          <td style="padding:3px 6px;font-size:11px;"><input type="checkbox"></td>
+                          <td style="padding:3px 6px;font-size:11px;display:flex;gap:4px;align-items:center;">
+                            <input style="width:30px;border:1px solid #aaa;font-size:11px;padding:1px 3px;" value="0">
+                            <input style="width:30px;border:1px solid #aaa;font-size:11px;padding:1px 3px;" value="7">
+                            <span style="color:#c00;">*</span>
+                            <span>Event Staff</span>
+                          </td>
+                          <td style="padding:3px 6px;font-size:11px;">08/15/2026 08:00</td>
+                          <td style="padding:3px 6px;font-size:11px;">08/15/2026 17:00</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;"><input type="checkbox" checked style="accent-color:#3a6aaa;"></td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">5</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">7</td>
+                          <td style="padding:3px 6px;font-size:11px;text-align:center;">0</td>
+                        </tr>
+                      </table>
+                    </td>
                   </tr>
                 </tbody>
               </table>
               <div style="margin-top:10px;">
                 <button class="btn" id="btn-ws-add">Add WebShift</button>
               </div>
-              <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px;">&#10004; Jobs added to Web Shift. Employees can now see and request these shifts online.</div>
+              <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 14px;margin-top:8px;display:none;font-size:12px;display:none;align-items:center;gap:8px;">&#10004;&nbsp;&nbsp;Web shift has been activated successfully.</div>
             </div>
           </div>
         </div>
@@ -1285,14 +1306,22 @@ function slide_mss_4() {
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
       onConfirm: () => { document.getElementById('ws-results').style.display = ''; }},
     { selector: '#ws-var-col', prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
-    { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs you want to publish to the web',
+    { selector: '#ws-autosched', prompt: 'Check "Auto Schedule" to expand the job and see its shift details. This lets you review exactly what will be published.',
+      onConfirm: () => {
+        document.getElementById('ws-autosched').checked = true;
+        document.getElementById('ws-sub-rows').style.display = '';
+        document.getElementById('ws-expand-icon').textContent = '−';
+      }},
+    { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs, or check individual jobs you want to publish',
       onConfirm: () => {
         document.getElementById('chk-ws-all').checked = true;
         document.querySelectorAll('.ws-chk').forEach(c => c.checked = true);
       }},
-    { selector: '#btn-ws-add', prompt: 'Click "Add WebShift" to publish these jobs so employees can request shifts online',
+    { selector: '#btn-ws-add', prompt: 'Click "Add WebShift" to publish the selected jobs to the web portal',
       onConfirm: () => {
-        document.getElementById('ws-done').style.display = '';
+        const done = document.getElementById('ws-done');
+        done.style.display = 'flex';
+        done.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }},
   ]);
 }
