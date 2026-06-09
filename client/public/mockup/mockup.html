@@ -1224,26 +1224,49 @@ function mssWebShiftHTML() {
             </div>
             <button class="btn" id="btn-ws-search">Search</button>
             <div id="ws-results" style="display:none;margin-top:14px;">
+              <div style="font-size:13px;font-weight:bold;color:#333;margin-bottom:8px;border-bottom:1px solid #eee;padding-bottom:6px;">Search Result</div>
+              <div style="display:flex;gap:16px;align-items:center;margin-bottom:10px;">
+                <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view" checked> Expand</label>
+                <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view"> Collapse</label>
+              </div>
               <table style="width:100%;border-collapse:collapse;">
                 <thead><tr style="background:#5a5a5a;color:#fff;">
-                  <th style="padding:5px 8px;font-size:11px;"><input type="checkbox" id="chk-ws-all"></th>
-                  <th style="padding:5px 8px;font-size:11px;">Shift Name</th>
-                  <th style="padding:5px 8px;font-size:11px;">Role</th>
-                  <th style="padding:5px 8px;font-size:11px;">Date</th>
-                  <th style="padding:5px 8px;font-size:11px;">Start</th>
-                  <th style="padding:5px 8px;font-size:11px;">Finish</th>
-                  <th style="padding:5px 8px;font-size:11px;">Web Status</th>
+                  <th style="padding:5px 8px;font-size:11px;width:24px;"><input type="checkbox" id="chk-ws-all"></th>
+                  <th style="padding:5px 8px;font-size:11px;">Job &#9650;&#9660;</th>
+                  <th style="padding:5px 8px;font-size:11px;">Venue &#9650;&#9660;</th>
+                  <th style="padding:5px 8px;font-size:11px;text-align:center;">Auto Schedule</th>
+                  <th style="padding:5px 8px;font-size:11px;text-align:center;">Min</th>
+                  <th style="padding:5px 8px;font-size:11px;text-align:center;">Max</th>
+                  <th style="padding:5px 8px;font-size:11px;text-align:center;">Sched</th>
+                  <th style="padding:5px 8px;font-size:11px;text-align:center;" id="ws-var-col">Var</th>
                 </tr></thead>
                 <tbody>
-                  <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;"><input type="checkbox" class="ws-chk"></td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td><td style="padding:4px 8px;font-size:11px;" id="ws-s1">Not Published</td></tr>
-                  <tr style="border-bottom:1px solid #eee;"><td style="padding:4px 8px;"><input type="checkbox" class="ws-chk"></td><td style="padding:4px 8px;font-size:11px;">Day Shift</td><td style="padding:4px 8px;font-size:11px;">Supervisor</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">08:00</td><td style="padding:4px 8px;font-size:11px;">12:30</td><td style="padding:4px 8px;font-size:11px;" id="ws-s2">Not Published</td></tr>
-                  <tr><td style="padding:4px 8px;"><input type="checkbox" class="ws-chk"></td><td style="padding:4px 8px;font-size:11px;">Evening Shift</td><td style="padding:4px 8px;font-size:11px;">Event Staff</td><td style="padding:4px 8px;font-size:11px;">08/15/2026</td><td style="padding:4px 8px;font-size:11px;">17:00</td><td style="padding:4px 8px;font-size:11px;">22:00</td><td style="padding:4px 8px;font-size:11px;" id="ws-s3">Not Published</td></tr>
+                  <tr style="border-bottom:1px solid #eee;">
+                    <td style="padding:4px 8px;"><input type="checkbox" class="ws-chk" id="ws-chk-1"></td>
+                    <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;">&#43;</span><strong>Drake Job</strong></td>
+                    <td style="padding:4px 8px;font-size:11px;">AB Convention Center</td>
+                    <td style="padding:4px 8px;text-align:center;"><input type="checkbox"></td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;" id="ws-var-1">0</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:4px 8px;"><input type="checkbox" class="ws-chk" id="ws-chk-2"></td>
+                    <td style="padding:4px 8px;font-size:11px;"><span style="color:#666;margin-right:4px;">&#43;</span><strong>Grand Bell Event</strong></td>
+                    <td style="padding:4px 8px;font-size:11px;">Grand Bell Arena</td>
+                    <td style="padding:4px 8px;text-align:center;"><input type="checkbox"></td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">10</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">15</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">8</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;" id="ws-var-2">-2</td>
+                  </tr>
                 </tbody>
               </table>
-              <div style="margin-top:10px;display:flex;gap:8px;">
-                <button class="btn" id="btn-ws-add">Add to Web Shift</button>
+              <div style="margin-top:10px;">
+                <button class="btn" id="btn-ws-add">Add WebShift</button>
               </div>
-              <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px;">&#10004; Shifts published to Web Shift. Employees can now see and accept these shifts online.</div>
+              <div id="ws-done" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px;">&#10004; Jobs added to Web Shift. Employees can now see and request these shifts online.</div>
             </div>
           </div>
         </div>
@@ -1261,16 +1284,14 @@ function slide_mss_4() {
     { selector: '#f-ws-end', prompt: 'Set the End Date — required field' },
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
       onConfirm: () => { document.getElementById('ws-results').style.display = ''; }},
-    { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all shifts you want to publish to the web',
+    { selector: '#ws-var-col', prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
+    { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs you want to publish to the web',
       onConfirm: () => {
         document.getElementById('chk-ws-all').checked = true;
         document.querySelectorAll('.ws-chk').forEach(c => c.checked = true);
       }},
-    { selector: '#btn-ws-add', prompt: 'Click "Add to Web Shift" to publish the selected shifts so employees can request them online',
+    { selector: '#btn-ws-add', prompt: 'Click "Add WebShift" to publish these jobs so employees can request shifts online',
       onConfirm: () => {
-        ['ws-s1','ws-s2','ws-s3'].forEach(id => {
-          document.getElementById(id).innerHTML = '<span style="color:#2a9a2a;font-weight:bold">&#10004; Published</span>';
-        });
         document.getElementById('ws-done').style.display = '';
       }},
   ]);
