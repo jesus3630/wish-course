@@ -586,15 +586,15 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           </div>
 
           {(slide as any)?.simulation_url ? (
-            /* ── Side-by-side layout for sim slides ── */
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginTop: '4px' }}>
-              {/* Left: script */}
-              <div style={{ flex: '0 0 42%', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+            /* ── Stacked layout for sim slides: text top, demo bottom ── */
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '4px' }}>
+              {/* Top: script */}
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
                 {slide?.instructions && isCleanText(slide.instructions) && (
                   <div style={styles.instructionsTag}>📹 {slide.instructions}</div>
                 )}
-                <div style={{ ...styles.slideContent, flex: 1 }}>
+                <div style={styles.slideContent}>
                   {slideText ? (
                     <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
                   ) : (
@@ -611,8 +611,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 )}
               </div>
 
-              {/* Right: interactive sim */}
-              <div style={{ flex: '0 0 58%', minWidth: 0 }}>
+              {/* Bottom: interactive sim */}
+              <div>
                 <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
                   Your turn — click through the steps below
                 </div>
