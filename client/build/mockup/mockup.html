@@ -373,12 +373,15 @@ function runSeq(steps) {
 
 // ── Guided interactive engine ──────────────────────────────────────────────
 let _gs = null; // guided state
+let _gsExtra = []; // extra elements highlighted alongside the main target
+function _clearExtra(){ _gsExtra.forEach(e => e.classList.remove('guided-target')); _gsExtra = []; }
 
 function runGuided(steps) {
   // Cleanup previous session
   if (_gs) {
     if (_gs.handler) document.removeEventListener('click', _gs.handler, true);
     if (_gs.el) _gs.el.classList.remove('guided-target');
+    _clearExtra();
   }
   const oldBar = document.getElementById('guided-bar');
   const oldTip = document.getElementById('guided-prompt');
@@ -418,6 +421,7 @@ function runGuided(steps) {
       else document.removeEventListener('click', _gs.handler, true);
     }
     if (_gs && _gs.el) _gs.el.classList.remove('guided-target');
+    _clearExtra();
     _gs = null;
     const _arrow = document.getElementById('guided-arrow');
     if (_arrow) _arrow.style.display = 'none';
@@ -440,6 +444,8 @@ function runGuided(steps) {
         showStep(i + 1); return;
       }
       el.classList.add('guided-target');
+      _clearExtra();
+      if (s.also) s.also.forEach(sel => { const e2 = document.querySelector(sel); if (e2) { e2.classList.add('guided-target'); _gsExtra.push(e2); } });
       el.scrollIntoView({ behavior: 'instant', block: 'center', inline: 'nearest' });
 
       // Position arrow after scroll settles
@@ -478,6 +484,7 @@ function runGuided(steps) {
         if (!isSelect && !el.contains(e.target)) return;
         (isSelect ? el : document).removeEventListener(eventType, handler, !isSelect);
         el.classList.remove('guided-target');
+        _clearExtra();
         _gs = null;
 
         if (s.type && el.id) {
@@ -1449,7 +1456,7 @@ function mssWebShiftContent() {
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
+              <td id="ws-var-val" style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
             </tr>
             <!-- Shift header row (flattened into parent table so columns align) -->
             <tr class="ws-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
@@ -1533,7 +1540,7 @@ function slide_mss_4() {
     { selector: '#f-ws-end', prompt: 'Set the End Date — required field' },
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
       onConfirm: () => { document.getElementById('ws-results').style.display = ''; }},
-    { selector: '#ws-var-col', prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
+    { selector: '#ws-var-col', also: ['#ws-var-val'], prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
     { selector: '#ws-expand-radio', prompt: 'Click "Expand" to open the job and see its shift details before publishing.',
       onConfirm: () => {
         document.getElementById('ws-expand-radio').checked = true;
