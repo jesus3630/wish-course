@@ -1471,7 +1471,7 @@ function mssWebShiftContent() {
             </tr>
             <!-- Role detail row — Auto Schedule checkbox now sits directly under the Auto Schedule column -->
             <tr class="ws-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
-              <td style="padding:4px 8px;text-align:center;"><span id="ws-disable-check" title="Disable this role" style="color:#2a8a2a;font-weight:bold;font-size:15px;cursor:pointer;">&#10003;</span></td>
+              <td style="padding:4px 8px;text-align:center;"><span id="ws-disable-check" title="Disable this role" style="color:#2a8a2a;font-weight:bold;font-size:15px;cursor:pointer;visibility:hidden;">&#10003;</span></td>
               <td style="padding:4px 8px;font-size:11px;padding-left:24px;white-space:nowrap;">
                 <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="0">
                 <input style="width:28px;border:1px solid #aaa;font-size:11px;padding:1px 3px;text-align:center;" value="7">
@@ -1523,6 +1523,8 @@ function openWsDisableConfirm() {
 function applyWsDisabled() {
   const ov = document.getElementById('mss-confirm-overlay');
   if (ov) ov.remove();
+  const done = document.getElementById('ws-done');
+  if (done) done.style.display = 'none';
   const chk = document.getElementById('ws-disable-check');
   if (chk) { chk.innerHTML = '&#10006;'; chk.style.color = '#c0392b'; chk.title = 'Role disabled — click to re-enable'; }
   const auto = document.getElementById('ws-role-autosched');
@@ -1553,21 +1555,23 @@ function slide_mss_4() {
         const role = document.getElementById('ws-role-autosched');
         if (role) role.checked = true;
       }},
-    { selector: '#ws-disable-check', prompt: 'The green check next to a role means it is active. Click it to disable that role for this web shift — a confirmation will appear.',
-      onConfirm: () => { openWsDisableConfirm(); }},
-    { selector: '#mss-confirm-ok', prompt: 'Click OK to confirm. The role is then marked disabled and you will see a confirmation message.',
-      onConfirm: () => { applyWsDisabled(); }},
     { selector: '#chk-ws-all', prompt: 'Check the top checkbox to select all jobs, or check individual jobs you want to publish',
       onConfirm: () => {
         document.getElementById('chk-ws-all').checked = true;
         document.querySelectorAll('.ws-chk').forEach(c => c.checked = true);
       }},
-    { selector: '#btn-ws-add', prompt: 'Click "Add WebShift" to publish the selected jobs to the web portal',
+    { selector: '#btn-ws-add', prompt: 'Click "Add WebShift" to publish the selected jobs. A green checkmark will appear, confirming employees can now see and self-schedule for the shift.',
       onConfirm: () => {
         const done = document.getElementById('ws-done');
-        done.style.display = 'flex';
-        done.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (done) { done.style.display = 'flex'; }
+        const chk = document.getElementById('ws-disable-check');
+        if (chk) chk.style.visibility = 'visible';
+        if (done) done.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       }},
+    { selector: '#ws-disable-check', prompt: 'This green checkmark means the shift is published. To unpublish it later, click the green checkmark — a confirmation will appear.',
+      onConfirm: () => { openWsDisableConfirm(); }},
+    { selector: '#mss-confirm-ok', prompt: 'Click OK to confirm. The shift is then unpublished and you will see a confirmation message.',
+      onConfirm: () => { applyWsDisabled(); }},
   ]);
 }
 
