@@ -154,6 +154,8 @@ export default function ModulePlayer({
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
   const [simReady, setSimReady] = useState(false);
+  const [narrowLayout, setNarrowLayout] = useState(false);
+  const slideAreaRef = useRef<HTMLDivElement>(null);
 
   const audioRef = useRef<HTMLAudioElement>(new Audio());
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -167,6 +169,16 @@ export default function ModulePlayer({
   const blobUrlsRef = useRef<string[]>([]);
   const narrationTokenRef = useRef<symbol | null>(null);
   useEffect(() => { progressRef.current = progress; }, [progress]);
+
+  useEffect(() => {
+    const check = () => {
+      const isSplit = window.outerWidth < window.screen.width * 0.8;
+      setNarrowLayout(isSplit);
+    };
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const slide = module.slides[slideIndex];
   const questions: QuizQuestion[] = quizData[module.id] ?? [];
@@ -571,7 +583,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       </div>
 
       {/* Slide area */}
-      <div style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
+      <div ref={slideAreaRef} style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
         <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : '40px 48px', opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           {/* Character inline top-right — hidden on mobile to avoid clipping */}
           {!isMobile && (
@@ -586,15 +598,15 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           </div>
 
           {(slide as any)?.simulation_url ? (
-            /* ── Side-by-side layout for sim slides ── */
-            <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginTop: '4px' }}>
-              {/* Left: script */}
-              <div style={{ flex: '0 0 42%', minWidth: 0, display: 'flex', flexDirection: 'column' }}>
+            /* ── Responsive sim layout: side-by-side on wide, stacked on narrow ── */
+            <div className={narrowLayout ? 'sim-layout sim-stacked' : 'sim-layout'}>
+              {/* Text / script */}
+              <div className="sim-text">
                 <h2 style={{ ...styles.slideName, marginTop: 0 }}>{slideName}</h2>
                 {slide?.instructions && isCleanText(slide.instructions) && (
                   <div style={styles.instructionsTag}>📹 {slide.instructions}</div>
                 )}
-                <div style={{ ...styles.slideContent, flex: 1 }}>
+                <div style={styles.slideContent}>
                   {slideText ? (
                     <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
                   ) : (
@@ -611,8 +623,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 )}
               </div>
 
-              {/* Right: interactive sim */}
-              <div style={{ flex: '0 0 58%', minWidth: 0 }}>
+              {/* Interactive sim */}
+              <div className="sim-demo">
                 <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
                   Your turn — click through the steps below
                 </div>
