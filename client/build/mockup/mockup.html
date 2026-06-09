@@ -1647,11 +1647,11 @@ function slide_mss_6() {
     <div style="font-size:15px;font-weight:bold;color:#333;background:#e9e9e9;border:1px solid #ccc;padding:9px 14px;margin-bottom:14px;">Web Shift Approval</div>
     <div style="background:#ffffe0;border:1px solid #d4d400;color:#c00;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
     <div style="background:#fff;border:1px solid #ddd;padding:18px 20px;">
-      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;width:200px;"><option>Prota LA Branch Test</option></select></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Branch Name:</span><select style="border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff;width:200px;"><option>San Diego</option></select></div>
       <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job#:</span><input id="f-wsa-job" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
       <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Job Name:</span><input id="f-wsa-jobname" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:200px;background:#fff;"></div>
-      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Start Date:</span><input id="f-wsa-start" value="08/15/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
-      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="08/17/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:9px;"><span style="width:100px;color:#444;font-size:12px;">Start Date:</span><input id="f-wsa-start" value="06/08/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
+      <div style="display:flex;align-items:center;margin-bottom:12px;"><span style="width:100px;color:#444;font-size:12px;">End Date:</span><input id="f-wsa-end" value="06/24/2026" style="border:1px solid #aaa;padding:2px 6px;font-size:12px;width:90px;background:#fff;">${calBtn()}<span style="color:#c00;margin-left:4px;">*</span></div>
       <div style="display:flex;align-items:center;margin-bottom:14px;padding-left:100px;"><input type="checkbox" id="wsa-showall" style="margin-right:6px;"><label for="wsa-showall" style="font-size:12px;color:#444;">Show All Published Shift</label></div>
       <div style="padding-left:100px;"><button class="btn" id="btn-wsa-search">Search</button></div>
       <div id="wsa-results" style="display:none;margin-top:18px;">
@@ -1662,7 +1662,7 @@ function slide_mss_6() {
         </div>
         <table style="width:100%;border-collapse:collapse;">
           <thead><tr style="background:#5a5a5a;color:#fff;">
-            <th style="padding:6px 8px;font-size:11px;width:28px;"></th>
+            <th style="padding:6px 8px;font-size:11px;width:48px;"></th>
             <th style="padding:6px 8px;font-size:11px;text-align:left;">Job &#9650;&#9660;</th>
             <th style="padding:6px 8px;font-size:11px;text-align:left;">Venue &#9650;&#9660;</th>
             <th style="padding:6px 8px;font-size:11px;text-align:center;">Approve</th>
@@ -1672,35 +1672,69 @@ function slide_mss_6() {
             <th style="padding:6px 8px;font-size:11px;text-align:center;" id="wsa-var-col">Var</th>
           </tr></thead>
           <tbody>
+            <!-- Level 1: Job -->
             <tr style="border-bottom:1px solid #ddd;background:#f7f7f7;">
-              <td style="padding:5px 8px;text-align:center;"><span id="wsa-expand-icon" style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
-              <td style="padding:5px 8px;font-size:12px;font-weight:bold;">Drake Job</td>
-              <td style="padding:5px 8px;font-size:12px;">AB Convention Center</td>
+              <td style="padding:5px 6px;white-space:nowrap;"><span class="wsa-alert" title="Employees waiting to be approved" style="display:inline-block;width:15px;height:15px;line-height:15px;text-align:center;background:#e8821e;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;margin-right:4px;cursor:default;">!</span><span id="wsa-expand-icon" style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
+              <td style="padding:5px 8px;font-size:12px;font-weight:bold;">Belmont Park SDFC Socc...</td>
+              <td style="padding:5px 8px;font-size:12px;">Belmont Park Beach House</td>
               <td style="padding:5px 8px;"></td>
-              <td style="padding:5px 8px;font-size:12px;text-align:center;">5</td>
-              <td style="padding:5px 8px;font-size:12px;text-align:center;">7</td>
-              <td style="padding:5px 8px;font-size:12px;text-align:center;">6</td>
-              <td id="wsa-var-val" style="padding:5px 8px;font-size:12px;text-align:center;color:#c00;font-weight:bold;">1</td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">24</td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">25</td>
+              <td style="padding:5px 8px;font-size:12px;text-align:center;">9</td>
+              <td id="wsa-var-val" style="padding:5px 8px;font-size:12px;text-align:center;color:#c00;font-weight:bold;">-15</td>
             </tr>
-            <tr class="wsa-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
-              <td style="padding:4px 8px;text-align:center;"><span style="color:#555;">&#8722;</span></td>
-              <td style="padding:4px 8px;font-size:11px;font-weight:bold;color:#444;padding-left:24px;">Staff One Call</td>
-              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &nbsp; 08/15/2026 17:00</td>
-              <td style="padding:4px 8px;"></td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#2a8a2a;">1</td>
+            <!-- Level 2: Shifts (revealed when the job + is clicked) -->
+            <tr class="wsa-shift-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
+              <td style="padding:5px 6px;white-space:nowrap;padding-left:18px;"><span class="wsa-alert" title="Employees waiting to be approved" style="display:inline-block;width:15px;height:15px;line-height:15px;text-align:center;background:#e8821e;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;margin-right:4px;cursor:default;">!</span><span id="wsa-shift-expand" style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
+              <td style="padding:5px 8px;font-size:11px;font-weight:bold;color:#444;">Staff, Sup - 0730</td>
+              <td style="padding:5px 8px;font-size:11px;color:#555;">06/14/2026 07:30 &nbsp; 06/14/2026 16:00</td>
+              <td style="padding:5px 8px;"></td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">11</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">12</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;color:#c00;">-8</td>
             </tr>
-            <tr class="wsa-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
+            <!-- Level 3: Roles under the first shift (revealed when that shift's + is clicked) -->
+            <tr class="wsa-role-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
               <td style="padding:4px 8px;"></td>
-              <td style="padding:4px 8px;font-size:11px;padding-left:40px;white-space:nowrap;"><span style="color:#555;font-size:10px;">&#9654;</span> Event Staff</td>
-              <td style="padding:4px 8px;font-size:11px;color:#555;">08/15/2026 08:00 &nbsp; 08/15/2026 17:00</td>
+              <td style="padding:4px 8px;font-size:11px;padding-left:40px;">Security Guard</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">06/14/2026 07:30 &nbsp; 06/14/2026 13:30</td>
               <td style="padding:4px 8px;text-align:center;"><a href="#" id="wsa-show" onclick="return false;" style="color:#1a6aaa;text-decoration:underline;font-size:11px;cursor:pointer;">Show</a></td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">6</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#2a8a2a;">1</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">10</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">11</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;">-7</td>
+            </tr>
+            <tr class="wsa-role-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
+              <td style="padding:4px 8px;"></td>
+              <td style="padding:4px 8px;font-size:11px;padding-left:40px;">Supervisor</td>
+              <td style="padding:4px 8px;font-size:11px;color:#555;">06/14/2026 07:30 &nbsp; 06/14/2026 16:00</td>
+              <td style="padding:4px 8px;text-align:center;"><a href="#" onclick="return false;" style="color:#1a6aaa;text-decoration:underline;font-size:11px;cursor:pointer;">Show</a></td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">1</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">0</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;">-1</td>
+            </tr>
+            <!-- Remaining shifts under the job -->
+            <tr class="wsa-shift-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
+              <td style="padding:5px 6px;white-space:nowrap;padding-left:18px;"><span class="wsa-alert" title="Employees waiting to be approved" style="display:inline-block;width:15px;height:15px;line-height:15px;text-align:center;background:#e8821e;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;margin-right:4px;cursor:default;">!</span><span style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
+              <td style="padding:5px 8px;font-size:11px;font-weight:bold;color:#444;">Staff - 0900</td>
+              <td style="padding:5px 8px;font-size:11px;color:#555;">06/14/2026 09:00 &nbsp; 06/14/2026 15:30</td>
+              <td style="padding:5px 8px;"></td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">5</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;color:#c00;">-2</td>
+            </tr>
+            <tr class="wsa-shift-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
+              <td style="padding:5px 6px;white-space:nowrap;padding-left:18px;"><span class="wsa-alert" title="Employees waiting to be approved" style="display:inline-block;width:15px;height:15px;line-height:15px;text-align:center;background:#e8821e;color:#fff;border-radius:50%;font-size:11px;font-weight:bold;margin-right:4px;cursor:default;">!</span><span style="display:inline-block;border:1px solid #999;background:#eee;width:16px;height:16px;line-height:14px;text-align:center;font-size:12px;cursor:pointer;">&#43;</span></td>
+              <td style="padding:5px 8px;font-size:11px;font-weight:bold;color:#444;">Staff, Sup - 1530</td>
+              <td style="padding:5px 8px;font-size:11px;color:#555;">06/14/2026 15:30 &nbsp; 06/14/2026 21:30</td>
+              <td style="padding:5px 8px;"></td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">8</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">8</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:5px 8px;font-size:11px;text-align:center;color:#c00;">-5</td>
             </tr>
           </tbody>
         </table>
@@ -1713,16 +1747,21 @@ function slide_mss_6() {
     { selector: '#f-wsa-end', prompt: 'Set the End Date — required field.' },
     { selector: '#wsa-showall', prompt: 'Check "Show All Published Shift" to include every published shift in the range, not just the ones with pending requests.',
       onConfirm: () => { document.getElementById('wsa-showall').checked = true; }},
-    { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the published shifts and the employees who requested them.',
+    { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the published shifts for this date range.',
       onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
-    { selector: '#wsa-var-col', also: ['#wsa-var-val'], prompt: 'The Var column shows how many requests are still waiting on you. Red means there is a pending request to review. Click Next.', skipClick: true },
-    { selector: '#wsa-expand-radio', prompt: 'Click "Expand" to open the job and see its shift and role breakdown.',
+    { selector: '.wsa-alert', prompt: 'The orange "!" icon to the left of a job means there are employees waiting to be approved for it. Click Next.', skipClick: true },
+    { selector: '#wsa-var-col', also: ['#wsa-var-val'], prompt: 'The Var column is the variance — a red negative number means the job is still short that many employees. Click Next.', skipClick: true },
+    { selector: '#wsa-expand-icon', prompt: 'Click the "+" next to the job to drop down all of its shifts.',
       onConfirm: () => {
-        document.getElementById('wsa-expand-radio').checked = true;
-        document.querySelectorAll('.wsa-sub-rows').forEach(r => { r.style.display = ''; });
+        document.querySelectorAll('.wsa-shift-rows').forEach(r => { r.style.display = ''; });
         document.getElementById('wsa-expand-icon').textContent = '−';
       }},
-    { selector: '#wsa-show', prompt: 'In the Approve column, click "Show" to open the employee\'s request for this role, where you review it and approve or deny.' },
+    { selector: '#wsa-shift-expand', prompt: 'Now click the "+" next to a shift to drop down the roles within it.',
+      onConfirm: () => {
+        document.querySelectorAll('.wsa-role-rows').forEach(r => { r.style.display = ''; });
+        document.getElementById('wsa-shift-expand').textContent = '−';
+      }},
+    { selector: '#wsa-show', prompt: 'In the Approve column, click "Show" on a role to open the employees who requested it, where you review and approve or deny each one.' },
   ]);
 }
 
