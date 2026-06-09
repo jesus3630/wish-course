@@ -1642,6 +1642,68 @@ function slide_mss_5() {
   play();
 }
 
+// "Show" on a role opens the Web Schedule Request popup listing every applicant
+function openWebScheduleRequest() {
+  if (document.getElementById('wsr-overlay')) return;
+  const ov = document.createElement('div');
+  ov.id = 'wsr-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,0.25);display:flex;align-items:flex-start;justify-content:center;overflow:auto;';
+  const emp = (id, no, fn, ln, wk, time) => `
+    <tr style="border-bottom:1px solid #e6e6e6;background:#fafafa;">
+      <td style="padding:8px 10px;text-align:center;"><input type="checkbox"${id ? ' id="' + id + '"' : ''} style="width:14px;height:14px;"></td>
+      <td style="padding:8px 10px;font-size:12px;">${no}</td>
+      <td style="padding:8px 10px;font-size:12px;">${fn}</td>
+      <td style="padding:8px 10px;font-size:12px;">${ln}</td>
+      <td style="padding:8px 10px;font-size:12px;">${wk}</td>
+      <td style="padding:8px 10px;font-size:12px;">Event Guard</td>
+      <td style="padding:8px 10px;font-size:12px;">${time}</td>
+      <td style="padding:8px 10px;font-size:12px;">San Diego</td>
+    </tr>`;
+  ov.innerHTML = `
+    <div style="margin-top:28px;margin-bottom:28px;background:#fff;width:780px;max-width:94%;box-shadow:0 12px 50px rgba(0,0,0,.45);border:1px solid #888;">
+      <div style="background:#e9e9e9;border-bottom:1px solid #ccc;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:14px;font-weight:bold;color:#333;">Web Schedule Request</span>
+        <span id="wsr-close" style="cursor:pointer;font-size:13px;color:#333;border:1px solid #aaa;background:#f3f3f3;padding:1px 9px;border-radius:2px;">X</span>
+      </div>
+      <div style="padding:16px 22px;">
+        <table style="font-size:12px;color:#333;margin-bottom:6px;">
+          <tr><td style="padding:2px 10px 2px 0;color:#555;">Venue:</td><td style="padding:2px 40px 2px 4px;">Belmont Park Beach House</td><td style="padding:2px 10px;color:#555;">Min:</td><td style="padding:2px 4px;">10</td></tr>
+          <tr><td style="padding:2px 10px 2px 0;color:#555;">Job:</td><td style="padding:2px 40px 2px 4px;">Belmont Park SDFC Soccer Celebration 6/14/26</td><td style="padding:2px 10px;color:#555;">Max:</td><td style="padding:2px 4px;">11</td></tr>
+          <tr><td style="padding:2px 10px 2px 0;color:#555;">Shift:</td><td style="padding:2px 40px 2px 4px;">Staff, Sup - 0730</td><td style="padding:2px 10px;color:#555;">Sched:</td><td style="padding:2px 4px;">3</td></tr>
+          <tr><td style="padding:2px 10px 2px 0;color:#555;">Role:</td><td style="padding:2px 40px 2px 4px;">Security Guard</td><td style="padding:2px 10px;color:#555;">Var:</td><td style="padding:2px 4px;color:#c00;">-7</td></tr>
+          <tr><td style="padding:2px 10px 2px 0;color:#555;">Shift Hr:</td><td style="padding:2px 40px 2px 4px;">6.00</td><td></td><td></td></tr>
+        </table>
+        <div style="font-size:14px;font-weight:bold;color:#333;border-bottom:1px solid #ccc;padding-bottom:6px;margin:14px 0 12px;">Search Result</div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="background:#5a5a5a;color:#fff;">
+            <th style="padding:7px 10px;font-size:11px;width:28px;"><input type="checkbox"></th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Employee# &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">First Name &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Last Name &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Wk Hr &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Job Title &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Request Time &#9650;&#9660;</th>
+            <th style="padding:7px 10px;font-size:11px;text-align:left;">Branch</th>
+          </tr></thead>
+          <tbody>
+            ${emp('wsr-chk-1', '4157445', 'Geoffrey', 'Watson', '12.00', '06/08/2026 17:26:30')}
+            ${emp('', '4069494', 'Ashley', 'Neveu', '0.00', '06/08/2026 20:44:02')}
+            ${emp('', '3946539', 'William', 'Hicks', '0.00', '06/08/2026 20:46:03')}
+            ${emp('', '4178600', 'Marissa', 'Thammavongsa', '14.00', '06/09/2026 08:48:09')}
+            ${emp('', '4175839', 'Lamark', 'Beasley', '38.00', '06/09/2026 09:18:41')}
+          </tbody>
+        </table>
+        <div style="text-align:center;margin-top:18px;">
+          <button class="btn" id="wsr-approve">Approve</button>
+          <button class="btn" id="wsr-deny" style="margin-left:8px;background:#c06060;border-color:#a05050;color:#fff;">Deny</button>
+        </div>
+        <div id="wsr-done" style="display:none;text-align:center;margin-top:12px;color:#1a6a1a;font-size:13px;font-weight:bold;">&#10004; Selected employee(s) approved and scheduled for this role.</div>
+      </div>
+    </div>`;
+  document.body.appendChild(ov);
+  document.getElementById('wsr-close').onclick = () => ov.remove();
+}
+
 function slide_mss_6() {
   showMSSOverlay(`
     <div style="font-size:15px;font-weight:bold;color:#333;background:#e9e9e9;border:1px solid #ccc;padding:9px 14px;margin-bottom:14px;">Web Shift Approval</div>
@@ -1761,7 +1823,15 @@ function slide_mss_6() {
         document.querySelectorAll('.wsa-role-rows').forEach(r => { r.style.display = ''; });
         document.getElementById('wsa-shift-expand').textContent = '−';
       }},
-    { selector: '#wsa-show', prompt: 'In the Approve column, click "Show" on a role to open the employees who requested it, where you review and approve or deny each one.' },
+    { selector: '#wsa-show', prompt: 'In the Approve column, click "Show" on a role to open the Web Schedule Request — the list of everyone who applied for it.',
+      onConfirm: () => { openWebScheduleRequest(); }},
+    { selector: '#wsr-chk-1', prompt: 'Check the box next to each employee you want to schedule for this role.',
+      onConfirm: () => { const c = document.getElementById('wsr-chk-1'); if (c) c.checked = true; }},
+    { selector: '#wsr-approve', prompt: 'Click "Approve" to schedule the selected employees. Approve as many as needed to reach the Max for the role — or use "Deny" to reject a request.',
+      onConfirm: () => {
+        const done = document.getElementById('wsr-done');
+        if (done) { done.style.display = 'block'; done.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      }},
   ]);
 }
 
