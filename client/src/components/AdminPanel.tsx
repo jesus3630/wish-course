@@ -589,7 +589,7 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
-  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster'>('content');
+  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap'>('content');
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
 
@@ -1039,7 +1039,7 @@ export default function AdminPanel() {
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
           {/* Top-level nav */}
           <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
-            {(['content', 'users', 'roster'] as const).map(v => (
+            {(['content', 'users', 'roster', 'recap'] as const).map(v => (
               <button
                 key={v}
                 onClick={() => {
@@ -1276,6 +1276,13 @@ export default function AdminPanel() {
             )}
           </div>
         )}
+
+        {/* Voice Recap area */}
+        {adminView === 'recap' && (
+          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+            <RecapPanel />
+          </div>
+        )}
       </div>
 
       {/* History drawer */}
@@ -1329,6 +1336,126 @@ export default function AdminPanel() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+// ─── Voice Recap panel ────────────────────────────────────────────────────────
+const DEFAULT_RECAP = `Here's your recap. We've been rebuilding the Manager Self Service module, Module 20, so every interactive demo matches the real WISH screens.
+
+We finished five interactive simulations: the MSS portal overview, Publishing Shifts on the Web Shift tab, the Auto-Schedule versus Manual Approval comparison, the Web Shift Approval tab with its full job to shift to role expand and the Web Schedule Request approve and deny popup, and the Web Shift Report tab where Produce Report opens the full status report.
+
+Everything is deployed to the live training site and verified. Module 20 is complete. Whenever you're ready, just point me at the next module or screen.`;
+
+function RecapPanel() {
+  const C = { navy: '#1B3A6B', orange: '#D4782A', teal: '#5BBCB0', gray: '#6B7280', white: '#FFFFFF', bg: '#F4F7FA', border: '#E5E7EB', red: '#EF4444' };
+  const [text, setText] = useState(DEFAULT_RECAP);
+  const [loading, setLoading] = useState(false);
+  const [audioSrc, setAudioSrc] = useState('');
+  const [error, setError] = useState('');
+
+  async function generate() {
+    setError('');
+    setAudioSrc('');
+    setLoading(true);
+    try {
+      const res = await fetch('/api/narrate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: text.slice(0, 5000) }),
+      });
+      if (!res.ok) {
+        const e = await res.json().catch(() => ({} as any));
+        throw new Error(e.error || `Request failed (${res.status})`);
+      }
+      const data = await res.json();
+      if (!data.audio) throw new Error('No audio returned');
+      setAudioSrc(`data:audio/mpeg;base64,${data.audio}`);
+    } catch (e: any) {
+      setError(e.message || 'Failed to generate audio');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function download() {
+    if (!audioSrc) return;
+    const a = document.createElement('a');
+    a.href = audioSrc;
+    a.download = `WISH_Recap_${new Date().toISOString().slice(0, 10)}.mp3`;
+    a.click();
+  }
+
+  return (
+    <div style={{ flex: 1, overflowY: 'auto', padding: '28px 32px', maxWidth: '820px', width: '100%', margin: '0 auto' }}>
+      <div style={{ fontSize: '20px', fontWeight: 800, color: C.navy }}>🔊 Voice Recap</div>
+      <div style={{ fontSize: '13px', color: C.gray, marginTop: '4px', marginBottom: '20px', lineHeight: 1.5 }}>
+        Type or paste anything you want read aloud — a session recap, an announcement, instructions — and hear it in the
+        course's Darryl voice. Plays right here in the browser, no downloads needed.
+      </div>
+
+      <textarea
+        value={text}
+        onChange={e => setText(e.target.value)}
+        rows={12}
+        placeholder="What should the recap say?"
+        style={{
+          width: '100%', fontSize: '14px', lineHeight: 1.6, color: '#1F2937', padding: '16px',
+          border: `1px solid ${C.border}`, borderRadius: '10px', outline: 'none', resize: 'vertical',
+          fontFamily: 'inherit', background: C.white,
+        }}
+      />
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '8px' }}>
+        <span style={{ fontSize: '11px', color: text.length > 5000 ? C.red : C.gray }}>
+          {text.length} / 5000 characters{text.length > 5000 ? ' — will be truncated' : ''}
+        </span>
+      </div>
+
+      <div style={{ display: 'flex', gap: '10px', marginTop: '16px', alignItems: 'center' }}>
+        <button
+          onClick={generate}
+          disabled={loading || !text.trim()}
+          style={{
+            background: C.orange, color: C.white, border: 'none', borderRadius: '8px', padding: '11px 22px',
+            fontSize: '14px', fontWeight: 700, cursor: loading || !text.trim() ? 'not-allowed' : 'pointer',
+            opacity: loading || !text.trim() ? 0.55 : 1, display: 'flex', alignItems: 'center', gap: '8px',
+          }}
+        >
+          {loading ? '⏳ Generating…' : '🔊 Generate & Play'}
+        </button>
+        {audioSrc && (
+          <button
+            onClick={download}
+            style={{
+              background: 'transparent', color: C.navy, border: `1px solid ${C.navy}`, borderRadius: '8px',
+              padding: '11px 18px', fontSize: '14px', fontWeight: 700, cursor: 'pointer',
+            }}
+          >
+            ⬇ Download MP3
+          </button>
+        )}
+      </div>
+
+      {error && (
+        <div style={{ marginTop: '16px', background: '#FEE2E2', color: C.red, border: '1px solid #FCA5A5', borderRadius: '8px', padding: '10px 14px', fontSize: '13px' }}>
+          {error}
+        </div>
+      )}
+
+      {audioSrc && (
+        <div style={{ marginTop: '20px', background: C.bg, border: `1px solid ${C.border}`, borderRadius: '10px', padding: '16px' }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '10px' }}>
+            Recap audio
+          </div>
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <audio src={audioSrc} controls autoPlay style={{ width: '100%' }} />
+        </div>
+      )}
+
+      <div style={{ marginTop: '24px', fontSize: '12px', color: C.gray, lineHeight: 1.6, borderTop: `1px solid ${C.border}`, paddingTop: '16px' }}>
+        Voice: <strong>Darryl</strong> (ElevenLabs) — the same voice used for course narration. Generated audio is cached on
+        the server, so replaying the same text is instant and free.
+      </div>
     </div>
   );
 }
