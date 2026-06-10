@@ -148,31 +148,39 @@ railway up --detach                    # deploy
 
 ## Collaboration Rules
 
-1. **Pull before every session:** `git pull origin main`
-2. **Pull before every deploy** — or things the other person deleted will come back
-3. **Commit and push when done:** `git add . && git commit -m "what you did" && git push origin main`
-4. **Edit content via admin panel** — not by editing JSON files directly
-5. **After React changes:** rebuild client, commit the build, then deploy
+The everyday flow is now just two scripts — they automate the steps people kept forgetting
+(pulling first, copying mockup → build, rebuilding, the protected-function check).
+
+1. **Start of session:** `./start.sh` — pulls latest main + turns the safety hooks on.
+2. **Edit content via admin panel** — not by editing JSON files directly.
+3. **When done:** `./deploy.sh "what you changed"`  (add `--build` if you changed React/TS).
+   It refuses to run if you're behind main, syncs the mockup, verifies the protected
+   functions, then commits → pushes → deploys.
 
 ### First-time setup (run once after cloning)
 ```bash
-git config core.hooksPath .githooks
+git config core.hooksPath .githooks   # also done automatically by ./start.sh
 ```
-This installs the shared pre-push hook that guards critical code. Without it your pushes may be rejected by GitHub Actions.
+This activates the shared hooks:
+- **pre-commit** — auto-copies `client/public/mockup/mockup.html` → `client/build/mockup/mockup.html`
+  so "I edited the demo but my changes don't show" can't happen.
+- **pre-push** — blocks any push where the protected demo functions are missing.
+
+### Why this prevents lost work
+- **Never start stale:** `./start.sh` pulls first; `./deploy.sh` hard-stops if you're behind main.
+- **Never hand-merge build files:** if branches ever conflict, rebuild with `--build` instead of
+  resolving generated JS by hand (that's what wiped the mockup twice before).
+- **Merge `main` into your branch daily** so a feature branch never drifts far (the painful
+  merges came from a branch that fell 16 commits behind).
 
 ---
 
-## After React Changes — Full Flow
+## After React Changes — One Command
 ```bash
-cd client
-npm run build
-cd ..
-git add client/build
-git commit -m "rebuild client — [what changed]"
-git push origin main
-./deploy.sh      # Mac
-# or: railway up --detach   (Windows)
+./deploy.sh --build "rebuild client — [what changed]"
 ```
+This rebuilds the client, syncs the mockup, runs the guard, commits, pushes, and deploys.
+(Manual equivalent still works: `cd client && npm run build` → commit `client/build` → `railway up --detach`.)
 
 ---
 

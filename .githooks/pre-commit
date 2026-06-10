@@ -1,0 +1,18 @@
+#!/bin/bash
+# Auto-sync the interactive-demo mockup from public/ -> build/ on every commit.
+# Kills the #1 recurring bug: editing public/mockup/mockup.html, forgetting to
+# copy it into build/, and then "my changes don't show up" after deploy.
+
+PUB="client/public/mockup/mockup.html"
+BUILD="client/build/mockup/mockup.html"
+
+# Only act if the public mockup is part of this commit.
+if git diff --cached --name-only | grep -qx "$PUB"; then
+  if [ -f "$PUB" ] && ! cmp -s "$PUB" "$BUILD"; then
+    cp "$PUB" "$BUILD"
+    git add "$BUILD"
+    echo "[pre-commit] synced $PUB -> $BUILD (auto-added to commit)"
+  fi
+fi
+
+exit 0

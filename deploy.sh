@@ -1,49 +1,68 @@
 #!/bin/bash
-# Safe deploy script — checks git status before deploying to Railway
+# Safe deploy for the WISH training portal.
+#   ./deploy.sh "commit message"          → sync mockup, commit, push, deploy
+#   ./deploy.sh --build "commit message"  → also rebuild the React client first
+#
+# Guarantees, in order:
+#   1. You are NOT behind origin/main (stops you clobbering someone's work)
+#   2. public/mockup -> build/mockup is in sync (the "changes don't show" bug)
+#   3. (optional) the React client is rebuilt from source
+#   4. protected demo functions are still present
+#   5. commit -> push -> Railway deploy
+set -e
 
-echo "🔍 Checking git status..."
+BUILD=0
+if [ "$1" == "--build" ]; then BUILD=1; shift; fi
+MSG="$1"
 
-# Fetch latest from remote
+echo "🔍 Fetching origin/main..."
 git fetch origin main --quiet
 
-# Check if behind
-BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null)
+BEHIND=$(git rev-list --count HEAD..origin/main 2>/dev/null || echo 0)
 if [ "$BEHIND" -gt 0 ]; then
-  echo ""
-  echo "❌ STOP — You are $BEHIND commit(s) behind origin/main."
-  echo "   Someone pushed changes you don't have."
-  echo ""
-  echo "   Run: git pull origin main"
-  echo "   Then run: ./deploy.sh again"
-  echo ""
+  echo "❌ STOP — you are $BEHIND commit(s) behind origin/main. Someone pushed changes you don't have."
+  echo "   Run: git pull origin main   then re-run ./deploy.sh"
   exit 1
 fi
 
-# Check for uncommitted changes
-if ! git diff-index --quiet HEAD --; then
-  echo ""
-  echo "⚠️  WARNING: You have uncommitted changes."
-  echo "   These will NOT be deployed unless you commit them first."
-  echo ""
-  echo "   Uncommitted files:"
-  git diff --name-only HEAD
-  echo ""
-  read -p "   Deploy anyway? (y/N) " confirm
-  if [ "$confirm" != "y" ] && [ "$confirm" != "Y" ]; then
-    echo "Cancelled. Commit your changes first then run ./deploy.sh"
-    exit 1
-  fi
+# 2. Keep the demo mockup in sync (the pre-commit hook also does this — belt & suspenders)
+if ! cmp -s client/public/mockup/mockup.html client/build/mockup/mockup.html; then
+  echo "🔁 Syncing public/mockup -> build/mockup"
+  cp client/public/mockup/mockup.html client/build/mockup/mockup.html
 fi
 
-# Check ahead (unpushed commits)
-AHEAD=$(git rev-list --count origin/main..HEAD 2>/dev/null)
+# 3. Optional React rebuild
+if [ "$BUILD" -eq 1 ]; then
+  echo "🏗  Rebuilding React client..."
+  ( cd client && CI=false npm run build >/dev/null )
+fi
+
+# 4. Guard: protected demo functions must still exist
+for fn in addEditJobFormHTML showAddShiftModal showAddRolePanel; do
+  if ! grep -q "function $fn" client/public/mockup/mockup.html; then
+    echo "❌ STOP — protected function $fn is missing from mockup.html. Aborting."
+    exit 1
+  fi
+done
+
+# 5. Commit anything outstanding
+if ! git diff-index --quiet HEAD --; then
+  if [ -z "$MSG" ]; then
+    echo "⚠️  You have uncommitted changes but gave no commit message."
+    echo "   Usage: ./deploy.sh \"what you changed\"   (add --build for React changes)"
+    exit 1
+  fi
+  git add -A
+  git commit -m "$MSG"
+fi
+
+AHEAD=$(git rev-list --count origin/main..HEAD 2>/dev/null || echo 0)
 if [ "$AHEAD" -gt 0 ]; then
-  echo "⚠️  You have $AHEAD unpushed commit(s). Pushing to GitHub first..."
+  echo "⬆️  Pushing $AHEAD commit(s) to GitHub..."
   git push origin main
 fi
 
-echo ""
-echo "✅ All good — deploying to Railway..."
-railway service 'Wish-Training' 2>/dev/null
+echo "🚀 Deploying to Railway (service: wish-app)..."
+railway service link wish-app >/dev/null 2>&1 || true
 railway up --detach
-echo "🚀 Deploy started. Check: https://wish-app-production.up.railway.app"
+echo "✅ Deploy started → https://wish-training.up.railway.app"
