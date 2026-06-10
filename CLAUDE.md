@@ -168,14 +168,16 @@ This activates the shared hooks:
 
 ### Why this prevents lost work
 - **Never start stale:** `./start.sh` pulls first; `./deploy.sh` hard-stops if you're behind main.
-- **The React build output is no longer in git.** `client/build/static/`, `index.html`, and
-  `asset-manifest.json` are `.gitignore`d — Railway regenerates them on every deploy (nixpacks
-  runs `npm run build`). This removed the #1 merge-conflict source (the hashed JS bundles).
-  `./start.sh` builds them locally once if missing.
-- **Still committed in `build/`:** `audio/` (its only git copy — `public/audio` is gitignored),
-  `mockup/`, `screenshots/`, `videos/`, and the root `*.png`. nixpacks restores these after build.
+- **Never hand-merge build files:** if branches ever conflict, rebuild with `--build` instead of
+  resolving generated JS by hand (that's what wiped the mockup twice before).
 - **Merge `main` into your branch daily** so a feature branch never drifts far (the painful
   merges came from a branch that fell 16 commits behind).
+
+> ⚠️ **`client/build/` MUST stay committed.** Railway does NOT run `npm run build` — its nixpacks
+> build phase is `npm install` only (the `[phases.build]` in `nixpacks.toml` is ignored). The live
+> site is served from the committed `client/build/`. We tried gitignoring the JS bundle (2026-06-10)
+> and it took the site down (404). To take the build output out of git later, you must FIRST make
+> Railway actually run `npm run build` (fix/replace nixpacks config and verify on a test deploy).
 
 ---
 
