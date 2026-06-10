@@ -5755,56 +5755,146 @@ function slide_payroll_processing_8() {
 // ── Inventory ─────────────────────────────────────────────────────────────
 
 function slide_inventory_3() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Inventory</div>
-    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-      ${[
-        ['sub-inv-asset',    'Manage Asset Tag',             'Register and search the physical tags assigned to inventory items'],
-        ['sub-inv-creation', 'Item Creation',                'Build and maintain your branch\'s inventory catalog'],
-        ['sub-inv-jobequip', 'Item Job Equipment',           'View items assigned to jobs and their current quantities'],
-        ['sub-inv-cicorpt',  'Check-In Check-Out Report',    'Full record of item activity for a selected date range'],
-        ['sub-inv-cico',     'Check-In Check-Out',           'Process the actual movement of items at events'],
-      ].map(([id, name, desc]) => `
-        <div id="${id}-card" style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#fff8f0">
-          <div style="font-weight:bold;color:#c07800">${name}</div>
-          <div style="font-size:11px;color:#666;margin-top:2px">${desc}</div>
-        </div>`).join('')}
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/10/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Denison Garage Watch-6/10/2026</td><td>Virginia Ave Garage</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'The Inventory menu has five sections. Click Next to explore each one.', skipClick: true },
+    // Step 1: Click Inventory in the nav to expand its submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Steps 2–6: Tour each submenu item
+    { selector: '#sub-inv-asset',    prompt: 'Manage Asset Tag — register and search the physical tags on your items', skipClick: true },
+    { selector: '#sub-inv-creation', prompt: 'Item Creation — build your branch\'s inventory catalog', skipClick: true },
+    { selector: '#sub-inv-jobequip', prompt: 'Item Job Equipment — assign items and quantities to a job', skipClick: true },
+    { selector: '#sub-inv-cicorpt',  prompt: 'Check-In Check-Out Report — summary of all item activity for a date range', skipClick: true },
+    { selector: '#sub-inv-cico',     prompt: 'Check-In Check-Out — process the actual check-in/check-out at an event', skipClick: true },
   ]);
 }
 
 function slide_inventory_4() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Asset Tag</div>
-    <div class="form-row"><span class="form-label">Branch Name :</span>
-      <select class="form-select" id="f-inv-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00">*</span></div>
-    <div style="margin:8px 0 8px 160px">
-      <button class="btn" id="btn-inv-search">Search</button>
-      <button class="btn btn-secondary" id="btn-inv-addtag">Add Asset Tag</button>
-    </div>
-    <div id="inv-tags-tbl" style="display:none">
-      <table><thead><tr><th>Tag ID</th><th>Description</th><th>Status</th><th>Assigned To</th></tr></thead>
-      <tbody>
-        <tr><td>TAG-001</td><td>Radio Unit</td><td>In Use</td><td>Garcia, Maria</td></tr>
-        <tr><td>TAG-002</td><td>Safety Vest &#8212; Large</td><td>Available</td><td>&#8212;</td></tr>
-      </tbody></table>
-    </div>
-    <div id="inv-add-form" style="display:none;margin-top:12px;border:1px solid #ddd;padding:12px;border-radius:3px">
-      <div style="font-weight:bold;margin-bottom:8px">Add Asset Tag</div>
-      <div class="form-row"><span class="form-label">Tag ID :</span><input class="form-input" id="f-inv-tagid" placeholder="e.g. TAG-003"> <span style="color:#c00">*</span></div>
-      <div class="form-row"><span class="form-label">Description :</span><input class="form-input" id="f-inv-tagdesc" placeholder="Item description"> <span style="color:#c00">*</span></div>
-      <div style="margin:8px 0 0 160px">
-        <button class="btn" id="btn-inv-savtag">Save</button>
-        <button class="btn btn-secondary">Cancel</button>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
       </div>
-      <div id="inv-tag-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Asset tag saved.</div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/10/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Denison Garage Watch-6/10/2026</td><td>Virginia Ave Garage</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
+    // Step 1: Click Inventory in the nav to expand the submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Step 2: Click Manage Asset Tag → load form
+    { selector: '#sub-inv-asset', prompt: 'Click "Manage Asset Tag"',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div class="page-title">Manage Asset Tag</div>
+          <div class="form-row"><span class="form-label">Branch Name :</span>
+            <select class="form-select" id="f-inv-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
+            <span style="color:#c00">*</span></div>
+          <div style="margin:8px 0 8px 160px">
+            <button class="btn" id="btn-inv-search">Search</button>
+            <button class="btn btn-secondary" id="btn-inv-addtag">Add Asset Tag</button>
+          </div>
+          <div id="inv-tags-tbl" style="display:none">
+            <table><thead><tr><th>Tag ID</th><th>Description</th><th>Status</th><th>Assigned To</th></tr></thead>
+            <tbody>
+              <tr><td>TAG-001</td><td>Radio Unit</td><td>In Use</td><td>Garcia, Maria</td></tr>
+              <tr><td>TAG-002</td><td>Safety Vest &#8212; Large</td><td>Available</td><td>&#8212;</td></tr>
+            </tbody></table>
+          </div>
+          <div id="inv-add-form" style="display:none;margin-top:12px;border:1px solid #ddd;padding:12px;border-radius:3px">
+            <div style="font-weight:bold;margin-bottom:8px">Add Asset Tag</div>
+            <div class="form-row"><span class="form-label">Tag ID :</span><input class="form-input" id="f-inv-tagid" placeholder="e.g. TAG-003"> <span style="color:#c00">*</span></div>
+            <div class="form-row"><span class="form-label">Description :</span><input class="form-input" id="f-inv-tagdesc" placeholder="Item description"> <span style="color:#c00">*</span></div>
+            <div style="margin:8px 0 0 160px">
+              <button class="btn" id="btn-inv-savtag">Save</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div>
+            <div id="inv-tag-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Asset tag saved.</div>
+          </div>`;
+      }},
+
+    // Existing form steps
     { selector: '#f-inv-branch', prompt: 'Select your Branch from the dropdown',
       onConfirm: () => { document.getElementById('f-inv-branch').value = 'Prota LA Branch Test'; }},
     { selector: '#btn-inv-search', prompt: 'Click Search to see all registered asset tags for this branch',
@@ -5819,143 +5909,816 @@ function slide_inventory_4() {
 }
 
 function slide_inventory_5() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Item Creation</div>
-    <div style="margin-bottom:10px">
-      <button class="btn" id="btn-inv-additem">Add New Item</button>
-    </div>
-    <table id="inv-item-list"><thead><tr><th>Item Type</th><th>Item Name</th><th>Category</th><th>Quantity</th><th>Status</th></tr></thead>
-    <tbody>
-      <tr><td>Equipment</td><td>Radio Unit</td><td>Inventory Items</td><td>20</td><td>Active</td></tr>
-      <tr><td>Supply</td><td>Safety Vest</td><td>Job Equipment</td><td>150</td><td>Active</td></tr>
-    </tbody></table>
-    <div id="inv-item-form" style="display:none;margin-top:12px;border:1px solid #ddd;padding:12px;border-radius:3px">
-      <div style="font-weight:bold;margin-bottom:8px">Add New Item</div>
-      <div class="form-row"><span class="form-label">Item Type :</span>
-        <select class="form-select" id="f-inv-itype"><option>Select</option><option>Equipment</option><option>Supply</option></select>
-        <span style="color:#c00">*</span></div>
-      <div class="form-row"><span class="form-label">Item Name :</span><input class="form-input" id="f-inv-iname"> <span style="color:#c00">*</span></div>
-      <div class="form-row"><span class="form-label">Category :</span>
-        <select class="form-select"><option>Job Equipment</option><option>Inventory Items</option></select></div>
-      <div class="form-row"><span class="form-label">Quantity :</span><input class="form-input" id="f-inv-iqty" style="width:80px"></div>
-      <div style="margin:8px 0 0 160px">
-        <button class="btn" id="btn-inv-saveitem">Save</button>
-        <button class="btn btn-secondary">Cancel</button>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
       </div>
-      <div id="inv-item-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Item saved to inventory catalog.</div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/10/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/10/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#btn-inv-additem', prompt: 'Click "Add New Item" to add an item to your branch inventory catalog',
-      onConfirm: () => { document.getElementById('inv-item-form').style.display = ''; }},
-    { selector: '#f-inv-itype', prompt: 'Select the Item Type',
-      onConfirm: () => { document.getElementById('f-inv-itype').value = 'Equipment'; }},
-    { selector: '#f-inv-iname', prompt: 'Enter the Item Name', type: 'Flashlight' },
-    { selector: '#f-inv-iqty', prompt: 'Enter the available Quantity', type: '30' },
-    { selector: '#btn-inv-saveitem', prompt: 'Click Save to add this item to your catalog',
+    // Step 1: Click Inventory in the nav
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Step 2: Click Item Creation → Search Item screen (nav collapses)
+    { selector: '#sub-inv-creation', prompt: 'Click "Item Creation"',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:620px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Search Item</div>
+            <div style="background:#fcf8e3;border:1px solid #faebcc;color:#8a6d3b;padding:6px 10px;font-size:12px;margin-bottom:12px;text-align:center">
+              &#9888; All fields marked with <span style="color:#c00">*</span> are mandatory.
+            </div>
+            <table style="border-spacing:0;border-collapse:separate;margin:0 auto">
+              <tr>
+                <td style="text-align:right;padding:5px 8px;font-size:13px;white-space:nowrap">Category :</td>
+                <td style="padding:5px 8px;position:relative">
+                  <div id="f-inv-cat" style="display:inline-block;width:160px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;vertical-align:middle">Select category <span style="float:right;color:#666">&#9662;</span></div>
+                  &nbsp;<span style="color:#c00">*</span>
+                  <div id="f-inv-cat-menu" style="display:none;position:absolute;top:30px;left:8px;width:160px;background:#fff;border:1px solid #888;box-shadow:1px 2px 6px rgba(0,0,0,.2);z-index:50">
+                    <div style="padding:4px 8px;font-size:13px;cursor:pointer">Select category</div>
+                    <div id="f-inv-cat-opt-je" style="padding:4px 8px;font-size:13px;cursor:pointer">Job Equipment</div>
+                    <div style="padding:4px 8px;font-size:13px;cursor:pointer">Inventory Items</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 8px;font-size:13px;white-space:nowrap">Branch :</td>
+                <td style="padding:5px 8px">
+                  <select class="form-select" id="f-inv-branch2" style="width:160px"><option>Prota LA Branch Test</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:5px 8px;font-size:13px;white-space:nowrap">Item Name :</td>
+                <td style="padding:5px 8px">
+                  <input class="form-input" id="f-inv-iname-search" style="width:158px">
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:10px 8px">
+                  <button class="btn" id="btn-inv-search2">Search</button>
+                  <button class="btn" id="btn-inv-additem">Add Item</button>
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-top:14px">Item List</div>
+            <div id="inv-item-list" style="min-height:30px"></div>
+          </div>`;
+      }},
+
+    // Step 3a: Click the Category dropdown to open it
+    { selector: '#f-inv-cat', prompt: 'Click the Category dropdown to open it',
+      onConfirm: () => { document.getElementById('f-inv-cat-menu').style.display = ''; }},
+
+    // Step 3b: Click "Job Equipment" from the open dropdown
+    { selector: '#f-inv-cat-opt-je', prompt: 'Click "Job Equipment"',
+      onConfirm: () => {
+        document.getElementById('f-inv-cat').innerHTML = 'Job Equipment <span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv-cat-menu').style.display = 'none';
+      }},
+
+    // Step 4: Click Search → reveals Item List table
+    { selector: '#btn-inv-search2', prompt: 'Click "Search" to see what items already exist for this category',
+      onConfirm: () => {
+        document.getElementById('inv-item-list').innerHTML = `
+          <table style="width:100%;border-collapse:collapse;margin-top:6px">
+            <thead>
+              <tr style="background:#5a5a5a;color:#fff;font-size:12px">
+                <th style="padding:6px 10px;text-align:left">Category</th>
+                <th style="padding:6px 10px;text-align:left">Type</th>
+                <th style="padding:6px 10px;text-align:left">Item Name</th>
+                <th style="padding:6px 10px;text-align:left">Total Items</th>
+                <th style="padding:6px 10px"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #eee">
+                <td style="padding:6px 10px;font-size:12px">Job Equipment</td>
+                <td style="padding:6px 10px;font-size:12px">Flash Light</td>
+                <td style="padding:6px 10px;font-size:12px;color:#3a6aaa">EVER LED Flashlights</td>
+                <td style="padding:6px 10px;font-size:12px">0</td>
+                <td style="padding:4px 10px"><button class="btn" style="padding:2px 10px;font-size:11px">Details</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="padding:6px 0;font-size:12px;color:#555;border-top:1px solid #eee;margin-top:4px;display:flex;justify-content:space-between;align-items:center">
+            <span>Total Pages: 1</span>
+            <span>
+              <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">&#171; First</button>
+              <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">&#8249; Previous</button>
+              <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">Next &#8250;</button>
+              <button class="btn btn-secondary" style="padding:2px 8px;font-size:11px">Last &#187;</button>
+            </span>
+            <span>Current Page: 1</span>
+          </div>`;
+      }},
+
+    // Step 5: Click Add Item → load the Add Item Definition page
+    { selector: '#btn-inv-additem', prompt: 'Click "Add Item" to open the Add Item Definition form',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:620px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Add Item Definition</div>
+            <div style="background:#fcf8e3;border:1px solid #faebcc;color:#8a6d3b;padding:6px 10px;font-size:12px;margin-bottom:12px;text-align:center">
+              &#9888; All fields marked with <span style="color:#c00">*</span> are mandatory.
+            </div>
+            <table style="border-spacing:0;border-collapse:separate;margin:0 auto">
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Category :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv-d-cat" style="width:170px"><option>Job Equipment</option><option>Select category</option><option>Inventory Items</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Item Type :</td>
+                <td style="padding:4px 8px;position:relative">
+                  <div id="f-inv-d-itype" style="display:inline-block;width:170px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;vertical-align:middle">Select type <span style="float:right;color:#666">&#9662;</span></div>
+                  &nbsp;<span style="color:#c00">*</span>
+                  <div id="f-inv-d-itype-menu" style="display:none;position:absolute;top:28px;left:8px;width:170px;background:#fff;border:1px solid #888;box-shadow:1px 2px 6px rgba(0,0,0,.2);z-index:50">
+                    <div style="padding:4px 8px;font-size:13px;cursor:pointer">Select type</div>
+                    <div id="f-inv-d-itype-opt-fl" style="padding:4px 8px;font-size:13px;cursor:pointer">Flash Light</div>
+                    <div style="padding:4px 8px;font-size:13px;cursor:pointer">Radio Unit</div>
+                    <div style="padding:4px 8px;font-size:13px;cursor:pointer">Safety Vest</div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Item Name :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv-d-iname" style="width:168px">&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">UniqueCodeText :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv-d-code" style="width:168px">&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">ItemDescriptionText :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv-d-desc" style="width:168px">&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Cost Price :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv-d-cost" style="width:168px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Sales Price :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv-d-sales" style="width:168px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap;vertical-align:top">Quantity :</td>
+                <td style="padding:4px 8px">
+                  <table style="border-collapse:collapse"><tr>
+                    <td style="font-size:12px;padding-right:4px">Min:</td>
+                    <td style="padding-right:8px"><input class="form-input" id="f-inv-d-min" style="width:48px"></td>
+                    <td style="font-size:12px;padding-right:4px">Max:</td>
+                    <td style="padding-right:8px"><input class="form-input" id="f-inv-d-max" style="width:48px"></td>
+                    <td style="font-size:12px;padding-right:4px">ReOrder:</td>
+                    <td><input class="form-input" id="f-inv-d-reorder" style="width:48px"></td>
+                  </tr></table>
+                </td>
+              </tr>
+            </table>
+            <div style="text-align:center;margin-top:12px">
+              <button class="btn" id="btn-inv-submit">Submit</button>
+              <button class="btn btn-secondary" id="btn-inv-back">Back</button>
+            </div>
+            <div id="inv-item-saved" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:6px 10px;margin-top:10px;display:none;font-size:12px;text-align:center">&#10004; Item saved to inventory catalog.</div>
+          </div>`;
+      }},
+
+    // Step 6a: Click the Item Type dropdown
+    { selector: '#f-inv-d-itype', prompt: 'Click the Item Type dropdown to open it',
+      onConfirm: () => { document.getElementById('f-inv-d-itype-menu').style.display = ''; }},
+
+    // Step 6b: Click "Flash Light" from the open dropdown
+    { selector: '#f-inv-d-itype-opt-fl', prompt: 'Click "Flash Light"',
+      onConfirm: () => {
+        document.getElementById('f-inv-d-itype').innerHTML = 'Flash Light <span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv-d-itype-menu').style.display = 'none';
+      }},
+
+    // Step 8: Item Name
+    { selector: '#f-inv-d-iname', prompt: 'Enter the Item Name', type: 'EVER LED Flashlights' },
+
+    // Step 9: UniqueCodeText
+    { selector: '#f-inv-d-code', prompt: 'Enter a unique code for this item', type: 'FL-EVER-300' },
+
+    // Step 10: ItemDescriptionText
+    { selector: '#f-inv-d-desc', prompt: 'Enter a short description for the item', type: 'Rechargeable 300 lumen LED flashlight' },
+
+    // Step 11: Cost Price
+    { selector: '#f-inv-d-cost', prompt: 'Enter the Cost Price', type: '25' },
+
+    // Step 12: Sales Price
+    { selector: '#f-inv-d-sales', prompt: 'Enter the Sales Price', type: '35' },
+
+    // Step 13: Min quantity
+    { selector: '#f-inv-d-min', prompt: 'Set the minimum quantity to keep in stock', type: '5' },
+
+    // Step 14: Max quantity
+    { selector: '#f-inv-d-max', prompt: 'Set the maximum quantity for this branch', type: '50' },
+
+    // Step 15: ReOrder
+    { selector: '#f-inv-d-reorder', prompt: 'Set the reorder threshold — when stock drops to this number, reorder', type: '10' },
+
+    // Step 16: Submit
+    { selector: '#btn-inv-submit', prompt: 'Click Submit to save the item to your catalog',
       onConfirm: () => { document.getElementById('inv-item-saved').style.display = ''; }},
   ]);
 }
 
 function slide_inventory_6() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Item Job Equipment</div>
-    <div style="display:flex;gap:10px;align-items:flex-end;margin-bottom:12px;flex-wrap:wrap">
-      <div><label style="font-size:12px">Branch :</label><br><select class="form-select"><option>Prota LA Branch Test</option></select></div>
-      <div><label style="font-size:12px">Category :</label><br>
-        <select class="form-select" id="f-inv-je-cat"><option>--Select--</option><option>Job Equipment</option><option>Inventory Items</option></select></div>
-      <div><label style="font-size:12px">Job :</label><br>
-        <select class="form-select" id="f-inv-je-job"><option>--Select--</option><option>DRAKE N3</option><option>AB Convention Center Event</option></select></div>
-      <button class="btn" id="btn-inv-je-search">Search</button>
-    </div>
-    <div id="inv-je-results" style="display:none">
-      <table><thead><tr><th>Item Name</th><th>Category</th><th>Assigned Qty</th><th>Checked Out</th><th>Available</th></tr></thead>
-      <tbody>
-        <tr><td>Safety Vest</td><td>Job Equipment</td><td>50</td><td>42</td><td style="color:#2a9a2a;font-weight:bold">8</td></tr>
-        <tr><td>Radio Unit</td><td>Inventory Items</td><td>15</td><td>12</td><td style="color:#c00;font-weight:bold">3</td></tr>
-      </tbody></table>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/10/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Denison Garage Watch-6/10/2026</td><td>Virginia Ave Garage</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#f-inv-je-cat', prompt: 'Set the Category — Job Equipment for consumables, Inventory Items for tracked gear',
-      onConfirm: () => { document.getElementById('f-inv-je-cat').value = 'Job Equipment'; }},
-    { selector: '#f-inv-je-job', prompt: 'Select the Job you want to review',
-      onConfirm: () => { document.getElementById('f-inv-je-job').value = 'DRAKE N3'; }},
-    { selector: '#btn-inv-je-search', prompt: 'Click Search to see items assigned to this job and how many are still available',
-      onConfirm: () => { document.getElementById('inv-je-results').style.display = ''; }},
+    // Step 1: Click Inventory in the nav to expand the submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Step 2: Click Item Job Equipment → load Search Item Job Equipment page (nav collapses)
+    { selector: '#sub-inv-jobequip', prompt: 'Click "Item Job Equipment"',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:640px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Search Item Job Equipment</div>
+            <table style="border-spacing:0;border-collapse:separate;margin:0 auto">
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Category :</td>
+                <td style="padding:4px 8px">
+                  <select class="form-select" id="f-inv6-cat" style="width:170px;background:#eee;color:#888" disabled><option>Job Equipment</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Branch :</td>
+                <td style="padding:4px 8px">
+                  <select class="form-select" id="f-inv6-branch" style="width:170px"><option>Prota LA Branch Test</option></select>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Item Name :</td>
+                <td style="padding:4px 8px">
+                  <input class="form-input" id="f-inv6-iname" style="width:168px">
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:10px 8px">
+                  <button class="btn" id="btn-inv6-search">Search</button>
+                  <button class="btn" id="btn-inv6-additem">Add Item</button>
+                </td>
+              </tr>
+            </table>
+            <div id="inv6-success" style="display:none;background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:7px 10px;margin-bottom:10px;font-size:12px">
+              &#10004; Quantity of <b>Earplugs (200 Pairs/Box)</b> has been Increased by <b>1</b>.
+            </div>
+            <div id="inv6-list-wrap" style="display:none">
+              <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-top:14px;margin-bottom:6px">Item Job Equipment List</div>
+              <table style="width:100%;border-collapse:collapse">
+                <thead>
+                  <tr style="background:#5a5a5a;color:#fff;font-size:12px">
+                    <th style="padding:6px 10px;text-align:left">Item Name</th>
+                    <th style="padding:6px 10px;text-align:left">Quantity</th>
+                    <th style="padding:6px 10px;text-align:center">Action</th>
+                    <th style="padding:6px 10px;text-align:center">Edit</th>
+                    <th style="padding:6px 10px;text-align:center">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr id="inv6-row-ear" style="background:#f7f7f7"><td style="padding:6px 10px;font-size:12px">Earplugs (200 Pairs/Box)</td><td id="inv6-qty-ear" style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span id="btn-inv6-plus-ear" style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span id="btn-inv6-minus-ear" style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><span id="btn-inv6-edit-ear" style="display:inline-block;cursor:pointer"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></span></td><td style="padding:4px 10px;text-align:center"><span id="btn-inv6-trash-ear" style="display:inline-block;cursor:pointer"><svg viewBox="0 0 16 16" width="14" height="14"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></span></td></tr>
+                  <tr><td style="padding:6px 10px;font-size:12px">Hand Warmers (240 Pairs/Box)</td><td style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 24 24" width="14" height="14" style="cursor:pointer"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 16 16" width="14" height="14" style="cursor:pointer"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></td></tr>
+                  <tr style="background:#f7f7f7"><td style="padding:6px 10px;font-size:12px">Nitrile Gloves - Large (100 Pairs/Box)</td><td style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 24 24" width="14" height="14" style="cursor:pointer"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 16 16" width="14" height="14" style="cursor:pointer"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></td></tr>
+                  <tr><td style="padding:6px 10px;font-size:12px">Nitrile Gloves - Medium (100 Pairs/Box)</td><td style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 24 24" width="14" height="14" style="cursor:pointer"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 16 16" width="14" height="14" style="cursor:pointer"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></td></tr>
+                  <tr style="background:#f7f7f7"><td style="padding:6px 10px;font-size:12px">Ponchos (400 Ponchos Per Box)</td><td style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 24 24" width="14" height="14" style="cursor:pointer"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 16 16" width="14" height="14" style="cursor:pointer"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></td></tr>
+                  <tr><td style="padding:6px 10px;font-size:12px">Sunscreen Packets</td><td style="padding:6px 10px;font-size:12px">0</td><td style="padding:4px 10px;text-align:center;font-family:Arial"><span style="color:#2a8a3a;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">+</span><span style="color:#c00;font-weight:bold;font-size:18px;cursor:pointer;padding:0 4px">&#8722;</span></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 24 24" width="14" height="14" style="cursor:pointer"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="#000"/></svg></td><td style="padding:4px 10px;text-align:center"><svg viewBox="0 0 16 16" width="14" height="14" style="cursor:pointer"><path d="M5 2.5V1.5h6v1h4v2H1v-2h4zM3 5.5h10l-1 9.5H4L3 5.5z" fill="#d00"/></svg></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="inv6-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center">
+            <div style="background:#fff;border-radius:3px;width:440px;padding:0;box-shadow:0 4px 16px rgba(0,0,0,.3)">
+              <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:1px solid #ddd;padding:10px 16px">Increase Quantity</div>
+              <table style="border-spacing:0;border-collapse:separate;margin:14px auto">
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Item Name</td>
+                  <td style="padding:4px 8px;font-size:13px">Earplugs (200 Pairs/Box)</td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Current Quantity</td>
+                  <td style="padding:4px 8px;font-size:13px">0</td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Increase Quantity by</td>
+                  <td style="padding:4px 8px"><input class="form-input" id="f-inv6-qty" style="width:130px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+              </table>
+              <div style="text-align:center;padding:8px 0 16px 0">
+                <button class="btn" id="btn-inv6-modal-submit">Submit</button>
+                <button class="btn" id="btn-inv6-modal-cancel">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div id="inv6-modal-dec" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center">
+            <div style="background:#fff;border-radius:3px;width:440px;padding:0;box-shadow:0 4px 16px rgba(0,0,0,.3)">
+              <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:1px solid #ddd;padding:10px 16px">Decrease Quantity</div>
+              <table style="border-spacing:0;border-collapse:separate;margin:14px auto">
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Item Name</td>
+                  <td style="padding:4px 8px;font-size:13px">Earplugs (200 Pairs/Box)</td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Current Quantity</td>
+                  <td style="padding:4px 8px;font-size:13px">1</td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Decrease Quantity by</td>
+                  <td style="padding:4px 8px"><input class="form-input" id="f-inv6-qty-dec" style="width:130px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+              </table>
+              <div style="text-align:center;padding:8px 0 16px 0">
+                <button class="btn" id="btn-inv6-modal-dec-submit">Submit</button>
+                <button class="btn" id="btn-inv6-modal-dec-cancel">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div id="inv6-modal-edit" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:100;align-items:center;justify-content:center">
+            <div style="background:#fff;border-radius:3px;width:440px;padding:0;box-shadow:0 4px 16px rgba(0,0,0,.3)">
+              <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:1px solid #ddd;padding:10px 16px">Edit Job Equipment</div>
+              <table style="border-spacing:0;border-collapse:separate;margin:14px auto">
+                <tr>
+                  <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap;line-height:1.2">Job Equipment<br>Name</td>
+                  <td style="padding:4px 8px"><input class="form-input" id="f-inv6-edit-name" value="Earplugs (200 Pairs/Box)" style="width:200px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+              </table>
+              <div style="text-align:center;padding:8px 0 16px 0">
+                <button class="btn" id="btn-inv6-modal-edit-save">Save</button>
+                <button class="btn" id="btn-inv6-modal-edit-cancel">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div id="inv6-confirm" style="display:none;position:fixed;top:0;left:0;right:0;z-index:101;display:none;justify-content:center">
+            <div style="background:#fff;border:1px solid #bbb;border-top:none;border-radius:0 0 6px 6px;width:520px;padding:16px 20px;box-shadow:0 4px 12px rgba(0,0,0,.2);font-family:Arial,sans-serif">
+              <div style="font-size:15px;font-weight:600;color:#222;margin-bottom:8px">wish.schedulingsite.com says</div>
+              <div style="font-size:13px;color:#222;margin-bottom:18px">Are you sure you want to delete this item?</div>
+              <div style="text-align:right">
+                <button id="btn-inv6-confirm-ok" style="background:#3d3d3d;color:#fff;border:1px solid #3d3d3d;border-radius:3px;padding:5px 18px;font-size:13px;cursor:pointer;margin-right:6px">OK</button>
+                <button id="btn-inv6-confirm-cancel" style="background:#fff;color:#222;border:1px solid #bbb;border-radius:3px;padding:5px 14px;font-size:13px;cursor:pointer">Cancel</button>
+              </div>
+            </div>
+          </div>`;
+      }},
+
+    // Step 3: Highlight Category — reminder to make sure the correct category is selected
+    { selector: '#f-inv6-cat', prompt: 'Make sure the Category is set correctly — Job Equipment for consumables like gloves and earplugs', skipClick: true },
+
+    // Step 4: Highlight Branch — reminder to confirm the correct branch
+    { selector: '#f-inv6-branch', prompt: 'Confirm your Branch is selected — this controls which inventory list you see', skipClick: true },
+
+    // Step 5: Click Search → reveal the Item Job Equipment List
+    { selector: '#btn-inv6-search', prompt: 'Click "Search" to see the items already assigned to jobs at this branch',
+      onConfirm: () => { document.getElementById('inv6-list-wrap').style.display = ''; }},
+
+    // Step 6: Click the green + for Earplugs → open Increase Quantity modal
+    { selector: '#btn-inv6-plus-ear', prompt: 'Click the green + to increase the quantity for Earplugs',
+      onConfirm: () => { document.getElementById('inv6-modal').style.display = 'flex'; }},
+
+    // Step 7: Type 1 in the Increase Quantity by box
+    { selector: '#f-inv6-qty', prompt: 'Enter how many boxes to add to inventory', type: '1' },
+
+    // Step 8: Click Submit → close modal, show success banner, update row quantity
+    { selector: '#btn-inv6-modal-submit', prompt: 'Click Submit to add this quantity to the inventory',
+      onConfirm: () => {
+        document.getElementById('inv6-modal').style.display = 'none';
+        document.getElementById('inv6-success').style.display = '';
+        document.getElementById('inv6-qty-ear').innerHTML = '<span style="color:#3a6aaa;cursor:pointer">1</span>';
+      }},
+
+    // Step 9: Click the red − for Earplugs → open Decrease Quantity modal
+    { selector: '#btn-inv6-minus-ear', prompt: 'Click the red − to decrease the quantity for Earplugs',
+      onConfirm: () => { document.getElementById('inv6-modal-dec').style.display = 'flex'; }},
+
+    // Step 10: Type 1 in the Decrease Quantity by box
+    { selector: '#f-inv6-qty-dec', prompt: 'Enter how many to remove from inventory', type: '1' },
+
+    // Step 11: Click Submit → close modal, update banner to "Decreased", reset row to 0
+    { selector: '#btn-inv6-modal-dec-submit', prompt: 'Click Submit to remove this quantity from the inventory',
+      onConfirm: () => {
+        document.getElementById('inv6-modal-dec').style.display = 'none';
+        document.getElementById('inv6-success').innerHTML =
+          '&#10004; Quantity of <b>Earplugs (200 Pairs/Box)</b> has been Decreased by <b>1</b>.';
+        document.getElementById('inv6-qty-ear').innerHTML = '0';
+      }},
+
+    // Step 12: Click the pencil for Earplugs → open Edit Job Equipment modal
+    { selector: '#btn-inv6-edit-ear', prompt: 'Click the pencil — you can edit an item\'s details here',
+      onConfirm: () => { document.getElementById('inv6-modal-edit').style.display = 'flex'; }},
+
+    // Step 13: Click Save → close modal, banner shows "Item updated successfully"
+    { selector: '#btn-inv6-modal-edit-save', prompt: 'Click Save to apply the changes',
+      onConfirm: () => {
+        document.getElementById('inv6-modal-edit').style.display = 'none';
+        document.getElementById('inv6-success').innerHTML = '&#10004; Item updated successfully.';
+      }},
+
+    // Step 14: Click the red trash for Earplugs → browser-style confirm dialog
+    { selector: '#btn-inv6-trash-ear', prompt: 'Click the red trash to delete this item from the list',
+      onConfirm: () => { document.getElementById('inv6-confirm').style.display = 'flex'; }},
+
+    // Step 15: Click OK → dialog closes, Earplugs row removed, banner shows "Item deleted successfully"
+    { selector: '#btn-inv6-confirm-ok', prompt: 'Click OK to confirm the deletion',
+      onConfirm: () => {
+        document.getElementById('inv6-confirm').style.display = 'none';
+        document.getElementById('inv6-row-ear').remove();
+        document.getElementById('inv6-success').innerHTML = '&#10004; Item deleted successfully.';
+      }},
   ]);
 }
 
 function slide_inventory_7() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Check-In Check-Out Report</div>
-    <div class="form-row"><span class="form-label">Branch Name :</span>
-      <select class="form-select" id="f-inv-rpt-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
-      <span style="color:#c00">*</span></div>
-    <div class="form-row"><span class="form-label">Check Out Start :</span>
-      <input class="form-input" id="f-inv-rpt-start" value="08/15/2026" style="width:100px">${calBtn()}</div>
-    <div class="form-row"><span class="form-label">Check Out End :</span>
-      <input class="form-input" id="f-inv-rpt-end" value="08/15/2026" style="width:100px">${calBtn()}</div>
-    <div class="form-row"><span class="form-label">Category :</span>
-      <select class="form-select"><option>--All--</option><option>Job Equipment</option><option>Inventory Items</option></select></div>
-    <div style="margin:10px 0 10px 160px"><button class="btn" id="btn-inv-rpt-run">Run Report</button></div>
-    <div id="inv-rpt-results" style="display:none">
-      <table><thead><tr><th>Employee</th><th>Item</th><th>Tag ID</th><th>Check Out</th><th>Check In</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Garcia, Maria</td><td>Radio Unit</td><td>TAG-001</td><td>08/15 07:45</td><td>08/15 13:10</td><td style="color:#2a9a2a">Returned</td></tr>
-        <tr><td>Smith, John</td><td>Safety Vest</td><td>&#8212;</td><td>08/15 07:50</td><td>&#8212;</td><td style="color:#c07800;font-weight:bold">Out</td></tr>
-      </tbody></table>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061026 New Employee Orientation ADMIN</td><td>Torrance Office</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/10/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#f-inv-rpt-branch', prompt: 'Select your Branch — required',
-      onConfirm: () => { document.getElementById('f-inv-rpt-branch').value = 'Prota LA Branch Test'; }},
-    { selector: '#f-inv-rpt-start', prompt: 'Set the date range — Check Out Start is required' },
-    { selector: '#btn-inv-rpt-run', prompt: 'Click "Run Report" to generate the full item activity log for this date range',
-      onConfirm: () => { document.getElementById('inv-rpt-results').style.display = ''; }},
-    { selector: '#inv-rpt-results', prompt: 'Items still showing "Out" were never returned. Follow up on these before closing out the event.', skipClick: true },
+    // Step 1: Click Inventory in the nav to expand the submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Step 2: Click Check-In Check-Out Report → load form page (nav collapses)
+    { selector: '#sub-inv-cicorpt', prompt: 'Click "Check-In Check-Out Report"',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:640px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Check-In Check-Out Report</div>
+            <table style="border-spacing:0;border-collapse:separate;margin:0 auto">
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Job# :</td>
+                <td style="padding:4px 8px"><input class="form-input" id="f-inv7-job" value="5023705541" style="width:170px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Branch Name :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv7-branch" style="width:178px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Department Name :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv7-dept" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Check Out Start Date :</td>
+                <td style="padding:4px 8px;white-space:nowrap">
+                  <input class="form-input" id="f-inv7-start" value="06/10/2026" style="width:90px">${calBtn()}
+                  <input class="form-input" value="00:00" style="width:50px;margin-left:4px">
+                  <span style="display:inline-block;vertical-align:middle;line-height:1"><span style="display:block;font-size:9px;color:#666;cursor:pointer">&#9650;</span><span style="display:block;font-size:9px;color:#666;cursor:pointer">&#9660;</span></span>
+                  &nbsp;<span style="color:#c00">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Check Out End Date :</td>
+                <td style="padding:4px 8px;white-space:nowrap">
+                  <input class="form-input" id="f-inv7-end" value="06/16/2026" style="width:90px">${calBtn()}
+                  <input class="form-input" value="00:00" style="width:50px;margin-left:4px">
+                  <span style="display:inline-block;vertical-align:middle;line-height:1"><span style="display:block;font-size:9px;color:#666;cursor:pointer">&#9650;</span><span style="display:block;font-size:9px;color:#666;cursor:pointer">&#9660;</span></span>
+                  &nbsp;<span style="color:#c00">*</span>
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Event Name :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv7-event" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Sorted by :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv7-sort" style="width:178px"><option>Name</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 8px;font-size:13px;white-space:nowrap">Check-In Check-Out :</td>
+                <td style="padding:4px 8px"><select class="form-select" id="f-inv7-cico" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:8px 8px;font-size:13px"><span id="f-inv7-fmt" style="display:inline-block;padding:2px 4px">
+                  <input type="radio" name="inv7-fmt" id="f-inv7-pdf" checked> <label for="f-inv7-pdf">PDF</label>
+                  &nbsp;&nbsp;<input type="radio" name="inv7-fmt" id="f-inv7-xls"> <label for="f-inv7-xls">Excel</label>
+                </span></td>
+              </tr>
+            </table>
+            <div style="text-align:center;margin-top:12px">
+              <button class="btn" id="btn-inv7-produce">Produce Report</button>
+              <button class="btn" id="btn-inv7-checkout">CheckOut Report</button>
+              <button class="btn" id="btn-inv7-reset">Reset</button>
+            </div>
+          </div>
+          <div id="inv7-download" style="display:none;position:fixed;top:8px;right:14px;width:330px;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.18);z-index:101;font-family:Arial,sans-serif">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #eee">
+              <span style="font-size:14px;font-weight:bold;color:#222">Downloads</span>
+              <span style="font-size:13px;color:#555">
+                <span style="cursor:pointer;margin-right:8px">&#128193;</span>
+                <span style="cursor:pointer;margin-right:8px">&#128269;</span>
+                <span style="cursor:pointer">&#8942;</span>
+              </span>
+            </div>
+            <div style="padding:10px 14px">
+              <div style="display:flex;align-items:center">
+                <div style="background:#c00;color:#fff;font-size:9px;font-weight:bold;border-radius:2px;padding:2px 4px;margin-right:8px">PDF</div>
+                <div style="font-size:13px;color:#222">ItemCheckInOut.pdf</div>
+              </div>
+              <div style="margin-top:4px;margin-left:30px">
+                <a href="#" style="font-size:12px;color:#1a6aaa;text-decoration:none">Open file</a>
+              </div>
+            </div>
+            <div style="padding:6px 14px 10px 14px">
+              <button style="background:#fff;border:1px solid #ccc;border-radius:3px;font-size:12px;padding:3px 10px;cursor:pointer">See more</button>
+            </div>
+          </div>`;
+      }},
+
+    // Step 3: Highlight Branch Name — reminder to fill it out
+    { selector: '#f-inv7-branch', prompt: 'Make sure to fill out the Branch Name — it\'s required', skipClick: true },
+
+    // Step 4–5: Highlight the date range fields
+    { selector: '#f-inv7-start', prompt: 'Set the date range you want to look for — Start date', skipClick: true },
+    { selector: '#f-inv7-end',   prompt: '…and the End date', skipClick: true },
+
+    // Steps 6–9: Optional filters — keep as default unless narrowing results
+    { selector: '#f-inv7-dept',  prompt: 'Keep these as default unless trying to narrow down results', skipClick: true },
+    { selector: '#f-inv7-event', prompt: 'Keep these as default unless trying to narrow down results', skipClick: true },
+    { selector: '#f-inv7-sort',  prompt: 'Keep these as default unless trying to narrow down results', skipClick: true },
+    { selector: '#f-inv7-cico',  prompt: 'Keep these as default unless trying to narrow down results', skipClick: true },
+
+    // Step 10: PDF / Excel format
+    { selector: '#f-inv7-fmt', prompt: 'Make sure PDF is selected, or pick Excel if you want a spreadsheet', skipClick: true },
+
+    // Step 11: Click Produce Report → show the browser Downloads popup
+    { selector: '#btn-inv7-produce', prompt: 'Click "Produce Report" to generate the report',
+      onConfirm: () => { document.getElementById('inv7-download').style.display = ''; }},
+
+    // Step 12: Click CheckOut Report → generate the "checked out and not returned" version
+    { selector: '#btn-inv7-checkout', prompt: 'Click "CheckOut Report" for items that were checked out and not returned',
+      onConfirm: () => {
+        document.getElementById('inv7-download').innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #eee">
+            <span style="font-size:14px;font-weight:bold;color:#222">Downloads</span>
+            <span style="font-size:13px;color:#555">
+              <span style="cursor:pointer;margin-right:8px">&#128193;</span>
+              <span style="cursor:pointer;margin-right:8px">&#128269;</span>
+              <span style="cursor:pointer">&#8942;</span>
+            </span>
+          </div>
+          <div style="padding:10px 14px">
+            <div style="display:flex;align-items:center">
+              <div style="background:#c00;color:#fff;font-size:9px;font-weight:bold;border-radius:2px;padding:2px 4px;margin-right:8px">PDF</div>
+              <div style="font-size:13px;color:#222">ItemCheckInOut (1).pdf</div>
+            </div>
+            <div style="margin-top:4px;margin-left:30px">
+              <a href="#" style="font-size:12px;color:#1a6aaa;text-decoration:none">Open file</a>
+            </div>
+          </div>
+          <div style="padding:6px 14px 10px 14px">
+            <button style="background:#fff;border:1px solid #ccc;border-radius:3px;font-size:12px;padding:3px 10px;cursor:pointer">See more</button>
+          </div>`;
+      }},
   ]);
 }
 
 function slide_inventory_8() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Check-In Check-Out</div>
-    <div class="tabs" style="margin-bottom:10px">
-      <span class="tab active" id="tab-cico-emp">Employee</span>
-      <span class="tab" id="tab-cico-item">Item</span>
-    </div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Date :</span>
-      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
-    <div class="form-row"><span class="form-label">Employee# :</span>
-      <input class="form-input" id="f-cico-emp" style="width:120px">
-      <button class="btn btn-sm" id="btn-cico-srch" style="margin-left:4px">Search</button></div>
-    <div id="cico-emp-items" style="display:none;margin-top:10px">
-      <div style="margin-bottom:6px;font-weight:bold;font-size:12px">Garcia, Maria (4122000) &#8212; items assigned to this shift:</div>
-      <table><thead><tr><th><input type="checkbox" id="chk-cico-all"></th><th>Item</th><th>Tag ID</th><th>Qty</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" class="cico-chk"></td><td>Radio Unit</td><td>TAG-001</td><td>1</td></tr>
-        <tr><td><input type="checkbox" class="cico-chk"></td><td>Safety Vest</td><td>&#8212;</td><td>1</td></tr>
-      </tbody></table>
-      <div style="margin-top:10px;display:flex;gap:6px">
-        <button class="btn btn-green" id="btn-cico-out">Check Out</button>
-        <button class="btn btn-secondary">Cancel</button>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
+            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
       </div>
-      <div id="cico-out-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Items checked out to Garcia, Maria.</div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061026 New Employee Orientation ADMIN</td><td>Torrance Office</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 3-6/10/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/10/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/10/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 1</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/10/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs HOU-6/10/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Braves Country Fest-6/10/2026</td><td>Truist Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/10/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#f-cico-emp', prompt: 'Enter the Employee# to look up their items for this event', type: '4122000' },
-    { selector: '#btn-cico-srch', prompt: 'Click Search to load the employee\'s assigned items',
-      onConfirm: () => { document.getElementById('cico-emp-items').style.display = ''; }},
-    { selector: '#chk-cico-all', prompt: 'Check the top checkbox to select all items, or check individual rows',
+    // Step 1: Click Inventory in the nav to expand the submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
       onConfirm: () => {
-        document.getElementById('chk-cico-all').checked = true;
-        document.querySelectorAll('.cico-chk').forEach(c => c.checked = true);
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
       }},
-    { selector: '#btn-cico-out', prompt: 'Click "Check Out" to record that these items have been issued to this employee',
-      onConfirm: () => { document.getElementById('cico-out-msg').style.display = ''; }},
+
+    // Step 2: Click Check-In Check-Out → load Item Check-In/Check-Out page (nav collapses)
+    { selector: '#sub-inv-cico', prompt: 'Click "Check-In Check-Out"',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:700px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Item Check-In/Check-Out</div>
+            <div style="text-align:center;margin-bottom:10px;font-size:13px">
+              <input type="radio" name="inv8-tab" id="f-inv8-emptab" checked> <label for="f-inv8-emptab">Employee#</label>
+              &nbsp;&nbsp;<input type="radio" name="inv8-tab" id="f-inv8-itemtab"> <label for="f-inv8-itemtab">Item</label>
+            </div>
+            <div style="display:flex;gap:20px">
+              <table style="border-spacing:0;border-collapse:separate;flex:1">
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-branch" style="width:170px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Date :</td>
+                  <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" id="f-inv8-date" value="06/10/2026" style="width:90px">${calBtn()}&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-event" style="width:170px"><option>--Select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Venue :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-venue" style="width:170px"><option>All</option></select></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-job" style="width:170px"><option></option></select></td>
+                </tr>
+              </table>
+              <table style="border-spacing:0;border-collapse:separate;flex:1">
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Employee # :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv8-emp" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">First Name :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv8-fn" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Last Name :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv8-ln" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">WorkGroup :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-wg" style="width:178px"><option>--select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Status :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-status" style="width:178px"><option>Active</option></select></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="padding:10px 6px;text-align:center">
+                    <button class="btn" id="btn-inv8-search">Search</button>
+                    <button class="btn" id="btn-inv8-clear">Clear</button>
+                    <button class="btn" id="btn-inv8-history">History</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>`;
+      }},
   ]);
 }
 
