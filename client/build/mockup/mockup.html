@@ -6605,6 +6605,32 @@ function slide_inventory_8() {
   // Start on HOME dashboard with nav fully collapsed
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  // Calendar month data + renderer used by step 3-6 (date picker UI)
+  const calMonths = {
+    June:   { title:'June, 2026',   prev:[31],                  curr:30, next:11 },
+    July:   { title:'July, 2026',   prev:[28,29,30],            curr:31, next:8  },
+    August: { title:'August, 2026', prev:[26,27,28,29,30,31],   curr:31, next:5  }
+  };
+  function renderInv8Cal(name) {
+    const m = calMonths[name];
+    document.getElementById('inv8-cal-title').textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June'   && d === 12);
+      const isTarget = (name === 'August' && d === 15);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ' id="inv8-cal-d15"' : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById('inv8-cal-grid').innerHTML = rows;
+  }
   document.getElementById('content').innerHTML = `
     <div style="margin-bottom:12px">
       <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
@@ -6671,19 +6697,38 @@ function slide_inventory_8() {
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Date :</td>
-                  <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" id="f-inv8-date" value="06/10/2026" style="width:90px">${calBtn()}&nbsp;<span style="color:#c00">*</span></td>
+                  <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                    <input class="form-input" id="f-inv8-date" value="06/12/2026" style="width:90px">
+                    <button id="inv8-cal-btn" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>
+                    &nbsp;<span style="color:#c00">*</span>
+                    <div id="inv8-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+                      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+                        <div id="inv8-cal-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+                        <div id="inv8-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold">June, 2026</div>
+                        <div id="inv8-cal-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+                      </div>
+                      <table id="inv8-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+                      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#222;font-size:11px">Today: June 12, 2026</div>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-event" style="width:170px"><option>--Select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                  <td style="padding:4px 6px;position:relative">
+                    <div id="f-inv8-event" style="display:inline-block;width:170px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
+                    <div id="f-inv8-event-menu" style="display:none;position:absolute;top:30px;left:6px;width:170px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
+                      <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+                      <div id="f-inv8-event-opt-shane" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Shane Concert Event June 2026</div>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Venue :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-venue" style="width:170px"><option>All</option></select></td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-venue" style="width:170px"><option>--Select--</option><option>All</option><option>AB Convention Center</option></select></td>
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-job" style="width:170px"><option></option></select></td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv8-job" style="width:170px"><option></option><option>All</option></select></td>
                 </tr>
               </table>
               <table style="border-spacing:0;border-collapse:separate;flex:1">
@@ -6717,47 +6762,398 @@ function slide_inventory_8() {
                 </tr>
               </table>
             </div>
+            <div id="inv8-results" style="display:none"></div>
+          </div>`;
+      }},
+
+    // Step 3: Click Employee# textbox and type 3952379
+    { selector: '#f-inv8-emp', prompt: 'Click the Employee # text box and enter the employee number', type: '3952379' },
+
+    // Step 4: Click calendar icon → opens date picker on June 2026
+    { selector: '#inv8-cal-btn', prompt: 'Click the calendar icon to pick the event date',
+      onConfirm: () => {
+        renderInv8Cal('June');
+        document.getElementById('inv8-cal').style.display = 'block';
+      }},
+
+    // Step 4: Click right arrow → advance to July 2026
+    { selector: '#inv8-cal-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderInv8Cal('July'); }},
+
+    // Step 5: Click right arrow → advance to August 2026
+    { selector: '#inv8-cal-next', prompt: 'Click the right arrow one more time to get to August',
+      onConfirm: () => { renderInv8Cal('August'); }},
+
+    // Step 6: Click 15 → set date to 08/15/2026 and close calendar
+    { selector: '#inv8-cal-d15', prompt: 'Click the 15th — this is the event date we are looking for',
+      onConfirm: () => {
+        document.getElementById('f-inv8-date').value = '08/15/2026';
+        document.getElementById('inv8-cal').style.display = 'none';
+      }},
+
+    // Step 7: Click Event dropdown → open option list
+    { selector: '#f-inv8-event', prompt: 'Click the Event dropdown to choose the event',
+      onConfirm: () => { document.getElementById('f-inv8-event-menu').style.display = 'block'; }},
+
+    // Step 8: Click "Shane Concert Event June 2026" → set value, close menu, auto-fill Venue/Job to All
+    { selector: '#f-inv8-event-opt-shane', prompt: 'Click "Shane Concert Event June 2026"',
+      onConfirm: () => {
+        document.getElementById('f-inv8-event').innerHTML = 'Shane Concert Event June 2026<span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv8-event-menu').style.display = 'none';
+        document.getElementById('f-inv8-venue').value = 'All';
+        document.getElementById('f-inv8-job').value = 'All';
+      }},
+
+    // Step 9: Highlight Venue → optional narrow message
+    { selector: '#f-inv8-venue', prompt: 'Venue and Job are optional — use them to narrow down the search', skipClick: true },
+
+    // Step 10: Highlight Job → same optional narrow message
+    { selector: '#f-inv8-job', prompt: 'Venue and Job are optional — use them to narrow down the search', skipClick: true },
+
+    // Step 11: Click First Name → type Prachi
+    { selector: '#f-inv8-fn', prompt: 'Click the First Name text box and enter the first name', type: 'Prachi' },
+
+    // Step 12: Click Last Name → type Chaudhary
+    { selector: '#f-inv8-ln', prompt: 'Click the Last Name text box and enter the last name', type: 'Chaudhary' },
+
+    // Step 13: Highlight WorkGroup → optional filter message
+    { selector: '#f-inv8-wg', prompt: 'WorkGroup is optional — use it to filter the search', skipClick: true },
+
+    // Step 14: Click Search → show Search Result + Check-Out Item List
+    { selector: '#btn-inv8-search', prompt: 'Click Search to find the employee',
+      onConfirm: () => {
+        document.getElementById('f-inv8-venue').value = 'AB Convention Center';
+        const results = document.getElementById('inv8-results');
+        results.style.display = 'block';
+        results.innerHTML = `
+          <div style="margin-top:18px">
+            <div style="font-size:16px;font-weight:bold;color:#333;margin-bottom:8px">Search Result</div>
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:#5a4030;color:#fff">
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Employee#</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Name</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Branch</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:#e88840;color:#fff">
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">3952379</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">Prachi Chaudhary</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">Prota LA Branch Test</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="margin-top:18px">
+            <div style="font-size:16px;font-weight:bold;color:#333;margin-bottom:8px">Check-Out Item List</div>
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Category :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-inv8-cocat" style="width:170px"><option>Select category</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Type :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-inv8-coitype" style="width:170px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-inv8-coname" style="width:170px"><option>Select Name</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Check Out Time :</td>
+                <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" id="f-inv8-cotime" value="06/12/2026" style="width:90px">${calBtn()} <input class="form-input" value="15:21" style="width:52px;text-align:center"> <button style="padding:0 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;font-size:8px;line-height:1.2;border-radius:2px;">&#9650;<br>&#9660;</button>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Code :</td>
+                <td style="padding:4px 6px"><input class="form-input" id="f-inv8-icode" style="width:170px"></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:2px 6px;font-size:13px;color:#666;font-weight:bold">OR</td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">RFID :</td>
+                <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" id="f-inv8-rfid" style="width:170px;border:2px solid #000"> <button class="btn" id="btn-inv8-checkout" style="margin-left:8px">CheckOut</button></td>
+              </tr>
+            </table>
+            <div style="text-align:center;color:#888;font-size:12px;margin-top:8px">No items found</div>
           </div>`;
       }},
   ]);
 }
 
 function slide_inventory_9() {
-  setNav('inventory');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  // Calendar month data + renderer (date picker UI)
+  const calMonths = {
+    June:   { title:'June, 2026',   prev:[31],                  curr:30, next:11 },
+    July:   { title:'July, 2026',   prev:[28,29,30],            curr:31, next:8  },
+    August: { title:'August, 2026', prev:[26,27,28,29,30,31],   curr:31, next:5  }
+  };
+  function renderInv9Cal(name) {
+    const m = calMonths[name];
+    document.getElementById('inv9-cal-title').textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June'   && d === 12);
+      const isTarget = (name === 'August' && d === 15);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ' id="inv9-cal-d15"' : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById('inv9-cal-grid').innerHTML = rows;
+  }
+
+  // HTML for Item-tab right-side fields (swapped in when user clicks Item radio)
+  const inv9ItemTabRightHTML = `
+    <tr>
+      <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Category :</td>
+      <td style="padding:4px 6px"><select class="form-select" id="f-inv9-icat" style="width:178px"><option>Inventory Items</option><option>Job Equipment</option></select>&nbsp;<span style="color:#c00">*</span></td>
+    </tr>
+    <tr>
+      <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Type :</td>
+      <td style="padding:4px 6px;position:relative">
+        <div id="f-inv9-itype" style="display:inline-block;width:178px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">All<span style="float:right;color:#666">&#9662;</span></div>
+        <div id="f-inv9-itype-menu" style="display:none;position:absolute;top:30px;left:6px;width:178px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
+          <div style="background:#5a5a5a;color:#fff;padding:4px 8px">All</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Bike Equipment</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">HHMD</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Keys</div>
+          <div id="f-inv9-itype-opt-pe" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Protective Equipment</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Radio</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Radio Accessory</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Tablet</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">WTMD Elliptical</div>
+          <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">WTMD Open Gate</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Name :</td>
+      <td style="padding:4px 6px;position:relative">
+        <div id="f-inv9-iname" style="display:inline-block;width:178px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
+        <div id="f-inv9-iname-menu" style="display:none;position:absolute;top:30px;left:6px;width:178px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
+          <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+          <div id="f-inv9-iname-opt-umbrella" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Umbrella</div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Item Code :</td>
+      <td style="padding:4px 6px"><input class="form-input" id="f-inv9-icode" style="width:170px"></td>
+    </tr>
+    <tr>
+      <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">RFID :</td>
+      <td style="padding:4px 6px"><input class="form-input" id="f-inv9-rfid" style="width:170px;border:2px solid #000"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td style="padding:10px 6px;text-align:center">
+        <button class="btn" id="btn-inv9-search">Search</button>
+        <button class="btn" id="btn-inv9-clear">Clear</button>
+        <button class="btn" id="btn-inv9-history">History</button>
+      </td>
+    </tr>`;
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Check-In Check-Out &#8212; Item Tab</div>
-    <div class="tabs" style="margin-bottom:10px">
-      <span class="tab" id="tab-cico-emp2">Employee</span>
-      <span class="tab active" id="tab-cico-item2">Item</span>
-    </div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Date :</span>
-      <input class="form-input" value="08/15/2026" style="width:100px">${calBtn()}</div>
-    <div class="form-row"><span class="form-label">Category :</span>
-      <select class="form-select" id="f-cico-icat"><option>--Select--</option><option>Inventory Items</option><option>Job Equipment</option></select></div>
-    <div class="form-row"><span class="form-label">Item Type :</span>
-      <select class="form-select" id="f-cico-itype"><option>--Select--</option><option>Radio Unit</option><option>Safety Vest</option></select></div>
-    <div style="margin:8px 0 8px 160px"><button class="btn" id="btn-cico-isrch">Search</button></div>
-    <div id="cico-item-results" style="display:none">
-      <table><thead><tr><th>Item</th><th>Tag ID</th><th>Checked Out To</th><th>Check Out Date</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Radio Unit</td><td>TAG-001</td><td>Garcia, Maria</td><td>08/15/2026</td><td><button class="btn btn-sm btn-green" id="btn-cico-ci">Check In</button></td></tr>
-      </tbody></table>
-    </div>
-    <div id="cico-ci-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:8px;display:none;font-size:12px">&#10004; Item checked in successfully.</div>`;
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/30/2026</td><td>Grand Bell Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061226 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 Borgata EC DEVO 06122026</td><td>Event Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast 630pm Open Practice 6/12</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/12/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/12/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/12/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/12/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ANGELS vs TB-6/12/2026</td><td>ANGELS STADIUM</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Belmont Park SDFC Soccer Celebration 6/12/26</td><td>Belmont Park Beach House</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Bike Patrol - UCSD Commencements - 6/12/26</td><td>UCSD</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 10 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#tab-cico-item2', prompt: 'The Item tab lets you search by item instead of by employee — useful when you have the item in hand and need to find who has it.', skipClick: true },
-    { selector: '#f-cico-icat', prompt: 'Set the Category to Inventory Items',
-      onConfirm: () => { document.getElementById('f-cico-icat').value = 'Inventory Items'; }},
-    { selector: '#f-cico-itype', prompt: 'Select the Item Type you are looking for',
-      onConfirm: () => { document.getElementById('f-cico-itype').value = 'Radio Unit'; }},
-    { selector: '#btn-cico-isrch', prompt: 'Click Search to find where this item currently is',
-      onConfirm: () => { document.getElementById('cico-item-results').style.display = ''; }},
-    { selector: '#btn-cico-ci', prompt: 'Click "Check In" to record that the employee has returned this item',
+    // Step 1: Click Inventory in the nav to expand the submenu
+    { selector: '#nav-inventory', prompt: 'Click "Inventory" in the navigation to expand its menu',
       onConfirm: () => {
-        document.getElementById('cico-item-results').style.display = 'none';
-        document.getElementById('cico-ci-msg').style.display = '';
+        document.getElementById('nav-inventory').classList.add('active');
+        document.getElementById('sub-inventory').classList.add('show');
+      }},
+
+    // Step 2: Click Check-In Check-Out → load Item Check-In/Check-Out page (nav collapses)
+    { selector: '#sub-inv-cico', prompt: 'Click "Check-In Check-Out"',
+      onConfirm: () => {
+        document.getElementById('nav-inventory').classList.remove('active');
+        document.getElementById('sub-inventory').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:700px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Item Check-In/Check-Out</div>
+            <div style="text-align:center;margin-bottom:10px;font-size:13px">
+              <input type="radio" name="inv9-tab" id="f-inv9-emptab" checked> <label for="f-inv9-emptab">Employee#</label>
+              &nbsp;&nbsp;<input type="radio" name="inv9-tab" id="f-inv9-itemtab"> <label for="f-inv9-itemtab">Item</label>
+            </div>
+            <div style="display:flex;gap:20px">
+              <table style="border-spacing:0;border-collapse:separate;flex:1">
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-branch" style="width:170px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Date :</td>
+                  <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                    <input class="form-input" id="f-inv9-date" value="06/12/2026" style="width:90px">
+                    <button id="inv9-cal-btn" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;"><svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg></button>
+                    &nbsp;<span style="color:#c00">*</span>
+                    <div id="inv9-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+                      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+                        <div id="inv9-cal-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+                        <div id="inv9-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold">June, 2026</div>
+                        <div id="inv9-cal-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+                      </div>
+                      <table id="inv9-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+                      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#222;font-size:11px">Today: June 12, 2026</div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-event" style="width:170px"><option>--Select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Venue :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-venue" style="width:170px"><option>All</option></select></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-job" style="width:170px"><option></option></select></td>
+                </tr>
+              </table>
+              <table id="inv9-right" style="border-spacing:0;border-collapse:separate;flex:1">
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Employee # :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv9-emp" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">First Name :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv9-fn" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Last Name :</td>
+                  <td style="padding:4px 6px"><input class="form-input" id="f-inv9-ln" style="width:170px">&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">WorkGroup :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-wg" style="width:178px"><option>--select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                </tr>
+                <tr>
+                  <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Status :</td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-status" style="width:178px"><option>Active</option></select></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td style="padding:10px 6px;text-align:center">
+                    <button class="btn" id="btn-inv9-search">Search</button>
+                    <button class="btn" id="btn-inv9-clear">Clear</button>
+                    <button class="btn" id="btn-inv9-history">History</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div id="inv9-results" style="display:none"></div>
+          </div>`;
+      }},
+
+    // Step 3: Click the Item radio tab → swap right-side fields to Item view
+    { selector: '#f-inv9-itemtab', prompt: 'Click the "Item" tab to switch to item-based search',
+      onConfirm: () => {
+        document.getElementById('f-inv9-itemtab').checked = true;
+        document.getElementById('f-inv9-emptab').checked = false;
+        document.getElementById('inv9-right').innerHTML = inv9ItemTabRightHTML;
+      }},
+
+    // Step 4: Highlight Branch → branch reminder
+    { selector: '#f-inv9-branch', prompt: 'Make sure you are looking in the correct Branch', skipClick: true },
+
+    // Step 5: Click calendar icon → opens date picker on June 2026
+    { selector: '#inv9-cal-btn', prompt: 'Click the calendar icon to pick the event date',
+      onConfirm: () => {
+        renderInv9Cal('June');
+        document.getElementById('inv9-cal').style.display = 'block';
+      }},
+
+    // Step 6: Click right arrow → advance to July 2026
+    { selector: '#inv9-cal-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderInv9Cal('July'); }},
+
+    // Step 7: Click right arrow → advance to August 2026
+    { selector: '#inv9-cal-next', prompt: 'Click the right arrow one more time to get to August',
+      onConfirm: () => { renderInv9Cal('August'); }},
+
+    // Step 8: Click 15 → set date to 08/15/2026 and close calendar
+    { selector: '#inv9-cal-d15', prompt: 'Click the 15th — this is the event date we are looking for',
+      onConfirm: () => {
+        document.getElementById('f-inv9-date').value = '08/15/2026';
+        document.getElementById('inv9-cal').style.display = 'none';
+      }},
+
+    // Step 9: Highlight Category → reminder
+    { selector: '#f-inv9-icat', prompt: 'Make sure Category says "Inventory Items"', skipClick: true },
+
+    // Step 10: Highlight Item Type → explanation
+    { selector: '#f-inv9-itype', prompt: 'This is where you can specify what type of item you are looking for', skipClick: true },
+
+    // Step 11: Click Item Type dropdown → open menu
+    { selector: '#f-inv9-itype', prompt: 'Click the Item Type dropdown to see the options',
+      onConfirm: () => { document.getElementById('f-inv9-itype-menu').style.display = 'block'; }},
+
+    // Step 12: Click Protective Equipment → set value, close menu
+    { selector: '#f-inv9-itype-opt-pe', prompt: 'Click "Protective Equipment"',
+      onConfirm: () => {
+        document.getElementById('f-inv9-itype').innerHTML = 'Protective Equipment<span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv9-itype-menu').style.display = 'none';
+      }},
+
+    // Step 13: Click Item Name dropdown → open menu
+    { selector: '#f-inv9-iname', prompt: 'Click the Item Name dropdown to choose the specific item',
+      onConfirm: () => { document.getElementById('f-inv9-iname-menu').style.display = 'block'; }},
+
+    // Step 14: Click Umbrella → set value, close menu
+    { selector: '#f-inv9-iname-opt-umbrella', prompt: 'Click "Umbrella"',
+      onConfirm: () => {
+        document.getElementById('f-inv9-iname').innerHTML = 'Umbrella<span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv9-iname-menu').style.display = 'none';
       }},
   ]);
 }
