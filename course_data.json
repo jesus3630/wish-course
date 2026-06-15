@@ -686,7 +686,8 @@
         "slide_number": 4,
         "slide_name": "Inside the Employee Record",
         "instructions": "Click an employee last name link. Show the employee record opening. Point out the tabs across the top of the record. Highlight the tabs that are accessible: Licensing, Background Check, Employee Notes.",
-        "text": "Clicking an employee's last name opens their full record. You'll see several tabs across the top.\r\n\r\nWith Workforce Scheduler Maintenance access, the tabs you can work with are:\r\n* Licensing\r\n* Background Check\r\n* Employee Notes\r\n\r\nOther tabs, such as Personal Info, Pay Rate, and Disciplinary Action, are visible but not editable at this permission level. If you need to make changes outside of your three tabs, you'll need to contact someone with higher access.\r\n\r\nAlways confirm you have the right employee before making any updates, double-check the name and employee number at the top of the record."
+        "text": "Clicking an employee's last name opens their full record. You'll see several tabs across the top.\r\n\r\nWith Workforce Scheduler Maintenance access, the tabs you can work with are:\r\n* Licensing\r\n* Background Check\r\n* Employee Notes\r\n\r\nOther tabs, such as Personal Info, Pay Rate, and Disciplinary Action, are visible but not editable at this permission level. If you need to make changes outside of your three tabs, you'll need to contact someone with higher access.\r\n\r\nAlways confirm you have the right employee before making any updates, double-check the name and employee number at the top of the record.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=4"
       },
       {
         "slide_number": 5,
