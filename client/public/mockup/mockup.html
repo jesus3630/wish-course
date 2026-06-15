@@ -2817,6 +2817,7 @@ function slide_workforce_scheduler_mntnnce_5() {
     { selector: '#lic-notes', prompt: 'Add any notes for this license', type: 'Guard card verified and on file.' },
     { selector: '#lic-save', prompt: 'Click "Save" to record the license',
       onConfirm: () => { document.getElementById('lic-save-msg').classList.add('show'); }},
+    { selector: '#lic-save-msg', prompt: 'The "License saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
@@ -2833,6 +2834,7 @@ function slide_workforce_scheduler_mntnnce_6() {
     { selector: '#bg-exp-date', prompt: 'Enter the expiration date for the new check', type: '06/15/2028' },
     { selector: '#bg-save', prompt: 'Click "Save" to record the background check',
       onConfirm: () => { document.getElementById('bg-save-msg').classList.add('show'); }},
+    { selector: '#bg-save-msg', prompt: 'The "Background check saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
@@ -2849,6 +2851,7 @@ function slide_workforce_scheduler_mntnnce_7() {
     { selector: '#note-text', prompt: 'Type the note — always include the date and a brief description of what it\'s about', type: '06/15/2026 - Prefers weekday shifts; unavailable weekends through July.' },
     { selector: '#note-save', prompt: 'Click "Save" to record the note',
       onConfirm: () => { document.getElementById('note-save-msg').classList.add('show'); }},
+    { selector: '#note-save-msg', prompt: 'The "Note saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
@@ -2932,6 +2935,7 @@ function slide_workforce_admin_maintenance_4() {
         document.getElementById('pr-history-body').appendChild(row);
         document.getElementById('pr-save-msg').classList.add('show');
       }},
+    { selector: '#pr-save-msg', prompt: 'The "Pay rate saved successfully" confirmation appears, and the new active rate shows in the list above', skipClick: true },
   ]);
 }
 
