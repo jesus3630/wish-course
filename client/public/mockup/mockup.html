@@ -2907,40 +2907,22 @@ function slide_workforce_admin_maintenance_3() {
 }
 
 function slide_workforce_admin_maintenance_4() {
-  // Pay Rates Tab (module 11) — continues inside the record; the correct way to update a rate: deactivate old, add new
+  // Pay Rates Tab (module 11) — keep it simple: open the tab, deactivate a rate, show the success banner
   setNav('records');
   document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab — it shows what the employee is paid per hour for each role they\'re qualified for',
-      onConfirm: () => setEmpRecTab('Pay Rate') },
-    { selector: '#pr-history', prompt: 'Never edit an existing rate directly — that would alter historical payroll records. To change a rate, you deactivate the old one and add a new one', skipClick: true },
-    { selector: '#pr-row-sup', prompt: 'Step 1 — find the current active rate you need to change (here, Supervisor at $16.00). Use the scrollbar to reach the Action column on the right',
-      skipClick: true,
-      onConfirm: () => { const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = w.scrollWidth; }},
-    { selector: '#pr-deact-link-sup', prompt: 'Step 2 — click the blue "DeActivate" link in the Action column. The rate is closed out and drops off the active list (still preserved under "Show all roles")',
+    { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab',
       onConfirm: () => {
-        document.getElementById('pr-row-sup').style.display = 'none'; // de-active roles are hidden while "Show all roles" is unchecked
+        setEmpRecTab('Pay Rate');
+        const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = w.scrollWidth;
+      }},
+    { selector: '#pr-deact-link-sup', prompt: 'To change a rate, you deactivate it — click the blue "DeActivate" link in the Action column',
+      onConfirm: () => {
+        document.getElementById('pr-row-sup').style.display = 'none';
+        document.getElementById('pr-save-msg').classList.add('show');
         const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = 0;
       }},
-    { selector: '#pr-role', prompt: 'Step 3 — add the new rate. Choose the role',
-      onConfirm: () => { document.getElementById('pr-role').value = 'Supervisor'; }},
-    { selector: '#pr-amount', prompt: 'Enter the updated amount (Max Payrate Limit: $25.00)', type: '18.00' },
-    { selector: '#pr-date', prompt: 'Set the effective start date for the new rate', type: '06/15/2026' },
-    { selector: '#pr-save', prompt: 'Click "Save" — the new active rate is added to the list',
-      onConfirm: () => {
-        const role = document.getElementById('pr-role').value;
-        const amt = (parseFloat(document.getElementById('pr-amount').value || '18') ).toFixed(2);
-        const row = document.createElement('tr');
-        row.style.background = '#fffbe8';
-        row.innerHTML = '<td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td>' +
-          '<td style="padding:5px 8px">' + role + '</td><td style="padding:5px 8px">15-Jun-2026</td>' +
-          '<td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td>' +
-          '<td style="text-align:right;padding:5px 8px">' + amt + '</td><td></td><td style="padding:5px 8px">Andre F.</td>' +
-          '<td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td>';
-        document.getElementById('pr-history-body').appendChild(row);
-        document.getElementById('pr-save-msg').classList.add('show');
-      }},
-    { selector: '#pr-save-msg', prompt: 'The "Pay rate saved successfully" confirmation appears, and the new active rate shows in the list above', skipClick: true },
+    { selector: '#pr-save-msg', prompt: 'The green confirmation appears — the pay rate has been updated successfully', skipClick: true },
   ]);
 }
 
