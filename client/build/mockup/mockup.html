@@ -2635,6 +2635,31 @@ function empRecordTabContent(tab) {
           </div>
         </div>`;
     })(),
+    'Exclusion': (() => {
+      const clients = ['AB Ventures','ABA','AJ Super Bowl 2026','aPost Super Bowl','Arizona Club','C Phoenix Speedway LLC','Crystal Event Center','Desert Sky Pavilion','Empire Polo Club','Grand Bell Arena'];
+      const items = clients.map(c => {
+        const id = c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        return `<div class="excl-item" id="excl-cli-${id}" style="padding:2px 6px;cursor:pointer">${c}</div>`;
+      }).join('');
+      return `
+        <div id="excl-save-msg" class="msg-success" style="margin:6px 0">&#10004; Exclusion saved successfully.</div>
+        <div style="margin:6px 0;font-size:13px"><label style="cursor:pointer"><input type="radio" name="excl-type" checked> Exclude Client</label> &nbsp;&nbsp; <label style="cursor:pointer"><input type="radio" name="excl-type"> Exclude Venue</label></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;margin-top:8px">
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:4px">Available Client</div>
+            <div id="excl-avail" style="border:1px solid #aaa;height:120px;overflow-y:auto;background:#fff;padding:2px;font-size:12px">${items}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;justify-content:center;padding-top:34px">
+            <button class="btn btn-sm" id="excl-move-right">&gt;&gt;</button>
+            <button class="btn btn-sm" id="excl-move-left">&lt;&lt;</button>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:4px">Excluded Client</div>
+            <div id="excl-excluded" style="border:1px solid #aaa;height:120px;overflow-y:auto;background:#fff;padding:2px;font-size:12px"></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:10px"><button class="btn" id="excl-save">Save</button><button class="btn btn-secondary">Back</button></div>`;
+    })(),
     'Address/Phone': `
       <div id="ap-save-msg" class="msg-success" style="margin:6px 0">&#10004; Contact information saved successfully.</div>
       <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
@@ -3028,6 +3053,27 @@ function slide_employee_hr_record_maintenance_4() {
       onConfirm: () => { document.getElementById('sb-dept-staff').checked = true; }},
     { selector: '#sb-chk-dallas', prompt: 'To stop sharing, simply uncheck the branch. Remove the sharing when it\'s no longer needed',
       onConfirm: () => { document.getElementById('sb-chk-dallas').checked = false; document.getElementById('sb-dept-list').innerHTML = ''; }},
+  ]);
+}
+
+function slide_employee_hr_record_maintenance_5() {
+  // Exclusions (module 12) — continues inside the record; exclude a client via the transfer list, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-exclusion', prompt: 'Open the "Exclusion" tab — it lets you flag clients or jobs an employee should never be assigned to',
+      onConfirm: () => setEmpRecTab('Exclusion') },
+    { selector: '#excl-avail', prompt: 'Keep "Exclude Client" selected (or switch to Exclude Venue), then find the client in the Available list', skipClick: true },
+    { selector: '#excl-cli-arizona-club', prompt: 'Select the client to exclude — here, Arizona Club',
+      onConfirm: () => { const el = document.getElementById('excl-cli-arizona-club'); if (el) { el.style.background = '#cfe2ff'; } }},
+    { selector: '#excl-move-right', prompt: 'Click the ">>" button to move it into the Excluded Client list',
+      onConfirm: () => {
+        const el = document.getElementById('excl-cli-arizona-club');
+        if (el) { el.style.display = 'none'; const row = document.createElement('div'); row.style.cssText = 'padding:2px 6px;background:#fffbe8'; row.textContent = 'Arizona Club'; document.getElementById('excl-excluded').appendChild(row); }
+      }},
+    { selector: '#excl-save', prompt: 'Click "Save". Once set, the employee won\'t appear as available when scheduling for that client',
+      onConfirm: () => { document.getElementById('excl-save-msg').classList.add('show'); }},
+    { selector: '#excl-save-msg', prompt: 'Saved. Remember: an exclusion is a scheduling control, not disciplinary action — document the reason in Employee Notes so the context is on record', skipClick: true },
   ]);
 }
 
@@ -7886,6 +7932,7 @@ const routes = {
   'employee_hr_record_maintenance-2': slide_employee_hr_record_maintenance_2,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
+  'employee_hr_record_maintenance-5': slide_employee_hr_record_maintenance_5,
   'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
   'hiring_manager-3': slide_hiring_manager_3,
   'hiring_admin-3':   slide_hiring_admin_3,

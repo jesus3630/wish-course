@@ -810,7 +810,8 @@
         "slide_number": 5,
         "slide_name": "Exclusions",
         "instructions": "Click the Exclusions tab. Show the client exclusion list. Show adding a client or job exclusion ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â select from dropdown, save.",
-        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\n* The employee will not appear as available when scheduling for that client or job\r\n* This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\n* A client has requested the employee not return to their venue\r\n* There is a known conflict between the employee and a specific account\r\n* A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action, they're a scheduling control. Document the reason in Employee Notes so the context is on record."
+        "text": "The Exclusions tab lets you flag clients or jobs that a specific employee should never be assigned to.\r\n\r\nOnce an exclusion is set:\r\n* The employee will not appear as available when scheduling for that client or job\r\n* This prevents accidental scheduling conflicts or safety concerns\r\n\r\nCommon reasons for exclusions:\r\n* A client has requested the employee not return to their venue\r\n* There is a known conflict between the employee and a specific account\r\n* A safety or conduct issue tied to a specific location\r\n\r\nExclusions are not the same as disciplinary action, they're a scheduling control. Document the reason in Employee Notes so the context is on record.",
+        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=5"
       },
       {
         "slide_number": 6,
