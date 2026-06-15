@@ -2917,11 +2917,9 @@ function slide_workforce_admin_maintenance_4() {
     { selector: '#pr-row-sup', prompt: 'Step 1 — find the current active rate you need to change (here, Supervisor at $16.00). Use the scrollbar to reach the Action column on the right',
       skipClick: true,
       onConfirm: () => { const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = w.scrollWidth; }},
-    { selector: '#pr-deact-link-sup', prompt: 'Step 2 — click the blue "DeActivate" link in the Action column. This closes the rate out without deleting the history',
+    { selector: '#pr-deact-link-sup', prompt: 'Step 2 — click the blue "DeActivate" link in the Action column. The rate is closed out and drops off the active list (still preserved under "Show all roles")',
       onConfirm: () => {
-        document.getElementById('pr-status-sup').innerHTML = '<span style="color:#c00;font-weight:bold">De-Active</span>';
-        document.getElementById('pr-deact-sup').textContent = '15-Jun-2026';
-        const link = document.getElementById('pr-deact-link-sup'); if (link) { link.textContent = 'Activate'; }
+        document.getElementById('pr-row-sup').style.display = 'none'; // de-active roles are hidden while "Show all roles" is unchecked
         const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = 0;
       }},
     { selector: '#pr-role', prompt: 'Step 3 — add the new rate. Choose the role',
