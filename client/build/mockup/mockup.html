@@ -2939,7 +2939,7 @@ function slide_workforce_admin_maintenance_5() {
 }
 
 function slide_employee_hr_record_maintenance_2() {
-  // What Employee HR Record Maintenance Gives You — brief: you reach the record the same way (Records > Manage Employee > search)
+  // What Employee HR Record Maintenance Gives You — reach the record the same way, then show full access to every tab
   setNav('home');
   document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
@@ -2954,7 +2954,12 @@ function slide_employee_hr_record_maintenance_2() {
         document.getElementById('sub-records').classList.remove('show');
         document.getElementById('content').innerHTML = empSearchHTML();
       }},
-    { selector: '#btn-empsrch', prompt: 'This is the familiar search screen. Search, then click an employee\'s last name to open their full record — at this access level you can edit every part of it', skipClick: true },
+    { selector: '#f-elast', prompt: 'Type a last name and search for the employee', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search" to pull up the results',
+      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
+    { selector: '#emp-link', prompt: 'Click the last name (blue link) to open their full record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
+    { selector: '#emp-rec-tabs', prompt: 'At Employee HR Record Maintenance level you have full access to the entire record — every tab here is open to you, including Personal Info, Address/Phone, BG Check, Shared Branches, Exclusion, and Task. Changes you make affect the employee across all branches, so use this access carefully', skipClick: true },
   ]);
 }
 
