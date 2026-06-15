@@ -233,20 +233,23 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><path d="M3 9 L3 23 Q3 24 4 24 L22 24 Q23 24 23 23 L23 11 L16 11 L16 9 Z" fill="#4a88d8"/><path d="M3 9 L10 9 L10 6 Q10 5 11 5 L22 5 L22 11 L16 11 L16 9 Z" fill="#6aaae8"/><line x1="7" y1="15" x2="19" y2="15" stroke="#fff" stroke-width="1.3" opacity=".9"/><line x1="7" y1="18.5" x2="16" y2="18.5" stroke="#fff" stroke-width="1.3" opacity=".9"/></svg></span>Records
     </a>
     <div class="nav-sub" id="sub-records">
-      <span class="nav-sub-item">Manage Branch</span>
+      <span class="nav-sub-item">Manage Branch Info</span>
       <span class="nav-sub-item">Training Registration</span>
       <span class="nav-sub-item">Manage Client</span>
       <span class="nav-sub-item">Manage Event</span>
-      <span class="nav-sub-item">Manage Vendor</span>
-      <span class="nav-sub-item">Manage Contact</span>
-      <span class="nav-sub-item">Manage Employee</span>
-      <span class="nav-sub-item">Manage Employee Status</span>
+      <span class="nav-sub-item">Manage Venue</span>
+      <span class="nav-sub-item">Manage Contract</span>
+      <span class="nav-sub-item" id="sub-rec-employee">Manage Employee</span>
+      <span class="nav-sub-item" id="sub-rec-employee-status">Manage Employee Status</span>
       <span class="nav-sub-item">Manage WorkGroup</span>
       <span class="nav-sub-item">Manage Job</span>
       <span class="nav-sub-item">Manage Access Location</span>
       <span class="nav-sub-item">Manage Access Group</span>
       <span class="nav-sub-item">Manage License</span>
-      <span class="nav-sub-item">Manage Contract</span>
+      <span class="nav-sub-item">Job Search</span>
+      <span class="nav-sub-item">Manage Credentials</span>
+      <span class="nav-sub-item">Manage Employee Card</span>
+      <span class="nav-sub-item">Manage Employee Task</span>
     </div>
 
     <a class="nav-item" id="nav-reports">
@@ -2532,10 +2535,22 @@ function runEmpSearch(tabs, tabClickSeq) {
 }
 
 function slide_workforce_scheduler_mntnnce_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
+  // Start on the HOME dashboard with the nav collapsed (matches the real WISH landing page)
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   const tabs = ['Personal Info','Licensing','Background Check','Employee Notes'];
   runGuided([
+    { selector: '#nav-records', prompt: 'Click "Records" in the navigation to open its menu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee" in the drop-down',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
     { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
     { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
