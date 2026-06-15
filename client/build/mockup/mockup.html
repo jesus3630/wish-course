@@ -2448,29 +2448,54 @@ function slide_admin_reporting_3() {
 function empSearchHTML() {
   return `<div class="page-title">Manage Employee</div>
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div class="form-row"><span class="form-label">Branch Name :</span>
-      <select class="form-select"><option>Los Angeles</option></select></div>
-    <div class="form-row"><span class="form-label">Department :</span>
-      <select class="form-select"><option>Staff</option></select></div>
-    <div class="form-row"><span class="form-label">WorkGroup :</span>
-      <select class="form-select"><option>--select--</option></select></div>
-    <div class="form-row"><span class="form-label">Employee# :</span>
-      <input class="form-input" id="f-empnum"></div>
-    <div class="form-row"><span class="form-label">First Name :</span>
-      <input class="form-input" id="f-efirst"></div>
-    <div class="form-row"><span class="form-label">Last Name :</span>
-      <input class="form-input" id="f-elast"></div>
-    <div class="form-row"><span class="form-label">Status :</span>
-      <select class="form-select"><option>Active</option></select></div>
-    <div style="margin:12px 0 0 160px">
-      <button class="btn" id="btn-empsrch">Search</button>
-      <button class="btn btn-secondary">Add New</button>
+    <div style="display:flex;gap:26px;align-items:flex-start">
+      <table style="border-spacing:0 4px;border-collapse:separate">
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+          <td><select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Department :</td>
+          <td><select class="form-select" style="width:185px"><option>Staff</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">WorkGroup :</td>
+          <td><select class="form-select" style="width:185px"><option>--select--</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Employee# :</td>
+          <td><input class="form-input" id="f-empnum" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">First Name :</td>
+          <td><input class="form-input" id="f-efirst" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Last Name :</td>
+          <td><input class="form-input" id="f-elast" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Status :</td>
+          <td><select class="form-select" style="width:185px"><option>Active</option><option>Inactive</option><option>Pending</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">SSN#(last 4 digits):</td>
+          <td><input class="form-input" id="f-essn" style="width:177px"></td></tr>
+        <tr><td></td><td style="padding:2px 6px"><label style="font-size:13px;cursor:pointer"><input type="checkbox" id="f-exclwg" checked> Exclude WorkGroup Employees</label></td></tr>
+        <tr><td></td><td style="padding:8px 6px 0">
+          <button class="btn" id="btn-empsrch">Search</button>
+          <button class="btn btn-secondary">Add New</button></td></tr>
+      </table>
+      <div style="flex:1;max-width:430px">
+        <div style="color:#2a5aaa;font-weight:bold;font-size:13px;margin-bottom:4px;cursor:pointer">Extended Filter &#9662;</div>
+        <div style="border:1px solid #999;background:#f4f4f4;border-radius:3px;padding:12px 14px">
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            <tr><td style="font-size:13px;padding-right:8px;white-space:nowrap">Hired Date:</td>
+              <td><input class="form-input" style="width:82px">${calBtn()}</td>
+              <td style="padding:0 6px;font-size:13px">To</td>
+              <td><input class="form-input" style="width:82px">${calBtn()}</td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Home#:</td>
+              <td colspan="3"><input class="form-input" style="width:120px"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Cell#:</td>
+              <td colspan="3"><input class="form-input" style="width:120px"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Email:</td>
+              <td colspan="3"><input class="form-input" style="width:255px"></td></tr>
+            <tr><td colspan="4" style="padding-top:6px"><button class="btn">Clear Filter</button></td></tr>
+          </table>
+        </div>
+      </div>
     </div>
+    <div style="text-align:right;margin-top:6px"><button class="btn">Send ESS Login Email</button></div>
     <div id="emp-results" style="display:none;margin-top:14px">
       <table><thead><tr><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Branch</th><th>Status</th><th>Dept</th></tr></thead>
       <tbody>
-        <tr><td>4122000</td><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>Los Angeles</td><td>Active</td><td>Staff</td></tr>
-        <tr><td>4122001</td><td><a href="#" style="color:#3a6aaa">Smith</a></td><td>John</td><td>Los Angeles</td><td>Active</td><td>Staff</td></tr>
+        <tr><td>4122000</td><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>Prota LA Branch Test</td><td>Active</td><td>Staff</td></tr>
+        <tr><td>4122001</td><td><a href="#" style="color:#3a6aaa">Smith</a></td><td>John</td><td>Prota LA Branch Test</td><td>Active</td><td>Staff</td></tr>
       </tbody></table>
     </div>`;
 }
