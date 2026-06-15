@@ -693,7 +693,8 @@
         "slide_number": 5,
         "slide_name": "Licensing Tab",
         "instructions": "Click the Licensing tab inside an employee record. Show the guard card number field and expiration date. Show how to enter or update a guard card number and expiration date. Click Save.",
-        "text": "The Licensing tab is where guard card information is stored for employees who work positions that require a license.\r\n\r\nWhat you can do here:\r\n* View the current guard card number and expiration date\r\n* Add a guard card number if one hasn't been entered yet\r\n* Update the expiration date when a card is renewed\r\n\r\nBefore scheduling an employee for a licensed position, always check this tab to confirm their guard card is active and not expired. If the card is expired, do not schedule them for a licensed role until the record has been updated with a valid card.\r\n\r\nAfter making any changes, click Save to record them."
+        "text": "The Licensing tab is where guard card information is stored for employees who work positions that require a license.\r\n\r\nWhat you can do here:\r\n* View the current guard card number and expiration date\r\n* Add a guard card number if one hasn't been entered yet\r\n* Update the expiration date when a card is renewed\r\n\r\nBefore scheduling an employee for a licensed position, always check this tab to confirm their guard card is active and not expired. If the card is expired, do not schedule them for a licensed role until the record has been updated with a valid card.\r\n\r\nAfter making any changes, click Save to record them.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=5"
       },
       {
         "slide_number": 6,
