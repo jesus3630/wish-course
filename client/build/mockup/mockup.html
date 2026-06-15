@@ -2682,10 +2682,9 @@ function setEmpRecTab(name) {
 }
 
 function slide_workforce_scheduler_mntnnce_3() {
-  // Start on the HOME dashboard with the nav collapsed (matches the real WISH landing page)
+  // Finding an Employee — Records > Manage Employee > search > open the record (ends here; tabs are slide 4+)
   setNav('home');
   document.getElementById('content').innerHTML = homeScreenHTML();
-  const tabs = ['Personal Info','Licensing','Background Check','Employee Notes'];
   runGuided([
     { selector: '#nav-records', prompt: 'Click "Records" in the navigation to open its menu',
       onConfirm: () => {
@@ -2698,17 +2697,11 @@ function slide_workforce_scheduler_mntnnce_3() {
         document.getElementById('sub-records').classList.remove('show');
         document.getElementById('content').innerHTML = empSearchHTML();
       }},
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
+    { selector: '#f-elast', prompt: 'Search by employee number, first or last name, or the last 4 of their SSN. Type a last name here', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Leave fields blank to broaden your search, or fill in more to narrow it. Click "Search" when ready',
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
+    { selector: '#emp-link', prompt: 'Results show Last Name, First Name, Employee Number, Branch Name, and Status. Click the last name (blue link) to open their record',
       onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
-    { selector: '#etab-licensing', prompt: 'Click "Licensing" to view the employee\'s licenses',
-      onConfirm: () => setEmpRecTab('Licensing') },
-    { selector: '#etab-bg-check', prompt: 'Click "BG Check" to review background status',
-      onConfirm: () => setEmpRecTab('BG Check') },
-    { selector: '#etab-notes', prompt: 'Click "Notes" to view notes on this employee',
-      onConfirm: () => setEmpRecTab('Notes') },
   ]);
 }
 
