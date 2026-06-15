@@ -3159,9 +3159,7 @@ function slide_employee_hr_record_maintenance_6() {
         document.getElementById('sub-records').classList.remove('show');
         document.getElementById('content').innerHTML = manageEmpStatusHTML();
       }},
-    { selector: '#mes-empstatus', prompt: 'Filter by branch and current status to pull the list of employees you want',
-      onConfirm: () => { document.getElementById('mes-empstatus').value = 'Active'; }},
-    { selector: '#mes-search', prompt: 'Click "Search" to pull the list of employees',
+    { selector: '#mes-search', prompt: 'Filter by branch and current status if you need to, then click "Search" to pull the list of employees',
       onConfirm: () => { document.getElementById('mes-results').style.display = ''; }},
     { selector: '#mes-chk-1', prompt: 'Select the employees you want to update — you can pick as many as you need',
       onConfirm: () => { document.getElementById('mes-chk-1').checked = true; document.getElementById('mes-chk-2').checked = true; document.getElementById('mes-chk-3').checked = true; }},
