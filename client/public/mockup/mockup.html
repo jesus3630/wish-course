@@ -3134,11 +3134,15 @@ function manageEmpStatusHTML() {
         <button class="btn btn-sm btn-secondary">Assign Department</button>
         <button class="btn btn-sm btn-secondary">Add Disciplinary</button>
       </div>
-      <div id="mes-status-dialog" style="display:none;margin:12px auto 0;max-width:320px;border:1px solid #999;border-radius:4px;background:#f7f7f7;padding:12px 14px;text-align:center">
-        <div style="font-weight:bold;font-size:13px;margin-bottom:8px">Change Status</div>
-        <span style="font-size:13px">New Status :</span>
-        <select class="form-select" id="mes-newstatus" style="width:150px"><option>--select--</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Terminated</option></select>
-        <div style="margin-top:10px"><button class="btn btn-sm" id="mes-apply">Apply</button><button class="btn btn-sm btn-secondary">Cancel</button></div>
+      <div id="mes-status-dialog" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;justify-content:center">
+        <div style="background:#fff;border:1px solid #888;border-radius:4px;box-shadow:2px 2px 12px rgba(0,0,0,.35);width:380px;height:max-content;margin-top:120px">
+          <div style="padding:10px 16px;font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa">Status Change</div>
+          <div style="padding:14px 16px">
+            <div class="note-bar">Note: All the * marked fields are mandatory</div>
+            <div style="margin:12px 0;font-size:13px">Status : <select class="form-select" id="mes-newstatus" style="width:150px"><option>Select</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Suspended</option></select><span style="color:#c00"> *</span></div>
+            <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-apply">Save</button><button class="btn btn-secondary">Cancel</button></div>
+          </div>
+        </div>
       </div>
     </div>`;
 }
@@ -3164,8 +3168,8 @@ function slide_employee_hr_record_maintenance_6() {
     { selector: '#mes-chk-1', prompt: 'Select the employees you want to update — you can pick as many as you need',
       onConfirm: () => { document.getElementById('mes-chk-1').checked = true; document.getElementById('mes-chk-2').checked = true; document.getElementById('mes-chk-3').checked = true; }},
     { selector: '#mes-actions', prompt: 'At the bottom you have the bulk actions for the selected employees: Change Status, Add PayRate, Assign Pay Structure, Assign Department, and Add Disciplinary', skipClick: true },
-    { selector: '#mes-btn-status', prompt: 'For a bulk status change, click "Change Status"',
-      onConfirm: () => { document.getElementById('mes-status-dialog').style.display = ''; }},
+    { selector: '#mes-btn-status', prompt: 'For a bulk status change, click "Change Status" — the Status Change pop-up opens',
+      onConfirm: () => { document.getElementById('mes-status-dialog').style.display = 'flex'; }},
     { selector: '#mes-newstatus', prompt: 'Choose the new status to apply',
       onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; }},
     { selector: '#mes-apply', prompt: 'Click "Apply". The change hits every selected employee immediately — double-check your selection first',
