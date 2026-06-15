@@ -2771,13 +2771,14 @@ function slide_workforce_scheduler_mntnnce_5() {
 }
 
 function slide_workforce_scheduler_mntnnce_6() {
-  // Background Check Tab — review status, record a new check, Save
-  setNav('records');
-  document.getElementById('content').innerHTML = empRecordHTML();
+  // Background Check Tab — flows from the lookup, opens the record, review status, record a new check, Save
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#etab-bg-check', prompt: 'Click the "BG Check" tab',
+    ...empLookupSteps(),
+    { selector: '#etab-bg-check', prompt: 'Open the "BG Check" tab — it shows the status and history of the employee\'s background check',
       onConfirm: () => setEmpRecTab('BG Check') },
-    { selector: '#bg-status-box', prompt: 'Review the current status, check date, and expiration date. Confirm the check is approved and not expired before scheduling', skipClick: true },
+    { selector: '#bg-status-box', prompt: 'Review the current status, check date, and expiration date. If it\'s pending or expired, flag it with your administrator before scheduling that employee', skipClick: true },
     { selector: '#bg-check-name', prompt: 'Under "Other Check", enter the name of the new check', type: 'Annual Background Re-check' },
     { selector: '#bg-check-date', prompt: 'Enter the date the check was completed', type: '06/15/2026' },
     { selector: '#bg-exp-date', prompt: 'Enter the expiration date for the new check', type: '06/15/2028' },
