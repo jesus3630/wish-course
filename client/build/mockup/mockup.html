@@ -233,20 +233,23 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><path d="M3 9 L3 23 Q3 24 4 24 L22 24 Q23 24 23 23 L23 11 L16 11 L16 9 Z" fill="#4a88d8"/><path d="M3 9 L10 9 L10 6 Q10 5 11 5 L22 5 L22 11 L16 11 L16 9 Z" fill="#6aaae8"/><line x1="7" y1="15" x2="19" y2="15" stroke="#fff" stroke-width="1.3" opacity=".9"/><line x1="7" y1="18.5" x2="16" y2="18.5" stroke="#fff" stroke-width="1.3" opacity=".9"/></svg></span>Records
     </a>
     <div class="nav-sub" id="sub-records">
-      <span class="nav-sub-item">Manage Branch</span>
+      <span class="nav-sub-item">Manage Branch Info</span>
       <span class="nav-sub-item">Training Registration</span>
       <span class="nav-sub-item">Manage Client</span>
       <span class="nav-sub-item">Manage Event</span>
-      <span class="nav-sub-item">Manage Vendor</span>
-      <span class="nav-sub-item">Manage Contact</span>
-      <span class="nav-sub-item">Manage Employee</span>
-      <span class="nav-sub-item">Manage Employee Status</span>
+      <span class="nav-sub-item">Manage Venue</span>
+      <span class="nav-sub-item">Manage Contract</span>
+      <span class="nav-sub-item" id="sub-rec-employee">Manage Employee</span>
+      <span class="nav-sub-item" id="sub-rec-employee-status">Manage Employee Status</span>
       <span class="nav-sub-item">Manage WorkGroup</span>
       <span class="nav-sub-item">Manage Job</span>
       <span class="nav-sub-item">Manage Access Location</span>
       <span class="nav-sub-item">Manage Access Group</span>
       <span class="nav-sub-item">Manage License</span>
-      <span class="nav-sub-item">Manage Contract</span>
+      <span class="nav-sub-item">Job Search</span>
+      <span class="nav-sub-item">Manage Credentials</span>
+      <span class="nav-sub-item">Manage Employee Card</span>
+      <span class="nav-sub-item">Manage Employee Task</span>
     </div>
 
     <a class="nav-item" id="nav-reports">
@@ -2633,30 +2636,66 @@ function slide_admin_reporting_3() {
 function empSearchHTML() {
   return `<div class="page-title">Manage Employee</div>
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div class="form-row"><span class="form-label">Branch Name :</span>
-      <select class="form-select"><option>Los Angeles</option></select></div>
-    <div class="form-row"><span class="form-label">Department :</span>
-      <select class="form-select"><option>Staff</option></select></div>
-    <div class="form-row"><span class="form-label">WorkGroup :</span>
-      <select class="form-select"><option>--select--</option></select></div>
-    <div class="form-row"><span class="form-label">Employee# :</span>
-      <input class="form-input" id="f-empnum"></div>
-    <div class="form-row"><span class="form-label">First Name :</span>
-      <input class="form-input" id="f-efirst"></div>
-    <div class="form-row"><span class="form-label">Last Name :</span>
-      <input class="form-input" id="f-elast"></div>
-    <div class="form-row"><span class="form-label">Status :</span>
-      <select class="form-select"><option>Active</option></select></div>
-    <div style="margin:12px 0 0 160px">
-      <button class="btn" id="btn-empsrch">Search</button>
-      <button class="btn btn-secondary">Add New</button>
+    <div style="display:flex;gap:26px;align-items:flex-start">
+      <table style="border-spacing:0 4px;border-collapse:separate">
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+          <td><select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Department :</td>
+          <td><select class="form-select" style="width:185px"><option>Staff</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">WorkGroup :</td>
+          <td><select class="form-select" style="width:185px"><option>--select--</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Employee# :</td>
+          <td><input class="form-input" id="f-empnum" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">First Name :</td>
+          <td><input class="form-input" id="f-efirst" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Last Name :</td>
+          <td><input class="form-input" id="f-elast" style="width:177px"></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">Status :</td>
+          <td><select class="form-select" style="width:185px"><option>Active</option><option>Inactive</option><option>Pending</option></select></td></tr>
+        <tr><td style="text-align:right;padding:2px 6px;font-size:13px;white-space:nowrap">SSN#(last 4 digits):</td>
+          <td><input class="form-input" id="f-essn" style="width:177px"></td></tr>
+        <tr><td></td><td style="padding:2px 6px"><label style="font-size:13px;cursor:pointer"><input type="checkbox" id="f-exclwg" checked> Exclude WorkGroup Employees</label></td></tr>
+        <tr><td></td><td style="padding:8px 6px 0">
+          <button class="btn" id="btn-empsrch">Search</button>
+          <button class="btn btn-secondary">Add New</button></td></tr>
+      </table>
+      <div style="flex:1;max-width:430px">
+        <div style="color:#2a5aaa;font-weight:bold;font-size:13px;margin-bottom:4px;cursor:pointer">Extended Filter &#9662;</div>
+        <div style="border:1px solid #999;background:#f4f4f4;border-radius:3px;padding:12px 14px">
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            <tr><td style="font-size:13px;padding-right:8px;white-space:nowrap">Hired Date:</td>
+              <td><input class="form-input" style="width:82px">${calBtn()}</td>
+              <td style="padding:0 6px;font-size:13px">To</td>
+              <td><input class="form-input" style="width:82px">${calBtn()}</td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Home#:</td>
+              <td colspan="3"><input class="form-input" style="width:120px"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Cell#:</td>
+              <td colspan="3"><input class="form-input" style="width:120px"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Email:</td>
+              <td colspan="3"><input class="form-input" style="width:255px"></td></tr>
+            <tr><td colspan="4" style="padding-top:6px"><button class="btn">Clear Filter</button></td></tr>
+          </table>
+        </div>
+      </div>
     </div>
+    <div style="text-align:right;margin-top:6px"><button class="btn">Send ESS Login Email</button></div>
     <div id="emp-results" style="display:none;margin-top:14px">
-      <table><thead><tr><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Branch</th><th>Status</th><th>Dept</th></tr></thead>
-      <tbody>
-        <tr><td>4122000</td><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>Los Angeles</td><td>Active</td><td>Staff</td></tr>
-        <tr><td>4122001</td><td><a href="#" style="color:#3a6aaa">Smith</a></td><td>John</td><td>Los Angeles</td><td>Active</td><td>Staff</td></tr>
-      </tbody></table>
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%">
+        <thead><tr>
+          <th>Last Name &#9650;&#9660;</th><th>First Name &#9650;&#9660;</th><th>Employee# &#9650;&#9660;</th>
+          <th>BranchName &#9650;&#9660;</th><th>Status</th><th>Timeline</th><th>Manage Academy</th>
+          <th>Login <input type="checkbox" style="vertical-align:middle"></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>4122000</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Whitfield</a></td><td>Daria</td><td>3958412</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Okafor</a></td><td>Terrence</td><td>3961205</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Vasquez</a></td><td>Lorena</td><td>3947338</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Brennan</a></td><td>Marcus</td><td>3953071</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Sandoval</a></td><td>Priya</td><td>3969824</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+        </tbody>
+      </table>
     </div>`;
 }
 
@@ -2719,91 +2758,631 @@ function runEmpSearch(tabs, tabClickSeq) {
   // Legacy — not used in guided mode; slides call runGuided directly
 }
 
+// ── Real WISH employee record (Add / Edit Employee) — full tab layout ───────
+const EMP_REC_TABS = [
+  'Personal Information','Address/Phone','Uniform','Licensing','JobTraining',
+  'Disciplinary Action','Notes','Commendation','Contacts','Other','Pay Rate',
+  'Task','BG Check','MVR Check','Exclusion','Credential','Shared Branches','Employee Taxes'
+];
+function empRecSlug(name) { return 'etab-' + name.replace(/[\/\s]/g,'-').toLowerCase(); }
+
+function empRecordHTML(activeTab) {
+  activeTab = activeTab || 'Personal Information';
+  const tabs = EMP_REC_TABS.map(t =>
+    `<span class="tab${t===activeTab?' active':''}" id="${empRecSlug(t)}">${t}</span>`).join('');
+  return `<div class="page-title" id="emp-rec-title">Add / Edit Employee <span style="font-weight:normal">&#8212; 4122000&nbsp;&nbsp;Maria Gonzalez</span></div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div class="tabs" id="emp-rec-tabs" style="flex-wrap:wrap;gap:2px 0">${tabs}</div>
+    <div id="emp-rec-content">${empRecordTabContent(activeTab)}</div>`;
+}
+
+function empRecordTabContent(tab) {
+  const req = '<span style="color:#c00">&nbsp;*</span>';
+  const contents = {
+    'Personal Information': `
+      <div id="pi-save-msg" class="msg-success" style="margin:6px 0">&#10004; Employee record saved successfully.</div>
+      <div style="display:flex;gap:30px;align-items:flex-start">
+        <table style="border-spacing:0 5px;border-collapse:separate">
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">Employee# :</td><td><input class="form-input" value="4122000" style="width:175px" readonly></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" value="Maria" style="width:175px">${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Middle Name :</td><td><input class="form-input" style="width:175px"></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" value="Gonzalez" style="width:175px">${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" id="pi-email" value="MGonzalez@maildrop.cc" style="width:175px"></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">SSN :</td><td><input class="form-input" value="111223333" style="width:175px"></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" id="pi-status" style="width:183px"><option>Active</option><option>Deceased</option><option>Inactive</option><option>Not Available</option><option>Pending</option><option>Quit</option><option>Suspended</option><option>System Quit</option><option>Terminated</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Marital Status :</td><td><select class="form-select" style="width:183px"><option>Married</option><option>Single</option></select></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Gender :</td><td><select class="form-select" style="width:183px;color:#888"><option>Female</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:183px;color:#888"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:183px;color:#888"><option>Staff</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Manager :</td><td><select class="form-select" style="width:183px"><option>--Select--</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee Type :</td><td><select class="form-select" style="width:183px"><option>Regular Employee</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job Title :</td><td><select class="form-select" style="width:183px"><option>Supervisor</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Date Of Birth :</td><td><input class="form-input" value="10/10/1900" style="width:90px">${calBtn()}${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation :</td><td><input type="checkbox"></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Title :</td><td><input class="form-input" style="width:175px"></td></tr>
+          <tr><td></td><td style="padding-top:8px"><button class="btn" id="pi-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+        </table>
+        <div style="border:1px solid #ccc;border-radius:3px;padding:14px 22px;text-align:center;margin-top:4px"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">Show Picture</a></div>
+      </div>`,
+    'Shared Branches': (() => {
+      const branches = ['Atlanta','Buffalo','Cleveland','Columbus','Connecticut','Corporate','Dallas','Denver','Houston','Las Vegas','Los Angeles','Miami','New York','Orlando','Phoenix','San Diego'];
+      const items = branches.map(b => {
+        const id = b.toLowerCase().replace(/\s/g,'-');
+        return `<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox" id="sb-chk-${id}"> ${b}</label></div>`;
+      }).join('');
+      return `
+        <div style="display:flex;gap:20px;margin-top:8px">
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:14px;color:#333;margin-bottom:6px">Select Branch</div>
+            <div id="sb-branch-list" style="border:1px solid #aaa;height:135px;overflow-y:auto;background:#fff;padding:4px">${items}</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:14px;color:#333;margin-bottom:6px">Select Department</div>
+            <div id="sb-dept-list" style="border:1px solid #aaa;height:135px;overflow-y:auto;background:#fff;padding:4px"></div>
+          </div>
+        </div>`;
+    })(),
+    'Exclusion': (() => {
+      const clients = ['AB Ventures','ABA','AJ Super Bowl 2026','aPost Super Bowl','Arizona Club','C Phoenix Speedway LLC','Crystal Event Center','Desert Sky Pavilion','Empire Polo Club','Grand Bell Arena'];
+      const items = clients.map(c => {
+        const id = c.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+        return `<div class="excl-item" id="excl-cli-${id}" style="padding:2px 6px;cursor:pointer">${c}</div>`;
+      }).join('');
+      return `
+        <div id="excl-save-msg" class="msg-success" style="margin:6px 0">&#10004; Exclusion saved successfully.</div>
+        <div style="margin:6px 0;font-size:13px"><label style="cursor:pointer"><input type="radio" name="excl-type" checked> Exclude Client</label> &nbsp;&nbsp; <label style="cursor:pointer"><input type="radio" name="excl-type"> Exclude Venue</label></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;margin-top:8px">
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:4px">Available Client</div>
+            <div id="excl-avail" style="border:1px solid #aaa;height:120px;overflow-y:auto;background:#fff;padding:2px;font-size:12px">${items}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;justify-content:center;padding-top:34px">
+            <button class="btn btn-sm" id="excl-move-right">&gt;&gt;</button>
+            <button class="btn btn-sm" id="excl-move-left">&lt;&lt;</button>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:4px">Excluded Client</div>
+            <div id="excl-excluded" style="border:1px solid #aaa;height:120px;overflow-y:auto;background:#fff;padding:2px;font-size:12px"></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:10px"><button class="btn" id="excl-save">Save</button><button class="btn btn-secondary">Back</button></div>`;
+    })(),
+    'Address/Phone': `
+      <div id="ap-save-msg" class="msg-success" style="margin:6px 0">&#10004; Contact information saved successfully.</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Address Line 1 :</td><td><input class="form-input" id="ap-addr1" value="123 Main St" style="width:230px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Address Line 2 :</td><td><input class="form-input" id="ap-addr2" style="width:230px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">City :</td><td><input class="form-input" id="ap-city" value="Los Angeles" style="width:175px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">State :</td><td><select class="form-select" id="ap-state" style="width:80px"><option>CA</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Zip :</td><td><input class="form-input" id="ap-zip" value="90001" style="width:90px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Home# :</td><td><input class="form-input" id="ap-home" value="(310) 555-0142" style="width:140px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Cell# :</td><td><input class="form-input" id="ap-cell" value="(310) 555-0199" style="width:140px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" id="ap-email" value="MGonzalez@maildrop.cc" style="width:230px"></td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn" id="ap-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'Licensing': `
+      <div class="page-title" style="font-size:18px">Add Employee License</div>
+      <div id="lic-save-msg" class="msg-success" style="margin:6px 0">&#10004; License saved successfully.</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:200px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">License :</td><td><select class="form-select" id="lic-type" style="width:200px"><option>--select--</option><option>Guard Card</option><option>Driver License</option><option>CPR Certification</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">License Status :</td><td><select class="form-select" id="lic-status" style="width:200px"><option>--select--</option><option>Active</option><option>InActive</option><option>Expired</option><option>Denied</option><option>Yes</option><option>No</option><option>Rejected</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Active Date :</td><td><input class="form-input" id="lic-date" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Document :</td><td><button class="btn btn-sm btn-secondary" id="lic-doc">Choose File</button> <span id="lic-doc-name" style="font-size:12px;color:#555">No file chosen &nbsp;(pdf/jpeg Files)</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="lic-notes" style="width:200px;height:70px;border:1px solid #999"></textarea></td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn" id="lic-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'BG Check': `
+      <div id="bg-save-msg" class="msg-success" style="margin:6px 0">&#10004; Background check saved successfully.</div>
+      <div class="page-title" style="font-size:18px">Background Documents</div>
+      <div id="bg-status-box" style="text-align:center;font-size:13px;margin:10px 0 4px">
+        <div style="margin:4px 0"><b>Background Check Date :</b> 01/01/2025</div>
+        <div style="margin:4px 0"><b>Background Expiration Date :</b> 01/01/2028</div>
+        <div style="margin:4px 0"><b>Background Status :</b> <span style="color:#2a9a2a;font-weight:bold">APPROVED</span></div>
+        <div style="margin:4px 0"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">View Background Check</a></div>
+        <div style="margin:8px 0"><button class="btn" id="bg-submit">Submit Background</button></div>
+      </div>
+      <div class="page-title" style="font-size:18px;margin-top:14px">Other Check</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin:6px auto 0">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Name :</td><td><input class="form-input" id="bg-check-name" style="width:175px">${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Date :</td><td><input class="form-input" id="bg-check-date" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" id="bg-exp-date" style="width:90px">${calBtn()}</td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn" id="bg-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'Disciplinary Action': `
+      <div id="da-save-msg" class="msg-success" style="margin:6px 0">&#10004; Disciplinary action saved successfully.</div>
+      <table id="da-history" style="width:100%;border-collapse:collapse">
+        <thead><tr style="background:#5a5a5a;color:#fff;font-size:12px">
+          <th style="text-align:left;padding:6px 8px">Name</th><th style="text-align:left;padding:6px 8px">Additional Status</th>
+          <th style="text-align:left;padding:6px 8px">Violation Type</th><th style="text-align:left;padding:6px 8px">Effective Date</th>
+          <th style="padding:6px 8px">No Of Days</th><th style="text-align:left;padding:6px 8px">Notes</th>
+          <th style="padding:6px 8px">Edit</th><th style="padding:6px 8px">Copy</th><th style="padding:6px 8px">View</th>
+        </tr></thead>
+        <tbody id="da-history-body" style="font-size:12px">
+          <tr style="background:#f7f7f7"><td style="padding:6px 8px">Notes</td><td></td><td style="padding:6px 8px">Late Cancellation</td><td style="padding:6px 8px">05/18/2026</td><td></td><td style="padding:6px 8px">fired [ Andre Fuller 05-18-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td></td></tr>
+          <tr style="background:#ededed"><td style="padding:6px 8px;color:#3a6aaa">Written Warning</td><td></td><td style="padding:6px 8px">Other (Record in Notes Below)</td><td style="padding:6px 8px">04/15/2026</td><td></td><td style="padding:6px 8px">test [ Andre Fuller 04-15-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td style="text-align:center;color:#3a6aaa">&#128462;</td></tr>
+        </tbody>
+      </table>
+      <div class="page-title" style="font-size:18px;margin-top:14px">Disciplinary Action</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Action Taken :</td><td><select class="form-select" id="da-action" style="width:185px"><option>-- select --</option><option>Investigation</option><option>Suspension</option><option>Terminated</option><option>Verbal Warning</option><option>Written Warning</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Violation Type :</td><td><select class="form-select" id="da-violation" style="width:185px"><option>-- select --</option><option>Late Cancellation</option><option>Attendance</option><option>Conduct</option><option>Safety</option><option>Other (Record in Notes Below)</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Effective Date :</td><td><input class="form-input" id="da-date" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Document (Max 2MB)<br>(pdf/jpeg Files) :</td><td style="vertical-align:top;padding-top:4px"><button class="btn btn-sm btn-secondary" id="da-doc">Choose File</button> <span id="da-doc-name" style="font-size:12px;color:#555">No file chosen</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="da-notes" style="width:230px;height:60px;border:1px solid #999"></textarea>${req}</td></tr>
+        <tr><td></td><td style="padding-top:6px"><button class="btn" id="da-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'Pay Rate': `
+      <div id="pr-save-msg" class="msg-success" style="margin:6px 0">&#10004; PayRate for 'Maria' has been updated successfully.</div>
+      <div style="margin:4px 0 8px"><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Show all roles ( Including de-active )</label></div>
+      <div id="pr-table-wrap" style="overflow-x:auto;border:1px solid #ddd">
+        <table id="pr-history" style="border-collapse:collapse;font-size:12px;min-width:920px;width:100%">
+          <thead><tr style="background:#5a5a5a;color:#fff">
+            <th style="text-align:left;padding:6px 8px">Branch</th><th style="text-align:left;padding:6px 8px">Dept</th><th style="text-align:left;padding:6px 8px">Role</th>
+            <th style="text-align:left;padding:6px 8px">ActiveDate</th><th style="text-align:left;padding:6px 8px">DeActivationDate</th><th style="text-align:left;padding:6px 8px">Status</th>
+            <th style="text-align:right;padding:6px 8px">Amount($)</th><th style="text-align:left;padding:6px 8px">PayStructure</th><th style="text-align:left;padding:6px 8px">Created By</th><th style="text-align:left;padding:6px 8px">Action</th>
+          </tr></thead>
+          <tbody id="pr-history-body">
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Staff</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Manager</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">20.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Training</td><td style="padding:5px 8px">17-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Ticket Taker</td><td style="padding:5px 8px">01-Nov-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">15.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Security Guard</td><td style="padding:5px 8px">16-Dec-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr id="pr-row-sup" style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Supervisor</td><td style="padding:5px 8px">24-Jun-2025</td><td id="pr-deact-sup" style="padding:5px 8px">-</td><td id="pr-status-sup" style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a id="pr-deact-link-sup" style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="page-title" style="font-size:18px;margin-top:14px">Add Employee Rate</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="background:#fdebd0;border:1px solid #e0c090;border-radius:3px;padding:12px 14px">
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" id="pr-branch" style="width:170px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" id="pr-dept" style="width:120px"><option>Staff</option></select>${req} <label style="font-size:11px"><input type="checkbox"> Multiple Role</label></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Role :</td><td><select class="form-select" id="pr-role" style="width:170px"><option>--Select--</option><option>Event Staff</option><option>Event Manager</option><option>Training</option><option>Ticket Taker</option><option>Security Guard</option><option>Supervisor</option></select>${req}</td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Amount :</td><td><input class="form-input" id="pr-amount" style="width:70px">${req}<span style="font-size:11px;color:#555"> $ (Max Payrate Limit: $25.00)</span></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Active Date :</td><td><input class="form-input" id="pr-date" style="width:90px">${calBtn()}${req}</td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Pay Structure :</td><td><select class="form-select" id="pr-paystructure" style="width:130px"><option>--Select--</option><option>Hourly</option></select></td></tr>
+            <tr><td></td><td style="padding-top:6px"><button class="btn" id="pr-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+          </table>
+        </div>
+        <div style="background:#e4e0f2;border:1px solid #b8aede;border-radius:3px;padding:12px 14px">
+          <div style="background:#fff7c0;border:1px solid #e0d080;padding:5px 8px;font-size:11px;color:#665500;margin-bottom:8px;max-width:260px">Default overtime rates are from department. You can edit by clicking on check boxes. You can set up Pay Group Name under company.</div>
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            <tr><td style="font-size:13px;padding-right:8px">Daily Over-Time :</td><td><input type="checkbox"></td><td><input class="form-input" value="2" style="width:34px;text-align:center"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Daily Double-Time :</td><td><input type="checkbox"></td><td><input class="form-input" value="2" style="width:34px;text-align:center"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Weekly Over-Time :</td><td><input type="checkbox"></td><td><input class="form-input" value="2" style="width:34px;text-align:center"></td></tr>
+            <tr><td style="font-size:13px;padding-right:8px">Pay Group Name :</td><td colspan="2"><select class="form-select" style="width:120px"><option>--Select--</option></select></td></tr>
+            <tr><td colspan="3" style="padding-top:6px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+          </table>
+        </div>
+      </div>`,
+    'JobTraining': `
+      <div id="jt-empty" style="background:#f8d7da;border:1px solid #d8a0a8;color:#a02030;padding:6px 10px;font-size:13px;margin:6px 0;display:flex;align-items:center;gap:8px"><span style="background:#c0392b;color:#fff;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;font-size:11px">&#10005;</span> No job training record found.</div>
+      <div style="margin:4px 0 8px"><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Show only Active training</label></div>
+      <div class="page-title" style="font-size:18px">Add/Edit Employee Training</div>
+      <table id="jt-form" style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job Training Class :</td><td><select class="form-select" id="jt-class" style="width:185px"><option>--Select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Name :</td><td><select class="form-select" id="jt-name" style="width:185px"><option>--Select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" id="jt-start" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" id="jt-exp" style="width:90px">${calBtn()}</td></tr>
+        <tr><td></td><td style="padding-top:6px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Cancel</button></td></tr>
+      </table>`,
+    'Notes': (() => {
+      const rows = [
+        ['Late Cancellation - Excused','Other; 141003559538; 11/05/24 2:30:00 PM; WISH [ Andre Fuller 11-05-2024 ]'],
+        ['Late Cancellation - Excused','Other; 141003631545; 08/28/25 12:30:00 PM; WISH [ Andre Fuller 08-28-2025 ]'],
+        ['Late Cancellation - Excused','Other; 141003650214; 11/19/25 3:00:00 PM; WISH [ Andre Fuller 11-19-2025 ]'],
+        ['Late Cancellation - Excused',''],
+        ['Cancellation','Other; 141003677247; 02/20/26 7:00:00 AM; T [ Andre Fuller 02-18-2026 ]'],
+        ['Late Cancellation - Excused','Reschedule; 5023704828; 05/30/26 10:00:00 AM; [ Renee Calderon 06-02-2026 ]'],
+        ['Late Cancellation - Excused','Reschedule; 5023704828; 05/30/26 10:00:00 AM; [ Renee Calderon 06-02-2026 ]'],
+        ['Cancellation','Other; 5023708436; 06/10/26 2:30:00 PM; WISH [ Andre Fuller 06-09-2026 ]'],
+      ].map((r,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="font-size:12px;padding:6px 8px">${r[0]}</td><td style="font-size:12px;padding:6px 8px">${r[1]}</td><td style="font-size:12px;padding:6px 8px">No</td><td style="text-align:center;padding:6px 8px;color:#c89000">&#9998;</td></tr>`).join('');
+      return `
+        <div id="note-save-msg" class="msg-success" style="margin:6px 0">&#10004; Note saved successfully.</div>
+        <table id="note-history" style="width:100%;border-collapse:collapse">
+          <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:6px 8px">Notes Type</th><th style="text-align:left;padding:6px 8px">Notes</th><th style="padding:6px 8px">Confidential</th><th style="padding:6px 8px">Edit</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="page-title" style="font-size:18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center">Add New Employee Notes <label style="font-size:12px;font-weight:normal"><input type="checkbox"> No Show Notes</label></div>
+        <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" id="note-type" style="width:180px"><option>--select--</option><option>Scheduling Concern</option><option>Follow-Up</option><option>Equipment Issued</option><option>General</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="note-text" style="width:230px;height:60px;border:1px solid #999"></textarea></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Confidential :</td><td><input type="checkbox" id="note-conf"></td></tr>
+          <tr><td></td><td style="padding-top:6px"><button class="btn" id="note-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+        </table>`;
+    })(),
+  };
+  return contents[tab] || `<div style="color:#888;padding:24px;font-size:13px">The <b>${tab}</b> tab is visible but view-only at the Workforce Scheduler Maintenance access level.</div>`;
+}
+
+function setEmpRecTab(name) {
+  document.querySelectorAll('#emp-rec-tabs .tab').forEach(t => t.classList.remove('active'));
+  const el = document.getElementById(empRecSlug(name));
+  if (el) el.classList.add('active');
+  document.getElementById('emp-rec-content').innerHTML = empRecordTabContent(name);
+}
+
 function slide_workforce_scheduler_mntnnce_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Personal Info','Licensing','Background Check','Employee Notes'];
+  // Finding an Employee — Records > Manage Employee > search > open the record (ends here; tabs are slide 4+)
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
+    { selector: '#nav-records', prompt: 'Click "Records" in the navigation to open its menu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee" in the drop-down',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Search by employee number, first or last name, or the last 4 of their SSN. Type a last name here', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Leave fields blank to broaden your search, or fill in more to narrow it. Click "Search" when ready',
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
+    { selector: '#emp-link', prompt: 'Results show Last Name, First Name, Employee Number, Branch Name, and Status. Click the last name (blue link) to open their record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_4() {
+  // Inside the Employee Record — starts where slide 3 left off (record already open); points out editable vs view-only tabs
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#emp-rec-title', prompt: 'The record is now open. Always confirm the name and employee number at the top before making any changes', skipClick: true },
+    { selector: '#etab-licensing', also: ['#etab-bg-check', '#etab-notes'],
+      prompt: 'At Workforce Scheduler Maintenance level, these three tabs are yours to edit: Licensing, BG Check, and Notes', skipClick: true },
     { selector: '#etab-licensing', prompt: 'Click "Licensing" to view the employee\'s licenses',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Licensing'); }},
-    { selector: '#etab-background-check', prompt: 'Click "Background Check" to review background status',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Background Check'); }},
-    { selector: '#etab-employee-notes', prompt: 'Click "Employee Notes" to view notes on this employee',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Employee Notes'); }},
+      onConfirm: () => setEmpRecTab('Licensing') },
+    { selector: '#etab-bg-check', prompt: 'Click "BG Check" to review background status',
+      onConfirm: () => setEmpRecTab('BG Check') },
+    { selector: '#etab-notes', prompt: 'Click "Notes" to view notes on this employee',
+      onConfirm: () => setEmpRecTab('Notes') },
+    { selector: '#etab-personal-information', also: ['#etab-pay-rate', '#etab-disciplinary-action'],
+      prompt: 'Tabs like Personal Information, Pay Rate, and Disciplinary Action are visible but view-only at this access level', skipClick: true },
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_5() {
+  // Licensing Tab — continues inside the record from the previous slide; add / update a license
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-licensing', prompt: 'Open the "Licensing" tab — this is where guard card info is stored. Always confirm the card is active and not expired before scheduling a licensed position',
+      onConfirm: () => setEmpRecTab('Licensing') },
+    { selector: '#lic-type', prompt: 'Choose the license type from the "License" drop-down',
+      onConfirm: () => { document.getElementById('lic-type').value = 'Guard Card'; }},
+    { selector: '#lic-status', prompt: 'Click the "License Status" drop-down and select a status (e.g. Active)',
+      onConfirm: () => { document.getElementById('lic-status').value = 'Active'; }},
+    { selector: '#lic-date', prompt: 'Enter the Active Date for the license', type: '06/15/2026' },
+    { selector: '#lic-doc', prompt: 'Click "Choose File" to attach the guard card (PDF or JPEG)',
+      onConfirm: () => { document.getElementById('lic-doc-name').textContent = 'guard_card.pdf'; }},
+    { selector: '#lic-notes', prompt: 'Add any notes for this license', type: 'Guard card verified and on file.' },
+    { selector: '#lic-save', prompt: 'Click "Save" to record the license',
+      onConfirm: () => { document.getElementById('lic-save-msg').classList.add('show'); }},
+    { selector: '#lic-save-msg', prompt: 'The "License saved successfully" confirmation appears', skipClick: true },
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_6() {
+  // Background Check Tab — continues inside the record from the previous slide; review status, record a new check, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-bg-check', prompt: 'Open the "BG Check" tab — it shows the status and history of the employee\'s background check',
+      onConfirm: () => setEmpRecTab('BG Check') },
+    { selector: '#bg-status-box', prompt: 'Review the current status, check date, and expiration date. If it\'s pending or expired, flag it with your administrator before scheduling that employee', skipClick: true },
+    { selector: '#bg-check-name', prompt: 'Under "Other Check", enter the name of the new check', type: 'Annual Background Re-check' },
+    { selector: '#bg-check-date', prompt: 'Enter the date the check was completed', type: '06/15/2026' },
+    { selector: '#bg-exp-date', prompt: 'Enter the expiration date for the new check', type: '06/15/2028' },
+    { selector: '#bg-save', prompt: 'Click "Save" to record the background check',
+      onConfirm: () => { document.getElementById('bg-save-msg').classList.add('show'); }},
+    { selector: '#bg-save-msg', prompt: 'The "Background check saved successfully" confirmation appears', skipClick: true },
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_7() {
+  // Employee Notes Tab — continues inside the record from the previous slide; review notes, add a new note, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-notes', prompt: 'Open the "Notes" tab — where your branch records important info about an employee that isn\'t captured elsewhere',
+      onConfirm: () => setEmpRecTab('Notes') },
+    { selector: '#note-history', prompt: 'Review the existing notes on this employee. Notes are branch-level — visible to your branch, but not shared system-wide', skipClick: true },
+    { selector: '#note-type', prompt: 'Under "Add New Employee Notes", choose the note type',
+      onConfirm: () => { document.getElementById('note-type').value = 'Scheduling Concern'; }},
+    { selector: '#note-text', prompt: 'Type the note — always include the date and a brief description of what it\'s about', type: '06/15/2026 - Prefers weekday shifts; unavailable weekends through July.' },
+    { selector: '#note-save', prompt: 'Click "Save" to record the note',
+      onConfirm: () => { document.getElementById('note-save-msg').classList.add('show'); }},
+    { selector: '#note-save-msg', prompt: 'The "Note saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
 function slide_workforce_admin_maintenance_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Disciplinary Action','Pay Rate','Training'];
+  // Disciplinary Action Tab (module 11) — first demo of the module: look up the employee, open the record, log a disciplinary action
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
+    { selector: '#nav-records', prompt: 'Go to "Records" to look up the employee',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Type a last name and search for the employee', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search"',
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-pay-rate', prompt: 'Click "Pay Rate" to view compensation information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
-    { selector: '#etab-training', prompt: 'Click "Training" to view completed training records',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Training'); }},
+    { selector: '#emp-link', prompt: 'Click the last name (blue link) to open their record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
+    { selector: '#etab-disciplinary-action', prompt: 'Open the "Disciplinary Action" tab — where formal disciplinary records are logged',
+      onConfirm: () => setEmpRecTab('Disciplinary Action') },
+    { selector: '#da-history', prompt: 'View the full history of disciplinary actions already on file for this employee', skipClick: true },
+    { selector: '#da-action', prompt: 'To add a new record, choose the Action Taken',
+      onConfirm: () => { document.getElementById('da-action').value = 'Written Warning'; }},
+    { selector: '#da-violation', prompt: 'Select the Violation Type — the category of disciplinary action',
+      onConfirm: () => { document.getElementById('da-violation').value = 'Conduct'; }},
+    { selector: '#da-date', prompt: 'Enter the Effective Date — the date the action occurred', type: '06/15/2026' },
+    { selector: '#da-notes', prompt: 'Write clear, factual notes. These records are part of the employee\'s permanent file and may be referenced in reviews or investigations', type: '06/15/2026 - Verbal counseling documented; employee acknowledged. Follow-up in 30 days.' },
+    { selector: '#da-save', prompt: 'Click "Save" to record the disciplinary action — it now appears in the history above with the rest of the records',
+      onConfirm: () => {
+        const action = document.getElementById('da-action').value;
+        const viol = document.getElementById('da-violation').value;
+        const date = document.getElementById('da-date').value || '06/15/2026';
+        const notes = document.getElementById('da-notes').value;
+        const row = document.createElement('tr');
+        row.style.background = '#fffbe8'; // highlight the newly added record
+        row.innerHTML = '<td style="padding:6px 8px;color:#3a6aaa">' + action + '</td><td></td>' +
+          '<td style="padding:6px 8px">' + viol + '</td><td style="padding:6px 8px">' + date + '</td><td></td>' +
+          '<td style="padding:6px 8px">' + notes + ' [ Andre Fuller ' + date.replace(/\//g, '-') + ' ]</td>' +
+          '<td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td style="text-align:center;color:#3a6aaa">&#128462;</td>';
+        document.getElementById('da-history-body').appendChild(row);
+        document.getElementById('da-save-msg').classList.add('show');
+      }},
+    { selector: '#da-save-msg', prompt: 'The "Disciplinary action saved successfully" confirmation appears, and your new record now shows in the history above', skipClick: true },
+  ]);
+}
+
+function slide_workforce_admin_maintenance_4() {
+  // Pay Rates Tab (module 11) — keep it simple: open the tab, deactivate a rate, show the success banner
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab',
+      onConfirm: () => {
+        setEmpRecTab('Pay Rate');
+        const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = w.scrollWidth;
+      }},
+    { selector: '#pr-deact-link-sup', prompt: 'To change a rate, you deactivate it — click the blue "DeActivate" link in the Action column',
+      onConfirm: () => {
+        document.getElementById('pr-row-sup').style.display = 'none';
+        document.getElementById('pr-save-msg').classList.add('show');
+        const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = 0;
+      }},
+    { selector: '#pr-save-msg', prompt: 'The green confirmation appears — the pay rate has been updated successfully', skipClick: true },
+  ]);
+}
+
+function slide_workforce_admin_maintenance_5() {
+  // Training Records Tab (module 11, JobTraining) — continues inside the record; view-only (managed by admins)
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-jobtraining', prompt: 'Open the "JobTraining" tab — it shows which WISH training modules the employee has been assigned and completed',
+      onConfirm: () => setEmpRecTab('JobTraining') },
+    { selector: '#jt-empty', prompt: 'View each module\'s completion status. Confirm the employee finished the training their role requires before scheduling them. If a module is incomplete, they may not have the access or knowledge for that role', skipClick: true },
+    { selector: '#jt-form', prompt: 'Training assignments and completions are managed by administrators. If a record looks incorrect, flag it with your administrator rather than changing it yourself', skipClick: true },
+  ]);
+}
+
+function slide_employee_hr_record_maintenance_2() {
+  // What Employee HR Record Maintenance Gives You — reach the record the same way, then show full access to every tab
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'You reach the employee record the same way as always — start by clicking "Records"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Type a last name and search for the employee', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search" to pull up the results',
+      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
+    { selector: '#emp-link', prompt: 'Click the last name (blue link) to open their full record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
+    { selector: '#emp-rec-tabs', prompt: 'At Employee HR Record Maintenance level you have full access to the entire record — every tab here is open to you, including Personal Info, Address/Phone, BG Check, Shared Branches, Exclusion, and Task. Changes you make affect the employee across all branches, so use this access carefully', skipClick: true },
   ]);
 }
 
 function slide_employee_hr_record_maintenance_3() {
+  // Personal Info & Contact Info (module 12) — continues inside the record; view Personal Info, edit Contact Info, Save
   setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Status','Email','Phone','Pay Rate','Background Check','Exclusions','Tasks'];
+  document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
-      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-email', prompt: 'Click "Email" to view email contact information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Email'); }},
-    { selector: '#etab-phone', prompt: 'Click "Phone" to view phone contact information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Phone'); }},
-    { selector: '#etab-pay-rate', prompt: 'Click "Pay Rate" to view compensation details',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
-    { selector: '#etab-exclusions', prompt: 'Click "Exclusions" to view any exclusions on record',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Exclusions'); }},
-    { selector: '#etab-tasks', prompt: 'Click "Tasks" to view onboarding tasks',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Tasks'); }},
+    { selector: '#etab-personal-information', prompt: 'The record opens on Personal Information — legal name, date of birth, status, and email all live here on the same tab',
+      onConfirm: () => setEmpRecTab('Personal Information') },
+    { selector: '#pi-status', prompt: 'Keep the status accurate — an incorrect status can stop the employee from being scheduled or paid correctly', skipClick: true },
+    { selector: '#pi-email', prompt: 'The email is right here, above the SSN — it\'s the address WISH uses for all Mail By communications and login credentials. An outdated email means they won\'t receive them. Update it here', type: 'maria.gonzalez@maildrop.cc' },
+    { selector: '#pi-save', prompt: 'Always click "Save" after making any changes',
+      onConfirm: () => { document.getElementById('pi-save-msg').classList.add('show'); }},
+    { selector: '#pi-save-msg', prompt: 'The "Employee record saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
 function slide_employee_hr_record_maintenance_4() {
+  // Shared Branches (module 12) — continues inside the record; add and remove a shared branch
   setNav('records');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Employee Status</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select" id="f-branch"><option>--Select--</option><option>Los Angeles</option></select></div>
-    <div class="form-row"><span class="form-label">Status :</span>
-      <select class="form-select"><option>Pending</option><option>Active</option></select></div>
-    <div style="margin:12px 0 0 160px"><button class="btn" id="btn-statusearch">Search</button></div>
-    <div id="status-results" style="display:none;margin-top:14px">
-      <div style="margin-bottom:8px;display:flex;gap:8px">
-        <button class="btn btn-sm btn-green">Activate All</button>
-        <button class="btn btn-sm btn-secondary">Inactivate All</button>
-      </div>
-      <table><thead><tr><th>Select</th><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Status</th><th>Applied Date</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox"></td><td>4122010</td><td>Rodriguez</td><td>Carlos</td><td><span style="color:#c06000">Pending</span></td><td>08/01/2023</td></tr>
-        <tr><td><input type="checkbox"></td><td>4122011</td><td>Lee</td><td>Amy</td><td><span style="color:#c06000">Pending</span></td><td>08/05/2023</td></tr>
-      </tbody></table>
-    </div>`;
+  document.getElementById('content').innerHTML = empRecordHTML();
+  const deptHTML =
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox" id="sb-dept-staff"> Staff</label></div>' +
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox"> Supervisor</label></div>' +
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox"> Event Staff</label></div>';
   runGuided([
-    { selector: '#f-branch', prompt: 'Click here to select the Branch',
-      onConfirm: () => { document.getElementById('f-branch').value = 'Los Angeles'; }},
-    { selector: '#btn-statusearch', prompt: 'Click "Search" to find employees with pending status',
-      onConfirm: () => { document.getElementById('status-results').style.display = ''; }},
-    { selector: '#card', prompt: 'Review employees with Pending status. Click to continue.', skipClick: true },
+    { selector: '#etab-shared-branches', prompt: 'Open the "Shared Branches" tab — it controls which branches beyond the home branch can see and schedule this employee',
+      onConfirm: () => setEmpRecTab('Shared Branches') },
+    { selector: '#sb-branch-list', prompt: 'Select Branch lists every branch you can share this employee to. Sharing lets that branch search for them, schedule them, and see their record and pay rates', skipClick: true },
+    { selector: '#sb-chk-dallas', prompt: 'Share the employee to another branch by checking it — here, Dallas. Add branches carefully; it gives that branch access to the employee\'s record',
+      onConfirm: () => { document.getElementById('sb-chk-dallas').checked = true; document.getElementById('sb-dept-list').innerHTML = deptHTML; }},
+    { selector: '#sb-dept-staff', prompt: 'Pick which department(s) at that branch can use them',
+      onConfirm: () => { document.getElementById('sb-dept-staff').checked = true; }},
+    { selector: '#sb-chk-dallas', prompt: 'To stop sharing, simply uncheck the branch. Remove the sharing when it\'s no longer needed',
+      onConfirm: () => { document.getElementById('sb-chk-dallas').checked = false; document.getElementById('sb-dept-list').innerHTML = ''; }},
+  ]);
+}
+
+function slide_employee_hr_record_maintenance_5() {
+  // Exclusions (module 12) — continues inside the record; exclude a client via the transfer list, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-exclusion', prompt: 'Open the "Exclusion" tab — it lets you flag clients or jobs an employee should never be assigned to',
+      onConfirm: () => setEmpRecTab('Exclusion') },
+    { selector: '#excl-avail', prompt: 'Keep "Exclude Client" selected (or switch to Exclude Venue), then find the client in the Available list', skipClick: true },
+    { selector: '#excl-cli-arizona-club', prompt: 'Select the client to exclude — here, Arizona Club',
+      onConfirm: () => { const el = document.getElementById('excl-cli-arizona-club'); if (el) { el.style.background = '#cfe2ff'; } }},
+    { selector: '#excl-move-right', prompt: 'Click the ">>" button to move it into the Excluded Client list',
+      onConfirm: () => {
+        const el = document.getElementById('excl-cli-arizona-club');
+        if (el) { el.style.display = 'none'; const row = document.createElement('div'); row.style.cssText = 'padding:2px 6px;background:#fffbe8'; row.textContent = 'Arizona Club'; document.getElementById('excl-excluded').appendChild(row); }
+      }},
+    { selector: '#excl-save', prompt: 'Click "Save". Once set, the employee won\'t appear as available when scheduling for that client',
+      onConfirm: () => { document.getElementById('excl-save-msg').classList.add('show'); }},
+    { selector: '#excl-save-msg', prompt: 'Saved. Remember: an exclusion is a scheduling control, not disciplinary action — document the reason in Employee Notes so the context is on record', skipClick: true },
+  ]);
+}
+
+function manageEmpStatusHTML() {
+  return `
+    <div class="page-title">Manage Employee Status</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;gap:30px;margin-top:6px">
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" id="mes-branch" style="width:180px"><option>Prota LA Branch Test</option></select><span style="color:#c00"> *</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:180px"><option>Staff</option></select><span style="color:#c00"> *</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">End Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Event Name :</td><td><select class="form-select" style="width:188px"><option></option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" style="width:180px"></td></tr>
+      </table>
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">WorkGroup :</td><td><select class="form-select" style="width:180px"><option>--select--</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Emp Status :</td><td><select class="form-select" id="mes-empstatus" style="width:180px"><option>All</option><option>Active</option><option>Inactive</option><option>Pending</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee not SignedIn :</td><td><input type="checkbox"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Excluded WorkGroup :</td><td><input type="checkbox" checked></td></tr>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-search">Search</button><button class="btn btn-secondary">Import new hires</button></div>
+    <div id="mes-save-msg" class="msg-success" style="margin:12px 0 0">&#10004; Status updated for the selected employees.</div>
+    <div id="mes-results" style="display:none;margin-top:14px">
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%"><thead><tr style="background:#5a5a5a;color:#fff">
+        <th style="padding:5px 8px"><input type="checkbox" id="mes-all"></th>
+        <th style="text-align:left;padding:5px 8px">Last Name &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">First Name &#9650;&#9660;</th>
+        <th style="text-align:left;padding:5px 8px">Employee# &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">Status &#9650;&#9660;</th></tr></thead>
+      <tbody id="mes-body">
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox" id="mes-chk-1"></td><td style="padding:4px 8px;color:#3a6aaa">Okafor</td><td style="padding:4px 8px">Terrence</td><td style="padding:4px 8px">3951601</td><td id="mes-st-1" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox" id="mes-chk-2"></td><td style="padding:4px 8px;color:#3a6aaa">Vasquez</td><td style="padding:4px 8px">Lorena</td><td style="padding:4px 8px">3951612</td><td id="mes-st-2" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox" id="mes-chk-3"></td><td style="padding:4px 8px;color:#3a6aaa">Brennan</td><td style="padding:4px 8px">Marcus</td><td style="padding:4px 8px">3951623</td><td id="mes-st-3" style="padding:4px 8px"><span style="color:#c06000">Pending</span></td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox" id="mes-chk-4"></td><td style="padding:4px 8px;color:#3a6aaa">Sandoval</td><td style="padding:4px 8px">Priya</td><td style="padding:4px 8px">3951634</td><td id="mes-st-4" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Whitfield</td><td style="padding:4px 8px">Daria</td><td style="padding:4px 8px">3951645</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Calderon</td><td style="padding:4px 8px">Renee</td><td style="padding:4px 8px">3951656</td><td style="padding:4px 8px"><span style="color:#c06000">Pending</span></td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Bennett</td><td style="padding:4px 8px">Joel</td><td style="padding:4px 8px">3951667</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Brooks</td><td style="padding:4px 8px">Tara</td><td style="padding:4px 8px">3951678</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Carter</td><td style="padding:4px 8px">Miles</td><td style="padding:4px 8px">3951689</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Diaz</td><td style="padding:4px 8px">Elena</td><td style="padding:4px 8px">3951690</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Ellis</td><td style="padding:4px 8px">Grant</td><td style="padding:4px 8px">3951701</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Foster</td><td style="padding:4px 8px">Naomi</td><td style="padding:4px 8px">3951712</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Hayes</td><td style="padding:4px 8px">Darnell</td><td style="padding:4px 8px">3951723</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Ingram</td><td style="padding:4px 8px">Cleo</td><td style="padding:4px 8px">3951734</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Jensen</td><td style="padding:4px 8px">Paul</td><td style="padding:4px 8px">3951745</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Mercer</td><td style="padding:4px 8px">Lila</td><td style="padding:4px 8px">3951756</td><td style="padding:4px 8px">Active</td></tr>
+      </tbody></table>
+      <div id="mes-actions" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+        <button class="btn btn-sm" id="mes-btn-status">Change Status</button>
+        <button class="btn btn-sm btn-secondary">Add PayRate</button>
+        <button class="btn btn-sm btn-secondary">Assign Pay Structure</button>
+        <button class="btn btn-sm btn-secondary">Assign Department</button>
+        <button class="btn btn-sm btn-secondary">Add Disciplinary</button>
+      </div>
+      <div style="height:160px"></div>
+      <div id="mes-status-dialog" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;justify-content:center">
+        <div style="background:#fff;border:1px solid #888;border-radius:4px;box-shadow:2px 2px 12px rgba(0,0,0,.35);width:420px;height:max-content;margin-top:120px">
+          <div style="padding:10px 16px;font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa">Status Change</div>
+          <div style="padding:14px 16px">
+            <div class="note-bar">Note: All the * marked fields are mandatory</div>
+            <table style="border-spacing:0 8px;border-collapse:separate;margin:8px auto 0">
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" id="mes-newstatus" style="width:150px"><option>Select</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Suspended</option></select><span style="color:#c00"> *</span></td></tr>
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation :</td><td><input type="checkbox" checked></td></tr>
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation Date :</td><td><input class="form-input" style="width:90px">${calBtn()}<span style="color:#c00"> *</span></td></tr>
+            </table>
+            <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-apply">Submit</button><button class="btn btn-secondary">Cancel</button></div>
+          </div>
+        </div>
+      </div>
+      <div id="mes-warn" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9100;justify-content:center;align-items:flex-start">
+        <div style="background:#fff;border-radius:8px;box-shadow:2px 2px 14px rgba(0,0,0,.4);width:430px;margin-top:30px;padding:16px 20px;font-family:Arial">
+          <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:10px">wish.schedulingsite.com says</div>
+          <div style="font-size:13px;color:#333;margin-bottom:8px">Changing Employee status to Inactive or Suspended will delete the future schedules for the employee.</div>
+          <div style="font-size:13px;color:#333;margin-bottom:16px">Do you want to see the schedules to be deleted?</div>
+          <div style="text-align:right"><button class="btn btn-secondary" id="mes-warn-cancel">Cancel</button><button class="btn" id="mes-warn-ok">OK</button></div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function slide_employee_hr_record_maintenance_6() {
+  // Manage Employee Status (Bulk) — Records > Manage Employee Status; filter, select multiple, apply a bulk status change
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'Go to "Records" to reach the bulk-status tool',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee-status', prompt: 'Click "Manage Employee Status" — a tool for updating many employees at once',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageEmpStatusHTML();
+      }},
+    { selector: '#mes-search', prompt: 'Filter by branch and current status if you need to, then click "Search" to pull the list of employees',
+      onConfirm: () => { document.getElementById('mes-results').style.display = ''; }},
+    { selector: '#mes-chk-1', prompt: 'Select the employees you want to update — you can pick as many as you need',
+      onConfirm: () => { document.getElementById('mes-chk-1').checked = true; document.getElementById('mes-chk-2').checked = true; document.getElementById('mes-chk-3').checked = true; }},
+    { selector: '#mes-actions', prompt: 'At the bottom you have the bulk actions for the selected employees: Change Status, Add PayRate, Assign Pay Structure, Assign Department, and Add Disciplinary', skipClick: true },
+    { selector: '#mes-btn-status', prompt: 'For a bulk status change, click "Change Status" — the Status Change pop-up opens',
+      onConfirm: () => { document.getElementById('mes-status-dialog').style.display = 'flex'; }},
+    { selector: '#mes-newstatus', prompt: 'Choose the new status to apply — here, Inactive',
+      onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; document.getElementById('mes-warn').style.display = 'flex'; }},
+    { selector: '#mes-warn-ok', prompt: 'WISH warns you that setting Inactive or Suspended will delete the employee\'s future schedules. Click OK to continue',
+      onConfirm: () => { document.getElementById('mes-warn').style.display = 'none'; }},
+    { selector: '#mes-apply', prompt: 'Click "Submit". The change hits every selected employee immediately — double-check your selection first',
+      onConfirm: () => {
+        const ns = document.getElementById('mes-newstatus').value;
+        [1,2,3,4].forEach(i => { if (document.getElementById('mes-chk-'+i).checked) { document.getElementById('mes-st-'+i).innerHTML = '<span style="color:#c06000;font-weight:bold">' + ns + '</span>'; } });
+        document.getElementById('mes-status-dialog').style.display = 'none';
+        document.getElementById('mes-save-msg').classList.add('show');
+      }},
+    { selector: '#mes-save-msg', prompt: 'The status is updated for every selected employee at once', skipClick: true },
   ]);
 }
 
@@ -9075,9 +9654,18 @@ const routes = {
   'admin_reporting-5':    slide_admin_reporting_5,
   'admin_reporting-6':    slide_admin_reporting_6,
   'workforce_scheduler_mntnnce-3': slide_workforce_scheduler_mntnnce_3,
+  'workforce_scheduler_mntnnce-4': slide_workforce_scheduler_mntnnce_4,
+  'workforce_scheduler_mntnnce-5': slide_workforce_scheduler_mntnnce_5,
+  'workforce_scheduler_mntnnce-6': slide_workforce_scheduler_mntnnce_6,
+  'workforce_scheduler_mntnnce-7': slide_workforce_scheduler_mntnnce_7,
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
+  'workforce_admin_maintenance-4': slide_workforce_admin_maintenance_4,
+  'workforce_admin_maintenance-5': slide_workforce_admin_maintenance_5,
+  'employee_hr_record_maintenance-2': slide_employee_hr_record_maintenance_2,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
+  'employee_hr_record_maintenance-5': slide_employee_hr_record_maintenance_5,
+  'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
   'hiring_manager-3': slide_hiring_manager_3,
   'hiring_admin-3':   slide_hiring_admin_3,
   'mail_by-3':        slide_mail_by_3,
