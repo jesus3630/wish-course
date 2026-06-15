@@ -2592,13 +2592,14 @@ function empRecordTabContent(tab) {
   const req = '<span style="color:#c00">&nbsp;*</span>';
   const contents = {
     'Personal Information': `
+      <div id="pi-save-msg" class="msg-success" style="margin:6px 0">&#10004; Employee record saved successfully.</div>
       <div style="display:flex;gap:30px;align-items:flex-start">
         <table style="border-spacing:0 5px;border-collapse:separate">
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">Employee# :</td><td><input class="form-input" value="4122000" style="width:175px" readonly></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" value="Maria" style="width:175px">${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Middle Name :</td><td><input class="form-input" style="width:175px"></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" value="Gonzalez" style="width:175px">${req}</td></tr>
-          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" value="MGonzalez@maildrop.cc" style="width:175px"></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" id="pi-email" value="MGonzalez@maildrop.cc" style="width:175px"></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">SSN :</td><td><input class="form-input" value="111223333" style="width:175px"></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" id="pi-status" style="width:183px"><option>Active</option><option>Deceased</option><option>Inactive</option><option>Not Available</option><option>Pending</option><option>Quit</option><option>Suspended</option><option>System Quit</option><option>Terminated</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Marital Status :</td><td><select class="form-select" style="width:183px"><option>Married</option><option>Single</option></select></td></tr>
@@ -2612,7 +2613,7 @@ function empRecordTabContent(tab) {
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation :</td><td><input type="checkbox"></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Title :</td><td><input class="form-input" style="width:175px"></td></tr>
-          <tr><td></td><td style="padding-top:8px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+          <tr><td></td><td style="padding-top:8px"><button class="btn" id="pi-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
         </table>
         <div style="border:1px solid #ccc;border-radius:3px;padding:14px 22px;text-align:center;margin-top:4px"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">Show Picture</a></div>
       </div>`,
@@ -2981,15 +2982,13 @@ function slide_employee_hr_record_maintenance_3() {
   setNav('records');
   document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    { selector: '#etab-personal-information', prompt: 'The record opens on Personal Information — legal name, date of birth, and employee status all live here',
+    { selector: '#etab-personal-information', prompt: 'The record opens on Personal Information — legal name, date of birth, status, and email all live here on the same tab',
       onConfirm: () => setEmpRecTab('Personal Information') },
     { selector: '#pi-status', prompt: 'Keep the status accurate — an incorrect status can stop the employee from being scheduled or paid correctly', skipClick: true },
-    { selector: '#etab-address-phone', prompt: 'Open "Address/Phone" for their Contact Info — home address, phone, and email',
-      onConfirm: () => setEmpRecTab('Address/Phone') },
-    { selector: '#ap-email', prompt: 'Email is critical — it\'s the address WISH uses for all Mail By communications and login credentials. An outdated email means they won\'t receive them. Update it here', type: 'maria.gonzalez@maildrop.cc' },
-    { selector: '#ap-save', prompt: 'Always click "Save" after making any changes',
-      onConfirm: () => { document.getElementById('ap-save-msg').classList.add('show'); }},
-    { selector: '#ap-save-msg', prompt: 'The "Contact information saved successfully" confirmation appears', skipClick: true },
+    { selector: '#pi-email', prompt: 'The email is right here, above the SSN — it\'s the address WISH uses for all Mail By communications and login credentials. An outdated email means they won\'t receive them. Update it here', type: 'maria.gonzalez@maildrop.cc' },
+    { selector: '#pi-save', prompt: 'Always click "Save" after making any changes',
+      onConfirm: () => { document.getElementById('pi-save-msg').classList.add('show'); }},
+    { selector: '#pi-save-msg', prompt: 'The "Employee record saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
