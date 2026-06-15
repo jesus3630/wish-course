@@ -2616,15 +2616,57 @@ function empRecordTabContent(tab) {
         </table>
         <div style="border:1px solid #ccc;border-radius:3px;padding:14px 22px;text-align:center;margin-top:4px"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">Show Picture</a></div>
       </div>`,
-    'Licensing': `<div style="margin-bottom:8px"><button class="btn btn-sm">Add License</button></div>
-      <table><thead><tr><th>License Type</th><th>License#</th><th>Expiry</th><th>Status</th></tr></thead>
-      <tbody><tr><td>Guard Card</td><td>GC-123456</td><td>12/31/2026</td><td><span style="color:#2a9a2a">Active</span></td></tr></tbody></table>`,
-    'BG Check': `<div class="form-row"><span class="form-label">Status :</span><select class="form-select"><option>Approved</option></select></div>
-      <div class="form-row"><span class="form-label">Date :</span><input class="form-input" value="06/01/2025"></div>
-      <div class="form-row"><span class="form-label">Vendor :</span><input class="form-input" value="Sterling Background"></div>`,
-    'Notes': `<div style="margin-bottom:8px"><button class="btn btn-sm">Add Note</button></div>
-      <table><thead><tr><th>Date</th><th>Note</th><th>Added By</th></tr></thead>
-      <tbody><tr><td>07/10/2025</td><td>Employee attended orientation</td><td>Admin</td></tr></tbody></table>`,
+    'Licensing': `
+      <div class="page-title" style="font-size:18px">Add Employee License</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:200px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">License :</td><td><select class="form-select" style="width:200px"><option>--select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">License Status :</td><td><select class="form-select" style="width:200px"><option>--select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Active Date :</td><td><input class="form-input" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Document :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf/jpeg Files)</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea style="width:200px;height:70px;border:1px solid #999"></textarea></td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'BG Check': `
+      <div class="page-title" style="font-size:18px">Background Documents</div>
+      <div style="text-align:center;font-size:13px;margin:10px 0 4px">
+        <div style="margin:4px 0"><b>Background Check Date :</b> 01/01/2025</div>
+        <div style="margin:4px 0"><b>Background Expiration Date :</b> 01/01/2028</div>
+        <div style="margin:4px 0"><b>Background Status :</b> APPROVED</div>
+        <div style="margin:4px 0"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">View Background Check</a></div>
+        <div style="margin:8px 0"><button class="btn">Submit Background</button></div>
+      </div>
+      <div class="page-title" style="font-size:18px;margin-top:14px">Other Check</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin:6px auto 0">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Name :</td><td><input class="form-input" style="width:175px">${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Date :</td><td><input class="form-input" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
+    'Notes': (() => {
+      const rows = [
+        ['Late Cancellation - Excused','Other; 141003559538; 11/05/24 2:30:00 PM; WISH [ Andre Fuller 11-05-2024 ]'],
+        ['Late Cancellation - Excused','Other; 141003631545; 08/28/25 12:30:00 PM; WISH [ Andre Fuller 08-28-2025 ]'],
+        ['Late Cancellation - Excused','Other; 141003650214; 11/19/25 3:00:00 PM; WISH [ Andre Fuller 11-19-2025 ]'],
+        ['Late Cancellation - Excused',''],
+        ['Cancellation','Other; 141003677247; 02/20/26 7:00:00 AM; T [ Andre Fuller 02-18-2026 ]'],
+        ['Late Cancellation - Excused','Reschedule; 5023704828; 05/30/26 10:00:00 AM; [ Renee Calderon 06-02-2026 ]'],
+        ['Late Cancellation - Excused','Reschedule; 5023704828; 05/30/26 10:00:00 AM; [ Renee Calderon 06-02-2026 ]'],
+        ['Cancellation','Other; 5023708436; 06/10/26 2:30:00 PM; WISH [ Andre Fuller 06-09-2026 ]'],
+      ].map((r,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="font-size:12px;padding:6px 8px">${r[0]}</td><td style="font-size:12px;padding:6px 8px">${r[1]}</td><td style="font-size:12px;padding:6px 8px">No</td><td style="text-align:center;padding:6px 8px;color:#c89000">&#9998;</td></tr>`).join('');
+      return `
+        <table style="width:100%;border-collapse:collapse">
+          <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:6px 8px">Notes Type</th><th style="text-align:left;padding:6px 8px">Notes</th><th style="padding:6px 8px">Confidential</th><th style="padding:6px 8px">Edit</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        <div class="page-title" style="font-size:18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center">Add New Employee Notes <label style="font-size:12px;font-weight:normal"><input type="checkbox"> No Show Notes</label></div>
+        <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" style="width:180px"><option>--select--</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea style="width:230px;height:60px;border:1px solid #999"></textarea></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Confidential :</td><td><input type="checkbox"></td></tr>
+          <tr><td></td><td style="padding-top:6px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+        </table>`;
+    })(),
   };
   return contents[tab] || `<div style="color:#888;padding:24px;font-size:13px">The <b>${tab}</b> tab is visible but view-only at the Workforce Scheduler Maintenance access level.</div>`;
 }
