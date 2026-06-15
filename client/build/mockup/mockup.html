@@ -2629,20 +2629,21 @@ function empRecordTabContent(tab) {
         <tr><td></td><td style="padding-top:8px"><button class="btn" id="lic-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
       </table>`,
     'BG Check': `
+      <div id="bg-save-msg" class="msg-success" style="margin:6px 0">&#10004; Background check saved successfully.</div>
       <div class="page-title" style="font-size:18px">Background Documents</div>
-      <div style="text-align:center;font-size:13px;margin:10px 0 4px">
+      <div id="bg-status-box" style="text-align:center;font-size:13px;margin:10px 0 4px">
         <div style="margin:4px 0"><b>Background Check Date :</b> 01/01/2025</div>
         <div style="margin:4px 0"><b>Background Expiration Date :</b> 01/01/2028</div>
-        <div style="margin:4px 0"><b>Background Status :</b> APPROVED</div>
+        <div style="margin:4px 0"><b>Background Status :</b> <span style="color:#2a9a2a;font-weight:bold">APPROVED</span></div>
         <div style="margin:4px 0"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">View Background Check</a></div>
-        <div style="margin:8px 0"><button class="btn">Submit Background</button></div>
+        <div style="margin:8px 0"><button class="btn" id="bg-submit">Submit Background</button></div>
       </div>
       <div class="page-title" style="font-size:18px;margin-top:14px">Other Check</div>
       <table style="border-spacing:0 6px;border-collapse:separate;margin:6px auto 0">
-        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Name :</td><td><input class="form-input" style="width:175px">${req}</td></tr>
-        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Date :</td><td><input class="form-input" style="width:90px">${calBtn()}${req}</td></tr>
-        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
-        <tr><td></td><td style="padding-top:8px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Name :</td><td><input class="form-input" id="bg-check-name" style="width:175px">${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Check Date :</td><td><input class="form-input" id="bg-check-date" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" id="bg-exp-date" style="width:90px">${calBtn()}</td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn" id="bg-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
       </table>`,
     'Notes': (() => {
       const rows = [
@@ -2749,6 +2750,22 @@ function slide_workforce_scheduler_mntnnce_5() {
     { selector: '#lic-notes', prompt: 'Add any notes for this license', type: 'Guard card verified and on file.' },
     { selector: '#lic-save', prompt: 'Click "Save" to record the license',
       onConfirm: () => { document.getElementById('lic-save-msg').classList.add('show'); }},
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_6() {
+  // Background Check Tab — review status, record a new check, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-bg-check', prompt: 'Click the "BG Check" tab',
+      onConfirm: () => setEmpRecTab('BG Check') },
+    { selector: '#bg-status-box', prompt: 'Review the current status, check date, and expiration date. Confirm the check is approved and not expired before scheduling', skipClick: true },
+    { selector: '#bg-check-name', prompt: 'Under "Other Check", enter the name of the new check', type: 'Annual Background Re-check' },
+    { selector: '#bg-check-date', prompt: 'Enter the date the check was completed', type: '06/15/2026' },
+    { selector: '#bg-exp-date', prompt: 'Enter the expiration date for the new check', type: '06/15/2028' },
+    { selector: '#bg-save', prompt: 'Click "Save" to record the background check',
+      onConfirm: () => { document.getElementById('bg-save-msg').classList.add('show'); }},
   ]);
 }
 
@@ -7639,6 +7656,7 @@ const routes = {
   'workforce_scheduler_mntnnce-3': slide_workforce_scheduler_mntnnce_3,
   'workforce_scheduler_mntnnce-4': slide_workforce_scheduler_mntnnce_4,
   'workforce_scheduler_mntnnce-5': slide_workforce_scheduler_mntnnce_5,
+  'workforce_scheduler_mntnnce-6': slide_workforce_scheduler_mntnnce_6,
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,

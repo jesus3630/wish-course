@@ -700,7 +700,8 @@
         "slide_number": 6,
         "slide_name": "Background Check Tab",
         "instructions": "Click the Background Check tab. Show the BG check status field and date. Show updating the status and adding a new check date. Click Save.",
-        "text": "The Background Check tab shows the status and history of an employee's background check.\r\n\r\nWhat you can do here:\r\n* View the current background check status\r\n* Update the status when a new check has been completed\r\n* Record the date of the most recent check\r\n\r\nThis information directly affects whether an employee can be scheduled for certain positions. If a background check is pending or expired, flag it with your administrator before scheduling that employee.\r\n\r\nAfter making any updates, click Save."
+        "text": "The Background Check tab shows the status and history of an employee's background check.\r\n\r\nWhat you can do here:\r\n* View the current background check status\r\n* Update the status when a new check has been completed\r\n* Record the date of the most recent check\r\n\r\nThis information directly affects whether an employee can be scheduled for certain positions. If a background check is pending or expired, flag it with your administrator before scheduling that employee.\r\n\r\nAfter making any updates, click Save.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=6"
       },
       {
         "slide_number": 7,
