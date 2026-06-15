@@ -2706,12 +2706,25 @@ function slide_workforce_scheduler_mntnnce_3() {
 }
 
 function slide_workforce_scheduler_mntnnce_4() {
-  // Inside the Employee Record — opens the record, points out the editable vs view-only tabs
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  document.getElementById('emp-results').style.display = '';
+  // Inside the Employee Record — flows from the lookup, opens the record, points out editable vs view-only tabs
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#emp-link', prompt: 'Click the employee\'s last name to open their full record',
+    { selector: '#nav-records', prompt: 'Go to "Records" to look up the employee',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Search by employee number, name, or last 4 of SSN. Type a last name here', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search" when ready',
+      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
+    { selector: '#emp-link', prompt: 'Click the last name (blue link) to open their full record',
       onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
     { selector: '#emp-rec-title', prompt: 'Always confirm the name and employee number at the top before making any changes', skipClick: true },
     { selector: '#etab-licensing', also: ['#etab-bg-check', '#etab-notes'],
