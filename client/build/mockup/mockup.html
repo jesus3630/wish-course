@@ -2750,11 +2750,10 @@ function slide_workforce_scheduler_mntnnce_4() {
 }
 
 function slide_workforce_scheduler_mntnnce_5() {
-  // Licensing Tab — flows from the lookup, opens the record, then add / update a license
-  setNav('home');
-  document.getElementById('content').innerHTML = homeScreenHTML();
+  // Licensing Tab — continues inside the record from the previous slide; add / update a license
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    ...empLookupSteps(),
     { selector: '#etab-licensing', prompt: 'Open the "Licensing" tab — this is where guard card info is stored. Always confirm the card is active and not expired before scheduling a licensed position',
       onConfirm: () => setEmpRecTab('Licensing') },
     { selector: '#lic-type', prompt: 'Choose the license type from the "License" drop-down',
@@ -2771,11 +2770,10 @@ function slide_workforce_scheduler_mntnnce_5() {
 }
 
 function slide_workforce_scheduler_mntnnce_6() {
-  // Background Check Tab — flows from the lookup, opens the record, review status, record a new check, Save
-  setNav('home');
-  document.getElementById('content').innerHTML = homeScreenHTML();
+  // Background Check Tab — continues inside the record from the previous slide; review status, record a new check, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    ...empLookupSteps(),
     { selector: '#etab-bg-check', prompt: 'Open the "BG Check" tab — it shows the status and history of the employee\'s background check',
       onConfirm: () => setEmpRecTab('BG Check') },
     { selector: '#bg-status-box', prompt: 'Review the current status, check date, and expiration date. If it\'s pending or expired, flag it with your administrator before scheduling that employee', skipClick: true },
@@ -2788,11 +2786,10 @@ function slide_workforce_scheduler_mntnnce_6() {
 }
 
 function slide_workforce_scheduler_mntnnce_7() {
-  // Employee Notes Tab — flows from the lookup, opens the record, review notes, add a new note, Save
-  setNav('home');
-  document.getElementById('content').innerHTML = homeScreenHTML();
+  // Employee Notes Tab — continues inside the record from the previous slide; review notes, add a new note, Save
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    ...empLookupSteps(),
     { selector: '#etab-notes', prompt: 'Open the "Notes" tab — where your branch records important info about an employee that isn\'t captured elsewhere',
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#note-history', prompt: 'Review the existing notes on this employee. Notes are branch-level — visible to your branch, but not shared system-wide', skipClick: true },
