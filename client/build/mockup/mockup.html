@@ -2788,11 +2788,12 @@ function slide_workforce_scheduler_mntnnce_6() {
 }
 
 function slide_workforce_scheduler_mntnnce_7() {
-  // Employee Notes Tab — review existing notes, add a new note, Save
-  setNav('records');
-  document.getElementById('content').innerHTML = empRecordHTML();
+  // Employee Notes Tab — flows from the lookup, opens the record, review notes, add a new note, Save
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#etab-notes', prompt: 'Click the "Notes" tab',
+    ...empLookupSteps(),
+    { selector: '#etab-notes', prompt: 'Open the "Notes" tab — where your branch records important info about an employee that isn\'t captured elsewhere',
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#note-history', prompt: 'Review the existing notes on this employee. Notes are branch-level — visible to your branch, but not shared system-wide', skipClick: true },
     { selector: '#note-type', prompt: 'Under "Add New Employee Notes", choose the note type',
