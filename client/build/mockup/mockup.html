@@ -2710,6 +2710,17 @@ function empRecordTabContent(tab) {
           </table>
         </div>
       </div>`,
+    'JobTraining': `
+      <div id="jt-empty" style="background:#f8d7da;border:1px solid #d8a0a8;color:#a02030;padding:6px 10px;font-size:13px;margin:6px 0;display:flex;align-items:center;gap:8px"><span style="background:#c0392b;color:#fff;border-radius:50%;width:16px;height:16px;display:inline-flex;align-items:center;justify-content:center;font-size:11px">&#10005;</span> No job training record found.</div>
+      <div style="margin:4px 0 8px"><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Show only Active training</label></div>
+      <div class="page-title" style="font-size:18px">Add/Edit Employee Training</div>
+      <table id="jt-form" style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job Training Class :</td><td><select class="form-select" id="jt-class" style="width:185px"><option>--Select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Name :</td><td><select class="form-select" id="jt-name" style="width:185px"><option>--Select--</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" id="jt-start" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" id="jt-exp" style="width:90px">${calBtn()}</td></tr>
+        <tr><td></td><td style="padding-top:6px"><button class="btn">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Cancel</button></td></tr>
+      </table>`,
     'Notes': (() => {
       const rows = [
         ['Late Cancellation - Excused','Other; 141003559538; 11/05/24 2:30:00 PM; WISH [ Andre Fuller 11-05-2024 ]'],
@@ -2920,6 +2931,18 @@ function slide_workforce_admin_maintenance_4() {
         document.getElementById('pr-history-body').appendChild(row);
         document.getElementById('pr-save-msg').classList.add('show');
       }},
+  ]);
+}
+
+function slide_workforce_admin_maintenance_5() {
+  // Training Records Tab (module 11, JobTraining) — continues inside the record; view-only (managed by admins)
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  runGuided([
+    { selector: '#etab-jobtraining', prompt: 'Open the "JobTraining" tab — it shows which WISH training modules the employee has been assigned and completed',
+      onConfirm: () => setEmpRecTab('JobTraining') },
+    { selector: '#jt-empty', prompt: 'View each module\'s completion status. Confirm the employee finished the training their role requires before scheduling them. If a module is incomplete, they may not have the access or knowledge for that role', skipClick: true },
+    { selector: '#jt-form', prompt: 'Training assignments and completions are managed by administrators. If a record looks incorrect, flag it with your administrator rather than changing it yourself', skipClick: true },
   ]);
 }
 
@@ -7797,6 +7820,7 @@ const routes = {
   'workforce_scheduler_mntnnce-7': slide_workforce_scheduler_mntnnce_7,
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
   'workforce_admin_maintenance-4': slide_workforce_admin_maintenance_4,
+  'workforce_admin_maintenance-5': slide_workforce_admin_maintenance_5,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
   'hiring_manager-3': slide_hiring_manager_3,

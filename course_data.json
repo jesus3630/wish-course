@@ -758,7 +758,8 @@
         "slide_number": 5,
         "slide_name": "Training Records Tab",
         "instructions": "Click the Training tab inside the employee record. Show the list of WISH training modules and their completion status.",
-        "text": "The Training Records tab shows which WISH training modules an employee has been assigned and completed.\r\n\r\nWhat you can do here:\r\n* View training completion status for each module\r\n* Confirm whether an employee has finished the training required for their role\r\n\r\nThis is useful before scheduling someone for a position that requires specific training. If a module shows as incomplete, the employee may not have the access or knowledge needed to perform that role in WISH.\r\n\r\nTraining assignments and completions are managed by administrators, if a training record looks incorrect, flag it with your administrator rather than attempting to change it yourself."
+        "text": "The Training Records tab shows which WISH training modules an employee has been assigned and completed.\r\n\r\nWhat you can do here:\r\n* View training completion status for each module\r\n* Confirm whether an employee has finished the training required for their role\r\n\r\nThis is useful before scheduling someone for a position that requires specific training. If a module shows as incomplete, the employee may not have the access or knowledge needed to perform that role in WISH.\r\n\r\nTraining assignments and completions are managed by administrators, if a training record looks incorrect, flag it with your administrator rather than attempting to change it yourself.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=5"
       },
       {
         "slide_number": 6,
