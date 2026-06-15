@@ -2600,7 +2600,7 @@ function empRecordTabContent(tab) {
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" value="Gonzalez" style="width:175px">${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" value="MGonzalez@maildrop.cc" style="width:175px"></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">SSN :</td><td><input class="form-input" value="111223333" style="width:175px"></td></tr>
-          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" style="width:183px"><option>Active</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" id="pi-status" style="width:183px"><option>Active</option><option>Inactive</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Marital Status :</td><td><select class="form-select" style="width:183px"><option>Married</option><option>Single</option></select></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Gender :</td><td><select class="form-select" style="width:183px;color:#888"><option>Female</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:183px;color:#888"><option>Prota LA Branch Test</option></select>${req}</td></tr>
@@ -2616,6 +2616,19 @@ function empRecordTabContent(tab) {
         </table>
         <div style="border:1px solid #ccc;border-radius:3px;padding:14px 22px;text-align:center;margin-top:4px"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">Show Picture</a></div>
       </div>`,
+    'Address/Phone': `
+      <div id="ap-save-msg" class="msg-success" style="margin:6px 0">&#10004; Contact information saved successfully.</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Address Line 1 :</td><td><input class="form-input" id="ap-addr1" value="123 Main St" style="width:230px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Address Line 2 :</td><td><input class="form-input" id="ap-addr2" style="width:230px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">City :</td><td><input class="form-input" id="ap-city" value="Los Angeles" style="width:175px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">State :</td><td><select class="form-select" id="ap-state" style="width:80px"><option>CA</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Zip :</td><td><input class="form-input" id="ap-zip" value="90001" style="width:90px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Home# :</td><td><input class="form-input" id="ap-home" value="(310) 555-0142" style="width:140px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Cell# :</td><td><input class="form-input" id="ap-cell" value="(310) 555-0199" style="width:140px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Email :</td><td><input class="form-input" id="ap-email" value="MGonzalez@maildrop.cc" style="width:230px"></td></tr>
+        <tr><td></td><td style="padding-top:8px"><button class="btn" id="ap-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
     'Licensing': `
       <div class="page-title" style="font-size:18px">Add Employee License</div>
       <div id="lic-save-msg" class="msg-success" style="margin:6px 0">&#10004; License saved successfully.</div>
@@ -2964,25 +2977,19 @@ function slide_employee_hr_record_maintenance_2() {
 }
 
 function slide_employee_hr_record_maintenance_3() {
+  // Personal Info & Contact Info (module 12) — continues inside the record; view Personal Info, edit Contact Info, Save
   setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Status','Email','Phone','Pay Rate','Background Check','Exclusions','Tasks'];
+  document.getElementById('content').innerHTML = empRecordHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
-      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-email', prompt: 'Click "Email" to view email contact information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Email'); }},
-    { selector: '#etab-phone', prompt: 'Click "Phone" to view phone contact information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Phone'); }},
-    { selector: '#etab-pay-rate', prompt: 'Click "Pay Rate" to view compensation details',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
-    { selector: '#etab-exclusions', prompt: 'Click "Exclusions" to view any exclusions on record',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Exclusions'); }},
-    { selector: '#etab-tasks', prompt: 'Click "Tasks" to view onboarding tasks',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Tasks'); }},
+    { selector: '#etab-personal-information', prompt: 'The record opens on Personal Information — legal name, date of birth, and employee status all live here',
+      onConfirm: () => setEmpRecTab('Personal Information') },
+    { selector: '#pi-status', prompt: 'Keep the status accurate — an incorrect status can stop the employee from being scheduled or paid correctly', skipClick: true },
+    { selector: '#etab-address-phone', prompt: 'Open "Address/Phone" for their Contact Info — home address, phone, and email',
+      onConfirm: () => setEmpRecTab('Address/Phone') },
+    { selector: '#ap-email', prompt: 'Email is critical — it\'s the address WISH uses for all Mail By communications and login credentials. An outdated email means they won\'t receive them. Update it here', type: 'maria.gonzalez@maildrop.cc' },
+    { selector: '#ap-save', prompt: 'Always click "Save" after making any changes',
+      onConfirm: () => { document.getElementById('ap-save-msg').classList.add('show'); }},
+    { selector: '#ap-save-msg', prompt: 'The "Contact information saved successfully" confirmation appears', skipClick: true },
   ]);
 }
 
