@@ -2654,14 +2654,14 @@ function empRecordTabContent(tab) {
           <th style="padding:6px 8px">No Of Days</th><th style="text-align:left;padding:6px 8px">Notes</th>
           <th style="padding:6px 8px">Edit</th><th style="padding:6px 8px">Copy</th><th style="padding:6px 8px">View</th>
         </tr></thead>
-        <tbody style="font-size:12px">
+        <tbody id="da-history-body" style="font-size:12px">
           <tr style="background:#f7f7f7"><td style="padding:6px 8px">Notes</td><td></td><td style="padding:6px 8px">Late Cancellation</td><td style="padding:6px 8px">05/18/2026</td><td></td><td style="padding:6px 8px">fired [ Andre Fuller 05-18-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td></td></tr>
           <tr style="background:#ededed"><td style="padding:6px 8px;color:#3a6aaa">Written Warning</td><td></td><td style="padding:6px 8px">Other (Record in Notes Below)</td><td style="padding:6px 8px">04/15/2026</td><td></td><td style="padding:6px 8px">test [ Andre Fuller 04-15-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td style="text-align:center;color:#3a6aaa">&#128462;</td></tr>
         </tbody>
       </table>
       <div class="page-title" style="font-size:18px;margin-top:14px">Disciplinary Action</div>
       <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
-        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Action Taken :</td><td><select class="form-select" id="da-action" style="width:185px"><option>-- select --</option><option>Written Warning</option><option>Verbal Warning</option><option>Suspension</option><option>Termination</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Action Taken :</td><td><select class="form-select" id="da-action" style="width:185px"><option>-- select --</option><option>Investigation</option><option>Suspension</option><option>Terminated</option><option>Verbal Warning</option><option>Written Warning</option></select>${req}</td></tr>
         <tr><td style="text-align:right;font-size:13px;padding-right:8px">Violation Type :</td><td><select class="form-select" id="da-violation" style="width:185px"><option>-- select --</option><option>Late Cancellation</option><option>Attendance</option><option>Conduct</option><option>Safety</option><option>Other (Record in Notes Below)</option></select>${req}</td></tr>
         <tr><td style="text-align:right;font-size:13px;padding-right:8px">Effective Date :</td><td><input class="form-input" id="da-date" style="width:90px">${calBtn()}${req}</td></tr>
         <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Document (Max 2MB)<br>(pdf/jpeg Files) :</td><td style="vertical-align:top;padding-top:4px"><button class="btn btn-sm btn-secondary" id="da-doc">Choose File</button> <span id="da-doc-name" style="font-size:12px;color:#555">No file chosen</span></td></tr>
@@ -2829,8 +2829,21 @@ function slide_workforce_admin_maintenance_3() {
       onConfirm: () => { document.getElementById('da-violation').value = 'Conduct'; }},
     { selector: '#da-date', prompt: 'Enter the Effective Date — the date the action occurred', type: '06/15/2026' },
     { selector: '#da-notes', prompt: 'Write clear, factual notes. These records are part of the employee\'s permanent file and may be referenced in reviews or investigations', type: '06/15/2026 - Verbal counseling documented; employee acknowledged. Follow-up in 30 days.' },
-    { selector: '#da-save', prompt: 'Click "Save" to record the disciplinary action',
-      onConfirm: () => { document.getElementById('da-save-msg').classList.add('show'); }},
+    { selector: '#da-save', prompt: 'Click "Save" to record the disciplinary action — it now appears in the history above with the rest of the records',
+      onConfirm: () => {
+        const action = document.getElementById('da-action').value;
+        const viol = document.getElementById('da-violation').value;
+        const date = document.getElementById('da-date').value || '06/15/2026';
+        const notes = document.getElementById('da-notes').value;
+        const row = document.createElement('tr');
+        row.style.background = '#fffbe8'; // highlight the newly added record
+        row.innerHTML = '<td style="padding:6px 8px;color:#3a6aaa">' + action + '</td><td></td>' +
+          '<td style="padding:6px 8px">' + viol + '</td><td style="padding:6px 8px">' + date + '</td><td></td>' +
+          '<td style="padding:6px 8px">' + notes + ' [ Andre Fuller ' + date.replace(/\//g, '-') + ' ]</td>' +
+          '<td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td style="text-align:center;color:#3a6aaa">&#128462;</td>';
+        document.getElementById('da-history-body').appendChild(row);
+        document.getElementById('da-save-msg').classList.add('show');
+      }},
   ]);
 }
 
