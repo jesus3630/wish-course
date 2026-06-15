@@ -3135,13 +3135,25 @@ function manageEmpStatusHTML() {
         <button class="btn btn-sm btn-secondary">Add Disciplinary</button>
       </div>
       <div id="mes-status-dialog" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;justify-content:center">
-        <div style="background:#fff;border:1px solid #888;border-radius:4px;box-shadow:2px 2px 12px rgba(0,0,0,.35);width:380px;height:max-content;margin-top:120px">
+        <div style="background:#fff;border:1px solid #888;border-radius:4px;box-shadow:2px 2px 12px rgba(0,0,0,.35);width:420px;height:max-content;margin-top:120px">
           <div style="padding:10px 16px;font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa">Status Change</div>
           <div style="padding:14px 16px">
             <div class="note-bar">Note: All the * marked fields are mandatory</div>
-            <div style="margin:12px 0;font-size:13px">Status : <select class="form-select" id="mes-newstatus" style="width:150px"><option>Select</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Suspended</option></select><span style="color:#c00"> *</span></div>
-            <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-apply">Save</button><button class="btn btn-secondary">Cancel</button></div>
+            <table style="border-spacing:0 8px;border-collapse:separate;margin:8px auto 0">
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" id="mes-newstatus" style="width:150px"><option>Select</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Suspended</option></select><span style="color:#c00"> *</span></td></tr>
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation :</td><td><input type="checkbox" checked></td></tr>
+              <tr><td style="text-align:right;font-size:13px;padding-right:8px">Orientation Date :</td><td><input class="form-input" style="width:90px">${calBtn()}<span style="color:#c00"> *</span></td></tr>
+            </table>
+            <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-apply">Submit</button><button class="btn btn-secondary">Cancel</button></div>
           </div>
+        </div>
+      </div>
+      <div id="mes-warn" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9100;justify-content:center;align-items:flex-start">
+        <div style="background:#fff;border-radius:8px;box-shadow:2px 2px 14px rgba(0,0,0,.4);width:430px;margin-top:30px;padding:16px 20px;font-family:Arial">
+          <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:10px">wish.schedulingsite.com says</div>
+          <div style="font-size:13px;color:#333;margin-bottom:8px">Changing Employee status to Inactive or Suspended will delete the future schedules for the employee.</div>
+          <div style="font-size:13px;color:#333;margin-bottom:16px">Do you want to see the schedules to be deleted?</div>
+          <div style="text-align:right"><button class="btn btn-secondary" id="mes-warn-cancel">Cancel</button><button class="btn" id="mes-warn-ok">OK</button></div>
         </div>
       </div>
     </div>`;
@@ -3170,9 +3182,11 @@ function slide_employee_hr_record_maintenance_6() {
     { selector: '#mes-actions', prompt: 'At the bottom you have the bulk actions for the selected employees: Change Status, Add PayRate, Assign Pay Structure, Assign Department, and Add Disciplinary', skipClick: true },
     { selector: '#mes-btn-status', prompt: 'For a bulk status change, click "Change Status" — the Status Change pop-up opens',
       onConfirm: () => { document.getElementById('mes-status-dialog').style.display = 'flex'; }},
-    { selector: '#mes-newstatus', prompt: 'Choose the new status to apply',
-      onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; }},
-    { selector: '#mes-apply', prompt: 'Click "Apply". The change hits every selected employee immediately — double-check your selection first',
+    { selector: '#mes-newstatus', prompt: 'Choose the new status to apply — here, Inactive',
+      onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; document.getElementById('mes-warn').style.display = 'flex'; }},
+    { selector: '#mes-warn-ok', prompt: 'WISH warns you that setting Inactive or Suspended will delete the employee\'s future schedules. Click OK to continue',
+      onConfirm: () => { document.getElementById('mes-warn').style.display = 'none'; }},
+    { selector: '#mes-apply', prompt: 'Click "Submit". The change hits every selected employee immediately — double-check your selection first',
       onConfirm: () => {
         const ns = document.getElementById('mes-newstatus').value;
         [1,2,3,4].forEach(i => { if (document.getElementById('mes-chk-'+i).checked) { document.getElementById('mes-st-'+i).innerHTML = '<span style="color:#c06000;font-weight:bold">' + ns + '</span>'; } });
