@@ -2669,23 +2669,25 @@ function empRecordTabContent(tab) {
         <tr><td></td><td style="padding-top:6px"><button class="btn" id="da-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
       </table>`,
     'Pay Rate': `
-      <div id="pr-save-msg" class="msg-success" style="margin:6px 0">&#10004; Pay rate saved successfully.</div>
+      <div id="pr-save-msg" class="msg-success" style="margin:6px 0">&#10004; PayRate for 'Maria' has been updated successfully.</div>
       <div style="margin:4px 0 8px"><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Show all roles ( Including de-active )</label></div>
-      <table id="pr-history" style="width:100%;border-collapse:collapse;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
-          <th style="text-align:left;padding:6px 8px">Branch</th><th style="text-align:left;padding:6px 8px">Dept</th><th style="text-align:left;padding:6px 8px">Role</th>
-          <th style="text-align:left;padding:6px 8px">ActiveDate</th><th style="text-align:left;padding:6px 8px">DeActivationDate</th><th style="text-align:left;padding:6px 8px">Status</th>
-          <th style="text-align:right;padding:6px 8px">Amount($)</th><th style="text-align:left;padding:6px 8px">PayStructure</th><th style="text-align:left;padding:6px 8px">Created By</th>
-        </tr></thead>
-        <tbody id="pr-history-body">
-          <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Staff</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-          <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Manager</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">20.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-          <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Training</td><td style="padding:5px 8px">17-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-          <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Ticket Taker</td><td style="padding:5px 8px">01-Nov-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">15.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-          <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Security Guard</td><td style="padding:5px 8px">16-Dec-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-          <tr id="pr-row-sup" style="background:#ededed;cursor:pointer"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Supervisor</td><td style="padding:5px 8px">24-Jun-2025</td><td id="pr-deact-sup" style="padding:5px 8px">-</td><td id="pr-status-sup" style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td></tr>
-        </tbody>
-      </table>
+      <div id="pr-table-wrap" style="overflow-x:auto;border:1px solid #ddd">
+        <table id="pr-history" style="border-collapse:collapse;font-size:12px;min-width:920px;width:100%">
+          <thead><tr style="background:#5a5a5a;color:#fff">
+            <th style="text-align:left;padding:6px 8px">Branch</th><th style="text-align:left;padding:6px 8px">Dept</th><th style="text-align:left;padding:6px 8px">Role</th>
+            <th style="text-align:left;padding:6px 8px">ActiveDate</th><th style="text-align:left;padding:6px 8px">DeActivationDate</th><th style="text-align:left;padding:6px 8px">Status</th>
+            <th style="text-align:right;padding:6px 8px">Amount($)</th><th style="text-align:left;padding:6px 8px">PayStructure</th><th style="text-align:left;padding:6px 8px">Created By</th><th style="text-align:left;padding:6px 8px">Action</th>
+          </tr></thead>
+          <tbody id="pr-history-body">
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Staff</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Event Manager</td><td style="padding:5px 8px">09-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">20.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Training</td><td style="padding:5px 8px">17-Oct-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Ticket Taker</td><td style="padding:5px 8px">01-Nov-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">15.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr style="background:#f7f7f7"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Security Guard</td><td style="padding:5px 8px">16-Dec-2024</td><td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+            <tr id="pr-row-sup" style="background:#ededed"><td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td><td style="padding:5px 8px">Supervisor</td><td style="padding:5px 8px">24-Jun-2025</td><td id="pr-deact-sup" style="padding:5px 8px">-</td><td id="pr-status-sup" style="padding:5px 8px">Active</td><td style="text-align:right;padding:5px 8px">16.00</td><td></td><td style="padding:5px 8px">Andre F.</td><td style="padding:5px 8px"><a id="pr-deact-link-sup" style="color:#3a6aaa;cursor:pointer">DeActivate</a></td></tr>
+          </tbody>
+        </table>
+      </div>
       <div class="page-title" style="font-size:18px;margin-top:14px">Add Employee Rate</div>
       <div style="display:flex;gap:16px;flex-wrap:wrap">
         <div style="background:#fdebd0;border:1px solid #e0c090;border-radius:3px;padding:12px 14px">
@@ -2912,11 +2914,15 @@ function slide_workforce_admin_maintenance_4() {
     { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab — it shows what the employee is paid per hour for each role they\'re qualified for',
       onConfirm: () => setEmpRecTab('Pay Rate') },
     { selector: '#pr-history', prompt: 'Never edit an existing rate directly — that would alter historical payroll records. To change a rate, you deactivate the old one and add a new one', skipClick: true },
-    { selector: '#pr-row-sup', prompt: 'Step 1 — find the current active rate you need to change (here, Supervisor at $16.00)', skipClick: true },
-    { selector: '#pr-status-sup', prompt: 'Step 2 — deactivate it. This closes it out without deleting the history',
+    { selector: '#pr-row-sup', prompt: 'Step 1 — find the current active rate you need to change (here, Supervisor at $16.00). Use the scrollbar to reach the Action column on the right',
+      skipClick: true,
+      onConfirm: () => { const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = w.scrollWidth; }},
+    { selector: '#pr-deact-link-sup', prompt: 'Step 2 — click the blue "DeActivate" link in the Action column. This closes the rate out without deleting the history',
       onConfirm: () => {
         document.getElementById('pr-status-sup').innerHTML = '<span style="color:#c00;font-weight:bold">De-Active</span>';
         document.getElementById('pr-deact-sup').textContent = '15-Jun-2026';
+        const link = document.getElementById('pr-deact-link-sup'); if (link) { link.textContent = 'Activate'; }
+        const w = document.getElementById('pr-table-wrap'); if (w) w.scrollLeft = 0;
       }},
     { selector: '#pr-role', prompt: 'Step 3 — add the new rate. Choose the role',
       onConfirm: () => { document.getElementById('pr-role').value = 'Supervisor'; }},
@@ -2931,7 +2937,8 @@ function slide_workforce_admin_maintenance_4() {
         row.innerHTML = '<td style="padding:5px 8px">Prota LA Branch Test</td><td style="padding:5px 8px">Staff</td>' +
           '<td style="padding:5px 8px">' + role + '</td><td style="padding:5px 8px">15-Jun-2026</td>' +
           '<td style="padding:5px 8px">-</td><td style="padding:5px 8px">Active</td>' +
-          '<td style="text-align:right;padding:5px 8px">' + amt + '</td><td></td><td style="padding:5px 8px">Andre F.</td>';
+          '<td style="text-align:right;padding:5px 8px">' + amt + '</td><td></td><td style="padding:5px 8px">Andre F.</td>' +
+          '<td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">DeActivate</a></td>';
         document.getElementById('pr-history-body').appendChild(row);
         document.getElementById('pr-save-msg').classList.add('show');
       }},
