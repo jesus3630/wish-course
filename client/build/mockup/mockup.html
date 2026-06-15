@@ -3077,32 +3077,79 @@ function slide_employee_hr_record_maintenance_5() {
   ]);
 }
 
-function slide_employee_hr_record_maintenance_6() {
-  setNav('records');
-  document.getElementById('content').innerHTML = `
+function manageEmpStatusHTML() {
+  return `
     <div class="page-title">Manage Employee Status</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select" id="f-branch"><option>--Select--</option><option>Los Angeles</option></select></div>
-    <div class="form-row"><span class="form-label">Status :</span>
-      <select class="form-select"><option>Pending</option><option>Active</option></select></div>
-    <div style="margin:12px 0 0 160px"><button class="btn" id="btn-statusearch">Search</button></div>
-    <div id="status-results" style="display:none;margin-top:14px">
-      <div style="margin-bottom:8px;display:flex;gap:8px">
-        <button class="btn btn-sm btn-green">Activate All</button>
-        <button class="btn btn-sm btn-secondary">Inactivate All</button>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;gap:30px;margin-top:6px">
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" id="mes-branch" style="width:180px"><option>Prota LA Branch Test</option></select><span style="color:#c00"> *</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:180px"><option>Staff</option></select><span style="color:#c00"> *</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">End Date :</td><td><input class="form-input" style="width:90px">${calBtn()}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Event Name :</td><td><select class="form-select" style="width:188px"><option></option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" style="width:180px"></td></tr>
+      </table>
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">WorkGroup :</td><td><select class="form-select" style="width:180px"><option>--select--</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Emp Status :</td><td><select class="form-select" id="mes-empstatus" style="width:180px"><option>All</option><option>Active</option><option>Inactive</option><option>Pending</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:180px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee not SignedIn :</td><td><input type="checkbox"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Excluded WorkGroup :</td><td><input type="checkbox" checked></td></tr>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-search">Search</button><button class="btn btn-secondary">Import new hires</button></div>
+    <div id="mes-save-msg" class="msg-success" style="margin:12px 0 0">&#10004; Status updated for the selected employees.</div>
+    <div id="mes-results" style="display:none;margin-top:14px">
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+        <span style="font-size:13px;font-weight:bold">New Status :</span>
+        <select class="form-select" id="mes-newstatus" style="width:150px"><option>--select--</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Terminated</option></select>
+        <button class="btn btn-sm" id="mes-apply">Apply to Selected</button>
       </div>
-      <table><thead><tr><th>Select</th><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Status</th><th>Applied Date</th></tr></thead>
+      <table style="width:100%"><thead><tr><th>Select</th><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><input type="checkbox"></td><td>4122010</td><td>Rodriguez</td><td>Carlos</td><td><span style="color:#c06000">Pending</span></td><td>08/01/2023</td></tr>
-        <tr><td><input type="checkbox"></td><td>4122011</td><td>Lee</td><td>Amy</td><td><span style="color:#c06000">Pending</span></td><td>08/05/2023</td></tr>
+        <tr><td><input type="checkbox" id="mes-chk-1"></td><td>4122031</td><td>Okafor</td><td>Terrence</td><td id="mes-st-1">Active</td></tr>
+        <tr><td><input type="checkbox" id="mes-chk-2"></td><td>4122044</td><td>Vasquez</td><td>Lorena</td><td id="mes-st-2">Active</td></tr>
+        <tr><td><input type="checkbox" id="mes-chk-3"></td><td>4122058</td><td>Brennan</td><td>Marcus</td><td id="mes-st-3">Active</td></tr>
+        <tr><td><input type="checkbox" id="mes-chk-4"></td><td>4122067</td><td>Sandoval</td><td>Priya</td><td id="mes-st-4">Active</td></tr>
       </tbody></table>
     </div>`;
+}
+
+function slide_employee_hr_record_maintenance_6() {
+  // Manage Employee Status (Bulk) — Records > Manage Employee Status; filter, select multiple, apply a bulk status change
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-branch', prompt: 'Click here to select the Branch',
-      onConfirm: () => { document.getElementById('f-branch').value = 'Los Angeles'; }},
-    { selector: '#btn-statusearch', prompt: 'Click "Search" to find employees with pending status',
-      onConfirm: () => { document.getElementById('status-results').style.display = ''; }},
-    { selector: '#card', prompt: 'Review employees with Pending status. Click to continue.', skipClick: true },
+    { selector: '#nav-records', prompt: 'Go to "Records" to reach the bulk-status tool',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee-status', prompt: 'Click "Manage Employee Status" — a tool for updating many employees at once',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageEmpStatusHTML();
+      }},
+    { selector: '#mes-empstatus', prompt: 'Filter by branch and current status to pull the list of employees you want',
+      onConfirm: () => { document.getElementById('mes-empstatus').value = 'Active'; }},
+    { selector: '#mes-search', prompt: 'Click "Search"',
+      onConfirm: () => { document.getElementById('mes-results').style.display = ''; }},
+    { selector: '#mes-chk-1', prompt: 'Select the employees you want to update — you can pick as many as you need',
+      onConfirm: () => { document.getElementById('mes-chk-1').checked = true; document.getElementById('mes-chk-2').checked = true; document.getElementById('mes-chk-3').checked = true; }},
+    { selector: '#mes-newstatus', prompt: 'Choose the new status to apply',
+      onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; }},
+    { selector: '#mes-apply', prompt: 'Apply the change to all selected at once. Bulk changes affect every selected employee immediately — double-check your selection first',
+      onConfirm: () => {
+        const ns = document.getElementById('mes-newstatus').value;
+        [1,2,3,4].forEach(i => { if (document.getElementById('mes-chk-'+i).checked) { document.getElementById('mes-st-'+i).innerHTML = '<span style="color:#c06000;font-weight:bold">' + ns + '</span>'; } });
+        document.getElementById('mes-save-msg').classList.add('show');
+      }},
+    { selector: '#mes-save-msg', prompt: 'The status is updated for every selected employee at once', skipClick: true },
   ]);
 }
 

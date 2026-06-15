@@ -817,7 +817,8 @@
         "slide_number": 6,
         "slide_name": "Manage Employee Status (Bulk)",
         "instructions": "Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Employee Status. Show filtering by branch and status. Show selecting multiple employees. Show applying a bulk status change.",
-        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status, a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n* Deactivating seasonal employees who have finished their assignments\r\n* Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying."
+        "text": "In addition to updating individual employee records, Employee HR Record Maintenance gives you access to Manage Employee Status, a tool for updating multiple employees at once.\r\n\r\nGo to Records to Manage Employee Status.\r\n\r\nFilter by branch and current status to pull a list of employees. Select the ones you want to update, choose the new status, and apply the change to all of them at once.\r\n\r\nThis is most useful after large events:\r\n* Deactivating seasonal employees who have finished their assignments\r\n* Reactivating employees returning for a new season\r\n\r\nBulk status changes affect every selected employee immediately. Double-check your selection before applying.",
+        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=6"
       },
       {
         "slide_number": 7,
