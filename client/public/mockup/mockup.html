@@ -2645,6 +2645,29 @@ function empRecordTabContent(tab) {
         <tr><td style="text-align:right;font-size:13px;padding-right:8px">Expiration Date :</td><td><input class="form-input" id="bg-exp-date" style="width:90px">${calBtn()}</td></tr>
         <tr><td></td><td style="padding-top:8px"><button class="btn" id="bg-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
       </table>`,
+    'Disciplinary Action': `
+      <div id="da-save-msg" class="msg-success" style="margin:6px 0">&#10004; Disciplinary action saved successfully.</div>
+      <table id="da-history" style="width:100%;border-collapse:collapse">
+        <thead><tr style="background:#5a5a5a;color:#fff;font-size:12px">
+          <th style="text-align:left;padding:6px 8px">Name</th><th style="text-align:left;padding:6px 8px">Additional Status</th>
+          <th style="text-align:left;padding:6px 8px">Violation Type</th><th style="text-align:left;padding:6px 8px">Effective Date</th>
+          <th style="padding:6px 8px">No Of Days</th><th style="text-align:left;padding:6px 8px">Notes</th>
+          <th style="padding:6px 8px">Edit</th><th style="padding:6px 8px">Copy</th><th style="padding:6px 8px">View</th>
+        </tr></thead>
+        <tbody style="font-size:12px">
+          <tr style="background:#f7f7f7"><td style="padding:6px 8px">Notes</td><td></td><td style="padding:6px 8px">Late Cancellation</td><td style="padding:6px 8px">05/18/2026</td><td></td><td style="padding:6px 8px">fired [ Andre Fuller 05-18-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td></td></tr>
+          <tr style="background:#ededed"><td style="padding:6px 8px;color:#3a6aaa">Written Warning</td><td></td><td style="padding:6px 8px">Other (Record in Notes Below)</td><td style="padding:6px 8px">04/15/2026</td><td></td><td style="padding:6px 8px">test [ Andre Fuller 04-15-2026 ]</td><td style="text-align:center;color:#c89000">&#9998;</td><td style="text-align:center;color:#3a6aaa">&#128279;</td><td style="text-align:center;color:#3a6aaa">&#128462;</td></tr>
+        </tbody>
+      </table>
+      <div class="page-title" style="font-size:18px;margin-top:14px">Disciplinary Action</div>
+      <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Action Taken :</td><td><select class="form-select" id="da-action" style="width:185px"><option>-- select --</option><option>Written Warning</option><option>Verbal Warning</option><option>Suspension</option><option>Termination</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Violation Type :</td><td><select class="form-select" id="da-violation" style="width:185px"><option>-- select --</option><option>Late Cancellation</option><option>Attendance</option><option>Conduct</option><option>Safety</option><option>Other (Record in Notes Below)</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Effective Date :</td><td><input class="form-input" id="da-date" style="width:90px">${calBtn()}${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Document (Max 2MB)<br>(pdf/jpeg Files) :</td><td style="vertical-align:top;padding-top:4px"><button class="btn btn-sm btn-secondary" id="da-doc">Choose File</button> <span id="da-doc-name" style="font-size:12px;color:#555">No file chosen</span></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="da-notes" style="width:230px;height:60px;border:1px solid #999"></textarea>${req}</td></tr>
+        <tr><td></td><td style="padding-top:6px"><button class="btn" id="da-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
+      </table>`,
     'Notes': (() => {
       const rows = [
         ['Late Cancellation - Excused','Other; 141003559538; 11/05/24 2:30:00 PM; WISH [ Andre Fuller 11-05-2024 ]'],
@@ -2777,19 +2800,37 @@ function slide_workforce_scheduler_mntnnce_7() {
 }
 
 function slide_workforce_admin_maintenance_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Disciplinary Action','Pay Rate','Training'];
+  // Disciplinary Action Tab (module 11) — first demo of the module: look up the employee, open the record, log a disciplinary action
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
+    { selector: '#nav-records', prompt: 'Go to "Records" to look up the employee',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Type a last name and search for the employee', type: 'Gonzalez' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search"',
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-pay-rate', prompt: 'Click "Pay Rate" to view compensation information',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
-    { selector: '#etab-training', prompt: 'Click "Training" to view completed training records',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Training'); }},
+    { selector: '#emp-link', prompt: 'Click the last name (blue link) to open their record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
+    { selector: '#etab-disciplinary-action', prompt: 'Open the "Disciplinary Action" tab — where formal disciplinary records are logged',
+      onConfirm: () => setEmpRecTab('Disciplinary Action') },
+    { selector: '#da-history', prompt: 'View the full history of disciplinary actions already on file for this employee', skipClick: true },
+    { selector: '#da-action', prompt: 'To add a new record, choose the Action Taken',
+      onConfirm: () => { document.getElementById('da-action').value = 'Written Warning'; }},
+    { selector: '#da-violation', prompt: 'Select the Violation Type — the category of disciplinary action',
+      onConfirm: () => { document.getElementById('da-violation').value = 'Conduct'; }},
+    { selector: '#da-date', prompt: 'Enter the Effective Date — the date the action occurred', type: '06/15/2026' },
+    { selector: '#da-notes', prompt: 'Write clear, factual notes. These records are part of the employee\'s permanent file and may be referenced in reviews or investigations', type: '06/15/2026 - Verbal counseling documented; employee acknowledged. Follow-up in 30 days.' },
+    { selector: '#da-save', prompt: 'Click "Save" to record the disciplinary action',
+      onConfirm: () => { document.getElementById('da-save-msg').classList.add('show'); }},
   ]);
 }
 
