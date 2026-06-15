@@ -2938,6 +2938,26 @@ function slide_workforce_admin_maintenance_5() {
   ]);
 }
 
+function slide_employee_hr_record_maintenance_2() {
+  // What Employee HR Record Maintenance Gives You — brief: you reach the record the same way (Records > Manage Employee > search)
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'You reach the employee record the same way as always — start by clicking "Records"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#btn-empsrch', prompt: 'This is the familiar search screen. Search, then click an employee\'s last name to open their full record — at this access level you can edit every part of it', skipClick: true },
+  ]);
+}
+
 function slide_employee_hr_record_maintenance_3() {
   setNav('records');
   document.getElementById('content').innerHTML = empSearchHTML();
@@ -7813,6 +7833,7 @@ const routes = {
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
   'workforce_admin_maintenance-4': slide_workforce_admin_maintenance_4,
   'workforce_admin_maintenance-5': slide_workforce_admin_maintenance_5,
+  'employee_hr_record_maintenance-2': slide_employee_hr_record_maintenance_2,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
   'hiring_manager-3': slide_hiring_manager_3,
