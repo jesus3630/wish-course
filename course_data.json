@@ -751,7 +751,8 @@
         "slide_number": 4,
         "slide_name": "Pay Rates Tab",
         "instructions": "Click the Pay Rates tab. Show the current active pay rate. Show clicking to deactivate the current rate. Show adding a new rate with the role and dollar amount. Click Save.",
-        "text": "The Pay Rates tab shows what an employee is paid per hour for each role they're qualified for.\r\n\r\nImportant rule: never edit an existing pay rate directly. Changing a rate that's already in the system will alter historical payroll records.\r\n\r\nThe correct process to update a pay rate:\r\n1. Find the current active rate\r\n2. Deactivate it, this closes it out without deleting the history\r\n3. Add a new rate with the updated amount and an effective start date\r\n\r\nIf a role is missing from the employee's pay rate list, add it here. An employee cannot be scheduled for a role they don't have an active pay rate for, WISH uses this to filter results in Schedule by Job."
+        "text": "The Pay Rates tab shows what an employee is paid per hour for each role they're qualified for.\r\n\r\nImportant rule: never edit an existing pay rate directly. Changing a rate that's already in the system will alter historical payroll records.\r\n\r\nThe correct process to update a pay rate:\r\n1. Find the current active rate\r\n2. Deactivate it, this closes it out without deleting the history\r\n3. Add a new rate with the updated amount and an effective start date\r\n\r\nIf a role is missing from the employee's pay rate list, add it here. An employee cannot be scheduled for a role they don't have an active pay rate for, WISH uses this to filter results in Schedule by Job.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=4"
       },
       {
         "slide_number": 5,
