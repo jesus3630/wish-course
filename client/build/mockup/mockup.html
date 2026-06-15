@@ -3104,18 +3104,42 @@ function manageEmpStatusHTML() {
     <div style="text-align:center;margin-top:10px"><button class="btn" id="mes-search">Search</button><button class="btn btn-secondary">Import new hires</button></div>
     <div id="mes-save-msg" class="msg-success" style="margin:12px 0 0">&#10004; Status updated for the selected employees.</div>
     <div id="mes-results" style="display:none;margin-top:14px">
-      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
-        <span style="font-size:13px;font-weight:bold">New Status :</span>
-        <select class="form-select" id="mes-newstatus" style="width:150px"><option>--select--</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Terminated</option></select>
-        <button class="btn btn-sm" id="mes-apply">Apply to Selected</button>
-      </div>
-      <table style="width:100%"><thead><tr><th>Select</th><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" id="mes-chk-1"></td><td>4122031</td><td>Okafor</td><td>Terrence</td><td id="mes-st-1">Active</td></tr>
-        <tr><td><input type="checkbox" id="mes-chk-2"></td><td>4122044</td><td>Vasquez</td><td>Lorena</td><td id="mes-st-2">Active</td></tr>
-        <tr><td><input type="checkbox" id="mes-chk-3"></td><td>4122058</td><td>Brennan</td><td>Marcus</td><td id="mes-st-3">Active</td></tr>
-        <tr><td><input type="checkbox" id="mes-chk-4"></td><td>4122067</td><td>Sandoval</td><td>Priya</td><td id="mes-st-4">Active</td></tr>
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%"><thead><tr style="background:#5a5a5a;color:#fff">
+        <th style="padding:5px 8px"><input type="checkbox" id="mes-all"></th>
+        <th style="text-align:left;padding:5px 8px">Last Name &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">First Name &#9650;&#9660;</th>
+        <th style="text-align:left;padding:5px 8px">Employee# &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">Status &#9650;&#9660;</th></tr></thead>
+      <tbody id="mes-body">
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox" id="mes-chk-1"></td><td style="padding:4px 8px;color:#3a6aaa">Okafor</td><td style="padding:4px 8px">Terrence</td><td style="padding:4px 8px">3951601</td><td id="mes-st-1" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox" id="mes-chk-2"></td><td style="padding:4px 8px;color:#3a6aaa">Vasquez</td><td style="padding:4px 8px">Lorena</td><td style="padding:4px 8px">3951612</td><td id="mes-st-2" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox" id="mes-chk-3"></td><td style="padding:4px 8px;color:#3a6aaa">Brennan</td><td style="padding:4px 8px">Marcus</td><td style="padding:4px 8px">3951623</td><td id="mes-st-3" style="padding:4px 8px"><span style="color:#c06000">Pending</span></td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox" id="mes-chk-4"></td><td style="padding:4px 8px;color:#3a6aaa">Sandoval</td><td style="padding:4px 8px">Priya</td><td style="padding:4px 8px">3951634</td><td id="mes-st-4" style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Whitfield</td><td style="padding:4px 8px">Daria</td><td style="padding:4px 8px">3951645</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Calderon</td><td style="padding:4px 8px">Renee</td><td style="padding:4px 8px">3951656</td><td style="padding:4px 8px"><span style="color:#c06000">Pending</span></td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Bennett</td><td style="padding:4px 8px">Joel</td><td style="padding:4px 8px">3951667</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Brooks</td><td style="padding:4px 8px">Tara</td><td style="padding:4px 8px">3951678</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Carter</td><td style="padding:4px 8px">Miles</td><td style="padding:4px 8px">3951689</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Diaz</td><td style="padding:4px 8px">Elena</td><td style="padding:4px 8px">3951690</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Ellis</td><td style="padding:4px 8px">Grant</td><td style="padding:4px 8px">3951701</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Foster</td><td style="padding:4px 8px">Naomi</td><td style="padding:4px 8px">3951712</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Hayes</td><td style="padding:4px 8px">Darnell</td><td style="padding:4px 8px">3951723</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Ingram</td><td style="padding:4px 8px">Cleo</td><td style="padding:4px 8px">3951734</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#f7f7f7"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Jensen</td><td style="padding:4px 8px">Paul</td><td style="padding:4px 8px">3951745</td><td style="padding:4px 8px">Active</td></tr>
+        <tr style="background:#ededed"><td style="text-align:center"><input type="checkbox"></td><td style="padding:4px 8px;color:#3a6aaa">Mercer</td><td style="padding:4px 8px">Lila</td><td style="padding:4px 8px">3951756</td><td style="padding:4px 8px">Active</td></tr>
       </tbody></table>
+      <div id="mes-actions" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px">
+        <button class="btn btn-sm" id="mes-btn-status">Change Status</button>
+        <button class="btn btn-sm btn-secondary">Add PayRate</button>
+        <button class="btn btn-sm btn-secondary">Assign Pay Structure</button>
+        <button class="btn btn-sm btn-secondary">Assign Department</button>
+        <button class="btn btn-sm btn-secondary">Add Disciplinary</button>
+      </div>
+      <div id="mes-status-dialog" style="display:none;margin:12px auto 0;max-width:320px;border:1px solid #999;border-radius:4px;background:#f7f7f7;padding:12px 14px;text-align:center">
+        <div style="font-weight:bold;font-size:13px;margin-bottom:8px">Change Status</div>
+        <span style="font-size:13px">New Status :</span>
+        <select class="form-select" id="mes-newstatus" style="width:150px"><option>--select--</option><option>Active</option><option>Inactive</option><option>Pending</option><option>Terminated</option></select>
+        <div style="margin-top:10px"><button class="btn btn-sm" id="mes-apply">Apply</button><button class="btn btn-sm btn-secondary">Cancel</button></div>
+      </div>
     </div>`;
 }
 
@@ -3137,16 +3161,20 @@ function slide_employee_hr_record_maintenance_6() {
       }},
     { selector: '#mes-empstatus', prompt: 'Filter by branch and current status to pull the list of employees you want',
       onConfirm: () => { document.getElementById('mes-empstatus').value = 'Active'; }},
-    { selector: '#mes-search', prompt: 'Click "Search"',
+    { selector: '#mes-search', prompt: 'Click "Search" to pull the list of employees',
       onConfirm: () => { document.getElementById('mes-results').style.display = ''; }},
     { selector: '#mes-chk-1', prompt: 'Select the employees you want to update — you can pick as many as you need',
       onConfirm: () => { document.getElementById('mes-chk-1').checked = true; document.getElementById('mes-chk-2').checked = true; document.getElementById('mes-chk-3').checked = true; }},
+    { selector: '#mes-actions', prompt: 'At the bottom you have the bulk actions for the selected employees: Change Status, Add PayRate, Assign Pay Structure, Assign Department, and Add Disciplinary', skipClick: true },
+    { selector: '#mes-btn-status', prompt: 'For a bulk status change, click "Change Status"',
+      onConfirm: () => { document.getElementById('mes-status-dialog').style.display = ''; }},
     { selector: '#mes-newstatus', prompt: 'Choose the new status to apply',
       onConfirm: () => { document.getElementById('mes-newstatus').value = 'Inactive'; }},
-    { selector: '#mes-apply', prompt: 'Apply the change to all selected at once. Bulk changes affect every selected employee immediately — double-check your selection first',
+    { selector: '#mes-apply', prompt: 'Click "Apply". The change hits every selected employee immediately — double-check your selection first',
       onConfirm: () => {
         const ns = document.getElementById('mes-newstatus').value;
         [1,2,3,4].forEach(i => { if (document.getElementById('mes-chk-'+i).checked) { document.getElementById('mes-st-'+i).innerHTML = '<span style="color:#c06000;font-weight:bold">' + ns + '</span>'; } });
+        document.getElementById('mes-status-dialog').style.display = 'none';
         document.getElementById('mes-save-msg').classList.add('show');
       }},
     { selector: '#mes-save-msg', prompt: 'The status is updated for every selected employee at once', skipClick: true },
