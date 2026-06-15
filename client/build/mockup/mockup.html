@@ -2617,6 +2617,24 @@ function empRecordTabContent(tab) {
         </table>
         <div style="border:1px solid #ccc;border-radius:3px;padding:14px 22px;text-align:center;margin-top:4px"><a style="color:#3a6aaa;cursor:pointer;text-decoration:underline">Show Picture</a></div>
       </div>`,
+    'Shared Branches': (() => {
+      const branches = ['Atlanta','Buffalo','Cleveland','Columbus','Connecticut','Corporate','Dallas','Denver','Houston','Las Vegas','Los Angeles','Miami','New York','Orlando','Phoenix','San Diego'];
+      const items = branches.map(b => {
+        const id = b.toLowerCase().replace(/\s/g,'-');
+        return `<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox" id="sb-chk-${id}"> ${b}</label></div>`;
+      }).join('');
+      return `
+        <div style="display:flex;gap:20px;margin-top:8px">
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:14px;color:#333;margin-bottom:6px">Select Branch</div>
+            <div id="sb-branch-list" style="border:1px solid #aaa;height:135px;overflow-y:auto;background:#fff;padding:4px">${items}</div>
+          </div>
+          <div style="flex:1">
+            <div style="font-weight:bold;font-size:14px;color:#333;margin-bottom:6px">Select Department</div>
+            <div id="sb-dept-list" style="border:1px solid #aaa;height:135px;overflow-y:auto;background:#fff;padding:4px"></div>
+          </div>
+        </div>`;
+    })(),
     'Address/Phone': `
       <div id="ap-save-msg" class="msg-success" style="margin:6px 0">&#10004; Contact information saved successfully.</div>
       <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
@@ -2993,6 +3011,27 @@ function slide_employee_hr_record_maintenance_3() {
 }
 
 function slide_employee_hr_record_maintenance_4() {
+  // Shared Branches (module 12) — continues inside the record; add and remove a shared branch
+  setNav('records');
+  document.getElementById('content').innerHTML = empRecordHTML();
+  const deptHTML =
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox" id="sb-dept-staff"> Staff</label></div>' +
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox"> Supervisor</label></div>' +
+    '<div style="font-size:12px;padding:1px 2px"><label style="cursor:pointer"><input type="checkbox"> Event Staff</label></div>';
+  runGuided([
+    { selector: '#etab-shared-branches', prompt: 'Open the "Shared Branches" tab — it controls which branches beyond the home branch can see and schedule this employee',
+      onConfirm: () => setEmpRecTab('Shared Branches') },
+    { selector: '#sb-branch-list', prompt: 'Select Branch lists every branch you can share this employee to. Sharing lets that branch search for them, schedule them, and see their record and pay rates', skipClick: true },
+    { selector: '#sb-chk-dallas', prompt: 'Share the employee to another branch by checking it — here, Dallas. Add branches carefully; it gives that branch access to the employee\'s record',
+      onConfirm: () => { document.getElementById('sb-chk-dallas').checked = true; document.getElementById('sb-dept-list').innerHTML = deptHTML; }},
+    { selector: '#sb-dept-staff', prompt: 'Pick which department(s) at that branch can use them',
+      onConfirm: () => { document.getElementById('sb-dept-staff').checked = true; }},
+    { selector: '#sb-chk-dallas', prompt: 'To stop sharing, simply uncheck the branch. Remove the sharing when it\'s no longer needed',
+      onConfirm: () => { document.getElementById('sb-chk-dallas').checked = false; document.getElementById('sb-dept-list').innerHTML = ''; }},
+  ]);
+}
+
+function slide_employee_hr_record_maintenance_6() {
   setNav('records');
   document.getElementById('content').innerHTML = `
     <div class="page-title">Manage Employee Status</div>
@@ -7847,6 +7886,7 @@ const routes = {
   'employee_hr_record_maintenance-2': slide_employee_hr_record_maintenance_2,
   'employee_hr_record_maintenance-3': slide_employee_hr_record_maintenance_3,
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
+  'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
   'hiring_manager-3': slide_hiring_manager_3,
   'hiring_admin-3':   slide_hiring_admin_3,
   'mail_by-3':        slide_mail_by_3,
