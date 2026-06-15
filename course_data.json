@@ -707,7 +707,8 @@
         "slide_number": 7,
         "slide_name": "Employee Notes Tab",
         "instructions": "Click the Employee Notes tab. Show existing notes if any. Show typing a new note ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â include date, what the note is about. Click Save.",
-        "text": "The Employee Notes tab is where your branch records important information about an employee that isn't captured elsewhere in the system.\r\n\r\nNotes are branch-level, they're visible to anyone at your branch with access to the employee record, but are not shared system-wide.\r\n\r\nCommon uses for employee notes:\r\n* Flagging a scheduling concern or preference\r\n* Recording follow-up items that need attention\r\n* Noting equipment issued to an employee\r\n* Documenting any informal communications that should be on record\r\n\r\nWhen adding a note, always include the date and a brief description of what the note is about. This makes it easier for others on your team to understand the context later.\r\n\r\nClick Save after adding or editing a note."
+        "text": "The Employee Notes tab is where your branch records important information about an employee that isn't captured elsewhere in the system.\r\n\r\nNotes are branch-level, they're visible to anyone at your branch with access to the employee record, but are not shared system-wide.\r\n\r\nCommon uses for employee notes:\r\n* Flagging a scheduling concern or preference\r\n* Recording follow-up items that need attention\r\n* Noting equipment issued to an employee\r\n* Documenting any informal communications that should be on record\r\n\r\nWhen adding a note, always include the date and a brief description of what the note is about. This makes it easier for others on your team to understand the context later.\r\n\r\nClick Save after adding or editing a note.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=7"
       },
       {
         "slide_number": 8,
