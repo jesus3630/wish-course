@@ -2492,11 +2492,22 @@ function empSearchHTML() {
     </div>
     <div style="text-align:right;margin-top:6px"><button class="btn">Send ESS Login Email</button></div>
     <div id="emp-results" style="display:none;margin-top:14px">
-      <table><thead><tr><th>Emp#</th><th>Last Name</th><th>First Name</th><th>Branch</th><th>Status</th><th>Dept</th></tr></thead>
-      <tbody>
-        <tr><td>4122000</td><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>Prota LA Branch Test</td><td>Active</td><td>Staff</td></tr>
-        <tr><td>4122001</td><td><a href="#" style="color:#3a6aaa">Smith</a></td><td>John</td><td>Prota LA Branch Test</td><td>Active</td><td>Staff</td></tr>
-      </tbody></table>
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%">
+        <thead><tr>
+          <th>Last Name &#9650;&#9660;</th><th>First Name &#9650;&#9660;</th><th>Employee# &#9650;&#9660;</th>
+          <th>BranchName &#9650;&#9660;</th><th>Status</th><th>Timeline</th><th>Manage Academy</th>
+          <th>Login <input type="checkbox" style="vertical-align:middle"></th>
+        </tr></thead>
+        <tbody>
+          <tr><td><a href="#" id="emp-link" style="color:#3a6aaa">Gonzalez</a></td><td>Maria</td><td>4122000</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Whitfield</a></td><td>Daria</td><td>3958412</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Okafor</a></td><td>Terrence</td><td>3961205</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Vasquez</a></td><td>Lorena</td><td>3947338</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Brennan</a></td><td>Marcus</td><td>3953071</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+          <tr><td><a style="color:#3a6aaa">Sandoval</a></td><td>Priya</td><td>3969824</td><td>Prota LA Branch Test</td><td>Active</td><td><a style="color:#3a6aaa;cursor:pointer">Timeline</a></td><td></td><td><a style="color:#3a6aaa;cursor:pointer">ESS</a> <input type="checkbox"></td></tr>
+        </tbody>
+      </table>
     </div>`;
 }
 
