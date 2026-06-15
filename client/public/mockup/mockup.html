@@ -2415,20 +2415,208 @@ function reportsHTML(activeSection, reportList) {
 }
 
 function slide_general_reporting_3() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Job Administration',
-    ['Job Summary Report','Job Detail Report','Open Jobs Report','Jobs by Venue','Jobs by Client','Schedule Variance Report','Unfilled Shifts Report','Job Cost Analysis']);
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/11/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/10/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/15/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'Browse the available reports in the right panel. Click anywhere to continue.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Hover Job Administration → flyout appears with full report list
+    { selector: '#sub-rep-jadmin', prompt: 'Hover over "Job Administration" to see the list of Job Administration reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-jadmin');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Job Shift Roster', ''],
+          ['Job Account Summary', ''],
+          ['One Line Shift Summary', ''],
+          ['Alpha Roster', 'sub-rep-alpha'],
+          ['Employee Print Sched', ''],
+          ['Sign-In Sign-Out Sheets', 'sub-rep-siso'],
+          ['Employee Work History', ''],
+          ['Employee Not Signin', 'sub-rep-ensi'],
+          ['Employee Schedule From', ''],
+          ['Shared Branch', ''],
+          ['Shared Employee Alpha Roster', ''],
+          ['Employee Work Hours Report', ''],
+          ['Sign In Notes Report', ''],
+          ['Deleted Schedule', '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        // Anchor the flyout to the top of the content area so all 14 items sit beside the Unapproved Jobs list
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:190px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Highlight Alpha Roster
+    { selector: '#sub-rep-alpha', prompt: 'Alpha Roster — lists every scheduled employee for an event, in alphabetical order', skipClick: true },
+
+    // Step 4: Highlight Sign-In Sign-Out Sheets
+    { selector: '#sub-rep-siso', prompt: 'Sign-In Sign-Out Sheets — paper sign-in sheets for events where electronic sign-in is not available', skipClick: true },
+
+    // Step 5: Highlight Employee Not Signin
+    { selector: '#sub-rep-ensi', prompt: 'Employee Not Signin — shows employees who were scheduled but did not sign in electronically', skipClick: true },
   ]);
 }
 
 function slide_payroll_reporting_3() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Payroll',
-    ['Payroll Summary','Payroll Detail by Employee','Hours Worked Report','Overtime Report','Pay Rate Audit','Process Hours Summary','Unapproved Hours Report','Payroll Export']);
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'Browse the available payroll reports. Click anywhere to continue.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Payroll Reports → flyout opens with 7 items
+    { selector: '#sub-rep-payroll', prompt: 'Click "Payroll Reports" to see the list of Payroll reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-payroll');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Time Register',          'sub-pay-etr'],
+          ['Employee Time Register (Break)',  'sub-pay-etrb'],
+          ['Emp Time Register With Notes',    'sub-pay-etrn'],
+          ['Financial Analysis Report',       'sub-pay-fin'],
+          ['Export PerDiem Report',           'sub-pay-pd'],
+          ['Manage Temp Cost Code Number',    'sub-pay-cc'],
+          ['Employee Estimate Hours',         'sub-pay-est']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:210px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Steps 3–9: Highlight each Payroll Report in turn (prompts from script)
+    { selector: '#sub-pay-etr',  prompt: 'Employee Time Register — the primary report. Shows each employee’s hours worked by job and shift', skipClick: true },
+    { selector: '#sub-pay-etrb', prompt: 'Employee Time Register (Break) — same as above, with break time broken out separately', skipClick: true },
+    { selector: '#sub-pay-etrn', prompt: 'Emp Time Register With Notes — includes any notes attached to an employee’s timesheet entry', skipClick: true },
+    { selector: '#sub-pay-fin',  prompt: 'Financial Analysis Report — a cost-facing view of hours and pay across jobs', skipClick: true },
+    { selector: '#sub-pay-pd',   prompt: 'Export PerDiem Report — exports per diem payments for payroll processing', skipClick: true },
+    { selector: '#sub-pay-cc',   prompt: 'Manage Temp Cost Code Number — for branches that use cost codes to categorize labor', skipClick: true },
+    { selector: '#sub-pay-est',  prompt: 'Employee Estimate Hours — projected hours based on scheduled shifts before actuals are entered', skipClick: true },
   ]);
 }
 
@@ -6964,6 +7152,10 @@ function slide_inventory_9() {
         <button class="btn" id="btn-inv9-history">History</button>
       </td>
     </tr>`;
+
+  // Random item code generated per session so the demo feels live
+  const randomCode = 'UMB-' + Math.floor(1000 + Math.random() * 9000);
+
   document.getElementById('content').innerHTML = `
     <div style="margin-bottom:12px">
       <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
@@ -7019,6 +7211,7 @@ function slide_inventory_9() {
         document.getElementById('sub-inventory').classList.remove('show');
         document.getElementById('content').innerHTML = `
           <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:700px">
+            <div id="inv9-msg" style="display:none;background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:8px 12px;font-size:13px;font-weight:bold;margin-bottom:12px;border-radius:3px"></div>
             <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:10px">Item Check-In/Check-Out</div>
             <div style="text-align:center;margin-bottom:10px;font-size:13px">
               <input type="radio" name="inv9-tab" id="f-inv9-emptab" checked> <label for="f-inv9-emptab">Employee#</label>
@@ -7049,15 +7242,21 @@ function slide_inventory_9() {
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-event" style="width:170px"><option>--Select--</option></select>&nbsp;<span style="color:#c00">*</span></td>
+                  <td style="padding:4px 6px;position:relative">
+                    <div id="f-inv9-event" style="display:inline-block;width:170px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
+                    <div id="f-inv9-event-menu" style="display:none;position:absolute;top:30px;left:6px;width:170px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
+                      <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+                      <div id="f-inv9-event-opt-drake" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">2026 DRAKE CONCERT</div>
+                    </div>
+                  </td>
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Venue :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-venue" style="width:170px"><option>All</option></select></td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-venue" style="width:170px"><option>--Select--</option><option>All</option></select></td>
                 </tr>
                 <tr>
                   <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job :</td>
-                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-job" style="width:170px"><option></option></select></td>
+                  <td style="padding:4px 6px"><select class="form-select" id="f-inv9-job" style="width:170px"><option></option><option>All</option></select></td>
                 </tr>
               </table>
               <table id="inv9-right" style="border-spacing:0;border-collapse:separate;flex:1">
@@ -7155,178 +7354,1619 @@ function slide_inventory_9() {
         document.getElementById('f-inv9-iname').innerHTML = 'Umbrella<span style="float:right;color:#666">&#9662;</span>';
         document.getElementById('f-inv9-iname-menu').style.display = 'none';
       }},
+
+    // Step 15: Click Event dropdown → open menu
+    { selector: '#f-inv9-event', prompt: 'Click the Event dropdown to choose the event',
+      onConfirm: () => { document.getElementById('f-inv9-event-menu').style.display = 'block'; }},
+
+    // Step 16: Click "2026 DRAKE CONCERT" → set value, close menu, auto-fill Venue/Job to All
+    { selector: '#f-inv9-event-opt-drake', prompt: 'Click "2026 DRAKE CONCERT"',
+      onConfirm: () => {
+        document.getElementById('f-inv9-event').innerHTML = '2026 DRAKE CONCERT<span style="float:right;color:#666">&#9662;</span>';
+        document.getElementById('f-inv9-event-menu').style.display = 'none';
+        document.getElementById('f-inv9-venue').value = 'All';
+        document.getElementById('f-inv9-job').value = 'All';
+      }},
+
+    // Step 17: Click Item Code field → type a unique generated code
+    { selector: '#f-inv9-icode', prompt: 'Click the Item Code field and enter the unique item code', type: randomCode },
+
+    // Step 18: Click Search → show Search Result section with the matched item
+    { selector: '#btn-inv9-search', prompt: 'Click Search to look up the item',
+      onConfirm: () => {
+        const results = document.getElementById('inv9-results');
+        results.style.display = 'block';
+        results.innerHTML = `
+          <div style="margin-top:18px">
+            <div style="font-size:16px;font-weight:bold;color:#333;margin-bottom:8px">Search Result</div>
+            <table style="width:100%;border-collapse:collapse;font-size:13px">
+              <thead>
+                <tr style="background:#5a4030;color:#fff">
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Item</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Item Code</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Status</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Branch</th>
+                  <th style="padding:6px 10px;text-align:left;border:1px solid #3a2010">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background:#e88840;color:#fff">
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">Umbrella</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">${randomCode}</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">Available</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820">Prota LA Branch Test</td>
+                  <td style="padding:6px 10px;text-align:center;border:1px solid #b86820"><button class="btn" id="btn-inv9-checkout-row" style="padding:3px 10px;font-size:12px">Check Out</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>`;
+      }},
+
+    // Step 19: Click Check Out → show green success banner at top of form
+    { selector: '#btn-inv9-checkout-row', prompt: 'Click "Check Out" to assign the item',
+      onConfirm: () => {
+        const msg = document.getElementById('inv9-msg');
+        msg.innerHTML = '&#10004; Checkout successful';
+        msg.style.display = 'block';
+      }},
   ]);
 }
 
 // ── General Reporting ─────────────────────────────────────────────────────
 
 function slide_general_reporting_4() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Alpha Roster</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Job Number :</span>
-      <input class="form-input" id="f-ar-job"> <span style="color:#c00">*</span></div>
-    <div class="form-row"><span class="form-label">Sort By :</span>
-      <select class="form-select"><option>Last Name</option><option>Employee#</option></select></div>
-    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-ar-run">Produce Report</button></div>
-    <div id="ar-results" style="display:none;margin-top:10px">
-      <table><thead><tr><th>Employee#</th><th>Last Name</th><th>First Name</th><th>Role</th><th>Shift</th></tr></thead>
-      <tbody>
-        <tr><td>4122000</td><td>Garcia</td><td>Maria</td><td>Event Staff</td><td>Day Shift</td></tr>
-        <tr><td>4122001</td><td>Johnson</td><td>Robert</td><td>Supervisor</td><td>Day Shift</td></tr>
-        <tr><td>4122002</td><td>Martinez</td><td>Lisa</td><td>Event Staff</td><td>Day Shift</td></tr>
-      </tbody></table>
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+
+  // Calendar month data (May–August 2026) + renderer used by Start/End Date pickers
+  const calMonths = {
+    May:    { title: 'May, 2026',     prev: [26,27,28,29,30],     curr: 31, next: 6  },
+    June:   { title: 'June, 2026',    prev: [31],                 curr: 30, next: 11 },
+    July:   { title: 'July, 2026',    prev: [28,29,30],           curr: 31, next: 8  },
+    August: { title: 'August, 2026',  prev: [26,27,28,29,30,31],  curr: 31, next: 5  }
+  };
+  function renderArCal(which, name, targetDay) {
+    const m = calMonths[name];
+    document.getElementById(`ar-${which}-cal-title`).textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June' && d === 15);
+      const isTarget = (name === 'August' && d === targetDay);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ` id="ar-${which}-d${targetDay}"` : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById(`ar-${which}-cal-grid`).innerHTML = rows;
+  }
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg>`;
+  function calPopup(which) {
+    return `<div id="ar-${which}-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+        <div id="ar-${which}-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+        <div id="ar-${which}-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold"></div>
+        <div id="ar-${which}-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+      </div>
+      <table id="ar-${which}-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#222;font-size:11px">Today: June 15, 2026</div>
     </div>`;
+  }
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/15/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-ar-job', prompt: 'Enter the Job Number for the event you need a roster for', type: '1012698342' },
-    { selector: '#btn-ar-run', prompt: 'Click "Produce Report" to generate the Alpha Roster',
-      onConfirm: () => { document.getElementById('ar-results').style.display = ''; }},
-    { selector: '#ar-results', prompt: 'The Alpha Roster is your pre-event checklist — every scheduled employee listed alphabetically. Print this and bring it to the event.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Job Administration → flyout opens
+    { selector: '#sub-rep-jadmin', prompt: 'Click "Job Administration" to see the list of Job Administration reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-jadmin');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Job Shift Roster', ''],
+          ['Job Account Summary', ''],
+          ['One Line Shift Summary', ''],
+          ['Alpha Roster', 'sub-rep-alpha'],
+          ['Employee Print Sched', ''],
+          ['Sign-In Sign-Out Sheets', ''],
+          ['Employee Work History', ''],
+          ['Employee Not Signin', ''],
+          ['Employee Schedule From', ''],
+          ['Shared Branch', ''],
+          ['Shared Employee Alpha Roster', ''],
+          ['Employee Work Hours Report', ''],
+          ['Sign In Notes Report', ''],
+          ['Deleted Schedule', '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:190px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Click Alpha Roster → navigate to Alpha Roster form
+    { selector: '#sub-rep-alpha', prompt: 'Click "Alpha Roster" to open the Alpha Roster report form',
+      onConfirm: () => {
+        document.getElementById('rep-flyout').remove();
+        document.getElementById('nav-reports').classList.remove('active');
+        document.getElementById('sub-reports').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:560px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px">Alpha Roster</div>
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job# :</td>
+                <td style="padding:4px 6px"><input class="form-input" id="f-ar-job" style="width:160px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-branch" style="width:178px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Department Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-dept" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Start Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-ar-start" value="05/31/2026" style="width:90px">
+                  <button id="btn-ar-start-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${calPopup('start')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">End Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-ar-end" value="06/30/2026" style="width:90px">
+                  <button id="btn-ar-end-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${calPopup('end')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-event" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-jobname" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Shift Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-shift" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Role Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ar-role" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap;vertical-align:top">Show on Report :</td>
+                <td style="padding:4px 6px;font-size:13px">
+                  <div style="margin-bottom:4px"><input type="checkbox" id="f-ar-phone"> <label for="f-ar-phone">Phone</label> &nbsp;&nbsp; <input type="checkbox" id="f-ar-email"> <label for="f-ar-email">Emailed</label></div>
+                  <div><input type="radio" name="ar-fmt" id="f-ar-pdf" checked> <label for="f-ar-pdf">PDF</label> &nbsp; <input type="radio" name="ar-fmt" id="f-ar-excel"> <label for="f-ar-excel">Excel</label></div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:12px 6px;text-align:center">
+                  <button class="btn" id="btn-ar-run">Produce Report</button>
+                  <button class="btn" id="btn-ar-reset">Reset</button>
+                </td>
+              </tr>
+            </table>
+          </div>`;
+      }},
+
+    // Step 4: Click Job# → type 5023705541
+    { selector: '#f-ar-job', prompt: 'Click the Job# text box and enter the job number', type: '5023705541' },
+
+    // Step 5: Click Start Date calendar → open May 2026 picker
+    { selector: '#btn-ar-start-cal', prompt: 'Click the Start Date calendar icon',
+      onConfirm: () => {
+        renderArCal('start', 'May', 15);
+        document.getElementById('ar-start-cal').style.display = 'block';
+      }},
+
+    // Step 6: Click right arrow → advance to June
+    { selector: '#ar-start-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderArCal('start', 'June', 15); }},
+
+    // Step 7: Click right arrow → advance to July
+    { selector: '#ar-start-next', prompt: 'Click the right arrow to keep advancing',
+      onConfirm: () => { renderArCal('start', 'July', 15); }},
+
+    // Step 8: Click right arrow → advance to August
+    { selector: '#ar-start-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderArCal('start', 'August', 15); }},
+
+    // Step 9: Click 15 → set Start Date to 08/15/2026 and close calendar
+    { selector: '#ar-start-d15', prompt: 'Click the 15th — this is the event start date',
+      onConfirm: () => {
+        document.getElementById('f-ar-start').value = '08/15/2026';
+        document.getElementById('ar-start-cal').style.display = 'none';
+      }},
+
+    // Step 10: Click End Date calendar → open June 2026 picker (current End Date)
+    { selector: '#btn-ar-end-cal', prompt: 'Click the End Date calendar icon',
+      onConfirm: () => {
+        renderArCal('end', 'June', 16);
+        document.getElementById('ar-end-cal').style.display = 'block';
+      }},
+
+    // Step 11: Click right arrow → advance to July
+    { selector: '#ar-end-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderArCal('end', 'July', 16); }},
+
+    // Step 12: Click right arrow → advance to August
+    { selector: '#ar-end-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderArCal('end', 'August', 16); }},
+
+    // Step 13: Click 16 → set End Date to 08/16/2026 and close calendar
+    { selector: '#ar-end-d16', prompt: 'Click the 16th — this is the event end date',
+      onConfirm: () => {
+        document.getElementById('f-ar-end').value = '08/16/2026';
+        document.getElementById('ar-end-cal').style.display = 'none';
+      }},
+
+    // Step 14: Highlight Branch Name → branch reminder
+    { selector: '#f-ar-branch', prompt: 'Make sure this is correct when searching', skipClick: true },
+
+    // Step 15: Click Produce Report → Chrome-style Downloads popup appears top-right
+    { selector: '#btn-ar-run', prompt: 'Click "Produce Report" to generate the Alpha Roster PDF',
+      onConfirm: () => {
+        const old = document.getElementById('ar-download');
+        if (old) old.remove();
+        const popup = document.createElement('div');
+        popup.id = 'ar-download';
+        popup.style.cssText = 'position:fixed;top:8px;right:14px;width:340px;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:300;font-family:Arial;font-size:13px;color:#222';
+        popup.innerHTML = `
+          <div style="display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid #eee">
+            <div style="flex:1;font-weight:bold;font-size:15px;color:#333">Downloads</div>
+            <div style="display:flex;gap:12px;color:#555;align-items:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h6l2 2h10v10H3z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="19" cy="12" r="2" fill="currentColor"/></svg>
+            </div>
+          </div>
+          <div style="padding:12px 14px;display:flex;align-items:flex-start;gap:10px">
+            <div style="background:#ee2e2e;color:#fff;width:28px;height:34px;text-align:center;font-size:10px;font-weight:bold;line-height:34px;border-radius:2px;flex-shrink:0">PDF</div>
+            <div style="flex:1;min-width:0">
+              <div style="color:#222;font-size:13px;word-break:break-all">AlphaRoster_06152026123633.pdf</div>
+              <a href="javascript:void(0)" style="color:#1a6aaa;text-decoration:none;font-size:12px">Open file</a>
+            </div>
+          </div>`;
+        document.body.appendChild(popup);
+      }},
   ]);
 }
 
 function slide_general_reporting_5() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Sign-In Sign-Out Sheets</div>
-    <div class="note-bar">Use this report when electronic sign-in is not set up at the event location.</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Job Number :</span>
-      <input class="form-input" id="f-siso-job"> <span style="color:#c00">*</span></div>
-    <div class="form-row"><span class="form-label">Shift :</span>
-      <select class="form-select"><option>--All Shifts--</option><option>Day Shift</option><option>Night Shift</option></select></div>
-    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-siso-run">Produce Report</button></div>
-    <div id="siso-results" style="display:none;margin-top:10px">
-      <table><thead><tr><th>Employee</th><th>Role</th><th>Sign-In Time</th><th>Sign-In Signature</th><th>Sign-Out Time</th><th>Sign-Out Signature</th></tr></thead>
-      <tbody>
-        <tr><td>Garcia, Maria</td><td>Event Staff</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-        <tr><td>Johnson, Robert</td><td>Supervisor</td><td></td><td></td><td></td><td></td></tr>
-        <tr><td>Martinez, Lisa</td><td>Event Staff</td><td></td><td></td><td></td><td></td></tr>
-      </tbody></table>
-      <div style="margin-top:8px;color:#888;font-size:11px">Print and bring to the event. Employees fill in times and sign by hand.</div>
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
+  // Calendar month data (June–August 2026) + renderer for Start/End Date pickers
+  const calMonths = {
+    June:   { title: 'June, 2026',    prev: [31],                 curr: 30, next: 11 },
+    July:   { title: 'July, 2026',    prev: [28,29,30],           curr: 31, next: 8  },
+    August: { title: 'August, 2026',  prev: [26,27,28,29,30,31],  curr: 31, next: 5  }
+  };
+  function renderSisoCal(which, name, targetDay) {
+    const m = calMonths[name];
+    document.getElementById(`siso-${which}-cal-title`).textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June' && d === 15);
+      const isTarget = (name === 'August' && d === targetDay);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ` id="siso-${which}-d${targetDay}"` : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById(`siso-${which}-cal-grid`).innerHTML = rows;
+  }
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg>`;
+  function sisoCalPopup(which) {
+    return `<div id="siso-${which}-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+        <div id="siso-${which}-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+        <div id="siso-${which}-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold"></div>
+        <div id="siso-${which}-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+      </div>
+      <table id="siso-${which}-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#222;font-size:11px">Today: June 15, 2026</div>
     </div>`;
+  }
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/15/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-siso-job', prompt: 'Enter the Job Number', type: '1012698342' },
-    { selector: '#btn-siso-run', prompt: 'Click "Produce Report" to generate the paper sign-in sheet',
-      onConfirm: () => { document.getElementById('siso-results').style.display = ''; }},
-    { selector: '#siso-results', prompt: 'Print this sheet and take it to the event. After the event, manually enter these times into Manage Process Hours.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Job Administration → flyout opens beside the content area
+    { selector: '#sub-rep-jadmin', prompt: 'Click "Job Administration" to see the list of Job Administration reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-jadmin');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Job Shift Roster', ''],
+          ['Job Account Summary', ''],
+          ['One Line Shift Summary', ''],
+          ['Alpha Roster', 'sub-rep-alpha'],
+          ['Employee Print Sched', ''],
+          ['Sign-In Sign-Out Sheets', 'sub-rep-siso'],
+          ['Employee Work History', ''],
+          ['Employee Not Signin', ''],
+          ['Employee Schedule From', ''],
+          ['Shared Branch', ''],
+          ['Shared Employee Alpha Roster', ''],
+          ['Employee Work Hours Report', ''],
+          ['Sign In Notes Report', ''],
+          ['Deleted Schedule', '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:190px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Click Sign-In Sign-Out Sheets → navigate to Sign In Sign Out Sheets form
+    { selector: '#sub-rep-siso', prompt: 'Click "Sign-In Sign-Out Sheets" to open the report form',
+      onConfirm: () => {
+        document.getElementById('rep-flyout').remove();
+        document.getElementById('nav-reports').classList.remove('active');
+        document.getElementById('sub-reports').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:560px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px">Sign In Sign Out Sheets</div>
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job# :</td>
+                <td style="padding:4px 6px"><input class="form-input" id="f-siso-job" style="width:160px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Invoice# :</td>
+                <td style="padding:4px 6px"><input class="form-input" id="f-siso-inv" style="width:160px">&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-branch" style="width:178px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Department Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-dept" style="width:178px"><option>All</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Start Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-siso-start" value="06/15/2026" style="width:90px">
+                  <button id="btn-siso-start-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${sisoCalPopup('start')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">End Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-siso-end" value="06/21/2026" style="width:90px">
+                  <button id="btn-siso-end-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${sisoCalPopup('end')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-event" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Venue Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-venue" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-jobname" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Shift Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-shift" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Role Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-siso-role" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap;vertical-align:top">Jacket :</td>
+                <td style="padding:4px 6px;font-size:13px">
+                  <div style="margin-bottom:4px"><input type="radio" name="siso-jacket" id="f-siso-j-num" checked> <label for="f-siso-j-num">Jacket#</label> <input type="radio" name="siso-jacket" id="f-siso-j-size"> <label for="f-siso-j-size">Jacket Size</label></div>
+                  <div style="margin-bottom:3px"><input type="checkbox" id="f-siso-wc"> <label for="f-siso-wc">With Comment</label></div>
+                  <div style="margin-bottom:3px"><input type="checkbox" id="f-siso-osi"> <label for="f-siso-osi">Only Sign-In</label></div>
+                  <div><input type="checkbox" id="f-siso-xls"> <label for="f-siso-xls">Export Excel</label></div>
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:12px 6px;text-align:center">
+                  <button class="btn" id="btn-siso-run">Produce Report</button>
+                  <button class="btn" id="btn-siso-reset">Reset</button>
+                </td>
+              </tr>
+            </table>
+          </div>`;
+      }},
+
+    // Step 4: Click Job# → type 5023705541
+    { selector: '#f-siso-job', prompt: 'Click the Job# text box and enter the job number', type: '5023705541' },
+
+    // Step 5: Click Start Date calendar → open June 2026 picker
+    { selector: '#btn-siso-start-cal', prompt: 'Click the Start Date calendar icon',
+      onConfirm: () => {
+        renderSisoCal('start', 'June', 15);
+        document.getElementById('siso-start-cal').style.display = 'block';
+      }},
+
+    // Step 6: Click right arrow → advance to July
+    { selector: '#siso-start-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderSisoCal('start', 'July', 15); }},
+
+    // Step 7: Click right arrow → advance to August
+    { selector: '#siso-start-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderSisoCal('start', 'August', 15); }},
+
+    // Step 8: Click 15 → set Start Date to 08/15/2026 and close calendar
+    { selector: '#siso-start-d15', prompt: 'Click the 15th — this is the event start date',
+      onConfirm: () => {
+        document.getElementById('f-siso-start').value = '08/15/2026';
+        document.getElementById('siso-start-cal').style.display = 'none';
+      }},
+
+    // Step 9: Click End Date calendar → open June 2026 picker
+    { selector: '#btn-siso-end-cal', prompt: 'Click the End Date calendar icon',
+      onConfirm: () => {
+        renderSisoCal('end', 'June', 16);
+        document.getElementById('siso-end-cal').style.display = 'block';
+      }},
+
+    // Step 10: Click right arrow → advance to July
+    { selector: '#siso-end-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderSisoCal('end', 'July', 16); }},
+
+    // Step 11: Click right arrow → advance to August
+    { selector: '#siso-end-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderSisoCal('end', 'August', 16); }},
+
+    // Step 12: Click 16 → set End Date to 08/16/2026 and close calendar
+    { selector: '#siso-end-d16', prompt: 'Click the 16th — this is the event end date',
+      onConfirm: () => {
+        document.getElementById('f-siso-end').value = '08/16/2026';
+        document.getElementById('siso-end-cal').style.display = 'none';
+      }},
+
+    // Step 13: Highlight Branch Name → branch reminder
+    { selector: '#f-siso-branch', prompt: 'Make sure the Branch Name is correct before producing the report', skipClick: true },
+
+    // Step 14: Click Produce Report → render the generated PDF preview page
+    { selector: '#btn-siso-run', prompt: 'Click "Produce Report" to generate the Sign In Sign Out report',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:18px 24px;font-family:Arial;font-size:11px;color:#222">
+            <div style="display:flex;align-items:flex-start;justify-content:space-between">
+              <div style="font-weight:bold;color:#c07800;font-size:22px;font-style:italic">WISH</div>
+              <div style="font-weight:bold;color:#c0a040;font-size:18px;font-style:italic">CSC</div>
+            </div>
+            <div style="font-size:18px;font-weight:bold;margin-top:6px">Job Sign-in Sign-out</div>
+            <div style="display:flex;gap:14px;margin-top:6px;align-items:flex-start">
+              <div style="flex:1">
+                <div style="font-weight:bold;margin-bottom:4px">Prota LA Branch Test</div>
+                <table style="font-size:11px;border-collapse:collapse">
+                  <tr><td style="padding:2px 8px 2px 0;font-weight:bold">Venue:</td><td>AB Convention Center</td><td style="padding:2px 0 2px 16px">06/15/2026 13:06</td></tr>
+                  <tr><td style="padding:2px 8px 2px 0;font-weight:bold">Current Count :</td><td>10</td><td style="padding:2px 0 2px 16px"><span style="font-weight:bold">Variance:</span> &nbsp; 5</td></tr>
+                  <tr><td style="padding:2px 8px 2px 0;font-weight:bold">Call Time:</td><td><span style="font-weight:bold">Sign-in :</span> &nbsp; 08:00</td><td style="padding:2px 0 2px 16px"><span style="font-weight:bold">Sign-Out:</span> &nbsp; 17:00</td></tr>
+                </table>
+              </div>
+              <table style="font-size:11px;border-collapse:collapse;border:1px solid #888">
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Job Date</td><td style="padding:3px 8px;border:1px solid #ccc">Saturday, August 15, 2026</td></tr>
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Event</td><td style="padding:3px 8px;border:1px solid #ccc">2026 DRAKE CONCERT</td></tr>
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Job</td><td style="padding:3px 8px;border:1px solid #ccc">(5023705541) Drake Job</td></tr>
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Shift</td><td style="padding:3px 8px;border:1px solid #ccc">(1) Staff One Call</td></tr>
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Shift Hours</td><td style="padding:3px 8px;border:1px solid #ccc">9</td></tr>
+                <tr><td style="padding:3px 8px;font-weight:bold;border:1px solid #ccc;background:#f4f4f4">Uniform/Attire</td><td style="padding:3px 8px;border:1px solid #ccc">&nbsp;</td></tr>
+              </table>
+            </div>
+            <table style="width:100%;border-collapse:collapse;margin-top:14px;font-size:11px">
+              <thead>
+                <tr style="border-bottom:1px solid #888;font-weight:bold">
+                  <th style="text-align:left;padding:5px 4px">No.</th>
+                  <th style="text-align:left;padding:5px 4px">#</th>
+                  <th style="text-align:left;padding:5px 4px">Last Name</th>
+                  <th style="text-align:left;padding:5px 4px">First Name</th>
+                  <th style="text-align:left;padding:5px 4px">Job Title</th>
+                  <th style="text-align:left;padding:5px 4px">Jacket #</th>
+                  <th style="text-align:left;padding:5px 4px">Signature</th>
+                  <th style="text-align:left;padding:5px 4px;background:#e0e8f4">Time In</th>
+                  <th style="text-align:left;padding:5px 4px;background:#e0e8f4">Time Out</th>
+                  <th style="text-align:left;padding:5px 4px">Hours</th>
+                </tr>
+                <tr style="background:#f8f8f0;border-bottom:1px solid #888;font-weight:bold">
+                  <td style="padding:4px">Role -</td>
+                  <td colspan="2" style="padding:4px">Event Staff</td>
+                  <td colspan="4" style="padding:4px">Number Targeted - (5)</td>
+                  <td style="padding:4px">08/15/26 08:00</td>
+                  <td style="padding:4px">08/15/26 17:00</td>
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+                ${[
+                  ['1','3951657','Nagdev','Priyanka','Supervisor','08/15/26 08:00','08/15/26 10:00','2.00'],
+                  ['2','3951664','Banik','Shiny','Supervisor','08/15/26 08:00','08/15/26 10:00','2.00'],
+                  ['3','3951660','Bhattacharyya','Shreya','Supervisor','08/15/26 08:00','08/15/26 10:00','2.00'],
+                  ['4','3952376','Bisht','Mahendra singh','Office Admin','08/15/26 08:00','08/15/26 08:15',''],
+                  ['5','3952379','Chaudhary','Prachi','Office Admin','08/15/26 10:00','',''],
+                  ['6','3951163','Chauhan','Vikrant','','','',''],
+                  ['7','10111','cscadmin','cscadmin','Unclassified','08/15/26 08:00','08/15/26 10:00','2.00'],
+                  ['8','2','Test','5Aug','24 Hour Guard','08/15/26 09:00','08/15/26 11:00','2.00'],
+                  ['9','3','Test','6Aug','24 Hour Guard','','',''],
+                  ['10','4','Test','7Aug','24 Hour Guard','08/15/26 08:00','08/15/26 12:00','4.00'],
+                ].map(([no, emp, ln, fn, jt, ti, to, hrs]) => `
+                  <tr style="border-bottom:1px solid #ddd">
+                    <td style="padding:4px">${no}</td>
+                    <td style="padding:4px">${emp}</td>
+                    <td style="padding:4px">${ln}</td>
+                    <td style="padding:4px">${fn}</td>
+                    <td style="padding:4px">${jt}</td>
+                    <td style="padding:4px"></td>
+                    <td style="padding:4px"></td>
+                    <td style="padding:4px">${ti}</td>
+                    <td style="padding:4px">${to}</td>
+                    <td style="padding:4px">${hrs}</td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>`;
+      }},
   ]);
 }
 
 function slide_general_reporting_6() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Employee Not Sign-In</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Job Number :</span>
-      <input class="form-input" id="f-ensi-job"> <span style="color:#c00">*</span></div>
-    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-ensi-run">Produce Report</button></div>
-    <div id="ensi-results" style="display:none;margin-top:10px">
-      <table><thead><tr><th>Employee#</th><th>Name</th><th>Role</th><th>Shift</th><th>Scheduled Sign-In</th></tr></thead>
-      <tbody>
-        <tr><td>4122003</td><td>Williams, David</td><td>Event Staff</td><td>Day Shift</td><td>08:00 AM</td></tr>
-        <tr><td>4122005</td><td>Brown, Ashley</td><td>Event Staff</td><td>Day Shift</td><td>08:00 AM</td></tr>
-      </tbody></table>
-      <div style="margin-top:8px;color:#888;font-size:11px">These employees were scheduled but have no electronic sign-in on record.</div>
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
+  // Calendar month data (June–August 2026) + renderer for Start/End Date pickers
+  const calMonths = {
+    June:   { title: 'June, 2026',    prev: [31],                 curr: 30, next: 11 },
+    July:   { title: 'July, 2026',    prev: [28,29,30],           curr: 31, next: 8  },
+    August: { title: 'August, 2026',  prev: [26,27,28,29,30,31],  curr: 31, next: 5  }
+  };
+  function renderEnsiCal(which, name, targetDay) {
+    const m = calMonths[name];
+    document.getElementById(`ensi-${which}-cal-title`).textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June' && d === 15);
+      const isTarget = (name === 'August' && d === targetDay);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ` id="ensi-${which}-d${targetDay}"` : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById(`ensi-${which}-cal-grid`).innerHTML = rows;
+  }
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg>`;
+  function ensiCalPopup(which) {
+    return `<div id="ensi-${which}-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+        <div id="ensi-${which}-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+        <div id="ensi-${which}-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold"></div>
+        <div id="ensi-${which}-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+      </div>
+      <table id="ensi-${which}-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#222;font-size:11px">Today: June 15, 2026</div>
     </div>`;
+  }
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-ensi-job', prompt: 'Enter the Job Number to check for missing sign-ins after the event', type: '1012698342' },
-    { selector: '#btn-ensi-run', prompt: 'Click "Produce Report" to see which employees did not sign in',
-      onConfirm: () => { document.getElementById('ensi-results').style.display = ''; }},
-    { selector: '#ensi-results', prompt: 'Run this report after every event to identify no-shows and employees who need their time entered manually.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Job Administration → flyout opens with Employee Not Signin highlighted
+    { selector: '#sub-rep-jadmin', prompt: 'Click "Job Administration" to see the list of Job Administration reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-jadmin');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Job Shift Roster', ''],
+          ['Job Account Summary', ''],
+          ['One Line Shift Summary', ''],
+          ['Alpha Roster', ''],
+          ['Employee Print Sched', ''],
+          ['Sign-In Sign-Out Sheets', ''],
+          ['Employee Work History', ''],
+          ['Employee Not Signin', 'sub-rep-ensi'],
+          ['Employee Schedule From', ''],
+          ['Shared Branch', ''],
+          ['Shared Employee Alpha Roster', ''],
+          ['Employee Work Hours Report', ''],
+          ['Sign In Notes Report', ''],
+          ['Deleted Schedule', '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:190px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Click Employee Not Signin → navigate to Employee Not SignIn form
+    { selector: '#sub-rep-ensi', prompt: 'Click "Employee Not Signin" to open the report form',
+      onConfirm: () => {
+        document.getElementById('rep-flyout').remove();
+        document.getElementById('nav-reports').classList.remove('active');
+        document.getElementById('sub-reports').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:560px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px">Employee Not SignIn</div>
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job# :</td>
+                <td style="padding:4px 6px"><input class="form-input" id="f-ensi-job" style="width:160px"></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ensi-branch" style="width:178px"><option>Prota LA Branch Test</option></select>&nbsp;<span style="color:#c00">*</span></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Start Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-ensi-start" value="06/15/2026" style="width:90px">
+                  <button id="btn-ensi-start-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${ensiCalPopup('start')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">End Date :</td>
+                <td style="padding:4px 6px;white-space:nowrap;position:relative">
+                  <input class="form-input" id="f-ensi-end" value="06/16/2026" style="width:90px">
+                  <button id="btn-ensi-end-cal" style="margin-left:4px;padding:2px 4px;background:#e8e8e8;border:1px solid #999;cursor:pointer;border-radius:2px;vertical-align:middle;">${calIconSvg}</button>
+                  &nbsp;<span style="color:#c00">*</span>
+                  ${ensiCalPopup('end')}
+                </td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Event Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ensi-event" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Job Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-ensi-jobname" style="width:178px"><option>All</option></select></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:4px 6px;font-size:13px"><input type="radio" name="ensi-fmt" id="f-ensi-pdf" checked> <label for="f-ensi-pdf">PDF</label> <input type="radio" name="ensi-fmt" id="f-ensi-excel"> <label for="f-ensi-excel">Excel</label></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:12px 6px;text-align:center">
+                  <button class="btn" id="btn-ensi-run">Produce Report</button>
+                  <button class="btn" id="btn-ensi-reset">Reset</button>
+                </td>
+              </tr>
+            </table>
+          </div>`;
+      }},
+
+    // Step 4: Click Job# → type 5023705541
+    { selector: '#f-ensi-job', prompt: 'Click the Job# text box and enter the job number', type: '5023705541' },
+
+    // Step 5: Click Start Date calendar → open June 2026 picker
+    { selector: '#btn-ensi-start-cal', prompt: 'Click the Start Date calendar icon',
+      onConfirm: () => {
+        renderEnsiCal('start', 'June', 15);
+        document.getElementById('ensi-start-cal').style.display = 'block';
+      }},
+
+    // Step 6: Click right arrow → advance to July
+    { selector: '#ensi-start-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderEnsiCal('start', 'July', 15); }},
+
+    // Step 7: Click right arrow → advance to August
+    { selector: '#ensi-start-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderEnsiCal('start', 'August', 15); }},
+
+    // Step 8: Click 15 → set Start Date to 08/15/2026 and close calendar
+    { selector: '#ensi-start-d15', prompt: 'Click the 15th — this is the event start date',
+      onConfirm: () => {
+        document.getElementById('f-ensi-start').value = '08/15/2026';
+        document.getElementById('ensi-start-cal').style.display = 'none';
+      }},
+
+    // Step 9: Click End Date calendar → open June 2026 picker
+    { selector: '#btn-ensi-end-cal', prompt: 'Click the End Date calendar icon',
+      onConfirm: () => {
+        renderEnsiCal('end', 'June', 16);
+        document.getElementById('ensi-end-cal').style.display = 'block';
+      }},
+
+    // Step 10: Click right arrow → advance to July
+    { selector: '#ensi-end-next', prompt: 'Click the right arrow to go to the next month',
+      onConfirm: () => { renderEnsiCal('end', 'July', 16); }},
+
+    // Step 11: Click right arrow → advance to August
+    { selector: '#ensi-end-next', prompt: 'Click the right arrow one more time to reach August',
+      onConfirm: () => { renderEnsiCal('end', 'August', 16); }},
+
+    // Step 12: Click 16 → set End Date to 08/16/2026 and close calendar
+    { selector: '#ensi-end-d16', prompt: 'Click the 16th — this is the event end date',
+      onConfirm: () => {
+        document.getElementById('f-ensi-end').value = '08/16/2026';
+        document.getElementById('ensi-end-cal').style.display = 'none';
+      }},
+
+    // Step 13: Click Produce Report → render the generated PDF preview
+    { selector: '#btn-ensi-run', prompt: 'Click "Produce Report" to generate the Employee Not Sign In listing',
+      onConfirm: () => {
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:14px 24px;font-family:Arial;font-size:12px;color:#222">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:6px">
+              <div style="font-size:16px;font-weight:bold;color:#222">Employee Not Sign In Listing - Prota LA Branch Test</div>
+              <div style="font-size:11px;color:#555">Print Date: 06/15/2026 13:31</div>
+            </div>
+            <div style="background:#c8d8f0;padding:5px 10px;font-weight:bold;color:#1a3c7a;font-size:13px;border-top:1px solid #999;border-bottom:1px solid #999">5023705541-Drake Job-08/15/2026</div>
+            <table style="width:100%;border-collapse:collapse;margin-top:0;font-size:11px">
+              <thead>
+                <tr style="color:#c07800;font-weight:bold;border-bottom:1px solid #c07800">
+                  <th style="text-align:left;padding:6px 4px">Employee#</th>
+                  <th style="text-align:left;padding:6px 4px">Last Name</th>
+                  <th style="text-align:left;padding:6px 4px">First Name</th>
+                  <th style="text-align:left;padding:6px 4px">Phone</th>
+                  <th style="text-align:left;padding:6px 4px">Event Date</th>
+                  <th style="text-align:left;padding:6px 4px">Shift Time</th>
+                  <th style="text-align:left;padding:6px 4px">Event Name</th>
+                  <th style="text-align:left;padding:6px 4px">Job Name</th>
+                  <th style="text-align:left;padding:6px 4px">Shift Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom:1px solid #eee">
+                  <td style="padding:5px 4px">3</td>
+                  <td style="padding:5px 4px">Test</td>
+                  <td style="padding:5px 4px">6Aug</td>
+                  <td style="padding:5px 4px">1.2-345-+009</td>
+                  <td style="padding:5px 4px">08/15/2026</td>
+                  <td style="padding:5px 4px">08/15/2026 08:00 AM</td>
+                  <td style="padding:5px 4px">2026 DRAKE CONCERT</td>
+                  <td style="padding:5px 4px">Drake Job</td>
+                  <td style="padding:5px 4px">Staff One Call</td>
+                </tr>
+                <tr style="border-bottom:1px solid #eee">
+                  <td style="padding:5px 4px">3951163</td>
+                  <td style="padding:5px 4px">Chauhan</td>
+                  <td style="padding:5px 4px">Vikrant</td>
+                  <td style="padding:5px 4px">1.2-345-+009</td>
+                  <td style="padding:5px 4px">08/15/2026</td>
+                  <td style="padding:5px 4px">08/15/2026 08:00 AM</td>
+                  <td style="padding:5px 4px">2026 DRAKE CONCERT</td>
+                  <td style="padding:5px 4px">Drake Job</td>
+                  <td style="padding:5px 4px">Staff One Call</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>`;
+      }},
   ]);
 }
 
 function slide_general_reporting_7() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Summary Roster',
-    ['Branch Schedule Summary','Employee Schedule Summary','Job Summary by Date','Schedule Coverage Report','WorkGroup Summary','Event Staffing Overview']);
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'The Summary Roster section gives high-level overviews — useful for scheduling reviews and staffing audits. Click any report to run it.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item" id="sub-rep-summary">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Summary Roster → flyout opens beside content area with 7 items
+    { selector: '#sub-rep-summary', prompt: 'Click "Summary Roster" to see the list of Summary Roster reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-summary');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Summary',  'sub-sum-emp'],
+          ['Workgroup Summary', 'sub-sum-wg'],
+          ['Job Summary',       'sub-sum-job'],
+          ['Client Summary',    'sub-sum-client'],
+          ['Venue Summary',     'sub-sum-venue'],
+          ['Branch Summary',    'sub-sum-branch'],
+          ['Background Check',  'sub-sum-bg']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:190px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Steps 3–9: Highlight each Summary Roster report in turn
+    { selector: '#sub-sum-emp',    prompt: 'Employee Summary — overview of every employee in the branch with key totals', skipClick: true },
+    { selector: '#sub-sum-wg',     prompt: 'Workgroup Summary — totals rolled up by workgroup so you can compare team-level staffing', skipClick: true },
+    { selector: '#sub-sum-job',    prompt: 'Job Summary — one-line summary of each job covering hours, headcount, and totals', skipClick: true },
+    { selector: '#sub-sum-client', prompt: 'Client Summary — totals grouped by client for billing or service-review meetings', skipClick: true },
+    { selector: '#sub-sum-venue',  prompt: 'Venue Summary — totals grouped by venue to see which venues are most active', skipClick: true },
+    { selector: '#sub-sum-branch', prompt: 'Branch Summary — high-level numbers for the entire branch, useful for management overviews', skipClick: true },
+    { selector: '#sub-sum-bg',     prompt: 'Background Check — list of employees with background-check status, used for compliance audits', skipClick: true },
   ]);
 }
 
 function slide_general_reporting_8() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Detailed Roster',
-    ['Employee Time Sheet Details','Employee Schedule Details','Job Credential Report','Employee Availability Report','Employee Training Report','License Expiry Report']);
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'The Detailed Roster section has employee-level reports covering time, credentials, licensing, and training. Click any report to run it.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item" id="sub-rep-detailed">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Detailed Roster → flyout opens with 11 items
+    { selector: '#sub-rep-detailed', prompt: 'Click "Detailed Roster" to see the list of Detailed Roster reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-detailed');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Details',                'sub-det-emp'],
+          ['Work Group Details',              'sub-det-wg'],
+          ['Client Details',                  'sub-det-client'],
+          ['Venue Details',                   'sub-det-venue'],
+          ['Branch Details',                  'sub-det-branch'],
+          ['Employee Configuration',          'sub-det-config'],
+          ['Employee Time Sheet Details',     'sub-det-ts'],
+          ['Employee Sign-In Sign-Out Details','sub-det-siso'],
+          ['Available Employees Report',      'sub-det-avail'],
+          ['JobTraining Report',              'sub-det-train'],
+          ['Employee Licensing Report',       'sub-det-lic']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:210px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Steps 3–7: Highlight only the 5 reports called out in the script
+    { selector: '#sub-det-ts',    prompt: 'Employee Time Sheet Details — full timesheet data for an employee over a date range', skipClick: true },
+    { selector: '#sub-det-siso',  prompt: 'Employee Sign-In Sign-Out Details — exact timestamps for sign-in and sign-out activity', skipClick: true },
+    { selector: '#sub-det-lic',   prompt: 'Employee Licensing Report — guard card and licensing status across your employee pool', skipClick: true },
+    { selector: '#sub-det-avail', prompt: 'Available Employees Report — who is eligible and available to be scheduled', skipClick: true },
+    { selector: '#sub-det-train', prompt: 'JobTraining Report — which WISH training modules each employee has completed', skipClick: true },
   ]);
 }
 
 // ── Payroll Reporting ─────────────────────────────────────────────────────
 
 function slide_payroll_reporting_4() {
-  setNav('reports');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('ar-download');
+  if (oldDl) oldDl.remove();
+
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Employee Time Register</div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Prota LA Branch Test</option></select></div>
-    <div class="form-row"><span class="form-label">Start Date :</span>
-      <input class="form-input" id="f-etr-start" value="08/15/2026" style="width:100px">${calBtn()} <span style="color:#c00">*</span></div>
-    <div class="form-row"><span class="form-label">End Date :</span>
-      <input class="form-input" id="f-etr-end" value="08/21/2026" style="width:100px">${calBtn()} <span style="color:#c00">*</span></div>
-    <div class="form-row"><span class="form-label">Employee# :</span>
-      <input class="form-input" id="f-etr-emp" style="width:120px" placeholder="Leave blank for all"></div>
-    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-etr-run">Produce Report</button></div>
-    <div id="etr-results" style="display:none;margin-top:10px">
-      <table><thead><tr><th>Employee</th><th>Job#</th><th>Date</th><th>Reg Hours</th><th>OT Hours</th><th>Total</th></tr></thead>
-      <tbody>
-        <tr><td>Garcia, Maria</td><td>1012698342</td><td>08/15/2026</td><td>4.5</td><td>0</td><td>4.5</td></tr>
-        <tr><td>Smith, John</td><td>1012698342</td><td>08/15/2026</td><td>4.4</td><td>0</td><td>4.4</td></tr>
-        <tr style="font-weight:bold;background:#f8f8f0"><td colspan="3">Totals</td><td>8.9</td><td>0</td><td>8.9</td></tr>
-      </tbody></table>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#f-etr-start', prompt: 'Set the Start Date for the pay period you are verifying' },
-    { selector: '#f-etr-end', prompt: 'Set the End Date for the pay period' },
-    { selector: '#btn-etr-run', prompt: 'Click "Produce Report" to generate the Employee Time Register',
-      onConfirm: () => { document.getElementById('etr-results').style.display = ''; }},
-    { selector: '#etr-results', prompt: 'Review all hours before sending to payroll. Every employee and job is listed with their reg and overtime hours.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Payroll Reports → flyout opens with 7 items
+    { selector: '#sub-rep-payroll', prompt: 'Click "Payroll Reports" to see the list of Payroll reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-payroll');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Time Register',          'sub-pay-etr'],
+          ['Employee Time Register (Break)',  ''],
+          ['Emp Time Register With Notes',    ''],
+          ['Financial Analysis Report',       ''],
+          ['Export PerDiem Report',           ''],
+          ['Manage Temp Cost Code Number',    ''],
+          ['Employee Estimate Hours',         '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:210px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Click Employee Time Register → navigate to the Employee Time Register form
+    { selector: '#sub-pay-etr', prompt: 'Click "Employee Time Register" to open the report form',
+      onConfirm: () => {
+        document.getElementById('rep-flyout').remove();
+        document.getElementById('nav-reports').classList.remove('active');
+        document.getElementById('sub-reports').classList.remove('show');
+        document.getElementById('content').innerHTML = `
+          <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;max-width:520px">
+            <div style="font-size:18px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:6px;margin-bottom:12px">Employee Time Register</div>
+            <table style="border-spacing:0;border-collapse:separate">
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Branch Name :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-etr-branch" style="width:178px"><option>Prota LA Branch Test</option></select></td>
+              </tr>
+              <tr>
+                <td style="text-align:right;padding:4px 6px;font-size:13px;white-space:nowrap">Employee Type :</td>
+                <td style="padding:4px 6px"><select class="form-select" id="f-etr-etype" style="width:178px"><option>Regular Employee</option></select></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:4px 6px;font-size:13px"><input type="radio" name="etr-fmt" id="f-etr-pdf" checked> <label for="f-etr-pdf">PDF</label> <input type="radio" name="etr-fmt" id="f-etr-excel"> <label for="f-etr-excel">Excel</label></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td style="padding:12px 6px;text-align:center">
+                  <button class="btn" id="btn-etr-run">Produce Report</button>
+                  <button class="btn" id="btn-etr-reset">Reset</button>
+                </td>
+              </tr>
+            </table>
+          </div>`;
+      }},
+
+    // Step 4: Click Produce Report → Chrome-style Downloads popup appears top-right
+    { selector: '#btn-etr-run', prompt: 'Click "Produce Report" to generate the Employee Time Register PDF',
+      onConfirm: () => {
+        const old = document.getElementById('etr-download');
+        if (old) old.remove();
+        const popup = document.createElement('div');
+        popup.id = 'etr-download';
+        popup.style.cssText = 'position:fixed;top:8px;right:14px;width:340px;background:#fff;border:1px solid #ddd;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.18);z-index:300;font-family:Arial;font-size:13px;color:#222';
+        popup.innerHTML = `
+          <div style="display:flex;align-items:center;padding:10px 14px;border-bottom:1px solid #eee">
+            <div style="flex:1;font-weight:bold;font-size:15px;color:#333">Downloads</div>
+            <div style="display:flex;gap:12px;color:#555;align-items:center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h6l2 2h10v10H3z"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="5" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="19" cy="12" r="2" fill="currentColor"/></svg>
+            </div>
+          </div>
+          <div style="padding:12px 14px;display:flex;align-items:flex-start;gap:10px">
+            <div style="background:#ee2e2e;color:#fff;width:28px;height:34px;text-align:center;font-size:10px;font-weight:bold;line-height:34px;border-radius:2px;flex-shrink:0">PDF</div>
+            <div style="flex:1;min-width:0">
+              <div style="color:#222;font-size:13px;word-break:break-all">EmployeeTimeRegister.pdf</div>
+              <a id="etr-open-file" href="javascript:void(0)" style="color:#1a6aaa;text-decoration:none;font-size:12px">Open file</a>
+            </div>
+          </div>`;
+        document.body.appendChild(popup);
+      }},
+
+    // Step 5: Click "Open file" → render the full Employee Time Register PDF preview
+    { selector: '#etr-open-file', prompt: 'Click "Open file" to view the Employee Time Register PDF',
+      onConfirm: () => {
+        const dl = document.getElementById('etr-download');
+        if (dl) dl.remove();
+        const groups = [
+          { name: 'Nagdev Priyanka',    emp: '3951657', rows: [
+            ['5023708401','1','06/09/2026','16','2.25','0','0','2.25'],
+            ['5023708436','1','06/10/2026','16','3.75','0','0','3.75'],
+            ['5023708873','1','06/11/2026','16','2.75','0','0','2.75'],
+            ['5023708438','1','06/12/2026','16','4','0','0','4'],
+          ], totals: ['12.75','0','0','12.75'] },
+          { name: 'Banik Shiny',        emp: '3951664', rows: [
+            ['5023708401','1','06/09/2026','16','1.5','0','0','1.5'],
+            ['5023708436','1','06/10/2026','16','4.25','0','0','4.25'],
+            ['5023708873','1','06/11/2026','16','2','0','0','2'],
+            ['5023708438','1','06/12/2026','16','4','0','0','4'],
+          ], totals: ['11.75','0','0','11.75'] },
+          { name: 'Bhattacharyya Shreya', emp: '3951660', rows: [
+            ['5023708401','1','06/09/2026','16','4','0','0','4'],
+            ['5023708436','1','06/10/2026','16','4','0','0','4'],
+            ['5023708438','1','06/12/2026','16','4','0','0','4'],
+          ], totals: ['12','0','0','12'] },
+          { name: 'Bisht Mahendra singh', emp: '3952376', rows: [
+            ['5023708401','1','06/09/2026','16','4','0','0','4'],
+            ['5023708436','1','06/10/2026','16','4','0','0','4'],
+            ['5023708873','1','06/11/2026','16','5','0','0','5'],
+            ['5023708438','1','06/12/2026','16','4','0','0','4'],
+          ], totals: ['17','0','0','17'] },
+        ];
+        const headerRow = `
+          <tr style="background:#cfd6e8;color:#222;font-weight:bold;font-size:11px">
+            <td style="padding:5px 8px">Employee Name</td>
+            <td style="padding:5px 8px">Employee #</td>
+            <td style="padding:5px 8px">Job#</td>
+            <td style="padding:5px 8px">CCode</td>
+            <td style="padding:5px 8px">Date WK</td>
+            <td style="padding:5px 8px">Pay Rate</td>
+            <td style="padding:5px 8px">Reg Hrs</td>
+            <td style="padding:5px 8px">OT Hrs</td>
+            <td style="padding:5px 8px">DT Hrs</td>
+            <td style="padding:5px 8px">Total Hrs</td>
+          </tr>`;
+        const groupsHtml = groups.map(g => `
+          ${headerRow}
+          ${g.rows.map(([job, cc, dt, pr, rh, ot, dh, th]) => `
+            <tr style="font-size:11px;border-bottom:1px solid #eee">
+              <td style="padding:4px 8px">${g.name}</td>
+              <td style="padding:4px 8px">${g.emp}</td>
+              <td style="padding:4px 8px">${job}</td>
+              <td style="padding:4px 8px">${cc}</td>
+              <td style="padding:4px 8px">${dt}</td>
+              <td style="padding:4px 8px">${pr}</td>
+              <td style="padding:4px 8px">${rh}</td>
+              <td style="padding:4px 8px">${ot}</td>
+              <td style="padding:4px 8px">${dh}</td>
+              <td style="padding:4px 8px">${th}</td>
+            </tr>`).join('')}
+          <tr style="font-size:11px;font-weight:bold;background:#fff">
+            <td colspan="2" style="padding:5px 8px">Total Number of Entries: ${g.rows.length}</td>
+            <td colspan="4" style="padding:5px 8px;text-align:right">Totals:</td>
+            <td style="padding:5px 8px">${g.totals[0]}</td>
+            <td style="padding:5px 8px">${g.totals[1]}</td>
+            <td style="padding:5px 8px">${g.totals[2]}</td>
+            <td style="padding:5px 8px">${g.totals[3]}</td>
+          </tr>`).join('');
+        document.getElementById('content').innerHTML = `
+          <div id="etr-pdf" style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:18px 24px;font-family:Arial;font-size:11px;color:#222">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+              <div style="font-weight:bold;color:#c07800;font-size:24px;font-style:italic">WISH</div>
+              <div style="font-size:18px;font-weight:bold;color:#222">Employee Time Register</div>
+              <div style="font-size:11px;color:#555">Print Date: 06/15/2026 02:31</div>
+            </div>
+            <div style="background:#1a3c7a;color:#fff;padding:6px 12px;font-weight:bold;font-size:13px;margin-bottom:0">Prota LA Branch Test</div>
+            <table style="width:100%;border-collapse:collapse">${groupsHtml}</table>
+          </div>`;
+      }},
+
+    // Step 6: Highlight the PDF with the review reminder
+    { selector: '#etr-pdf', prompt: 'Make sure to review carefully before payroll is processed. If something looks off or missing, go to Manage Process Hours to make corrections before approving.', skipClick: true },
   ]);
 }
 
 function slide_payroll_reporting_5() {
-  setNav('reports');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('etr-download');
+  if (oldDl) oldDl.remove();
+
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Employee Time Register &#8212; Report Variations</div>
-    <div style="display:flex;gap:14px;margin-top:10px">
-      <div style="flex:1;border:2px solid #c07800;border-radius:4px;padding:14px;background:#fff8f0">
-        <div style="font-weight:bold;color:#c07800;margin-bottom:6px">Employee Time Register</div>
-        <div style="font-size:12px;color:#444;line-height:1.5">Standard report. Shows regular and overtime hours per employee for the selected date range.<br><br>Use this for the weekly payroll submission.</div>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
       </div>
-      <div style="flex:1;border:1px solid #ddd;border-radius:4px;padding:14px;background:#f9f9f9">
-        <div style="font-weight:bold;color:#555;margin-bottom:6px">Employee Time Register (Break)</div>
-        <div style="font-size:12px;color:#444;line-height:1.5">Use when employees took scheduled breaks that need to be accounted for separately. Shows shift time minus break time.<br><br>Only use when breaks were tracked.</div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
       </div>
     </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'Use the standard Employee Time Register for most payroll submissions. Only use the Break version when your branch tracked break times separately.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Payroll Reports → flyout opens with 7 items
+    { selector: '#sub-rep-payroll', prompt: 'Click "Payroll Reports" to see the list of Payroll reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-payroll');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Time Register',          'sub-pay-etr'],
+          ['Employee Time Register (Break)',  'sub-pay-etrb'],
+          ['Emp Time Register With Notes',    'sub-pay-etrn'],
+          ['Financial Analysis Report',       ''],
+          ['Export PerDiem Report',           ''],
+          ['Manage Temp Cost Code Number',    ''],
+          ['Employee Estimate Hours',         '']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:210px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Step 3: Highlight the standard Employee Time Register (reference)
+    { selector: '#sub-pay-etr', prompt: 'You already know the standard Employee Time Register — it shows regular and overtime hours per employee', skipClick: true },
+
+    // Step 4: Highlight Employee Time Register (Break) — explanation from script
+    { selector: '#sub-pay-etrb', prompt: 'Employee Time Register (Break) — use this when employees took scheduled breaks that need to be accounted for separately. The report adds a break time column so you can verify break duration against what was entered.', skipClick: true },
+
+    // Step 5: Highlight Emp Time Register With Notes — explanation from script
+    { selector: '#sub-pay-etrn', prompt: 'Emp Time Register With Notes — use this when you need to see any notes attached during the sign-in or hour approval process. Useful when there were corrections, late arrivals, or discrepancies someone flagged at the time.', skipClick: true },
   ]);
 }
 
 function slide_payroll_reporting_6() {
-  setNav('reports');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  const oldDl = document.getElementById('etr-download');
+  if (oldDl) oldDl.remove();
+
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Payroll Report Workflow</div>
-    <div style="margin:10px 0">
-      ${[
-        ['Before the event', '#eff6ff', '#1a3c5a', ['Employee Estimate Hours — projected hours based on the schedule, useful for labor cost planning']],
-        ['After the event', '#fff8f0', '#c07800', ['Employee Time Register — verify approved hours before finalizing payroll', 'Unapproved Hours Report — catch any shifts still pending approval']],
-        ['After payroll is run', '#dff0d8', '#1a6a1a', ['Payroll Summary — confirm total hours and pay for the completed period']],
-      ].map(([phase, bg, color, items]) => `
-        <div style="background:${bg};border-left:4px solid ${color};padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
-          <div style="font-weight:bold;color:${color};margin-bottom:5px">${phase}</div>
-          ${items.map(i => `<div style="font-size:12px;color:#444;margin-bottom:2px">&#8226; ${i}</div>`).join('')}
-        </div>`).join('')}
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061526 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 7-6/15/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/15/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/15/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/15/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 6</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/15/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 9 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'Run these three payroll reports in order: estimate before the event, verify after the event, then confirm once payroll is finalized.', skipClick: true },
+    // Step 1: Click Reports → expand submenu with screenshot-matching items
+    { selector: '#nav-reports', prompt: 'Click "Reports" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-reports').classList.add('active');
+        const sub = document.getElementById('sub-reports');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Summary Roster</span>
+          <span class="nav-sub-item">Detailed Roster</span>
+          <span class="nav-sub-item">Job Administration</span>
+          <span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>
+          <span class="nav-sub-item">Billing Reports</span>
+          <span class="nav-sub-item">Manager Reports</span>`;
+      }},
+
+    // Step 2: Click Payroll Reports → flyout opens with 7 items
+    { selector: '#sub-rep-payroll', prompt: 'Click "Payroll Reports" to see the list of Payroll reports',
+      onConfirm: () => {
+        const item = document.getElementById('sub-rep-payroll');
+        const rect = item.getBoundingClientRect();
+        const flyoutItems = [
+          ['Employee Time Register',          'sub-pay-etr'],
+          ['Employee Time Register (Break)',  'sub-pay-etrb'],
+          ['Emp Time Register With Notes',    'sub-pay-etrn'],
+          ['Financial Analysis Report',       'sub-pay-fin'],
+          ['Export PerDiem Report',           ''],
+          ['Manage Temp Cost Code Number',    ''],
+          ['Employee Estimate Hours',         'sub-pay-est']
+        ];
+        const flyout = document.createElement('div');
+        flyout.id = 'rep-flyout';
+        const contentTop = document.getElementById('content').getBoundingClientRect().top;
+        const top = Math.max(10, contentTop);
+        flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:210px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+        flyout.innerHTML = flyoutItems.map(([label, id]) =>
+          `<div${id ? ` id="${id}"` : ''} style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+        ).join('');
+        document.body.appendChild(flyout);
+      }},
+
+    // Steps 3–7: Walk through the script's "when to use" recommendations
+    { selector: '#sub-pay-est',  prompt: 'Before the event — Employee Estimate Hours: run this to see projected hours based on the schedule. Useful for labor cost planning.', skipClick: true },
+    { selector: '#sub-pay-etr',  prompt: 'After the event, before payroll is finalized — Employee Time Register: verify that all hours were captured correctly and match what employees actually worked.', skipClick: true },
+    { selector: '#sub-pay-etrb', prompt: 'Employee Time Register (Break) — pull this if there were corrections or anything flagged during sign-in', skipClick: true },
+    { selector: '#sub-pay-etrn', prompt: 'Emp Time Register With Notes — also pull this when there were corrections or notes flagged during sign-in', skipClick: true },
+    { selector: '#sub-pay-fin',  prompt: 'Financial Analysis Report — review cost totals by job if you need to reconcile against a budget', skipClick: true },
+
+    // Step 8: Final important reminder — anchored on the top flyout item so the tooltip stays at the top of the viewport
+    { selector: '#sub-pay-etr',  prompt: 'Important: always complete your review in Payroll Reports before payroll is approved. Once hours are finalized, corrections become significantly more difficult.', skipClick: true },
   ]);
 }
 
