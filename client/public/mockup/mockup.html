@@ -2803,14 +2803,16 @@ const MET_ROSTER = [
 function manageEmpTaskHTML() {
   const rows = MET_ROSTER.map(e => {
     const indicator = e.pending
-      ? `<span id="met-task-${e.id}" style="color:#c00;font-weight:bold;font-size:16px">&#10006;</span>`
-      : `<span id="met-task-${e.id}" style="color:#2a9a2a;font-weight:bold;font-size:16px">&#10004;</span>`;
+      ? `<span id="met-task-${e.id}" style="color:#e53935;font-weight:bold;font-size:15px">&#10006;</span>`
+      : `<span id="met-task-${e.id}" style="color:#1b7a2e;font-weight:bold;font-size:15px">&#10004;</span>`;
     const cursor = e.pending ? 'cursor:pointer' : '';
     const onclick = e.pending ? ` onclick="showEmpTaskDetail(${e.id})"` : '';
-    return `<tr id="met-row-${e.id}" style="${cursor}"${onclick}>
-      <td>${e.last}</td><td>${e.first}</td><td>${e.num}</td>
-      <td>Prota LA Branch Test</td><td>${e.status}</td>
-      <td style="text-align:center">${indicator}</td></tr>`;
+    const td = 'padding:4px 8px';
+    return `<tr id="met-row-${e.id}" style="background:#1f8a3b;color:#fff;${cursor}"${onclick}>
+      <td style="text-align:center;${td}"><input type="checkbox"></td>
+      <td style="${td}">${e.last}</td><td style="${td}">${e.first}</td><td style="${td}">${e.num}</td>
+      <td style="${td}">${e.status}</td><td style="${td}">APPROVED</td><td style="${td}">01/01/2028</td>
+      <td style="text-align:center;${td};background:#fff">${indicator}</td></tr>`;
   }).join('');
   const c = 'padding:4px 8px';
   return `<div class="page-title">Manage Employee Task</div>
@@ -2831,10 +2833,11 @@ function manageEmpTaskHTML() {
     <div id="met-results" style="display:none;margin-top:6px">
       <table style="width:100%;font-size:12px">
         <thead><tr style="background:#5a5a5a;color:#fff">
-          <th style="text-align:left;${c}">Last Name</th><th style="text-align:left;${c}">First Name</th><th style="text-align:left;${c}">Employee#</th>
-          <th style="text-align:left;${c}">BranchName</th><th style="text-align:left;${c}">Status</th><th style="text-align:center;${c}">Task</th></tr></thead>
+          <th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Last Name</th><th style="text-align:left;${c}">First Name</th><th style="text-align:left;${c}">Employee#</th>
+          <th style="text-align:left;${c}">Status</th><th style="text-align:left;${c}">BGStatus</th><th style="text-align:left;${c}">BGExpiration Date</th><th style="text-align:center;${c}">Task</th></tr></thead>
         <tbody id="met-tbody">${rows}</tbody>
       </table>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd;margin-top:4px"><span>Total Pages: 3</span><span>Current Page: 1</span></div>
       <div style="margin-top:10px"><button class="btn btn-sm">Excel Export</button></div>
     </div>
     <div id="met-detail" style="display:none;margin-top:16px"></div>`;
@@ -3598,7 +3601,7 @@ function slide_hiring_admin_3() {
   runGuided([
     { selector: '#met-search', prompt: 'Choose a Branch and Status, then click "Search" to load your employee list',
       onConfirm: () => { document.getElementById('met-empty').style.display = 'none'; document.getElementById('met-results').style.display = ''; }},
-    { selector: '#met-tbody', prompt: 'Each row shows the employee\'s basic information — Last Name, First Name, Employee Number, Branch, and current Status', skipClick: true },
+    { selector: '#met-tbody', prompt: 'Each row shows the employee\'s Last Name, First Name, Employee Number, Status, Background Check status, and BG expiration date', skipClick: true },
     { selector: '#met-task-2', prompt: 'At the end of each row is the task indicator. A green checkmark means the employee has completed all assigned tasks — no action needed', skipClick: true },
     { selector: '#met-task-1', also: ['#met-task-3','#met-task-6'], prompt: 'An X means the employee has one or more pending tasks. These employees need your attention — they may be missing a required training, a document, or another compliance item', skipClick: true },
   ]);
