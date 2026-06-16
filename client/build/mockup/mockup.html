@@ -3626,11 +3626,11 @@ function slide_hiring_admin_4() {
   document.getElementById('met-empty').style.display = 'none';
   document.getElementById('met-results').style.display = '';
   runGuided([
-    { selector: '#met-row-1', prompt: 'Click on the X (or the checkmark) next to an employee to see their tasks. Here we\'ll click an X to see what\'s outstanding',
+    { selector: '#met-row-1', prompt: 'When you see an X next to an employee, click their row to see the details of what\'s outstanding',
       onConfirm: () => { showEmpTaskDetail(1); }},
-    { selector: '#met-d-name', also: ['#met-d-status'], prompt: 'The View Task window lists each outstanding task and its status — here, "Know Your Rights Notice" and "Employee MVR" are both Pending', skipClick: true },
-    { selector: '#met-d-table', prompt: 'Clicking a green checkmark instead shows tasks the employee has already submitted — those show as Verified with a "View" link. Your role is to monitor and follow up; completion is done by the employee through ESS or by an administrator', skipClick: true },
-    { selector: '#met-d-cancel', prompt: 'Click "Cancel" to close the window',
+    { selector: '#met-d-name', also: ['#met-d-status'], prompt: 'The task detail shows the name of each task and its current status — Pending, In Progress, or Complete. Here, "Know Your Rights Notice" and "Employee MVR" are both Pending', skipClick: true },
+    { selector: '#met-d-table', prompt: 'From here you review exactly what the employee needs to do, follow up with them directly, and coordinate with your administrator if a task needs branch-side action. (Clicking a checkmark instead shows tasks already submitted — Verified, with a "View" link.)', skipClick: true },
+    { selector: '#met-d-cancel', prompt: 'Task completion is done by the employee through their ESS account or by an administrator — your role is to monitor and follow up, not to mark tasks complete on their behalf. Click "Cancel" to close',
       onConfirm: () => { const d = document.getElementById('met-detail'); d.style.display = 'none'; d.innerHTML = ''; }},
   ]);
 }
