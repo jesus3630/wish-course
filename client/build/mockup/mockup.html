@@ -3439,13 +3439,13 @@ function importPortalHTML() {
           <tbody>
             <tr id="imp-row-1" style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox" id="imp-chk-1"> <select id="imp-dd-1" style="display:none;font-size:11px"><option>Select</option><option>Rejected</option><option>Rescind</option></select></td>
               <td style="${cell}">***-**-4821</td><td style="${cell};color:#3a6aaa">Holloway, Derek</td><td style="${cell}">Prota LA Branch Test</td>
-              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">Hired</td></tr>
+              <td style="${cell}" id="imp-bg-1"><span style="${ok}">APPROVED</span></td><td style="${cell}" id="imp-ev-1"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">Hired</td></tr>
             <tr style="background:#ededed"><td style="text-align:center;${cell}"><input type="checkbox"></td>
               <td style="${cell}">***-**-5530</td><td style="${cell};color:#3a6aaa">Nguyen, Tara</td><td style="${cell}">Prota LA Branch Test</td>
               <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}">Hired</td></tr>
             <tr style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox"></td>
               <td style="${cell}">***-**-7741</td><td style="${cell};color:#3a6aaa">Okafor, Samuel</td><td style="${cell}">Prota LA Branch Test</td>
-              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}"><span style="color:#c06000;font-weight:bold">Duplicate</span></td></tr>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}" id="imp-dup-3"><span style="color:#c06000;font-weight:bold">Duplicate</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -3503,6 +3503,55 @@ function slide_hiring_admin_3() {
   ]);
 }
 
+function slide_hiring_manager_4() {
+  // Check Before You Import — BG, E-Verify, Status, and Duplicate review
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-bg-1', prompt: 'Background Check Status must show APPROVED. Never import an applicant whose check is still pending or has not cleared', skipClick: true },
+    { selector: '#imp-ev-1', prompt: 'E-Verify Status must show EMPLOYMENTAUTHORIZED — this confirms the applicant is authorized to work', skipClick: true },
+    { selector: '#imp-st-1', prompt: 'The Status column should show "Hired" before you proceed. A different status means their hiring process isn\'t complete — do not import them yet', skipClick: true },
+    { selector: '#imp-dup-3', prompt: 'If the Hiring Status shows "Duplicate", that applicant already exists in WISH. Importing a duplicate can create record conflicts — do not import them', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_5() {
+  // Importing an Applicant — checkbox, dropdown (Select), Import Applicant, confirmation
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-chk-1', prompt: 'Once an applicant is confirmed cleared and ready, click the checkbox next to their name',
+      onConfirm: () => { document.getElementById('imp-dd-1').style.display = ''; }},
+    { selector: '#imp-dd-1', prompt: 'A dropdown appears: "Select" marks them for import, "Rejected" removes them from consideration, "Rescind" reverses a previous action. Choose "Select"', skipClick: true },
+    { selector: '#imp-btn', prompt: 'Click "Import Applicant" at the bottom of the screen',
+      onConfirm: () => { document.getElementById('imp-msg').classList.add('show'); }},
+    { selector: '#imp-msg', prompt: 'The system creates their employee record. They now appear in Records > Manage Employee, where you can assign a pay rate and schedule them. (CSV Export downloads the list if you need to share or archive it.)', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_6() {
+  // After the Import — confirm the new record in Records > Manage Employee
+  setNav('records');
+  document.getElementById('content').innerHTML = empSearchHTML();
+  const tabs = ['Personal Information','Pay Rate','Status','Email','Phone'];
+  runGuided([
+    { selector: '#f-elast', prompt: 'Go to Records > Manage Employee and search for the newly imported employee by last name', type: 'Holloway' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search"',
+      onConfirm: () => {
+        document.getElementById('emp-results').style.display = '';
+        const link = document.getElementById('emp-link');
+        if (link) { link.textContent = 'Holloway'; const r = link.closest('tr'); if (r) r.children[1].textContent = 'Derek'; }
+      }},
+    { selector: '#emp-link', prompt: 'Click the last name to open the new record',
+      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
+    { selector: '#etab-personal-information', prompt: 'Confirm the personal information populated correctly from the hiring portal — name, SSN, and contact details', skipClick: true },
+    { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab and assign a default rate if one wasn\'t set during import — the employee cannot be scheduled without an active pay rate on file',
+      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
+  ]);
+}
+
 // ── Mail By ────────────────────────────────────────────────────────────────
 function slide_mail_by_2() {
   // What Mail By Gives You — Tools menu shows the three Mail By options
@@ -3517,6 +3566,57 @@ function slide_mail_by_2() {
     { selector: '#sub-tools-mbe', also: ['#sub-tools-mbae', '#sub-tools-mbj'],
       prompt: 'You have three Mail By options: Mail By Employee, Mail By Available Employee, and Mail By Job. Each one sends messages to a different group', skipClick: true },
   ]);
+}
+
+// Shared Mail By pieces — the results list and the confirm + compose modals are
+// identical across Mail By Employee / Available Employee / Job, differing only by id prefix.
+function mailResultsHTML(p, emps) {
+  const c = 'padding:4px 8px';
+  const rows = emps.map((e,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c}"><input type="checkbox"${i<3?' id="'+p+'-chk-'+(i+1)+'"':''}></td><td style="${c}">${e[0]}</td><td style="${c}">${e[1]}</td><td style="${c}">${e[2]}</td><td style="${c}">${e[3]}@maildrop.cc</td><td style="${c}"></td></tr>`).join('');
+  return `
+    <div style="text-align:center;font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="${p}-all"> Send email to all employees in the search list</label></div>
+    <table style="width:100%;font-size:12px">
+      <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="${p}-all-hdr"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
+      <tbody id="${p}-body">${rows}</tbody>
+    </table>
+    <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd"><span>Total Pages: 3</span><span>Go To page: <select><option>1</option><option>2</option><option>3</option></select></span></div>
+    <div style="text-align:center;margin-top:10px"><button class="btn" id="${p}-send">Send</button></div>`;
+}
+function mailComposeHTML(p, toEmails) {
+  const req = '<span style="color:#c00"> *</span>';
+  const tb = (x,s)=>`<button class="btn btn-sm btn-secondary" style="padding:1px 5px;font-size:11px;${s||''}">${x}</button>`;
+  const toolbar = `
+    <div style="border:1px solid #999;background:#efece3;padding:3px;display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      ${tb('&#8634;')}${tb('&#8635;')} ${tb('B','font-weight:bold')}${tb('I','font-style:italic')}${tb('U','text-decoration:underline')}${tb('S','text-decoration:line-through')} ${tb('x&sup2;')}${tb('x&#8322;')} ${tb('&#128279;')}${tb('&#128443;')}${tb('&#9783;')}
+      <span style="font-size:11px;margin-left:4px">Font <select style="font-size:11px"><option>default</option></select></span>
+      <span style="font-size:11px">Size <select style="font-size:11px"><option>default</option></select></span>
+    </div>
+    <div style="border:1px solid #999;border-top:none;background:#efece3;padding:3px;display:flex;flex-wrap:wrap;gap:2px">
+      ${tb('&#8801;')}${tb('&#8803;')}${tb('&#8802;')} ${tb('&#8226;')}${tb('1.')} ${tb('&#8677;')}${tb('&#8676;')} ${tb('&#128279;')}${tb('&#9986;')}${tb('&#128203;')}</div>`;
+  return `
+    <div id="${p}-msg" class="msg-success" style="margin-top:10px">&#10004; Message sent to the selected employees.</div>
+    <div id="${p}-confirm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9000;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;border-radius:8px;box-shadow:2px 2px 14px rgba(0,0,0,.4);width:440px;margin-top:30px;padding:16px 20px;font-family:Arial">
+        <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:10px">wish.schedulingsite.com says</div>
+        <div style="font-size:13px;color:#333;margin-bottom:16px">Are you sure to send the emails to the selected employees?</div>
+        <div style="text-align:right"><button class="btn btn-secondary" id="${p}-confirm-cancel">Cancel</button><button class="btn" id="${p}-confirm-ok">OK</button></div>
+      </div>
+    </div>
+    <div id="${p}-compose" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9050;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;border-radius:4px;box-shadow:2px 2px 16px rgba(0,0,0,.45);width:580px;margin-top:45px;padding:16px 22px">
+        <div class="note-bar" style="text-align:center">Note: All the * marked fields are mandatory</div>
+        <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="${p}-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="${p}-to" style="width:320px;height:56px;border:1px solid #999;font-size:12px">${toEmails}</textarea>${req}</td></tr>
+          <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Add CC :</label></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="${p}-subject" style="width:320px">${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf Files)</span></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td>${toolbar}<textarea id="${p}-message" style="width:400px;height:120px;border:1px solid #999;border-top:none"></textarea>${req}</td></tr>
+        </table>
+        <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox"> Include ESS link</label></div>
+        <div style="margin:10px 0 0 92px"><button class="btn" id="${p}-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
+      </div>
+    </div>`;
 }
 
 function mailByEmployeeHTML() {
@@ -3561,48 +3661,8 @@ function mailByEmployeeHTML() {
     </div>
     <div style="text-align:center;margin:10px 0"><button class="btn" id="mbe-search">Search</button></div>
     <div id="mbe-results" style="display:none">
-      <div style="text-align:center;font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="mbe-all"> Send email to all employees in the search list</label></div>
-      <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-      <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd"><span>Total Pages: 2</span><span>Go To page: <select><option>1</option><option>2</option></select></span></div>
-      <div style="text-align:center;margin-top:10px"><button class="btn" id="mbe-send">Send</button></div>
-      <div id="mbe-msg" class="msg-success" style="margin-top:10px">&#10004; Message sent to the selected employees.</div>
-      <div id="mbe-confirm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9000;justify-content:center;align-items:flex-start">
-        <div style="background:#fff;border-radius:8px;box-shadow:2px 2px 14px rgba(0,0,0,.4);width:440px;margin-top:30px;padding:16px 20px;font-family:Arial">
-          <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:10px">wish.schedulingsite.com says</div>
-          <div style="font-size:13px;color:#333;margin-bottom:16px">Are you sure to send the emails to the selected employees?</div>
-          <div style="text-align:right"><button class="btn btn-secondary" id="mbe-confirm-cancel">Cancel</button><button class="btn" id="mbe-confirm-ok">OK</button></div>
-        </div>
-      </div>
-      <div id="mbe-compose" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9050;justify-content:center;align-items:flex-start">
-        <div style="background:#fff;border-radius:4px;box-shadow:2px 2px 16px rgba(0,0,0,.45);width:560px;margin-top:55px;padding:16px 22px">
-          <div class="note-bar" style="text-align:center">Note: All the * marked fields are mandatory</div>
-          <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="mbe-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select><span style="color:#c00"> *</span></td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="mbe-to" style="width:300px;height:56px;border:1px solid #999;font-size:12px">TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc</textarea><span style="color:#c00"> *</span></td></tr>
-            <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Add CC :</label></td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="mbe-subject" style="width:300px"><span style="color:#c00"> *</span></td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf Files)</span></td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td>
-              <div style="border:1px solid #999;background:#efece3;padding:4px;display:flex;gap:3px;align-items:center;flex-wrap:wrap">
-                <button class="btn btn-sm btn-secondary" style="font-weight:bold">B</button>
-                <button class="btn btn-sm btn-secondary" style="font-style:italic">I</button>
-                <button class="btn btn-sm btn-secondary">&#128279;</button>
-                <button class="btn btn-sm btn-secondary">&#8801;</button>
-                <button class="btn btn-sm btn-secondary">&#8470;</button>
-                <button class="btn btn-sm btn-secondary">&#128443;</button>
-                <button class="btn btn-sm btn-secondary">&#128269;</button>
-                <span style="margin-left:6px;font-size:12px;border:1px solid #aaa;padding:2px 8px;background:#fff">Change block type &#9662;</span>
-              </div>
-              <textarea id="mbe-message" style="width:380px;height:120px;border:1px solid #999;border-top:none"></textarea><span style="color:#c00"> *</span>
-            </td></tr>
-          </table>
-          <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox"> Include ESS link</label></div>
-          <div style="margin:10px 0 0 92px"><button class="btn" id="mbe-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
-        </div>
-      </div>
+      ${mailResultsHTML('mbe', emps)}
+      ${mailComposeHTML('mbe', 'TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc')}
     </div>`;
 }
 
@@ -3668,26 +3728,8 @@ function mailByAvailableHTML() {
       <tr><td></td><td style="padding-top:6px"><button class="btn" id="mba-search">Search</button></td></tr>
     </table>
     <div id="mba-results" style="display:none;margin-top:14px">
-      <div class="page-title" style="font-size:18px">Available Employees</div>
-      <div style="font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="mba-all"> Select all available employees</label></div>
-      <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th></tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
-      <div style="text-align:center;margin-top:10px"><button class="btn" id="mba-send">Send</button></div>
-      <div id="mba-msg" class="msg-success" style="margin-top:10px">&#10004; Message sent to the selected employees.</div>
-      <div id="mba-compose" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9050;justify-content:center;align-items:flex-start">
-        <div style="background:#fff;border-radius:4px;box-shadow:2px 2px 16px rgba(0,0,0,.45);width:560px;margin-top:55px;padding:16px 22px">
-          <div class="note-bar" style="text-align:center">Note: All the * marked fields are mandatory</div>
-          <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="mba-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select>${req}</td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="mba-to" style="width:300px;height:56px;border:1px solid #999;font-size:12px">${emps.map(e=>e[3]+'@maildrop.cc').join(',')}</textarea>${req}</td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="mba-subject" style="width:300px">${req}</td></tr>
-            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td><textarea id="mba-message" style="width:380px;height:110px;border:1px solid #999"></textarea>${req}</td></tr>
-          </table>
-          <div style="margin:10px 0 0 92px"><button class="btn" id="mba-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
-        </div>
-      </div>
+      ${mailResultsHTML('mba', emps)}
+      ${mailComposeHTML('mba', emps.map(e=>e[3]+'@maildrop.cc').join(','))}
     </div>`;
 }
 
@@ -3710,10 +3752,12 @@ function slide_mail_by_4() {
     { selector: '#mba-date', prompt: 'Filter by branch, date, and role to find who\'s available — this pulls employees not already scheduled for that date', skipClick: true },
     { selector: '#mba-search', prompt: 'Click "Search" to list the available employees',
       onConfirm: () => { document.getElementById('mba-results').style.display = ''; }},
-    { selector: '#mba-all', prompt: 'Check "Select all available employees" to message everyone on the list at once',
-      onConfirm: () => { document.getElementById('mba-all').checked = true; }},
-    { selector: '#mba-send', prompt: 'Click "Send" to compose your message',
-      onConfirm: () => { document.getElementById('mba-compose').style.display = 'flex'; }},
+    { selector: '#mba-all-hdr', prompt: 'Click the checkbox at the top of the list to select every available employee at once',
+      onConfirm: () => { document.getElementById('mba-all-hdr').checked = true; document.querySelectorAll('#mba-body input[type=checkbox]').forEach(cb => cb.checked = true); }},
+    { selector: '#mba-send', prompt: 'Click "Send"',
+      onConfirm: () => { document.getElementById('mba-confirm').style.display = 'flex'; }},
+    { selector: '#mba-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mba-confirm').style.display = 'none'; document.getElementById('mba-compose').style.display = 'flex'; }},
     { selector: '#mba-from', prompt: 'The compose window opens with every available employee in "To Email". Pick the From Email',
       onConfirm: () => { document.getElementById('mba-from').value = 'scheduler@protatech.com'; }},
     { selector: '#mba-subject', prompt: 'Enter a Subject', type: 'Open Shifts This Weekend' },
@@ -9927,6 +9971,9 @@ const routes = {
   'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
   'hiring_manager-2': slide_hiring_manager_2,
   'hiring_manager-3': slide_hiring_manager_3,
+  'hiring_manager-4': slide_hiring_manager_4,
+  'hiring_manager-5': slide_hiring_manager_5,
+  'hiring_manager-6': slide_hiring_manager_6,
   'hiring_admin-3':   slide_hiring_admin_3,
   'mail_by-2':        slide_mail_by_2,
   'mail_by-3':        slide_mail_by_3,
