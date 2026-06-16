@@ -2805,10 +2805,8 @@ function manageEmpTaskHTML() {
     const indicator = e.pending
       ? `<span id="met-task-${e.id}" style="color:#e53935;font-weight:bold;font-size:15px">&#10006;</span>`
       : `<span id="met-task-${e.id}" style="color:#1b7a2e;font-weight:bold;font-size:15px">&#10004;</span>`;
-    const cursor = e.pending ? 'cursor:pointer' : '';
-    const onclick = e.pending ? ` onclick="showEmpTaskDetail(${e.id})"` : '';
     const td = 'padding:4px 8px';
-    return `<tr id="met-row-${e.id}" style="background:#1f8a3b;color:#fff;${cursor}"${onclick}>
+    return `<tr id="met-row-${e.id}" style="background:#1f8a3b;color:#fff;cursor:pointer" onclick="showEmpTaskDetail(${e.id})">
       <td style="text-align:center;${td}"><input type="checkbox"></td>
       <td style="${td}">${e.last}</td><td style="${td}">${e.first}</td><td style="${td}">${e.num}</td>
       <td style="${td}">${e.status}</td><td style="${td}">APPROVED</td><td style="${td}">01/01/2028</td>
@@ -2844,19 +2842,33 @@ function manageEmpTaskHTML() {
 }
 
 function empTaskDetailHTML(e) {
-  return `<div class="page-title" style="font-size:18px">Task Detail &#8212; ${e.first} ${e.last} (${e.num})</div>
-    <table style="width:100%">
-      <thead><tr><th>Task</th><th>Description</th><th>Due Date</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr style="background:#fffbe8">
-          <td id="met-d-name" style="font-weight:bold">${e.task}</td>
-          <td id="met-d-desc">${e.desc}</td>
-          <td id="met-d-due">${e.due}</td>
-          <td id="met-d-status"><span style="color:#c06000;font-weight:bold">Pending</span></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="note-bar" style="margin-top:8px">Task completion is done by the employee through ESS or by an administrator. Your role is to monitor and follow up.</div>`;
+  // Pending employees show outstanding tasks; completed employees show verified tasks (with a View link)
+  const list = e.pending
+    ? [['Know Your Rights Notice','Pending',false],['Employee MVR','Pending',false]]
+    : [['Know Your Rights Notice','Verified',true]];
+  const trs = list.map((r,i) => {
+    const icon = r[1] === 'Pending'
+      ? '<span style="color:#e53935;font-weight:bold;font-size:15px">&#10006;</span>'
+      : '<span style="color:#1b7a2e;font-weight:bold;font-size:15px">&#10004;</span>';
+    const view = r[2] ? '<a style="color:#3a6aaa;cursor:pointer">View</a>' : '';
+    const idAttr = i === 0 ? ' id="met-d-row"' : '';
+    return `<tr${idAttr} style="background:#ededed">
+      <td style="text-align:center;padding:7px 10px">${icon}</td>
+      <td style="padding:7px 12px"${i===0?' id="met-d-name"':''}>${r[0]}</td>
+      <td style="padding:7px 12px"${i===0?' id="met-d-status"':''}>${r[1]}</td>
+      <td style="padding:7px 12px">${view}</td></tr>`;
+  }).join('');
+  return `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;display:flex;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;width:820px;max-width:94%;margin-top:40px;padding:16px 24px;box-shadow:0 8px 28px rgba(0,0,0,.45);border-radius:3px">
+        <div class="page-title" style="font-size:20px">View Task</div>
+        <table id="met-d-table" style="width:100%;font-size:13px;margin-top:8px">
+          <thead><tr style="background:#5a5a5a;color:#fff"><th style="padding:7px 10px;width:40px"></th><th style="text-align:left;padding:7px 12px">Task</th><th style="text-align:left;padding:7px 12px">Status</th><th style="padding:7px 12px"></th></tr></thead>
+          <tbody>${trs}</tbody>
+        </table>
+        <div style="text-align:center;margin-top:24px"><button class="btn" id="met-d-cancel" onclick="var d=document.getElementById('met-detail');d.style.display='none';d.innerHTML='';">Cancel</button></div>
+      </div>
+    </div>`;
 }
 
 function showEmpTaskDetail(empId) {
@@ -3614,12 +3626,12 @@ function slide_hiring_admin_4() {
   document.getElementById('met-empty').style.display = 'none';
   document.getElementById('met-results').style.display = '';
   runGuided([
-    { selector: '#met-row-1', prompt: 'When you see an X next to an employee, click their row to see what\'s outstanding',
+    { selector: '#met-row-1', prompt: 'Click on the X (or the checkmark) next to an employee to see their tasks. Here we\'ll click an X to see what\'s outstanding',
       onConfirm: () => { showEmpTaskDetail(1); }},
-    { selector: '#met-d-name', prompt: 'The task detail shows the name of the task — here, the employee still needs to complete their Form I-9', skipClick: true },
-    { selector: '#met-d-desc', prompt: 'A description tells you exactly what the employee needs to do', skipClick: true },
-    { selector: '#met-d-due', also: ['#met-d-status'], prompt: 'You also see the due date and the current status — Pending, In Progress, or Complete', skipClick: true },
-    { selector: '#met-detail', prompt: 'From here you review what\'s needed and follow up with the employee directly. Completion is done by the employee through ESS or by an administrator — your role is to monitor and follow up, not to mark tasks complete on their behalf', skipClick: true },
+    { selector: '#met-d-name', also: ['#met-d-status'], prompt: 'The View Task window lists each outstanding task and its status — here, "Know Your Rights Notice" and "Employee MVR" are both Pending', skipClick: true },
+    { selector: '#met-d-table', prompt: 'Clicking a green checkmark instead shows tasks the employee has already submitted — those show as Verified with a "View" link. Your role is to monitor and follow up; completion is done by the employee through ESS or by an administrator', skipClick: true },
+    { selector: '#met-d-cancel', prompt: 'Click "Cancel" to close the window',
+      onConfirm: () => { const d = document.getElementById('met-detail'); d.style.display = 'none'; d.innerHTML = ''; }},
   ]);
 }
 
