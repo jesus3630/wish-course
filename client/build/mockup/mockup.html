@@ -3535,7 +3535,7 @@ function slide_hiring_manager_6() {
   // After the Import — confirm the new record in Records > Manage Employee
   setNav('records');
   document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Personal Information','Pay Rate','Status','Email','Phone'];
+  const tabs = ['Personal Info','Pay Rate','Status','Email','Phone'];
   runGuided([
     { selector: '#f-elast', prompt: 'Go to Records > Manage Employee and search for the newly imported employee by last name', type: 'Holloway' },
     { selector: '#btn-empsrch', prompt: 'Click "Search"',
@@ -3546,7 +3546,7 @@ function slide_hiring_manager_6() {
       }},
     { selector: '#emp-link', prompt: 'Click the last name to open the new record',
       onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-personal-information', prompt: 'Confirm the personal information populated correctly from the hiring portal — name, SSN, and contact details', skipClick: true },
+    { selector: '#etab-personal-info', prompt: 'Confirm the personal information populated correctly from the hiring portal — name, SSN, and contact details', skipClick: true },
     { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab and assign a default rate if one wasn\'t set during import — the employee cannot be scheduled without an active pay rate on file',
       onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
   ]);
