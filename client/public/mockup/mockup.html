@@ -452,7 +452,7 @@ function runGuided(steps, opts) {
     if (i >= steps.length) {
       tip.style.display = 'none';
       bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Section complete!</span>';
-      if (opts.completionOverlay) showCompletionOverlay();
+      if (opts.completionOverlay !== false) showCompletionOverlay(); // default ON; pass { completionOverlay: false } to disable
       setTimeout(() => { bar.remove(); tip.remove(); }, 2800);
       return;
     }
