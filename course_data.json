@@ -967,7 +967,8 @@
         "slide_number": 4,
         "slide_name": "Mail By Available Employee",
         "instructions": "Tools ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Mail By Available Employee. Show the filter options ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â branch, date, role. Show the list of available employees populating. Show selecting all and composing a message.",
-        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available, meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters, branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
+        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available, meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters, branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=4"
       },
       {
         "slide_number": 5,
