@@ -15,7 +15,8 @@
         "slide_name": "WISH URL",
         "instructions": "Video of scheduling site entered as the URL, and the home page on screen.",
         "text": "WISH is available online at wish.schedulingsite.com.",
-        "screenshot": "/screenshots/introduction/slide_2.png"
+        "screenshot": "/screenshots/introduction/slide_2.png",
+        "simulation_url": "/mockup/mockup.html?module=introduction&slide=2"
       },
       {
         "slide_number": 3,
@@ -485,7 +486,8 @@
         "slide_number": 2,
         "slide_name": "The Reports Menu",
         "instructions": "Click Reports in the top navigation. Show all three sub-menus expanding: Summary Roster, Detailed Roster, Job Administration.",
-        "text": "With General Reporting access, you have access to the full Reports menu in WISH.\r\n\r\nThe Reports menu has three sections:\r\n* Job Administration, your daily reports. Alpha rosters, sign-in sheets, schedules, and post-event follow-up.\r\n* Summary Roster, high-level overviews across employees, jobs, clients, venues, and branches.\r\n* Detailed Roster, deeper employee-level reports covering timesheets, licensing, sign-in activity, and availability.\r\n \r\nWe'll cover each one so you know where to go when you need something."
+        "text": "With General Reporting access, you have access to the full Reports menu in WISH.\r\n\r\nThe Reports menu has three sections:\r\n* Job Administration, your daily reports. Alpha rosters, sign-in sheets, schedules, and post-event follow-up.\r\n* Summary Roster, high-level overviews across employees, jobs, clients, venues, and branches.\r\n* Detailed Roster, deeper employee-level reports covering timesheets, licensing, sign-in activity, and availability.\r\n \r\nWe'll cover each one so you know where to go when you need something.",
+        "simulation_url": "/mockup/mockup.html?module=general_reporting&slide=2"
       },
       {
         "slide_number": 3,
@@ -557,7 +559,8 @@
         "slide_number": 2,
         "slide_name": "What Payroll Reporting Gives You",
         "instructions": "Click Reports in the top navigation. Show the full menu ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â Summary Roster, Detailed Roster, Job Administration, Payroll Reports. Highlight Payroll Reports.",
-        "text": "With Payroll Reporting access, you have everything in General Reporting plus one additional section, Payroll Reports.\r\n\r\nPayroll Reports is located in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration. This is where you go to verify employee hours and pay before payroll is finalized.\r\n\r\nThink of these reports as your review tools, you run them to make sure what's in the system matches what actually happened at the event before payroll gets processed."
+        "text": "With Payroll Reporting access, you have everything in General Reporting plus one additional section, Payroll Reports.\r\n\r\nPayroll Reports is located in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration. This is where you go to verify employee hours and pay before payroll is finalized.\r\n\r\nThink of these reports as your review tools, you run them to make sure what's in the system matches what actually happened at the event before payroll gets processed.",
+        "simulation_url": "/mockup/mockup.html?module=payroll_reporting&slide=2"
       },
       {
         "slide_number": 3,
@@ -615,7 +618,8 @@
         "slide_number": 2,
         "slide_name": "What Admin Reporting Gives You",
         "instructions": "Click Reports in the top navigation. Show the full menu with all six sections visible: Summary Roster, Detailed Roster, Job Administration, Payroll Reports, Billing Reports, Manager Reports.",
-        "text": "Admin Reporting gives you access to the complete Reports menu in WISH, all six sections.\r\n\r\nYou have everything from General Reporting and Payroll Reporting, plus two additional sections that are exclusive to this permission level:\r\n* Billing Reports, invoice and cost reports for client billing oversight\r\n* Manager Reports, credential, scheduling efficiency, and MVR reports for branch management\r\n\r\nAs an admin-level user, you have a full view of event operations from scheduling through billing. These reports support oversight, auditing, and decision-making across your branch."
+        "text": "Admin Reporting gives you access to the complete Reports menu in WISH, all six sections.\r\n\r\nYou have everything from General Reporting and Payroll Reporting, plus two additional sections that are exclusive to this permission level:\r\n* Billing Reports, invoice and cost reports for client billing oversight\r\n* Manager Reports, credential, scheduling efficiency, and MVR reports for branch management\r\n\r\nAs an admin-level user, you have a full view of event operations from scheduling through billing. These reports support oversight, auditing, and decision-making across your branch.",
+        "simulation_url": "/mockup/mockup.html?module=admin_reporting&slide=2"
       },
       {
         "slide_number": 3,
@@ -673,7 +677,8 @@
         "slide_number": 2,
         "slide_name": "What Workforce Scheduler Maintenance Gives You",
         "instructions": "Navigate to Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Employee. Show the search screen.",
-        "text": "Workforce Scheduler Maintenance gives you access to employee records in WISH, specifically the ability to look up employees and update three things:\r\n\r\n* Licensing, guard card numbers and expiration dates\r\n* Background Checks, status and check history\r\n* Employee Notes, branch-level notes on an employee\r\n\r\nEverything else in the employee record is view-only for you. You won't be able to change pay rates, status, contact information, or anything outside of those three areas. If you see a field you can't edit, that's by design, those changes require a higher permission level."
+        "text": "Workforce Scheduler Maintenance gives you access to employee records in WISH, specifically the ability to look up employees and update three things:\r\n\r\n* Licensing, guard card numbers and expiration dates\r\n* Background Checks, status and check history\r\n* Employee Notes, branch-level notes on an employee\r\n\r\nEverything else in the employee record is view-only for you. You won't be able to change pay rates, status, contact information, or anything outside of those three areas. If you see a field you can't edit, that's by design, those changes require a higher permission level.",
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=2"
       },
       {
         "slide_number": 3,
@@ -738,7 +743,8 @@
         "slide_number": 2,
         "slide_name": "What Workforce Admin Maintenance Gives You",
         "instructions": "Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Employee. Show the search screen briefly ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â same as before.",
-        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n* Disciplinary Action, view existing records and add new ones\r\n* Pay Rates, view and update employee pay rates\r\n* Training Records, view which WISH training modules an employee has completed"
+        "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n* Disciplinary Action, view existing records and add new ones\r\n* Pay Rates, view and update employee pay rates\r\n* Training Records, view which WISH training modules an employee has completed",
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=2"
       },
       {
         "slide_number": 3,
