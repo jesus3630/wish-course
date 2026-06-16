@@ -2812,21 +2812,31 @@ function manageEmpTaskHTML() {
       <td>Prota LA Branch Test</td><td>${e.status}</td>
       <td style="text-align:center">${indicator}</td></tr>`;
   }).join('');
+  const c = 'padding:4px 8px';
   return `<div class="page-title">Manage Employee Task</div>
-    <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px">
-      <div><div style="font-size:13px;margin-bottom:2px">Branch Name :</div>
-        <select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select></div>
-      <div><div style="font-size:13px;margin-bottom:2px">Status :</div>
-        <select class="form-select" style="width:140px"><option>All</option><option>Active</option><option>Pending</option></select></div>
-      <button class="btn" id="met-search">Search</button>
-    </div>
-    <table style="width:100%">
-      <thead><tr>
-        <th>Last Name &#9650;&#9660;</th><th>First Name &#9650;&#9660;</th><th>Employee# &#9650;&#9660;</th>
-        <th>BranchName &#9650;&#9660;</th><th>Status</th><th style="text-align:center">Task</th>
-      </tr></thead>
-      <tbody id="met-tbody">${rows}</tbody>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table id="met-form" style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select><span style="color:#c00"> *</span></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:185px"><option>Staff</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Emp Status :</td><td><select class="form-select" id="met-empstatus" style="width:185px"><option>Inactive</option><option>Active</option><option>Pending</option><option>All</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">BG Status :</td><td><select class="form-select" style="width:185px"><option>--All--</option><option>APPROVED</option><option>Pending</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Show Questions :</td><td><input type="checkbox"></td></tr>
     </table>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="met-search">Search</button></div>
+    <div class="page-title" style="font-size:18px">Search Result</div>
+    <div id="met-empty" style="background:#fcf8e3;border:1px solid #e0d8a0;color:#8a7a30;padding:8px 12px;font-size:13px;text-align:center;margin-top:6px"><span style="color:#c0a000;font-weight:bold">&#9888;</span> No Records found.</div>
+    <div id="met-results" style="display:none;margin-top:6px">
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff">
+          <th style="text-align:left;${c}">Last Name</th><th style="text-align:left;${c}">First Name</th><th style="text-align:left;${c}">Employee#</th>
+          <th style="text-align:left;${c}">BranchName</th><th style="text-align:left;${c}">Status</th><th style="text-align:center;${c}">Task</th></tr></thead>
+        <tbody id="met-tbody">${rows}</tbody>
+      </table>
+      <div style="margin-top:10px"><button class="btn btn-sm">Excel Export</button></div>
+    </div>
     <div id="met-detail" style="display:none;margin-top:16px"></div>`;
 }
 
@@ -3577,7 +3587,7 @@ function slide_hiring_admin_2() {
         document.getElementById('sub-records').classList.remove('show');
         document.getElementById('content').innerHTML = manageEmpTaskHTML();
       }},
-    { selector: '#met-tbody', prompt: 'This screen shows all of your employees and whether they have completed or still have pending tasks — onboarding, training, document submissions, and compliance items', skipClick: true },
+    { selector: '#met-form', prompt: 'This is the Manage Employee Task screen. Filter by branch and status, then Search to see all your employees and whether they have completed or still have pending tasks — onboarding, training, document submissions, and compliance items', skipClick: true },
   ]);
 }
 
@@ -3586,7 +3596,8 @@ function slide_hiring_admin_3() {
   setNav('records');
   document.getElementById('content').innerHTML = manageEmpTaskHTML();
   runGuided([
-    { selector: '#met-search', prompt: 'Choose a Branch and Status, then click "Search" to load your employee list', onConfirm: () => {} },
+    { selector: '#met-search', prompt: 'Choose a Branch and Status, then click "Search" to load your employee list',
+      onConfirm: () => { document.getElementById('met-empty').style.display = 'none'; document.getElementById('met-results').style.display = ''; }},
     { selector: '#met-tbody', prompt: 'Each row shows the employee\'s basic information — Last Name, First Name, Employee Number, Branch, and current Status', skipClick: true },
     { selector: '#met-task-2', prompt: 'At the end of each row is the task indicator. A green checkmark means the employee has completed all assigned tasks — no action needed', skipClick: true },
     { selector: '#met-task-1', also: ['#met-task-3','#met-task-6'], prompt: 'An X means the employee has one or more pending tasks. These employees need your attention — they may be missing a required training, a document, or another compliance item', skipClick: true },
@@ -3597,6 +3608,8 @@ function slide_hiring_admin_4() {
   // Following Up on Pending Tasks — click an X row, read the task detail
   setNav('records');
   document.getElementById('content').innerHTML = manageEmpTaskHTML();
+  document.getElementById('met-empty').style.display = 'none';
+  document.getElementById('met-results').style.display = '';
   runGuided([
     { selector: '#met-row-1', prompt: 'When you see an X next to an employee, click their row to see what\'s outstanding',
       onConfirm: () => { showEmpTaskDetail(1); }},
