@@ -3626,7 +3626,7 @@ function slide_hiring_admin_4() {
   document.getElementById('met-empty').style.display = 'none';
   document.getElementById('met-results').style.display = '';
   runGuided([
-    { selector: '#met-row-1', prompt: 'When you see an X next to an employee, click their row to see the details of what\'s outstanding',
+    { selector: '#met-task-1', prompt: 'When you see an X next to an employee, click it to see the details of what\'s outstanding',
       onConfirm: () => { showEmpTaskDetail(1); }},
     { selector: '#met-d-name', also: ['#met-d-status'], prompt: 'The task detail shows the name of each task and its current status — Pending, In Progress, or Complete. Here, "Know Your Rights Notice" and "Employee MVR" are both Pending', skipClick: true },
     { selector: '#met-d-table', prompt: 'From here you review exactly what the employee needs to do, follow up with them directly, and coordinate with your administrator if a task needs branch-side action. (Clicking a checkmark instead shows tasks already submitted — Verified, with a "View" link.)', skipClick: true },
