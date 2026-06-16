@@ -502,8 +502,7 @@ function runGuided(steps, opts) {
         btn.onclick = () => showStep(i + 1);
         bar.appendChild(btn);
         _gs = { el, handler: null };
-        tip.textContent = s.prompt;
-        tip.style.display = 'block';
+        placeTip(el, s.prompt); // reposition for THIS target (don't inherit prior step's position)
         return;
       }
 
