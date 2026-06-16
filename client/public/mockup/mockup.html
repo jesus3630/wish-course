@@ -11591,7 +11591,109 @@ function slide_ess_1() { showImg('ess_slide1.png'); }
 function slide_ess_2() { showImg('ess_slide2.png'); }
 function slide_ess_3() { showImg('ess_slide3.png'); }
 function slide_ess_4() { showImg('ess_slide4b.png'); }
+
+// ── "What ___ Gives You" intro demos (slide 2 of several modules) ────────────
+function slide_introduction_2() {
+  // WISH URL — address bar shows wish.schedulingsite.com, load the home page
+  setNav('home');
+  document.getElementById('content').innerHTML = `
+    <div style="background:#e8e8e8;padding:8px 10px;display:flex;gap:8px;align-items:center;border:1px solid #bbb;border-radius:6px;max-width:560px;margin:6px auto 14px">
+      <span style="display:flex;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840"></span></span>
+      <input id="intro-url" class="form-input" value="wish.schedulingsite.com" style="flex:1;font-size:13px" readonly>
+      <button class="btn btn-sm" id="intro-go">Go</button>
+    </div>
+    <div id="intro-page" style="color:#888;text-align:center;font-size:13px;padding:20px">Press "Go" to open WISH</div>`;
+  runGuided([
+    { selector: '#intro-url', prompt: 'WISH is available online at wish.schedulingsite.com', skipClick: true },
+    { selector: '#intro-go', prompt: 'Enter that address in your browser to open WISH',
+      onConfirm: () => { const p = document.getElementById('intro-page'); p.innerHTML = homeScreenHTML(); p.style.color = '#222'; p.style.textAlign = 'left'; p.style.padding = '0'; }},
+    { selector: '#intro-page', prompt: 'This is the WISH home page — your starting point once you log in', skipClick: true },
+  ]);
+}
+
+function reportsMenuExpand(itemsHTML) {
+  document.getElementById('nav-reports').classList.add('active');
+  const sub = document.getElementById('sub-reports');
+  sub.classList.add('show');
+  sub.innerHTML = itemsHTML;
+}
+
+function slide_general_reporting_2() {
+  // The Reports Menu — three sections
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-reports', prompt: 'With General Reporting access you have the full Reports menu. Click "Reports"',
+      onConfirm: () => reportsMenuExpand(
+        '<span class="nav-sub-item" id="sub-rep-summary">Summary Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-detailed">Detailed Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>') },
+    { selector: '#sub-rep-jadmin', also: ['#sub-rep-summary', '#sub-rep-detailed'],
+      prompt: 'The Reports menu has three sections: Job Administration (your daily reports — rosters, sign-in sheets, schedules), Summary Roster (high-level overviews), and Detailed Roster (deeper employee-level reports). We\'ll cover each one', skipClick: true },
+  ]);
+}
+
+function slide_payroll_reporting_2() {
+  // Adds Payroll Reports to the Reports menu
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-reports', prompt: 'Payroll Reporting gives you everything in General Reporting plus one more section. Click "Reports"',
+      onConfirm: () => reportsMenuExpand(
+        '<span class="nav-sub-item" id="sub-rep-summary">Summary Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-detailed">Detailed Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>' +
+        '<span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>') },
+    { selector: '#sub-rep-payroll', prompt: 'The added section is Payroll Reports — your review tools to verify employee hours and pay before payroll is finalized, making sure the system matches what actually happened at the event', skipClick: true },
+  ]);
+}
+
+function slide_admin_reporting_2() {
+  // Complete Reports menu — all six sections
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-reports', prompt: 'Admin Reporting unlocks the complete Reports menu. Click "Reports"',
+      onConfirm: () => reportsMenuExpand(
+        '<span class="nav-sub-item" id="sub-rep-summary">Summary Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-detailed">Detailed Roster</span>' +
+        '<span class="nav-sub-item" id="sub-rep-jadmin">Job Administration</span>' +
+        '<span class="nav-sub-item" id="sub-rep-payroll">Payroll Reports</span>' +
+        '<span class="nav-sub-item" id="sub-rep-billing">Billing Reports</span>' +
+        '<span class="nav-sub-item" id="sub-rep-manager">Manager Reports</span>') },
+    { selector: '#sub-rep-billing', also: ['#sub-rep-manager'],
+      prompt: 'You now have all six sections. Two are exclusive to this level: Billing Reports (invoice and cost reports for client billing oversight) and Manager Reports (credential, scheduling efficiency, and MVR reports for branch management)', skipClick: true },
+  ]);
+}
+
+function slide_workforce_scheduler_mntnnce_2() {
+  // Records > Manage Employee — what this access can edit
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'You reach employee records through "Records". Click it',
+      onConfirm: () => { document.getElementById('nav-records').classList.add('active'); document.getElementById('sub-records').classList.add('show'); }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => { document.getElementById('nav-records').classList.remove('active'); document.getElementById('sub-records').classList.remove('show'); document.getElementById('content').innerHTML = empSearchHTML(); }},
+    { selector: '#btn-empsrch', prompt: 'Workforce Scheduler Maintenance lets you look up employees and update three things — Licensing, Background Checks, and Employee Notes. Everything else in the record is view-only at this level', skipClick: true },
+  ]);
+}
+
+function slide_workforce_admin_maintenance_2() {
+  // Records > Manage Employee — builds on Scheduler Maintenance
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'You get to the record the same way — click "Records"',
+      onConfirm: () => { document.getElementById('nav-records').classList.add('active'); document.getElementById('sub-records').classList.add('show'); }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee", then search and open an employee',
+      onConfirm: () => { document.getElementById('nav-records').classList.remove('active'); document.getElementById('sub-records').classList.remove('show'); document.getElementById('content').innerHTML = empSearchHTML(); }},
+    { selector: '#btn-empsrch', prompt: 'Workforce Admin Maintenance builds on Scheduler Maintenance — same lookup, plus you can edit three more areas: Disciplinary Action, Pay Rates, and Training Records', skipClick: true },
+  ]);
+}
+
 const routes = {
+  'introduction-2': slide_introduction_2,
   'introduction-5': slide_introduction_5,
   'introduction-6': slide_introduction_6,
   'introduction-7': slide_introduction_7,
@@ -11623,25 +11725,30 @@ const routes = {
   'inventory-7': slide_inventory_7,
   'inventory-8': slide_inventory_8,
   'inventory-9': slide_inventory_9,
+  'general_reporting-2':  slide_general_reporting_2,
   'general_reporting-3':  slide_general_reporting_3,
   'general_reporting-4':  slide_general_reporting_4,
   'general_reporting-5':  slide_general_reporting_5,
   'general_reporting-6':  slide_general_reporting_6,
   'general_reporting-7':  slide_general_reporting_7,
   'general_reporting-8':  slide_general_reporting_8,
+  'payroll_reporting-2':  slide_payroll_reporting_2,
   'payroll_reporting-3':  slide_payroll_reporting_3,
   'payroll_reporting-4':  slide_payroll_reporting_4,
   'payroll_reporting-5':  slide_payroll_reporting_5,
   'payroll_reporting-6':  slide_payroll_reporting_6,
+  'admin_reporting-2':    slide_admin_reporting_2,
   'admin_reporting-3':    slide_admin_reporting_3,
   'admin_reporting-4':    slide_admin_reporting_4,
   'admin_reporting-5':    slide_admin_reporting_5,
   'admin_reporting-6':    slide_admin_reporting_6,
+  'workforce_scheduler_mntnnce-2': slide_workforce_scheduler_mntnnce_2,
   'workforce_scheduler_mntnnce-3': slide_workforce_scheduler_mntnnce_3,
   'workforce_scheduler_mntnnce-4': slide_workforce_scheduler_mntnnce_4,
   'workforce_scheduler_mntnnce-5': slide_workforce_scheduler_mntnnce_5,
   'workforce_scheduler_mntnnce-6': slide_workforce_scheduler_mntnnce_6,
   'workforce_scheduler_mntnnce-7': slide_workforce_scheduler_mntnnce_7,
+  'workforce_admin_maintenance-2': slide_workforce_admin_maintenance_2,
   'workforce_admin_maintenance-3': slide_workforce_admin_maintenance_3,
   'workforce_admin_maintenance-4': slide_workforce_admin_maintenance_4,
   'workforce_admin_maintenance-5': slide_workforce_admin_maintenance_5,
