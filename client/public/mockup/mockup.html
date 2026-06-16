@@ -241,7 +241,7 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Manage Client</span>
       <span class="nav-sub-item">Manage Event</span>
       <span class="nav-sub-item">Manage Venue</span>
-      <span class="nav-sub-item">Manage Contract</span>
+      <span class="nav-sub-item" id="sub-rec-contract">Manage Contract</span>
       <span class="nav-sub-item" id="sub-rec-employee">Manage Employee</span>
       <span class="nav-sub-item" id="sub-rec-employee-status">Manage Employee Status</span>
       <span class="nav-sub-item">Manage WorkGroup</span>
@@ -6686,14 +6686,15 @@ function slide_billing_8() {
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
   document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
 
-  document.getElementById('content').innerHTML = `
+  // Home dashboard content (Unapproved Jobs + Today's Sign-In)
+  const homeDashHTML = `
     <div style="margin-bottom:12px">
       <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
         <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026-6/15/2026</td><td>Majestic Hall</td></tr>
             <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
             <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
             <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
@@ -6712,281 +6713,283 @@ function slide_billing_8() {
             <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
             <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">20260616 Test Job</td><td>Test Venue 1</td></tr>
             <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
-            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
-            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage-6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage-6/16/2026</td><td>Georgia International Convention Center</td></tr>
             <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">601626 Killswitch Engage</td><td>HARD ROCK LIVE</td></tr>
-            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelorate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
             <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 8</td><td>SoFi Stadium and Hollywood Park</td></tr>
-            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/16/2026</td><td>Allen County War Memorial Coliseum</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
       </div>
     </div>`;
+  document.getElementById('content').innerHTML = homeDashHTML;
 
-  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/></svg>`;
-
-  // Search form HTML (Manage Contract — matches image #100/#102)
-  const searchFormOnly = `
-    <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 6px">
-      <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
-          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
-      <tr><td style="text-align:right;padding-right:10px">Client Name :</td>
-          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
-      <tr><td style="text-align:right;padding-right:10px">Contract # :</td>
-          <td><input style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
-      <tr><td style="text-align:right;padding-right:10px">Contract Name :</td>
-          <td><input style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
-      <tr><td style="text-align:right;padding-right:10px">Status :</td>
-          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
-      <tr><td></td><td style="padding-top:14px">
-          <button id="b8-search" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Search</button>
-          <button id="b8-addnew" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Add New</button>
-        </td></tr>
-    </table>`;
-  const searchHTML = `
-    <div class="page-title">Manage Contract</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div style="padding:20px 0 30px 0">${searchFormOnly}</div>`;
-
-  // Search Result table HTML (matches image #102)
-  const pencilSvg = `<svg width="14" height="14" viewBox="0 0 14 14" style="display:inline-block;vertical-align:middle"><path d="M10.5 1.5l2 2L4 12H2v-2z" fill="#c08040" stroke="#7a5020" stroke-width="0.6"/></svg>`;
-  const contractRows = [
-    ['AB Contract',                '01-05-2026','02-28-2026', true],
-    ['ABA',                        '03-06-2026','03-06-2026', false],
-    ['ABA',                        '03-06-2026','03-06-2026', false],
-    ['AJ Super Contract',          '01-24-2026','01-31-2026', false],
-    ['aPost Super Bowl 2026',      '02-21-2026','02-27-2026', false],
-    ['aPost Super Bowl Contract',  '02-21-2026','02-27-2026', false],
-    ['Arizona Baseball Contract',  '03-09-2026','04-30-2026', false],
-    ['Arizona Event',              '02-27-2026','06-15-2026', false],
-    ['Creative Entertainment Contract','10-13-2025','04-07-2026', false],
-    ['Crockets Contract',          '11-15-2024','12-31-2024', false],
-  ];
-  const resultsHTML = `
-    <div style="padding:8px 0">
+  // Manage Contract search form (pixel-matched to real WISH)
+  const manageContractFormHTML = `
+    <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);padding:14px 18px">
+      <div style="font-weight:bold;font-size:15px;color:#1a3c5a;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px">Manage Contract</div>
+      <div style="background:#fffde7;border:1px solid #f0c040;padding:5px 10px;font-size:12px;margin-bottom:14px;color:#7a5a00;">
+        Note: All the * marked fields are mandatory
+      </div>
+      <div style="padding:6px 0 16px 0">
+        <table style="margin:0 auto;font-size:12px;color:#333">
+          <tr><td style="padding:5px 10px;text-align:right">Branch Name :</td>
+              <td style="padding:5px 0"><select style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select> <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:5px 10px;text-align:right">Client Name :</td>
+              <td style="padding:5px 0"><select style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
+          <tr><td style="padding:5px 10px;text-align:right">Contract # :</td>
+              <td style="padding:5px 0"><input style="width:208px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+          <tr><td style="padding:5px 10px;text-align:right">Contract Name :</td>
+              <td style="padding:5px 0"><input style="width:208px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+          <tr><td style="padding:5px 10px;text-align:right">Status :</td>
+              <td style="padding:5px 0"><select style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
+          <tr><td></td><td style="padding:10px 0">
+                <button class="btn" id="b8-search" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">Search</button>
+                <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 14px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Add New</button>
+              </td></tr>
+        </table>
+      </div>
       <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Search Result</div>
-      <table style="width:100%;border-collapse:collapse;font-size:12px">
-        <thead>
-          <tr style="background:#666;color:#fff">
-            <th style="padding:6px 8px;text-align:left">Contract Title <span style="color:#fff">&#9650;&#9660;</span></th>
-            <th style="padding:6px 8px;text-align:left">Start Date <span style="color:#fff">&#9650;&#9660;</span></th>
-            <th style="padding:6px 8px;text-align:left">End Date <span style="color:#fff">&#9650;&#9660;</span></th>
-            <th style="padding:6px 8px;text-align:left">Status</th>
-            <th style="padding:6px 8px;text-align:left">Edit</th>
-            <th style="padding:6px 8px;text-align:left">Download Docs</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${contractRows.map((r,i) => `
-            <tr style="background:${i%2===0?'#fff':'#e8e8e8'};border-bottom:1px solid #ddd">
-              <td style="padding:6px 8px;color:#1a6aaa">${i===0?`<span id="b8-row-ab">${r[0]}</span>`:r[0]}</td>
-              <td style="padding:6px 8px">${r[1]}</td>
-              <td style="padding:6px 8px">${r[2]}</td>
-              <td style="padding:6px 8px;color:#2a8a2a">Active</td>
-              <td style="padding:6px 8px">${pencilSvg}</td>
-              <td style="padding:6px 8px"><a ${i===0?'id="b8-dl-ab"':''} style="color:#1a6aaa;text-decoration:underline;cursor:pointer">Download</a></td>
-            </tr>`).join('')}
-        </tbody>
-      </table>
-      <div style="display:flex;align-items:center;padding:8px 4px;font-size:11px;color:#555;justify-content:space-between">
-        <div>Total Pages: 2</div>
-        <div>
-          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold">&#x2666; First</button>
-          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">&#x25C0; Previous</button>
-          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">Next &#x25B6;</button>
-          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">Last &#x2666;</button>
-        </div>
-        <div>Current Page: 1</div>
-      </div>
-    </div>`;
-  const searchWithResultsHTML = `
-    <div class="page-title">Manage Contract</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div style="padding:20px 0 14px 0">${searchFormOnly}</div>
-    ${resultsHTML}`;
-
-  // Contract document PDF preview (matches image #103 — Employee Time Register)
-  const contractPdfHTML = `
-    <div style="background:#fff;padding:18px 22px;font-family:Arial;font-size:11px;color:#333;border:1px solid #ccc;max-width:900px;margin:0 auto">
-      <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px">
-        <div style="font-family:Georgia,serif;font-size:32px;font-weight:900;color:#c07800;font-style:italic">WISH</div>
-        <div style="font-size:18px;font-weight:bold;color:#1a3c5a">Employee Time Register</div>
-        <div style="font-size:11px;color:#222">Print Date: 01/14/2026 10:58</div>
-      </div>
-      <div id="b8-pdf-branch" style="background:#1a3c5a;color:#fff;font-weight:bold;font-size:13px;padding:6px 12px;margin-bottom:8px">Prota LA Branch Test</div>
-      ${[
-        ['Malhotra Priya','3951624',[
-          ['141003664660','1','01/05/2026','16','6','0','0','6'],
-          ['141003665307','1','01/06/2026','16','10.5','0','0','10.5'],
-          ['141003664693','1','01/07/2026','16','6','0','0','6'],
-          ['141003664694','1','01/08/2026','20','9','0','0','9'],
-          ['141003664695','1','01/08/2026','20','8.5','0.5','0','9'],
-        ],'40.0','0.5','0','40.5'],
-        ['Menon Shweta','3951682',[
-          ['141003664660','1','01/05/2026','16','6','0','0','6'],
-          ['141003664692','1','01/06/2026','16','6','0','0','6'],
-          ['141003664693','1','01/07/2026','16','6','0','0','6'],
-          ['141003664694','1','01/08/2026','20','8.5','0','0','8.5'],
-          ['141003664695','1','01/08/2026','20','6','0','0','6'],
-          ['141003665672','1','01/09/2026','16','4.5','0','0','4.5'],
-        ],'37.0','0','0','37.0'],
-        ['Nagdev Priyanka','3951657',[
-          ['141003664660','1','01/05/2026','16','6','0','0','6'],
-          ['141003664692','1','01/06/2026','16','2','0','0','2'],
-          ['141003664693','1','01/07/2026','16','6','0','0','6'],
-          ['141003665671','1','01/08/2026','16','4','0','0','4'],
-          ['141003665672','1','01/09/2026','16','4','0','0','4'],
-        ],'22','0','0','22'],
-      ].map(g => `
-        <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px">
-          <thead><tr style="background:#dde6f5">
-            <th style="padding:5px 8px;text-align:left;width:130px">Employee Name</th>
-            <th style="padding:5px 8px;text-align:left;width:90px">Employee #</th>
-            <th style="padding:5px 8px;text-align:left;width:110px">Job#</th>
-            <th style="padding:5px 8px;text-align:left;width:50px">CCode</th>
-            <th style="padding:5px 8px;text-align:left;width:80px">Date WK</th>
-            <th style="padding:5px 8px;text-align:left;width:60px">Pay Rate</th>
-            <th style="padding:5px 8px;text-align:left;width:60px">Reg Hrs</th>
-            <th style="padding:5px 8px;text-align:left;width:60px">OT Hrs</th>
-            <th style="padding:5px 8px;text-align:left;width:60px">DT Hrs</th>
-            <th style="padding:5px 8px;text-align:left">Total Hrs</th>
-          </tr></thead>
-          <tbody>
-            ${g[2].map(r => `<tr style="background:#fff;border-bottom:1px solid #eee">
-              <td style="padding:4px 8px">${g[0]}</td><td style="padding:4px 8px">${g[1]}</td>
-              ${r.map(c => `<td style="padding:4px 8px">${c}</td>`).join('')}
-            </tr>`).join('')}
-            <tr style="background:#fff;font-weight:bold;border-top:1px solid #888">
-              <td colspan="5" style="padding:5px 8px">Total Number of Entries: ${g[2].length}</td>
-              <td style="padding:5px 8px">Totals:</td>
-              <td style="padding:5px 8px">${g[3]}</td>
-              <td style="padding:5px 8px">${g[4]}</td>
-              <td style="padding:5px 8px">${g[5]}</td>
-              <td style="padding:5px 8px">${g[6]}</td>
+      <div id="b8-results" style="display:none">
+        <table style="width:100%;border-collapse:collapse;font-size:12px">
+          <thead>
+            <tr style="background:#888;color:#fff">
+              <th style="padding:7px 10px;text-align:left">Contract Title</th>
+              <th style="padding:7px 10px;text-align:left">Start Date</th>
+              <th style="padding:7px 10px;text-align:left">End Date</th>
+              <th style="padding:7px 10px;text-align:left">Status</th>
+              <th style="padding:7px 10px;text-align:left">Edit</th>
+              <th style="padding:7px 10px;text-align:left">Download Docs</th>
             </tr>
+          </thead>
+          <tbody id="b8-rows">
+            <tr style="background:#fff"><td style="padding:6px 10px">AB Contract</td><td style="padding:6px 10px">01-05-2026</td><td style="padding:6px 10px">02-28-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><span id="b8-ab-edit" style="cursor:pointer;display:inline-block"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></span></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#e8e8e8"><td style="padding:6px 10px">ABA</td><td style="padding:6px 10px">03-06-2026</td><td style="padding:6px 10px">03-06-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#fff"><td style="padding:6px 10px">ABA</td><td style="padding:6px 10px">03-06-2026</td><td style="padding:6px 10px">03-06-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#e8e8e8"><td style="padding:6px 10px">AJ Super Contract</td><td style="padding:6px 10px">01-24-2026</td><td style="padding:6px 10px">01-31-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#fff"><td style="padding:6px 10px">aPost Super Bowl 2026</td><td style="padding:6px 10px">02-21-2026</td><td style="padding:6px 10px">02-27-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#e8e8e8"><td style="padding:6px 10px">aPost Super Bowl Contract</td><td style="padding:6px 10px">02-21-2026</td><td style="padding:6px 10px">02-27-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#fff"><td style="padding:6px 10px">Arizona Baseball Contract</td><td style="padding:6px 10px">03-09-2026</td><td style="padding:6px 10px">04-30-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#e8e8e8"><td style="padding:6px 10px">Arizona Event</td><td style="padding:6px 10px">02-27-2026</td><td style="padding:6px 10px">06-15-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#fff"><td style="padding:6px 10px">Creative Entertainment Contract</td><td style="padding:6px 10px">10-13-2025</td><td style="padding:6px 10px">04-07-2026</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
+            <tr style="background:#e8e8e8"><td style="padding:6px 10px">Crockets Contract</td><td style="padding:6px 10px">11-15-2024</td><td style="padding:6px 10px">12-31-2024</td><td style="padding:6px 10px">Active</td><td style="padding:6px 10px"><svg width="14" height="14" viewBox="0 0 24 24" fill="#e08020"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></td><td style="padding:6px 10px"><a href="#" style="color:#1a6aaa;text-decoration:underline">Download</a></td></tr>
           </tbody>
-        </table>`).join('')}
-    </div>`;
-
-  // Add/Edit Contracts form HTML (matches image #101)
-  const addEditHTML = `
-    <div class="page-title">Add / Edit Contracts</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div style="display:flex;border-bottom:1px solid #b06010;margin:10px 0">
-      <span style="padding:6px 14px;font-size:11px;font-weight:bold;border:1px solid #b06010;border-bottom:none;background:#fff;color:#1a3c5a;border-radius:3px 3px 0 0">Contracts Info</span>
-    </div>
-    <div style="padding:14px 0">
-      <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 6px">
-        <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
-            <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Client :</td>
-            <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>--Select--</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Contract # :</td>
-            <td><input id="b8-cnum" value="9704" style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Contract Title :</td>
-            <td><input id="b8-ctitle" style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Start Date :</td>
-            <td><input id="b8-sd" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
-              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
-              <span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">End Date :</td>
-            <td><input id="b8-ed" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
-              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
-              <span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Status :</td>
-            <td><select id="b8-status" style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Active</option><option>Inactive</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Allow Self-schedule :</td>
-            <td><input type="checkbox" style="vertical-align:middle"></td></tr>
-        <tr><td style="text-align:right;padding-right:10px">Contract Document :</td>
-            <td><label id="b8-doc" style="display:inline-block;padding:3px 10px;border:1px solid #aaa;background:#f0f0f0;cursor:pointer;font-size:12px">Choose File</label>
-              <span style="font-size:12px;margin-left:6px">No file chosen</span>
-              <span style="color:#c00;margin-left:4px">*</span>
-              <a id="b8-view" style="color:#c00;text-decoration:underline;margin-left:18px;cursor:pointer">View</a></td></tr>
-        <tr><td></td><td style="padding-top:14px">
-            <button id="b8-save" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Save</button>
-            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Reset</button>
-            <button id="b8-back" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Back</button>
-          </td></tr>
-      </table>
+        </table>
+        <div style="padding:8px 10px;font-size:11px;color:#555;border-top:1px solid #ddd;display:flex;justify-content:space-between">
+          <span>Total Pages: 2</span>
+          <span>
+            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:2px 8px;font-size:11px;border-radius:3px;margin:0 2px">First</button>
+            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:2px 8px;font-size:11px;border-radius:3px;margin:0 2px">Previous</button>
+            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:2px 8px;font-size:11px;border-radius:3px;margin:0 2px">Next</button>
+            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:2px 8px;font-size:11px;border-radius:3px;margin:0 2px">Last</button>
+          </span>
+          <span>Current Page: 1</span>
+        </div>
+      </div>
     </div>`;
 
   runGuided([
-    // Step 1: Click Records → expand submenu with all 17 items
-    { selector: '#nav-records', prompt: 'Client contracts live under Records. Click "Records" to expand its menu.',
+    // Step 1: Click Records → expand its submenu (17 items already in nav HTML)
+    { selector: '#nav-records', prompt: 'Click "Records" in the navigation to open its menu',
       onConfirm: () => {
         document.getElementById('nav-records').classList.add('active');
-        const sub = document.getElementById('sub-records');
-        sub.classList.add('show');
-        sub.innerHTML = `
-          <span class="nav-sub-item">Manage Branch Info</span>
-          <span class="nav-sub-item">Training Registration</span>
-          <span class="nav-sub-item">Manage Client</span>
-          <span class="nav-sub-item">Manage Event</span>
-          <span class="nav-sub-item">Manage Venue</span>
-          <span class="nav-sub-item" id="sub-rec-contract">Manage Contract</span>
-          <span class="nav-sub-item">Manage Employee</span>
-          <span class="nav-sub-item">Manage Employee Status</span>
-          <span class="nav-sub-item">Manage WorkGroup</span>
-          <span class="nav-sub-item">Manage Job</span>
-          <span class="nav-sub-item">Manage Access Location</span>
-          <span class="nav-sub-item">Manage Access Group</span>
-          <span class="nav-sub-item">Manage License</span>
-          <span class="nav-sub-item">Job Search</span>
-          <span class="nav-sub-item">Manage Credentials</span>
-          <span class="nav-sub-item">Manage Employee Card</span>
-          <span class="nav-sub-item">Manage Employee Task</span>`;
+        document.getElementById('sub-records').classList.add('show');
       }},
 
-    // Step 2: Click Manage Contract → search form + close submenu
+    // Step 2: Click Manage Contract → close Records submenu, show form
     { selector: '#sub-rec-contract', prompt: 'Click "Manage Contract"',
       onConfirm: () => {
         document.getElementById('nav-records').classList.remove('active');
         document.getElementById('sub-records').classList.remove('show');
-        document.getElementById('content').innerHTML = searchHTML;
+        document.getElementById('content').innerHTML = manageContractFormHTML;
       }},
 
-    // Step 3: Click Add New → Add/Edit Contracts form
-    { selector: '#b8-addnew', prompt: 'If a contract does not exist for the client, click "Add New" to create one — billing is not possible without a contract',
-      onConfirm: () => { document.getElementById('content').innerHTML = addEditHTML; }},
+    // Step 3: Click Search → results table appears
+    { selector: '#b8-search', prompt: 'Click "Search" to list every contract on file for this branch',
+      onConfirm: () => { document.getElementById('b8-results').style.display = ''; }},
 
-    // Step 4: Contract # (auto-generated reference)
-    { selector: '#b8-cnum', prompt: 'Contract # — the system assigns a reference number for this contract', skipClick: true },
+    // Step 4: Click AB Contract edit pencil → Add/Edit Contracts form (Contracts Info tab)
+    { selector: '#b8-ab-edit', prompt: 'Click the pencil to open the AB Contract for editing',
+      onConfirm: () => b8RenderEdit('info') },
 
-    // Step 5: Contract Title
-    { selector: '#b8-ctitle', prompt: 'Contract Title — a readable name for the contract', skipClick: true },
+    // Step 5: Highlight Start Date + End Date — contract dates & payment terms
+    { selector: '#b8-ed-start', also: ['#b8-ed-end'], skipClick: true,
+      prompt: 'Contract dates and payment terms — the standard here is net 30 days with a 150% late fee. Set the Start and End dates to the term agreed with the client.' },
 
-    // Step 6: Start Date and End Date — contract dates
-    { selector: '#b8-sd', also: ['#b8-ed'], prompt: 'Contract dates — Start and End. Standard payment terms are net 30 days with 1-1/2% late fee added monthly on unpaid balance.', skipClick: true },
+    // Step 6: Click Rate tab
+    { selector: '#b8-tab-rate', prompt: 'Click the "Rate" tab',
+      onConfirm: () => b8RenderEdit('rate') },
 
-    // Step 7: Status
-    { selector: '#b8-status', prompt: 'Status — set to Active to make the contract billable', skipClick: true },
+    // Step 7: Highlight Tax Rate field (Rate tab)
+    { selector: '#b8-rt-tax', skipClick: true,
+      prompt: 'Tax Rate — set this appropriately for your location. This is the default tax that will apply across all billable items on the contract.' },
 
-    // Step 8: Contract Document — upload PDF
-    { selector: '#b8-doc', prompt: 'Contract Document — upload the signed PDF directly into WISH', skipClick: true },
+    // Step 8: Click Role tab
+    { selector: '#b8-tab-role', prompt: 'Click the "Role" tab',
+      onConfirm: () => b8RenderEdit('role') },
 
-    // Step 9: Save — bill rates and tax rates are configured after saving
-    { selector: '#b8-save', prompt: 'After clicking Save, you can configure bill rates by role (what you charge per hour for each position) and tax rates for your location. To update a rate later, deactivate the current rate and enter the new one.', skipClick: true },
+    // Step 9: Highlight Charge column — bill rates by role
+    { selector: '#b8-role-charge', skipClick: true,
+      prompt: 'Bill rates by role — this is what you charge the client per hour for each position. To update a rate, deactivate the current one and add the new rate below.' },
 
-    // Step 10: Click Back → return to Manage Contract search form
-    { selector: '#b8-back', prompt: 'Now click "Back" to return to the Manage Contract search and look at existing contracts',
-      onConfirm: () => { document.getElementById('content').innerHTML = searchHTML; }},
+    // Step 10: Highlight Tax column — tax rates per role
+    { selector: '#b8-role-tax', skipClick: true,
+      prompt: 'Tax rates can also be set per role here when a specific role requires a different rate from the contract default.' },
 
-    // Step 11: Click Search → results table appears with all existing contracts
-    { selector: '#b8-search', prompt: 'Click "Search" to list every contract for this branch',
-      onConfirm: () => { document.getElementById('content').innerHTML = searchWithResultsHTML; }},
-
-    // Step 12: Highlight AB Contract row
-    { selector: '#b8-row-ab', prompt: 'Each row shows a contract\'s title, start and end dates, and status. The pencil icon edits the contract; the Download link opens the contract document as a PDF.', skipClick: true },
-
-    // Step 13: Click Download for AB Contract → PDF opens
-    { selector: '#b8-dl-ab', prompt: 'Click "Download" on the AB Contract row to open its contract document as a PDF',
-      onConfirm: () => { document.getElementById('content').innerHTML = contractPdfHTML; }},
-
-    // Step 14: Final note — anchored on the PDF branch banner so the tip stays near the document
-    { selector: '#b8-pdf-branch', prompt: 'The contract document opens as a PDF — review it for terms, billing rates, and any client-specific clauses before billing begins.', skipClick: true },
+    // Step 11: Click Save
+    { selector: '#b8-role-save', prompt: 'Click "Save" to commit your changes to the contract' },
   ]);
+
+  // ── Edit-contract renderer (one function, switches by active tab) ───────
+  function b8RenderEdit(which) {
+    const tabStyleActive = 'background:#3d3d3d;color:#fff;padding:7px 18px;font-size:12px;font-weight:bold;border:1px solid #888;border-bottom:none;border-radius:3px 3px 0 0;cursor:pointer';
+    const tabStyleInactive = 'background:#f4f4f4;color:#333;padding:7px 18px;font-size:12px;font-weight:bold;border:1px solid #aaa;border-bottom:none;border-radius:3px 3px 0 0;cursor:pointer';
+    const st = (t) => which === t ? tabStyleActive : tabStyleInactive;
+    document.getElementById('content').innerHTML = `
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);padding:14px 18px">
+        <div style="font-weight:bold;font-size:15px;color:#1a3c5a;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px">Add / Edit Contracts <span style="color:#333;font-weight:normal">- 9147&nbsp;&nbsp;AB Contract</span></div>
+        <div style="background:#fffde7;border:1px solid #f0c040;padding:5px 10px;font-size:12px;margin-bottom:14px;color:#7a5a00;">
+          Note: All the * marked fields are mandatory
+        </div>
+        <div id="b8-tabs" style="display:flex;gap:4px;border-bottom:1px solid #888;margin-bottom:14px">
+          <div id="b8-tab-info" style="${st('info')}">Contracts Info</div>
+          <div id="b8-tab-rate" style="${st('rate')}">Rate</div>
+          <div id="b8-tab-discount" style="${st('discount')}">Contract Discount</div>
+          <div id="b8-tab-role" style="${st('role')}">Role</div>
+        </div>
+        <div id="b8-tab-body">${b8TabBody(which)}</div>
+      </div>`;
+  }
+
+  function b8TabBody(which) {
+    if (which === 'rate') {
+      return `
+        <div style="padding:30px 0 16px 0">
+          <table style="margin:0 auto;font-size:12px;color:#333">
+            <tr><td style="padding:8px 10px;text-align:right">Overtime % of regular rate :</td>
+                <td style="padding:8px 0"><input value="150" style="width:60px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;text-align:right"> % <span style="color:#c00">*</span>
+                  <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:4px 14px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:10px">Show</button></td></tr>
+            <tr><td style="padding:8px 10px;text-align:right">Enable Double Time :</td>
+                <td style="padding:8px 0"><input type="checkbox" checked style="vertical-align:middle"></td></tr>
+            <tr><td style="padding:8px 10px;text-align:right">Tax Rate :</td>
+                <td style="padding:8px 0"><input id="b8-rt-tax" value="8.75" style="width:60px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;text-align:right"> % <span style="color:#c00">*</span></td></tr>
+            <tr><td></td><td style="padding:14px 0;text-align:center">
+                  <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">Save</button>
+                  <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Reset</button>
+                  <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Back</button>
+                </td></tr>
+          </table>
+        </div>`;
+    }
+    if (which === 'role') {
+      const roleRows = [
+        ['1.', '05-Jan-2026', 'Event Staff',    '45.00'],
+        ['2.', '05-Jan-2026', 'Supervisor',     '55.00'],
+        ['3.', '15-Jan-2026', 'Administrative', '50.00'],
+        ['4.', '15-Jan-2026', 'Event Manager',  '60.00'],
+        ['5.', '15-Jan-2026', 'Parkers',        '40.00'],
+        ['6.', '15-Jan-2026', 'Security Guard', '50.00'],
+        ['7.', '15-Jan-2026', 'Ticket Taker',   '35.00'],
+      ].map((r, i) => `
+        <tr style="background:${i%2===0?'#fff':'#e8e8e8'}">
+          <td style="padding:6px 8px">${r[0]}</td>
+          <td style="padding:6px 8px">${r[1]}</td>
+          <td style="padding:6px 8px">${r[2]}</td>
+          <td style="padding:6px 8px;text-align:right">${r[3]}</td>
+          <td style="padding:6px 8px;text-align:right">0.00</td>
+          <td style="padding:6px 8px;text-align:right">0.00</td>
+          <td style="padding:6px 8px;text-align:right">0.00</td>
+          <td style="padding:6px 8px"></td>
+          <td style="padding:6px 8px">Active</td>
+          <td style="padding:6px 8px">Darryl Burnett</td>
+          <td style="padding:6px 8px"><a href="#" style="color:#1a6aaa;text-decoration:underline">DeActivate</a></td>
+        </tr>`).join('');
+      return `
+        <div style="padding:6px 0 14px 0">
+          <div style="margin-bottom:6px;font-size:12px"><input type="checkbox" style="vertical-align:middle"> Show all roles ( Including de-active )</div>
+          <div style="max-height:170px;overflow-y:auto;border:1px solid #ccc">
+            <table style="width:100%;border-collapse:collapse;font-size:11px">
+              <thead>
+                <tr style="background:#888;color:#fff">
+                  <th style="padding:6px 8px;text-align:left">S.No</th>
+                  <th style="padding:6px 8px;text-align:left">Eff. Date</th>
+                  <th style="padding:6px 8px;text-align:left">Role Name</th>
+                  <th id="b8-role-charge" style="padding:6px 8px;text-align:right">Charge</th>
+                  <th style="padding:6px 8px;text-align:right">Pay</th>
+                  <th style="padding:6px 8px;text-align:right">Internal</th>
+                  <th id="b8-role-tax" style="padding:6px 8px;text-align:right">Tax</th>
+                  <th style="padding:6px 8px">Deactivation</th>
+                  <th style="padding:6px 8px;text-align:left">Status</th>
+                  <th style="padding:6px 8px;text-align:left">CreatedBy</th>
+                  <th style="padding:6px 8px;text-align:left">Action</th>
+                </tr>
+              </thead>
+              <tbody>${roleRows}</tbody>
+            </table>
+          </div>
+          <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:14px 0 6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Add Contract Rate</div>
+          <table style="margin:0 auto;font-size:12px;color:#333">
+            <tr><td style="padding:5px 10px;text-align:right">Effective Date :</td>
+                <td style="padding:5px 0"><input value="01/05/2026" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+                  <span style="display:inline-block;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;text-align:center;line-height:22px;background:#f0f0f0;cursor:pointer">&#128197;</span>
+                  <span style="color:#c00">*</span> &nbsp;
+                  <label style="font-size:12px"><input type="checkbox" style="vertical-align:middle"> Multiple Role</label></td></tr>
+            <tr><td style="padding:5px 10px;text-align:right">Role Name :</td>
+                <td style="padding:5px 0"><select style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>Select</option></select> <span style="color:#c00">*</span></td></tr>
+            <tr><td style="padding:5px 10px;text-align:right">Charge Rate :</td>
+                <td style="padding:5px 0"><input style="width:80px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+            <tr><td style="padding:5px 10px;text-align:right">Pay Rate :</td>
+                <td style="padding:5px 0"><input style="width:80px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+            <tr><td style="padding:5px 10px;text-align:right">Internal Rate :</td>
+                <td style="padding:5px 0"><input style="width:80px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+            <tr><td style="padding:5px 10px;text-align:right">Tax Rate :</td>
+                <td style="padding:5px 0"><input style="width:80px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+            <tr><td></td><td style="padding:14px 0;text-align:center">
+                  <button class="btn" id="b8-role-save" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">Save</button>
+                  <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Reset</button>
+                  <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Back</button>
+                </td></tr>
+          </table>
+        </div>`;
+    }
+    // Default: Contracts Info tab
+    return `
+      <div style="padding:6px 0 16px 0">
+        <table style="margin:0 auto;font-size:12px;color:#333">
+          <tr><td style="padding:6px 10px;text-align:right">Branch Name :</td>
+              <td style="padding:6px 0"><select id="b8-ed-branch" disabled style="width:220px;height:26px;border:1px solid #aaa;font-size:12px;background:#eee;color:#555"><option>Prota LA Branch Test</option></select> <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Client :</td>
+              <td style="padding:6px 0"><select id="b8-ed-client" style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>AB Ventures</option></select> <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Contract # :</td>
+              <td style="padding:6px 0"><input id="b8-ed-num" value="9147" style="width:208px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Contract Title :</td>
+              <td style="padding:6px 0"><input id="b8-ed-title" value="AB Contract" style="width:208px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"> <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Start Date :</td>
+              <td style="padding:6px 0"><input id="b8-ed-start" value="01/05/2026" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+                <span style="display:inline-block;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;text-align:center;line-height:22px;background:#f0f0f0;cursor:pointer">&#128197;</span>
+                <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">End Date :</td>
+              <td style="padding:6px 0"><input id="b8-ed-end" value="02/28/2026" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+                <span style="display:inline-block;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;text-align:center;line-height:22px;background:#f0f0f0;cursor:pointer">&#128197;</span>
+                <span style="color:#c00">*</span></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Status :</td>
+              <td style="padding:6px 0"><select id="b8-ed-status" style="width:220px;height:26px;border:1px solid #aaa;font-size:12px"><option>Active</option></select></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Allow Self-schedule :</td>
+              <td style="padding:6px 0"><input id="b8-ed-self" type="checkbox" style="vertical-align:middle"></td></tr>
+          <tr><td style="padding:6px 10px;text-align:right">Contract Document :</td>
+              <td style="padding:6px 0"><span id="b8-ed-doc" style="display:inline-block"><button style="background:#f0f0f0;border:1px solid #888;padding:2px 10px;font-size:12px;cursor:pointer">Choose File</button> <span style="font-size:12px;color:#555">No file chosen</span></span> &nbsp;&nbsp;&nbsp;<span style="color:#c00">*</span> <a href="#" style="color:#1a6aaa;text-decoration:underline">View</a></td></tr>
+          <tr><td></td><td style="padding:14px 0;text-align:center">
+                <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">Save</button>
+                <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Reset</button>
+                <button class="btn" id="b8-ed-back" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 20px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Back</button>
+              </td></tr>
+        </table>
+      </div>`;
+  }
 }
+
 
 // ── Introduction ───────────────────────────────────────────────────────────
 
