@@ -3492,13 +3492,15 @@ function importPortalHTML() {
   const cell = 'padding:5px 8px';
   const ok = 'color:#2a9a2a;font-weight:bold';
   return `
-    <div class="page-title">Import From Hiring Portal</div>
+    <div class="page-title">Import From Hiring portal</div>
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div style="display:flex;gap:16px;align-items:flex-end;margin:6px 0 10px">
-      <div><label style="font-size:13px">Branch Name :</label><br><select class="form-select" id="imp-branch" style="width:180px"><option>Prota LA Branch Test</option></select></div>
-      <div><label style="font-size:13px">Employee Type :</label><br><select class="form-select" id="imp-emptype" style="width:160px"><option>Regular Employee</option></select></div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" id="imp-branch" style="width:185px"><option>Prota LA Branch Test</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee Type :</td><td><select class="form-select" id="imp-emptype" style="width:185px"><option>Regular Employee</option></select></td></tr>
+    </table>
+    <div style="text-align:center;margin:10px 0">
       <button class="btn" id="imp-search">Search</button>
-      <button class="btn btn-secondary" id="imp-csv">CSV Export</button>
+      <button class="btn btn-secondary" id="imp-emp-status">Employee Status</button>
     </div>
     <div id="imp-results" style="display:none">
       <div id="imp-summary" style="display:flex;gap:18px;background:#eef3f8;border:1px solid #cdd9e5;padding:6px 12px;font-size:12px;border-radius:3px;margin-bottom:8px">
@@ -3558,6 +3560,63 @@ function slide_hiring_manager_3() {
       onConfirm: () => { document.getElementById('imp-results').style.display = ''; }},
     { selector: '#imp-summary', prompt: 'The summary row shows Total, Duplicate (already in WISH), Import (done this session), Hired, and Rehired', skipClick: true },
     { selector: '#imp-table', prompt: 'The list shows each applicant\'s SSN, Name, Branch, BG Status, E-Verify Status, Status, and Hiring Status. Review these before taking any action', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_4() {
+  // Check Before You Import — confirm BG APPROVED, E-Verify EMPLOYMENTAUTHORIZED, Status Hired; watch for Duplicate
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-bg-1', also: ['#imp-h-bg'], prompt: 'Before importing, the Background Check Status must show APPROVED. Never import an applicant whose check is still pending or has not cleared', skipClick: true },
+    { selector: '#imp-ev-1', also: ['#imp-h-ev'], prompt: 'E-Verify Status should show EMPLOYMENTAUTHORIZED — this confirms the applicant is authorized to work', skipClick: true },
+    { selector: '#imp-st-1', also: ['#imp-h-st'], prompt: 'The Status column should show Hired before you proceed. If it shows anything else, don\'t import until their hiring process is complete', skipClick: true },
+    { selector: '#imp-dup-3', prompt: 'Watch for Duplicate — this applicant already exists in WISH under a matching SSN. Do not import duplicates; it can create record conflicts', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_5() {
+  // Importing an Applicant — checkbox > Select > Import Applicant > confirmation
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-chk-1', prompt: 'Once you\'ve confirmed an applicant is cleared, click the checkbox next to their name',
+      onConfirm: () => { document.getElementById('imp-chk-1').checked = true; document.getElementById('imp-dd-1').style.display = ''; }},
+    { selector: '#imp-dd-1', prompt: 'A dropdown appears with three options — Select (mark for import), Rejected (remove from consideration), or Rescind (reverse a previous action). Choose "Select"',
+      onConfirm: () => { document.getElementById('imp-dd-1').value = 'Select'; }},
+    { selector: '#imp-btn', prompt: 'Click "Import Applicant" — the system creates their employee record in WISH',
+      onConfirm: () => { document.getElementById('imp-msg').classList.add('show'); }},
+    { selector: '#imp-msg', prompt: 'Imported. The applicant now appears in Records > Manage Employee and can be assigned a pay rate and scheduled. (You can also use CSV Export to download the list.)', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_6() {
+  // After the Import — Records > Manage Employee > search the new employee > confirm record created
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'After importing, confirm the record was created. Go to "Records"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = empSearchHTML();
+      }},
+    { selector: '#f-elast', prompt: 'Search for the newly imported employee by name', type: 'Holloway' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search"',
+      onConfirm: () => {
+        document.getElementById('emp-results').style.display = '';
+        const link = document.getElementById('emp-link');
+        if (link) { link.textContent = 'Holloway'; const tr = link.closest('tr');
+          tr.children[1].textContent = 'Derek'; tr.children[2].textContent = '4122105'; }
+      }},
+    { selector: '#emp-link', prompt: 'There\'s the imported applicant — their record was created from the hiring portal info. Open it to verify their personal info populated correctly, and assign a default pay rate (they can\'t be scheduled without an active rate)', skipClick: true },
   ]);
 }
 
@@ -10152,6 +10211,9 @@ const routes = {
   'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
   'hiring_manager-2': slide_hiring_manager_2,
   'hiring_manager-3': slide_hiring_manager_3,
+  'hiring_manager-4': slide_hiring_manager_4,
+  'hiring_manager-5': slide_hiring_manager_5,
+  'hiring_manager-6': slide_hiring_manager_6,
   'hiring_manager-4': slide_hiring_manager_4,
   'hiring_manager-5': slide_hiring_manager_5,
   'hiring_manager-6': slide_hiring_manager_6,
