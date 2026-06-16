@@ -252,7 +252,7 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Job Search</span>
       <span class="nav-sub-item">Manage Credentials</span>
       <span class="nav-sub-item">Manage Employee Card</span>
-      <span class="nav-sub-item">Manage Employee Task</span>
+      <span class="nav-sub-item" id="sub-rec-emp-task">Manage Employee Task</span>
     </div>
 
     <a class="nav-item" id="nav-reports">
@@ -2782,6 +2782,79 @@ function empSectionContent(tab) {
   return contents[tab] || `<div style="color:#888;padding:20px">No content for this tab.</div>`;
 }
 
+// ── Manage Employee Task (HR Admin) ─────────────────────────────────────────
+// Roster of employees and their task status. `pending` rows show an X and open a
+// task-detail panel; `done` rows show a green checkmark. All names are fake.
+const MET_ROSTER = [
+  { id:1, last:'Gonzalez',  first:'Maria',    num:'4122000', status:'Active',
+    pending:true,  task:'Complete Form I-9', due:'09/01/2025',
+    desc:'Employee must complete and submit the Form I-9 (Employment Eligibility Verification) through their ESS account.' },
+  { id:2, last:'Whitfield', first:'Daria',    num:'3958412', status:'Active',  pending:false },
+  { id:3, last:'Okafor',    first:'Terrence', num:'3961205', status:'Pending', pending:true,
+    task:'New Hire Orientation', due:'09/10/2025',
+    desc:'Required onboarding training must be completed in WISH Academy before the employee can be scheduled.' },
+  { id:4, last:'Vasquez',   first:'Lorena',   num:'3947338', status:'Active',  pending:false },
+  { id:5, last:'Brennan',   first:'Marcus',   num:'3953071', status:'Active',  pending:false },
+  { id:6, last:'Sandoval',  first:'Priya',    num:'3969824', status:'Pending', pending:true,
+    task:'Direct Deposit Authorization', due:'09/05/2025',
+    desc:'Employee must submit a signed direct deposit authorization form acknowledging the company pay policy.' },
+];
+
+function manageEmpTaskHTML() {
+  const rows = MET_ROSTER.map(e => {
+    const indicator = e.pending
+      ? `<span id="met-task-${e.id}" style="color:#c00;font-weight:bold;font-size:16px">&#10006;</span>`
+      : `<span id="met-task-${e.id}" style="color:#2a9a2a;font-weight:bold;font-size:16px">&#10004;</span>`;
+    const cursor = e.pending ? 'cursor:pointer' : '';
+    const onclick = e.pending ? ` onclick="showEmpTaskDetail(${e.id})"` : '';
+    return `<tr id="met-row-${e.id}" style="${cursor}"${onclick}>
+      <td>${e.last}</td><td>${e.first}</td><td>${e.num}</td>
+      <td>Prota LA Branch Test</td><td>${e.status}</td>
+      <td style="text-align:center">${indicator}</td></tr>`;
+  }).join('');
+  return `<div class="page-title">Manage Employee Task</div>
+    <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:10px">
+      <div><div style="font-size:13px;margin-bottom:2px">Branch Name :</div>
+        <select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select></div>
+      <div><div style="font-size:13px;margin-bottom:2px">Status :</div>
+        <select class="form-select" style="width:140px"><option>All</option><option>Active</option><option>Pending</option></select></div>
+      <button class="btn" id="met-search">Search</button>
+    </div>
+    <table style="width:100%">
+      <thead><tr>
+        <th>Last Name &#9650;&#9660;</th><th>First Name &#9650;&#9660;</th><th>Employee# &#9650;&#9660;</th>
+        <th>BranchName &#9650;&#9660;</th><th>Status</th><th style="text-align:center">Task</th>
+      </tr></thead>
+      <tbody id="met-tbody">${rows}</tbody>
+    </table>
+    <div id="met-detail" style="display:none;margin-top:16px"></div>`;
+}
+
+function empTaskDetailHTML(e) {
+  return `<div class="page-title" style="font-size:18px">Task Detail &#8212; ${e.first} ${e.last} (${e.num})</div>
+    <table style="width:100%">
+      <thead><tr><th>Task</th><th>Description</th><th>Due Date</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr style="background:#fffbe8">
+          <td id="met-d-name" style="font-weight:bold">${e.task}</td>
+          <td id="met-d-desc">${e.desc}</td>
+          <td id="met-d-due">${e.due}</td>
+          <td id="met-d-status"><span style="color:#c06000;font-weight:bold">Pending</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="note-bar" style="margin-top:8px">Task completion is done by the employee through ESS or by an administrator. Your role is to monitor and follow up.</div>`;
+}
+
+function showEmpTaskDetail(empId) {
+  const e = MET_ROSTER.find(r => r.id === empId);
+  if (!e) return;
+  const d = document.getElementById('met-detail');
+  if (!d) return;
+  d.innerHTML = empTaskDetailHTML(e);
+  d.style.display = '';
+}
+
 function runEmpSearch(tabs, tabClickSeq) {
   // Legacy — not used in guided mode; slides call runGuided directly
 }
@@ -3488,18 +3561,49 @@ function slide_hiring_manager_3() {
   ]);
 }
 
-function slide_hiring_admin_3() {
-  setNav('records');
-  document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Status','Email','Phone','Pay Rate','Background Check','Tasks'];
+function slide_hiring_admin_2() {
+  // What HR Admin Gives You — Records menu > scroll to bottom > Manage Employee Task
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
-      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
-      onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-tasks', prompt: 'Click "Tasks" to view and manage onboarding tasks',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Tasks'); }},
+    { selector: '#nav-records', prompt: 'HR Admin gives you one focused tool. Start by clicking "Records" in the navigation',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-emp-task', prompt: 'Scroll to the very bottom of the Records menu and click "Manage Employee Task"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageEmpTaskHTML();
+      }},
+    { selector: '#met-tbody', prompt: 'This screen shows all of your employees and whether they have completed or still have pending tasks — onboarding, training, document submissions, and compliance items', skipClick: true },
+  ]);
+}
+
+function slide_hiring_admin_3() {
+  // Reading the Manage Employee Task Screen — columns + the checkmark / X indicator
+  setNav('records');
+  document.getElementById('content').innerHTML = manageEmpTaskHTML();
+  runGuided([
+    { selector: '#met-search', prompt: 'Choose a Branch and Status, then click "Search" to load your employee list', onConfirm: () => {} },
+    { selector: '#met-tbody', prompt: 'Each row shows the employee\'s basic information — Last Name, First Name, Employee Number, Branch, and current Status', skipClick: true },
+    { selector: '#met-task-2', prompt: 'At the end of each row is the task indicator. A green checkmark means the employee has completed all assigned tasks — no action needed', skipClick: true },
+    { selector: '#met-task-1', also: ['#met-task-3','#met-task-6'], prompt: 'An X means the employee has one or more pending tasks. These employees need your attention — they may be missing a required training, a document, or another compliance item', skipClick: true },
+  ]);
+}
+
+function slide_hiring_admin_4() {
+  // Following Up on Pending Tasks — click an X row, read the task detail
+  setNav('records');
+  document.getElementById('content').innerHTML = manageEmpTaskHTML();
+  runGuided([
+    { selector: '#met-row-1', prompt: 'When you see an X next to an employee, click their row to see what\'s outstanding',
+      onConfirm: () => { showEmpTaskDetail(1); }},
+    { selector: '#met-d-name', prompt: 'The task detail shows the name of the task — here, the employee still needs to complete their Form I-9', skipClick: true },
+    { selector: '#met-d-desc', prompt: 'A description tells you exactly what the employee needs to do', skipClick: true },
+    { selector: '#met-d-due', also: ['#met-d-status'], prompt: 'You also see the due date and the current status — Pending, In Progress, or Complete', skipClick: true },
+    { selector: '#met-detail', prompt: 'From here you review what\'s needed and follow up with the employee directly. Completion is done by the employee through ESS or by an administrator — your role is to monitor and follow up, not to mark tasks complete on their behalf', skipClick: true },
   ]);
 }
 
@@ -3564,7 +3668,7 @@ function slide_mail_by_2() {
         document.getElementById('sub-tools').classList.add('show');
       }},
     { selector: '#sub-tools-mbe', also: ['#sub-tools-mbae', '#sub-tools-mbj'],
-      prompt: 'You have three Mail By options: Mail By Employee, Mail By Available Employee, and Mail By Job. Each one sends messages to a different group', skipClick: true },
+      prompt: 'You have three Mail By options: Mail By Employee (specific people), Mail By Available Employee (available but not yet scheduled), and Mail By Job (everyone scheduled on a job). All three send to the email on file — pick the one that matches who you need to reach', skipClick: true },
   ]);
 }
 
@@ -3684,7 +3788,7 @@ function slide_mail_by_3() {
       }},
     { selector: '#mbe-extfilter', prompt: 'You can narrow the list with the Extended Filter on the right — birth date, work dates, guard-card expiry, schedule range',
       onConfirm: () => { document.getElementById('mbe-extpanel').style.display = ''; document.getElementById('mbe-extfilter').innerHTML = 'Extended Filter &#9650;'; }},
-    { selector: '#mbe-search', prompt: 'Set your filters, then click "Search" to pull the employee list',
+    { selector: '#mbe-search', prompt: 'Search for the employee by name or employee number, then click "Search" to pull the list',
       onConfirm: () => { document.getElementById('mbe-results').style.display = ''; }},
     { selector: '#mbe-chk-1', prompt: 'Check the box next to each employee you want to message — or check "Send email to all employees in the search list" up top',
       onConfirm: () => { document.getElementById('mbe-chk-1').checked = true; document.getElementById('mbe-chk-2').checked = true; document.getElementById('mbe-chk-3').checked = true; }},
@@ -3749,7 +3853,7 @@ function slide_mail_by_4() {
         document.getElementById('sub-tools').classList.remove('show');
         document.getElementById('content').innerHTML = mailByAvailableHTML();
       }},
-    { selector: '#mba-date', prompt: 'Filter by branch, date, and role to find who\'s available — this pulls employees not already scheduled for that date', skipClick: true },
+    { selector: '#mba-date', prompt: 'This is your go-to when you\'re short-staffed. Filter by branch, date range, and role — it shows only employees who are available, with no conflicting schedule for that time frame', skipClick: true },
     { selector: '#mba-search', prompt: 'Click "Search" to list the available employees',
       onConfirm: () => { document.getElementById('mba-results').style.display = ''; }},
     { selector: '#mba-all-hdr', prompt: 'Click the checkbox at the top of the list to select every available employee at once',
@@ -9974,7 +10078,9 @@ const routes = {
   'hiring_manager-4': slide_hiring_manager_4,
   'hiring_manager-5': slide_hiring_manager_5,
   'hiring_manager-6': slide_hiring_manager_6,
+  'hiring_admin-2':   slide_hiring_admin_2,
   'hiring_admin-3':   slide_hiring_admin_3,
+  'hiring_admin-4':   slide_hiring_admin_4,
   'mail_by-2':        slide_mail_by_2,
   'mail_by-3':        slide_mail_by_3,
   'mail_by-4':        slide_mail_by_4,
