@@ -3007,7 +3007,7 @@ function empRecordTabContent(tab) {
         </table>
         <div class="page-title" style="font-size:18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center">Add New Employee Notes <label style="font-size:12px;font-weight:normal"><input type="checkbox"> No Show Notes</label></div>
         <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
-          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" id="note-type" style="width:180px"><option>--select--</option><option>Scheduling Concern</option><option>Follow-Up</option><option>Equipment Issued</option><option>General</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" id="note-type" style="width:240px"><option>--select--</option><option>Client Exclusion</option><option>Late Cancellation - Excused</option><option>Late Cancellation - Non-Excused</option><option>MVR Related</option><option>No Show - Excused</option><option>No Show - Not Excused</option><option>Other (User Notes Text Box)</option><option>Pending &#8211; Do Not Schedule</option><option>Pending &#8211; Employee Documentation Needed</option><option>Pending &#8211; Investigation</option><option>Pending &#8211; Other (Use Notes Text Box)</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="note-text" style="width:230px;height:60px;border:1px solid #999"></textarea></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Confidential :</td><td><input type="checkbox" id="note-conf"></td></tr>
           <tr><td></td><td style="padding-top:6px"><button class="btn" id="note-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
@@ -3114,7 +3114,7 @@ function slide_workforce_scheduler_mntnnce_7() {
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#note-history', prompt: 'Review the existing notes on this employee. Notes are branch-level — visible to your branch, but not shared system-wide', skipClick: true },
     { selector: '#note-type', prompt: 'Under "Add New Employee Notes", choose the note type',
-      onConfirm: () => { document.getElementById('note-type').value = 'Scheduling Concern'; }},
+      onConfirm: () => { document.getElementById('note-type').value = 'Other (User Notes Text Box)'; }},
     { selector: '#note-text', prompt: 'Type the note — always include the date and a brief description of what it\'s about', type: '06/15/2026 - Prefers weekday shifts; unavailable weekends through July.' },
     { selector: '#note-save', prompt: 'Click "Save" to record the note',
       onConfirm: () => { document.getElementById('note-save-msg').classList.add('show'); }},
