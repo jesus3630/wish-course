@@ -848,7 +848,8 @@
         "slide_number": 2,
         "slide_name": "What Hiring Manager Access Does",
         "instructions": "Show Tools menu. Scroll to Import From Hiring Portal. Click it. Show the Import From Hiring Portal screen load.",
-        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
+        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=2"
       },
       {
         "slide_number": 3,
@@ -861,19 +862,22 @@
         "slide_number": 4,
         "slide_name": "Check Before You Import",
         "instructions": "Show an applicant row. Point out BG Status column showing APPROVED and E-Verify Status showing EMPLOYMENTAUTHORIZED. Show the Status column showing Hired.",
-        "text": "Before importing an applicant, two things need to be confirmed:\r\n\r\n1. Background Check Status, should show APPROVED. Do not import applicants whose background check is still pending or has not cleared.\r\n\r\n2. E-Verify Status, should show EMPLOYMENTAUTHORIZED. This confirms the applicant is authorized to work.\r\n\r\nAlso check the Status column, it should show Hired before you proceed with the import. If an applicant shows a different status, do not import them until their hiring process is complete.\r\n\r\nIf you see Duplicate in the summary count, that applicant already exists in WISH. Do not import duplicates, importing a duplicate can create record conflicts in the system."
+        "text": "Before importing an applicant, two things need to be confirmed:\r\n\r\n1. Background Check Status, should show APPROVED. Do not import applicants whose background check is still pending or has not cleared.\r\n\r\n2. E-Verify Status, should show EMPLOYMENTAUTHORIZED. This confirms the applicant is authorized to work.\r\n\r\nAlso check the Status column, it should show Hired before you proceed with the import. If an applicant shows a different status, do not import them until their hiring process is complete.\r\n\r\nIf you see Duplicate in the summary count, that applicant already exists in WISH. Do not import duplicates, importing a duplicate can create record conflicts in the system.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=4"
       },
       {
         "slide_number": 5,
         "slide_name": "Importing an Applicant",
         "instructions": "Click the checkbox next to an approved applicant row. Show the dropdown: Select, Rejected, Rescind. Choose Select. Show the Import Applicant button at the bottom. Click Import Applicant. Show the confirmation.",
-        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name, a dropdown will appear with three options:\r\n   * Select, marks the applicant for import\r\n   * Rejected, marks them as rejected, removing them from consideration\r\n   * Rescind, reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records to Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data."
+        "text": "Once you've confirmed an applicant is cleared and ready:\r\n\r\n1. Click the checkbox next to their name, a dropdown will appear with three options:\r\n   * Select, marks the applicant for import\r\n   * Rejected, marks them as rejected, removing them from consideration\r\n   * Rescind, reverses a previous action if needed\r\n\r\n2. Choose Select\r\n\r\n3. Click Import Applicant at the bottom of the screen\r\n\r\nThe system will create their employee record in WISH. After a successful import, the applicant will appear in Records to Manage Employee and can be assigned a pay rate and scheduled for jobs.\r\n\r\nYou can also use CSV Export to download the applicant list to a spreadsheet if you need to share or archive the data.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=5"
       },
       {
         "slide_number": 6,
         "slide_name": "After the Import",
         "instructions": "Navigate to Records ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Manage Employee. Search for the newly imported employee by name. Show their record has been created with personal info populated.",
-        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n* Go to Records to Manage Employee and search for the new employee to confirm their record was created correctly\r\n* Verify their personal information populated properly, name, SSN, contact details\r\n* Assign their default pay rate if it wasn't set during import, they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs."
+        "text": "Once an applicant is imported, their basic record is created in WISH using the information from the hiring portal.\r\n\r\nYour next steps after importing:\r\n* Go to Records to Manage Employee and search for the new employee to confirm their record was created correctly\r\n* Verify their personal information populated properly, name, SSN, contact details\r\n* Assign their default pay rate if it wasn't set during import, they cannot be scheduled without an active pay rate on file\r\n\r\nIf anything looks incorrect in the record after import, contact your administrator before scheduling the employee for any jobs.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=6"
       },
       {
         "slide_number": 7,
@@ -903,7 +907,8 @@
         "slide_number": 2,
         "slide_name": "What HR Admin Gives You",
         "instructions": "Records menu open. Scroll to the bottom and click Manage Employee Task.",
-        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
+        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=2"
       },
       {
         "slide_number": 3,
@@ -916,7 +921,8 @@
         "slide_number": 4,
         "slide_name": "Following Up on Pending Tasks",
         "instructions": "Click on an employee row that shows an X. Show the task detail that opens ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â task name, description, due date, and status. Show what a pending task looks like vs a completed one.",
-        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n* The name of the task\r\n* A description of what needs to be completed\r\n* The due date if one has been set\r\n* The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n* Review exactly what the employee needs to do\r\n* Follow up with the employee directly to make sure they complete it\r\n* Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf."
+        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n* The name of the task\r\n* A description of what needs to be completed\r\n* The due date if one has been set\r\n* The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n* Review exactly what the employee needs to do\r\n* Follow up with the employee directly to make sure they complete it\r\n* Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=4"
       },
       {
         "slide_number": 5,
@@ -952,7 +958,8 @@
         "slide_number": 2,
         "slide_name": "What Mail By Gives You",
         "instructions": "Click Tools in the top navigation. Show the three Mail By options in the menu: Mail By Employee, Mail By Available Employee, Mail By Job.",
-        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n* Mail By Employee, send a message directly to one or more specific employees\r\n* Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n* Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why."
+        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n* Mail By Employee, send a message directly to one or more specific employees\r\n* Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n* Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=2"
       },
       {
         "slide_number": 3,
@@ -965,13 +972,15 @@
         "slide_number": 4,
         "slide_name": "Mail By Available Employee",
         "instructions": "Tools ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Mail By Available Employee. Show the filter options ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â branch, date, role. Show the list of available employees populating. Show selecting all and composing a message.",
-        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available, meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters, branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift."
+        "text": "Use Mail By Available Employee when you're trying to fill open shifts and need to reach employees who aren't already scheduled.\r\n\r\nThis tool filters your employee pool to show only those who are available, meaning they don't have a conflicting schedule for the time frame you select.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Available Employee\r\n2. Set your filters, branch, date range, and role if applicable\r\n3. Review the list of available employees\r\n4. Select the ones you want to contact, or select all\r\n5. Compose your message and click Send\r\n\r\nThis is your go-to tool when you're short-staffed and need to reach out to employees who could potentially pick up a shift.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=4"
       },
       {
         "slide_number": 5,
         "slide_name": "Mail By Job",
         "instructions": "Tools ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Mail By Job. Show the job search field. Enter a job number. Show the list of scheduled employees populating automatically. Compose a message and click Send.",
-        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send, all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n* Last-minute schedule changes or location updates before an event\r\n* Sending reminders about what to wear, where to park, or what time to arrive\r\n* Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
+        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send, all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n* Last-minute schedule changes or location updates before an event\r\n* Sending reminders about what to wear, where to park, or what time to arrive\r\n* Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=5"
       },
       {
         "slide_number": 6,

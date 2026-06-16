@@ -151,6 +151,9 @@ tr:hover td{background:#f8f4f0;}
   border-right:14px solid transparent;
   border-top:18px solid #ff8c00;
 }
+/* When the target is too close to the top, render the arrow BELOW it, pointing up */
+#guided-arrow.below{ flex-direction:column-reverse; }
+#guided-arrow.below .arrow-down{ transform:rotate(180deg); }
 #guided-prompt{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);background:#1a3c5a;color:#fff;padding:9px 16px 9px 40px;border-radius:4px;font-size:13px;max-width:420px;width:max-content;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;text-align:left;}
 #guided-prompt::before{content:'☝';position:absolute;left:12px;top:7px;font-size:17px;}
 #guided-bar{position:fixed;bottom:24px;left:0;width:100%;height:34px;background:#1a3c5a;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;font-size:12px;z-index:9997;}
@@ -249,7 +252,7 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Job Search</span>
       <span class="nav-sub-item">Manage Credentials</span>
       <span class="nav-sub-item">Manage Employee Card</span>
-      <span class="nav-sub-item">Manage Employee Task</span>
+      <span class="nav-sub-item" id="sub-rec-emp-task">Manage Employee Task</span>
     </div>
 
     <a class="nav-item" id="nav-reports">
@@ -307,11 +310,11 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Manage Scheduling Area</span>
       <span class="nav-sub-item">Manage Job title</span>
       <span class="nav-sub-item">Manage Master Type</span>
-      <span class="nav-sub-item">Mail By Employee</span>
+      <span class="nav-sub-item" id="sub-tools-mbe">Mail By Employee</span>
       <span class="nav-sub-item">Manage Notifications</span>
-      <span class="nav-sub-item">Mail By Available Employee</span>
-      <span class="nav-sub-item">Mail By Job</span>
-      <span class="nav-sub-item">Import From Hiring portal</span>
+      <span class="nav-sub-item" id="sub-tools-mbae">Mail By Available Employee</span>
+      <span class="nav-sub-item" id="sub-tools-mbj">Mail By Job</span>
+      <span class="nav-sub-item" id="sub-tools-import-portal">Import From Hiring portal</span>
       <span class="nav-sub-item">Import PayRate</span>
       <span class="nav-sub-item" id="sub-tools-mss">Manager Portal(MSS)</span>
       <span class="nav-sub-item">Manager Portal(NEW MSS)</span>
@@ -380,7 +383,24 @@ let _gs = null; // guided state
 let _gsExtra = []; // extra elements highlighted alongside the main target
 function _clearExtra(){ _gsExtra.forEach(e => e.classList.remove('guided-target')); _gsExtra = []; }
 
-function runGuided(steps) {
+function showCompletionOverlay() {
+  const old = document.getElementById('guided-complete-overlay');
+  if (old) old.remove();
+  const ov = document.createElement('div');
+  ov.id = 'guided-complete-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;background:rgba(76,175,80,0.16);pointer-events:none;opacity:0;transition:opacity .45s ease';
+  ov.innerHTML =
+    '<div style="background:rgba(255,255,255,0.96);border:2px solid #4caf50;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.22);padding:22px 32px;text-align:center;max-width:380px">' +
+      '<div style="font-size:40px;color:#4caf50;line-height:1">&#10004;</div>' +
+      '<div style="font-size:16px;font-weight:bold;color:#2e7d32;margin-top:8px">You\'ve completed this section</div>' +
+      '<div style="font-size:13px;color:#555;margin-top:6px">Please click <b>Next</b> to continue.</div>' +
+    '</div>';
+  document.body.appendChild(ov);
+  requestAnimationFrame(() => { ov.style.opacity = '1'; });
+}
+
+function runGuided(steps, opts) {
+  opts = opts || {};
   // Cleanup previous session
   if (_gs) {
     if (_gs.handler) document.removeEventListener('click', _gs.handler, true);
@@ -389,8 +409,10 @@ function runGuided(steps) {
   }
   const oldBar = document.getElementById('guided-bar');
   const oldTip = document.getElementById('guided-prompt');
+  const oldOverlay = document.getElementById('guided-complete-overlay');
   if (oldBar) oldBar.remove();
   if (oldTip) oldTip.remove();
+  if (oldOverlay) oldOverlay.remove();
   _gs = null;
 
   // Hide animated cursor — user uses real mouse in interactive mode
@@ -433,6 +455,7 @@ function runGuided(steps) {
     if (i >= steps.length) {
       tip.style.display = 'none';
       bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Section complete!</span>';
+      if (opts.completionOverlay !== false) showCompletionOverlay(); // default ON; pass { completionOverlay: false } to disable
       setTimeout(() => { bar.remove(); tip.remove(); }, 2800);
       return;
     }
@@ -459,9 +482,14 @@ function runGuided(steps) {
         const rect = el.getBoundingClientRect();
         const arrowW = 110;
         const centerX = rect.left + rect.width / 2;
-        const topY = rect.top - 58;
+        // Default: arrow sits above the target. If there isn't ~58px of room above
+        // (target near the top edge), flip it below so it never covers the target.
+        let topY = rect.top - 58;
+        const below = topY < 6;
+        if (below) topY = rect.bottom + 8;
+        arrow.classList.toggle('below', below);
         arrow.style.left = Math.max(4, Math.min(1280 - arrowW - 4, centerX - arrowW / 2)) + 'px';
-        arrow.style.top  = Math.max(4, topY) + 'px';
+        arrow.style.top  = topY + 'px';
         arrow.style.display = 'flex';
         const lbl = arrow.querySelector('.arrow-label');
         if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
@@ -475,7 +503,7 @@ function runGuided(steps) {
         btn.onclick = () => { if (s.onConfirm) s.onConfirm(); showStep(i + 1); };
         bar.appendChild(btn);
         _gs = { el, handler: null };
-        placeTip(el, s.prompt);
+        placeTip(el, s.prompt); // reposition for THIS target (don't inherit prior step's position)
         return;
       }
 
@@ -2917,6 +2945,104 @@ function empSectionContent(tab) {
   return contents[tab] || `<div style="color:#888;padding:20px">No content for this tab.</div>`;
 }
 
+// ── Manage Employee Task (HR Admin) ─────────────────────────────────────────
+// Roster of employees and their task status. `pending` rows show an X and open a
+// task-detail panel; `done` rows show a green checkmark. All names are fake.
+const MET_ROSTER = [
+  { id:1, last:'Gonzalez',  first:'Maria',    num:'4122000', status:'Active',
+    pending:true,  task:'Complete Form I-9', due:'09/01/2025',
+    desc:'Employee must complete and submit the Form I-9 (Employment Eligibility Verification) through their ESS account.' },
+  { id:2, last:'Whitfield', first:'Daria',    num:'3958412', status:'Active',  pending:false },
+  { id:3, last:'Okafor',    first:'Terrence', num:'3961205', status:'Pending', pending:true,
+    task:'New Hire Orientation', due:'09/10/2025',
+    desc:'Required onboarding training must be completed in WISH Academy before the employee can be scheduled.' },
+  { id:4, last:'Vasquez',   first:'Lorena',   num:'3947338', status:'Active',  pending:false },
+  { id:5, last:'Brennan',   first:'Marcus',   num:'3953071', status:'Active',  pending:false },
+  { id:6, last:'Sandoval',  first:'Priya',    num:'3969824', status:'Pending', pending:true,
+    task:'Direct Deposit Authorization', due:'09/05/2025',
+    desc:'Employee must submit a signed direct deposit authorization form acknowledging the company pay policy.' },
+];
+
+function manageEmpTaskHTML() {
+  const rows = MET_ROSTER.map(e => {
+    const indicator = e.pending
+      ? `<span id="met-task-${e.id}" style="color:#e53935;font-weight:bold;font-size:15px">&#10006;</span>`
+      : `<span id="met-task-${e.id}" style="color:#1b7a2e;font-weight:bold;font-size:15px">&#10004;</span>`;
+    const td = 'padding:4px 8px';
+    return `<tr id="met-row-${e.id}" style="background:#1f8a3b;color:#fff;cursor:pointer" onclick="showEmpTaskDetail(${e.id})">
+      <td style="text-align:center;${td}"><input type="checkbox"></td>
+      <td style="${td}">${e.last}</td><td style="${td}">${e.first}</td><td style="${td}">${e.num}</td>
+      <td style="${td}">${e.status}</td><td style="${td}">APPROVED</td><td style="${td}">01/01/2028</td>
+      <td style="text-align:center;${td};background:#fff">${indicator}</td></tr>`;
+  }).join('');
+  const c = 'padding:4px 8px';
+  return `<div class="page-title">Manage Employee Task</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table id="met-form" style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select><span style="color:#c00"> *</span></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:185px"><option>--All--</option><option>Staff</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Emp Status :</td><td><select class="form-select" id="met-empstatus" style="width:185px"><option>--All--</option><option>Active</option><option>Deceased</option><option>Inactive</option><option>Not Available</option><option>Pending</option><option>Quit</option><option>Suspended</option><option>System Quit</option><option>Terminated</option><option>Transfer</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">BG Status :</td><td><select class="form-select" style="width:185px"><option>--All--</option><option>ADVERSE ACTION</option><option>APPROVED</option><option>CONDITIONAL</option><option>DISPUTE</option><option>ERROR</option><option>HOLD</option><option>PENDING</option><option>PRE-ADVERSE ACTION</option><option>REVIEW</option><option>SELF-REPORT</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:177px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Show Questions :</td><td><input type="checkbox"></td></tr>
+    </table>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="met-search">Search</button></div>
+    <div class="page-title" style="font-size:18px">Search Result</div>
+    <div id="met-empty" style="background:#fcf8e3;border:1px solid #e0d8a0;color:#8a7a30;padding:8px 12px;font-size:13px;text-align:center;margin-top:6px"><span style="color:#c0a000;font-weight:bold">&#9888;</span> No Records found.</div>
+    <div id="met-results" style="display:none;margin-top:6px">
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff">
+          <th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Last Name</th><th style="text-align:left;${c}">First Name</th><th style="text-align:left;${c}">Employee#</th>
+          <th style="text-align:left;${c}">Status</th><th style="text-align:left;${c}">BGStatus</th><th style="text-align:left;${c}">BGExpiration Date</th><th style="text-align:center;${c}">Task</th></tr></thead>
+        <tbody id="met-tbody">${rows}</tbody>
+      </table>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd;margin-top:4px"><span>Total Pages: 3</span><span>Current Page: 1</span></div>
+      <div style="margin-top:10px"><button class="btn btn-sm">Excel Export</button></div>
+    </div>
+    <div id="met-detail" style="display:none;margin-top:16px"></div>`;
+}
+
+function empTaskDetailHTML(e) {
+  // Pending employees show outstanding tasks; completed employees show verified tasks (with a View link)
+  const list = e.pending
+    ? [['Know Your Rights Notice','Pending',false],['Employee MVR','Pending',false]]
+    : [['Know Your Rights Notice','Verified',true]];
+  const trs = list.map((r,i) => {
+    const icon = r[1] === 'Pending'
+      ? '<span style="color:#e53935;font-weight:bold;font-size:15px">&#10006;</span>'
+      : '<span style="color:#1b7a2e;font-weight:bold;font-size:15px">&#10004;</span>';
+    const view = r[2] ? '<a style="color:#3a6aaa;cursor:pointer">View</a>' : '';
+    const idAttr = i === 0 ? ' id="met-d-row"' : '';
+    return `<tr${idAttr} style="background:#ededed">
+      <td style="text-align:center;padding:7px 10px">${icon}</td>
+      <td style="padding:7px 12px"${i===0?' id="met-d-name"':''}>${r[0]}</td>
+      <td style="padding:7px 12px"${i===0?' id="met-d-status"':''}>${r[1]}</td>
+      <td style="padding:7px 12px">${view}</td></tr>`;
+  }).join('');
+  return `
+    <div style="position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9000;display:flex;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;width:820px;max-width:94%;margin-top:40px;padding:16px 24px;box-shadow:0 8px 28px rgba(0,0,0,.45);border-radius:3px">
+        <div class="page-title" style="font-size:20px">View Task</div>
+        <table id="met-d-table" style="width:100%;font-size:13px;margin-top:8px">
+          <thead><tr style="background:#5a5a5a;color:#fff"><th style="padding:7px 10px;width:40px"></th><th style="text-align:left;padding:7px 12px">Task</th><th style="text-align:left;padding:7px 12px">Status</th><th style="padding:7px 12px"></th></tr></thead>
+          <tbody>${trs}</tbody>
+        </table>
+        <div style="text-align:center;margin-top:24px"><button class="btn" id="met-d-cancel" onclick="var d=document.getElementById('met-detail');d.style.display='none';d.innerHTML='';">Cancel</button></div>
+      </div>
+    </div>`;
+}
+
+function showEmpTaskDetail(empId) {
+  const e = MET_ROSTER.find(r => r.id === empId);
+  if (!e) return;
+  const d = document.getElementById('met-detail');
+  if (!d) return;
+  d.innerHTML = empTaskDetailHTML(e);
+  d.style.display = '';
+}
+
 function runEmpSearch(tabs, tabClickSeq) {
   // Legacy — not used in guided mode; slides call runGuided directly
 }
@@ -3150,7 +3276,7 @@ function empRecordTabContent(tab) {
         </table>
         <div class="page-title" style="font-size:18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center">Add New Employee Notes <label style="font-size:12px;font-weight:normal"><input type="checkbox"> No Show Notes</label></div>
         <table style="border-spacing:0 6px;border-collapse:separate;margin-top:6px">
-          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" id="note-type" style="width:180px"><option>--select--</option><option>Scheduling Concern</option><option>Follow-Up</option><option>Equipment Issued</option><option>General</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Notes type :</td><td><select class="form-select" id="note-type" style="width:240px"><option>--select--</option><option>Client Exclusion</option><option>Late Cancellation - Excused</option><option>Late Cancellation - Non-Excused</option><option>MVR Related</option><option>No Show - Excused</option><option>No Show - Not Excused</option><option>Other (User Notes Text Box)</option><option>Pending &#8211; Do Not Schedule</option><option>Pending &#8211; Employee Documentation Needed</option><option>Pending &#8211; Investigation</option><option>Pending &#8211; Other (Use Notes Text Box)</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Notes :</td><td><textarea id="note-text" style="width:230px;height:60px;border:1px solid #999"></textarea></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Confidential :</td><td><input type="checkbox" id="note-conf"></td></tr>
           <tr><td></td><td style="padding-top:6px"><button class="btn" id="note-save">Save</button><button class="btn btn-secondary">Reset</button><button class="btn btn-secondary">Back</button></td></tr>
@@ -3188,7 +3314,7 @@ function slide_workforce_scheduler_mntnnce_3() {
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
     { selector: '#emp-link', prompt: 'Results show Last Name, First Name, Employee Number, Branch Name, and Status. Click the last name (blue link) to open their record',
       onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_4() {
@@ -3207,7 +3333,7 @@ function slide_workforce_scheduler_mntnnce_4() {
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#etab-personal-information', also: ['#etab-pay-rate', '#etab-disciplinary-action'],
       prompt: 'Tabs like Personal Information, Pay Rate, and Disciplinary Action are visible but view-only at this access level', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_5() {
@@ -3228,7 +3354,7 @@ function slide_workforce_scheduler_mntnnce_5() {
     { selector: '#lic-save', prompt: 'Click "Save" to record the license',
       onConfirm: () => { document.getElementById('lic-save-msg').classList.add('show'); }},
     { selector: '#lic-save-msg', prompt: 'The "License saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_6() {
@@ -3245,7 +3371,7 @@ function slide_workforce_scheduler_mntnnce_6() {
     { selector: '#bg-save', prompt: 'Click "Save" to record the background check',
       onConfirm: () => { document.getElementById('bg-save-msg').classList.add('show'); }},
     { selector: '#bg-save-msg', prompt: 'The "Background check saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_7() {
@@ -3257,12 +3383,12 @@ function slide_workforce_scheduler_mntnnce_7() {
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#note-history', prompt: 'Review the existing notes on this employee. Notes are branch-level — visible to your branch, but not shared system-wide', skipClick: true },
     { selector: '#note-type', prompt: 'Under "Add New Employee Notes", choose the note type',
-      onConfirm: () => { document.getElementById('note-type').value = 'Scheduling Concern'; }},
+      onConfirm: () => { document.getElementById('note-type').value = 'Other (User Notes Text Box)'; }},
     { selector: '#note-text', prompt: 'Type the note — always include the date and a brief description of what it\'s about', type: '06/15/2026 - Prefers weekday shifts; unavailable weekends through July.' },
     { selector: '#note-save', prompt: 'Click "Save" to record the note',
       onConfirm: () => { document.getElementById('note-save-msg').classList.add('show'); }},
     { selector: '#note-save-msg', prompt: 'The "Note saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_admin_maintenance_3() {
@@ -3550,81 +3676,468 @@ function slide_employee_hr_record_maintenance_6() {
 }
 
 // ── Hiring ─────────────────────────────────────────────────────────────────
-function slide_hiring_manager_3() {
-  setNav('tools');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Import from Hiring Portal</div>
-    <div style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-end">
-      <div><label>Branch :</label><br><select class="form-select"><option>Los Angeles</option></select></div>
-      <div><label>Status :</label><br><select class="form-select"><option>Approved</option></select></div>
-      <button class="btn">Search</button>
+function importPortalHTML() {
+  const cell = 'padding:5px 8px';
+  const ok = 'color:#2a9a2a;font-weight:bold';
+  return `
+    <div class="page-title">Import From Hiring portal</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" id="imp-branch" style="width:185px"><option>Prota LA Branch Test</option></select></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee Type :</td><td><select class="form-select" id="imp-emptype" style="width:185px"><option>Regular Employee</option><option>Workgroup employee</option><option>Workgroup</option></select></td></tr>
+    </table>
+    <div style="text-align:center;margin:10px 0">
+      <button class="btn" id="imp-search">Search</button>
+      <button class="btn btn-secondary" id="imp-emp-status">Employee Status</button>
     </div>
-    <table><thead><tr><th>Select</th><th>Applicant Name</th><th>Applied Date</th><th>Position</th><th id="bgcol" style="background:#c06820">Background Status</th><th>Action</th></tr></thead>
-    <tbody>
-      <tr><td><input type="radio" name="app" id="app1r"></td><td>Torres, Luis</td><td>07/28/2023</td><td>Event Staff</td><td><span style="color:#2a9a2a;font-weight:bold">Approved</span></td><td><button class="btn btn-sm" id="btn-import" disabled>Import Applicant</button></td></tr>
-      <tr><td><input type="radio" name="app"></td><td>Kim, Jennifer</td><td>08/01/2023</td><td>Supervisor</td><td><span style="color:#2a9a2a;font-weight:bold">Approved</span></td><td><button class="btn btn-sm" disabled>Import Applicant</button></td></tr>
-    </tbody></table>
-    <div id="import-msg" class="msg-success" style="margin-top:12px">&#10004; Applicant imported successfully. Employee record created.</div>`;
+    <div id="imp-results" style="display:none">
+      <div id="imp-summary" style="font-size:13px;margin:8px 0">Total:2 &nbsp;&nbsp; Duplicate:1 &nbsp;&nbsp; Import:0 &nbsp;&nbsp; Hired:2 &nbsp;&nbsp; Rehired:0</div>
+      <div style="overflow-x:auto">
+        <table id="imp-table" style="min-width:1000px;width:100%;font-size:12px">
+          <thead><tr style="background:#5a5a5a;color:#fff">
+            <th style="text-align:left;${cell}">SSN</th><th style="text-align:left;${cell}">First Name</th><th style="text-align:left;${cell}">Middle Name</th><th style="text-align:left;${cell}">Last Name</th><th style="${cell}">Exp</th><th style="text-align:left;${cell}">Branch</th>
+            <th style="text-align:left;${cell}" id="imp-h-bg">BG Status</th><th style="text-align:left;${cell}" id="imp-h-ev">E-Verify Status</th><th style="text-align:left;${cell}" id="imp-h-st">Status</th><th style="text-align:left;${cell}">Hiring Status</th><th style="${cell}">D</th><th style="text-align:left;${cell}">Phone</th></tr></thead>
+          <tbody>
+            <tr id="imp-row-1" style="background:#f7f7f7"><td style="${cell}">***-**-4821</td><td style="${cell};color:#3a6aaa">Derek</td><td style="${cell}"></td><td style="${cell};color:#3a6aaa">Holloway</td><td style="text-align:center;${cell}"><input type="checkbox" id="imp-chk-1"></td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}" id="imp-bg-1"><span style="${ok}">APPROVED</span></td><td style="${cell}" id="imp-ev-1"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">NEW</td><td style="text-align:center;${cell}">1</td><td style="${cell}">685-674-5645</td></tr>
+            <tr style="background:#f3c6c6"><td style="${cell}">***-**-7741</td><td style="${cell};color:#3a6aaa">Samuel</td><td style="${cell}"></td><td style="${cell};color:#3a6aaa">Okafor</td><td style="text-align:center;${cell}"><input type="checkbox"></td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}" id="imp-dup-3"><span style="color:#c0392b;font-weight:bold">Duplicate</span></td><td style="text-align:center;${cell}">1</td><td style="${cell}">685-674-7741</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <select class="form-select" id="imp-dd" style="font-size:12px;width:120px"><option>Select</option><option>Rejected</option><option>Rescind</option></select>
+        <button class="btn btn-sm btn-secondary">Change Status</button>
+        <button class="btn btn-sm" id="imp-btn">Import Applicant</button>
+        <button class="btn btn-sm btn-secondary">CSVExported</button>
+      </div>
+      <div id="imp-msg" class="msg-success" style="margin-top:12px">&#10004; Applicant imported successfully. Employee record created.</div>
+    </div>`;
+}
+
+function slide_hiring_manager_2() {
+  // What Hiring Manager Access Does — Tools > Import From Hiring Portal (NOT Records); load the screen
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#app1r', prompt: 'Click to select this applicant',
+    { selector: '#nav-tools', prompt: 'Hiring Manager access lives under "Tools" — not Records. Click "Tools"',
       onConfirm: () => {
-        document.getElementById('app1r').checked = true;
-        document.getElementById('btn-import').disabled = false;
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
       }},
-    { selector: '#btn-import', prompt: 'Click "Import Applicant" to create an employee record',
-      onConfirm: () => { document.getElementById('import-msg').classList.add('show'); }},
+    { selector: '#sub-tools-import-portal', prompt: 'Scroll down and click "Import From Hiring Portal" — the one tool this access level gives you',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = importPortalHTML();
+      }},
+    { selector: '#imp-branch', prompt: 'This is where you bring applicants in from the hiring portal, review their status, and create their employee record', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_3() {
+  // Reading the Import Screen — filters, Search, summary row, columns
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  runGuided([
+    { selector: '#imp-emptype', prompt: 'Your branch is already set. Just choose the Employee Type — Regular Employee in most cases',
+      onConfirm: () => { document.getElementById('imp-emptype').value = 'Regular Employee'; }},
+    { selector: '#imp-search', prompt: 'Click "Search" to pull the applicant list',
+      onConfirm: () => { document.getElementById('imp-results').style.display = ''; }},
+    { selector: '#imp-summary', prompt: 'The summary row shows Total, Duplicate (already in WISH), Import (done this session), Hired, and Rehired', skipClick: true },
+    { selector: '#imp-table', prompt: 'The list shows each applicant\'s SSN, name, branch, BG Status, E-Verify Status, Status, and Hiring Status. Review these columns before taking any action', skipClick: true },
+  ]);
+}
+
+function slide_hiring_admin_2() {
+  // What HR Admin Gives You — Records menu > scroll to bottom > Manage Employee Task
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-records', prompt: 'HR Admin gives you one focused tool. Start by clicking "Records" in the navigation',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-emp-task', prompt: 'Scroll to the very bottom of the Records menu and click "Manage Employee Task"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageEmpTaskHTML();
+      }},
+    { selector: '#met-form', prompt: 'This is the Manage Employee Task screen. Filter by branch and status, then Search to see all your employees and whether they have completed or still have pending tasks — onboarding, training, document submissions, and compliance items', skipClick: true },
   ]);
 }
 
 function slide_hiring_admin_3() {
+  // Reading the Manage Employee Task Screen — columns + the checkmark / X indicator
+  setNav('records');
+  document.getElementById('content').innerHTML = manageEmpTaskHTML();
+  runGuided([
+    { selector: '#met-search', prompt: 'Choose a Branch and Status, then click "Search" to load your employee list',
+      onConfirm: () => { document.getElementById('met-empty').style.display = 'none'; document.getElementById('met-results').style.display = ''; }},
+    { selector: '#met-tbody', prompt: 'Each row shows the employee\'s Last Name, First Name, Employee Number, Status, Background Check status, and BG expiration date', skipClick: true },
+    { selector: '#met-task-2', prompt: 'At the end of each row is the task indicator. A green checkmark means the employee has completed all assigned tasks — no action needed', skipClick: true },
+    { selector: '#met-task-1', also: ['#met-task-3','#met-task-6'], prompt: 'An X means the employee has one or more pending tasks. These employees need your attention — they may be missing a required training, a document, or another compliance item', skipClick: true },
+  ]);
+}
+
+function slide_hiring_admin_4() {
+  // Following Up on Pending Tasks — click an X row, read the task detail
+  setNav('records');
+  document.getElementById('content').innerHTML = manageEmpTaskHTML();
+  document.getElementById('met-empty').style.display = 'none';
+  document.getElementById('met-results').style.display = '';
+  runGuided([
+    { selector: '#met-task-1', prompt: 'When you see an X next to an employee, click it to see the details of what\'s outstanding',
+      onConfirm: () => { showEmpTaskDetail(1); }},
+    { selector: '#met-d-name', also: ['#met-d-status'], prompt: 'The task detail shows the name of each task and its current status — Pending, In Progress, or Complete. Here, "Know Your Rights Notice" and "Employee MVR" are both Pending', skipClick: true },
+    { selector: '#met-d-table', prompt: 'From here you review exactly what the employee needs to do, follow up with them directly, and coordinate with your administrator if a task needs branch-side action. (Clicking a checkmark instead shows tasks already submitted — Verified, with a "View" link.)', skipClick: true },
+    { selector: '#met-d-cancel', prompt: 'Task completion is done by the employee through their ESS account or by an administrator — your role is to monitor and follow up, not to mark tasks complete on their behalf. Click "Cancel" to close',
+      onConfirm: () => { const d = document.getElementById('met-detail'); d.style.display = 'none'; d.innerHTML = ''; }},
+  ]);
+}
+
+function slide_hiring_manager_4() {
+  // Check Before You Import — BG, E-Verify, Status, and Duplicate review
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-bg-1', prompt: 'Background Check Status must show APPROVED. Never import an applicant whose check is still pending or has not cleared', skipClick: true },
+    { selector: '#imp-ev-1', prompt: 'E-Verify Status must show EMPLOYMENTAUTHORIZED — this confirms the applicant is authorized to work', skipClick: true },
+    { selector: '#imp-st-1', prompt: 'The Status column should show "Hired" before you proceed. A different status means their hiring process isn\'t complete — do not import them yet', skipClick: true },
+    { selector: '#imp-dup-3', prompt: 'If the Hiring Status shows "Duplicate", that applicant already exists in WISH. Importing a duplicate can create record conflicts — do not import them', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_5() {
+  // Importing an Applicant — checkbox, dropdown (Select), Import Applicant, confirmation
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  document.getElementById('imp-results').style.display = '';
+  runGuided([
+    { selector: '#imp-chk-1', prompt: 'Once an applicant is confirmed cleared and ready, click the checkbox next to their name',
+      onConfirm: () => { document.getElementById('imp-chk-1').checked = true; }},
+    { selector: '#imp-dd', prompt: 'In the dropdown at the bottom, "Select" marks them for import, "Rejected" removes them from consideration, "Rescind" reverses a previous action. Choose "Select"',
+      onConfirm: () => { document.getElementById('imp-dd').value = 'Select'; }},
+    { selector: '#imp-btn', prompt: 'Click "Import Applicant" at the bottom of the screen',
+      onConfirm: () => { document.getElementById('imp-msg').classList.add('show'); }},
+    { selector: '#imp-msg', prompt: 'The system creates their employee record. They now appear in Records > Manage Employee, where you can assign a pay rate and schedule them. (CSV Export downloads the list if you need to share or archive it.)', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_6() {
+  // After the Import — confirm the new record in Records > Manage Employee
   setNav('records');
   document.getElementById('content').innerHTML = empSearchHTML();
-  const tabs = ['Status','Email','Phone','Pay Rate','Background Check','Tasks'];
+  const tabs = ['Personal Info','Pay Rate','Status','Email','Phone'];
   runGuided([
-    { selector: '#f-elast', prompt: 'Click here and type the employee\'s last name', type: 'Gonzalez' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search" to find the employee',
-      onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
-    { selector: '#emp-link', prompt: 'Click the employee\'s name to open their record',
+    { selector: '#f-elast', prompt: 'Go to Records > Manage Employee and search for the newly imported employee by last name', type: 'Holloway' },
+    { selector: '#btn-empsrch', prompt: 'Click "Search"',
+      onConfirm: () => {
+        document.getElementById('emp-results').style.display = '';
+        const link = document.getElementById('emp-link');
+        if (link) { link.textContent = 'Holloway'; const r = link.closest('tr'); if (r) r.children[1].textContent = 'Derek'; }
+      }},
+    { selector: '#emp-link', prompt: 'Click the last name to open the new record',
       onConfirm: () => { document.getElementById('content').innerHTML = empDetailHTML(tabs, empSectionContent); }},
-    { selector: '#etab-tasks', prompt: 'Click "Tasks" to view and manage onboarding tasks',
-      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Tasks'); }},
+    { selector: '#etab-personal-info', prompt: 'Confirm the personal information populated correctly from the hiring portal — name, SSN, and contact details', skipClick: true },
+    { selector: '#etab-pay-rate', prompt: 'Open the "Pay Rate" tab and assign a default rate if one wasn\'t set during import — the employee cannot be scheduled without an active pay rate on file',
+      onConfirm: () => { document.getElementById('emp-content').innerHTML = empSectionContent('Pay Rate'); }},
   ]);
 }
 
 // ── Mail By ────────────────────────────────────────────────────────────────
-function slide_mail_by_3() {
-  setNav('scheduling');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Scheduling</div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
-      <div style="border:1px solid #ddd;padding:14px 18px;background:#f8f8f8;cursor:pointer;width:190px;text-align:center;border-radius:2px" id="mbe">
-        <div style="font-size:22px;margin-bottom:6px">&#128231;</div>
-        <div style="font-weight:bold;color:#333">Mail By Employee</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">Send schedule to individual employees</div>
-      </div>
-      <div style="border:1px solid #ddd;padding:14px 18px;background:#f8f8f8;cursor:pointer;width:190px;text-align:center;border-radius:2px">
-        <div style="font-size:22px;margin-bottom:6px">&#128203;</div>
-        <div style="font-weight:bold;color:#333">Mail By Job</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">Send schedule for a specific job</div>
+function slide_mail_by_2() {
+  // What Mail By Gives You — Tools menu shows the three Mail By options
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-tools', prompt: 'Mail By lives under "Tools" in the top navigation. Click "Tools"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
+      }},
+    { selector: '#sub-tools-mbe', also: ['#sub-tools-mbae', '#sub-tools-mbj'],
+      prompt: 'You have three Mail By options: Mail By Employee (specific people), Mail By Available Employee (available but not yet scheduled), and Mail By Job (everyone scheduled on a job). All three send to the email on file — pick the one that matches who you need to reach', skipClick: true },
+  ]);
+}
+
+// Shared Mail By pieces — the results list and the confirm + compose modals are
+// identical across Mail By Employee / Available Employee / Job, differing only by id prefix.
+function mailResultsHTML(p, emps) {
+  const c = 'padding:4px 8px';
+  const rows = emps.map((e,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c}"><input type="checkbox"${i<3?' id="'+p+'-chk-'+(i+1)+'"':''}></td><td style="${c}">${e[0]}</td><td style="${c}">${e[1]}</td><td style="${c}">${e[2]}</td><td style="${c}">${e[3]}@maildrop.cc</td><td style="${c}"></td></tr>`).join('');
+  return `
+    <div style="text-align:center;font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="${p}-all"> Send email to all employees in the search list</label></div>
+    <table style="width:100%;font-size:12px">
+      <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="${p}-all-hdr"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
+      <tbody id="${p}-body">${rows}</tbody>
+    </table>
+    <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd"><span>Total Pages: 3</span><span>Go To page: <select><option>1</option><option>2</option><option>3</option></select></span></div>
+    <div style="text-align:center;margin-top:10px"><button class="btn" id="${p}-send">Send</button></div>`;
+}
+function mailComposeHTML(p, toEmails) {
+  const req = '<span style="color:#c00"> *</span>';
+  const tb = (x,s)=>`<button class="btn btn-sm btn-secondary" style="padding:1px 5px;font-size:11px;${s||''}">${x}</button>`;
+  const toolbar = `
+    <div style="border:1px solid #999;background:#efece3;padding:3px;display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+      ${tb('&#8634;')}${tb('&#8635;')} ${tb('B','font-weight:bold')}${tb('I','font-style:italic')}${tb('U','text-decoration:underline')}${tb('S','text-decoration:line-through')} ${tb('x&sup2;')}${tb('x&#8322;')} ${tb('&#128279;')}${tb('&#128443;')}${tb('&#9783;')}
+      <span style="font-size:11px;margin-left:4px">Font <select style="font-size:11px"><option>default</option></select></span>
+      <span style="font-size:11px">Size <select style="font-size:11px"><option>default</option></select></span>
+    </div>
+    <div style="border:1px solid #999;border-top:none;background:#efece3;padding:3px;display:flex;flex-wrap:wrap;gap:2px">
+      ${tb('&#8801;')}${tb('&#8803;')}${tb('&#8802;')} ${tb('&#8226;')}${tb('1.')} ${tb('&#8677;')}${tb('&#8676;')} ${tb('&#128279;')}${tb('&#9986;')}${tb('&#128203;')}</div>`;
+  return `
+    <div id="${p}-msg" class="msg-success" style="margin-top:10px">&#10004; Message sent to the selected employees.</div>
+    <div id="${p}-confirm" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:9000;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;border-radius:8px;box-shadow:2px 2px 14px rgba(0,0,0,.4);width:440px;margin-top:30px;padding:16px 20px;font-family:Arial">
+        <div style="font-weight:bold;font-size:13px;color:#333;margin-bottom:10px">wish.schedulingsite.com says</div>
+        <div style="font-size:13px;color:#333;margin-bottom:16px">Are you sure to send the emails to the selected employees?</div>
+        <div style="text-align:right"><button class="btn btn-secondary" id="${p}-confirm-cancel">Cancel</button><button class="btn" id="${p}-confirm-ok">OK</button></div>
       </div>
     </div>
-    <div id="mail-form" style="display:none;margin-top:14px">
-      <div class="page-title" style="font-size:13px">Mail By Employee</div>
-      <div class="form-row"><span class="form-label">Branch :</span><select class="form-select"><option>Los Angeles</option></select></div>
-      <div class="form-row"><span class="form-label">Employee :</span><input class="form-input" id="f-mailname" placeholder="Search by name..."></div>
-      <div class="form-row"><span class="form-label">Date Range :</span>
-        <input class="form-input" value="08/13/2023" style="width:100px"> to
-        <input class="form-input" value="08/19/2023" style="width:100px"></div>
-      <div style="margin:10px 0 0 160px"><button class="btn">Send Schedule</button></div>
+    <div id="${p}-compose" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9050;justify-content:center;align-items:flex-start">
+      <div style="background:#fff;border-radius:4px;box-shadow:2px 2px 16px rgba(0,0,0,.45);width:580px;margin-top:45px;padding:16px 22px">
+        <div class="note-bar" style="text-align:center">Note: All the * marked fields are mandatory</div>
+        <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="${p}-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select>${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="${p}-to" style="width:320px;height:56px;border:1px solid #999;font-size:12px">${toEmails}</textarea>${req}</td></tr>
+          <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Add CC :</label></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="${p}-subject" style="width:320px">${req}</td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf Files)</span></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td>${toolbar}<textarea id="${p}-message" style="width:400px;height:120px;border:1px solid #999;border-top:none"></textarea>${req}</td></tr>
+        </table>
+        <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox"> Include ESS link</label></div>
+        <div style="margin:10px 0 0 92px"><button class="btn" id="${p}-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
+      </div>
     </div>`;
+}
+
+function mailByEmployeeHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const c = 'padding:4px 8px';
+  const emps = [
+    ['3951601','Okafor','Terrence','TerrenceO'],['3951612','Vasquez','Lorena','LorenaV'],
+    ['3951623','Brennan','Marcus','MarcusB'],['3951634','Sandoval','Priya','PriyaS'],
+    ['3951645','Whitfield','Daria','DariaW'],['3951656','Calderon','Renee','ReneeC'],
+    ['3951667','Bennett','Joel','JoelB'],['3951678','Brooks','Tara','TaraB'],
+    ['3951689','Carter','Miles','MilesC'],['3951690','Diaz','Elena','ElenaD'],
+    ['3951701','Ellis','Grant','GrantE'],['3951712','Foster','Naomi','NaomiF'],
+    ['3951723','Hayes','Darnell','DarnellH'],['3951734','Ingram','Cleo','CleoI'],
+    ['3951745','Jensen','Paul','PaulJ'],['3951756','Mercer','Lila','LilaM'],
+  ];
+  const rows = emps.map((e,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c}"><input type="checkbox"${i<3?' id="mbe-chk-'+(i+1)+'"':''}></td><td style="${c}">${e[0]}</td><td style="${c}">${e[1]}</td><td style="${c}">${e[2]}</td><td style="${c}">${e[3]}@maildrop.cc</td><td style="${c}"></td></tr>`).join('');
+  const cal = calBtn();
+  const dr = (lbl)=>`<tr><td style="font-size:12px;padding-right:6px;white-space:nowrap">${lbl}</td><td><input class="form-input" style="width:80px">${cal}</td><td style="padding:0 6px;font-size:12px">To</td><td><input class="form-input" style="width:80px">${cal}</td></tr>`;
+  return `
+    <div class="page-title">Manage Messages</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;gap:30px;align-items:flex-start;margin-top:6px">
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:175px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:175px"><option>Staff</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" style="width:175px"><option>Active</option><option>Inactive</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Remove Blank Email :</td><td><input type="checkbox"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Send Schedule :</td><td><input type="checkbox"></td></tr>
+      </table>
+      <div>
+        <div id="mbe-extfilter" style="color:#2a5aaa;font-weight:bold;font-size:13px;cursor:pointer">Extended Filter &#9662;</div>
+        <div id="mbe-extpanel" style="display:none;border:1px solid #999;background:#f4f4f4;border-radius:3px;padding:12px 14px;margin-top:4px">
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            ${dr('Date Of Birth:')}${dr('First Work Date:')}${dr('last Work Date:')}${dr('G Card Exp Date:')}${dr('Sched From:')}
+            <tr><td colspan="4" style="text-align:center;padding-top:6px"><button class="btn btn-sm">Clear Filter</button></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="mbe-search">Search</button></div>
+    <div id="mbe-results" style="display:none">
+      ${mailResultsHTML('mbe', emps)}
+      ${mailComposeHTML('mbe', 'TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc')}
+    </div>`;
+}
+
+function slide_mail_by_3() {
+  // Mail By Employee — Tools > Mail By Employee; Manage Messages: search, select, send
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#mbe', prompt: 'Click "Mail By Employee" to send schedules to individual employees',
+    { selector: '#nav-tools', prompt: 'Click "Tools"',
       onConfirm: () => {
-        document.getElementById('mbe').style.background = '#fff8f0';
-        document.getElementById('mbe').style.borderColor = '#c07800';
-        document.getElementById('mail-form').style.display = '';
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
       }},
-    { selector: '#f-mailname', prompt: 'Click here and type the employee\'s name', type: 'Smith, John' },
+    { selector: '#sub-tools-mbe', prompt: 'Click "Mail By Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = mailByEmployeeHTML();
+      }},
+    { selector: '#mbe-extfilter', prompt: 'You can narrow the list with the Extended Filter on the right — birth date, work dates, guard-card expiry, schedule range',
+      onConfirm: () => { document.getElementById('mbe-extpanel').style.display = ''; document.getElementById('mbe-extfilter').innerHTML = 'Extended Filter &#9650;'; }},
+    { selector: '#mbe-search', prompt: 'Search for the employee by name or employee number, then click "Search" to pull the list',
+      onConfirm: () => { document.getElementById('mbe-results').style.display = ''; }},
+    { selector: '#mbe-chk-1', prompt: 'Check the box next to each employee you want to message — or check "Send email to all employees in the search list" up top',
+      onConfirm: () => { document.getElementById('mbe-chk-1').checked = true; document.getElementById('mbe-chk-2').checked = true; document.getElementById('mbe-chk-3').checked = true; }},
+    { selector: '#mbe-send', prompt: 'Click "Send"',
+      onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'flex'; }},
+    { selector: '#mbe-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'none'; document.getElementById('mbe-compose').style.display = 'flex'; }},
+    { selector: '#mbe-from', prompt: 'The compose window opens with your selected employees already in "To Email". Pick the From Email address',
+      onConfirm: () => { document.getElementById('mbe-from').value = 'scheduler@protatech.com'; }},
+    { selector: '#mbe-subject', prompt: 'Enter a Subject', type: 'Your Schedule for Next Week' },
+    { selector: '#mbe-message', prompt: 'Type your message. You can attach a PDF and toggle "Include ESS link" if needed', type: 'Hi team, your schedule for next week is attached. Please confirm your shifts.' },
+    { selector: '#mbe-compose-send', prompt: 'Click "Send" to deliver the message',
+      onConfirm: () => { document.getElementById('mbe-compose').style.display = 'none'; document.getElementById('mbe-msg').classList.add('show'); }},
+    { selector: '#mbe-msg', prompt: 'The message is sent to everyone in your selection', skipClick: true },
+  ]);
+}
+
+function mailByAvailableHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const c = 'padding:4px 8px';
+  const emps = [
+    ['3951601','Okafor','Terrence','TerrenceO'],['3951612','Vasquez','Lorena','LorenaV'],
+    ['3951623','Brennan','Marcus','MarcusB'],['3951634','Sandoval','Priya','PriyaS'],
+    ['3951645','Whitfield','Daria','DariaW'],['3951656','Calderon','Renee','ReneeC'],
+    ['3951667','Bennett','Joel','JoelB'],['3951678','Brooks','Tara','TaraB'],
+    ['3951689','Carter','Miles','MilesC'],['3951690','Diaz','Elena','ElenaD'],
+  ];
+  const rows = emps.map((e,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c}"><input type="checkbox"></td><td style="${c}">${e[0]}</td><td style="${c}">${e[1]}</td><td style="${c}">${e[2]}</td><td style="${c}">${e[3]}@maildrop.cc</td></tr>`).join('');
+  const sel = (lbl, opts) => `<tr><td style="text-align:right;font-size:13px;padding-right:8px">${lbl} :</td><td><select class="form-select" style="width:160px">${opts.map(o=>'<option>'+o+'</option>').join('')}</select></td></tr>`;
+  return `
+    <div class="page-title">Mail By Available Employee</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin-top:6px">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:160px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+      ${sel('Department Name',['All','Staff'])}
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" id="mba-date" value="06/16/2026" style="width:90px">${calBtn()}${req} <select class="form-select" style="width:48px"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></td></tr>
+      ${sel('Job Name',['All'])}
+      ${sel('Status',['All','Active'])}
+      ${sel('Job Title',['All','Event Staff','Supervisor','Security Guard'])}
+      ${sel('Venue',['All'])}
+      <tr><td></td><td style="padding-top:6px"><button class="btn" id="mba-search">Search</button></td></tr>
+    </table>
+    <div id="mba-results" style="display:none;margin-top:14px">
+      ${mailResultsHTML('mba', emps)}
+      ${mailComposeHTML('mba', emps.map(e=>e[3]+'@maildrop.cc').join(','))}
+    </div>`;
+}
+
+function slide_mail_by_4() {
+  // Mail By Available Employee — Tools > Mail By Available Employee; filter, search, select all, compose
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-tools', prompt: 'Click "Tools"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
+      }},
+    { selector: '#sub-tools-mbae', prompt: 'Click "Mail By Available Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = mailByAvailableHTML();
+      }},
+    { selector: '#mba-date', prompt: 'This is your go-to when you\'re short-staffed. Filter by branch, date range, and role — it shows only employees who are available, with no conflicting schedule for that time frame', skipClick: true },
+    { selector: '#mba-search', prompt: 'Click "Search" to list the available employees',
+      onConfirm: () => { document.getElementById('mba-results').style.display = ''; }},
+    { selector: '#mba-all-hdr', prompt: 'Click the checkbox at the top of the list to select every available employee at once',
+      onConfirm: () => { document.getElementById('mba-all-hdr').checked = true; document.querySelectorAll('#mba-body input[type=checkbox]').forEach(cb => cb.checked = true); }},
+    { selector: '#mba-send', prompt: 'Click "Send"',
+      onConfirm: () => { document.getElementById('mba-confirm').style.display = 'flex'; }},
+    { selector: '#mba-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mba-confirm').style.display = 'none'; document.getElementById('mba-compose').style.display = 'flex'; }},
+    { selector: '#mba-from', prompt: 'The compose window opens with every available employee in "To Email". Pick the From Email',
+      onConfirm: () => { document.getElementById('mba-from').value = 'scheduler@protatech.com'; }},
+    { selector: '#mba-subject', prompt: 'Enter a Subject', type: 'Open Shifts This Weekend' },
+    { selector: '#mba-message', prompt: 'Type your message', type: 'We have open shifts this weekend. Reply if you are available to pick any up.' },
+    { selector: '#mba-compose-send', prompt: 'Click "Send"',
+      onConfirm: () => { document.getElementById('mba-compose').style.display = 'none'; document.getElementById('mba-msg').classList.add('show'); }},
+    { selector: '#mba-msg', prompt: 'The message goes out to all available employees you selected', skipClick: true },
+  ]);
+}
+
+function mailByJobHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const c = 'padding:5px 8px';
+  const cal = calBtn();
+  const sel = (lbl, opts) => `<tr><td style="text-align:right;font-size:13px;padding-right:8px">${lbl} :</td><td><select class="form-select" style="width:175px">${opts.map(o=>'<option>'+o+'</option>').join('')}</select></td></tr>`;
+  const jobs = [
+    ['5023709417','Special Ops WISH training June 2026-6/12/2026-6/19/2026','1','Staff 1 Call','06/19/2026 13:00','06/19/2026 17:00'],
+    ['5023709417','Special Ops WISH training June 2026-6/12/2026-6/19/2026','2','Main Call','06/19/2026 14:00','06/19/2026 21:00'],
+    ['5023709416','Special Ops WISH training June 2026-6/12/2026-6/18/2026','1','Staff 1 Call','06/18/2026 13:00','06/18/2026 17:00'],
+    ['5023709416','Special Ops WISH training June 2026-6/12/2026-6/18/2026','2','Main Call','06/18/2026 14:00','06/18/2026 21:00'],
+    ['5023709415','Special Ops WISH training June 2026-6/12/2026-6/17/2026','1','Staff 1 Call','06/17/2026 13:00','06/17/2026 17:00'],
+    ['5023709415','Special Ops WISH training June 2026-6/12/2026-6/17/2026','2','Main Call','06/17/2026 14:00','06/17/2026 21:00'],
+  ];
+  const rows = jobs.map((j,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c};color:#2a8a3a;font-weight:bold">+</td><td style="text-align:center;${c}"><input type="checkbox"${i===0?' id="mbj-chk-1"':''}></td><td style="${c}">${j[0]}</td><td style="${c}">${j[1]}</td><td style="text-align:center;${c}">${j[2]}</td><td style="${c}">${j[3]}</td><td style="${c}">${j[4]}</td><td style="${c}">${j[5]}</td></tr>`).join('');
+  return `
+    <div class="page-title">Job Search Criteria</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" id="mbj-jobnum" style="width:167px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Invoice# :</td><td><input class="form-input" style="width:167px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:175px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+      ${sel('Department Name',['All','Staff'])}
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" value="06/16/2026" style="width:90px">${cal}${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">End Date :</td><td><input class="form-input" value="06/22/2026" style="width:90px">${cal}${req}</td></tr>
+      ${sel('Event Name',['All'])}
+      ${sel('Venue Name',['All'])}
+      ${sel('Job Name',['All'])}
+      ${sel('Shift Name',['All'])}
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">No Show :</td><td><input type="checkbox"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Send Schedule :</td><td><input type="checkbox"></td></tr>
+    </table>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="mbj-search">Search</button></div>
+    <div class="page-title" style="font-size:18px">Search Result</div>
+    <div id="mbj-results" style="display:none;margin-top:8px">
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="mbj-all-hdr"></th><th style="${c}"></th><th style="text-align:left;${c}">Job#</th><th style="text-align:left;${c}">Job Name</th><th style="${c}">Shift#</th><th style="text-align:left;${c}">Shift Name</th><th style="text-align:left;${c}">Start Time</th><th style="text-align:left;${c}">Finish Time</th></tr></thead>
+        <tbody id="mbj-body">${rows}</tbody>
+      </table>
+      <div style="text-align:center;margin-top:10px"><button class="btn" id="mbj-send">Send Email</button></div>
+      ${mailComposeHTML('mbj', 'TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc,PriyaS@maildrop.cc,DariaW@maildrop.cc')}
+    </div>`;
+}
+
+function slide_mail_by_5() {
+  // Mail By Job — Tools > Mail By Job; enter/search a job, system pulls the scheduled crew, compose + send to all
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-tools', prompt: 'Click "Tools"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
+      }},
+    { selector: '#sub-tools-mbj', prompt: 'Click "Mail By Job"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = mailByJobHTML();
+      }},
+    { selector: '#mbj-jobnum', prompt: 'Enter the Job Number — or use the criteria below (branch, date range) to search for the job', type: '5023709417' },
+    { selector: '#mbj-search', prompt: 'Click "Search"',
+      onConfirm: () => { document.getElementById('mbj-results').style.display = ''; }},
+    { selector: '#mbj-chk-1', prompt: 'Select the job. WISH automatically pulls everyone scheduled on it',
+      onConfirm: () => { document.getElementById('mbj-chk-1').checked = true; }},
+    { selector: '#mbj-send', prompt: 'Click "Send Email"',
+      onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'flex'; }},
+    { selector: '#mbj-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'none'; document.getElementById('mbj-compose').style.display = 'flex'; }},
+    { selector: '#mbj-from', prompt: 'The compose window opens with the whole scheduled crew already in "To Email". Pick the From Email',
+      onConfirm: () => { document.getElementById('mbj-from').value = 'scheduler@protatech.com'; }},
+    { selector: '#mbj-subject', prompt: 'Enter a Subject', type: 'Call Time & Parking - Special Ops Training' },
+    { selector: '#mbj-message', prompt: 'Type your message — call time, where to park, what to wear, etc.', type: 'Reminder: report at your call time, park in Lot C, wear all black. See you there.' },
+    { selector: '#mbj-compose-send', prompt: 'Click "Send" — every employee scheduled on the job gets the message at once',
+      onConfirm: () => { document.getElementById('mbj-compose').style.display = 'none'; document.getElementById('mbj-msg').classList.add('show'); }},
+    { selector: '#mbj-msg', prompt: 'The whole event crew receives the message simultaneously — the fastest way to reach everyone on a job', skipClick: true },
   ]);
 }
 
@@ -11137,9 +11650,21 @@ const routes = {
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
   'employee_hr_record_maintenance-5': slide_employee_hr_record_maintenance_5,
   'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
+  'hiring_manager-2': slide_hiring_manager_2,
   'hiring_manager-3': slide_hiring_manager_3,
+  'hiring_manager-4': slide_hiring_manager_4,
+  'hiring_manager-5': slide_hiring_manager_5,
+  'hiring_manager-6': slide_hiring_manager_6,
+  'hiring_manager-4': slide_hiring_manager_4,
+  'hiring_manager-5': slide_hiring_manager_5,
+  'hiring_manager-6': slide_hiring_manager_6,
+  'hiring_admin-2':   slide_hiring_admin_2,
   'hiring_admin-3':   slide_hiring_admin_3,
+  'hiring_admin-4':   slide_hiring_admin_4,
+  'mail_by-2':        slide_mail_by_2,
   'mail_by-3':        slide_mail_by_3,
+  'mail_by-4':        slide_mail_by_4,
+  'mail_by-5':        slide_mail_by_5,
   'sign_in_sign_out-3': slide_sign_in_sign_out_3,
   'sign_in_sign_out-4': slide_sign_in_sign_out_4,
   'sign_in_sign_out-5': slide_sign_in_sign_out_5,

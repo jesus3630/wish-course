@@ -17,6 +17,9 @@ If they disappear: `git show 3b4f77a:client/public/mockup/mockup.html` has the g
 ProtaTECH's WISH (Workforce Information Systems Hosted) training course for Los Angeles County staff.
 Employees complete assigned modules, take quizzes, and get certificates.
 
+> **Building interactive demos? Read [SYSTEM.md](./SYSTEM.md) first.** It's the playbook:
+> the guided engine, the reusable component library, the six-step build, and the deploy flow.
+
 **Live site:** https://wish-app-production.up.railway.app  
 **Admin panel:** https://wish-app-production.up.railway.app/admin (password: `wish2026`)  
 **GitHub:** https://github.com/jesus3630/wish-course  
