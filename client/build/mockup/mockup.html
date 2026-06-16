@@ -3519,39 +3519,84 @@ function slide_mail_by_2() {
   ]);
 }
 
-function slide_mail_by_3() {
-  setNav('scheduling');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Scheduling</div>
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:8px">
-      <div style="border:1px solid #ddd;padding:14px 18px;background:#f8f8f8;cursor:pointer;width:190px;text-align:center;border-radius:2px" id="mbe">
-        <div style="font-size:22px;margin-bottom:6px">&#128231;</div>
-        <div style="font-weight:bold;color:#333">Mail By Employee</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">Send schedule to individual employees</div>
-      </div>
-      <div style="border:1px solid #ddd;padding:14px 18px;background:#f8f8f8;cursor:pointer;width:190px;text-align:center;border-radius:2px">
-        <div style="font-size:22px;margin-bottom:6px">&#128203;</div>
-        <div style="font-weight:bold;color:#333">Mail By Job</div>
-        <div style="font-size:11px;color:#888;margin-top:4px">Send schedule for a specific job</div>
+function mailByEmployeeHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const c = 'padding:4px 8px';
+  const emps = [
+    ['3951601','Okafor','Terrence','TerrenceO'],['3951612','Vasquez','Lorena','LorenaV'],
+    ['3951623','Brennan','Marcus','MarcusB'],['3951634','Sandoval','Priya','PriyaS'],
+    ['3951645','Whitfield','Daria','DariaW'],['3951656','Calderon','Renee','ReneeC'],
+    ['3951667','Bennett','Joel','JoelB'],['3951678','Brooks','Tara','TaraB'],
+    ['3951689','Carter','Miles','MilesC'],['3951690','Diaz','Elena','ElenaD'],
+    ['3951701','Ellis','Grant','GrantE'],['3951712','Foster','Naomi','NaomiF'],
+    ['3951723','Hayes','Darnell','DarnellH'],['3951734','Ingram','Cleo','CleoI'],
+    ['3951745','Jensen','Paul','PaulJ'],['3951756','Mercer','Lila','LilaM'],
+  ];
+  const rows = emps.map((e,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c}"><input type="checkbox"></td><td style="${c}">${e[0]}</td><td style="${c}">${e[1]}</td><td style="${c}">${e[2]}</td><td style="${c}">${e[3]}@maildrop.cc</td><td style="${c}"></td></tr>`).join('');
+  const cal = calBtn();
+  const dr = (lbl)=>`<tr><td style="font-size:12px;padding-right:6px;white-space:nowrap">${lbl}</td><td><input class="form-input" style="width:80px">${cal}</td><td style="padding:0 6px;font-size:12px">To</td><td><input class="form-input" style="width:80px">${cal}</td></tr>`;
+  return `
+    <div class="page-title">Manage Messages</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;gap:30px;align-items:flex-start;margin-top:6px">
+      <table style="border-spacing:0 5px;border-collapse:separate">
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:175px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Department :</td><td><select class="form-select" style="width:175px"><option>Staff</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Employee# :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">First Name :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Last Name :</td><td><input class="form-input" style="width:167px"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Status :</td><td><select class="form-select" style="width:175px"><option>Active</option><option>Inactive</option></select></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Remove Blank Email :</td><td><input type="checkbox"></td></tr>
+        <tr><td style="text-align:right;font-size:13px;padding-right:8px">Send Schedule :</td><td><input type="checkbox"></td></tr>
+      </table>
+      <div>
+        <div id="mbe-extfilter" style="color:#2a5aaa;font-weight:bold;font-size:13px;cursor:pointer">Extended Filter &#9662;</div>
+        <div id="mbe-extpanel" style="display:none;border:1px solid #999;background:#f4f4f4;border-radius:3px;padding:12px 14px;margin-top:4px">
+          <table style="border-spacing:0 6px;border-collapse:separate">
+            ${dr('Date Of Birth:')}${dr('First Work Date:')}${dr('last Work Date:')}${dr('G Card Exp Date:')}${dr('Sched From:')}
+            <tr><td colspan="4" style="text-align:center;padding-top:6px"><button class="btn btn-sm">Clear Filter</button></td></tr>
+          </table>
+        </div>
       </div>
     </div>
-    <div id="mail-form" style="display:none;margin-top:14px">
-      <div class="page-title" style="font-size:13px">Mail By Employee</div>
-      <div class="form-row"><span class="form-label">Branch :</span><select class="form-select"><option>Los Angeles</option></select></div>
-      <div class="form-row"><span class="form-label">Employee :</span><input class="form-input" id="f-mailname" placeholder="Search by name..."></div>
-      <div class="form-row"><span class="form-label">Date Range :</span>
-        <input class="form-input" value="08/13/2023" style="width:100px"> to
-        <input class="form-input" value="08/19/2023" style="width:100px"></div>
-      <div style="margin:10px 0 0 160px"><button class="btn">Send Schedule</button></div>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="mbe-search">Search</button></div>
+    <div id="mbe-results" style="display:none">
+      <div style="text-align:center;font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="mbe-all"> Send email to all employees in the search list</label></div>
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd"><span>Total Pages: 2</span><span>Go To page: <select><option>1</option><option>2</option></select></span></div>
+      <div style="text-align:center;margin-top:10px"><button class="btn" id="mbe-send">Send</button></div>
+      <div id="mbe-msg" class="msg-success" style="margin-top:10px">&#10004; Message sent to the selected employees.</div>
     </div>`;
+}
+
+function slide_mail_by_3() {
+  // Mail By Employee — Tools > Mail By Employee; Manage Messages: search, select, send
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#mbe', prompt: 'Click "Mail By Employee" to send schedules to individual employees',
+    { selector: '#nav-tools', prompt: 'Click "Tools"',
       onConfirm: () => {
-        document.getElementById('mbe').style.background = '#fff8f0';
-        document.getElementById('mbe').style.borderColor = '#c07800';
-        document.getElementById('mail-form').style.display = '';
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
       }},
-    { selector: '#f-mailname', prompt: 'Click here and type the employee\'s name', type: 'Smith, John' },
+    { selector: '#sub-tools-mbe', prompt: 'Click "Mail By Employee"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = mailByEmployeeHTML();
+      }},
+    { selector: '#mbe-extfilter', prompt: 'You can narrow the list with the Extended Filter on the right — birth date, work dates, guard-card expiry, schedule range',
+      onConfirm: () => { document.getElementById('mbe-extpanel').style.display = ''; document.getElementById('mbe-extfilter').innerHTML = 'Extended Filter &#9650;'; }},
+    { selector: '#mbe-search', prompt: 'Set your filters, then click "Search" to pull the employee list',
+      onConfirm: () => { document.getElementById('mbe-results').style.display = ''; }},
+    { selector: '#mbe-all', prompt: 'Select the employees you want to message — or check "Send email to all employees in the search list"',
+      onConfirm: () => { document.getElementById('mbe-all').checked = true; }},
+    { selector: '#mbe-send', prompt: 'Click "Send" to message them',
+      onConfirm: () => { document.getElementById('mbe-msg').classList.add('show'); }},
+    { selector: '#mbe-msg', prompt: 'The message is sent to everyone in your selection', skipClick: true },
   ]);
 }
 
