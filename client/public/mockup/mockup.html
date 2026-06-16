@@ -8126,7 +8126,16 @@ function manageProcessHoursHTML() {
       <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job :</td><td><select class="form-select" id="mph-job" style="width:185px"><option>select</option></select>${req}</td></tr>
       <tr><td></td><td><select class="form-select" id="mph-rate" style="width:185px"><option>Default Rate</option></select></td></tr>
     </table>
-    <div style="text-align:center;margin:12px 0"><button class="btn" id="mph-retrieve">Retrieve</button><button class="btn btn-secondary">Back</button></div>`;
+    <div style="text-align:center;margin:12px 0"><button class="btn" id="mph-retrieve">Retrieve</button><button class="btn btn-secondary">Back</button></div>
+    <div id="mph-results" style="display:none">
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
+        <tbody>
+          <tr style="background:#f7f7f7"><td style="padding:5px 8px">5023705541</td><td style="padding:5px 8px">Drake Job</td><td style="text-align:center;padding:5px 8px">1</td><td style="padding:5px 8px"><a id="mph-shift-link" style="color:#3a6aaa;cursor:pointer">Staff One Call</a></td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">Deductions</a></td></tr>
+        </tbody>
+      </table>
+    </div>`;
 }
 
 function slide_payroll_processing_2() {
@@ -8146,7 +8155,10 @@ function slide_payroll_processing_2() {
         setNav('payroll');
         document.getElementById('content').innerHTML = manageProcessHoursHTML();
       }},
-    { selector: '#mph-retrieve', prompt: 'This is the Manage Process Hours screen — where you review and approve employee hours after an event. Stay current throughout the week; don\'t let hours pile up', skipClick: true },
+    { selector: '#mph-jobnum', prompt: 'This is the Manage Process Hours screen, where you review and approve hours after an event. Enter the Job number (or select your Event)', type: '5023705541' },
+    { selector: '#mph-retrieve', prompt: 'Click "Retrieve" to pull up the shifts for that job',
+      onConfirm: () => { document.getElementById('mph-results').style.display = ''; }},
+    { selector: '#mph-shift-link', prompt: 'The job\'s shifts appear here. Click a Shift Name to open it and review each employee\'s hours. Stay current through the week — every pay week runs Saturday to Friday and must be processed before Wednesday', skipClick: true },
   ]);
 }
 
