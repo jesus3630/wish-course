@@ -953,7 +953,8 @@
         "slide_number": 2,
         "slide_name": "What Mail By Gives You",
         "instructions": "Click Tools in the top navigation. Show the three Mail By options in the menu: Mail By Employee, Mail By Available Employee, Mail By Job.",
-        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n* Mail By Employee, send a message directly to one or more specific employees\r\n* Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n* Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why."
+        "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n* Mail By Employee, send a message directly to one or more specific employees\r\n* Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n* Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=2"
       },
       {
         "slide_number": 3,

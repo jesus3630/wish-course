@@ -310,10 +310,10 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Manage Scheduling Area</span>
       <span class="nav-sub-item">Manage Job title</span>
       <span class="nav-sub-item">Manage Master Type</span>
-      <span class="nav-sub-item">Mail By Employee</span>
+      <span class="nav-sub-item" id="sub-tools-mbe">Mail By Employee</span>
       <span class="nav-sub-item">Manage Notifications</span>
-      <span class="nav-sub-item">Mail By Available Employee</span>
-      <span class="nav-sub-item">Mail By Job</span>
+      <span class="nav-sub-item" id="sub-tools-mbae">Mail By Available Employee</span>
+      <span class="nav-sub-item" id="sub-tools-mbj">Mail By Job</span>
       <span class="nav-sub-item" id="sub-tools-import-portal">Import From Hiring portal</span>
       <span class="nav-sub-item">Import PayRate</span>
       <span class="nav-sub-item" id="sub-tools-mss">Manager Portal(MSS)</span>
@@ -3504,6 +3504,21 @@ function slide_hiring_admin_3() {
 }
 
 // ── Mail By ────────────────────────────────────────────────────────────────
+function slide_mail_by_2() {
+  // What Mail By Gives You — Tools menu shows the three Mail By options
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-tools', prompt: 'Mail By lives under "Tools" in the top navigation. Click "Tools"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
+      }},
+    { selector: '#sub-tools-mbe', also: ['#sub-tools-mbae', '#sub-tools-mbj'],
+      prompt: 'You have three Mail By options: Mail By Employee, Mail By Available Employee, and Mail By Job. Each one sends messages to a different group', skipClick: true },
+  ]);
+}
+
 function slide_mail_by_3() {
   setNav('scheduling');
   document.getElementById('content').innerHTML = `
@@ -9744,6 +9759,7 @@ const routes = {
   'hiring_manager-2': slide_hiring_manager_2,
   'hiring_manager-3': slide_hiring_manager_3,
   'hiring_admin-3':   slide_hiring_admin_3,
+  'mail_by-2':        slide_mail_by_2,
   'mail_by-3':        slide_mail_by_3,
   'sign_in_sign_out-3': slide_sign_in_sign_out_3,
   'sign_in_sign_out-4': slide_sign_in_sign_out_4,
