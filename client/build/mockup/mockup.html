@@ -468,14 +468,14 @@ function runGuided(steps) {
       }, 80);
 
       if (s.skipClick) {
-        // Observation step — prompt is CSS-anchored above the bar, never overlaps content
+        // Observation step — position the tip near the element so they're seen together
+        if (s.onShow) s.onShow();
         const btn = document.createElement('button');
         btn.className = 'guided-next-btn'; btn.textContent = 'Next →';
-        btn.onclick = () => showStep(i + 1);
+        btn.onclick = () => { if (s.onConfirm) s.onConfirm(); showStep(i + 1); };
         bar.appendChild(btn);
         _gs = { el, handler: null };
-        tip.textContent = s.prompt;
-        tip.style.display = 'block';
+        placeTip(el, s.prompt);
         return;
       }
 
@@ -2624,11 +2624,174 @@ function slide_payroll_reporting_3() {
 }
 
 function slide_admin_reporting_3() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Admin',
-    ['User Access Report','Login Activity Report','Audit Trail','System Configuration Report','Permission Matrix','Data Export Log']);
+  // Start with Reports already expanded — skip the home → click Reports step
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  // Open Reports submenu immediately. Billing + Manager are wrapped in a single flex container
+  // so the final step can draw ONE clean outline around both — no overlay math needed.
+  document.getElementById('nav-reports').classList.add('active');
+  const repSub = document.getElementById('sub-reports');
+  repSub.classList.add('show');
+  repSub.innerHTML = `
+    <span class="nav-sub-item" id="sub-ar-sumros">Summary Roster</span>
+    <span class="nav-sub-item" id="sub-ar-detros">Detailed Roster</span>
+    <span class="nav-sub-item" id="sub-ar-jadmin">Job Administration</span>
+    <span class="nav-sub-item" id="sub-ar-payroll">Payroll Reports</span>
+    <div id="sub-ar-billman" style="display:flex;flex-direction:column">
+      <span class="nav-sub-item" id="sub-ar-billing">Billing Reports</span>
+      <span class="nav-sub-item" id="sub-ar-manager">Manager Reports</span>
+    </div>`;
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/11/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/10/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/16/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 7</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
+  // Helper: open a flyout next to the highlighted sub-item, anchored to the top of the content area
+  function showAdmFlyout(anchorId, items, width) {
+    const old = document.getElementById('rep-flyout');
+    if (old) old.remove();
+    const anchor = document.getElementById(anchorId);
+    const rect = anchor.getBoundingClientRect();
+    const contentTop = document.getElementById('content').getBoundingClientRect().top;
+    const top = Math.max(10, contentTop);
+    const flyout = document.createElement('div');
+    flyout.id = 'rep-flyout';
+    flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:${width || 210}px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+    flyout.innerHTML = items.map(([label, id]) =>
+      `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+    ).join('');
+    document.body.appendChild(flyout);
+  }
+
   runGuided([
-    { selector: '#card', prompt: 'Browse the available admin reports. Click anywhere to continue.', skipClick: true },
+    // Step 1: Click Job Administration → flyout opens with 14 reports
+    { selector: '#sub-ar-jadmin', prompt: 'Click "Job Administration" to see its reports',
+      onConfirm: () => showAdmFlyout('sub-ar-jadmin', [
+        ['Job Shift Roster',            'ja-jsr'],
+        ['Job Account Summary',         'ja-jas'],
+        ['One Line Shift Summary',      'ja-olss'],
+        ['Alpha Roster',                'ja-alpha'],
+        ['Employee Print Sched',        'ja-eps'],
+        ['Sign-In Sign-Out Sheets',     'ja-siso'],
+        ['Employee Work History',       'ja-ewh'],
+        ['Employee Not Signin',         'ja-ensi'],
+        ['Employee Schedule From',      'ja-esf'],
+        ['Shared Branch',               'ja-sb'],
+        ['Shared Employee Alpha Roster','ja-seap'],
+        ['Employee Work Hours Report',  'ja-ewhr'],
+        ['Sign In Notes Report',        'ja-sinr'],
+        ['Deleted Schedule',            'ja-ds']
+      ], 200)},
+
+    // Job Administration — only what the script lists: alpha rosters, sign-in sheets, employee schedules, post-event follow-up
+    { selector: '#ja-alpha', prompt: 'Alpha Roster — every scheduled employee for an event, listed alphabetically', skipClick: true },
+    { selector: '#ja-siso',  prompt: 'Sign-In Sign-Out Sheets — paper sign-in sheets for events', skipClick: true },
+    { selector: '#ja-eps',   prompt: 'Employee Print Sched — printable employee schedule sheets', skipClick: true },
+    { selector: '#ja-ensi',  prompt: 'Employee Not Signin — post-event follow-up on employees who did not sign in', skipClick: true },
+
+    // Step: Click Summary Roster → flyout swaps
+    { selector: '#sub-ar-sumros', prompt: 'Now click "Summary Roster" to see its reports',
+      onConfirm: () => showAdmFlyout('sub-ar-sumros', [
+        ['Employee Summary',  'sr-emp'],
+        ['Workgroup Summary', 'sr-wg'],
+        ['Job Summary',       'sr-job'],
+        ['Client Summary',    'sr-client'],
+        ['Venue Summary',     'sr-venue'],
+        ['Branch Summary',    'sr-branch'],
+        ['Background Check',  'sr-bg']
+      ], 190)},
+
+    // Summary Roster — only what the script lists: employee, job, client, venue, branch
+    { selector: '#sr-emp',    prompt: 'Employee Summary — high-level overview grouped by employee', skipClick: true },
+    { selector: '#sr-job',    prompt: 'Job Summary — high-level overview grouped by job', skipClick: true },
+    { selector: '#sr-client', prompt: 'Client Summary — high-level overview grouped by client', skipClick: true },
+    { selector: '#sr-venue',  prompt: 'Venue Summary — high-level overview grouped by venue', skipClick: true },
+    { selector: '#sr-branch', prompt: 'Branch Summary — high-level overview grouped by branch', skipClick: true },
+
+    // Step: Click Detailed Roster → flyout swaps
+    { selector: '#sub-ar-detros', prompt: 'Now click "Detailed Roster" to see its reports',
+      onConfirm: () => showAdmFlyout('sub-ar-detros', [
+        ['Employee Details',                    'dr-emp'],
+        ['Work Group Details',                  'dr-wg'],
+        ['Client Details',                      'dr-client'],
+        ['Venue Details',                       'dr-venue'],
+        ['Branch Details',                      'dr-branch'],
+        ['Employee Configuration',              'dr-config'],
+        ['Employee Time Sheet Details',         'dr-ts'],
+        ['Employee Sign-In Sign-Out Details',   'dr-siso'],
+        ['Available Employees Report',          'dr-avail'],
+        ['JobTraining Report',                  'dr-train'],
+        ['Employee Licensing Report',           'dr-lic']
+      ], 220)},
+
+    // Detailed Roster — only what the script lists: timesheets, licensing, availability, training
+    { selector: '#dr-ts',    prompt: 'Employee Time Sheet Details — line-by-line timesheet details for each employee', skipClick: true },
+    { selector: '#dr-lic',   prompt: 'Employee Licensing Report — licensing status per employee (guard cards, expirations)', skipClick: true },
+    { selector: '#dr-avail', prompt: 'Available Employees Report — employees available for scheduling', skipClick: true },
+    { selector: '#dr-train', prompt: 'JobTraining Report — training records by job', skipClick: true },
+
+    // Step: Click Payroll Reports → flyout swaps
+    { selector: '#sub-ar-payroll', prompt: 'Now click "Payroll Reports" to see its reports',
+      onConfirm: () => showAdmFlyout('sub-ar-payroll', [
+        ['Employee Time Register',         'pr-etr'],
+        ['Employee Time Register (Break)', 'pr-etrb'],
+        ['Emp Time Register With Notes',   'pr-etrn'],
+        ['Financial Analysis Report',      'pr-fin'],
+        ['Export PerDiem Report',          'pr-pd'],
+        ['Manage Temp Cost Code number',   'pr-cc'],
+        ['Employee Estimate Hours',        'pr-est']
+      ], 220)},
+
+    // Payroll Reports — script only names Employee Time Register.
+    // On Next, tear down the flyout and build the Billing+Manager overlay BEFORE the next step queries its selector
+    { selector: '#pr-etr', prompt: 'Employee Time Register — the primary report. Used with related reports for verifying hours before payroll is finalized', skipClick: true,
+      onConfirm: () => {
+        const flyout = document.getElementById('rep-flyout');
+        if (flyout) flyout.remove();
+      }},
+
+    // Final reminder — ONE clean orange outline around both Billing Reports + Manager Reports
+    { selector: '#sub-ar-billman', skipClick: true,
+      prompt: 'These four sections work exactly the same as in General Reporting and Payroll Reporting. This module focuses on the two new sections: Billing Reports and Manager Reports.' },
   ]);
 }
 
@@ -5056,174 +5219,1259 @@ function slide_manual_process_hours_5() {
 
 // ── Billing ────────────────────────────────────────────────────────────────
 function slide_billing_4() {
-  setNav('billing');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Check Bill for Job</div>
-    <div style="display:flex;gap:10px;margin-bottom:12px;align-items:flex-end">
-      <div><label>Branch :</label><br><select class="form-select"><option>Los Angeles</option></select></div>
-      <div><label>Event :</label><br><select class="form-select" style="width:180px"><option>2023 DRAKE</option></select></div>
-      <button class="btn" id="btn-viewunbilled">View Unbilled</button>
-    </div>
-    <div id="unbilled-results" style="display:none">
-      <table><thead><tr><th>Job#</th><th>Job Name</th><th>Date</th><th>Total Hours</th><th id="hp-col" style="background:#c06820">Hours Processed</th><th>Bill Status</th></tr></thead>
-      <tbody>
-        <tr><td>1012698342</td><td>DRAKE N3</td><td>08/15/2023</td><td>180.5</td><td><span style="color:#2a9a2a;font-weight:bold">Yes</span></td><td>Unbilled</td></tr>
-        <tr><td>1012698343</td><td>DRAKE N3 &#8212; Crew</td><td>08/15/2023</td><td>92.0</td><td><span style="color:#c00;font-weight:bold">No</span></td><td>Unbilled</td></tr>
-      </tbody></table>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/10/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/16/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 7</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
     </div>`;
+
+  // Form HTML pixel-matched to the real Check Bill for Job screen
+  const checkBillFormHTML = `
+    <div class="page-title">Check Bill for Job</div>
+    <div style="display:flex;gap:30px;align-items:flex-start;padding:14px 0">
+      <table style="font-size:12px;color:#333">
+        <tr><td style="padding:5px 8px;text-align:right">Job No :</td>
+            <td style="padding:5px 0"><input id="bj-jobno" style="width:200px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+        <tr><td style="padding:5px 8px;text-align:right">Branch :</td>
+            <td style="padding:5px 0"><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select></td></tr>
+        <tr><td style="padding:5px 8px;text-align:right">Start Date :</td>
+            <td style="padding:5px 0"><input value="06/09/2026" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+              <span style="display:inline-block;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;text-align:center;line-height:22px;background:#f0f0f0;cursor:pointer">&#128197;</span>
+              <span style="color:#c00">*</span></td></tr>
+        <tr><td style="padding:5px 8px;text-align:right">End End :</td>
+            <td style="padding:5px 0"><input value="06/23/2026" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+              <span style="display:inline-block;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;text-align:center;line-height:22px;background:#f0f0f0;cursor:pointer">&#128197;</span>
+              <span style="color:#c00">*</span></td></tr>
+        <tr><td></td><td style="padding:5px 0">
+              <label style="font-size:12px;margin-right:14px"><input type="radio" name="bj-status" id="bj-rb-both" checked> Both</label>
+              <label style="font-size:12px;margin-right:14px"><input type="radio" name="bj-status" id="bj-rb-billed"> Billed</label>
+              <label style="font-size:12px"><input type="radio" name="bj-status" id="bj-rb-unbilled"> UnBilled</label>
+            </td></tr>
+        <tr><td></td><td style="padding:5px 0">
+              <label style="font-size:12px;margin-right:14px"><input type="radio" name="bj-fmt" checked> PDF</label>
+              <label style="font-size:12px"><input type="radio" name="bj-fmt"> Excel</label>
+            </td></tr>
+        <tr><td></td><td style="padding:8px 0">
+              <button class="btn" id="bj-view" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">View</button>
+              <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 14px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Print Report</button>
+            </td></tr>
+      </table>
+    </div>
+    <div style="font-weight:bold;font-size:13px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Search Result</div>
+    <div id="bj-results" style="display:none">
+      <table style="width:100%;border-collapse:collapse;font-size:11px">
+        <thead>
+          <tr style="background:#888;color:#fff">
+            <th style="padding:6px 8px;text-align:left">Job#</th>
+            <th style="padding:6px 8px;text-align:left">Name</th>
+            <th style="padding:6px 8px;text-align:left">Start Time</th>
+            <th style="padding:6px 8px;text-align:left">Finish Time</th>
+            <th style="padding:6px 8px;text-align:left">Invoice#</th>
+            <th style="padding:6px 8px;text-align:left">Invoice Date</th>
+            <th style="padding:6px 8px;text-align:left">Billed</th>
+            <th id="bj-hpcol" style="padding:6px 8px;text-align:left">HoursProcessed</th>
+            <th style="padding:6px 8px;text-align:left">NonBillable</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="bj-row-no" style="background:#e8e8e8">
+            <td style="padding:6px 8px">5023708532</td>
+            <td style="padding:6px 8px">testjob6/9</td>
+            <td style="padding:6px 8px">6/9/2026<br>8:00:00 AM</td>
+            <td style="padding:6px 8px">6/9/2026<br>5:00:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr id="bj-row-yes" style="background:#fff">
+            <td style="padding:6px 8px">5023708873</td>
+            <td style="padding:6px 8px">Shane Concert WISH<br>Training 2026</td>
+            <td style="padding:6px 8px">6/11/2026<br>12:00:00 PM</td>
+            <td style="padding:6px 8px">6/11/2026<br>8:00:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#2a8a2a;font-weight:bold">Yes</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr style="background:#e8e8e8">
+            <td style="padding:6px 8px">5023708708</td>
+            <td style="padding:6px 8px">LA WISH<br>Training Job<br>May 2026-<br>6/11/2026</td>
+            <td style="padding:6px 8px">6/11/2026<br>2:30:00 PM</td>
+            <td style="padding:6px 8px">6/11/2026<br>10:30:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 8px">5023708880</td>
+            <td style="padding:6px 8px">Shane Concert WISH<br>Training<br>2026-<br>6/12/2026</td>
+            <td style="padding:6px 8px">6/12/2026<br>12:00:00 PM</td>
+            <td style="padding:6px 8px">6/12/2026<br>8:00:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr style="background:#e8e8e8">
+            <td style="padding:6px 8px">5023708709</td>
+            <td style="padding:6px 8px">LA WISH<br>Training Job<br>May 2026-<br>6/12/2026</td>
+            <td style="padding:6px 8px">6/12/2026<br>2:30:00 PM</td>
+            <td style="padding:6px 8px">6/12/2026<br>10:30:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr style="background:#fff">
+            <td style="padding:6px 8px">5023708881</td>
+            <td style="padding:6px 8px">Shane Concert WISH<br>Training<br>2026-<br>6/13/2026</td>
+            <td style="padding:6px 8px">6/13/2026<br>12:00:00 PM</td>
+            <td style="padding:6px 8px">6/13/2026<br>8:00:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+          <tr style="background:#e8e8e8">
+            <td style="padding:6px 8px">5023708882</td>
+            <td style="padding:6px 8px">Shane Concert WISH<br>Training<br>2026-<br>6/14/2026</td>
+            <td style="padding:6px 8px">6/14/2026<br>12:00:00 PM</td>
+            <td style="padding:6px 8px">6/14/2026<br>8:00:00 PM</td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px"></td>
+            <td style="padding:6px 8px">No</td>
+            <td style="padding:6px 8px"><span style="color:#1a6aaa">No</span></td>
+            <td style="padding:6px 8px">No</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>`;
+
   runGuided([
-    { selector: '#btn-viewunbilled', prompt: 'Click "View Unbilled" to see jobs ready for billing',
-      onConfirm: () => { document.getElementById('unbilled-results').style.display = ''; }},
-    { selector: '#hp-col', prompt: 'The "Hours Processed" column must show Yes before a job can be billed. Click Next.', skipClick: true },
+    // Step 1: Click Billing → expand submenu with 4 real items
+    { selector: '#nav-billing', prompt: 'Click "Billing" in the navigation to expand its menu',
+      onConfirm: () => {
+        document.getElementById('nav-billing').classList.add('active');
+        const sub = document.getElementById('sub-billing');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Manage Billing Process</span>
+          <span class="nav-sub-item">Manage Advance Billing Process</span>
+          <span class="nav-sub-item" id="sub-bill-check">Check Bill for Job</span>
+          <span class="nav-sub-item">Print Invoice</span>`;
+      }},
+
+    // Step 2: Click Check Bill for Job → form appears + close the Billing submenu
+    { selector: '#sub-bill-check', prompt: 'Click "Check Bill for Job"',
+      onConfirm: () => {
+        document.getElementById('nav-billing').classList.remove('active');
+        document.getElementById('sub-billing').classList.remove('show');
+        document.getElementById('content').innerHTML = checkBillFormHTML;
+      }},
+
+    // Step 3: Click UnBilled radio
+    { selector: '#bj-rb-unbilled', prompt: 'Select "UnBilled" to see everything that has not been invoiced yet',
+      onConfirm: () => { document.getElementById('bj-rb-unbilled').checked = true; }},
+
+    // Step 4: Click View → Search Result table appears
+    { selector: '#bj-view', prompt: 'Click "View" to run the report',
+      onConfirm: () => { document.getElementById('bj-results').style.display = ''; }},
+
+    // Step 5: Highlight HoursProcessed column header
+    { selector: '#bj-hpcol', prompt: 'The "HoursProcessed" column tells you whether a job is ready to bill', skipClick: true },
+
+    // Step 6: Highlight Yes row — ready to bill
+    { selector: '#bj-row-yes', prompt: 'If HoursProcessed shows "Yes", the job is ready to bill', skipClick: true },
+
+    // Step 7: Highlight No row — needs approval first
+    { selector: '#bj-row-no', prompt: 'If it shows "No", go back to Manage Process Hours and complete the approval for that job first', skipClick: true },
   ]);
 }
 
 function slide_billing_5() {
-  setNav('billing');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Billing Process</div>
-    <div style="display:flex;gap:12px;align-items:flex-end;margin-bottom:12px;flex-wrap:wrap">
-      <div><label>Event :</label><br>
-        <select class="form-select" id="f-bill-event" style="width:200px"><option>--Select--</option><option>2023 DRAKE</option></select></div>
-      <div><label>Client :</label><br><input class="form-input" id="f-bill-client" style="width:180px" placeholder="(auto-populated)"></div>
-      <div><label>Contract :</label><br><input class="form-input" id="f-bill-contract" style="width:180px" placeholder="(auto-populated)"></div>
-      <button class="btn" id="btn-billsearch">Search</button>
-    </div>
-    <div id="bill-days" style="display:none">
-      <table><thead><tr><th>Select</th><th>Date</th><th>Jobs</th><th>Total Hours</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td><input type="checkbox" class="day-chk"></td><td>08/15/2023</td><td>3</td><td>336.5</td><td>Ready</td></tr>
-        <tr><td><input type="checkbox" class="day-chk"></td><td>08/16/2023</td><td>2</td><td>210.0</td><td>Ready</td></tr>
-      </tbody></table>
-      <div style="margin-top:10px"><button class="btn" id="btn-getinvoice">Get Invoice Data</button></div>
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  // Calendar month data (June–August 2026) for Start/End Date pickers
+  const calMonths = {
+    June:   { title:'June, 2026',   prev:[31],                 curr:30, next:11 },
+    July:   { title:'July, 2026',   prev:[28,29,30],           curr:31, next:8  },
+    August: { title:'August, 2026', prev:[26,27,28,29,30,31],  curr:31, next:5  }
+  };
+  function renderMbpCal(which, name, targetDay) {
+    const m = calMonths[name];
+    document.getElementById(`mbp-${which}-cal-title`).textContent = m.title;
+    const cells = [];
+    m.prev.forEach(d => cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`));
+    for (let d = 1; d <= m.curr; d++) {
+      const isToday  = (name === 'June' && d === 16);
+      const isTarget = (name === 'August' && d === targetDay);
+      const style = isToday
+        ? 'color:#c00;cursor:pointer;padding:2px 0;font-weight:bold'
+        : 'color:#1a6aaa;cursor:pointer;padding:2px 0';
+      const idAttr = isTarget ? ` id="mbp-${which}-d${targetDay}"` : '';
+      cells.push(`<td${idAttr} style="${style}">${d}</td>`);
+    }
+    for (let d = 1; d <= m.next; d++) cells.push(`<td style="color:#bbb;padding:2px 0">${d}</td>`);
+    let rows = '<tr style="color:#666;font-weight:bold"><td>Su</td><td>Mo</td><td>Tu</td><td>We</td><td>Th</td><td>Fr</td><td>Sa</td></tr>';
+    for (let r = 0; r < 6; r++) rows += '<tr>' + cells.slice(r * 7, r * 7 + 7).join('') + '</tr>';
+    document.getElementById(`mbp-${which}-cal-grid`).innerHTML = rows;
+  }
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg>`;
+  function calPopup(which) {
+    return `<div id="mbp-${which}-cal" style="display:none;position:absolute;top:30px;left:64px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:50;width:230px;font-size:12px;font-family:Arial;text-align:center;">
+      <div style="display:flex;align-items:center;padding:4px 8px;border-bottom:1px solid #ddd;background:#fff">
+        <div id="mbp-${which}-prev" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:left">&#9664;</div>
+        <div id="mbp-${which}-cal-title" style="flex:1;text-align:center;color:#1a6aaa;font-weight:bold"></div>
+        <div id="mbp-${which}-next" style="cursor:pointer;color:#1a6aaa;font-weight:bold;font-size:14px;width:20px;text-align:right">&#9654;</div>
+      </div>
+      <table id="mbp-${which}-cal-grid" style="width:100%;border-collapse:collapse;margin:2px 0;text-align:center;font-size:12px"></table>
+      <div style="padding:4px;border-top:1px solid #ddd;font-weight:bold;color:#c06820;font-size:11px">Today: June 16, 2026</div>
     </div>`;
+  }
+
+  // HOME dashboard content
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">20260616 Test Job</td><td>Test Venue 1</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">601626 Killswitch Engage</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/16/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 8</td><td>SoFi Stadium and Hollywood Park</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 7 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
+  // Manage Billing Process form HTML (pixel-matched to screenshot)
+  const dropdown = (id, value, width) => `
+    <div id="${id}" style="display:inline-flex;align-items:center;justify-content:space-between;width:${width || 180}px;height:24px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;cursor:pointer;box-sizing:border-box">
+      <span id="${id}-text">${value}</span>
+      <span style="font-size:10px;color:#444">&#9660;</span>
+    </div>`;
+  const mbpFormHTML = `
+    <div class="page-title">Manage Billing Process</div>
+    <div style="padding:20px 0 30px 0">
+      <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 6px">
+        <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
+            <td>${dropdown('mbp-branch','Prota LA Branch Test', 200)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Start Date :</td>
+            <td style="position:relative">
+              <input id="mbp-sd-input" value="06/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff">
+              <span id="mbp-sd-cal-btn" style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;cursor:pointer;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span>
+              ${calPopup('sd')}
+            </td></tr>
+        <tr><td style="text-align:right;padding-right:10px">End Date :</td>
+            <td style="position:relative">
+              <input id="mbp-ed-input" value="07/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff">
+              <span id="mbp-ed-cal-btn" style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;cursor:pointer;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span>
+              ${calPopup('ed')}
+            </td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Event :</td>
+            <td style="position:relative">${dropdown('mbp-event','All', 240)}<span style="color:#c00;margin-left:4px">*</span>
+              <div id="mbp-event-menu" style="display:none;position:absolute;top:26px;left:0;width:240px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:12px">
+                <div style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;background:#666;color:#fff">All</div>
+                <div style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;color:#1a6aaa">Grant Sands Event June 2026</div>
+                <div style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;color:#1a6aaa">LA WISH Training Event May 2026</div>
+                <div id="mbp-event-shane" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;color:#1a6aaa">Shane Concert Event June 2026</div>
+                <div style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;color:#1a6aaa">Sierra Erica Event May 2026</div>
+                <div style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;color:#1a6aaa">Special OPs Training June 2026</div>
+                <div style="padding:5px 10px;cursor:pointer;color:#1a6aaa">Trainingla</div>
+              </div>
+            </td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Client :</td>
+            <td>${dropdown('mbp-client','--Select--', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract :</td>
+            <td>${dropdown('mbp-contract','--Select--', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Job# :</td>
+            <td><input style="width:212px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><input type="checkbox" style="margin-left:6px;vertical-align:middle"></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Invoice Ref# :</td>
+            <td>${dropdown('mbp-invref','--Select--', 240)}</td></tr>
+        <tr><td></td><td style="padding-top:14px;text-align:center"><button id="mbp-search" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:6px 28px;font-size:13px;border-radius:14px;cursor:pointer;font-weight:bold">Search</button></td></tr>
+      </table>
+    </div>
+    <div id="mbp-results" style="display:none;padding:6px 24px 20px 24px">
+      <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:10px">Search Result</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:14px">
+        <thead>
+          <tr style="background:#888;color:#fff">
+            <th style="padding:6px 8px;text-align:center;width:36px"></th>
+            <th style="padding:6px 8px;text-align:left">Job# <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Name <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Start Time <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Finish Time <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Holiday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr id="mbp-row" style="background:#fff;border-bottom:1px solid #eee">
+            <td style="padding:6px 8px;text-align:center"><input type="checkbox" id="mbp-day"></td>
+            <td style="padding:6px 8px">5023708873</td>
+            <td style="padding:6px 8px">Shane Concert WISH Training 2026</td>
+            <td style="padding:6px 8px">06-11-2026</td>
+            <td style="padding:6px 8px">06-11-2026</td>
+            <td style="padding:6px 8px"><input type="checkbox" disabled></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:8px">
+        <div id="mbp-calcm" style="display:inline-flex;align-items:center;justify-content:space-between;width:240px;height:26px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;box-sizing:border-box">
+          <span>Calculate Regular Hours</span>
+          <span style="font-size:10px;color:#444">&#9660;</span>
+        </div>
+        <button id="mbp-getinv" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:6px 18px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Get Invoice Data</button>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#f-bill-event', prompt: 'Click to select the Event for billing',
+    // Step 1: Click Billing → expand submenu with 4 items
+    { selector: '#nav-billing', prompt: 'Click "Billing" in the navigation to expand its menu',
       onConfirm: () => {
-        document.getElementById('f-bill-event').value = '2023 DRAKE';
-        document.getElementById('f-bill-client').value = 'Forum Entertainment LLC';
-        document.getElementById('f-bill-contract').value = 'CTR-2023-0421';
+        document.getElementById('nav-billing').classList.add('active');
+        const sub = document.getElementById('sub-billing');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item" id="sub-bill-mbp">Manage Billing Process</span>
+          <span class="nav-sub-item">Manage Advance Billing Process</span>
+          <span class="nav-sub-item">Check Bill for Job</span>
+          <span class="nav-sub-item">Print Invoice</span>`;
       }},
-    { selector: '#btn-billsearch', prompt: 'Click "Search" to load billable days',
-      onConfirm: () => { document.getElementById('bill-days').style.display = ''; }},
-    { selector: '.day-chk', prompt: 'Click to select days to include in the invoice',
-      onConfirm: () => { document.querySelectorAll('.day-chk').forEach(c => c.checked = true); }},
-    { selector: '#btn-getinvoice', prompt: 'Click "Get Invoice Data" to pull billing details' },
+
+    // Step 2: Click Manage Billing Process → form appears + close the Billing submenu
+    { selector: '#sub-bill-mbp', prompt: 'Click "Manage Billing Process"',
+      onConfirm: () => {
+        document.getElementById('nav-billing').classList.remove('active');
+        document.getElementById('sub-billing').classList.remove('show');
+        document.getElementById('content').innerHTML = mbpFormHTML;
+      }},
+
+    // Step 3: Click Event dropdown → menu opens with event list
+    { selector: '#mbp-event', prompt: 'Click the Event dropdown',
+      onConfirm: () => { document.getElementById('mbp-event-menu').style.display = 'block'; }},
+
+    // Step 4: Click Shane Concert Event June 2026 → Client + Contract auto-populate
+    { selector: '#mbp-event-shane', prompt: 'Select "Shane Concert Event June 2026" — Client and Contract auto-populate',
+      onConfirm: () => {
+        document.getElementById('mbp-event-text').innerHTML = 'Shane Concert Event June 2026';
+        document.getElementById('mbp-event-menu').style.display = 'none';
+        document.getElementById('mbp-client-text').innerHTML = 'Creative Entertainment';
+        document.getElementById('mbp-contract-text').innerHTML = 'Creative Entertainment Contract';
+      }},
+
+    // Step 5: Click Search → results table appears
+    { selector: '#mbp-search', prompt: 'Click "Search" to pull up all days worked for this event',
+      onConfirm: () => { document.getElementById('mbp-results').style.display = 'block'; }},
+
+    // Step 6: Click the row checkbox to select the day to bill for
+    { selector: '#mbp-day', prompt: 'Check the box to select the day you want to bill for',
+      onConfirm: () => { document.getElementById('mbp-day').checked = true; }},
+
+    // Step 7: Highlight Calculate Regular Hours dropdown
+    { selector: '#mbp-calcm', prompt: 'Choose your calculation method — in most cases this is "Calculate Regular Hours"', skipClick: true },
+
+    // Step 8: Click Get Invoice Data
+    { selector: '#mbp-getinv', prompt: 'Click "Get Invoice Data" — WISH will calculate the bill from the sign-in and sign-out data' },
   ]);
 }
 
 function slide_billing_6() {
-  setNav('billing');
-  const tabs = ['Sign-In/Sign-Out','Billing Tax','Summary','Billable Items','Invoice Setup'];
-  const contents = {
-    0: `<table><thead><tr><th>Employee</th><th>Role</th><th>Sign-In</th><th>Sign-Out</th><th>Hours</th><th>Rate</th><th>Amount</th></tr></thead><tbody><tr><td>Garcia, Maria</td><td>Event Staff</td><td>08:00 AM</td><td>12:30 PM</td><td>4.5</td><td>$18.50</td><td>$83.25</td></tr><tr><td>Smith, John</td><td>Event Staff</td><td>08:02 AM</td><td>12:30 PM</td><td>4.5</td><td>$18.50</td><td>$83.25</td></tr></tbody></table>`,
-    1: `<div class="form-row"><span class="form-label">Tax Rate :</span><input class="form-input" value="9.5%" style="width:80px"></div><div class="form-row"><span class="form-label">Tax Amount :</span><input class="form-input" value="$26.62" style="width:100px"></div>`,
-    2: `<table><thead><tr><th>Category</th><th>Hours</th><th>Rate</th><th>Subtotal</th></tr></thead><tbody><tr><td>Event Staff</td><td>90.0</td><td>$18.50</td><td>$1,665.00</td></tr><tr style="font-weight:bold"><td colspan="2">Total</td><td></td><td>$1,665.00</td></tr></tbody></table>`,
-    3: `<table><thead><tr><th>Item</th><th>Qty</th><th>Unit Price</th><th>Total</th></tr></thead><tbody><tr><td>Labor &#8212; Event Staff</td><td>90</td><td>$18.50</td><td>$1,665.00</td></tr></tbody></table>`,
-    4: `<div class="form-row"><span class="form-label">Invoice# :</span><input class="form-input" value="INV-2023-0892"></div><div class="form-row"><span class="form-label">Due Date :</span><input class="form-input" value="09/14/2023"></div>`,
-  };
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Billing &#8212; 2023 DRAKE | 08/15/2023</div>
-    <div class="tabs" id="bill-tabs">
-      ${tabs.map((t,i)=>`<span class="tab${i===0?' active':''}" id="btab-${i}">${t}</span>`).join('')}
+  // Start where slide 5 ended — full Manage Billing Process form + Search Result + tabs revealed below
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  const tabs = ['SignIn/SignOut','Billing Taxes','Billing Summary','Billable Items','Inv Setup','Adv Credit','Generate Invoice'];
+  const tabBar = (active) => `
+    <div style="display:flex;border-bottom:1px solid #b06010;margin:14px 0 10px 0">
+      ${tabs.map((t,i) => `<span id="btab-${i}" style="padding:6px 14px;cursor:pointer;font-size:11px;font-weight:bold;border:1px solid #b06010;border-bottom:none;margin-right:1px;border-radius:3px 3px 0 0;${i===active?'background:#e08020;color:#fff':'background:#fff;color:#1a3c5a'}">${t}</span>`).join('')}
+    </div>`;
+
+  // ── Top form + Search Result + Calculate + Get Invoice Data (pre-revealed from slide 5) ──
+  const dropdown = (id, value, width) => `
+    <div id="${id}" style="display:inline-flex;align-items:center;justify-content:space-between;width:${width || 240}px;height:24px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;cursor:pointer;box-sizing:border-box">
+      <span>${value}</span>
+      <span style="font-size:10px;color:#444">&#9660;</span>
+    </div>`;
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/><line x1="5" y1="1" x2="5" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="9" y1="1" x2="9" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="13" y1="1" x2="13" y2="15" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="5" x2="15" y2="5" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="8" x2="15" y2="8" stroke="#bbb" stroke-width="0.8"/><line x1="1" y1="11" x2="15" y2="11" stroke="#bbb" stroke-width="0.8"/></svg>`;
+  const topFormHTML = `
+    <div class="page-title">Manage Billing Process</div>
+    <div style="padding:12px 0 6px 0">
+      <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 4px">
+        <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
+            <td>${dropdown('','Prota LA Branch Test', 200)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Start Date :</td>
+            <td><input value="06/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff">
+              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">End Date :</td>
+            <td><input value="07/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff">
+              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Event :</td>
+            <td>${dropdown('','Shane Concert Event June 2026', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Client :</td>
+            <td>${dropdown('','Creative Entertainment', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract :</td>
+            <td>${dropdown('','Creative Entertainment Contract', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Job# :</td>
+            <td><input style="width:212px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><input type="checkbox" style="margin-left:6px;vertical-align:middle"></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Invoice Ref# :</td>
+            <td>${dropdown('','--Select--', 240)}</td></tr>
+        <tr><td></td><td style="padding-top:10px;text-align:center"><button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Search</button></td></tr>
+      </table>
     </div>
-    <div id="bill-content">${contents[0]}</div>`;
+    <div style="padding:8px 0">
+      <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Search Result</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:8px">
+        <thead>
+          <tr style="background:#1a8aaa;color:#fff">
+            <th style="padding:6px 8px;text-align:center;width:32px"><input type="checkbox" checked></th>
+            <th style="padding:6px 8px;text-align:left">Job#</th>
+            <th style="padding:6px 8px;text-align:left">Name</th>
+            <th style="padding:6px 8px;text-align:left">Start Time</th>
+            <th style="padding:6px 8px;text-align:left">Finish Time</th>
+            <th style="padding:6px 8px;text-align:left">Holiday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#a8d8e8">
+            <td style="padding:6px 8px;text-align:center"><input type="checkbox" checked></td>
+            <td style="padding:6px 8px">5023708873</td>
+            <td style="padding:6px 8px">Shane Concert WISH Training 2026</td>
+            <td style="padding:6px 8px">06-11-2026</td>
+            <td style="padding:6px 8px">06-11-2026</td>
+            <td style="padding:6px 8px"><input type="checkbox" disabled></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display:flex;align-items:center;gap:10px;margin:6px 0">
+        <div style="display:inline-flex;align-items:center;justify-content:space-between;width:240px;height:26px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;box-sizing:border-box">
+          <span>Calculate Regular Hours</span>
+          <span style="font-size:10px;color:#444">&#9660;</span>
+        </div>
+        <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:6px 16px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Get Invoice Data</button>
+      </div>
+    </div>`;
+
+  // ── Tab 0 — SignIn/SignOut (matches screenshot pixel-for-pixel) ──
+  const tabSiso = () => `
+    <div id="b6-changebar" style="display:flex;justify-content:space-between;gap:24px;padding:10px 4px 0 4px;font-size:12px;color:#333">
+      <div style="flex:1">
+        <div style="margin-bottom:6px"><input type="checkbox"> Change role for the selected employees to:
+          <select style="width:140px;height:22px;border:1px solid #aaa;font-size:12px;margin-left:6px"><option>24 Hour Guard</option><option>Event Staff</option><option>Supervisor</option></select></div>
+        <div style="margin-bottom:6px"><input type="checkbox"> Change rate for the selected employees to:
+          <input style="width:110px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;margin-left:6px"></div>
+        <div style="margin-bottom:6px"><input type="checkbox"> Change sign-in time for the selected employees to:
+          <select style="width:90px;height:22px;border:1px solid #aaa;font-size:12px;margin-left:6px"><option>6/10/2026</option><option>6/11/2026</option></select>
+          <input value="00:00" style="width:46px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;margin-left:4px">
+          <span style="display:inline-block;border:1px solid #aaa;background:#f0f0f0;font-size:9px;line-height:11px;padding:0 3px;vertical-align:middle">&#9650;<br>&#9660;</span></div>
+        <div><input type="checkbox"> Change Shift to selected employees to:
+          <select style="width:200px;height:22px;border:1px solid #aaa;font-size:12px;margin-left:6px"><option>5023708873-1-Event Staff</option></select></div>
+      </div>
+      <div style="width:280px;padding-top:2px">
+        <div style="margin-bottom:6px"><input type="checkbox"> Change the rates to match the role</div>
+        <div><input type="checkbox"> Hours worked as:
+          <input style="width:140px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;margin-left:6px"></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 4px">
+      <div>
+        <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 12px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Delete employee</button>
+        <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 12px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Apply Changes</button>
+      </div>
+      <div style="font-size:11px;color:#1a6aaa">* Hold Shift key down to sort multiple columns</div>
+    </div>
+    <table id="b6-emptable" style="width:100%;border-collapse:collapse;font-size:11px;margin-top:4px">
+      <thead>
+        <tr style="background:#666;color:#fff">
+          <th style="padding:5px 6px;text-align:center;width:28px"><input type="checkbox"></th>
+          <th style="padding:5px 6px;text-align:left">Job#</th>
+          <th style="padding:5px 6px;text-align:left">Emp#</th>
+          <th style="padding:5px 6px;text-align:left">Shift#</th>
+          <th style="padding:5px 6px;text-align:left">Role</th>
+          <th style="padding:5px 6px;text-align:right">Reg<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">OT<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">Dt<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">Total<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:left">Sign-In</th>
+          <th style="padding:5px 6px;text-align:left">Sign-Out</th>
+          <th style="padding:5px 6px;text-align:right">Rate</th>
+          <th style="padding:5px 6px"></th>
+        </tr>
+      </thead>
+      <tbody>
+        ${[
+          ['3952394'],['3950683'],['3952223'],['10111'],['3951662'],['3952377'],['3951628'],
+        ].map((r,i) => `
+          <tr style="background:${i%2===0?'#fff':'#e8e8e8'};border-bottom:1px solid #ddd">
+            <td style="padding:5px 6px;text-align:center"><input type="checkbox"></td>
+            <td style="padding:5px 6px">5023708873</td>
+            <td style="padding:5px 6px">${r[0]}</td>
+            <td style="padding:5px 6px">1</td>
+            <td style="padding:5px 6px">Event Staff</td>
+            <td style="padding:5px 6px;text-align:right">5.00</td>
+            <td style="padding:5px 6px;text-align:right">0.00</td>
+            <td style="padding:5px 6px;text-align:right">0.00</td>
+            <td style="padding:5px 6px;text-align:right">5.00</td>
+            <td style="padding:5px 6px">6/11/2026<br>12:00</td>
+            <td style="padding:5px 6px">6/11/2026<br>17:00</td>
+            <td style="padding:5px 6px;text-align:right">50.00</td>
+            <td style="padding:5px 6px;text-align:right"><a style="color:#1a6aaa;text-decoration:underline;cursor:pointer">Edit</a></td>
+          </tr>`).join('')}
+      </tbody>
+    </table>`;
+
+  // ── Tab 1 — Billing Taxes (matches image #90) ──
+  const tabTax = () => `
+    <div id="b6-taxtop" style="display:flex;align-items:center;gap:8px;padding:6px 4px 10px 4px;font-size:12px">
+      <span>Tax:</span>
+      <input style="width:80px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+      <span style="color:#c00">*</span>
+      <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 12px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Apply Taxes</button>
+    </div>
+    <table id="b6-taxtable" style="width:100%;border-collapse:collapse;font-size:11px">
+      <thead>
+        <tr style="background:#666;color:#fff">
+          <th style="padding:5px 6px;text-align:left">Job#</th>
+          <th style="padding:5px 6px;text-align:left">Shift#</th>
+          <th style="padding:5px 6px;text-align:left">Role</th>
+          <th style="padding:5px 6px;text-align:right">Count</th>
+          <th style="padding:5px 6px;text-align:right">Reg<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">OT<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">Dt<br>Hrs</th>
+          <th style="padding:5px 6px;text-align:right">Rate</th>
+          <th style="padding:5px 6px;text-align:right">OT<br>Rate</th>
+          <th style="padding:5px 6px;text-align:right">DT<br>Rate</th>
+          <th style="padding:5px 6px;text-align:center">Taxable <input type="checkbox" checked style="vertical-align:middle"></th>
+          <th style="padding:5px 6px;text-align:left">Tax%</th>
+          <th style="padding:5px 6px;text-align:right">TaxAmt</th>
+          <th style="padding:5px 6px;text-align:right">TotalAmt</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${[
+          ['5023708873','1','Event Staff','12','54.75','50.00','75.00','100.00','2737.500'],
+          ['5023708873','2','Security Guard','15','72.00','55.00','82.50','110.00','3960.000'],
+          ['5023708873','1','Supervisor','1','5.00','58.00','87.00','116.00','290.000'],
+        ].map((r,i) => `
+          <tr style="background:${i%2===0?'#fff':'#e8e8e8'};border-bottom:1px solid #ddd">
+            <td style="padding:5px 6px">${r[0]} <span style="color:#1a6aaa">1</span></td>
+            <td style="padding:5px 6px">${r[1]}</td>
+            <td style="padding:5px 6px">${r[2]}</td>
+            <td style="padding:5px 6px;text-align:right">${r[3]}</td>
+            <td style="padding:5px 6px;text-align:right">${r[4]}</td>
+            <td style="padding:5px 6px;text-align:right">0.00</td>
+            <td style="padding:5px 6px;text-align:right">0.00</td>
+            <td style="padding:5px 6px;text-align:right">${r[5]}</td>
+            <td style="padding:5px 6px;text-align:right">${r[6]}</td>
+            <td style="padding:5px 6px;text-align:right">${r[7]}</td>
+            <td style="padding:5px 6px;text-align:center"><input type="checkbox"></td>
+            <td style="padding:5px 6px"><input value="0" style="width:34px;height:20px;border:1px solid #aaa;padding:1px 4px;font-size:11px;text-align:right"></td>
+            <td style="padding:5px 6px;text-align:right">0.000</td>
+            <td style="padding:5px 6px;text-align:right">${r[8]}</td>
+          </tr>`).join('')}
+        <tr style="background:#fff;font-weight:bold;border-top:2px solid #888">
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px;text-align:right">Total:</td>
+          <td style="padding:5px 6px;text-align:right">28</td>
+          <td style="padding:5px 6px;text-align:right">131.75</td>
+          <td style="padding:5px 6px;text-align:right">0.00</td>
+          <td style="padding:5px 6px;text-align:right">0.00</td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px"></td>
+          <td style="padding:5px 6px;text-align:right">0.000</td>
+          <td style="padding:5px 6px;text-align:right">6987.500</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="padding:12px 4px"><button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 16px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Apply Changes</button></div>`;
+
+  // ── Tab 2 — Billing Summary (matches image #91) ──
+  const tabSummary = () => `
+    <table id="b6-sumtable" style="width:100%;border-collapse:collapse;font-size:12px;margin-top:8px">
+      <thead>
+        <tr style="background:#666;color:#fff">
+          <th style="padding:6px 8px;text-align:left">Job# <span style="color:#fff">&#9650;&#9660;</span></th>
+          <th style="padding:6px 8px;text-align:left">Job Name <span style="color:#fff">&#9650;&#9660;</span></th>
+          <th style="padding:6px 8px;text-align:left">Role <span style="color:#fff">&#9650;&#9660;</span></th>
+          <th style="padding:6px 8px;text-align:left">Count <span style="color:#fff">&#9650;&#9660;</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        ${[
+          ['Event Staff','12'],
+          ['Security Guard','15'],
+          ['Supervisor','1'],
+        ].map((r,i) => `
+          <tr style="background:${i%2===0?'#fff':'#e8e8e8'};border-bottom:1px solid #ddd">
+            <td style="padding:6px 8px">5023708873</td>
+            <td style="padding:6px 8px"><a style="color:#1a6aaa;text-decoration:underline;cursor:pointer">Shane Concert WISH Training 2026</a></td>
+            <td style="padding:6px 8px">${r[0]}</td>
+            <td style="padding:6px 8px">${r[1]}</td>
+          </tr>`).join('')}
+        <tr style="background:#fff;font-weight:bold;border-top:2px solid #888">
+          <td style="padding:6px 8px"></td>
+          <td style="padding:6px 8px"></td>
+          <td style="padding:6px 8px;text-align:right">Total:</td>
+          <td style="padding:6px 8px">28</td>
+        </tr>
+      </tbody>
+    </table>`;
+
+  // ── Tab 3 — Billable Items (matches image #92) ──
+  const tabItems = () => `
+    <div style="padding:8px 4px"><button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 16px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Apply Changes</button></div>
+    <div id="b6-additem" style="display:flex;align-items:flex-end;gap:24px;padding:8px 4px;font-size:12px">
+      <div><div style="margin-bottom:3px">Item</div><input style="width:160px;height:24px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></div>
+      <div><div style="margin-bottom:3px">Cost</div><input style="width:100px;height:24px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></div>
+      <div><div style="margin-bottom:3px">Qty</div><input style="width:100px;height:24px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></div>
+      <div><div style="margin-bottom:3px">Tax%</div><input style="width:80px;height:24px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></div>
+      <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-bottom:1px">Add</button>
+    </div>`;
+
+  // ── Tab 4 — Inv Setup (matches image #93) — two-column client/invoice address form ──
+  const tabSetup = () => {
+    const cell = (label, val, opts={}) => {
+      const required = opts.required ? '<span style="color:#c00;margin-left:4px">*</span>' : '';
+      const bg = opts.readonly ? 'background:#e8e8e8' : 'background:#fff';
+      const border = opts.highlight ? 'border:2px solid #000' : 'border:1px solid #aaa';
+      const inputId = opts.id ? ` id="${opts.id}"` : '';
+      return `<tr><td style="text-align:right;padding:3px 8px 3px 0;font-size:12px">${label}</td>
+              <td style="padding:3px 0"><input${inputId} value="${val}" ${opts.readonly?'readonly':''} style="width:160px;height:22px;${border};padding:2px 6px;font-size:12px;${bg}">${required}</td></tr>`;
+    };
+    return `
+    <div style="display:flex;gap:40px;padding:14px 4px">
+      <table style="border-collapse:collapse">
+        ${cell('Client Name :','Creative Entertainment',{readonly:true})}
+        ${cell('Address Line 1 :','2345')}
+        ${cell('Address Line 2 :','Bristol LN')}
+        ${cell('City :','Anaheim',{required:true})}
+        <tr><td style="text-align:right;padding:3px 8px 3px 0;font-size:12px">State :</td>
+            <td style="padding:3px 0"><select style="width:172px;height:26px;border:1px solid #aaa;font-size:12px"><option>California</option></select></td></tr>
+        ${cell('Zip :','90094')}
+        ${cell('Country :','United States')}
+        <tr><td></td><td style="padding:8px 0"><button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Copy</button></td></tr>
+      </table>
+      <table style="border-collapse:collapse">
+        ${cell('Attn :','',{highlight:true,id:'b6-attn'})}
+        ${cell('P.O. Number :','')}
+        ${cell('Address Line 1 :','2345')}
+        ${cell('Address Line 2 :','Bristol LN')}
+        ${cell('City :','Anaheim',{required:true})}
+        <tr><td style="text-align:right;padding:3px 8px 3px 0;font-size:12px">State :</td>
+            <td style="padding:3px 0"><select style="width:172px;height:26px;border:1px solid #aaa;font-size:12px"><option>California</option></select></td></tr>
+        ${cell('Zip :','90094')}
+        ${cell('Country :','United States')}
+      </table>
+    </div>`;
+  };
+
+  // tabContents indexed by position in the tabs array (0–6); only 5 have content (script-relevant)
+  const tabContents = [tabSiso, tabTax, tabSummary, tabItems, tabSetup, () => '', () => ''];
   function showBillTab(i) {
-    document.querySelectorAll('#bill-tabs .tab').forEach((t,j) => t.classList.toggle('active', j===i));
-    document.getElementById('bill-content').innerHTML = contents[i];
+    document.getElementById('content').innerHTML = `
+      ${topFormHTML}
+      ${tabBar(i)}
+      <div id="b6-content">${tabContents[i]()}</div>`;
   }
+  showBillTab(0);
+
   runGuided([
-    { selector: '#btab-1', prompt: 'Click "Billing Tax" to view tax details',
+    // Step 1: SignIn/SignOut — highlight the change bar at top
+    { selector: '#b6-changebar', prompt: 'SignIn/SignOut tab — use the change fields at the top to apply changes to multiple employees at once (role, rate, sign-in/out times)', skipClick: true },
+
+    // Step 2: Highlight employee table — adjust individual rows
+    { selector: '#b6-emptable', prompt: 'You can also edit each employee row individually to adjust times, change roles, or update rates for those who worked different positions', skipClick: true },
+
+    // Step 3: Click Billing Taxes tab
+    { selector: '#btab-1', prompt: 'Click the "Billing Taxes" tab',
       onConfirm: () => showBillTab(1) },
-    { selector: '#btab-2', prompt: 'Click "Summary" to see the billing summary',
+
+    // Step 4: Highlight tax table
+    { selector: '#b6-taxtable', prompt: 'Billing Taxes — apply tax rates to specific roles if applicable', skipClick: true },
+
+    // Step 5: Click Billing Summary tab
+    { selector: '#btab-2', prompt: 'Click the "Billing Summary" tab',
       onConfirm: () => showBillTab(2) },
-    { selector: '#btab-3', prompt: 'Click "Billable Items" to review line items',
+
+    // Step 6: Highlight summary table
+    { selector: '#b6-sumtable', prompt: 'Billing Summary — a clean overview of all staff used across roles and job days', skipClick: true },
+
+    // Step 7: Click Billable Items tab
+    { selector: '#btab-3', prompt: 'Click the "Billable Items" tab',
       onConfirm: () => showBillTab(3) },
-    { selector: '#btab-4', prompt: 'Click "Invoice Setup" to configure invoice details',
+
+    // Step 8: Highlight Add Item button + items
+    { selector: '#b6-additem', prompt: 'Billable Items — add additional charges to the client: radios, carts, jackets, wristbands, etc.', skipClick: true },
+
+    // Step 9: Click Inv Setup tab
+    { selector: '#btab-4', prompt: 'Click the "Inv Setup" tab',
       onConfirm: () => showBillTab(4) },
+
+    // Step 10: Highlight Attention To — required
+    { selector: '#b6-attn', prompt: 'Set the Attention To field (the client contact who should receive the invoice). This is required before generating.', skipClick: true },
   ]);
 }
 
 function slide_billing_7() {
-  setNav('billing');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Billing Process &#8212; Generate Invoice</div>
-    <div style="margin-bottom:12px"><button class="btn" id="btn-geninv">Generate Invoice</button></div>
-    <div id="invoice-preview" style="display:none;border:1px solid #ccc;padding:18px;background:#fff;max-width:680px">
-      <div style="display:flex;justify-content:space-between;margin-bottom:14px">
-        <div><div style="font-size:20px;font-weight:900;color:#c07800;font-style:italic;font-family:Impact,sans-serif">WISH</div>
-          <div style="font-size:11px;color:#555">ProtaTECH, Inc.</div></div>
-        <div style="text-align:right"><div style="font-size:16px;font-weight:bold">INVOICE</div>
-          <div style="font-size:12px"># INV-2023-0892</div><div style="font-size:11px;color:#555">Due: 09/14/2023</div></div>
-      </div>
-      <table style="width:100%;margin-bottom:10px"><thead><tr style="background:#5a5a5a;color:#fff"><th style="padding:5px">Role</th><th>Hours</th><th>Rate</th><th>Amount</th></tr></thead>
-      <tbody><tr><td style="padding:4px">Event Staff</td><td>90.0</td><td>$18.50</td><td>$1,665.00</td></tr></tbody></table>
-      <div style="text-align:right"><b>Total: $1,890.60</b></div>
+  // Start on the Generate Invoice tab — nav collapsed, form + Search Result + tabs all visible
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  const tabs = ['SignIn/SignOut','Billing Taxes','Billing Summary','Billable Items','Inv Setup','Adv Credit','Generate Invoice'];
+  const tabBar = (active) => `
+    <div style="display:flex;border-bottom:1px solid #b06010;margin:14px 0 10px 0">
+      ${tabs.map((t,i) => `<span style="padding:6px 14px;cursor:pointer;font-size:11px;font-weight:bold;border:1px solid #b06010;border-bottom:none;margin-right:1px;border-radius:3px 3px 0 0;${i===active?'background:#3a6aaa;color:#fff':'background:#fff;color:#1a3c5a'}">${t}</span>`).join('')}
     </div>`;
+
+  const dropdown = (val, width) => `
+    <div style="display:inline-flex;align-items:center;justify-content:space-between;width:${width||240}px;height:24px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;cursor:pointer;box-sizing:border-box">
+      <span>${val}</span><span style="font-size:10px;color:#444">&#9660;</span>
+    </div>`;
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/></svg>`;
+
+  const topFormHTML = `
+    <div class="page-title">Manage Billing Process</div>
+    <div style="padding:12px 0 6px 0">
+      <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 4px">
+        <tr><td style="text-align:right;padding-right:10px">Branch Name :</td><td>${dropdown('Prota LA Branch Test',200)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Start Date :</td><td><input value="06/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff"><span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">End Date :</td><td><input value="07/01/2026" readonly style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px;background:#fff"><span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Event :</td><td>${dropdown('Shane Concert Event June 2026',240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Client :</td><td>${dropdown('Creative Entertainment',240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract :</td><td>${dropdown('Creative Entertainment Contract',240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Job# :</td><td><input style="width:212px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><input type="checkbox" style="margin-left:6px;vertical-align:middle"></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Invoice Ref# :</td><td>${dropdown('--Select--',240)}</td></tr>
+        <tr><td></td><td style="padding-top:10px;text-align:center"><button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Search</button></td></tr>
+      </table>
+    </div>
+    <div style="padding:8px 0">
+      <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Search Result</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px;margin-bottom:8px">
+        <thead><tr style="background:#1a8aaa;color:#fff"><th style="padding:6px 8px;text-align:center;width:32px"><input type="checkbox" checked></th><th style="padding:6px 8px;text-align:left">Job#</th><th style="padding:6px 8px;text-align:left">Name</th><th style="padding:6px 8px;text-align:left">Start Time</th><th style="padding:6px 8px;text-align:left">Finish Time</th><th style="padding:6px 8px;text-align:left">Holiday</th></tr></thead>
+        <tbody><tr style="background:#a8d8e8"><td style="padding:6px 8px;text-align:center"><input type="checkbox" checked></td><td style="padding:6px 8px">5023708873</td><td style="padding:6px 8px">Shane Concert WISH Training 2026</td><td style="padding:6px 8px">06-11-2026</td><td style="padding:6px 8px">06-11-2026</td><td style="padding:6px 8px"><input type="checkbox" disabled></td></tr></tbody>
+      </table>
+      <div style="display:flex;align-items:center;gap:10px;margin:6px 0">
+        ${dropdown('Calculate Regular Hours',240)}
+        <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:6px 16px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Get Invoice Data</button>
+      </div>
+    </div>`;
+
+  // Generate Invoice tab content (matches image #94)
+  const genInvoiceHTML = `
+    <div style="padding:14px 4px;font-size:12px;color:#333">
+      <table style="margin:0 0 0 90px;border-spacing:0 4px">
+        <tr><td style="text-align:right;padding-right:14px">Amount</td><td>6987.50</td></tr>
+        <tr><td style="text-align:right;padding-right:14px">Total Billable Items Amount</td><td>0.00</td></tr>
+        <tr><td style="text-align:right;padding-right:14px">Advance Credit</td><td>0.00</td></tr>
+        <tr><td style="text-align:right;padding-right:14px">Balance</td><td>6987.50</td></tr>
+        <tr><td style="text-align:right;padding-right:14px">Description</td>
+            <td><input value="Crowd Management Services Provided For Shane Concert Event June 2026" style="width:340px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+        <tr><td></td><td style="padding-top:4px">
+          <label style="margin-right:14px"><input type="radio" name="b7-fmt" checked> PDF</label>
+          <label><input type="radio" name="b7-fmt"> Excel</label>
+        </td></tr>
+        <tr><td style="text-align:right;padding-right:14px">Invoice Type :</td>
+            <td style="position:relative">
+              <div id="b7-invtype" style="display:inline-flex;align-items:center;justify-content:space-between;width:200px;height:24px;border:1px solid #aaa;background:#fff;font-size:12px;padding:2px 8px;cursor:pointer;box-sizing:border-box">
+                <span id="b7-invtype-text">Summary</span><span style="font-size:10px;color:#444">&#9660;</span>
+              </div>
+              <div id="b7-invtype-menu" style="display:none;position:absolute;bottom:28px;left:0;width:300px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:12px">
+                <div id="b7-opt-sum" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee;background:#f4f4f4">Summary</div>
+                <div id="b7-opt-det" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">Detailed</div>
+                <div id="b7-opt-cov" style="padding:5px 10px;cursor:pointer">Summary with Cover and Sign-In Sheets</div>
+              </div>
+              <button id="b7-geninv" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:60px">Generate Invoice</button>
+            </td></tr>
+      </table>
+    </div>`;
+
+  document.getElementById('content').innerHTML = `${topFormHTML}${tabBar(6)}<div id="b7-content">${genInvoiceHTML}</div>`;
+
+  // PDF preview HTML (matches image #95)
+  const pdfHTML = `
+    <div style="background:#fff;padding:18px 22px;font-family:Arial;font-size:11px;color:#333;border:1px solid #ccc;max-width:880px;margin:0 auto">
+      <div style="display:flex;gap:14px;border-bottom:1px solid #5a88cc;padding-bottom:8px">
+        <div style="width:90px;height:90px;border:2px solid #1a3c5a;display:flex;align-items:center;justify-content:center;background:#fff">
+          <div style="font-family:Georgia,serif;font-size:42px;font-weight:bold;color:#1a3c5a;letter-spacing:-2px;line-height:1">CSC<span style="font-size:14px;vertical-align:top">&reg;</span></div>
+        </div>
+        <div style="flex:1;text-align:center">
+          <div style="font-size:18px;color:#1a6aaa;font-weight:bold;padding-top:4px">Contemporary Services Corporation</div>
+          <div style="font-size:11px;color:#444;padding:3px 0">17101 Superior Street | Northridge| CA | 91325</div>
+          <div style="font-size:11px;color:#1a6aaa">Online: www.csc-usa.com</div>
+        </div>
+        <div style="text-align:right;width:200px">
+          <div id="b7-pdf-invtitle" style="font-size:20px;font-weight:bold;color:#1a3c5a">Invoice</div>
+          <div id="b7-pdf-invnum" style="font-size:13px;font-weight:bold;color:#222;padding-top:4px">141000026</div>
+          <div style="font-size:11px">June 16, 2026</div>
+          <div style="font-size:11px">PO#:</div>
+          <div style="font-size:11px;font-weight:bold;padding-top:2px">Prota LA Branch Test</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:30px;padding:6px 0 12px 30px;font-size:11px;font-weight:bold">
+        <div>Client #: 041-0000004</div><div>Event #: 119698</div>
+      </div>
+      <div style="display:flex;gap:14px;margin-bottom:14px">
+        <div style="flex:1;border:1px solid #888;padding:10px 14px;min-height:110px">
+          <div style="font-weight:bold">Creative Entertainment</div>
+          <div>2345 Bristol LN</div>
+          <div>Anaheim , California 90094</div>
+          <div style="color:#1a6aaa;padding-top:10px">Attn:</div>
+        </div>
+        <div style="flex:1;border:1px solid #888;padding:10px 14px">
+          <div style="font-weight:bold;border-bottom:1px solid #888;padding-bottom:3px;margin-bottom:6px">REMIT TO:</div>
+          <div>Contemporary Services Corporation</div>
+          <div>17101 Superior Street,</div>
+          <div>Northridge, CA 91325</div>
+          <div style="padding-top:6px"><span style="margin-right:14px">Phone:(818) 885-5150</span><span>Fax:(818) 885-0524</span></div>
+          <div style="color:#1a6aaa;padding-top:6px">Term: NET 30 Days 1-1/2% Added Monthly</div>
+          <div style="color:#1a6aaa;text-align:center">on Unpaid Balance</div>
+        </div>
+      </div>
+      <table style="width:100%;border-collapse:collapse;font-size:11px;border:1px solid #888">
+        <thead>
+          <tr style="background:#f0f0f0"><th style="padding:5px 8px;text-align:left;border:1px solid #888">Description</th><th style="padding:5px 8px;text-align:right;border:1px solid #888;width:80px">Unit Rate</th><th style="padding:5px 8px;text-align:right;border:1px solid #888;width:100px">Amount</th></tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:4px 8px;border-bottom:1px solid #ddd">Crowd Management Services Provided For Shane Concert Event June 2026</td><td style="border-bottom:1px solid #ddd"></td><td style="border-bottom:1px solid #ddd"></td></tr>
+          <tr><td style="padding:4px 8px;border-bottom:1px solid #888">Located in Los Alamitos California 90721</td><td style="border-bottom:1px solid #888"></td><td style="border-bottom:1px solid #888"></td></tr>
+          <tr style="background:#f8f8f8;font-weight:bold"><td style="padding:4px 8px"><div style="display:flex"><span style="width:90px">Number of Staff</span><span style="width:50px;text-align:center">REG</span><span style="width:40px;text-align:center">OT</span><span style="width:40px;text-align:center">DT</span><span style="width:80px;text-align:center">Total Hours</span><span style="width:40px;text-align:center">Tax</span></div></td><td></td><td></td></tr>
+          <tr style="background:#1a3c5a;color:#fff;font-weight:bold"><td colspan="3" style="padding:4px 8px">5023708873 - Shane Concert WISH Training 2026 - 06/11/2026</td></tr>
+          <tr style="background:#e8e8e8;font-weight:bold"><td style="padding:4px 8px"><span style="display:inline-block;width:30px">1</span>Staff 1 Call</td><td></td><td></td></tr>
+          ${[
+            ['1','Supervisor','5.00','0.00','0.00','5.00','58.00','290.00'],
+            ['1','Event Staff','2.00','0.00','0.00','2.00','50.00','100.00'],
+            ['1','Event Staff','2.75','0.00','0.00','2.75','50.00','137.50'],
+            ['10','Event Staff','5.00','0.00','0.00','50.00','50.00','2,500.00'],
+          ].map(r => `<tr><td style="padding:3px 8px;border-bottom:1px solid #eee"><div style="display:flex"><span style="width:30px;text-align:right;padding-right:6px">${r[0]}</span><span style="width:80px">${r[1]}</span><span style="width:50px;text-align:right">${r[2]}</span><span style="width:40px;text-align:right">${r[3]}</span><span style="width:40px;text-align:right">${r[4]}</span><span style="width:80px;text-align:right">${r[5]}</span></div></td><td style="text-align:right;padding:3px 8px;border-bottom:1px solid #eee">$${r[6]}</td><td style="text-align:right;padding:3px 8px;border-bottom:1px solid #eee">$${r[7]}</td></tr>`).join('')}
+          <tr style="background:#e8e8e8;font-weight:bold"><td style="padding:4px 8px"><span style="display:inline-block;width:30px">2</span>Main Call</td><td></td><td></td></tr>
+          ${[
+            ['1','Security Guard','2.00','0.00','0.00','2.00','55.00','110.00'],
+            ['14','Security Guard','5.00','0.00','0.00','70.00','55.00','3,850.00'],
+          ].map(r => `<tr><td style="padding:3px 8px;border-bottom:1px solid #eee"><div style="display:flex"><span style="width:30px;text-align:right;padding-right:6px">${r[0]}</span><span style="width:80px">${r[1]}</span><span style="width:50px;text-align:right">${r[2]}</span><span style="width:40px;text-align:right">${r[3]}</span><span style="width:40px;text-align:right">${r[4]}</span><span style="width:80px;text-align:right">${r[5]}</span></div></td><td style="text-align:right;padding:3px 8px;border-bottom:1px solid #eee">$${r[6]}</td><td style="text-align:right;padding:3px 8px;border-bottom:1px solid #eee">$${r[7]}</td></tr>`).join('')}
+          <tr style="border-top:1px solid #888"><td style="padding:5px 8px;font-weight:bold"><div style="display:flex"><span style="width:30px;text-align:right;padding-right:6px">28</span><span style="width:80px"></span><span style="width:50px"></span><span style="width:40px"></span><span style="width:40px"></span><span style="width:80px;text-align:right">131.75</span></div></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <div style="display:flex;justify-content:flex-end;padding:10px 8px 0 0;font-size:12px">
+        <table>
+          <tr><td style="text-align:right;padding:3px 16px 3px 0;font-weight:bold">Subtotal :</td><td style="text-align:right;font-weight:bold">$6,987.50</td></tr>
+          <tr><td style="text-align:right;padding:3px 16px 3px 0">Tax (0.0%):</td><td style="text-align:right">$0.00</td></tr>
+          <tr><td style="text-align:right;padding:3px 16px 3px 0">Total(Labor):</td><td style="text-align:right">$6,987.50</td></tr>
+          <tr style="border-top:1px solid #888"><td style="text-align:right;padding:5px 16px 3px 0;font-weight:bold;color:#1a3c5a">Grand Total:</td><td id="b7-pdf-total" style="text-align:right;font-weight:bold;color:#1a3c5a">$6,987.50</td></tr>
+        </table>
+      </div>
+    </div>`;
+
   runGuided([
-    { selector: '#btn-geninv', prompt: 'Click "Generate Invoice" to create the invoice',
-      onConfirm: () => showDialog('Generate Invoice',
-        `<div class="form-row"><label><input type="radio" name="invtype" checked> Summary</label></div>
-        <div class="form-row" style="margin-top:6px"><label><input type="radio" name="invtype"> Detailed</label></div>
-        <div style="margin-top:14px">
-          <button class="btn" id="dlg-genpdf">Generate PDF</button>
-          <button class="btn btn-secondary" onclick="closeDialog()">Cancel</button>
-        </div>`)
-    },
-    { selector: '#dlg-genpdf', prompt: 'Click "Generate PDF" to produce the invoice PDF',
-      onConfirm: () => { closeDialog(); document.getElementById('invoice-preview').style.display = ''; }},
+    // Step 1: Highlight Invoice Type dropdown
+    { selector: '#b7-invtype', prompt: 'Select your invoice type — click the dropdown to see your options',
+      onConfirm: () => { document.getElementById('b7-invtype-menu').style.display = 'block'; }},
+
+    // Step 2: Highlight Summary
+    { selector: '#b7-opt-sum', prompt: 'Summary — clean totals by role. Most clients prefer this.', skipClick: true },
+
+    // Step 3: Highlight Detailed
+    { selector: '#b7-opt-det', prompt: "Detailed — full breakdown showing each employee's times, regular and overtime hours", skipClick: true },
+
+    // Step 4: Highlight Summary with Cover
+    { selector: '#b7-opt-cov', prompt: 'Summary with Cover and Sign-In Sheets — includes everything', skipClick: true,
+      onConfirm: () => { document.getElementById('b7-invtype-menu').style.display = 'none'; }},
+
+    // Step 5: Click Generate Invoice → PDF opens
+    { selector: '#b7-geninv', prompt: 'Click "Generate Invoice" — your invoice opens as a PDF',
+      onConfirm: () => { document.getElementById('content').innerHTML = pdfHTML; }},
+
+    // Step 6: Highlight invoice number
+    { selector: '#b7-pdf-invnum', prompt: 'Copy the invoice number — you may need it to reference this invoice later', skipClick: true },
+
+    // Step 7: Highlight Grand Total
+    { selector: '#b7-pdf-total', prompt: 'Review the Grand Total before sending the invoice to the client', skipClick: true },
+
+    // Step 8: Note about revisions
+    { selector: '#b7-pdf-invtitle', prompt: 'To make changes, use the Invoice Ref# dropdown on the previous screen — your most recent invoice appears at the top. Go back to Inv Setup, then Generate Invoice again. Each revision gets a point suffix (.01, .02, etc.) so every version is tracked.', skipClick: true },
   ]);
 }
 
 function slide_billing_8() {
-  setNav('records');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
   document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Contract</div>
-    <div class="note-bar">Note: All the * marked fields are mandatory</div>
-    <div class="form-row"><span class="form-label">Client Name :</span>
-      <input class="form-input" id="f-client" placeholder="Search client..."></div>
-    <div class="form-row"><span class="form-label">Branch :</span>
-      <select class="form-select"><option>Los Angeles</option></select></div>
-    <div style="margin:10px 0 0 160px"><button class="btn" id="btn-csearch">Search</button></div>
-    <div id="contract-results" style="display:none">
-      <table style="margin:12px 0"><thead><tr><th>Client</th><th>Contract#</th><th>Start</th><th>End</th><th>Status</th></tr></thead>
-      <tbody><tr><td><a href="#" style="color:#3a6aaa" id="ctr-link">Forum Entertainment LLC</a></td>
-        <td>CTR-2023-0421</td><td>01/01/2023</td><td>12/31/2023</td><td>Active</td></tr></tbody></table>
-    </div>
-    <div id="contract-detail" style="display:none">
-      <div class="page-title" style="font-size:13px">Contract &#8212; CTR-2023-0421 | Forum Entertainment LLC</div>
-      <div class="tabs">
-        <span class="tab active">Contract Info</span>
-        <span class="tab" id="ctab-rates">Rates</span>
-        <span class="tab">Billing Roles</span>
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
       </div>
-      <div id="ctr-content">
-        <div class="form-row"><span class="form-label">Contract# :</span><span>CTR-2023-0421</span></div>
-        <div class="form-row"><span class="form-label">Client :</span><span>Forum Entertainment LLC</span></div>
-        <div class="form-row"><span class="form-label">Start Date :</span><span>01/01/2023</span></div>
-        <div class="form-row"><span class="form-label">End Date :</span><span>12/31/2023</span></div>
-        <div class="form-row"><span class="form-label">Payment Terms :</span><span>Net 30</span></div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">20260616 Test Job</td><td>Test Venue 1</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">601626 Killswitch Engage</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 8</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
       </div>
     </div>`;
-  runGuided([
-    { selector: '#f-client', prompt: 'Click here and type the client name to search', type: 'Forum Entertainment' },
-    { selector: '#btn-csearch', prompt: 'Click "Search" to find the contract',
-      onConfirm: () => { document.getElementById('contract-results').style.display = ''; }},
-    { selector: '#ctr-link', prompt: 'Click the client name to open the contract detail',
-      onConfirm: () => {
-        document.getElementById('contract-detail').style.display = '';
-        document.getElementById('contract-results').style.display = 'none';
-      }},
-    { selector: '#ctab-rates', prompt: 'Click "Rates" to view the billing rates in this contract',
-      onConfirm: () => {
-        document.querySelectorAll('#contract-detail .tab').forEach((t,i) => t.classList.toggle('active', i===1));
-        document.getElementById('ctr-content').innerHTML = `
-          <table><thead><tr><th>Role</th><th>Bill Rate</th><th>OT Rate</th><th>Effective</th></tr></thead>
+
+  const calIconSvg = `<svg width="16" height="16" viewBox="0 0 16 16" style="display:block"><rect x="1" y="1" width="14" height="14" rx="1" fill="#fff" stroke="#888" stroke-width="1"/><rect x="1" y="1" width="14" height="4" fill="#5a88cc"/></svg>`;
+
+  // Search form HTML (Manage Contract — matches image #100/#102)
+  const searchFormOnly = `
+    <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 6px">
+      <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
+          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
+      <tr><td style="text-align:right;padding-right:10px">Client Name :</td>
+          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
+      <tr><td style="text-align:right;padding-right:10px">Contract # :</td>
+          <td><input style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+      <tr><td style="text-align:right;padding-right:10px">Contract Name :</td>
+          <td><input style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"></td></tr>
+      <tr><td style="text-align:right;padding-right:10px">Status :</td>
+          <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>All</option></select></td></tr>
+      <tr><td></td><td style="padding-top:14px">
+          <button id="b8-search" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Search</button>
+          <button id="b8-addnew" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Add New</button>
+        </td></tr>
+    </table>`;
+  const searchHTML = `
+    <div class="page-title">Manage Contract</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="padding:20px 0 30px 0">${searchFormOnly}</div>`;
+
+  // Search Result table HTML (matches image #102)
+  const pencilSvg = `<svg width="14" height="14" viewBox="0 0 14 14" style="display:inline-block;vertical-align:middle"><path d="M10.5 1.5l2 2L4 12H2v-2z" fill="#c08040" stroke="#7a5020" stroke-width="0.6"/></svg>`;
+  const contractRows = [
+    ['AB Contract',                '01-05-2026','02-28-2026', true],
+    ['ABA',                        '03-06-2026','03-06-2026', false],
+    ['ABA',                        '03-06-2026','03-06-2026', false],
+    ['AJ Super Contract',          '01-24-2026','01-31-2026', false],
+    ['aPost Super Bowl 2026',      '02-21-2026','02-27-2026', false],
+    ['aPost Super Bowl Contract',  '02-21-2026','02-27-2026', false],
+    ['Arizona Baseball Contract',  '03-09-2026','04-30-2026', false],
+    ['Arizona Event',              '02-27-2026','06-15-2026', false],
+    ['Creative Entertainment Contract','10-13-2025','04-07-2026', false],
+    ['Crockets Contract',          '11-15-2024','12-31-2024', false],
+  ];
+  const resultsHTML = `
+    <div style="padding:8px 0">
+      <div style="font-weight:bold;font-size:14px;color:#1a3c5a;padding:6px 0;border-bottom:2px solid #3a6aaa;margin-bottom:8px">Search Result</div>
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="background:#666;color:#fff">
+            <th style="padding:6px 8px;text-align:left">Contract Title <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Start Date <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">End Date <span style="color:#fff">&#9650;&#9660;</span></th>
+            <th style="padding:6px 8px;text-align:left">Status</th>
+            <th style="padding:6px 8px;text-align:left">Edit</th>
+            <th style="padding:6px 8px;text-align:left">Download Docs</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${contractRows.map((r,i) => `
+            <tr style="background:${i%2===0?'#fff':'#e8e8e8'};border-bottom:1px solid #ddd">
+              <td style="padding:6px 8px;color:#1a6aaa">${i===0?`<span id="b8-row-ab">${r[0]}</span>`:r[0]}</td>
+              <td style="padding:6px 8px">${r[1]}</td>
+              <td style="padding:6px 8px">${r[2]}</td>
+              <td style="padding:6px 8px;color:#2a8a2a">Active</td>
+              <td style="padding:6px 8px">${pencilSvg}</td>
+              <td style="padding:6px 8px"><a ${i===0?'id="b8-dl-ab"':''} style="color:#1a6aaa;text-decoration:underline;cursor:pointer">Download</a></td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+      <div style="display:flex;align-items:center;padding:8px 4px;font-size:11px;color:#555;justify-content:space-between">
+        <div>Total Pages: 2</div>
+        <div>
+          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold">&#x2666; First</button>
+          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">&#x25C0; Previous</button>
+          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">Next &#x25B6;</button>
+          <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:3px 10px;font-size:11px;border-radius:3px;font-weight:bold;margin-left:4px">Last &#x2666;</button>
+        </div>
+        <div>Current Page: 1</div>
+      </div>
+    </div>`;
+  const searchWithResultsHTML = `
+    <div class="page-title">Manage Contract</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="padding:20px 0 14px 0">${searchFormOnly}</div>
+    ${resultsHTML}`;
+
+  // Contract document PDF preview (matches image #103 — Employee Time Register)
+  const contractPdfHTML = `
+    <div style="background:#fff;padding:18px 22px;font-family:Arial;font-size:11px;color:#333;border:1px solid #ccc;max-width:900px;margin:0 auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:10px">
+        <div style="font-family:Georgia,serif;font-size:32px;font-weight:900;color:#c07800;font-style:italic">WISH</div>
+        <div style="font-size:18px;font-weight:bold;color:#1a3c5a">Employee Time Register</div>
+        <div style="font-size:11px;color:#222">Print Date: 01/14/2026 10:58</div>
+      </div>
+      <div id="b8-pdf-branch" style="background:#1a3c5a;color:#fff;font-weight:bold;font-size:13px;padding:6px 12px;margin-bottom:8px">Prota LA Branch Test</div>
+      ${[
+        ['Malhotra Priya','3951624',[
+          ['141003664660','1','01/05/2026','16','6','0','0','6'],
+          ['141003665307','1','01/06/2026','16','10.5','0','0','10.5'],
+          ['141003664693','1','01/07/2026','16','6','0','0','6'],
+          ['141003664694','1','01/08/2026','20','9','0','0','9'],
+          ['141003664695','1','01/08/2026','20','8.5','0.5','0','9'],
+        ],'40.0','0.5','0','40.5'],
+        ['Menon Shweta','3951682',[
+          ['141003664660','1','01/05/2026','16','6','0','0','6'],
+          ['141003664692','1','01/06/2026','16','6','0','0','6'],
+          ['141003664693','1','01/07/2026','16','6','0','0','6'],
+          ['141003664694','1','01/08/2026','20','8.5','0','0','8.5'],
+          ['141003664695','1','01/08/2026','20','6','0','0','6'],
+          ['141003665672','1','01/09/2026','16','4.5','0','0','4.5'],
+        ],'37.0','0','0','37.0'],
+        ['Nagdev Priyanka','3951657',[
+          ['141003664660','1','01/05/2026','16','6','0','0','6'],
+          ['141003664692','1','01/06/2026','16','2','0','0','2'],
+          ['141003664693','1','01/07/2026','16','6','0','0','6'],
+          ['141003665671','1','01/08/2026','16','4','0','0','4'],
+          ['141003665672','1','01/09/2026','16','4','0','0','4'],
+        ],'22','0','0','22'],
+      ].map(g => `
+        <table style="width:100%;border-collapse:collapse;font-size:11px;margin-bottom:14px">
+          <thead><tr style="background:#dde6f5">
+            <th style="padding:5px 8px;text-align:left;width:130px">Employee Name</th>
+            <th style="padding:5px 8px;text-align:left;width:90px">Employee #</th>
+            <th style="padding:5px 8px;text-align:left;width:110px">Job#</th>
+            <th style="padding:5px 8px;text-align:left;width:50px">CCode</th>
+            <th style="padding:5px 8px;text-align:left;width:80px">Date WK</th>
+            <th style="padding:5px 8px;text-align:left;width:60px">Pay Rate</th>
+            <th style="padding:5px 8px;text-align:left;width:60px">Reg Hrs</th>
+            <th style="padding:5px 8px;text-align:left;width:60px">OT Hrs</th>
+            <th style="padding:5px 8px;text-align:left;width:60px">DT Hrs</th>
+            <th style="padding:5px 8px;text-align:left">Total Hrs</th>
+          </tr></thead>
           <tbody>
-            <tr><td>Event Staff</td><td>$35.00/hr</td><td>$52.50/hr</td><td>01/01/2023</td></tr>
-            <tr><td>Supervisor</td><td>$45.00/hr</td><td>$67.50/hr</td><td>01/01/2023</td></tr>
-          </tbody></table>`;
+            ${g[2].map(r => `<tr style="background:#fff;border-bottom:1px solid #eee">
+              <td style="padding:4px 8px">${g[0]}</td><td style="padding:4px 8px">${g[1]}</td>
+              ${r.map(c => `<td style="padding:4px 8px">${c}</td>`).join('')}
+            </tr>`).join('')}
+            <tr style="background:#fff;font-weight:bold;border-top:1px solid #888">
+              <td colspan="5" style="padding:5px 8px">Total Number of Entries: ${g[2].length}</td>
+              <td style="padding:5px 8px">Totals:</td>
+              <td style="padding:5px 8px">${g[3]}</td>
+              <td style="padding:5px 8px">${g[4]}</td>
+              <td style="padding:5px 8px">${g[5]}</td>
+              <td style="padding:5px 8px">${g[6]}</td>
+            </tr>
+          </tbody>
+        </table>`).join('')}
+    </div>`;
+
+  // Add/Edit Contracts form HTML (matches image #101)
+  const addEditHTML = `
+    <div class="page-title">Add / Edit Contracts</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;border-bottom:1px solid #b06010;margin:10px 0">
+      <span style="padding:6px 14px;font-size:11px;font-weight:bold;border:1px solid #b06010;border-bottom:none;background:#fff;color:#1a3c5a;border-radius:3px 3px 0 0">Contracts Info</span>
+    </div>
+    <div style="padding:14px 0">
+      <table style="margin:0 auto;font-size:12px;color:#333;border-spacing:0 6px">
+        <tr><td style="text-align:right;padding-right:10px">Branch Name :</td>
+            <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Prota LA Branch Test</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Client :</td>
+            <td><select style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>--Select--</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract # :</td>
+            <td><input id="b8-cnum" value="9704" style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract Title :</td>
+            <td><input id="b8-ctitle" style="width:204px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Start Date :</td>
+            <td><input id="b8-sd" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">End Date :</td>
+            <td><input id="b8-ed" style="width:100px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px">
+              <span style="display:inline-flex;width:22px;height:22px;border:1px solid #aaa;vertical-align:middle;background:#f0f0f0;align-items:center;justify-content:center">${calIconSvg}</span>
+              <span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Status :</td>
+            <td><select id="b8-status" style="width:212px;height:26px;border:1px solid #aaa;font-size:12px"><option>Active</option><option>Inactive</option></select><span style="color:#c00;margin-left:4px">*</span></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Allow Self-schedule :</td>
+            <td><input type="checkbox" style="vertical-align:middle"></td></tr>
+        <tr><td style="text-align:right;padding-right:10px">Contract Document :</td>
+            <td><label id="b8-doc" style="display:inline-block;padding:3px 10px;border:1px solid #aaa;background:#f0f0f0;cursor:pointer;font-size:12px">Choose File</label>
+              <span style="font-size:12px;margin-left:6px">No file chosen</span>
+              <span style="color:#c00;margin-left:4px">*</span>
+              <a id="b8-view" style="color:#c00;text-decoration:underline;margin-left:18px;cursor:pointer">View</a></td></tr>
+        <tr><td></td><td style="padding-top:14px">
+            <button id="b8-save" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold">Save</button>
+            <button style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Reset</button>
+            <button id="b8-back" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 22px;font-size:12px;border-radius:14px;cursor:pointer;font-weight:bold;margin-left:6px">Back</button>
+          </td></tr>
+      </table>
+    </div>`;
+
+  runGuided([
+    // Step 1: Click Records → expand submenu with all 17 items
+    { selector: '#nav-records', prompt: 'Client contracts live under Records. Click "Records" to expand its menu.',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        const sub = document.getElementById('sub-records');
+        sub.classList.add('show');
+        sub.innerHTML = `
+          <span class="nav-sub-item">Manage Branch Info</span>
+          <span class="nav-sub-item">Training Registration</span>
+          <span class="nav-sub-item">Manage Client</span>
+          <span class="nav-sub-item">Manage Event</span>
+          <span class="nav-sub-item">Manage Venue</span>
+          <span class="nav-sub-item" id="sub-rec-contract">Manage Contract</span>
+          <span class="nav-sub-item">Manage Employee</span>
+          <span class="nav-sub-item">Manage Employee Status</span>
+          <span class="nav-sub-item">Manage WorkGroup</span>
+          <span class="nav-sub-item">Manage Job</span>
+          <span class="nav-sub-item">Manage Access Location</span>
+          <span class="nav-sub-item">Manage Access Group</span>
+          <span class="nav-sub-item">Manage License</span>
+          <span class="nav-sub-item">Job Search</span>
+          <span class="nav-sub-item">Manage Credentials</span>
+          <span class="nav-sub-item">Manage Employee Card</span>
+          <span class="nav-sub-item">Manage Employee Task</span>`;
       }},
+
+    // Step 2: Click Manage Contract → search form + close submenu
+    { selector: '#sub-rec-contract', prompt: 'Click "Manage Contract"',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = searchHTML;
+      }},
+
+    // Step 3: Click Add New → Add/Edit Contracts form
+    { selector: '#b8-addnew', prompt: 'If a contract does not exist for the client, click "Add New" to create one — billing is not possible without a contract',
+      onConfirm: () => { document.getElementById('content').innerHTML = addEditHTML; }},
+
+    // Step 4: Contract # (auto-generated reference)
+    { selector: '#b8-cnum', prompt: 'Contract # — the system assigns a reference number for this contract', skipClick: true },
+
+    // Step 5: Contract Title
+    { selector: '#b8-ctitle', prompt: 'Contract Title — a readable name for the contract', skipClick: true },
+
+    // Step 6: Start Date and End Date — contract dates
+    { selector: '#b8-sd', also: ['#b8-ed'], prompt: 'Contract dates — Start and End. Standard payment terms are net 30 days with 1-1/2% late fee added monthly on unpaid balance.', skipClick: true },
+
+    // Step 7: Status
+    { selector: '#b8-status', prompt: 'Status — set to Active to make the contract billable', skipClick: true },
+
+    // Step 8: Contract Document — upload PDF
+    { selector: '#b8-doc', prompt: 'Contract Document — upload the signed PDF directly into WISH', skipClick: true },
+
+    // Step 9: Save — bill rates and tax rates are configured after saving
+    { selector: '#b8-save', prompt: 'After clicking Save, you can configure bill rates by role (what you charge per hour for each position) and tax rates for your location. To update a rate later, deactivate the current rate and enter the new one.', skipClick: true },
+
+    // Step 10: Click Back → return to Manage Contract search form
+    { selector: '#b8-back', prompt: 'Now click "Back" to return to the Manage Contract search and look at existing contracts',
+      onConfirm: () => { document.getElementById('content').innerHTML = searchHTML; }},
+
+    // Step 11: Click Search → results table appears with all existing contracts
+    { selector: '#b8-search', prompt: 'Click "Search" to list every contract for this branch',
+      onConfirm: () => { document.getElementById('content').innerHTML = searchWithResultsHTML; }},
+
+    // Step 12: Highlight AB Contract row
+    { selector: '#b8-row-ab', prompt: 'Each row shows a contract\'s title, start and end dates, and status. The pencil icon edits the contract; the Download link opens the contract document as a PDF.', skipClick: true },
+
+    // Step 13: Click Download for AB Contract → PDF opens
+    { selector: '#b8-dl-ab', prompt: 'Click "Download" on the AB Contract row to open its contract document as a PDF',
+      onConfirm: () => { document.getElementById('content').innerHTML = contractPdfHTML; }},
+
+    // Step 14: Final note — anchored on the PDF branch banner so the tip stays near the document
+    { selector: '#b8-pdf-branch', prompt: 'The contract document opens as a PDF — review it for terms, billing rates, and any client-specific clauses before billing begins.', skipClick: true },
   ]);
 }
 
@@ -9552,41 +10800,264 @@ function slide_payroll_reporting_6() {
 // ── Admin Reporting ───────────────────────────────────────────────────────
 
 function slide_admin_reporting_4() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Billing Reports',
-    ['Billing Invoice Ledger Report','Invoice Detail Report','Unbilled Hours Report','Revenue by Client Report','Contract Revenue Summary']);
+  // Start with Reports already expanded — skip the home → click Reports step
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  document.getElementById('nav-reports').classList.add('active');
+  const repSub = document.getElementById('sub-reports');
+  repSub.classList.add('show');
+  repSub.innerHTML = `
+    <span class="nav-sub-item">Summary Roster</span>
+    <span class="nav-sub-item">Detailed Roster</span>
+    <span class="nav-sub-item">Job Administration</span>
+    <span class="nav-sub-item">Payroll Reports</span>
+    <span class="nav-sub-item" id="sub-br-billing">Billing Reports</span>
+    <span class="nav-sub-item">Manager Reports</span>`;
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/11/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/10/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/16/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 7</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
+  // Helper: open a flyout next to the highlighted sub-item, anchored to top of content area
+  function showBrFlyout(anchorId, items, width) {
+    const old = document.getElementById('rep-flyout');
+    if (old) old.remove();
+    const anchor = document.getElementById(anchorId);
+    const rect = anchor.getBoundingClientRect();
+    const contentTop = document.getElementById('content').getBoundingClientRect().top;
+    const top = Math.max(10, contentTop);
+    const flyout = document.createElement('div');
+    flyout.id = 'rep-flyout';
+    flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:${width || 220}px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+    flyout.innerHTML = items.map(([label, id]) =>
+      `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+    ).join('');
+    document.body.appendChild(flyout);
+  }
+
   runGuided([
-    { selector: '#card', prompt: 'Billing Reports give you visibility into event invoices — what\'s been billed, what hasn\'t, and total revenue by client. Click a report to run it.', skipClick: true },
+    // Step 1: Click Billing Reports → flyout opens with 5 reports
+    { selector: '#sub-br-billing', prompt: 'Click "Billing Reports" to see the list of Billing reports',
+      onConfirm: () => showBrFlyout('sub-br-billing', [
+        ['Billing Invoice Ledger Report', 'br-bilr'],
+        ['Payroll UnBilled Hour Report',  'br-pubh'],
+        ['Labour Cost Estimation',        'br-lce'],
+        ['Billing Invoice Register',      'br-bir'],
+        ['Billing Ledger Details',        'br-bld']
+      ], 220)},
+
+    // Steps 2–6: Highlight each Billing report with script description
+    { selector: '#br-bilr', prompt: 'Billing Invoice Ledger Report — a record of all invoices generated, with amounts and client details', skipClick: true },
+    { selector: '#br-pubh', prompt: 'Payroll UnBilled Hour Report — shows approved hours that have not yet been billed to a client. Use this to make sure nothing falls through the cracks before closing out an event.', skipClick: true },
+    { selector: '#br-lce',  prompt: 'Labour Cost Estimation — projects labor costs based on scheduled hours and pay rates. Useful for pre-event budget planning.', skipClick: true },
+    { selector: '#br-bir',  prompt: 'Billing Invoice Register — a summary register of all billing activity across a date range', skipClick: true },
+    { selector: '#br-bld',  prompt: 'Billing Ledger Details — a detailed line-by-line view of billing transactions', skipClick: true },
+
+    // Step 7: Final reminder — Payroll UnBilled Hour Report is the day-to-day go-to
+    { selector: '#br-pubh', prompt: 'For most day-to-day use, Payroll UnBilled Hour Report is the one to check regularly — it tells you what work has been done but not yet invoiced.', skipClick: true },
   ]);
 }
 
 function slide_admin_reporting_5() {
-  setNav('reports');
-  document.getElementById('content').innerHTML = reportsHTML('Manager Reports',
-    ['Schedule Efficiency Report','Manager Credential Report','MVR Tracking Report','Branch Performance Summary','Employee Compliance Report']);
+  // Start with Reports already expanded — skip the home → click Reports step
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+  document.getElementById('nav-reports').classList.add('active');
+  const repSub = document.getElementById('sub-reports');
+  repSub.classList.add('show');
+  repSub.innerHTML = `
+    <span class="nav-sub-item">Summary Roster</span>
+    <span class="nav-sub-item">Detailed Roster</span>
+    <span class="nav-sub-item">Job Administration</span>
+    <span class="nav-sub-item">Payroll Reports</span>
+    <span class="nav-sub-item">Billing Reports</span>
+    <span class="nav-sub-item" id="sub-mr-manager">Manager Reports</span>`;
+
+  document.getElementById('content').innerHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/11/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">Shane Concert WISH Training 2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/10/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 HRL Banquet With White Button Down Shirt</td><td>HARD ROCK LIVE</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061626 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 8-6/16/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/16/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/16/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">AC Office Hours-6/16/2026</td><td>Atlantic City Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/16/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 7</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Colosseum 24hr</td><td>The Colosseum</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+
+  // Helper: open a flyout next to the highlighted sub-item, anchored to top of content area
+  function showMrFlyout(anchorId, items, width) {
+    const old = document.getElementById('rep-flyout');
+    if (old) old.remove();
+    const anchor = document.getElementById(anchorId);
+    const rect = anchor.getBoundingClientRect();
+    const contentTop = document.getElementById('content').getBoundingClientRect().top;
+    const top = Math.max(10, contentTop);
+    const flyout = document.createElement('div');
+    flyout.id = 'rep-flyout';
+    flyout.style.cssText = `position:fixed;top:${top}px;left:${rect.right + 2}px;width:${width || 230}px;background:#fff;border:1px solid #888;box-shadow:2px 2px 8px rgba(0,0,0,.25);z-index:200;font-size:11px;font-family:Arial;color:#333`;
+    flyout.innerHTML = items.map(([label, id]) =>
+      `<div id="${id}" style="padding:5px 10px;cursor:pointer;border-bottom:1px solid #eee">${label}</div>`
+    ).join('');
+    document.body.appendChild(flyout);
+  }
+
   runGuided([
-    { selector: '#card', prompt: 'Manager Reports cover credential tracking, scheduling performance, and MVR status — tools for branch-level oversight and compliance.', skipClick: true },
+    // Step 1: Click Manager Reports → flyout opens with 8 reports
+    { selector: '#sub-mr-manager', prompt: 'Click "Manager Reports" to see the list of Manager reports',
+      onConfirm: () => showMrFlyout('sub-mr-manager', [
+        ['Schedule Efficiency',              'mr-sched'],
+        ['Employee Credential Report',       'mr-ecr'],
+        ['Job Credential Report',            'mr-jcr'],
+        ['Employee Task Report',             'mr-etr'],
+        ['MVR Roster',                       'mr-mvr'],
+        ['Branch MVR Roster',                'mr-bmvr'],
+        ['Master MVR Roster With Date',      'mr-mmvr'],
+        ['Branch MVR Roster Without Date',   'mr-bmvrn']
+      ], 230)},
+
+    // Steps 2–9: Highlight each Manager report with script description
+    { selector: '#mr-sched',  prompt: 'Schedule Efficiency — measures how well scheduled headcount matched actual sign-in counts across jobs. Useful for identifying gaps in scheduling accuracy.', skipClick: true },
+    { selector: '#mr-ecr',    prompt: 'Employee Credential Report — credential status (guard cards, licenses) for individual employees', skipClick: true },
+    { selector: '#mr-jcr',    prompt: 'Job Credential Report — credential requirements and compliance status for a specific job', skipClick: true },
+    { selector: '#mr-etr',    prompt: 'Employee Task Report — tracks outstanding onboarding and compliance tasks by employee', skipClick: true },
+    { selector: '#mr-mvr',    prompt: 'MVR Roster — motor vehicle record status for employees who drive as part of their role', skipClick: true },
+    { selector: '#mr-bmvr',   prompt: 'Branch MVR Roster — MVR status across all applicable employees in your branch', skipClick: true },
+    { selector: '#mr-mmvr',   prompt: 'Master MVR Roster With Date — full MVR roster including check dates', skipClick: true },
+    { selector: '#mr-bmvrn',  prompt: 'Branch MVR Roster Without Date — MVR roster view without date filters, for a broad status overview', skipClick: true },
+
+    // Step 10: Final reminder — highlight BOTH Employee Credential Report and MVR Roster
+    { selector: '#mr-ecr', also: ['#mr-mvr'],
+      prompt: 'Credential and MVR reports are especially important before scheduling employees for positions that require specific licensing or driving.', skipClick: true },
   ]);
 }
 
 function slide_admin_reporting_6() {
   setNav('reports');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Admin Reporting &#8212; Workflow Overview</div>
-    <div style="margin:8px 0">
-      ${[
-        ['Before the event', '#eff6ff', '#1a3c5a', ['Labour Cost Estimation','Employee Credential Report','Job Credential Report']],
-        ['Day of event',     '#fff8f0', '#c07800',  ['Alpha Roster','Sign-In Sign-Out Sheet','Employee Not Sign-In']],
-        ['After the event',  '#dff0d8', '#1a6a1a',  ['Employee Time Register','Payroll Summary','Billing Invoice Ledger Report']],
-        ['Ongoing compliance','#faf0ff','#6b21a8',  ['MVR Tracking Report','Manager Credential Report','Employee Compliance Report']],
-      ].map(([phase, bg, color, items]) => `
-        <div style="background:${bg};border-left:4px solid ${color};padding:10px 14px;margin-bottom:8px;border-radius:0 3px 3px 0">
-          <div style="font-weight:bold;color:${color};margin-bottom:5px">${phase}</div>
-          ${items.map(i => `<div style="font-size:12px;color:#444;margin-bottom:2px">&#8226; ${i}</div>`).join('')}
-        </div>`).join('')}
+  // Clean up any leftover flyouts from prior slides
+  const oldFlyout = document.getElementById('rep-flyout');
+  if (oldFlyout) oldFlyout.remove();
+
+  const phaseRow = (id, label, desc) => `
+    <div id="${id}" style="background:#fff;border:1px solid #ddd;border-radius:3px;padding:7px 12px;margin-bottom:6px;font-size:12px;color:#333">
+      <span style="font-weight:bold;color:#1a3c5a">${label}</span> &mdash; <span style="color:#555">${desc}</span>
     </div>`;
+
+  document.getElementById('content').innerHTML = `
+    <div class="page-title">Putting It All Together &mdash; Admin Reporting Workflow</div>
+    <div style="font-size:12px;color:#444;margin-bottom:14px">As an Admin Reporting user, your reports touch every phase of event operations.</div>
+
+    <div style="background:#eff6ff;border-left:4px solid #1a3c5a;padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
+      <div style="font-weight:bold;color:#1a3c5a;font-size:13px;margin-bottom:7px">Before the event</div>
+      ${phaseRow('ar6-lce',  'Labour Cost Estimation',                            'plan your labor budget')}
+      ${phaseRow('ar6-cred', 'Employee Credential Report &amp; Job Credential Report', 'verify employees are licensed for the roles you\'re filling')}
+      ${phaseRow('ar6-sched','Schedule Efficiency',                               'review past events to improve future scheduling')}
+    </div>
+
+    <div style="background:#fff8f0;border-left:4px solid #c07800;padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
+      <div style="font-weight:bold;color:#c07800;font-size:13px;margin-bottom:7px">During and after the event</div>
+      ${phaseRow('ar6-jadmin','Job Administration reports', 'alpha rosters, sign-in sheets, no-show follow-up')}
+      ${phaseRow('ar6-pay',   'Payroll Reports',            'verify hours before finalizing')}
+      ${phaseRow('ar6-pubh',  'Payroll UnBilled Hour Report','confirm all worked hours are captured for billing')}
+    </div>
+
+    <div style="background:#dff0d8;border-left:4px solid #1a6a1a;padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
+      <div style="font-weight:bold;color:#1a6a1a;font-size:13px;margin-bottom:7px">For billing and closeout</div>
+      ${phaseRow('ar6-bilr', 'Billing Invoice Ledger &amp; Billing Invoice Register', 'confirm invoices have been generated')}
+      ${phaseRow('ar6-bld',  'Billing Ledger Details',                                'audit-level review of billing transactions')}
+    </div>
+
+    <div id="ar6-goal" style="background:#1a3c5a;color:#fff;padding:10px 14px;border-radius:3px;font-size:12px;line-height:1.5">
+      <span style="font-weight:bold">The goal:</span> a clean handoff at every stage &mdash; scheduling feeds payroll, payroll feeds billing. Your reports give you the visibility to make sure that chain is intact.
+    </div>`;
+
   runGuided([
-    { selector: '#card', prompt: 'As an Admin Reporting user your reports span every phase of event operations. This overview shows which reports to run and when.', skipClick: true },
+    // Before the event
+    { selector: '#ar6-lce',   prompt: 'Labour Cost Estimation — plan your labor budget before the event', skipClick: true },
+    { selector: '#ar6-cred',  prompt: 'Employee Credential Report and Job Credential Report — verify employees are licensed for the roles you\'re filling', skipClick: true },
+    { selector: '#ar6-sched', prompt: 'Schedule Efficiency — review past events to improve future scheduling', skipClick: true },
+
+    // During and after the event
+    { selector: '#ar6-jadmin', prompt: 'Job Administration reports — alpha rosters, sign-in sheets, and no-show follow-up during and after the event', skipClick: true },
+    { selector: '#ar6-pay',    prompt: 'Payroll Reports — verify hours before payroll is finalized', skipClick: true },
+    { selector: '#ar6-pubh',   prompt: 'Payroll UnBilled Hour Report — confirm all worked hours are captured for billing', skipClick: true },
+
+    // For billing and closeout
+    { selector: '#ar6-bilr', prompt: 'Billing Invoice Ledger and Billing Invoice Register — confirm invoices have been generated', skipClick: true },
+    { selector: '#ar6-bld',  prompt: 'Billing Ledger Details — audit-level review of billing transactions', skipClick: true },
+
+    // Final summary
+    { selector: '#ar6-goal', prompt: 'The goal is a clean handoff at every stage: scheduling feeds payroll, payroll feeds billing. Your reports give you the visibility to make sure that chain is intact.', skipClick: true },
   ]);
 }
 
