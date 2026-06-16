@@ -3503,28 +3503,26 @@ function importPortalHTML() {
       <button class="btn btn-secondary" id="imp-emp-status">Employee Status</button>
     </div>
     <div id="imp-results" style="display:none">
-      <div id="imp-summary" style="display:flex;gap:18px;background:#eef3f8;border:1px solid #cdd9e5;padding:6px 12px;font-size:12px;border-radius:3px;margin-bottom:8px">
-        <span><b>Total:</b> 3</span><span><b>Duplicate:</b> 1</span><span><b>Import:</b> 0</span><span><b>Hired:</b> 3</span><span><b>Rehired:</b> 0</span>
-      </div>
+      <div id="imp-summary" style="font-size:13px;margin:8px 0">Total:2 &nbsp;&nbsp; Duplicate:1 &nbsp;&nbsp; Import:0 &nbsp;&nbsp; Hired:2 &nbsp;&nbsp; Rehired:0</div>
       <div style="overflow-x:auto">
-        <table id="imp-table" style="min-width:900px;width:100%;font-size:12px">
+        <table id="imp-table" style="min-width:1000px;width:100%;font-size:12px">
           <thead><tr style="background:#5a5a5a;color:#fff">
-            <th style="${cell}">Select</th><th style="text-align:left;${cell}">SSN</th><th style="text-align:left;${cell}">Name</th><th style="text-align:left;${cell}">Branch</th>
-            <th style="text-align:left;${cell}" id="imp-h-bg">BG Status</th><th style="text-align:left;${cell}" id="imp-h-ev">E-Verify Status</th><th style="text-align:left;${cell}" id="imp-h-st">Status</th><th style="text-align:left;${cell}">Hiring Status</th></tr></thead>
+            <th style="text-align:left;${cell}">SSN</th><th style="text-align:left;${cell}">First Name</th><th style="text-align:left;${cell}">Middle Name</th><th style="text-align:left;${cell}">Last Name</th><th style="${cell}">Exp</th><th style="text-align:left;${cell}">Branch</th>
+            <th style="text-align:left;${cell}" id="imp-h-bg">BG Status</th><th style="text-align:left;${cell}" id="imp-h-ev">E-Verify Status</th><th style="text-align:left;${cell}" id="imp-h-st">Status</th><th style="text-align:left;${cell}">Hiring Status</th><th style="${cell}">D</th><th style="text-align:left;${cell}">Phone</th></tr></thead>
           <tbody>
-            <tr id="imp-row-1" style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox" id="imp-chk-1"> <select id="imp-dd-1" style="display:none;font-size:11px"><option>Select</option><option>Rejected</option><option>Rescind</option></select></td>
-              <td style="${cell}">***-**-4821</td><td style="${cell};color:#3a6aaa">Holloway, Derek</td><td style="${cell}">Prota LA Branch Test</td>
-              <td style="${cell}" id="imp-bg-1"><span style="${ok}">APPROVED</span></td><td style="${cell}" id="imp-ev-1"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">Hired</td></tr>
-            <tr style="background:#ededed"><td style="text-align:center;${cell}"><input type="checkbox"></td>
-              <td style="${cell}">***-**-5530</td><td style="${cell};color:#3a6aaa">Nguyen, Tara</td><td style="${cell}">Prota LA Branch Test</td>
-              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}">Hired</td></tr>
-            <tr style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox"></td>
-              <td style="${cell}">***-**-7741</td><td style="${cell};color:#3a6aaa">Okafor, Samuel</td><td style="${cell}">Prota LA Branch Test</td>
-              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}" id="imp-dup-3"><span style="color:#c06000;font-weight:bold">Duplicate</span></td></tr>
+            <tr id="imp-row-1" style="background:#f7f7f7"><td style="${cell}">***-**-4821</td><td style="${cell};color:#3a6aaa">Derek</td><td style="${cell}"></td><td style="${cell};color:#3a6aaa">Holloway</td><td style="text-align:center;${cell}"><input type="checkbox" id="imp-chk-1"></td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}" id="imp-bg-1"><span style="${ok}">APPROVED</span></td><td style="${cell}" id="imp-ev-1"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">NEW</td><td style="text-align:center;${cell}">1</td><td style="${cell}">685-674-5645</td></tr>
+            <tr style="background:#f3c6c6"><td style="${cell}">***-**-7741</td><td style="${cell};color:#3a6aaa">Samuel</td><td style="${cell}"></td><td style="${cell};color:#3a6aaa">Okafor</td><td style="text-align:center;${cell}"><input type="checkbox"></td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}" id="imp-dup-3"><span style="color:#c0392b;font-weight:bold">Duplicate</span></td><td style="text-align:center;${cell}">1</td><td style="${cell}">685-674-7741</td></tr>
           </tbody>
         </table>
       </div>
-      <div style="margin-top:12px"><button class="btn" id="imp-btn">Import Applicant</button></div>
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <select class="form-select" id="imp-dd" style="font-size:12px;width:120px"><option>Select</option><option>Rejected</option><option>Rescind</option></select>
+        <button class="btn btn-sm btn-secondary">Change Status</button>
+        <button class="btn btn-sm" id="imp-btn">Import Applicant</button>
+        <button class="btn btn-sm btn-secondary">CSVExported</button>
+      </div>
       <div id="imp-msg" class="msg-success" style="margin-top:12px">&#10004; Applicant imported successfully. Employee record created.</div>
     </div>`;
 }
@@ -3554,69 +3552,12 @@ function slide_hiring_manager_3() {
   setNav('tools');
   document.getElementById('content').innerHTML = importPortalHTML();
   runGuided([
-    { selector: '#imp-branch', prompt: 'Set your Branch Name', onConfirm: () => {} },
-    { selector: '#imp-emptype', prompt: 'Set the Employee Type — Regular Employee in most cases', onConfirm: () => {} },
+    { selector: '#imp-emptype', prompt: 'Your branch is already set. Just choose the Employee Type — Regular Employee in most cases',
+      onConfirm: () => { document.getElementById('imp-emptype').value = 'Regular Employee'; }},
     { selector: '#imp-search', prompt: 'Click "Search" to pull the applicant list',
       onConfirm: () => { document.getElementById('imp-results').style.display = ''; }},
     { selector: '#imp-summary', prompt: 'The summary row shows Total, Duplicate (already in WISH), Import (done this session), Hired, and Rehired', skipClick: true },
-    { selector: '#imp-table', prompt: 'The list shows each applicant\'s SSN, Name, Branch, BG Status, E-Verify Status, Status, and Hiring Status. Review these before taking any action', skipClick: true },
-  ]);
-}
-
-function slide_hiring_manager_4() {
-  // Check Before You Import — confirm BG APPROVED, E-Verify EMPLOYMENTAUTHORIZED, Status Hired; watch for Duplicate
-  setNav('tools');
-  document.getElementById('content').innerHTML = importPortalHTML();
-  document.getElementById('imp-results').style.display = '';
-  runGuided([
-    { selector: '#imp-bg-1', also: ['#imp-h-bg'], prompt: 'Before importing, the Background Check Status must show APPROVED. Never import an applicant whose check is still pending or has not cleared', skipClick: true },
-    { selector: '#imp-ev-1', also: ['#imp-h-ev'], prompt: 'E-Verify Status should show EMPLOYMENTAUTHORIZED — this confirms the applicant is authorized to work', skipClick: true },
-    { selector: '#imp-st-1', also: ['#imp-h-st'], prompt: 'The Status column should show Hired before you proceed. If it shows anything else, don\'t import until their hiring process is complete', skipClick: true },
-    { selector: '#imp-dup-3', prompt: 'Watch for Duplicate — this applicant already exists in WISH under a matching SSN. Do not import duplicates; it can create record conflicts', skipClick: true },
-  ]);
-}
-
-function slide_hiring_manager_5() {
-  // Importing an Applicant — checkbox > Select > Import Applicant > confirmation
-  setNav('tools');
-  document.getElementById('content').innerHTML = importPortalHTML();
-  document.getElementById('imp-results').style.display = '';
-  runGuided([
-    { selector: '#imp-chk-1', prompt: 'Once you\'ve confirmed an applicant is cleared, click the checkbox next to their name',
-      onConfirm: () => { document.getElementById('imp-chk-1').checked = true; document.getElementById('imp-dd-1').style.display = ''; }},
-    { selector: '#imp-dd-1', prompt: 'A dropdown appears with three options — Select (mark for import), Rejected (remove from consideration), or Rescind (reverse a previous action). Choose "Select"',
-      onConfirm: () => { document.getElementById('imp-dd-1').value = 'Select'; }},
-    { selector: '#imp-btn', prompt: 'Click "Import Applicant" — the system creates their employee record in WISH',
-      onConfirm: () => { document.getElementById('imp-msg').classList.add('show'); }},
-    { selector: '#imp-msg', prompt: 'Imported. The applicant now appears in Records > Manage Employee and can be assigned a pay rate and scheduled. (You can also use CSV Export to download the list.)', skipClick: true },
-  ]);
-}
-
-function slide_hiring_manager_6() {
-  // After the Import — Records > Manage Employee > search the new employee > confirm record created
-  setNav('home');
-  document.getElementById('content').innerHTML = homeScreenHTML();
-  runGuided([
-    { selector: '#nav-records', prompt: 'After importing, confirm the record was created. Go to "Records"',
-      onConfirm: () => {
-        document.getElementById('nav-records').classList.add('active');
-        document.getElementById('sub-records').classList.add('show');
-      }},
-    { selector: '#sub-rec-employee', prompt: 'Click "Manage Employee"',
-      onConfirm: () => {
-        document.getElementById('nav-records').classList.remove('active');
-        document.getElementById('sub-records').classList.remove('show');
-        document.getElementById('content').innerHTML = empSearchHTML();
-      }},
-    { selector: '#f-elast', prompt: 'Search for the newly imported employee by name', type: 'Holloway' },
-    { selector: '#btn-empsrch', prompt: 'Click "Search"',
-      onConfirm: () => {
-        document.getElementById('emp-results').style.display = '';
-        const link = document.getElementById('emp-link');
-        if (link) { link.textContent = 'Holloway'; const tr = link.closest('tr');
-          tr.children[1].textContent = 'Derek'; tr.children[2].textContent = '4122105'; }
-      }},
-    { selector: '#emp-link', prompt: 'There\'s the imported applicant — their record was created from the hiring portal info. Open it to verify their personal info populated correctly, and assign a default pay rate (they can\'t be scheduled without an active rate)', skipClick: true },
+    { selector: '#imp-table', prompt: 'The list shows each applicant\'s SSN, name, branch, BG Status, E-Verify Status, Status, and Hiring Status. Review these columns before taking any action', skipClick: true },
   ]);
 }
 
@@ -3686,8 +3627,9 @@ function slide_hiring_manager_5() {
   document.getElementById('imp-results').style.display = '';
   runGuided([
     { selector: '#imp-chk-1', prompt: 'Once an applicant is confirmed cleared and ready, click the checkbox next to their name',
-      onConfirm: () => { document.getElementById('imp-dd-1').style.display = ''; }},
-    { selector: '#imp-dd-1', prompt: 'A dropdown appears: "Select" marks them for import, "Rejected" removes them from consideration, "Rescind" reverses a previous action. Choose "Select"', skipClick: true },
+      onConfirm: () => { document.getElementById('imp-chk-1').checked = true; }},
+    { selector: '#imp-dd', prompt: 'In the dropdown at the bottom, "Select" marks them for import, "Rejected" removes them from consideration, "Rescind" reverses a previous action. Choose "Select"',
+      onConfirm: () => { document.getElementById('imp-dd').value = 'Select'; }},
     { selector: '#imp-btn', prompt: 'Click "Import Applicant" at the bottom of the screen',
       onConfirm: () => { document.getElementById('imp-msg').classList.add('show'); }},
     { selector: '#imp-msg', prompt: 'The system creates their employee record. They now appear in Records > Manage Employee, where you can assign a pay rate and schedule them. (CSV Export downloads the list if you need to share or archive it.)', skipClick: true },
