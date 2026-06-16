@@ -151,6 +151,9 @@ tr:hover td{background:#f8f4f0;}
   border-right:14px solid transparent;
   border-top:18px solid #ff8c00;
 }
+/* When the target is too close to the top, render the arrow BELOW it, pointing up */
+#guided-arrow.below{ flex-direction:column-reverse; }
+#guided-arrow.below .arrow-down{ transform:rotate(180deg); }
 #guided-prompt{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);background:#1a3c5a;color:#fff;padding:9px 16px 9px 40px;border-radius:4px;font-size:13px;max-width:420px;width:max-content;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;text-align:left;}
 #guided-prompt::before{content:'☝';position:absolute;left:12px;top:7px;font-size:17px;}
 #guided-bar{position:fixed;bottom:24px;left:0;width:100%;height:34px;background:#1a3c5a;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;font-size:12px;z-index:9997;}
@@ -479,9 +482,14 @@ function runGuided(steps, opts) {
         const rect = el.getBoundingClientRect();
         const arrowW = 110;
         const centerX = rect.left + rect.width / 2;
-        const topY = rect.top - 58;
+        // Default: arrow sits above the target. If there isn't ~58px of room above
+        // (target near the top edge), flip it below so it never covers the target.
+        let topY = rect.top - 58;
+        const below = topY < 6;
+        if (below) topY = rect.bottom + 8;
+        arrow.classList.toggle('below', below);
         arrow.style.left = Math.max(4, Math.min(1280 - arrowW - 4, centerX - arrowW / 2)) + 'px';
-        arrow.style.top  = Math.max(4, topY) + 'px';
+        arrow.style.top  = topY + 'px';
         arrow.style.display = 'flex';
         const lbl = arrow.querySelector('.arrow-label');
         if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
