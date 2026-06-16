@@ -3872,6 +3872,83 @@ function slide_mail_by_4() {
   ]);
 }
 
+function mailByJobHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const c = 'padding:5px 8px';
+  const cal = calBtn();
+  const sel = (lbl, opts) => `<tr><td style="text-align:right;font-size:13px;padding-right:8px">${lbl} :</td><td><select class="form-select" style="width:175px">${opts.map(o=>'<option>'+o+'</option>').join('')}</select></td></tr>`;
+  const jobs = [
+    ['5023709417','Special Ops WISH training June 2026-6/12/2026-6/19/2026','1','Staff 1 Call','06/19/2026 13:00','06/19/2026 17:00'],
+    ['5023709417','Special Ops WISH training June 2026-6/12/2026-6/19/2026','2','Main Call','06/19/2026 14:00','06/19/2026 21:00'],
+    ['5023709416','Special Ops WISH training June 2026-6/12/2026-6/18/2026','1','Staff 1 Call','06/18/2026 13:00','06/18/2026 17:00'],
+    ['5023709416','Special Ops WISH training June 2026-6/12/2026-6/18/2026','2','Main Call','06/18/2026 14:00','06/18/2026 21:00'],
+    ['5023709415','Special Ops WISH training June 2026-6/12/2026-6/17/2026','1','Staff 1 Call','06/17/2026 13:00','06/17/2026 17:00'],
+    ['5023709415','Special Ops WISH training June 2026-6/12/2026-6/17/2026','2','Main Call','06/17/2026 14:00','06/17/2026 21:00'],
+  ];
+  const rows = jobs.map((j,i)=>`<tr style="background:${i%2?'#ededed':'#f7f7f7'}"><td style="text-align:center;${c};color:#2a8a3a;font-weight:bold">+</td><td style="text-align:center;${c}"><input type="checkbox"${i===0?' id="mbj-chk-1"':''}></td><td style="${c}">${j[0]}</td><td style="${c}">${j[1]}</td><td style="text-align:center;${c}">${j[2]}</td><td style="${c}">${j[3]}</td><td style="${c}">${j[4]}</td><td style="${c}">${j[5]}</td></tr>`).join('');
+  return `
+    <div class="page-title">Job Search Criteria</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" id="mbj-jobnum" style="width:167px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Invoice# :</td><td><input class="form-input" style="width:167px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch Name :</td><td><select class="form-select" style="width:175px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+      ${sel('Department Name',['All','Staff'])}
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Date :</td><td><input class="form-input" value="06/16/2026" style="width:90px">${cal}${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">End Date :</td><td><input class="form-input" value="06/22/2026" style="width:90px">${cal}${req}</td></tr>
+      ${sel('Event Name',['All'])}
+      ${sel('Venue Name',['All'])}
+      ${sel('Job Name',['All'])}
+      ${sel('Shift Name',['All'])}
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">No Show :</td><td><input type="checkbox"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Send Schedule :</td><td><input type="checkbox"></td></tr>
+    </table>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="mbj-search">Search</button></div>
+    <div class="page-title" style="font-size:18px">Search Result</div>
+    <div id="mbj-results" style="display:none;margin-top:8px">
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="mbj-all-hdr"></th><th style="${c}"></th><th style="text-align:left;${c}">Job#</th><th style="text-align:left;${c}">Job Name</th><th style="${c}">Shift#</th><th style="text-align:left;${c}">Shift Name</th><th style="text-align:left;${c}">Start Time</th><th style="text-align:left;${c}">Finish Time</th></tr></thead>
+        <tbody id="mbj-body">${rows}</tbody>
+      </table>
+      <div style="text-align:center;margin-top:10px"><button class="btn" id="mbj-send">Send Email</button></div>
+      ${mailComposeHTML('mbj', 'TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc,PriyaS@maildrop.cc,DariaW@maildrop.cc')}
+    </div>`;
+}
+
+function slide_mail_by_5() {
+  // Mail By Job — Tools > Mail By Job; enter/search a job, system pulls the scheduled crew, compose + send to all
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-tools', prompt: 'Click "Tools"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
+      }},
+    { selector: '#sub-tools-mbj', prompt: 'Click "Mail By Job"',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = mailByJobHTML();
+      }},
+    { selector: '#mbj-jobnum', prompt: 'Enter the Job Number — or use the criteria below (branch, date range) to search for the job', type: '5023709417' },
+    { selector: '#mbj-search', prompt: 'Click "Search"',
+      onConfirm: () => { document.getElementById('mbj-results').style.display = ''; }},
+    { selector: '#mbj-chk-1', prompt: 'Select the job. WISH automatically pulls everyone scheduled on it',
+      onConfirm: () => { document.getElementById('mbj-chk-1').checked = true; }},
+    { selector: '#mbj-send', prompt: 'Click "Send Email"',
+      onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'flex'; }},
+    { selector: '#mbj-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'none'; document.getElementById('mbj-compose').style.display = 'flex'; }},
+    { selector: '#mbj-from', prompt: 'The compose window opens with the whole scheduled crew already in "To Email". Pick the From Email',
+      onConfirm: () => { document.getElementById('mbj-from').value = 'scheduler@protatech.com'; }},
+    { selector: '#mbj-subject', prompt: 'Enter a Subject', type: 'Call Time & Parking - Special Ops Training' },
+    { selector: '#mbj-message', prompt: 'Type your message — call time, where to park, what to wear, etc.', type: 'Reminder: report at your call time, park in Lot C, wear all black. See you there.' },
+    { selector: '#mbj-compose-send', prompt: 'Click "Send" — every employee scheduled on the job gets the message at once',
+      onConfirm: () => { document.getElementById('mbj-compose').style.display = 'none'; document.getElementById('mbj-msg').classList.add('show'); }},
+    { selector: '#mbj-msg', prompt: 'The whole event crew receives the message simultaneously — the fastest way to reach everyone on a job', skipClick: true },
+  ]);
+}
+
 // ── Sign-In / Sign-Out ─────────────────────────────────────────────────────
 function slide_sign_in_sign_out_3() {
   // Start on home dashboard with nav fully collapsed
@@ -10084,6 +10161,7 @@ const routes = {
   'mail_by-2':        slide_mail_by_2,
   'mail_by-3':        slide_mail_by_3,
   'mail_by-4':        slide_mail_by_4,
+  'mail_by-5':        slide_mail_by_5,
   'sign_in_sign_out-3': slide_sign_in_sign_out_3,
   'sign_in_sign_out-4': slide_sign_in_sign_out_4,
   'sign_in_sign_out-5': slide_sign_in_sign_out_5,

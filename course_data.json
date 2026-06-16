@@ -907,7 +907,8 @@
         "slide_number": 2,
         "slide_name": "What HR Admin Gives You",
         "instructions": "Records menu open. Scroll to the bottom and click Manage Employee Task.",
-        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items."
+        "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=2"
       },
       {
         "slide_number": 3,
@@ -920,7 +921,8 @@
         "slide_number": 4,
         "slide_name": "Following Up on Pending Tasks",
         "instructions": "Click on an employee row that shows an X. Show the task detail that opens ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â task name, description, due date, and status. Show what a pending task looks like vs a completed one.",
-        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n* The name of the task\r\n* A description of what needs to be completed\r\n* The due date if one has been set\r\n* The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n* Review exactly what the employee needs to do\r\n* Follow up with the employee directly to make sure they complete it\r\n* Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf."
+        "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n* The name of the task\r\n* A description of what needs to be completed\r\n* The due date if one has been set\r\n* The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n* Review exactly what the employee needs to do\r\n* Follow up with the employee directly to make sure they complete it\r\n* Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=4"
       },
       {
         "slide_number": 5,
@@ -977,7 +979,8 @@
         "slide_number": 5,
         "slide_name": "Mail By Job",
         "instructions": "Tools ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Mail By Job. Show the job search field. Enter a job number. Show the list of scheduled employees populating automatically. Compose a message and click Send.",
-        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send, all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n* Last-minute schedule changes or location updates before an event\r\n* Sending reminders about what to wear, where to park, or what time to arrive\r\n* Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once."
+        "text": "Use Mail By Job when you need to reach everyone already scheduled on a specific job at once.\r\n\r\nTo send a message:\r\n1. Go to Tools to Mail By Job\r\n2. Enter the Job Number or search for the job\r\n3. The system automatically pulls all employees scheduled for that job\r\n4. Compose your subject and message\r\n5. Click Send, all scheduled employees receive the message simultaneously\r\n\r\nCommon uses:\r\n* Last-minute schedule changes or location updates before an event\r\n* Sending reminders about what to wear, where to park, or what time to arrive\r\n* Post-event communications to everyone who worked a specific job\r\n\r\nThis is the fastest way to get a message out to your entire event crew at once.",
+        "simulation_url": "/mockup/mockup.html?module=mail_by&slide=5"
       },
       {
         "slide_number": 6,
