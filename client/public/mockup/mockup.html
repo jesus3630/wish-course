@@ -380,7 +380,24 @@ let _gs = null; // guided state
 let _gsExtra = []; // extra elements highlighted alongside the main target
 function _clearExtra(){ _gsExtra.forEach(e => e.classList.remove('guided-target')); _gsExtra = []; }
 
-function runGuided(steps) {
+function showCompletionOverlay() {
+  const old = document.getElementById('guided-complete-overlay');
+  if (old) old.remove();
+  const ov = document.createElement('div');
+  ov.id = 'guided-complete-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;background:rgba(76,175,80,0.16);pointer-events:none;opacity:0;transition:opacity .45s ease';
+  ov.innerHTML =
+    '<div style="background:rgba(255,255,255,0.96);border:2px solid #4caf50;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.22);padding:22px 32px;text-align:center;max-width:380px">' +
+      '<div style="font-size:40px;color:#4caf50;line-height:1">&#10004;</div>' +
+      '<div style="font-size:16px;font-weight:bold;color:#2e7d32;margin-top:8px">You\'ve completed this section</div>' +
+      '<div style="font-size:13px;color:#555;margin-top:6px">Please click <b>Next</b> to continue.</div>' +
+    '</div>';
+  document.body.appendChild(ov);
+  requestAnimationFrame(() => { ov.style.opacity = '1'; });
+}
+
+function runGuided(steps, opts) {
+  opts = opts || {};
   // Cleanup previous session
   if (_gs) {
     if (_gs.handler) document.removeEventListener('click', _gs.handler, true);
@@ -389,8 +406,10 @@ function runGuided(steps) {
   }
   const oldBar = document.getElementById('guided-bar');
   const oldTip = document.getElementById('guided-prompt');
+  const oldOverlay = document.getElementById('guided-complete-overlay');
   if (oldBar) oldBar.remove();
   if (oldTip) oldTip.remove();
+  if (oldOverlay) oldOverlay.remove();
   _gs = null;
 
   // Hide animated cursor — user uses real mouse in interactive mode
@@ -433,6 +452,7 @@ function runGuided(steps) {
     if (i >= steps.length) {
       tip.style.display = 'none';
       bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Section complete!</span>';
+      if (opts.completionOverlay) showCompletionOverlay();
       setTimeout(() => { bar.remove(); tip.remove(); }, 2800);
       return;
     }
@@ -3025,7 +3045,7 @@ function slide_workforce_scheduler_mntnnce_3() {
       onConfirm: () => { document.getElementById('emp-results').style.display = ''; }},
     { selector: '#emp-link', prompt: 'Results show Last Name, First Name, Employee Number, Branch Name, and Status. Click the last name (blue link) to open their record',
       onConfirm: () => { document.getElementById('content').innerHTML = empRecordHTML(); }},
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_4() {
