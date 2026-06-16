@@ -5801,7 +5801,7 @@ function slide_billing_4() {
               <label style="font-size:12px"><input type="radio" name="bj-fmt"> Excel</label>
             </td></tr>
         <tr><td></td><td style="padding:8px 0">
-              <button class="btn" id="bj-view" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">View</button>
+              <button class="btn" id="bj-view" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 18px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold">View<span id="btn-viewunbilled" style="display:none"></span></button>
               <button class="btn" style="background:#e08020;color:#fff;border:1px solid #b06010;padding:5px 14px;font-size:12px;border-radius:3px;cursor:pointer;font-weight:bold;margin-left:6px">Print Report</button>
             </td></tr>
       </table>
@@ -6068,7 +6068,7 @@ function slide_billing_5() {
         <tr><td style="text-align:right;padding-right:10px">Client :</td>
             <td>${dropdown('mbp-client','--Select--', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
         <tr><td style="text-align:right;padding-right:10px">Contract :</td>
-            <td>${dropdown('mbp-contract','--Select--', 240)}<span style="color:#c00;margin-left:4px">*</span></td></tr>
+            <td>${dropdown('mbp-contract','--Select--', 240)}<span style="color:#c00;margin-left:4px">*</span><span id="f-bill-contract" style="display:none"></span></td></tr>
         <tr><td style="text-align:right;padding-right:10px">Job# :</td>
             <td><input style="width:212px;height:22px;border:1px solid #aaa;padding:2px 6px;font-size:12px"><input type="checkbox" style="margin-left:6px;vertical-align:middle"></td></tr>
         <tr><td style="text-align:right;padding-right:10px">Invoice Ref# :</td>
@@ -6167,7 +6167,7 @@ function slide_billing_6() {
 
   const tabs = ['SignIn/SignOut','Billing Taxes','Billing Summary','Billable Items','Inv Setup','Adv Credit','Generate Invoice'];
   const tabBar = (active) => `
-    <div style="display:flex;border-bottom:1px solid #b06010;margin:14px 0 10px 0">
+    <div id="bill-tabs" style="display:flex;border-bottom:1px solid #b06010;margin:14px 0 10px 0">
       ${tabs.map((t,i) => `<span id="btab-${i}" style="padding:6px 14px;cursor:pointer;font-size:11px;font-weight:bold;border:1px solid #b06010;border-bottom:none;margin-right:1px;border-radius:3px 3px 0 0;${i===active?'background:#e08020;color:#fff':'background:#fff;color:#1a3c5a'}">${t}</span>`).join('')}
     </div>`;
 
