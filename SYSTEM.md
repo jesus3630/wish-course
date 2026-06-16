@@ -60,6 +60,11 @@ and advances when the user clicks.
 - To highlight several things at once (e.g. "these three tabs"), use `also`.
 - To demonstrate typing, use `type`.
 
+**Completion overlay (default ON).** When the last step finishes, the engine fades in a
+translucent green wash + a centered card: *"You've completed this section — Please click
+Next to continue."* It's `pointer-events:none` so it never blocks. This is automatic for
+every demo. To disable on a specific slide: `runGuided(steps, { completionOverlay: false })`.
+
 ### Routing
 The `routes` object near the bottom of the file maps `module-slide` keys to slide
 functions:
