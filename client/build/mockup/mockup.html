@@ -3064,7 +3064,7 @@ function slide_workforce_scheduler_mntnnce_4() {
       onConfirm: () => setEmpRecTab('Notes') },
     { selector: '#etab-personal-information', also: ['#etab-pay-rate', '#etab-disciplinary-action'],
       prompt: 'Tabs like Personal Information, Pay Rate, and Disciplinary Action are visible but view-only at this access level', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_5() {
@@ -3085,7 +3085,7 @@ function slide_workforce_scheduler_mntnnce_5() {
     { selector: '#lic-save', prompt: 'Click "Save" to record the license',
       onConfirm: () => { document.getElementById('lic-save-msg').classList.add('show'); }},
     { selector: '#lic-save-msg', prompt: 'The "License saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_6() {
@@ -3102,7 +3102,7 @@ function slide_workforce_scheduler_mntnnce_6() {
     { selector: '#bg-save', prompt: 'Click "Save" to record the background check',
       onConfirm: () => { document.getElementById('bg-save-msg').classList.add('show'); }},
     { selector: '#bg-save-msg', prompt: 'The "Background check saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_scheduler_mntnnce_7() {
@@ -3119,7 +3119,7 @@ function slide_workforce_scheduler_mntnnce_7() {
     { selector: '#note-save', prompt: 'Click "Save" to record the note',
       onConfirm: () => { document.getElementById('note-save-msg').classList.add('show'); }},
     { selector: '#note-save-msg', prompt: 'The "Note saved successfully" confirmation appears', skipClick: true },
-  ]);
+  ], { completionOverlay: true });
 }
 
 function slide_workforce_admin_maintenance_3() {
