@@ -848,7 +848,8 @@
         "slide_number": 2,
         "slide_name": "What Hiring Manager Access Does",
         "instructions": "Show Tools menu. Scroll to Import From Hiring Portal. Click it. Show the Import From Hiring Portal screen load.",
-        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs."
+        "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs.",
+        "simulation_url": "/mockup/mockup.html?module=hiring_manager&slide=2"
       },
       {
         "slide_number": 3,

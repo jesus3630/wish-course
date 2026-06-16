@@ -314,7 +314,7 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Manage Notifications</span>
       <span class="nav-sub-item">Mail By Available Employee</span>
       <span class="nav-sub-item">Mail By Job</span>
-      <span class="nav-sub-item">Import From Hiring portal</span>
+      <span class="nav-sub-item" id="sub-tools-import-portal">Import From Hiring portal</span>
       <span class="nav-sub-item">Import PayRate</span>
       <span class="nav-sub-item" id="sub-tools-mss">Manager Portal(MSS)</span>
       <span class="nav-sub-item">Manager Portal(NEW MSS)</span>
@@ -3415,29 +3415,76 @@ function slide_employee_hr_record_maintenance_6() {
 }
 
 // ── Hiring ─────────────────────────────────────────────────────────────────
-function slide_hiring_manager_3() {
-  setNav('tools');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Import from Hiring Portal</div>
-    <div style="margin-bottom:12px;display:flex;gap:10px;align-items:flex-end">
-      <div><label>Branch :</label><br><select class="form-select"><option>Los Angeles</option></select></div>
-      <div><label>Status :</label><br><select class="form-select"><option>Approved</option></select></div>
-      <button class="btn">Search</button>
+function importPortalHTML() {
+  const cell = 'padding:5px 8px';
+  const ok = 'color:#2a9a2a;font-weight:bold';
+  return `
+    <div class="page-title">Import From Hiring Portal</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div style="display:flex;gap:16px;align-items:flex-end;margin:6px 0 10px">
+      <div><label style="font-size:13px">Branch Name :</label><br><select class="form-select" id="imp-branch" style="width:180px"><option>Prota LA Branch Test</option></select></div>
+      <div><label style="font-size:13px">Employee Type :</label><br><select class="form-select" id="imp-emptype" style="width:160px"><option>Regular Employee</option></select></div>
+      <button class="btn" id="imp-search">Search</button>
+      <button class="btn btn-secondary" id="imp-csv">CSV Export</button>
     </div>
-    <table><thead><tr><th>Select</th><th>Applicant Name</th><th>Applied Date</th><th>Position</th><th id="bgcol" style="background:#c06820">Background Status</th><th>Action</th></tr></thead>
-    <tbody>
-      <tr><td><input type="radio" name="app" id="app1r"></td><td>Torres, Luis</td><td>07/28/2023</td><td>Event Staff</td><td><span style="color:#2a9a2a;font-weight:bold">Approved</span></td><td><button class="btn btn-sm" id="btn-import" disabled>Import Applicant</button></td></tr>
-      <tr><td><input type="radio" name="app"></td><td>Kim, Jennifer</td><td>08/01/2023</td><td>Supervisor</td><td><span style="color:#2a9a2a;font-weight:bold">Approved</span></td><td><button class="btn btn-sm" disabled>Import Applicant</button></td></tr>
-    </tbody></table>
-    <div id="import-msg" class="msg-success" style="margin-top:12px">&#10004; Applicant imported successfully. Employee record created.</div>`;
+    <div id="imp-results" style="display:none">
+      <div id="imp-summary" style="display:flex;gap:18px;background:#eef3f8;border:1px solid #cdd9e5;padding:6px 12px;font-size:12px;border-radius:3px;margin-bottom:8px">
+        <span><b>Total:</b> 3</span><span><b>Duplicate:</b> 1</span><span><b>Import:</b> 0</span><span><b>Hired:</b> 3</span><span><b>Rehired:</b> 0</span>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="imp-table" style="min-width:900px;width:100%;font-size:12px">
+          <thead><tr style="background:#5a5a5a;color:#fff">
+            <th style="${cell}">Select</th><th style="text-align:left;${cell}">SSN</th><th style="text-align:left;${cell}">Name</th><th style="text-align:left;${cell}">Branch</th>
+            <th style="text-align:left;${cell}" id="imp-h-bg">BG Status</th><th style="text-align:left;${cell}" id="imp-h-ev">E-Verify Status</th><th style="text-align:left;${cell}" id="imp-h-st">Status</th><th style="text-align:left;${cell}">Hiring Status</th></tr></thead>
+          <tbody>
+            <tr id="imp-row-1" style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox" id="imp-chk-1"> <select id="imp-dd-1" style="display:none;font-size:11px"><option>Select</option><option>Rejected</option><option>Rescind</option></select></td>
+              <td style="${cell}">***-**-4821</td><td style="${cell};color:#3a6aaa">Holloway, Derek</td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}" id="imp-st-1">Hired</td><td style="${cell}">Hired</td></tr>
+            <tr style="background:#ededed"><td style="text-align:center;${cell}"><input type="checkbox"></td>
+              <td style="${cell}">***-**-5530</td><td style="${cell};color:#3a6aaa">Nguyen, Tara</td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}">Hired</td></tr>
+            <tr style="background:#f7f7f7"><td style="text-align:center;${cell}"><input type="checkbox"></td>
+              <td style="${cell}">***-**-7741</td><td style="${cell};color:#3a6aaa">Okafor, Samuel</td><td style="${cell}">Prota LA Branch Test</td>
+              <td style="${cell}"><span style="${ok}">APPROVED</span></td><td style="${cell}"><span style="${ok}">EMPLOYMENTAUTHORIZED</span></td><td style="${cell}">Hired</td><td style="${cell}"><span style="color:#c06000;font-weight:bold">Duplicate</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:12px"><button class="btn" id="imp-btn">Import Applicant</button></div>
+      <div id="imp-msg" class="msg-success" style="margin-top:12px">&#10004; Applicant imported successfully. Employee record created.</div>
+    </div>`;
+}
+
+function slide_hiring_manager_2() {
+  // What Hiring Manager Access Does — Tools > Import From Hiring Portal (NOT Records); load the screen
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#app1r', prompt: 'Click to select this applicant',
+    { selector: '#nav-tools', prompt: 'Hiring Manager access lives under "Tools" — not Records. Click "Tools"',
       onConfirm: () => {
-        document.getElementById('app1r').checked = true;
-        document.getElementById('btn-import').disabled = false;
+        document.getElementById('nav-tools').classList.add('active');
+        document.getElementById('sub-tools').classList.add('show');
       }},
-    { selector: '#btn-import', prompt: 'Click "Import Applicant" to create an employee record',
-      onConfirm: () => { document.getElementById('import-msg').classList.add('show'); }},
+    { selector: '#sub-tools-import-portal', prompt: 'Scroll down and click "Import From Hiring Portal" — the one tool this access level gives you',
+      onConfirm: () => {
+        document.getElementById('nav-tools').classList.remove('active');
+        document.getElementById('sub-tools').classList.remove('show');
+        document.getElementById('content').innerHTML = importPortalHTML();
+      }},
+    { selector: '#imp-branch', prompt: 'This is where you bring applicants in from the hiring portal, review their status, and create their employee record', skipClick: true },
+  ]);
+}
+
+function slide_hiring_manager_3() {
+  // Reading the Import Screen — filters, Search, summary row, columns
+  setNav('tools');
+  document.getElementById('content').innerHTML = importPortalHTML();
+  runGuided([
+    { selector: '#imp-branch', prompt: 'Set your Branch Name', onConfirm: () => {} },
+    { selector: '#imp-emptype', prompt: 'Set the Employee Type — Regular Employee in most cases', onConfirm: () => {} },
+    { selector: '#imp-search', prompt: 'Click "Search" to pull the applicant list',
+      onConfirm: () => { document.getElementById('imp-results').style.display = ''; }},
+    { selector: '#imp-summary', prompt: 'The summary row shows Total, Duplicate (already in WISH), Import (done this session), Hired, and Rehired', skipClick: true },
+    { selector: '#imp-table', prompt: 'The list shows each applicant\'s SSN, Name, Branch, BG Status, E-Verify Status, Status, and Hiring Status. Review these before taking any action', skipClick: true },
   ]);
 }
 
@@ -9694,6 +9741,7 @@ const routes = {
   'employee_hr_record_maintenance-4': slide_employee_hr_record_maintenance_4,
   'employee_hr_record_maintenance-5': slide_employee_hr_record_maintenance_5,
   'employee_hr_record_maintenance-6': slide_employee_hr_record_maintenance_6,
+  'hiring_manager-2': slide_hiring_manager_2,
   'hiring_manager-3': slide_hiring_manager_3,
   'hiring_admin-3':   slide_hiring_admin_3,
   'mail_by-3':        slide_mail_by_3,
