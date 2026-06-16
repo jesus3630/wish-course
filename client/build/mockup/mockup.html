@@ -8170,7 +8170,7 @@ function shiftProcessHTML() {
     <table style="margin:8px auto 0">
       ${info('Job No','5023705541')}${info('Job Name','Drake Job')}${info('Shift No','1')}${info('Shift Name','Staff One Call')}${info('Start Time','08/15/2026 08:00')}${info('End Time','08/15/2026 17:00')}
     </table>
-    <div style="text-align:center;margin:10px 0"><button class="btn">AutoFill SignIn</button><button class="btn">AutoFill SignOut</button></div>
+    <div style="text-align:center;margin:10px 0"><button class="btn" id="sp-autofill-si">AutoFill SignIn</button><button class="btn" id="sp-autofill-so">AutoFill SignOut</button></div>
     <table style="width:100%;font-size:12px">
       <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:5px 8px">Shifts/Role</th><th style="text-align:left;padding:5px 8px">Start</th><th style="text-align:left;padding:5px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
       <tbody>
@@ -8201,12 +8201,12 @@ function shiftRosterHTML() {
     <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
     <td style="${cw}"><input type="checkbox"></td>
-    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" value="${e[2]}" style="width:42px">${dateSel}</td>
+    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input sp-si-row" value="${e[2]}" style="width:42px">${dateSel}</td>
     <td style="padding:4px 6px;white-space:nowrap">${dateSel}</td>
-    <td style="${cw}"><input class="form-input" value="${e[3]}" style="width:42px"></td>
+    <td style="${cw}"><input class="form-input sp-hrs-row" value="${e[3]}" style="width:42px"></td>
     <td style="${cw}">${e[4]}</td>
-    <td style="${cw}"><input class="form-input" style="width:48px"></td>
-    <td style="${cw}"><input class="form-input" style="width:48px"></td>
+    <td style="${cw}"><input class="form-input sp-ovd-row" style="width:48px"></td>
+    <td style="${cw}"><input class="form-input sp-pd-row" style="width:48px"></td>
     <td style="${cw};color:#e53935;font-weight:bold;cursor:pointer">&#10006;</td></tr>`).join('');
   return `
     <div id="sp-roster" style="display:none;overflow-x:auto;margin-top:4px">
@@ -8214,7 +8214,7 @@ function shiftRosterHTML() {
         <thead><tr style="background:#5a5a5a;color:#fff">
           <th style="padding:4px 6px"></th><th style="text-align:left;padding:4px 6px">WF#</th><th style="text-align:left;padding:4px 6px">WF Name</th>
           <th style="${cw}">NS<br><input type="checkbox"></th><th style="text-align:left;padding:4px 6px">Sign In Adj</th><th style="text-align:left;padding:4px 6px">Sign Out Adj</th>
-          <th style="${cw}">Hrs</th><th style="${cw}">Rate<br><input type="checkbox"></th><th style="${cw}">Ovd Rate</th><th style="${cw}">Per Diem</th><th style="padding:4px 6px"></th></tr></thead>
+          <th style="${cw}">Hrs</th><th style="${cw}">Rate<br><input type="checkbox"></th><th style="${cw}">Ovd Rate<br><input class="form-input" id="sp-ovd-all" style="width:48px"></th><th style="${cw}">Per Diem<br><input class="form-input" id="sp-pd-all" style="width:48px"></th><th style="padding:4px 6px"></th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
       <div style="margin-top:8px"><button class="btn btn-sm" id="sp-create">Create</button></div>
@@ -8247,29 +8247,19 @@ function slide_payroll_processing_3() {
 }
 
 function slide_payroll_processing_4() {
+  // Entering Times — AutoFill SignIn/SignOut, then Override Rate + Per Diem at the top of the role
   setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
-    <div style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap">
-      <button class="btn btn-sm btn-green" id="btn-pp-afsi">Autofill Sign-In</button>
-      <button class="btn btn-sm btn-blue" id="btn-pp-afso">Autofill Sign-Out</button>
-    </div>
-    <div id="pp-af-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-bottom:8px;display:none;font-size:12px">&#10004; Times filled from scheduled shift times. Employees with existing times were not overwritten.</div>
-    <table><thead><tr><th>Employee</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th></tr></thead>
-    <tbody>
-      <tr><td>Garcia, Maria</td><td>08:00</td><td>12:30</td><td id="pp-si0">&#8212;</td><td id="pp-so0">&#8212;</td></tr>
-      <tr><td>Smith, John</td><td>08:00</td><td>12:30</td><td id="pp-si1">08:05 AM</td><td id="pp-so1">&#8212;</td></tr>
-      <tr><td>Johnson, Robert</td><td>08:00</td><td>12:30</td><td id="pp-si2">&#8212;</td><td id="pp-so2">&#8212;</td></tr>
-    </tbody></table>`;
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
   runGuided([
-    { selector: '#btn-pp-afsi', prompt: 'Click "Autofill Sign-In" — fills all empty sign-in cells with the shift start time. Employees who already have a time keep their recorded time.',
-      onConfirm: () => {
-        document.getElementById('pp-si0').textContent = '08:00 AM';
-        document.getElementById('pp-si2').textContent = '08:00 AM';
-        document.getElementById('pp-af-msg').style.display = '';
-      }},
-    { selector: '#btn-pp-afso', prompt: 'Click "Autofill Sign-Out" — fills all empty sign-out cells with the shift end time.',
-      onConfirm: () => { [0,1,2].forEach(i => document.getElementById('pp-so'+i).textContent = '12:30 PM'); }},
+    { selector: '#sp-autofill-si', prompt: 'To populate times, use "AutoFill SignIn" — one click fills every employee with the shift\'s scheduled start time. Anyone who already has a different time keeps it; autofill won\'t overwrite individual entries',
+      onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '08:00'; }); }},
+    { selector: '#sp-autofill-so', prompt: 'Click "AutoFill SignOut" to fill the scheduled end time. For employees with different arrival times, correct the exceptions manually afterward — use the Tab key to move through each field',
+      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '09:00'; }); }},
+    { selector: '#sp-ovd-all', prompt: 'If employees earned a rate different from their default, enter it in the Override Rate field at the top of the role — here, 18 — then click outside the box, and everyone on the page updates at once', type: '18',
+      onConfirm: () => { document.querySelectorAll('.sp-ovd-row').forEach(el => el.value = '18'); }},
+    { selector: '#sp-pd-all', prompt: 'Per Diem works the same way — enter it once at the top of the role and it applies to all', type: '25',
+      onConfirm: () => { document.querySelectorAll('.sp-pd-row').forEach(el => el.value = '25'); }},
   ]);
 }
 
