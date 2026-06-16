@@ -3576,6 +3576,33 @@ function mailByEmployeeHTML() {
           <div style="text-align:right"><button class="btn btn-secondary" id="mbe-confirm-cancel">Cancel</button><button class="btn" id="mbe-confirm-ok">OK</button></div>
         </div>
       </div>
+      <div id="mbe-compose" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9050;justify-content:center;align-items:flex-start">
+        <div style="background:#fff;border-radius:4px;box-shadow:2px 2px 16px rgba(0,0,0,.45);width:560px;margin-top:55px;padding:16px 22px">
+          <div class="note-bar" style="text-align:center">Note: All the * marked fields are mandatory</div>
+          <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="mbe-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select><span style="color:#c00"> *</span></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="mbe-to" style="width:300px;height:56px;border:1px solid #999;font-size:12px">TerrenceO@maildrop.cc,LorenaV@maildrop.cc,MarcusB@maildrop.cc</textarea><span style="color:#c00"> *</span></td></tr>
+            <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Add CC :</label></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="mbe-subject" style="width:300px"><span style="color:#c00"> *</span></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf Files)</span></td></tr>
+            <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td>
+              <div style="border:1px solid #999;background:#efece3;padding:4px;display:flex;gap:3px;align-items:center;flex-wrap:wrap">
+                <button class="btn btn-sm btn-secondary" style="font-weight:bold">B</button>
+                <button class="btn btn-sm btn-secondary" style="font-style:italic">I</button>
+                <button class="btn btn-sm btn-secondary">&#128279;</button>
+                <button class="btn btn-sm btn-secondary">&#8801;</button>
+                <button class="btn btn-sm btn-secondary">&#8470;</button>
+                <button class="btn btn-sm btn-secondary">&#128443;</button>
+                <button class="btn btn-sm btn-secondary">&#128269;</button>
+                <span style="margin-left:6px;font-size:12px;border:1px solid #aaa;padding:2px 8px;background:#fff">Change block type &#9662;</span>
+              </div>
+              <textarea id="mbe-message" style="width:380px;height:120px;border:1px solid #999;border-top:none"></textarea><span style="color:#c00"> *</span>
+            </td></tr>
+          </table>
+          <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox"> Include ESS link</label></div>
+          <div style="margin:10px 0 0 92px"><button class="btn" id="mbe-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
+        </div>
+      </div>
     </div>`;
 }
 
@@ -3603,8 +3630,14 @@ function slide_mail_by_3() {
       onConfirm: () => { document.getElementById('mbe-chk-1').checked = true; document.getElementById('mbe-chk-2').checked = true; document.getElementById('mbe-chk-3').checked = true; }},
     { selector: '#mbe-send', prompt: 'Click "Send"',
       onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'flex'; }},
-    { selector: '#mbe-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK" to send the emails to the selected employees',
-      onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'none'; document.getElementById('mbe-msg').classList.add('show'); }},
+    { selector: '#mbe-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
+      onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'none'; document.getElementById('mbe-compose').style.display = 'flex'; }},
+    { selector: '#mbe-from', prompt: 'The compose window opens with your selected employees already in "To Email". Pick the From Email address',
+      onConfirm: () => { document.getElementById('mbe-from').value = 'scheduler@protatech.com'; }},
+    { selector: '#mbe-subject', prompt: 'Enter a Subject', type: 'Your Schedule for Next Week' },
+    { selector: '#mbe-message', prompt: 'Type your message. You can attach a PDF and toggle "Include ESS link" if needed', type: 'Hi team, your schedule for next week is attached. Please confirm your shifts.' },
+    { selector: '#mbe-compose-send', prompt: 'Click "Send" to deliver the message',
+      onConfirm: () => { document.getElementById('mbe-compose').style.display = 'none'; document.getElementById('mbe-msg').classList.add('show'); }},
     { selector: '#mbe-msg', prompt: 'The message is sent to everyone in your selection', skipClick: true },
   ]);
 }
