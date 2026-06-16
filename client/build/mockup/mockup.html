@@ -280,7 +280,7 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="11" cy="8" r="5" fill="#c8a870"/><path d="M2 22c0-5 4-9 9-9s9 4 9 9z" fill="#c8a870"/><circle cx="21" cy="20" r="5" fill="#4a9a30"/><text x="21" y="23" text-anchor="middle" fill="#fff" font-size="7" font-weight="bold" font-family="Arial">$</text></svg></span>Payroll
     </a>
     <div class="nav-sub" id="sub-payroll">
-      <span class="nav-sub-item">Manage Process Hours</span>
+      <span class="nav-sub-item" id="sub-pay-mph">Manage Process Hours</span>
       <span class="nav-sub-item">Sign-Out Exceptions</span>
       <span class="nav-sub-item">Process Payroll</span>
       <span class="nav-sub-item">Payroll Export</span>
@@ -8113,32 +8113,40 @@ function homeScreenHTML() {
 
 // ── Payroll Processing ────────────────────────────────────────────────────
 
+function manageProcessHoursHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  return `
+    <div class="page-title">Manage Process Hours</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" id="mph-jobnum" style="width:175px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Time :</td><td><input class="form-input" id="mph-start" value="06/16/2026" style="width:90px">${calBtn()}${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:185px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Event :</td><td><select class="form-select" id="mph-event" style="width:185px"><option>select</option><option>2026 SP FIFA Ivory Coast Training</option><option>Special Ops WISH training June 2026</option></select>${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job :</td><td><select class="form-select" id="mph-job" style="width:185px"><option>select</option></select>${req}</td></tr>
+      <tr><td></td><td><select class="form-select" id="mph-rate" style="width:185px"><option>Default Rate</option></select></td></tr>
+    </table>
+    <div style="text-align:center;margin:12px 0"><button class="btn" id="mph-retrieve">Retrieve</button><button class="btn btn-secondary">Back</button></div>`;
+}
+
 function slide_payroll_processing_2() {
+  // The Pay Week — open Payroll > Manage Process Hours; the pay week runs Saturday through Friday
   setNav('home');
   document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#nav-payroll', prompt: 'Click "Payroll" in the sidebar to open the Payroll menu',
+    { selector: '#nav-payroll', prompt: 'Every pay week in WISH runs Saturday through Friday — all hours must be approved and processed before Wednesday morning. Open the "Payroll" menu',
       onConfirm: () => {
-        setNav('payroll');
-        document.getElementById('content').innerHTML = `
-          <div class="page-title">Payroll</div>
-          <div style="color:#555;font-size:13px;margin-bottom:14px">Select an option from the Payroll menu on the left.</div>
-          <div style="display:flex;flex-direction:column;gap:8px;max-width:320px">
-            <div id="pp-menu-mph" style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#fff8f0;cursor:pointer">
-              <div style="font-weight:bold;color:#c07800">Manage Process Hours</div>
-              <div style="font-size:11px;color:#666;margin-top:2px">Review and approve employee hours after an event</div>
-            </div>
-            <div style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#f9f9f9">
-              <div style="font-weight:bold;color:#555">Sign-Out Exceptions</div>
-              <div style="font-size:11px;color:#666;margin-top:2px">Flag overlapping hours before running payroll</div>
-            </div>
-            <div style="padding:10px 14px;border:1px solid #ddd;border-radius:3px;background:#f9f9f9">
-              <div style="font-weight:bold;color:#555">Process Payroll</div>
-              <div style="font-size:11px;color:#666;margin-top:2px">Finalize and submit payroll for a pay period</div>
-            </div>
-          </div>`;
+        document.getElementById('nav-payroll').classList.add('active');
+        document.getElementById('sub-payroll').classList.add('show');
       }},
-    { selector: '#pp-menu-mph', prompt: 'In this module you will work through all three steps. Click "Manage Process Hours" to begin.', skipClick: true },
+    { selector: '#sub-pay-mph', prompt: 'Click "Manage Process Hours"',
+      onConfirm: () => {
+        document.getElementById('nav-payroll').classList.remove('active');
+        document.getElementById('sub-payroll').classList.remove('show');
+        setNav('payroll');
+        document.getElementById('content').innerHTML = manageProcessHoursHTML();
+      }},
+    { selector: '#mph-retrieve', prompt: 'This is the Manage Process Hours screen — where you review and approve employee hours after an event. Stay current throughout the week; don\'t let hours pile up', skipClick: true },
   ]);
 }
 
