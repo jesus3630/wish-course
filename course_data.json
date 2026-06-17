@@ -163,7 +163,8 @@
         "slide_number": 2,
         "slide_name": "Record Maintenance",
         "instructions": "",
-        "text": "In this module, we'll cover the following Record menus:\r\nManage Job\r\nManage Clients\r\nManage Contracts\r\nManage Events \r\nManage Venues"
+        "text": "In this module, we'll cover the following Record menus:\r\nManage Job\r\nManage Clients\r\nManage Contracts\r\nManage Events \r\nManage Venues",
+        "simulation_url": "/mockup/mockup.html?module=record_maintenance&slide=2"
       },
       {
         "slide_number": 3,
