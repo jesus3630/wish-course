@@ -8232,18 +8232,14 @@ function showShiftRoster() {
 }
 
 function slide_payroll_processing_3() {
-  // Accessing Manage Process Hours — default date, Event + Retrieve, open a shift, the Sign-In count
+  // Accessing Manage Process Hours — continues from slide 2 (shifts already retrieved); open a shift, the Sign-In count
   setNav('payroll');
   document.getElementById('content').innerHTML = manageProcessHoursHTML();
+  document.getElementById('mph-results').style.display = ''; // slide 2 already searched/retrieved
   runGuided([
-    { selector: '#mph-start', prompt: 'The screen defaults to today\'s date. If you\'re processing hours from earlier in the week, change the Start date back to match your jobs', skipClick: true },
-    { selector: '#mph-event', prompt: 'Select your Event from the dropdown',
-      onConfirm: () => { document.getElementById('mph-event').value = '2026 SP FIFA Ivory Coast Training'; }},
-    { selector: '#mph-retrieve', prompt: 'Click "Retrieve" to pull up the shifts for that job',
-      onConfirm: () => { document.getElementById('mph-results').style.display = ''; }},
-    { selector: '#mph-shift-link', prompt: 'Click the Shift Name to open the shift and review employee hours',
+    { selector: '#mph-shift-link', prompt: 'You retrieved the shifts for the job. Click the Shift Name to open the shift and review employee hours',
       onConfirm: () => { document.getElementById('content').innerHTML = shiftProcessHTML(); }},
-    { selector: '#sp-signin', prompt: 'Pay attention to the Sign-In count — it tells you exactly how many employees came through electronic sign-in. Click it (or the "+" next to the role) to expand the roster',
+    { selector: '#sp-signin', prompt: 'When you open a shift, pay attention to the Sign-In count — it tells you exactly how many employees came through electronic sign-in. Click it (or the "+" next to the role) to expand the roster',
       onConfirm: () => showShiftRoster() },
     { selector: '#sp-roster', prompt: 'Here\'s every employee on the role — you can see who signed in, who signed out, their hours, and who has a gap that needs attention', skipClick: true },
   ]);
