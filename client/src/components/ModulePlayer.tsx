@@ -444,7 +444,8 @@ export default function ModulePlayer({
 
   useEffect(() => {
     stopAudio();
-    const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
+    const _s = module.slides[slideIndex] as any;
+    const hasSimulation = !!_s?.simulation_url && _s?.slide_name !== 'Next Steps';
     setSimReady(hasSimulation); // show demo immediately — no narration gate
     setSlideVisible(false);
     const updated = markSlideViewed(progressRef.current, module.id, slideIndex);
@@ -493,7 +494,8 @@ export default function ModulePlayer({
       audio.play();
       setIsPlaying(true);
       startWordHighlight(audio, wordsRef.current, timingsRef.current);
-      const hasSimulation = !!(module.slides[slideIndex] as any)?.simulation_url;
+      const _s = module.slides[slideIndex] as any;
+    const hasSimulation = !!_s?.simulation_url && _s?.slide_name !== 'Next Steps';
       audio.onended = () => {
         stopRaf();
         setIsPlaying(false);
@@ -597,7 +599,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
             </div>
           </div>
 
-          {(slide as any)?.simulation_url ? (
+          {(slide as any)?.simulation_url && (slide as any)?.slide_name !== 'Next Steps' ? (
             /* ── Responsive sim layout: side-by-side on wide, stacked on narrow ── */
             <div className={narrowLayout ? 'sim-layout sim-stacked' : 'sim-layout'}>
               {/* Text / script */}

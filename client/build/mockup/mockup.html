@@ -239,13 +239,13 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-sub-item">Manage Branch Info</span>
       <span class="nav-sub-item">Training Registration</span>
       <span class="nav-sub-item">Manage Client</span>
-      <span class="nav-sub-item">Manage Event</span>
+      <span class="nav-sub-item" id="sub-rec-event">Manage Event</span>
       <span class="nav-sub-item">Manage Venue</span>
       <span class="nav-sub-item" id="sub-rec-contract">Manage Contract</span>
       <span class="nav-sub-item" id="sub-rec-employee">Manage Employee</span>
       <span class="nav-sub-item" id="sub-rec-employee-status">Manage Employee Status</span>
       <span class="nav-sub-item">Manage WorkGroup</span>
-      <span class="nav-sub-item">Manage Job</span>
+      <span class="nav-sub-item" id="sub-rec-job">Manage Job</span>
       <span class="nav-sub-item">Manage Access Location</span>
       <span class="nav-sub-item">Manage Access Group</span>
       <span class="nav-sub-item">Manage License</span>
@@ -688,12 +688,53 @@ function slide_manage_job_4() {
 }
 
 function slide_manage_job_5() {
-  setNav('records');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  const homeDashHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026-6/15/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061726 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 9-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/17/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/17/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 9</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/17/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/17/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+  document.getElementById('content').innerHTML = homeDashHTML;
+
   const lbl = 'text-align:right;width:135px;padding-right:10px;color:#333;flex-shrink:0;font-size:13px;';
   const inp = 'border:1px solid #aaa;padding:2px 6px;width:220px;background:#fff;height:24px;font-size:13px;';
   const sel = 'border:1px solid #aaa;padding:2px 4px;width:225px;background:#fff;height:24px;font-size:13px;';
   const row = 'display:flex;align-items:center;margin-bottom:10px;';
-  document.getElementById('content').innerHTML = `
+  const manageJobSearchHTML = `
     <div style="font-size:18px;font-weight:bold;padding-bottom:8px;border-bottom:3px solid #1a3c6a;margin-bottom:12px;">Manage Jobs</div>
     <div style="background:#fffde6;border:1px solid #e0c840;color:#806000;padding:6px 12px;margin-bottom:16px;font-size:13px;">Note: All the * marked fields are mandatory</div>
     <div style="display:flex;align-items:flex-start;gap:20px;">
@@ -805,6 +846,17 @@ function slide_manage_job_5() {
       <span>Current Page: 1</span>
     </div>`;
   runGuided([
+    { selector: '#nav-records', prompt: 'Click "Records" in the left navigation to open its menu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-job', prompt: 'Click "Manage Job" to open the Job search page',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageJobSearchHTML;
+      }},
     { selector: '#copy-setting-btn', prompt: 'Click "Copy Setting" to expand the copy options',
       onConfirm: () => {
         const panel = document.getElementById('copy-setting-panel');
@@ -7356,7 +7408,48 @@ function addEditEventHTML(eventNum, eventName, showTabs) {
 // Slide 3 — Record Hierarchy
 // Slide 4 — Manage Event (create)
 function slide_record_maintenance_4() {
-  setNav('records');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  const homeDashHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026-6/15/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061726 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 9-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/17/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/17/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 9</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/17/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/17/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+  document.getElementById('content').innerHTML = homeDashHTML;
+
   const lbl = 'text-align:right;width:120px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
   const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
   const sel = 'border:1px solid #aaa;padding:2px 3px;width:208px;background:#fff;height:22px;font-size:12px;';
@@ -7364,7 +7457,7 @@ function slide_record_maintenance_4() {
   const srchIcon = `<span style="margin-left:3px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border:1px solid #aaa;background:#f0f0f0;border-radius:2px;vertical-align:middle;">
     <svg viewBox="0 0 14 14" width="12" height="12"><circle cx="5.5" cy="5.5" r="4" stroke="#666" stroke-width="1.3" fill="none"/><line x1="8.5" y1="8.5" x2="13" y2="13" stroke="#666" stroke-width="1.4" stroke-linecap="round"/></svg>
   </span>`;
-  document.getElementById('content').innerHTML = `
+  const manageEventSearchHTML = `
     <div class="page-title" style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:14px;">Manage Event</div>
     <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
     <div style="${row}"><span style="${lbl}">Branch Name :</span><select style="${sel}"><option>Prota LA Branch Test</option></select></div>
@@ -7377,7 +7470,19 @@ function slide_record_maintenance_4() {
       <button class="btn" id="btn-srch-evt" style="padding:4px 18px;font-size:12px;">Search</button>
       <button class="btn" id="btn-addnew-evt" style="padding:4px 18px;font-size:12px;">Add New</button>
     </div>`;
+
   runGuided([
+    { selector: '#nav-records', prompt: 'Click "Records" in the left navigation to open its menu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-event', prompt: 'Click "Manage Event" to open the Event search page',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageEventSearchHTML;
+      }},
     { selector: '#btn-addnew-evt', prompt: 'Click "Add New" to create a new Event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditEventHTML('', '', false); }},
     { selector: '#f-evtname', prompt: '* Event Name — type the name of the event', type: '2026 DRAKE CONCERT' },
@@ -7761,12 +7866,53 @@ function showJobTab(name, el) {
 }
 
 function slide_record_maintenance_7() {
-  setNav('records');
+  // Start on HOME dashboard with nav fully collapsed
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-sub').forEach(s => s.classList.remove('show'));
+
+  const homeDashHTML = `
+    <div style="margin-bottom:12px">
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);margin-bottom:12px;">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Unapproved Jobs</div>
+        <table style="width:100%">
+          <thead><tr><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#1a6aaa">Special Ops WISH training June 2026-6/12/2026-6/15/2026</td><td>Majestic Hall</td></tr>
+            <tr><td style="color:#1a6aaa">LA WISH Training Job May 2026-6/11/2026</td><td>Dosier Stadium</td></tr>
+            <tr><td style="color:#1a6aaa">testjob6/9</td><td>AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#1a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td>Grand Bell Arena</td></tr>
+            <tr><td style="color:#1a6aaa">Grant Sands WISH Job June 2026-6/3/2026</td><td>Crocket Arena</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+      <div style="background:#fff;border:1px solid #ccc;border-radius:3px;box-shadow:1px 1px 4px rgba(0,0,0,.1);">
+        <div style="background:#3d3d3d;color:#fff;padding:7px 14px;font-weight:bold;font-size:13px;">Today's Sign-In</div>
+        <table style="width:100%">
+          <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
+          <tbody>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">061726 SHRM</td><td>ORANGE CO.CONVENTION CENTER</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP 24 Hour Coverage-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">2026 SP FIFA Ivory Coast Training Day 9-6/17/2026</td><td>Subaru Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24 HR Red Shirts-6/17/2026</td><td>California Speedway</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Georgia International Convention Center</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">24-Hour Security Coverage 6/17/2026</td><td>Gateway Center Arena</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accelerate 2026-6/17/2026</td><td>Resorts World Las Vegas</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Accreditation Office - Day 9</td><td>SoFi Stadium and Hollywood Park</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">ACWM Dispatch-6/17/2026</td><td>Allen County War Memorial Coliseum</td></tr>
+            <tr><td style="color:#2a8a3a;font-weight:bold">+</td><td style="color:#1a6aaa">Command-6/17/2026</td><td>Iowa Events Center</td></tr>
+          </tbody>
+        </table>
+        <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 8 &nbsp;&nbsp; Current Page: 1</div>
+      </div>
+    </div>`;
+  document.getElementById('content').innerHTML = homeDashHTML;
+
   const lbl = 'text-align:right;width:155px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;';
   const inp = 'border:1px solid #aaa;padding:2px 4px;width:200px;background:#fff;height:22px;font-size:12px;';
   const sel = 'border:1px solid #aaa;padding:2px 3px;width:200px;background:#fff;height:22px;font-size:12px;';
   const row = 'display:flex;align-items:center;margin-bottom:8px;';
-  document.getElementById('content').innerHTML = `
+  const manageJobSearchHTML = `
     <div style="font-size:16px;font-weight:bold;padding-bottom:8px;border-bottom:2px solid #3a6aaa;margin-bottom:10px;">Manage Jobs</div>
     <div style="background:#fffde6;border:1px solid #e0d080;color:#c07000;padding:5px 10px;margin-bottom:14px;font-size:12px;">Note: All the * marked fields are mandatory</div>
     <div style="${row}">
@@ -7797,6 +7943,17 @@ function slide_record_maintenance_7() {
     </div>`;
 
   runGuided([
+    { selector: '#nav-records', prompt: 'Click "Records" in the left navigation to open its menu',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.add('active');
+        document.getElementById('sub-records').classList.add('show');
+      }},
+    { selector: '#sub-rec-job', prompt: 'Click "Manage Job" to open the Job search page',
+      onConfirm: () => {
+        document.getElementById('nav-records').classList.remove('active');
+        document.getElementById('sub-records').classList.remove('show');
+        document.getElementById('content').innerHTML = manageJobSearchHTML;
+      }},
     { selector: '#btn-addnew-job', prompt: 'Click "Add New" to create a Job under this event',
       onConfirm: () => { document.getElementById('content').innerHTML = addEditJobFormHTML(); }},
     { selector: '#f-job-name', prompt: '* Job Name — type the name of this job', type: 'Drake Job' },
