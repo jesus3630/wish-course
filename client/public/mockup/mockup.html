@@ -270,8 +270,8 @@ tr:hover td{background:#f8f4f0;}
       <span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#cc3010"/><circle cx="13" cy="13" r="8.5" fill="#e84020"/><rect x="8.5" y="9" width="9" height="8" rx=".5" fill="#fff" opacity=".9"/><line x1="10" y1="8" x2="10" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="16" y1="8" x2="16" y2="10.5" stroke="#fff" stroke-width="1.5"/><line x1="8.5" y1="12" x2="17.5" y2="12" stroke="#cc3010" stroke-width=".8"/><rect x="10" y="13.5" width="1.8" height="1.8" fill="#cc3010"/><rect x="13.2" y="13.5" width="1.8" height="1.8" fill="#cc3010"/></svg></span>Scheduling
     </a>
     <div class="nav-sub" id="sub-scheduling">
-      <span class="nav-sub-item">Schedule by Employee</span>
-      <span class="nav-sub-item">Schedule by Job</span>
+      <span class="nav-sub-item" id="sub-sched-emp">Schedule by Employee</span>
+      <span class="nav-sub-item" id="sub-sched-job">Schedule by Job</span>
       <span class="nav-sub-item" id="sub-sched-jadmin">Schedule by Job Admin</span>
       <span class="nav-sub-item">Mail By</span>
     </div>
@@ -2527,50 +2527,55 @@ function drakeJobDetailHTML() {
       </div>
       <!-- Success notification (hidden until SaveSched) -->
       <div id="sched-success" style="display:none;background:#d4edda;border:1px solid #c3e6cb;color:#155724;padding:6px 12px;margin-bottom:8px;font-size:13px;">&#10003; Schedule created successfully.</div>
-      <!-- Shifts/Role + Employee table -->
-      <table id="emp-table" style="width:100%;border-collapse:collapse;font-size:12px;">
-        <thead><tr>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;width:18px;"></th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Shifts/Role</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">#</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Start</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Finish</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Min</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Max</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Sched</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Var</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Select</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Last Name</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">First Name</th>
-          <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Emp#</th>
-        </tr></thead>
-        <tbody>
-          <tr style="border-bottom:1px solid #ddd;">
-            <td id="shift-plus" style="padding:4px 6px;color:#2a8aaa;font-weight:bold;cursor:pointer">+</td>
-            <td style="padding:4px 6px">Staff One Call</td>
-            <td style="padding:4px 6px;text-align:center">1</td>
-            <td style="padding:4px 6px">08/15/2026 08:00</td>
-            <td style="padding:4px 6px">08/15/2026 17:00</td>
-            <td style="padding:4px 6px;text-align:center">5</td>
-            <td style="padding:4px 6px;text-align:center">7</td>
-            <td style="padding:4px 6px;text-align:center">0</td>
-            <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-          <tr id="role-row" style="display:none;background:#f8f8f8;border-bottom:1px solid #ddd;">
-            <td style="padding:4px 6px;text-align:center"><input type="checkbox" id="role-chk"></td>
-            <td style="padding:4px 6px;color:#c07800;cursor:pointer">Event Staff</td>
-            <td style="padding:4px 6px;text-align:center"></td>
-            <td style="padding:4px 6px">08/15/2026 08:00</td>
-            <td style="padding:4px 6px">08/15/2026 17:00</td>
-            <td style="padding:4px 6px;text-align:center">5</td>
-            <td style="padding:4px 6px;text-align:center">7</td>
-            <td style="padding:4px 6px;text-align:center">0</td>
-            <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
-            <td></td><td></td><td></td><td></td>
-          </tr>
-        </tbody>
-      </table>
+      <!-- Shifts/Role block (left) + Employee block (right) — two aligned sections -->
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <table id="emp-table" style="border-collapse:collapse;font-size:12px;">
+          <thead><tr>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;width:18px;"></th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Shifts/Role</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">#</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Start</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Finish</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Min</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Max</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Sched</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Var</th>
+          </tr></thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #ddd;">
+              <td id="shift-plus" style="padding:4px 6px;color:#2a8aaa;font-weight:bold;cursor:pointer">+</td>
+              <td style="padding:4px 6px;white-space:nowrap">Staff One Call</td>
+              <td style="padding:4px 6px;text-align:center">1</td>
+              <td style="padding:4px 6px;white-space:nowrap">08/15/2026 08:00</td>
+              <td style="padding:4px 6px;white-space:nowrap">08/15/2026 17:00</td>
+              <td style="padding:4px 6px;text-align:center">5</td>
+              <td style="padding:4px 6px;text-align:center">7</td>
+              <td style="padding:4px 6px;text-align:center">0</td>
+              <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
+            </tr>
+            <tr id="role-row" style="display:none;background:#f8f8f8;border-bottom:1px solid #ddd;">
+              <td style="padding:4px 6px;text-align:center"><input type="checkbox" id="role-chk"></td>
+              <td style="padding:4px 6px;color:#c07800;cursor:pointer;white-space:nowrap">Event Staff</td>
+              <td style="padding:4px 6px;text-align:center"></td>
+              <td style="padding:4px 6px;white-space:nowrap">08/15/2026 08:00</td>
+              <td style="padding:4px 6px;white-space:nowrap">08/15/2026 17:00</td>
+              <td style="padding:4px 6px;text-align:center">5</td>
+              <td style="padding:4px 6px;text-align:center">7</td>
+              <td style="padding:4px 6px;text-align:center">0</td>
+              <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="border-collapse:collapse;font-size:12px;flex:1">
+          <thead><tr>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Select</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Last Name</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">First Name</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Emp#</th>
+          </tr></thead>
+          <tbody id="emp-sel-body"></tbody>
+        </table>
+      </div>
       <!-- Footer -->
       <div style="margin-top:20px;display:flex;justify-content:flex-end;gap:8px;">
         <button class="btn" style="background:#e8a020;">Back</button>
@@ -12782,9 +12787,41 @@ function slide_ess_2() { showImg('ess_slide2.png'); }
 function slide_ess_3() { showImg('ess_slide3.png'); }
 function slide_ess_4() { showImg('ess_slide4b.png'); }
 
+// WISH login page replica — matches the real page at
+// wish.schedulingsite.com/default.aspx (LoginId / Password / Login + acknowledgment)
+function wishLoginHTML() {
+  return `
+    <style>@keyframes wishLoginPop{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}</style>
+    <div style="background:#eef1f5;padding:34px 16px;display:flex;justify-content:center;min-height:360px">
+      <div style="background:#fff;border:1px solid #dcdfe4;border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.10);width:340px;padding:28px 32px 24px;animation:wishLoginPop .5s cubic-bezier(.22,1,.36,1)">
+        <div style="text-align:center;margin-bottom:20px">
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:42px;font-weight:800;font-style:italic;color:#e07b00;letter-spacing:1px;line-height:1">WISH</div>
+          <div style="font-size:11px;color:#6a6a6a;font-style:italic;margin-top:2px">your blueprint to success</div>
+        </div>
+        <div style="text-align:left;margin-bottom:13px">
+          <label style="display:block;font-size:12px;color:#333;margin-bottom:4px">LoginId :<span style="color:#c00"> *</span></label>
+          <input id="login-id" class="form-input" style="width:100%;box-sizing:border-box;padding:8px;font-size:13px">
+        </div>
+        <div style="text-align:left;margin-bottom:16px">
+          <label style="display:block;font-size:12px;color:#333;margin-bottom:4px">Password :<span style="color:#c00"> *</span></label>
+          <input id="login-pw" type="password" class="form-input" style="width:100%;box-sizing:border-box;padding:8px;font-size:13px">
+        </div>
+        <button id="login-btn" class="btn" style="width:100%;padding:9px;font-size:14px">Login</button>
+        <div style="display:flex;align-items:flex-start;gap:6px;margin-top:13px;text-align:left">
+          <input type="checkbox" checked style="margin-top:2px">
+          <span style="font-size:10px;color:#888;line-height:1.45">By clicking 'Login' I acknowledge and agree that I am entering the WISH and consent to accessing ProtaTECH's online services in accordance with the website's Terms &amp; Conditions and Privacy Policy</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:15px;font-size:12px">
+          <a style="color:#3a6aaa;cursor:pointer">Lost Password?</a>
+          <a style="color:#3a6aaa;cursor:pointer">Need Help?</a>
+        </div>
+      </div>
+    </div>`;
+}
+
 // ── "What ___ Gives You" intro demos (slide 2 of several modules) ────────────
 function slide_introduction_2() {
-  // WISH URL — address bar shows wish.schedulingsite.com, load the home page
+  // WISH URL — type the address, press Go, and the real WISH login page loads
   setNav('home');
   document.getElementById('content').innerHTML = `
     <div style="background:#e8e8e8;padding:8px 10px;display:flex;gap:8px;align-items:center;border:1px solid #bbb;border-radius:6px;max-width:560px;margin:6px auto 14px">
@@ -12795,9 +12832,13 @@ function slide_introduction_2() {
     <div id="intro-page" style="color:#888;text-align:center;font-size:13px;padding:20px">Press "Go" to open WISH</div>`;
   runGuided([
     { selector: '#intro-url', prompt: 'WISH is available online at wish.schedulingsite.com', skipClick: true },
-    { selector: '#intro-go', prompt: 'Enter that address in your browser to open WISH',
-      onConfirm: () => { const p = document.getElementById('intro-page'); p.innerHTML = homeScreenHTML(); p.style.color = '#222'; p.style.textAlign = 'left'; p.style.padding = '0'; }},
-    { selector: '#intro-page', prompt: 'This is the WISH home page — your starting point once you log in', skipClick: true },
+    { selector: '#intro-go', prompt: 'Enter that address in your browser and press Go to open WISH',
+      onConfirm: () => {
+        const url = document.getElementById('intro-url'); if (url) url.value = 'wish.schedulingsite.com/default.aspx';
+        const p = document.getElementById('intro-page');
+        p.innerHTML = wishLoginHTML(); p.style.color = '#222'; p.style.textAlign = 'left'; p.style.padding = '0';
+      }},
+    { selector: '#login-id', prompt: 'This is the WISH login page. Enter the LoginId and Password from your welcome email, then click Login to enter WISH', skipClick: true },
   ]);
 }
 
