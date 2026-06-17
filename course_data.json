@@ -414,7 +414,7 @@
         "slide_name": "The Pay Week",
         "instructions": "Show Payroll menu in top navigation. Show a calendar graphic with Saturday highlighted as the start and Friday as the end of the pay week.",
         "text": "In this module, you will learn the full payroll processing workflow in WISH, from approving employee hours after an event through running the final reports your branch submits each week.\r\n\r\nEvery pay week in WISH runs Saturday through Friday. All hours worked during that window must be approved and processed before Wednesday morning, when the payroll department transmits everything. Stay current throughout the week, do not let hours pile up.",
-        "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=2"
+        "simulation_url": null
       },
       {
         "slide_number": 3,
