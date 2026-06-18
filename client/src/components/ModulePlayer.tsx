@@ -186,6 +186,20 @@ export default function ModulePlayer({
   const slideText = normalizeText(slide?.text ?? '');
   const slideName = slide?.slide_name ?? '';
 
+  // A "text-only" slide has no demo, screenshot, video, card, or image — just the script.
+  // These get a centered, modern layout instead of a small card stranded in empty space.
+  const s_any = slide as any;
+  const isTextOnly = !!slide
+    && !s_any?.simulation_url
+    && !slide?.screenshot
+    && slide?.video_start === undefined
+    && !s_any?.acronym_card
+    && !s_any?.wish_logo_card
+    && !s_any?.hierarchy_card
+    && !s_any?.menu_card
+    && !s_any?.image_below
+    && !s_any?.image_below_2;
+
   function stopRaf(keepIndex = false) {
     if (rafRef.current !== null) {
       cancelAnimationFrame(rafRef.current);
@@ -585,8 +599,8 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
       </div>
 
       {/* Slide area */}
-      <div ref={slideAreaRef} style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px' }}>
-        <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : '40px 48px', opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
+      <div ref={slideAreaRef} style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px', justifyContent: isTextOnly && !isMobile ? 'center' : 'flex-start' }}>
+        <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : (isTextOnly ? '48px 56px' : '40px 48px'), maxWidth: isTextOnly ? '820px' : undefined, margin: isTextOnly ? '0 auto' : undefined, textAlign: isTextOnly ? 'center' : undefined, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           {/* Character inline top-right — hidden on mobile to avoid clipping */}
           {!isMobile && (
             <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
@@ -647,9 +661,15 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               )}
 
               {!(slide as any)?.wish_logo_card && (
-                <div style={styles.slideContent}>
+                <div style={{ ...styles.slideContent, ...(isTextOnly ? { maxWidth: '680px', margin: '0 auto 24px' } : {}) }}>
                   {slideText ? (
-                    <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                    <HighlightedText
+                      text={slideText}
+                      activeWordIndex={activeWordIndex}
+                      isPlaying={isPlaying}
+                      fontSize={isTextOnly && !isMobile ? '19px' : '16px'}
+                      lineHeight={isTextOnly ? '2.0' : '1.9'}
+                    />
                   ) : (
                     <p style={styles.emptyText}>No narration text for this slide.</p>
                   )}
@@ -1190,10 +1210,14 @@ function HighlightedText({
   text,
   activeWordIndex,
   isPlaying,
+  fontSize = '16px',
+  lineHeight = '1.9',
 }: {
   text: string;
   activeWordIndex: number;
   isPlaying: boolean;
+  fontSize?: string;
+  lineHeight?: string;
 }) {
   const paragraphs = text.split('\n').filter(Boolean);
   let globalIndex = 0;
@@ -1238,7 +1262,7 @@ function HighlightedText({
         }
 
         return (
-          <p key={pi} style={{ fontSize: '16px', lineHeight: '1.9', marginBottom: '14px' }}>
+          <p key={pi} style={{ fontSize, lineHeight, marginBottom: '14px' }}>
             {elements}
           </p>
         );
