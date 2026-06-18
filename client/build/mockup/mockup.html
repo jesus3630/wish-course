@@ -9293,6 +9293,7 @@ function processPayrollJobHTML() {
   return `
     <div class="page-title">Process Payroll Job</div>
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <div id="ppj-done" style="display:none;background:#dff0d8;border:1px solid #b2d8a0;color:#2a7a2a;padding:8px 14px;margin:8px 0;font-size:13px;font-weight:bold"><span style="color:#2a8a3a;font-size:15px">&#10004;</span> &nbsp;The hours for Jobs have been successfully processed</div>
     <table style="border-spacing:0 6px;border-collapse:separate;margin:12px auto 0">
       <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:200px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
       <tr><td style="text-align:right;font-size:13px;padding-right:8px">Date :</td><td><input class="form-input" id="ppj-date" value="05/01/2026" style="width:90px">${calBtn()}${req}</td></tr>
@@ -9309,7 +9310,6 @@ function processPayrollJobHTML() {
         <tbody>${rows}</tbody>
       </table>
       <div style="text-align:center;margin:14px 0"><button class="btn" id="ppj-start">Start Process</button></div>
-      <div id="ppj-done" style="display:none;text-align:center;margin:10px 0;color:#2a8a3a;font-weight:bold;font-size:14px"><span style="font-size:18px">&#10040;</span> The hours for the jobs have been successfully processed</div>
     </div>`;
 }
 
