@@ -1092,7 +1092,7 @@
         "slide_number": 4,
         "slide_name": "Approving Hours",
         "instructions": "Open shift. Show sign-in and sign-out buttons. Click Sign-In button ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â show times populating. Click Sign-Out. Click Approve Hours. Show green sunburst icons.",
-        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\r\n\r\nReview the times. If everything looks correct, click Approve Hours, this is your save button and finalizes the hours.\r\n\r\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\r\n\r\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times.",
+        "text": "Open a shift role. If electronic sign-ins were completed, those times are already populated for each employee.\n\nReview the times. If everything looks correct, click Approve Hours, this is your save button and finalizes the hours.\n\nAfter approving, you will see green sunburst icons next to completed shifts. These let you track where you are: green means done, blue link means not yet processed.\n\nFor paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time, then use the tab key to manually adjust individual times.",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=4"
       },
       {

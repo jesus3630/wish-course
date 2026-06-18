@@ -6635,17 +6635,18 @@ function slide_manual_process_hours_3() {
 }
 
 function slide_manual_process_hours_4() {
-  // Approving electronic sign-ins — open the role with the +, review populated times, Approve = save, green sunburst
+  // Approving hours — open the role with the +, review electronic times, paper-sheet SignIn/SignOut + tab adjust, Approve = save, green sunburst
   setNav('payroll');
   document.getElementById('content').innerHTML = shiftProcessHTML();
-  // Pre-fill clean electronic times on the (still collapsed) roster so it looks "already populated" once opened
-  document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; });
-  document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; });
   runGuided([
     { selector: '#sp-role-toggle', prompt: 'Open a shift role by clicking the + on the left-hand side of the role',
       onConfirm: () => showShiftRoster() },
-    { selector: '#sp-roster', prompt: 'When electronic sign-ins were completed, the times are already populated for each employee. Review them — if everything looks correct, you\'re ready to finalize', skipClick: true },
-    { selector: '#sp-approve', prompt: 'Click "Approve Hours" — this is your save button. It finalizes the hours for this shift',
+    { selector: '#sp-roster', prompt: 'If electronic sign-ins were completed, those times are already populated for each employee. Review the times — if everything looks correct, you\'re ready to finalize', skipClick: true },
+    { selector: '#sp-role-signin', prompt: 'For paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time. Click "SignIn"',
+      onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; }); }},
+    { selector: '#sp-role-signout', prompt: 'Click "SignOut" to fill the scheduled end time, then use the Tab key to move through the rows and manually adjust any individual times that differ',
+      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; }); }},
+    { selector: '#sp-approve', prompt: 'When everything looks correct, click Approve Hours — this is your save button and finalizes the hours',
       onConfirm: () => {
         const c = document.getElementById('content');
         if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
@@ -9325,7 +9326,7 @@ function shiftProcessHTML() {
       <tbody>
         <tr style="background:#5a5a5a;color:#fff"><td></td><td style="padding:5px 8px">Staff One Call</td><td style="padding:5px 8px">08/15/2026 13:00</td><td style="padding:5px 8px">08/15/2026 17:00</td><td style="${cw}">13</td><td style="${cw}">15</td><td style="${cw}">0</td><td style="${cw};color:#ff9b9b">-13</td><td style="${cw}"><a id="sp-signin" onclick="showShiftRoster()" style="color:#9fd0ff;cursor:pointer;font-weight:bold">0</a></td></tr>
         <tr style="background:#ededed"><td style="text-align:center;padding:5px 4px">${plus()}</td><td style="padding:5px 8px">Role: Supervisor</td><td style="padding:5px 8px">${sob}</td><td></td><td style="${cw}">1</td><td style="${cw}">1</td><td style="${cw}">0</td><td style="${red}">-1</td><td style="${cw}">0</td></tr>
-        <tr style="background:#f4f4f4"><td style="text-align:center;padding:5px 4px">${plus('sp-role-toggle')}</td><td style="padding:5px 8px">Role: Event Staff</td><td style="padding:5px 8px">${sob}</td><td></td><td style="${cw}">12</td><td style="${cw}">14</td><td style="${cw}">0</td><td style="${red}">-12</td><td style="${cw}">0</td></tr>
+        <tr style="background:#f4f4f4"><td style="text-align:center;padding:5px 4px">${plus('sp-role-toggle')}</td><td style="padding:5px 8px">Role: Event Staff</td><td style="padding:5px 8px"><button class="btn btn-sm" id="sp-role-signin">SignIn</button> <button class="btn btn-sm" id="sp-role-signout">SignOut</button></td><td></td><td style="${cw}">12</td><td style="${cw}">14</td><td style="${cw}">0</td><td style="${red}">-12</td><td style="${cw}">0</td></tr>
       </tbody>
     </table>
     ${shiftRosterHTML()}
