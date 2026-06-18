@@ -33,7 +33,7 @@
         "screenshot": "/screenshots/introduction/slide_4.png"
       },
       {
-        "slide_number": 4,
+        "slide_number": 5,
         "slide_name": "Do Not Share Your Login Credentials",
         "instructions": "Show video of Home page, cookies accepted, iD and password submitted and \"Your Name\" in the upper right corner of the page.",
         "text": "It is important that you do NOT share your login credentials with anyone. All actions performed using your credentials will be recorded in the system as being completed by you. Some tasks may require you to complete multiple training sessions before you can perform them. You will not be able to complete certain work duties until all assigned training is finished. Your system access and available features are determined by your assigned and completed training.\r\n\r\nYou will have access to all menus necessary for your role. If you attempt to open a menu for which you have not completed the required training, access will be restricted. If you believe you need access to additional menus, please contact your administrator to arrange the necessary training and obtain the appropriate permissions for your position.",
@@ -57,95 +57,34 @@
         "screenshot": null
       },
       {
-        "slide_number": 5,
+        "slide_number": 6,
         "slide_name": "Broadcast Messages",
         "instructions": "Video of envelope and message in Broadcast Messages screen.",
         "text": "When you log in, you will see your name in the top right corner of the page. On your first login, an envelope icon will appear next to your name. You will need to click on the envelope to open your message. This will direct you to the Broadcast Messages screen. Periodic updates will be posted here to inform of system changes, new features, or scheduled downtime for WISH system updates. You can read the message, mark it as read, or delete messages. Broadcast Messages present one-way communications which cannot be replied to.",
         "simulation_url": "/mockup/mockup.html?module=introduction&slide=6"
       },
       {
-        "slide_number": 6,
+        "slide_number": 7,
         "slide_name": "Change Password",
         "instructions": "Video of mouse clicking on \"Name\" to show three menu option available to user.",
         "text": "Your name, displayed in the top right corner, offers three menu options when clicked. You can click on My Messages to navigate to the Broadcast Messages screen. Log out of your session by clicking Log Out, and change your password by clicking on the Change Password menu. We recommend changing your password regularly. Changing your password in WISH only updates your password in the WISH application.",
         "simulation_url": "/mockup/mockup.html?module=introduction&slide=7"
       },
       {
-        "slide_number": 7,
+        "slide_number": 8,
         "slide_name": "W.I.S.H.",
         "instructions": "",
         "text": "The name WISH stands for Workforce Information Systems Hosted, and the application is designed to embody the principles behind this acronym. Whether implemented in part or in full, WISH provides flexible solutions tailored to organizational needs. Key modules, including Scheduling, Billing, Human Resources, and Payroll, are consolidated into a single, integrated platform. By bringing these essential functions together, WISH streamlines workforce management and offers accessible, web-based services from any location with an internet connection.",
         "wish_logo_card": true
       },
       {
-        "slide_number": 8,
-        "slide_name": "WISH Menus",
+        "slide_number": 9,
+        "slide_name": "Touring the Menus",
         "instructions": "",
-        "text": "In the following slides we will explore WISH's application menus. Each menu item is designed to help you efficiently manage your responsibilities within the system.",
+        "text": "The menus on the left are your map of WISH. Let's walk through them.\n\nAdmin handles system setup, creating companies and branches, and granting user access.\n\nBilling turns a completed job into a client invoice once its schedule is saved.\n\nInventory tracks items used at events, like radios, jackets, and other supplies.\n\nRecords is where you'll spend much of your time, entering, editing, and updating essential data.\n\nReports holds your key documents: alpha rosters, sign-in and sign-out sheets, and payroll and billing reports.\n\nScheduling is used by your branch to assign employees to jobs, by employee or by job.\n\nPayroll is where staff review and approve work hours after an event.\n\nAnd Time Clock runs on-site, where employees sign in and out of their shifts.\n\nYou'll only ever see the menus your role and completed training allow.",
         "screenshot": null,
         "image_below": null,
-        "simulation_url": null
-      },
-      {
-        "slide_number": 9,
-        "slide_name": "Admin Menu",
-        "instructions": "",
-        "text": "The Admin menu provides access to certain system functions, including creating new companies and branches, and granting users access based on their completed training. This menu is restricted to developers only. If you attempt to access a menu item without the necessary permissions, you will receive a message indicating you do not have access to that page. This applies throughout the system wherever permissions are required.",
-        "screenshot": "/screenshots/introduction/slide_10_admin.png",
-        "image_below": null
-      },
-      {
-        "slide_number": 10,
-        "slide_name": "Billing Menu",
-        "instructions": "",
-        "text": "The Billing menu allows you to generate invoices for clients after your branch has completed a job. Whenever a schedule is saved in the system, it is stored for future billing purposes. This ensures you can easily create and provide accurate bills to clients for the events your team has worked.",
-        "screenshot": "",
-        "screenshot_below": "",
-        "image_below": "/billing-menu-v2.png"
-      },
-      {
-        "slide_number": 11,
-        "slide_name": "Inventory Menu",
-        "instructions": "",
-        "text": "In the Inventory menu, you can track important items used at events, like radios, jackets, and other supplies.",
-        "screenshot": "",
-        "screenshot_below": "",
-        "image_below": "/inventory-menu.png"
-      },
-      {
-        "slide_number": 12,
-        "slide_name": "Records Menu",
-        "instructions": "",
-        "text": "The Records menu is where you will spend much of your time entering, editing, and updating essential data. Maintaining accurate records is vital for your branch's operations.",
-        "image_below": "/records-menu.png"
-      },
-      {
-        "slide_number": 13,
-        "slide_name": "Reports Menu",
-        "instructions": "",
-        "text": "The Reports menu provides access to important documents, such as alpha rosters, sign-in and sign-out sheets for events, Payroll and Billing reports, and employee work schedules. These reports help support job administration and event management.",
-        "image_below": "/reports-menu-v2.png"
-      },
-      {
-        "slide_number": 14,
-        "slide_name": "Scheduling Menu",
-        "instructions": "",
-        "text": "The Scheduling menu is used by your branch scheduling department. The scheduling department assigns employees to jobs in one of two ways: Schedule by Employee or Schedule by Job. Employees can self-schedule through the ESS app, which operates separately from what you see here.",
-        "image_below": "/scheduling-menu.png"
-      },
-      {
-        "slide_number": 15,
-        "slide_name": "Payroll Menu",
-        "instructions": "",
-        "text": "The Payroll menu is where payroll staff review and approve employees' work hours after an event. This ensures that everyone is properly compensated for their time.",
-        "image_below": "/payroll-menu.png"
-      },
-      {
-        "slide_number": 16,
-        "slide_name": "Time Clock Menu",
-        "instructions": "",
-        "text": "The Time Clock menu is used at event locations where computers are set up for employees to sign in at the start of their shifts and sign out at the end of their shifts. This feature helps accurately track work hours for payroll and attendance purposes.",
-        "image_below": "/timeclock-menu.png"
+        "simulation_url": "/mockup/mockup.html?module=introduction&slide=9"
       }
     ]
   },
