@@ -55,9 +55,9 @@ chk_str "schedule_by_job_admin slide 4" "jadmin-results"
 chk_str "sign_in_sign_out slide 4" "stab-signin"
 chk_str "sign_in_sign_out slide 5" "f-minhrs"
 
-# manual_process_hours
-chk_str "manual_process_hours slide 4" "mph-body"
-chk_str "manual_process_hours slide 5" "btn-afsi"
+# manual_process_hours (rebuilt on real Manage Process Hours screens 2026-06-18)
+chk_str "manual_process_hours slide 6 (No-Shows)"        "sp-ns-noshow"
+chk_str "manual_process_hours slide 7 (Override/PerDiem)" "slide_manual_process_hours_7"
 
 # billing
 chk_str "billing slide 4" "btn-viewunbilled"
