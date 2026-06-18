@@ -281,9 +281,12 @@ tr:hover td{background:#f8f4f0;}
     </a>
     <div class="nav-sub" id="sub-payroll">
       <span class="nav-sub-item" id="sub-pay-mph">Manage Process Hours</span>
-      <span class="nav-sub-item">Sign-Out Exceptions</span>
-      <span class="nav-sub-item">Process Payroll</span>
-      <span class="nav-sub-item">Payroll Export</span>
+      <span class="nav-sub-item" id="sub-pay-pp">Process Payroll</span>
+      <span class="nav-sub-item">Process Payroll (Break)</span>
+      <span class="nav-sub-item">Process Payroll for workGroup</span>
+      <span class="nav-sub-item" id="sub-pay-soe">SignOut Exceptions</span>
+      <span class="nav-sub-item">Employee Re-Deployment</span>
+      <span class="nav-sub-item">Payroll Exception</span>
     </div>
 
     <a class="nav-item" id="nav-timeclock">
@@ -9259,6 +9262,57 @@ function homeScreenHTML() {
 
 // ── Payroll Processing ────────────────────────────────────────────────────
 
+function processPayrollJobHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const cw = 'text-align:center;padding:6px 8px';
+  // [checked, Job name, Job#, start date, start time, finish date, finish time, Approved(Yes/No)]
+  const jobs = [
+    [true, 'Drake Job apr 2026-4/25/2026',            '5023695245','04-25-2026','13:00','04-25-2026','22:00','No'],
+    [true, 'ProtaTECH Payroll Master Class',          '5023696932','04-28-2026','13:00','04-28-2026','23:00','Yes'],
+    [true, 'ProtaTECH Payroll Master Class -4/29/2026','5023696939','04-29-2026','13:00','04-29-2026','23:00','Yes'],
+    [true, 'Crestline WISH Training',                 '5023697880','04-30-2026','10:30','04-30-2026','22:00','No'],
+    [true, 'ProtaTECH Payroll Master Class -4/30/2026','5023696940','04-30-2026','13:00','04-30-2026','23:00','No'],
+    [true, 'Crestline WISH Training -5/1/2026',        '5023697892','05-01-2026','10:30','05-01-2026','22:00','No'],
+    [true, 'ProtaTECH Payroll Master Class -5/1/2026', '5023696945','05-01-2026','13:00','05-01-2026','23:00','Yes'],
+  ];
+  const rows = jobs.map((j,i)=>{
+    const appr = j[7]==='Yes'
+      ? '<span style="color:#2a8a3a;font-weight:bold">Yes</span>'
+      : '<span style="color:#888">No</span>';
+    const cb = `<input type="checkbox"${j[0]?' checked':''} style="accent-color:#e53935">`;
+    return `<tr style="background:${i%2?'#ededed':'#fff'}">
+      <td style="${cw}">${cb}</td>
+      <td style="padding:6px 8px;color:#3a6aaa">${j[1]}</td>
+      <td style="padding:6px 8px">${j[2]}</td>
+      <td style="padding:6px 8px;white-space:nowrap">${j[3]}<br>${j[4]}</td>
+      <td style="padding:6px 8px;white-space:nowrap">${j[5]}<br>${j[6]}</td>
+      <td style="${cw}" class="ppj-appr">${appr}</td>
+      <td style="${cw}">No</td>
+      <td style="${cw}"><input type="checkbox"></td></tr>`;
+  }).join('');
+  return `
+    <div class="page-title">Process Payroll Job</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table style="border-spacing:0 6px;border-collapse:separate;margin:12px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:200px"><option>Prota LA Branch Test</option></select>${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Date :</td><td><input class="form-input" id="ppj-date" value="05/01/2026" style="width:90px">${calBtn()}${req}</td></tr>
+    </table>
+    <div style="text-align:center;margin:12px 0"><button class="btn btn-green" id="ppj-getjob">Get Job</button></div>
+    <div id="ppj-results" style="display:none">
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff">
+          <th style="${cw}"><input type="checkbox" checked style="accent-color:#e53935"></th>
+          <th style="text-align:left;padding:6px 8px">Job</th><th style="text-align:left;padding:6px 8px">Job#</th>
+          <th style="text-align:left;padding:6px 8px">TimeStart</th><th style="text-align:left;padding:6px 8px">TimeFinish</th>
+          <th style="${cw}" id="ppj-appr-col">Approved<br>Hours</th><th style="${cw}">Billed</th><th style="${cw}">Holiday</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div style="text-align:center;margin:14px 0"><button class="btn" id="ppj-start">Start Process</button></div>
+      <div id="ppj-done" style="display:none;text-align:center;margin:10px 0;color:#2a8a3a;font-weight:bold;font-size:14px"><span style="font-size:18px">&#10040;</span> The hours for the jobs have been successfully processed</div>
+    </div>`;
+}
+
 function manageProcessHoursHTML() {
   const req = '<span style="color:#c00"> *</span>';
   return `
@@ -9510,6 +9564,25 @@ function slide_payroll_processing_8() {
     ['Employee Time Register','Employee Time Register (Break)','Payroll Summary','Unapproved Hours Report','Pay Rate Audit','Overtime Report']);
   runGuided([
     { selector: '#card', prompt: 'After running Process Payroll, pull these three reports for the payroll department: Employee Time Register, Payroll Summary, and Unapproved Hours Report.', skipClick: true },
+  ]);
+}
+
+// Process Payroll — run the pay week: Payroll > Process Payroll > Get Job > review Approved Hours > Start Process
+function slide_payroll_processing_9() {
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-payroll', prompt: 'Once your hours are approved, the next step is to run the payroll. Open the "Payroll" menu',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.add('active'); document.getElementById('sub-payroll').classList.add('show'); }},
+    { selector: '#sub-pay-pp', prompt: 'Click "Process Payroll"',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.remove('active'); document.getElementById('sub-payroll').classList.remove('show'); setNav('payroll'); document.getElementById('content').innerHTML = processPayrollJobHTML(); }},
+    { selector: '#ppj-date', prompt: 'Enter the Friday end date for the pay week you are processing. The pay week runs Saturday through Friday', skipClick: true },
+    { selector: '#ppj-getjob', prompt: 'Click "Get Job" to pull every job from that pay week',
+      onConfirm: () => { document.getElementById('ppj-results').style.display = ''; }},
+    { selector: '#ppj-appr-col', prompt: 'Look at the Approved Hours column. This reflects the Approve Hours button from Manage Process Hours: Yes means the job is ready, No means it still needs to be processed. Only jobs marked Yes will be paid — even though every row is checked on the left', skipClick: true },
+    { selector: '#ppj-start', prompt: 'If a job shows No that should be done, click into it, finish the sign-in/sign-out and approve, then Get Job again. When the Yes jobs look right, click "Start Process"',
+      onConfirm: () => { document.getElementById('ppj-done').style.display = ''; }},
+    { selector: '#ppj-done', prompt: 'The hours are processed, and the employees on those jobs are paid for that pay week. Next, check the reports to verify everything came through', skipClick: true },
   ]);
 }
 
@@ -12987,6 +13060,7 @@ const routes = {
   'payroll_processing-6': slide_payroll_processing_6,
   'payroll_processing-7': slide_payroll_processing_7,
   'payroll_processing-8': slide_payroll_processing_8,
+  'payroll_processing-9': slide_payroll_processing_9,
   'inventory-3': slide_inventory_3,
   'inventory-4': slide_inventory_4,
   'inventory-5': slide_inventory_5,
