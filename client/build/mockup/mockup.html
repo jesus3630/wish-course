@@ -6628,11 +6628,9 @@ function slide_manual_process_hours_3() {
       onConfirm: () => { document.getElementById('mph-event').value = '2026 SP FIFA Ivory Coast Training'; }},
     { selector: '#mph-retrieve', prompt: 'Click "Retrieve" to list the jobs and shifts',
       onConfirm: () => { document.getElementById('mph-results').style.display = ''; }},
-    { selector: '#mph-shift-link', prompt: 'Click into a Shift Name to expand it and review each role',
+    { selector: '#mph-shift-link', prompt: 'Click into a Shift Name to open it',
       onConfirm: () => { document.getElementById('content').innerHTML = shiftProcessHTML(); }},
-    { selector: '#sp-signin', prompt: 'For each shift you see the Min, Max, Scheduled count, and Sign-In count — an at-a-glance view of what happened. The Sign-In count reflects what was captured electronically, and it\'s your starting point for approving hours. Click it to expand the roster',
-      onConfirm: () => showShiftRoster() },
-    { selector: '#sp-roster', prompt: 'Here is every employee on the role, with the times the system captured', skipClick: true },
+    { selector: '#sp-signin', prompt: 'This is the shift screen. For each role you see the Min, Max, Scheduled count, and Sign-In count — an at-a-glance view of what happened. The Sign-In count reflects what was captured electronically, and it\'s your starting point for approving hours', skipClick: true },
   ]);
 }
 
