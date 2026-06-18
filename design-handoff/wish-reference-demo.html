@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>WISH — Interactive Training Reference Demo</title>
+<!--
+  STANDALONE REFERENCE DEMO — open this file directly in a browser, no server needed.
+  This is one slide ("WISH URL") from the ProtaTECH WISH e-learning course, extracted
+  from the production engine so the Design feature can see exactly how our interactive
+  walkthroughs behave. It is a 1280x720 software replica + a guided step array.
+  The whole pattern: replica HTML of the real screen + runGuided([...]) steps.
+-->
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;}
+body{background:#d0cfc9;width:1280px;height:720px;overflow:hidden;}
+
+/* ── Header ── */
+#topbar{width:100%;height:30px;background:#3d3d3d;display:flex;align-items:center;justify-content:flex-end;padding:0 8px;gap:5px;flex-shrink:0;}
+#btn-new{background:#4caf50;color:#fff;padding:3px 9px;border-radius:3px;font-size:11px;font-weight:bold;cursor:pointer;border:none;display:flex;align-items:center;gap:3px;}
+#btn-welcome{background:#1a3c5a;color:#fff;padding:3px 11px;border-radius:3px;font-size:11px;font-weight:bold;cursor:pointer;border:none;}
+#header{width:100%;height:88px;background:#fff;display:flex;align-items:center;padding:0 16px;border-bottom:2px solid #c8c8c8;flex-shrink:0;}
+
+/* ── Layout ── */
+#layout{display:flex;height:calc(720px - 30px - 88px - 24px);}
+
+/* ── Sidebar ── */
+#sidebar{width:145px;background:#fff;border-right:1px solid #b8b8b8;display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;}
+.nav-item{display:flex;align-items:center;gap:7px;padding:10px 8px 10px 10px;cursor:pointer;color:#222;text-decoration:none;font-size:13px;white-space:nowrap;border-bottom:1px solid #e0e0e0;}
+.nav-item:hover,.nav-item.active{background:#fff0e0;}
+.nav-icon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+
+/* ── Main ── */
+#main{flex:1;padding:12px;overflow-y:auto;background:#d0cfc9;}
+#card{background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;min-height:530px;box-shadow:1px 1px 4px rgba(0,0,0,.1);}
+
+/* ── Forms / buttons ── */
+.form-input{border:1px solid #999;padding:3px 5px;min-width:175px;background:#fff;height:23px;font-size:12px;}
+.form-input:focus{outline:none;border-color:#c07800;}
+.btn{background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 14px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px;}
+.btn:hover{background:#c86000;}
+.btn-sm{padding:3px 9px;font-size:11px;}
+
+/* ── Footer ── */
+#footer{position:fixed;bottom:0;left:0;width:100%;height:24px;background:#e0ddd8;border-top:1px solid #b8b5b0;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;color:#666;}
+#footer a{color:#555;text-decoration:none;}
+
+/* ── Guided interactive mode (the engine's visual language) ── */
+@keyframes guided-pulse{
+  0%  { box-shadow: 0 0 0 0 rgba(255,140,0,.9), 0 0 0 0 rgba(255,200,0,.5); }
+  50% { box-shadow: 0 0 0 18px rgba(255,140,0,0), 0 0 0 32px rgba(255,200,0,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(255,140,0,.9), 0 0 0 0 rgba(255,200,0,.5); }
+}
+@keyframes guided-arrow-bounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+.cursor-blink::after{content:'|';animation:blink 1s infinite;}
+.guided-target{
+  outline:5px solid #ff8c00 !important;outline-offset:5px !important;
+  animation:guided-pulse 1s infinite !important;position:relative !important;z-index:20 !important;cursor:pointer !important;
+}
+#guided-arrow{position:fixed;z-index:10000;pointer-events:none;display:none;flex-direction:column;align-items:center;animation:guided-arrow-bounce .8s ease-in-out infinite;}
+#guided-arrow .arrow-label{background:#ff8c00;color:#fff;font-size:14px;font-weight:bold;padding:4px 12px;border-radius:4px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.4);}
+#guided-arrow .arrow-down{width:0;height:0;border-left:14px solid transparent;border-right:14px solid transparent;border-top:18px solid #ff8c00;}
+#guided-arrow.below{flex-direction:column-reverse;}
+#guided-arrow.below .arrow-down{transform:rotate(180deg);}
+#guided-prompt{position:fixed;bottom:66px;left:50%;transform:translateX(-50%);background:#1a3c5a;color:#fff;padding:9px 16px 9px 40px;border-radius:4px;font-size:13px;max-width:420px;width:max-content;z-index:9999;pointer-events:none;box-shadow:0 3px 14px rgba(0,0,0,.45);line-height:1.45;display:none;text-align:left;}
+#guided-prompt::before{content:'\261D';position:absolute;left:12px;top:7px;font-size:17px;}
+#guided-bar{position:fixed;bottom:24px;left:0;width:100%;height:34px;background:#1a3c5a;color:#fff;display:flex;align-items:center;justify-content:center;gap:7px;padding:0 16px;font-size:12px;z-index:9997;}
+.step-pip{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);flex-shrink:0;}
+.step-pip.done{background:#4caf50;}
+.step-pip.current{background:#fff;width:11px;height:11px;}
+.guided-next-btn{margin-left:14px;padding:3px 13px;background:#c07800;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:12px;pointer-events:all;}
+</style>
+</head>
+<body>
+
+<div id="guided-arrow"><div class="arrow-label">&#128071; Click here</div><div class="arrow-down"></div></div>
+
+<div id="topbar">
+  <button id="btn-new">&#9993; 3 New</button>
+  <button id="btn-welcome">Welcome Jesus Gonzalez</button>
+</div>
+
+<div id="header">
+  <div style="font-family:Arial;font-size:46px;font-weight:800;font-style:italic;color:#e07b00;letter-spacing:1px">WISH</div>
+</div>
+
+<div id="layout">
+  <nav id="sidebar">
+    <a class="nav-item" id="nav-admin"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="8.5" r="5" fill="#5a8fd0"/><path d="M3 25c0-5.5 4.5-10 10-10s10 4.5 10 10z" fill="#5a8fd0"/></svg></span>Admin</a>
+    <a class="nav-item" id="nav-billing"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><rect x="4" y="4" width="18" height="19" rx="1.5" fill="#c8a050"/><rect x="4" y="4" width="4" height="19" rx="1" fill="#a07030"/></svg></span>Billing</a>
+    <a class="nav-item" id="nav-records"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><path d="M3 9 L3 23 Q3 24 4 24 L22 24 Q23 24 23 23 L23 11 L16 11 L16 9 Z" fill="#4a88d8"/></svg></span>Records</a>
+    <a class="nav-item" id="nav-reports"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><rect x="3" y="3" width="15" height="20" rx="1.5" fill="#3a9a80"/></svg></span>Reports</a>
+    <a class="nav-item" id="nav-scheduling"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="13" cy="13" r="11" fill="#cc3010"/><rect x="8.5" y="9" width="9" height="8" rx=".5" fill="#fff" opacity=".9"/></svg></span>Scheduling</a>
+    <a class="nav-item" id="nav-payroll"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><circle cx="11" cy="8" r="5" fill="#c8a870"/><circle cx="21" cy="20" r="5" fill="#4a9a30"/></svg></span>Payroll</a>
+    <a class="nav-item active" id="nav-home"><span class="nav-icon"><svg viewBox="0 0 26 26" width="26" height="26"><path d="M13 3 L23 12 L20 12 L20 23 L15 23 L15 16 L11 16 L11 23 L6 23 L6 12 L3 12 Z" fill="#4a88d8"/></svg></span>Home</a>
+  </nav>
+  <div id="main"><div id="card"><div id="content">Loading...</div></div></div>
+</div>
+
+<div id="footer">
+  <span><a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms &amp; Conditions</a></span>
+  <span>&copy; Copyright 2026 ProtaTECH, Inc. All rights reserved</span>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════════════════════
+//  THE GUIDED ENGINE  — runGuided([...]) drives every interactive demo.
+//  Each step: { selector, prompt, onConfirm?, type?, also?, skipClick? }
+// ════════════════════════════════════════════════════════════════════════════
+let _gs = null, _gsExtra = [];
+function _clearExtra(){ _gsExtra.forEach(e => e.classList.remove('guided-target')); _gsExtra = []; }
+
+function showCompletionOverlay() {
+  const old = document.getElementById('guided-complete-overlay'); if (old) old.remove();
+  const ov = document.createElement('div'); ov.id = 'guided-complete-overlay';
+  ov.style.cssText = 'position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;background:rgba(76,175,80,0.16);pointer-events:none;opacity:0;transition:opacity .45s ease';
+  ov.innerHTML = '<div style="background:rgba(255,255,255,0.96);border:2px solid #4caf50;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,0.22);padding:22px 32px;text-align:center;max-width:380px">' +
+    '<div style="font-size:40px;color:#4caf50;line-height:1">&#10004;</div>' +
+    '<div style="font-size:16px;font-weight:bold;color:#2e7d32;margin-top:8px">You\'ve completed this section</div>' +
+    '<div style="font-size:13px;color:#555;margin-top:6px">Please click <b>Next</b> to continue.</div></div>';
+  document.body.appendChild(ov);
+  requestAnimationFrame(() => { ov.style.opacity = '1'; });
+}
+
+function typeInto(id, text, delay) {
+  const el = document.getElementById(id); if (!el) return;
+  let i = 0; el.classList.add('cursor-blink');
+  const t = setInterval(() => { if (i < text.length) el.value += text[i++]; else { el.classList.remove('cursor-blink'); clearInterval(t); } }, delay || 80);
+}
+
+function runGuided(steps, opts) {
+  opts = opts || {};
+  if (_gs) { if (_gs.handler) document.removeEventListener('click', _gs.handler, true); if (_gs.el) _gs.el.classList.remove('guided-target'); _clearExtra(); }
+  ['guided-bar','guided-prompt','guided-complete-overlay'].forEach(id => { const e = document.getElementById(id); if (e) e.remove(); });
+  _gs = null;
+  const bar = document.createElement('div'); bar.id = 'guided-bar'; document.body.appendChild(bar);
+  const tip = document.createElement('div'); tip.id = 'guided-prompt'; document.body.appendChild(tip);
+
+  function updateBar(i) {
+    bar.innerHTML = '<span style="margin-right:10px;font-size:11px;opacity:.7;letter-spacing:.4px">STEP ' + (i+1) + ' / ' + steps.length + '</span>' +
+      steps.map((_,j) => '<div class="step-pip' + (j<i?' done':j===i?' current':'') + '"></div>').join('');
+  }
+  function placeTip(el, text) {
+    tip.textContent = text; tip.style.display = 'block';
+    const rect = el.getBoundingClientRect();
+    if (rect.bottom > window.innerHeight * 0.55) { tip.style.bottom = 'auto'; tip.style.top = '72px'; }
+    else { tip.style.top = 'auto'; tip.style.bottom = '66px'; }
+  }
+  function showStep(i) {
+    if (_gs && _gs.handler) document.removeEventListener('click', _gs.handler, true);
+    if (_gs && _gs.el) _gs.el.classList.remove('guided-target');
+    _clearExtra(); _gs = null;
+    const _arrow = document.getElementById('guided-arrow'); if (_arrow) _arrow.style.display = 'none';
+    if (i >= steps.length) {
+      tip.style.display = 'none';
+      bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Section complete!</span>';
+      if (opts.completionOverlay !== false) showCompletionOverlay();
+      setTimeout(() => { bar.remove(); tip.remove(); }, 2800);
+      return;
+    }
+    const s = steps[i]; updateBar(i);
+    function tryHighlight(attempt) {
+      const el = document.querySelector(s.selector);
+      if (!el) { if (attempt < 4) { setTimeout(() => tryHighlight(attempt+1), 120); return; } showStep(i+1); return; }
+      el.classList.add('guided-target'); _clearExtra();
+      if (s.also) s.also.forEach(sel => { const e2 = document.querySelector(sel); if (e2) { e2.classList.add('guided-target'); _gsExtra.push(e2); } });
+      el.scrollIntoView({ behavior:'instant', block:'center', inline:'nearest' });
+      setTimeout(() => {
+        const arrow = document.getElementById('guided-arrow'); if (!arrow) return;
+        const rect = el.getBoundingClientRect(), arrowW = 110, centerX = rect.left + rect.width/2;
+        let topY = rect.top - 58; const below = topY < 6; if (below) topY = rect.bottom + 8;
+        arrow.classList.toggle('below', below);
+        arrow.style.left = Math.max(4, Math.min(1280 - arrowW - 4, centerX - arrowW/2)) + 'px';
+        arrow.style.top = topY + 'px'; arrow.style.display = 'flex';
+        const lbl = arrow.querySelector('.arrow-label'); if (lbl) lbl.textContent = s.skipClick ? '👀 Look here' : '👆 Click here';
+      }, 80);
+      if (s.skipClick) {
+        const btn = document.createElement('button'); btn.className = 'guided-next-btn'; btn.textContent = 'Next →';
+        btn.onclick = () => { if (s.onConfirm) s.onConfirm(); showStep(i+1); };
+        bar.appendChild(btn); _gs = { el, handler:null }; placeTip(el, s.prompt); return;
+      }
+      placeTip(el, s.prompt);
+      const handler = (e) => {
+        if (!el.contains(e.target)) return;
+        document.removeEventListener('click', handler, true);
+        el.classList.remove('guided-target'); _clearExtra(); _gs = null;
+        if (s.type && el.id) {
+          el.focus(); el.value = ''; typeInto(el.id, s.type, 68);
+          setTimeout(() => { if (s.onConfirm) s.onConfirm(); setTimeout(() => showStep(i+1), 200); }, s.type.length * 70 + 400);
+        } else if (s.onConfirm) { s.onConfirm(); setTimeout(() => showStep(i+1), 350); }
+        else setTimeout(() => showStep(i+1), 350);
+      };
+      _gs = { el, handler }; document.addEventListener('click', handler, true);
+    }
+    tryHighlight(0);
+  }
+  showStep(0);
+}
+
+function setNav(navId) {
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const el = document.getElementById('nav-' + navId); if (el) el.classList.add('active');
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  REUSABLE COMPONENT — the real WISH login page (default.aspx replica)
+// ════════════════════════════════════════════════════════════════════════════
+function wishLoginHTML() {
+  return `
+    <style>@keyframes wishLoginPop{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}</style>
+    <div style="background:#eef1f5;padding:34px 16px;display:flex;justify-content:center;min-height:360px">
+      <div style="background:#fff;border:1px solid #dcdfe4;border-radius:8px;box-shadow:0 6px 22px rgba(0,0,0,.10);width:340px;padding:28px 32px 24px;animation:wishLoginPop .5s cubic-bezier(.22,1,.36,1)">
+        <div style="text-align:center;margin-bottom:20px">
+          <div style="font-family:Arial,Helvetica,sans-serif;font-size:42px;font-weight:800;font-style:italic;color:#e07b00;letter-spacing:1px;line-height:1">WISH</div>
+          <div style="font-size:11px;color:#6a6a6a;font-style:italic;margin-top:2px">your blueprint to success</div>
+        </div>
+        <div style="text-align:left;margin-bottom:13px">
+          <label style="display:block;font-size:12px;color:#333;margin-bottom:4px">LoginId :<span style="color:#c00"> *</span></label>
+          <input id="login-id" class="form-input" style="width:100%;box-sizing:border-box;padding:8px;font-size:13px">
+        </div>
+        <div style="text-align:left;margin-bottom:16px">
+          <label style="display:block;font-size:12px;color:#333;margin-bottom:4px">Password :<span style="color:#c00"> *</span></label>
+          <input id="login-pw" type="password" class="form-input" style="width:100%;box-sizing:border-box;padding:8px;font-size:13px">
+        </div>
+        <button id="login-btn" class="btn" style="width:100%;padding:9px;font-size:14px">Login</button>
+        <div style="display:flex;align-items:flex-start;gap:6px;margin-top:13px;text-align:left">
+          <input type="checkbox" checked style="margin-top:2px">
+          <span style="font-size:10px;color:#888;line-height:1.45">By clicking 'Login' I acknowledge and agree that I am entering the WISH and consent to accessing ProtaTECH's online services in accordance with the website's Terms &amp; Conditions and Privacy Policy</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:15px;font-size:12px">
+          <a style="color:#3a6aaa;cursor:pointer">Lost Password?</a>
+          <a style="color:#3a6aaa;cursor:pointer">Need Help?</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  THE SLIDE — "WISH URL" (Introduction, slide 2)
+//  Voiceover: "WISH is available online at wish.schedulingsite.com."
+// ════════════════════════════════════════════════════════════════════════════
+function slide_introduction_2() {
+  setNav('home');
+  document.getElementById('content').innerHTML = `
+    <div style="background:#e8e8e8;padding:8px 10px;display:flex;gap:8px;align-items:center;border:1px solid #bbb;border-radius:6px;max-width:560px;margin:6px auto 14px">
+      <span style="display:flex;gap:4px"><span style="width:11px;height:11px;border-radius:50%;background:#ff5f57"></span><span style="width:11px;height:11px;border-radius:50%;background:#febc2e"></span><span style="width:11px;height:11px;border-radius:50%;background:#28c840"></span></span>
+      <input id="intro-url" class="form-input" value="wish.schedulingsite.com" style="flex:1;font-size:13px" readonly>
+      <button class="btn btn-sm" id="intro-go">Go</button>
+    </div>
+    <div id="intro-page" style="color:#888;text-align:center;font-size:13px;padding:20px">Press "Go" to open WISH</div>`;
+  runGuided([
+    { selector: '#intro-url', prompt: 'WISH is available online at wish.schedulingsite.com', skipClick: true },
+    { selector: '#intro-go', prompt: 'Enter that address in your browser and press Go to open WISH',
+      onConfirm: () => {
+        const url = document.getElementById('intro-url'); if (url) url.value = 'wish.schedulingsite.com/default.aspx';
+        const p = document.getElementById('intro-page');
+        p.innerHTML = wishLoginHTML(); p.style.color = '#222'; p.style.textAlign = 'left'; p.style.padding = '0';
+      }},
+    { selector: '#login-id', prompt: 'This is the WISH login page. Enter the LoginId and Password from your welcome email, then click Login to enter WISH', skipClick: true },
+  ]);
+}
+
+// Boot
+slide_introduction_2();
+</script>
+</body>
+</html>

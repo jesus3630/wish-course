@@ -1106,13 +1106,15 @@
         "slide_number": 6,
         "slide_name": "Handling No-Shows",
         "instructions": "",
-        "text": "If an employee was scheduled but did not show up, they will appear with no times. You cannot approve hours while any employee has blank times.\r\n\r\nFor employees who did not show up, check the NS, No Show, checkbox next to their name. Once all no-shows are marked, you can proceed with approving hours for the rest of the shift.\r\n\r\nHandle this carefully. A no-show mark affects payroll and the employee's record. Make sure it is accurate before saving."
+        "text": "If an employee was scheduled but did not show up, they will appear with no times. You cannot approve hours while any employee has blank times.\r\n\r\nFor employees who did not show up, check the NS, No Show, checkbox next to their name. Once all no-shows are marked, you can proceed with approving hours for the rest of the shift.\r\n\r\nHandle this carefully. A no-show mark affects payroll and the employee's record. Make sure it is accurate before saving.",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=6"
       },
       {
         "slide_number": 7,
         "slide_name": "Override Rates and Per Diem",
         "instructions": "",
-        "text": "When manually entering times, you will also see fields for:\r\n\r\nOverride Rate, If an employee worked a position different from their standard role and should be paid a different rate, enter it here. The system applies the higher of the two rates.\r\n\r\nPer Diem, If you provided the employee with additional payment outside their hourly rate (such as a pay card), enter that amount here so payroll can account for it."
+        "text": "When manually entering times, you will also see fields for:\r\n\r\nOverride Rate, If an employee worked a position different from their standard role and should be paid a different rate, enter it here. The system applies the higher of the two rates.\r\n\r\nPer Diem, If you provided the employee with additional payment outside their hourly rate (such as a pay card), enter that amount here so payroll can account for it.",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours&slide=7"
       },
       {
         "slide_number": 8,

@@ -6609,81 +6609,104 @@ function slide_sign_in_sign_out_6() {
 }
 
 // ── Manual Process Hours ───────────────────────────────────────────────────
+// Green "sunburst" approved confirmation banner injected after Approve Hours
+function mphApprovedBanner() {
+  return `<div id="sp-approved" style="text-align:center;margin:10px 0;color:#2a8a3a;font-weight:bold;font-size:14px">
+    <span style="font-size:18px">&#10040;</span> Hours Approved &mdash; this shift is now processed</div>`;
+}
+
 function slide_manual_process_hours_3() {
-  setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours</div>
-    <div class="form-row"><span class="form-label">Event :</span>
-      <select class="form-select" id="f-mph-event"><option>--Select Event--</option><option>2023 DRAKE</option></select></div>
-    <div id="mph-jobs" style="display:none;margin-top:10px">
-      <table><thead><tr><th>Job#</th><th>Job Name</th><th>Shift</th><th>Role</th><th>Date</th>
-        <th style="background:#3a8a3a" id="si-col">Sign-In</th>
-        <th style="background:#3a6aaa" id="so-col">Sign-Out</th>
-        <th>Approved</th></tr></thead>
-      <tbody>
-        <tr><td><a href="#" style="color:#3a6aaa">1012698342</a></td><td>DRAKE N3</td><td>Day Shift</td><td>Event Staff</td><td>08/15/2023</td><td style="color:#c00">0 / 45</td><td style="color:#c00">0 / 45</td><td>&#8212;</td></tr>
-        <tr><td><a href="#" style="color:#3a6aaa">1012698342</a></td><td>DRAKE N3</td><td>Day Shift</td><td>Supervisor</td><td>08/15/2023</td><td>2 / 2</td><td>2 / 2</td><td>&#10004;</td></tr>
-      </tbody></table>
-    </div>`;
+  // Reviewing the shift — Payroll > MPH, select event, Retrieve, open shift, read the Sign-In count
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
   runGuided([
-    { selector: '#f-mph-event', prompt: 'Click to select the Event',
-      onConfirm: () => {
-        document.getElementById('f-mph-event').value = '2023 DRAKE';
-        document.getElementById('mph-jobs').style.display = '';
-      }},
-    { selector: '#si-col', prompt: 'The Sign-In column shows how many employees have signed in vs. total scheduled. Click Next.', skipClick: true },
+    { selector: '#nav-payroll', prompt: 'Open the "Payroll" menu',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.add('active'); document.getElementById('sub-payroll').classList.add('show'); }},
+    { selector: '#sub-pay-mph', prompt: 'Click "Manage Process Hours"',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.remove('active'); document.getElementById('sub-payroll').classList.remove('show'); setNav('payroll'); document.getElementById('content').innerHTML = manageProcessHoursHTML(); }},
+    { selector: '#mph-event', prompt: 'Select your Event from the dropdown — this pulls every job tied to that event',
+      onConfirm: () => { document.getElementById('mph-event').value = '2026 SP FIFA Ivory Coast Training'; }},
+    { selector: '#mph-retrieve', prompt: 'Click "Retrieve" to list the jobs and shifts',
+      onConfirm: () => { document.getElementById('mph-results').style.display = ''; }},
+    { selector: '#mph-shift-link', prompt: 'Click into a Shift Name to expand it and review each role',
+      onConfirm: () => { document.getElementById('content').innerHTML = shiftProcessHTML(); }},
+    { selector: '#sp-signin', prompt: 'For each shift you see the Min, Max, Scheduled count, and Sign-In count — an at-a-glance view of what happened. The Sign-In count reflects what was captured electronically, and it\'s your starting point for approving hours. Click it to expand the roster',
+      onConfirm: () => showShiftRoster() },
+    { selector: '#sp-roster', prompt: 'Here is every employee on the role, with the times the system captured', skipClick: true },
   ]);
 }
 
 function slide_manual_process_hours_4() {
+  // Approving electronic sign-ins — review populated times, Approve Hours = save, green sunburst
   setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
-    <div style="margin-bottom:10px;display:flex;gap:6px">
-      <button class="btn btn-sm" id="btn-si">Sign-In All</button>
-      <button class="btn btn-sm btn-blue" id="btn-so">Sign-Out All</button>
-      <button class="btn btn-sm btn-green" id="btn-approve">Approve Hours</button>
-    </div>
-    <table><thead><tr><th>Employee</th><th>Emp#</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th><th>Hours</th><th>Approved</th></tr></thead>
-    <tbody id="mph-body">
-      <tr><td>Garcia, Maria</td><td>4122000</td><td>08:00</td><td>12:30</td><td id="si0">&#8212;</td><td id="so0">&#8212;</td><td id="hrs0">&#8212;</td><td id="ap0">&#8212;</td></tr>
-      <tr><td>Smith, John</td><td>4122001</td><td>08:00</td><td>12:30</td><td id="si1">&#8212;</td><td id="so1">&#8212;</td><td id="hrs1">&#8212;</td><td id="ap1">&#8212;</td></tr>
-      <tr><td>Johnson, Robert</td><td>4122003</td><td>08:00</td><td>12:30</td><td id="si2">&#8212;</td><td id="so2">&#8212;</td><td id="hrs2">&#8212;</td><td id="ap2">&#8212;</td></tr>
-    </tbody></table>`;
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
+  // Fill in clean electronic times so the role looks "already populated"
+  document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '08:00'; });
+  document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '09:00'; });
   runGuided([
-    { selector: '#btn-si', prompt: 'Click "Sign-In All" to record sign-in times for all employees',
-      onConfirm: () => { [0,1,2].forEach(i => document.getElementById('si'+i).textContent = '08:0'+i+' AM'); }},
-    { selector: '#btn-so', prompt: 'Click "Sign-Out All" to record sign-out times for all employees',
-      onConfirm: () => { [0,1,2].forEach(i => { document.getElementById('so'+i).textContent = '12:30 PM'; document.getElementById('hrs'+i).textContent = '4.5'; }); }},
-    { selector: '#btn-approve', prompt: 'Click "Approve Hours" to approve the recorded hours for payroll',
-      onConfirm: () => { [0,1,2].forEach(i => document.getElementById('ap'+i).innerHTML = '<span style="color:#2a9a2a">&#10004;</span>'); }},
+    { selector: '#sp-roster', prompt: 'When electronic sign-ins were completed, the times are already populated for each employee. Review them — if everything looks correct, you\'re ready to finalize', skipClick: true },
+    { selector: '#sp-approve', prompt: 'Click "Approve Hours" — this is your save button. It finalizes the hours for this shift',
+      onConfirm: () => {
+        const c = document.getElementById('content');
+        if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
+      }},
+    { selector: '#sp-approved', prompt: 'After approving, you\'ll see green sunburst icons next to completed shifts. They let you track where you are: green means done, a blue link means not yet processed', skipClick: true },
   ]);
 }
 
 function slide_manual_process_hours_5() {
+  // Autofill for clean sessions — Autofill Sign-In/Sign-Out give everyone the full scheduled time, then Approve
   setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift</div>
-    <div style="margin-bottom:10px;display:flex;gap:6px">
-      <button class="btn btn-sm" id="btn-afsi">Autofill Sign-In</button>
-      <button class="btn btn-sm btn-blue" id="btn-afso">Autofill Sign-Out</button>
-      <button class="btn btn-sm btn-green" id="btn-apall">Approve Hours</button>
-      <button class="btn btn-sm btn-secondary">Back</button>
-    </div>
-    <table><thead><tr><th>Employee</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th><th>Hours</th><th>Approved</th></tr></thead>
-    <tbody>
-      <tr><td>Garcia, Maria</td><td>08:00</td><td>12:30</td><td id="af-si0">&#8212;</td><td id="af-so0">&#8212;</td><td id="af-hrs0">&#8212;</td><td id="af-ap0">&#8212;</td></tr>
-      <tr><td>Smith, John</td><td>08:00</td><td>12:30</td><td id="af-si1">&#8212;</td><td id="af-so1">&#8212;</td><td id="af-hrs1">&#8212;</td><td id="af-ap1">&#8212;</td></tr>
-      <tr><td>Johnson, Robert</td><td>08:00</td><td>12:30</td><td id="af-si2">&#8212;</td><td id="af-so2">&#8212;</td><td id="af-hrs2">&#8212;</td><td id="af-ap2">&#8212;</td></tr>
-      <tr><td>Williams, David</td><td>08:00</td><td>12:30</td><td id="af-si3">&#8212;</td><td id="af-so3">&#8212;</td><td id="af-hrs3">&#8212;</td><td id="af-ap3">&#8212;</td></tr>
-    </tbody></table>`;
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
   runGuided([
-    { selector: '#btn-afsi', prompt: 'Click "Autofill Sign-In" to fill shift start times automatically',
-      onConfirm: () => { [0,1,2,3].forEach(i => document.getElementById('af-si'+i).textContent = '08:0'+(i||'')+'0 AM'); }},
-    { selector: '#btn-afso', prompt: 'Click "Autofill Sign-Out" to fill shift end times automatically',
-      onConfirm: () => { [0,1,2,3].forEach(i => { document.getElementById('af-so'+i).textContent = '12:30 PM'; document.getElementById('af-hrs'+i).textContent = '4.5'; }); }},
-    { selector: '#btn-apall', prompt: 'Click "Approve Hours" to approve all hours for payroll',
-      onConfirm: () => { [0,1,2,3].forEach(i => document.getElementById('af-ap'+i).innerHTML = '<span style="color:#2a9a2a">&#10004;</span>'); }},
+    { selector: '#sp-autofill-si', prompt: 'For jobs with no electronic sign-ins where everyone worked their full shift, use "AutoFill SignIn" — it instantly populates every employee with the shift\'s scheduled start time',
+      onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '08:00'; }); }},
+    { selector: '#sp-autofill-so', prompt: 'Click "AutoFill SignOut" to fill the scheduled end time for everyone at once',
+      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '09:00'; }); }},
+    { selector: '#sp-approve', prompt: 'Click "Approve Hours" to finalize. This is the fastest way to process clean sessions where you\'re confident everyone worked their full shift',
+      onConfirm: () => {
+        const c = document.getElementById('content');
+        if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
+      }},
+  ]);
+}
+
+function slide_manual_process_hours_6() {
+  // Handling no-shows — an employee with blank times blocks approval; mark the NS (No Show) checkbox
+  setNav('payroll');
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
+  runGuided([
+    { selector: '#sp-ns-noshow', prompt: 'If an employee was scheduled but never showed, they appear with no Sign-In or Sign-Out times — highlighted here in red. You cannot approve hours while any employee has blank times. Check the NS (No Show) box next to their name',
+      onConfirm: () => {
+        const cb = document.getElementById('sp-ns-noshow');
+        if (cb) { cb.checked = true; const row = cb.closest('tr'); if (row) row.style.background = '#eef7ee'; }
+      }},
+    { selector: '#sp-approve', prompt: 'Once every no-show is marked, the blank times are accounted for and you can approve hours for the rest of the shift. Handle this carefully — a no-show mark affects payroll and the employee\'s record',
+      onConfirm: () => {
+        const c = document.getElementById('content');
+        if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
+      }},
+  ]);
+}
+
+function slide_manual_process_hours_7() {
+  // Override Rate & Per Diem — extra pay fields when manually entering times
+  setNav('payroll');
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
+  runGuided([
+    { selector: '#sp-ovd-all', prompt: 'When manually entering times you\'ll also see an Override Rate field. If an employee worked a position different from their standard role and should be paid a different rate, enter it here — the system applies the higher of the two rates', type: '18',
+      onConfirm: () => { document.querySelectorAll('.sp-ovd-row').forEach(el => el.value = '18'); }},
+    { selector: '#sp-pd-all', prompt: 'Per Diem is for additional payment outside the hourly rate — like a pay card. Enter the amount here so payroll can account for it', type: '25',
+      onConfirm: () => { document.querySelectorAll('.sp-pd-row').forEach(el => el.value = '25'); }},
+    { selector: '#sp-approve', prompt: 'With times, override rates, and per diem entered, click "Approve Hours" to finalize the shift',
+      onConfirm: () => {
+        const c = document.getElementById('content');
+        if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
+      }},
   ]);
 }
 
@@ -9319,11 +9342,11 @@ function shiftRosterHTML() {
     ['3951678','Brooks, Tara','09:00','11:00','16.00'],
   ];
   const dateSel = '<select class="form-select" style="font-size:11px;width:108px"><option>15-Aug-2026</option></select>';
-  const rows = emps.map(e=>`<tr style="background:#fff">
+  const rows = emps.map(e=>`<tr style="background:${e[2]===''?'#fde8e8':'#fff'}">
     <td style="padding:4px 6px;white-space:nowrap;color:#c89000">&#9998; &#9432;</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
-    <td style="${cw}"><input type="checkbox"></td>
+    <td style="${cw}"><input type="checkbox" class="sp-ns-row"${e[2]===''?' id="sp-ns-noshow"':''}></td>
     <td style="padding:4px 6px;white-space:nowrap"><input class="form-input sp-si-row" value="${e[2]}" style="width:42px">${dateSel}</td>
     <td style="padding:4px 6px;white-space:nowrap">${dateSel}</td>
     <td style="${cw}"><input class="form-input sp-hrs-row" value="${e[3]}" style="width:42px"></td>
@@ -13010,6 +13033,8 @@ const routes = {
   'manual_process_hours-3': slide_manual_process_hours_3,
   'manual_process_hours-4': slide_manual_process_hours_4,
   'manual_process_hours-5': slide_manual_process_hours_5,
+  'manual_process_hours-6': slide_manual_process_hours_6,
+  'manual_process_hours-7': slide_manual_process_hours_7,
   'billing-4': slide_billing_4,
   'billing-5': slide_billing_5,
   'billing-6': slide_billing_6,
