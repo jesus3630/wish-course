@@ -12966,6 +12966,23 @@ function slide_introduction_2() {
   ]);
 }
 
+function slide_introduction_9() {
+  // Touring the Menus — one screen, a guided highlight of every left-nav menu (replaces 8 separate menu slides)
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-admin', prompt: 'The menus on the left are your map of WISH. <b>Admin</b> handles system setup — creating companies and branches and granting user access.', skipClick: true },
+    { selector: '#nav-billing', prompt: '<b>Billing</b> turns a completed job into a client invoice, once its schedule is saved.', skipClick: true },
+    { selector: '#nav-inventory', prompt: '<b>Inventory</b> tracks items used at events — radios, jackets, and other supplies.', skipClick: true },
+    { selector: '#nav-records', prompt: '<b>Records</b> is where you\'ll spend much of your time — entering, editing, and updating essential data.', skipClick: true },
+    { selector: '#nav-reports', prompt: '<b>Reports</b> holds your key documents: alpha rosters, sign-in / sign-out sheets, and payroll and billing reports.', skipClick: true },
+    { selector: '#nav-scheduling', prompt: '<b>Scheduling</b> is used by your branch to assign employees to jobs — by employee or by job.', skipClick: true },
+    { selector: '#nav-payroll', prompt: '<b>Payroll</b> is where staff review and approve work hours after an event.', skipClick: true },
+    { selector: '#nav-timeclock', prompt: '<b>Time Clock</b> runs on-site, where employees sign in and out of their shifts.', skipClick: true },
+    { selector: '#nav-home', prompt: 'You\'ll only ever see the menus your role and completed training allow.', skipClick: true },
+  ]);
+}
+
 function reportsMenuExpand(itemsHTML) {
   document.getElementById('nav-reports').classList.add('active');
   const sub = document.getElementById('sub-reports');
@@ -13052,6 +13069,7 @@ const routes = {
   'introduction-5': slide_introduction_5,
   'introduction-6': slide_introduction_6,
   'introduction-7': slide_introduction_7,
+  'introduction-9': slide_introduction_9,
   'manage_job-3':   slide_manage_job_3,
   'manage_job-4':   slide_manage_job_4,
   'manage_job-5':   slide_manage_job_5,
