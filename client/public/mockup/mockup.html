@@ -6645,7 +6645,7 @@ function slide_manual_process_hours_4() {
     { selector: '#sp-role-signin', prompt: 'For paper sign-in sheets, use the Sign-In and Sign-Out buttons to populate all employees with the scheduled time. Click "SignIn"',
       onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; }); }},
     { selector: '#sp-role-signout', prompt: 'Click "SignOut" to fill the scheduled end time, then use the Tab key to move through the rows and manually adjust any individual times that differ',
-      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; }); }},
+      onConfirm: () => { document.querySelectorAll('.sp-so-row').forEach(el => { if (!el.value) el.value = '17:00'; }); spRecalcHrs(); }},
     { selector: '#sp-approve', prompt: 'When everything looks correct, click Approve Hours — this is your save button and finalizes the hours',
       onConfirm: () => {
         const c = document.getElementById('content');
@@ -6664,7 +6664,7 @@ function slide_manual_process_hours_5() {
     { selector: '#sp-autofill-si', prompt: 'For jobs with no electronic sign-ins where everyone worked their full shift, use "AutoFill SignIn" — it instantly populates every employee with the shift\'s scheduled start time',
       onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; }); }},
     { selector: '#sp-autofill-so', prompt: 'Click "AutoFill SignOut" to fill the scheduled end time for everyone at once',
-      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; }); }},
+      onConfirm: () => { document.querySelectorAll('.sp-so-row').forEach(el => { if (!el.value) el.value = '17:00'; }); spRecalcHrs(); }},
     { selector: '#sp-approve', prompt: 'Click "Approve Hours" to finalize. This is the fastest way to process clean sessions where you\'re confident everyone worked their full shift',
       onConfirm: () => {
         const c = document.getElementById('content');
@@ -9337,24 +9337,26 @@ function shiftProcessHTML() {
 function shiftRosterHTML() {
   const cw = 'text-align:center;padding:4px 6px';
   const emps = [
-    ['3951601','Okafor, Terrence','13:00','15:00','16.00'],
-    ['3951612','Vasquez, Lorena','13:00','15:00','16.00'],
-    ['3951623','Brennan, Marcus','13:00','15:00','16.00'],
+    ['3951601','Okafor, Terrence','13:00','17:00','16.00'],
+    ['3951612','Vasquez, Lorena','13:00','17:00','16.00'],
+    ['3951623','Brennan, Marcus','13:00','17:00','16.00'],
     ['3951634','Sandoval, Priya','13:15','','16.00'],
     ['3951645','Whitfield, Daria','13:30','','16.00'],
     ['3951656','Calderon, Renee','','','16.00'],
-    ['3951667','Bennett, Joel','13:00','15:00','16.00'],
-    ['3951678','Brooks, Tara','13:05','15:10','16.00'],
+    ['3951667','Bennett, Joel','13:00','17:00','16.00'],
+    ['3951678','Brooks, Tara','13:05','17:10','16.00'],
   ];
   const dateSel = '<select class="form-select" style="font-size:11px;width:108px"><option>15-Aug-2026</option></select>';
+  // Sign In Adj and Sign Out Adj are identical: [time input] + [date dropdown]. Hrs is computed (4.00 when both times present).
+  const adj = (cls,val)=>`<input class="form-input ${cls}" value="${val}" style="width:48px"> ${dateSel}`;
   const rows = emps.map(e=>`<tr style="background:${e[2]===''?'#fde8e8':'#fff'}">
     <td style="padding:4px 6px;white-space:nowrap;color:#c89000">&#9998; &#9432;</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
     <td style="${cw}"><input type="checkbox" class="sp-ns-row"${e[2]===''?' id="sp-ns-noshow"':''}></td>
-    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input sp-si-row" value="${e[2]}" style="width:42px">${dateSel}</td>
-    <td style="padding:4px 6px;white-space:nowrap">${dateSel}</td>
-    <td style="${cw}"><input class="form-input sp-hrs-row" value="${e[3]}" style="width:42px"></td>
+    <td style="padding:4px 6px;white-space:nowrap">${adj('sp-si-row',e[2])}</td>
+    <td style="padding:4px 6px;white-space:nowrap">${adj('sp-so-row',e[3])}</td>
+    <td style="${cw}"><span class="sp-hrs-cell" style="font-weight:bold">${e[2]&&e[3]?'4.00':''}</span></td>
     <td style="${cw}">${e[4]}</td>
     <td style="${cw}"><input class="form-input sp-ovd-row" style="width:48px"></td>
     <td style="${cw}"><input class="form-input sp-pd-row" style="width:48px"></td>
@@ -9377,6 +9379,14 @@ function showShiftRoster() {
   if (r) r.style.display = '';
   const t = document.getElementById('sp-role-toggle');
   if (t) t.textContent = '−';
+}
+
+// Recompute the Hrs column for every roster row that has both a Sign In Adj and Sign Out Adj time
+function spRecalcHrs() {
+  document.querySelectorAll('#sp-roster tbody tr').forEach(tr => {
+    const si = tr.querySelector('.sp-si-row'), so = tr.querySelector('.sp-so-row'), h = tr.querySelector('.sp-hrs-cell');
+    if (si && so && h) h.textContent = (si.value && so.value) ? '4.00' : '';
+  });
 }
 
 function slide_payroll_processing_3() {
@@ -9410,7 +9420,7 @@ function slide_payroll_processing_4() {
     { selector: '#sp-autofill-si', prompt: 'To populate times, use "AutoFill SignIn" — one click fills every employee with the shift\'s scheduled start time. Anyone who already has a different time keeps it; autofill won\'t overwrite individual entries',
       onConfirm: () => { document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; }); }},
     { selector: '#sp-autofill-so', prompt: 'Click "AutoFill SignOut" to fill the scheduled end time. For employees with different arrival times, correct the exceptions manually afterward — use the Tab key to move through each field',
-      onConfirm: () => { document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; }); }},
+      onConfirm: () => { document.querySelectorAll('.sp-so-row').forEach(el => { if (!el.value) el.value = '17:00'; }); spRecalcHrs(); }},
     { selector: '#sp-ovd-all', prompt: 'If employees earned a rate different from their default, enter it in the Override Rate field at the top of the role — here, 18 — then click outside the box, and everyone on the page updates at once', type: '18',
       onConfirm: () => { document.querySelectorAll('.sp-ovd-row').forEach(el => el.value = '18'); }},
     { selector: '#sp-pd-all', prompt: 'Per Diem works the same way — enter it once at the top of the role and it applies to all', type: '25',
