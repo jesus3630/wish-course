@@ -446,26 +446,33 @@
       },
       {
         "slide_number": 7,
-        "slide_name": "Sign-Out Exceptions and Process Payroll",
+        "slide_name": "Sign-Out Exceptions",
         "instructions": "Payroll ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Sign-Out Exceptions. Set Friday end date. Click Retrieve Exceptions ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â show overlap list. Show Adj button and correcting an out-time. Then Payroll ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Process Payroll. Show job list with Yes/No approved column. Show Holiday Pay checkbox. Click Start Hours Process.",
         "text": "Before running payroll, go to Payroll to Sign-Out Exceptions. This report flags overlapping hours, employees whose time on one job runs into their time on another. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins. Once fixed, they drop off the list. Submit with overlaps and payroll will send it back.\r\n\r\nWith exceptions cleared, go to Payroll to Process Payroll. Enter the Friday end date and click Get Jobs. The Approved Hours column shows Yes or No, only Yes jobs will be processed. If a job shows No, go back to Manage Process Hours and complete the approval.\r\n\r\nBefore clicking Start Hours Process, check the Holiday Pay checkbox for any jobs that fell on a recognized holiday. Skipping it means the billing will not calculate correctly. Then click Start Hours Process to run payroll.",
         "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=7"
       },
       {
         "slide_number": 8,
+        "slide_name": "Process Payroll",
+        "instructions": "",
+        "text": "Once your hours are approved, the next step is to run the payroll. Go to Payroll, then Process Payroll.\n\nEnter the Friday end date for the pay week and click Get Job. The system pulls every job from that week, Saturday through Friday.\n\nNow look at the Approved Hours column. This reflects the Approve Hours button from Manage Process Hours: Yes means the job is ready, No means it still needs work. Only jobs marked Yes will be paid, even though every row is checked on the left.\n\nIf a job shows No that should be done, click into it, complete the sign-in and sign-out, approve the hours, then come back and Get Job again. If a job fell on a holiday, check the Holiday box so it pays and bills correctly.\n\nWhen the Yes jobs look right, click Start Process. The hours are processed, and the employees on those jobs are paid for that pay week.",
+        "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=9"
+      },
+      {
+        "slide_number": 9,
         "slide_name": "Payroll Reports",
         "instructions": "Reports ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Payroll Reports ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Employee Time Register ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Produce Report. Show report with employee names, days worked, hours, pay rate. Then Reports ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Job Administration ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ One Line Shift Summary ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â set Saturday to Saturday. Then Sign-In Sign-Out Sheets ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â same date range. Then Payroll ÃƒÂ¢Ã¢â‚¬Â Ã¢â‚¬â„¢ Export Per Diem Report if applicable.",
         "text": "After running Process Payroll, pull three reports to submit to the payroll department:\r\n\r\nEmployee Time Register, go to Reports to Payroll Reports to Employee Time Register and click Produce Report. This always reflects your most recent payroll run. Review every entry for zero pay rates or missing days, both mean a job was not processed. If you find an issue, fix it in Manage Process Hours, re-run Process Payroll, then pull this report again.\r\n\r\nOne Line Shift Summary, go to Reports to Job Administration to One Line Shift Summary. Run it Saturday to Saturday, one extra day beyond Friday, to capture any overnight shifts that cross into the next morning.\r\n\r\nSign-In and Sign-Out Sheets, same location, same Saturday-to-Saturday date range. These are the third document the payroll department receives.\r\n\r\nIf per diems were entered during the week, also run the Export Per Diem Report under the Payroll menu.",
         "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=8"
       },
       {
-        "slide_number": 9,
+        "slide_number": 10,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
         "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH, from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone."
       },
       {
-        "slide_number": 10,
+        "slide_number": 11,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
