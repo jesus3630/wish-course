@@ -6635,14 +6635,15 @@ function slide_manual_process_hours_3() {
 }
 
 function slide_manual_process_hours_4() {
-  // Approving electronic sign-ins — review populated times, Approve Hours = save, green sunburst
+  // Approving electronic sign-ins — open the role with the +, review populated times, Approve = save, green sunburst
   setNav('payroll');
   document.getElementById('content').innerHTML = shiftProcessHTML();
-  showShiftRoster();
-  // Fill in clean electronic times so the role looks "already populated"
+  // Pre-fill clean electronic times on the (still collapsed) roster so it looks "already populated" once opened
   document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; });
   document.querySelectorAll('.sp-hrs-row').forEach(el => { if (!el.value) el.value = '17:00'; });
   runGuided([
+    { selector: '#sp-role-toggle', prompt: 'Open a shift role by clicking the + on the left-hand side of the role',
+      onConfirm: () => showShiftRoster() },
     { selector: '#sp-roster', prompt: 'When electronic sign-ins were completed, the times are already populated for each employee. Review them — if everything looks correct, you\'re ready to finalize', skipClick: true },
     { selector: '#sp-approve', prompt: 'Click "Approve Hours" — this is your save button. It finalizes the hours for this shift',
       onConfirm: () => {
