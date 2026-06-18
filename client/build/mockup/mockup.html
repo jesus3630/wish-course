@@ -9402,14 +9402,14 @@ function shiftRosterHTML() {
   ];
   const dateSel = '<select class="form-select" style="font-size:11px;width:108px"><option>15-Aug-2026</option></select>';
   // Sign In Adj and Sign Out Adj are identical: [time input] + [date dropdown]. Hrs is computed (4.00 when both times present).
-  const adj = (cls,val)=>`<input class="form-input ${cls}" value="${val}" style="width:48px"> ${dateSel}`;
+  const adj = (cls,val,id)=>`<input class="form-input ${cls}"${id?` id="${id}"`:''} value="${val}" style="width:48px"> ${dateSel}`;
   const rows = emps.map(e=>`<tr style="background:${e[2]===''?'#fde8e8':'#fff'}">
     <td style="padding:4px 6px;white-space:nowrap;color:#c89000">&#9998; &#9432;</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
     <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
     <td style="${cw}"><input type="checkbox" class="sp-ns-row"${e[2]===''?' id="sp-ns-noshow"':''}></td>
     <td style="padding:4px 6px;white-space:nowrap">${adj('sp-si-row',e[2])}</td>
-    <td style="padding:4px 6px;white-space:nowrap">${adj('sp-so-row',e[3])}</td>
+    <td style="padding:4px 6px;white-space:nowrap">${adj('sp-so-row',e[3], e[0]==='3951634'?'sp-so-fix':'')}</td>
     <td style="${cw}"><span class="sp-hrs-cell" style="font-weight:bold">${e[2]&&e[3]?'4.00':''}</span></td>
     <td style="${cw}">${e[4]}</td>
     <td style="${cw}"><input class="form-input sp-ovd-row" style="width:48px"></td>
@@ -9441,6 +9441,24 @@ function spRecalcHrs() {
     const si = tr.querySelector('.sp-si-row'), so = tr.querySelector('.sp-so-row'), h = tr.querySelector('.sp-hrs-cell');
     if (si && so && h) h.textContent = (si.value && so.value) ? '4.00' : '';
   });
+}
+
+// 24-hour warning popup — appears when a sign-out date sits on the wrong day (shift crossing midnight)
+function show24hrWarning() {
+  if (document.getElementById('warn24')) return;
+  const ov = document.createElement('div');
+  ov.id = 'warn24';
+  ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:9998';
+  ov.innerHTML = `<div style="background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.3);max-width:360px;width:90%">
+    <div style="background:#5a5a5a;color:#fff;padding:8px 12px;font-weight:bold;font-size:13px">24 Hour Warning</div>
+    <div style="padding:14px 16px;font-size:13px;color:#333">One or more sign-out times are more than 24 hours after the sign-in. This usually means the out-date is on the wrong day. Please verify the out-date before approving.</div>
+    <div style="text-align:right;padding:10px 16px;border-top:1px solid #eee"><button class="btn" id="warn24-ok">OK</button></div>
+  </div>`;
+  document.body.appendChild(ov);
+}
+function close24hrWarning() {
+  const ov = document.getElementById('warn24');
+  if (ov) ov.remove();
 }
 
 function slide_payroll_processing_3() {
@@ -9483,48 +9501,43 @@ function slide_payroll_processing_4() {
 }
 
 function slide_payroll_processing_5() {
+  // Handling Real-World Issues — fix the exceptions on the real roster, then hit the 24-hour warning on Approve
   setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
-    <table><thead><tr><th>Employee</th><th>Shift Start</th><th>Shift End</th><th>Sign-In</th><th>Sign-Out</th><th>No Show</th></tr></thead>
-    <tbody>
-      <tr><td>Garcia, Maria</td><td>08:00</td><td>12:30</td><td>08:02 AM</td><td>12:30 PM</td><td><input type="checkbox" disabled></td></tr>
-      <tr><td>Smith, John</td><td>08:00</td><td>12:30</td><td>08:05 AM</td><td id="smith-so" style="cursor:text;border:1px dashed #aaa;padding:2px 4px;min-width:70px">&#8212;</td><td><input type="checkbox"></td></tr>
-      <tr><td>Johnson, Robert</td><td>08:00</td><td>12:30</td><td id="rj-si" style="color:#c00">&#8212;</td><td id="rj-so" style="color:#c00">&#8212;</td><td><input type="checkbox" id="rj-noshow"></td></tr>
-    </tbody></table>`;
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
   runGuided([
-    { selector: '#smith-so', prompt: 'Smith has a sign-in but no sign-out. Click the Sign-Out cell and type the end time manually.', type: '12:30 PM' },
-    { selector: '#rj-noshow', prompt: 'Johnson has no times at all — they did not show up. Check the "No Show" box to mark them as absent.',
+    { selector: '#sp-roster', prompt: 'When you open a shift you may see three situations. Some employees have both a sign-in and a sign-out — no action needed. Others need a fix before you can approve.', skipClick: true },
+    { selector: '#sp-so-fix', prompt: 'Sandoval has a sign-in but no sign-out. Click the Sign-Out cell and enter the end time manually — the system won\'t let you approve while any record is incomplete.', type: '17:00',
+      onConfirm: () => spRecalcHrs() },
+    { selector: '#sp-ns-noshow', prompt: 'Calderon has no times at all — they didn\'t show up. Check the NS box to mark them a No Show. (If they had worked but weren\'t signed in electronically, you\'d enter their times from the paper sign-in sheet instead.)',
       onConfirm: () => {
-        document.getElementById('rj-noshow').checked = true;
-        document.getElementById('rj-si').style.color = '#888';
-        document.getElementById('rj-so').style.color = '#888';
+        const cb = document.getElementById('sp-ns-noshow');
+        if (cb) { cb.checked = true; const row = cb.closest('tr'); if (row) row.style.background = '#eef7ee'; }
       }},
+    { selector: '#sp-approve', prompt: 'Now click Approve Hours.',
+      onConfirm: () => show24hrWarning() },
+    { selector: '#warn24-ok', prompt: 'Watch for the 24-hour warning. It appears when an out-date is left on the wrong day — like a shift that crosses midnight. Click OK, then go back and correct the out-date to the day the employee actually finished.',
+      onConfirm: () => close24hrWarning() },
   ]);
 }
 
 function slide_payroll_processing_6() {
+  // Approving Hours — everything is clean now, do the real Approve and see the green confirmation
   setNav('payroll');
-  document.getElementById('content').innerHTML = `
-    <div class="page-title">Manage Process Hours &#8212; DRAKE N3 | Day Shift | Event Staff</div>
-    <table><thead><tr><th>Employee</th><th>Sign-In</th><th>Sign-Out</th><th>Hours</th><th>Approved</th></tr></thead>
-    <tbody>
-      <tr><td>Garcia, Maria</td><td>08:02 AM</td><td>12:30 PM</td><td>4.5</td><td id="ap0">&#8212;</td></tr>
-      <tr><td>Smith, John</td><td>08:05 AM</td><td>12:30 PM</td><td>4.4</td><td id="ap1">&#8212;</td></tr>
-      <tr><td>Johnson, Robert</td><td colspan="3" style="color:#888;font-style:italic">No Show</td><td id="ap2">&#8212;</td></tr>
-    </tbody></table>
-    <div style="margin-top:16px;display:flex;gap:6px">
-      <button class="btn btn-green" id="btn-pp-approve">Approve Hours</button>
-      <button class="btn btn-secondary">Back</button>
-    </div>
-    <div id="pp-approve-msg" style="background:#dff0d8;border:1px solid #5cb85c;color:#1a6a1a;padding:5px 10px;margin-top:10px;display:none;font-size:12px">&#10004; Hours approved. Back on the shift list, click the Process Payroll button to finalize.</div>`;
+  document.getElementById('content').innerHTML = shiftProcessHTML();
+  showShiftRoster();
+  // All exceptions already resolved: fill any blank times and mark the no-show so this is a clean approve
+  document.querySelectorAll('.sp-si-row').forEach(el => { if (!el.value) el.value = '13:00'; });
+  document.querySelectorAll('.sp-so-row').forEach(el => { if (!el.value) el.value = '17:00'; });
+  spRecalcHrs();
   runGuided([
-    { selector: '#btn-pp-approve', prompt: 'All times are entered. Scroll to the bottom and click "Approve Hours" to save this shift.',
+    { selector: '#sp-roster', prompt: 'Once all times are entered and any no-shows are marked, the shift is clean and ready to finalize.', skipClick: true },
+    { selector: '#sp-approve', prompt: 'Scroll to the bottom and click Approve Hours — this is your save button.',
       onConfirm: () => {
-        [0,1,2].forEach(i => document.getElementById('ap'+i).innerHTML = '<span style="color:#2a9a2a">&#10004;</span>');
-        document.getElementById('pp-approve-msg').style.display = '';
+        const c = document.getElementById('content');
+        if (c && !document.getElementById('sp-approved')) c.insertAdjacentHTML('beforeend', mphApprovedBanner());
       }},
-    { selector: '#pp-approve-msg', prompt: 'Repeat for every shift. When all shifts are approved, go back to the shift list and click Process Payroll.', skipClick: true },
+    { selector: '#sp-approved', prompt: 'You\'ll see the green confirmation. The shift is approved — repeat for every shift, then move on to running Process Payroll.', skipClick: true },
   ]);
 }
 
