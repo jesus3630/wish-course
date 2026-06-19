@@ -18,6 +18,7 @@ export default function App() {
   const [view, setView] = useState<AppView>('login');
   const [progress, setProgress] = useState<CourseProgress | null>(null);
   const [activeModuleIndex, setActiveModuleIndex] = useState<number>(0);
+  const [jumpSlide, setJumpSlide] = useState<number | undefined>(undefined);
   const [modules, setModules] = useState<Module[]>([]);
   const [quizData, setQuizData] = useState<Record<string, QuizQuestion[]>>({});
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -62,8 +63,9 @@ export default function App() {
     setView('dashboard');
   }
 
-  function handleStartModule(index: number) {
+  function handleStartModule(index: number, slide?: number) {
     setActiveModuleIndex(index);
+    setJumpSlide(slide);
     setView('module');
   }
 
@@ -125,6 +127,7 @@ export default function App() {
         onProgressUpdate={handleProgressUpdate}
         onComplete={handleModuleComplete}
         onBack={() => setView('dashboard')}
+        initialSlide={jumpSlide}
       />
     );
   }

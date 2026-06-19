@@ -7,7 +7,7 @@ import { useIsMobile } from '../utils/useIsMobile';
 interface Props {
   modules: Module[];
   progress: CourseProgress;
-  onStartModule: (index: number) => void;
+  onStartModule: (index: number, slide?: number) => void;
   onLogout: () => void;
   onViewCertificate: () => void;
 }
@@ -17,6 +17,38 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
   const [animatedPct, setAnimatedPct] = useState(0);
   const confettiFiredRef = useRef(false);
   const isMobile = useIsMobile();
+
+  // ── Quick Reference: search every slide across all modules ──
+  const [query, setQuery] = useState('');
+  const searchIndex = React.useMemo(() => {
+    const rows: { mi: number; si: number; module: string; slide: string; text: string }[] = [];
+    modules.forEach((mod, mi) => {
+      (mod.slides || []).forEach((s: any, si: number) => {
+        rows.push({ mi, si, module: mod.name || mod.id, slide: s.slide_name || `Slide ${si + 1}`, text: (s.text || '') });
+      });
+    });
+    return rows;
+  }, [modules]);
+  const q = query.trim().toLowerCase();
+  const results = q.length < 2 ? [] : searchIndex
+    .map(r => {
+      const hay = (r.slide + ' ' + r.text).toLowerCase();
+      const idx = hay.indexOf(q);
+      return idx === -1 ? null : { ...r, score: (r.slide.toLowerCase().includes(q) ? 0 : 1) + idx / 1000 };
+    })
+    .filter((r): r is NonNullable<typeof r> => r !== null)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 12);
+
+  function snippet(text: string): React.ReactNode {
+    const lower = text.toLowerCase();
+    const i = lower.indexOf(q);
+    if (i === -1) return text.slice(0, 120);
+    const start = Math.max(0, i - 45);
+    const seg = (start > 0 ? '…' : '') + text.slice(start, i + q.length + 75) + '…';
+    const at = seg.toLowerCase().indexOf(q);
+    return at === -1 ? seg : (<>{seg.slice(0, at)}<mark style={{ background: '#FFE6C7', color: '#92400E', padding: '0 2px', borderRadius: '3px' }}>{seg.slice(at, at + q.length)}</mark>{seg.slice(at + q.length)}</>);
+  }
 
   // Animate progress ring on mount
   useEffect(() => {
@@ -96,6 +128,41 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
               </text>
             </svg>
           </div>
+        </div>
+
+        {/* Quick Reference search */}
+        <div style={{ position: 'relative', margin: '8px 0 4px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', background: '#fff', border: '1.5px solid #E2E8F0', borderRadius: '12px', padding: isMobile ? '10px 14px' : '12px 18px', boxShadow: '0 2px 10px rgba(0,0,0,0.04)' }}>
+            <span style={{ fontSize: '18px', opacity: 0.6 }}>🔎</span>
+            <input
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              placeholder="Quick reference — search any topic (e.g. “approve hours”, “no-show”, “invoice”)"
+              style={{ flex: 1, border: 'none', outline: 'none', fontSize: isMobile ? '14px' : '15px', color: '#1B3A6B', background: 'transparent' }}
+            />
+            {query && <button onClick={() => setQuery('')} style={{ border: 'none', background: 'transparent', cursor: 'pointer', color: '#94A3B8', fontSize: '18px' }}>✕</button>}
+          </div>
+          {q.length >= 2 && (
+            <div style={{ marginTop: '8px', background: '#fff', border: '1px solid #E2E8F0', borderRadius: '12px', boxShadow: '0 8px 24px rgba(0,0,0,0.08)', overflow: 'hidden' }}>
+              {results.length === 0 ? (
+                <div style={{ padding: '16px 18px', color: '#94A3B8', fontSize: '14px' }}>No matches for “{query}”.</div>
+              ) : results.map((r, k) => (
+                <div
+                  key={k}
+                  onClick={() => onStartModule(r.mi, r.si)}
+                  style={{ padding: '12px 18px', borderTop: k === 0 ? 'none' : '1px solid #F1F5F9', cursor: 'pointer' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = '#F8FAFC')}
+                  onMouseLeave={e => (e.currentTarget.style.background = '#fff')}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', gap: '12px', alignItems: 'baseline' }}>
+                    <span style={{ fontWeight: 700, color: '#1B3A6B', fontSize: '14px' }}>{r.slide}</span>
+                    <span style={{ fontSize: '11.5px', color: '#D4782A', fontWeight: 600, whiteSpace: 'nowrap' }}>{r.module} →</span>
+                  </div>
+                  <div style={{ fontSize: '12.5px', color: '#64748B', marginTop: '3px', lineHeight: '1.5' }}>{snippet(r.text)}</div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Module grid */}

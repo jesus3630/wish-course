@@ -129,6 +129,7 @@ interface Props {
   onProgressUpdate: (p: CourseProgress) => void;
   onComplete: (p: CourseProgress) => void;
   onBack: () => void;
+  initialSlide?: number;
 }
 
 type PlayerView = 'slides' | 'quiz';
@@ -142,10 +143,11 @@ export default function ModulePlayer({
   onProgressUpdate,
   onComplete,
   onBack,
+  initialSlide,
 }: Props) {
   const mp = getModuleProgress(progress, module.id);
   const isMobile = useIsMobile();
-  const [slideIndex, setSlideIndex] = useState(mp.last_slide ?? 0);
+  const [slideIndex, setSlideIndex] = useState(initialSlide ?? mp.last_slide ?? 0);
   const [view, setView] = useState<PlayerView>('slides');
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioLoading, setAudioLoading] = useState(false);
