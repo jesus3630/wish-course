@@ -551,6 +551,117 @@ function runGuided(steps, opts) {
   showStep(0);
 }
 
+// ── GRADED / "Test Yourself" mode ─────────────────────────────────────────────
+// Same screens as the guided demos, but no arrow and no "click here". The learner
+// is given a task and must find the right control themselves; wrong clicks are
+// counted, a hint appears after 2 misses, and a score is shown at the end.
+function gradedToast(msg, ok) {
+  let t = document.getElementById('graded-toast');
+  if (!t) { t = document.createElement('div'); t.id = 'graded-toast'; document.body.appendChild(t); }
+  t.textContent = msg;
+  t.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);top:108px;z-index:9600;padding:9px 18px;border-radius:8px;font-size:13px;font-weight:bold;color:#fff;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:opacity .3s;opacity:1;background:' + (ok ? '#2e7d32' : '#c0392b');
+  clearTimeout(t._h); t._h = setTimeout(() => { t.style.opacity = '0'; }, 1100);
+}
+
+function runGraded(steps, opts) {
+  opts = opts || {};
+  if (_gs) { if (_gs.handler) document.removeEventListener('click', _gs.handler, true); if (_gs.el) _gs.el.classList.remove('guided-target'); _clearExtra(); _gs = null; }
+  ['guided-bar','guided-prompt','guided-complete-overlay'].forEach(id => { const e = document.getElementById(id); if (e) e.remove(); });
+  const ar = document.getElementById('guided-arrow'); if (ar) ar.style.display = 'none';
+  document.getElementById('cursor').style.display = 'none';
+
+  const bar = document.createElement('div'); bar.id = 'guided-bar'; document.body.appendChild(bar);
+  const tip = document.createElement('div'); tip.id = 'guided-prompt'; document.body.appendChild(tip);
+
+  let idx = 0, misses = 0, firstTry = 0, stepMiss = 0;
+  let docHandler = null, selHandler = null, selEl = null;
+
+  function cleanup() {
+    if (docHandler) { document.removeEventListener('click', docHandler, true); docHandler = null; }
+    if (selHandler && selEl) { selEl.removeEventListener('change', selHandler); selHandler = null; selEl = null; }
+  }
+  function updateBar() {
+    bar.innerHTML = `<span style="margin-right:10px;font-size:11px;opacity:.7;letter-spacing:.4px">TASK ${Math.min(idx+1,steps.length)} / ${steps.length}</span>`
+      + steps.map((_,j) => `<div class="step-pip${j<idx?' done':j===idx?' current':''}"></div>`).join('')
+      + `<span style="margin-left:14px;font-size:11px;opacity:.85">First try ${firstTry}/${steps.length} &nbsp;·&nbsp; Misses ${misses}</span>`;
+  }
+
+  function showTask() {
+    cleanup(); _clearExtra();
+    if (idx >= steps.length) { finish(); return; }
+    const s = steps[idx];
+    stepMiss = 0;
+    updateBar();
+    tip.innerHTML = `<div style="font-size:10.5px;font-weight:bold;letter-spacing:.13em;text-transform:uppercase;color:#ffb96b;margin-bottom:4px">&#129351; Your task</div>${s.task}`;
+    tip.style.display = 'block'; tip.style.top = 'auto'; tip.style.bottom = '66px';
+
+    const correct = () => document.querySelector(s.selector);
+    const el0 = correct();
+    if (el0 && el0.tagName === 'SELECT' && s.value) {
+      selEl = el0;
+      selHandler = () => { if (el0.value === s.value) onRight(); };
+      el0.addEventListener('change', selHandler);
+      return;
+    }
+    docHandler = (e) => {
+      const c = correct();
+      if (c && c.contains(e.target)) { onRight(); return; }
+      const inter = e.target.closest('button,a,select,input,.nav-item,.nav-sub-item,[onclick]');
+      if (inter) {
+        stepMiss++; misses++; updateBar(); gradedToast('Not quite — try again', false);
+        if (stepMiss >= 2) { const cc = correct(); if (cc) { cc.classList.add('guided-target'); _gsExtra.push(cc); gradedToast('Hint: highlighted in orange', false); } }
+      }
+    };
+    document.addEventListener('click', docHandler, true);
+
+    function onRight() {
+      cleanup(); _clearExtra();
+      if (stepMiss === 0) firstTry++;
+      gradedToast('Correct!', true);
+      const cur = steps[idx];
+      if (cur.onCorrect) cur.onCorrect();
+      idx++; updateBar();
+      setTimeout(showTask, cur.onCorrect ? 460 : 260);
+    }
+  }
+
+  function finish() {
+    cleanup(); tip.style.display = 'none';
+    const pct = Math.round(firstTry / steps.length * 100);
+    const col = pct >= 80 ? '#2e7d32' : pct >= 50 ? '#e08600' : '#c0392b';
+    const ov = document.createElement('div'); ov.id = 'graded-complete';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:9600;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.3)';
+    ov.innerHTML = `<div style="background:#fff;border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.3);padding:26px 34px;text-align:center;max-width:380px">
+      <div style="font-size:40px;color:#4caf50;line-height:1">&#10004;</div>
+      <div style="font-size:18px;font-weight:bold;color:#1B3A6B;margin-top:8px">Assessment complete</div>
+      <div style="font-size:34px;font-weight:bold;color:${col};margin:8px 0">${firstTry}/${steps.length}</div>
+      <div style="font-size:13px;color:#555">correct on the first try &nbsp;·&nbsp; ${misses} total miss${misses===1?'':'es'}</div>
+      <button class="btn" id="graded-retry" style="margin-top:16px">&#8635; Try again</button>
+    </div>`;
+    document.body.appendChild(ov);
+    document.getElementById('graded-retry').onclick = () => { ov.remove(); bar.remove(); tip.remove(); if (opts.restart) opts.restart(); };
+    bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Assessment complete</span>';
+  }
+
+  showTask();
+}
+
+// Prototype: graded "Process Payroll" assessment (no prompts — the learner does it)
+function slide_graded_demo_1() {
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGraded([
+    { task: 'Open the <b>Payroll</b> menu.', selector: '#nav-payroll',
+      onCorrect: () => { document.getElementById('nav-payroll').classList.add('active'); document.getElementById('sub-payroll').classList.add('show'); }},
+    { task: 'Go into <b>Process Payroll</b>.', selector: '#sub-pay-pp',
+      onCorrect: () => { document.getElementById('nav-payroll').classList.remove('active'); document.getElementById('sub-payroll').classList.remove('show'); setNav('payroll'); document.getElementById('content').innerHTML = processPayrollJobHTML(); }},
+    { task: 'Pull every job for the pay week — find the right button.', selector: '#ppj-getjob',
+      onCorrect: () => { document.getElementById('ppj-results').style.display = ''; }},
+    { task: 'Only the <b>Yes</b> jobs are ready. Run the payroll to process them.', selector: '#ppj-start',
+      onCorrect: () => { document.getElementById('ppj-done').style.display = ''; }},
+  ], { restart: slide_graded_demo_1 });
+}
+
 function typeInto(id, text, delay) {
   const el = document.getElementById(id);
   if (!el) return;
@@ -13070,6 +13181,7 @@ const routes = {
   'introduction-6': slide_introduction_6,
   'introduction-7': slide_introduction_7,
   'introduction-9': slide_introduction_9,
+  'graded_demo-1':  slide_graded_demo_1,
   'manage_job-3':   slide_manage_job_3,
   'manage_job-4':   slide_manage_job_4,
   'manage_job-5':   slide_manage_job_5,
