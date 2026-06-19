@@ -16,7 +16,7 @@
         "instructions": "Video of scheduling site entered as the URL, and the home page on screen.",
         "text": "WISH is available online at wish.schedulingsite.com.",
         "screenshot": "/screenshots/introduction/slide_2.png",
-        "simulation_url": "/mockup/mockup.html?module=introduction&slide=2"
+        "simulation_url": null
       },
       {
         "slide_number": 3,
