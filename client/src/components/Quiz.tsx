@@ -5,12 +5,30 @@ import { useIsMobile } from '../utils/useIsMobile';
 interface Props {
   questions: QuizQuestion[];
   moduleName: string;
+  moduleId?: string;
   onComplete: (score: number, passed: boolean) => void;
 }
 
 const PASS_SCORE = 80;
 
-export default function Quiz({ questions, moduleName, onComplete }: Props) {
+// Fire-and-forget: record each quiz answer so admins can see which questions trip people up
+function recordQuizAnswer(moduleId: string | undefined, q: QuizQuestion, idx: number, correct: boolean) {
+  try {
+    fetch('/api/analytics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'quiz',
+        module_id: moduleId,
+        key: `${moduleId || 'mod'}:q${idx}`,
+        label: q.question?.slice(0, 200),
+        correct,
+      }),
+    }).catch(() => {});
+  } catch { /* never block the quiz */ }
+}
+
+export default function Quiz({ questions, moduleName, moduleId, onComplete }: Props) {
   const isMobile = useIsMobile();
   const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -33,6 +51,7 @@ export default function Quiz({ questions, moduleName, onComplete }: Props) {
 
   function handleNext() {
     const correct = selected === question.correct_index;
+    recordQuizAnswer(moduleId, question, currentQ, correct);
     const newAnswers = [...answers, correct];
     setAnswers(newAnswers);
 

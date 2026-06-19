@@ -585,6 +585,7 @@ export default function ModulePlayer({
       <Quiz
         questions={questions}
         moduleName={module.name}
+        moduleId={module.id}
         onComplete={handleQuizComplete}
       />
     );

@@ -589,9 +589,11 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
-  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap'>('content');
+  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap' | 'analytics'>('content');
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
+  const [analytics, setAnalytics] = useState<any[]>([]);
+  const [analyticsLoading, setAnalyticsLoading] = useState(false);
 
   const [roster, setRoster] = useState<RosterEntry[]>([]);
   const [rosterLoading, setRosterLoading] = useState(false);
@@ -633,6 +635,15 @@ export default function AdminPanel() {
       if (res.ok) setUsers(await res.json());
     } catch {}
     setUsersLoading(false);
+  }
+
+  async function loadAnalytics() {
+    setAnalyticsLoading(true);
+    try {
+      const res = await fetch('/api/admin/analytics', { headers: authHeaders });
+      if (res.ok) setAnalytics(await res.json());
+    } catch {}
+    setAnalyticsLoading(false);
   }
 
   async function loadRoster() {
@@ -1039,13 +1050,14 @@ export default function AdminPanel() {
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
           {/* Top-level nav */}
           <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
-            {(['content', 'users', 'roster', 'recap'] as const).map(v => (
+            {(['content', 'users', 'roster', 'recap', 'analytics'] as const).map(v => (
               <button
                 key={v}
                 onClick={() => {
                   setAdminView(v);
                   if (v === 'users') loadUsers();
                   if (v === 'roster') loadRoster();
+                  if (v === 'analytics') loadAnalytics();
                 }}
                 style={{
                   flex: 1, padding: '10px 4px', border: 'none', fontWeight: 700, fontSize: '11px', cursor: 'pointer',
@@ -1125,6 +1137,37 @@ export default function AdminPanel() {
                     <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
                       Last active: {new Date(u.last_synced).toLocaleDateString()}
                     </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+
+          {/* Trouble Spots (analytics) tab */}
+          {adminView === 'analytics' && (
+            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              <div style={{ background: '#EFF6FF', border: `1px solid #BFDBFE`, borderRadius: '8px', padding: '10px 12px', marginBottom: '12px', fontSize: '11px', color: C.navy, lineHeight: '1.5' }}>
+                Where learners struggle — quiz questions ranked by how often they're answered wrong. Use this to spot confusing questions or content gaps.
+              </div>
+              {analyticsLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+              {!analyticsLoading && analytics.filter(a => a.type === 'quiz').length === 0 && (
+                <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No quiz attempts recorded yet. Data appears here as learners take quizzes.</div>
+              )}
+              {analytics.filter(a => a.type === 'quiz').map(a => {
+                const total = (a.hits || 0) + (a.misses || 0);
+                const rate = total ? Math.round((a.misses / total) * 100) : 0;
+                const col = rate >= 50 ? C.red : rate >= 25 ? C.orange : C.green;
+                return (
+                  <div key={a.key} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '8px', borderLeft: `4px solid ${col}` }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px', alignItems: 'baseline' }}>
+                      <span style={{ fontSize: '10px', color: C.gray, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px' }}>{a.module_id || '—'}</span>
+                      <span style={{ fontSize: '13px', fontWeight: 800, color: col, whiteSpace: 'nowrap' }}>{rate}% missed</span>
+                    </div>
+                    <div style={{ fontSize: '12.5px', color: C.navy, margin: '5px 0 7px', lineHeight: '1.4' }}>{a.label || a.key}</div>
+                    <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${rate}%`, background: col, borderRadius: '2px' }} />
+                    </div>
+                    <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>{a.misses} wrong of {total} answers</div>
                   </div>
                 );
               })}

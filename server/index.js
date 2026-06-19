@@ -134,6 +134,15 @@ async function initDB() {
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS username TEXT;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS password TEXT;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS requester_email TEXT;
+    CREATE TABLE IF NOT EXISTS analytics_counts (
+      key TEXT PRIMARY KEY,
+      type TEXT NOT NULL,
+      module_id TEXT,
+      label TEXT,
+      hits INTEGER NOT NULL DEFAULT 0,
+      misses INTEGER NOT NULL DEFAULT 0,
+      updated_at TIMESTAMPTZ DEFAULT NOW()
+    );
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
@@ -799,6 +808,46 @@ app.get('/api/progress/:email', async (req, res) => {
     res.json({ ...r.rows[0].data, last_synced: r.rows[0].last_synced });
   } catch (e) {
     res.status(500).json({ error: 'Failed to load progress' });
+  }
+});
+
+// ─── Analytics: record a learner event (public) ───────────────────────────────
+// Body: { type, module_id, key, label, correct? }  — upserts an aggregate counter.
+// type 'quiz' uses correct=true/false to split hits vs misses (a "miss" = struggle).
+app.post('/api/analytics', async (req, res) => {
+  try {
+    const { type, module_id, key, label, correct } = req.body || {};
+    if (!type || !key) return res.status(400).json({ error: 'type and key required' });
+    const fullKey = `${type}:${key}`.slice(0, 300);
+    const hit = correct === true ? 1 : 0;
+    const miss = correct === false ? 1 : 0;
+    await pool.query(
+      `INSERT INTO analytics_counts (key, type, module_id, label, hits, misses, updated_at)
+       VALUES ($1, $2, $3, $4, $5, $6, NOW())
+       ON CONFLICT (key) DO UPDATE SET
+         hits = analytics_counts.hits + $5,
+         misses = analytics_counts.misses + $6,
+         label = COALESCE(EXCLUDED.label, analytics_counts.label),
+         updated_at = NOW()`,
+      [fullKey, type, module_id || null, label || null, hit, miss]
+    );
+    res.json({ ok: true });
+  } catch (e) {
+    console.error('[analytics] error:', e.message);
+    res.status(500).json({ error: 'Failed to record' });
+  }
+});
+
+// ─── Analytics: trouble spots (admin) ─────────────────────────────────────────
+app.get('/api/admin/analytics', adminAuth, async (req, res) => {
+  try {
+    const r = await pool.query(
+      `SELECT key, type, module_id, label, hits, misses, updated_at
+       FROM analytics_counts ORDER BY misses DESC, (hits + misses) DESC LIMIT 200`
+    );
+    res.json(r.rows);
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to load analytics' });
   }
 });
 
