@@ -851,6 +851,17 @@ app.get('/api/admin/analytics', adminAuth, async (req, res) => {
   }
 });
 
+// Reset analytics — optionally a single key (?key=...), else clears all. For wiping test data before launch.
+app.delete('/api/admin/analytics', adminAuth, async (req, res) => {
+  try {
+    if (req.query.key) await pool.query('DELETE FROM analytics_counts WHERE key = $1', [req.query.key]);
+    else await pool.query('DELETE FROM analytics_counts');
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to reset analytics' });
+  }
+});
+
 // ─── Training request (no auth — public) ──────────────────────────────────────
 app.post('/api/request-training', async (req, res) => {
   const { name, email, department, message } = req.body;
