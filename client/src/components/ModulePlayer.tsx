@@ -71,10 +71,19 @@ function AuditImageHighlight({ src, highlight, caption }: { src: string; highlig
 function SimFrame({ src }: { src: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.7);
+  const [overflowing, setOverflowing] = useState(false);
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => setScale(el.offsetWidth / 1280);
+    const measure = () => {
+      const fit = el.offsetWidth / 1280;
+      // On phones, don't shrink the demo below a tappable size — keep it usable and
+      // let the learner scroll/pan horizontally instead of squinting at a tiny frame.
+      const min = window.innerWidth < 760 ? 0.52 : 0;
+      const s = Math.max(fit, min);
+      setScale(s);
+      setOverflowing(1280 * s > el.offsetWidth + 1);
+    };
     measure();
     const obs = new ResizeObserver(measure);
     obs.observe(el);
@@ -82,12 +91,19 @@ function SimFrame({ src }: { src: string }) {
     return () => { obs.disconnect(); window.removeEventListener('resize', measure); };
   }, []);
   return (
-    <div ref={wrapRef} style={{ width: '100%', overflow: 'hidden' }}>
-      <iframe
-        src={src}
-        style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
-        title="WISH Interactive Simulation"
-      />
+    <div>
+      {overflowing && (
+        <div style={{ fontSize: '11.5px', color: '#92400E', background: '#FFF7ED', borderBottom: '1px solid #FED7AA', padding: '5px 12px', textAlign: 'center' }}>
+          ↔ Swipe to explore the screen, then tap to interact
+        </div>
+      )}
+      <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
+        <iframe
+          src={src}
+          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
+          title="WISH Interactive Simulation"
+        />
+      </div>
     </div>
   );
 }
