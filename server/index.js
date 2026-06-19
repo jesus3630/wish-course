@@ -862,6 +862,24 @@ app.delete('/api/admin/analytics', adminAuth, async (req, res) => {
   }
 });
 
+// ─── Demo prompt overrides for a slide (public — read by the mockup iframe) ────
+app.get('/api/demo-prompts', async (req, res) => {
+  try {
+    const mod = req.query.module, slide = req.query.slide;
+    if (!mod || slide == null) return res.json({ prompts: null });
+    const course = await getCourseData();
+    const modules = Array.isArray(course) ? course : (course.modules || []);
+    const m = modules.find(x => x && x.id === mod);
+    if (!m) return res.json({ prompts: null });
+    // Match the slide by its simulation_url ?slide=N param
+    const s = (m.slides || []).find(sl => (sl.simulation_url || '').includes('slide=' + slide));
+    const prompts = s && Array.isArray(s.demo_prompts) ? s.demo_prompts : null;
+    res.json({ prompts });
+  } catch (e) {
+    res.json({ prompts: null });
+  }
+});
+
 // ─── Training request (no auth — public) ──────────────────────────────────────
 app.post('/api/request-training', async (req, res) => {
   const { name, email, department, message } = req.body;

@@ -7,6 +7,8 @@ export interface Slide {
   screenshot?: string;
   video_start?: number;
   video_end?: number;
+  simulation_url?: string | null;
+  demo_prompts?: string[] | null;
 }
 
 export interface QuizQuestion {

@@ -186,6 +186,90 @@ function ModuleVideoSection({ moduleId, videoUrl, token, onVideoUpdate }: {
   );
 }
 
+// ─── Interactive Demo Prompts editor ─────────────────────────────────────────
+// Loads the demo's default step prompts (via a hidden "introspect" iframe that
+// the mockup posts back), and lets the admin override the wording per step.
+// Overrides save into the slide's demo_prompts (empty = use the built-in default).
+function DemoPromptsEditor({ moduleId, simUrl, overrides, onChange }: {
+  moduleId: string;
+  simUrl: string;
+  overrides: string[] | null | undefined;
+  onChange: (val: string[] | null) => void;
+}) {
+  const slideParam = (simUrl.match(/slide=(\d+)/) || [])[1] || '';
+  const [defaults, setDefaults] = useState<string[] | null>(null);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    function onMsg(e: MessageEvent) {
+      const d: any = e.data;
+      if (d && d.type === 'wish-demo-prompts' && String(d.module) === moduleId && String(d.slide) === String(slideParam)) {
+        setDefaults(Array.isArray(d.prompts) ? d.prompts : []);
+      }
+    }
+    window.addEventListener('message', onMsg);
+    return () => window.removeEventListener('message', onMsg);
+  }, [open, moduleId, slideParam]);
+
+  function setAt(i: number, val: string) {
+    const arr = (defaults || []).map((_, k) => (overrides && overrides[k] != null ? overrides[k] : ''));
+    while (arr.length <= i) arr.push('');
+    arr[i] = val;
+    onChange(arr.some(x => x && x.trim() !== '') ? arr : null);
+  }
+
+  const editedCount = (overrides || []).filter(x => x && x.trim() !== '').length;
+
+  return (
+    <div style={{ marginBottom: '16px', border: `1px solid ${C.border}`, borderRadius: '8px', overflow: 'hidden' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{ width: '100%', textAlign: 'left', padding: '10px 14px', background: '#F0FDF4', border: 'none', cursor: 'pointer', fontSize: '12px', fontWeight: 700, color: '#166534', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+      >
+        <span>🖱 Interactive Demo Prompts{editedCount ? ` — ${editedCount} edited` : ''}</span>
+        <span>{open ? '▲' : '▼ Edit'}</span>
+      </button>
+      {open && (
+        <div style={{ padding: '12px 14px' }}>
+          <div style={{ fontSize: '11px', color: C.gray, marginBottom: '10px', lineHeight: 1.5 }}>
+            Edit the wording shown at each step of this demo. Leave a box empty to keep the built-in default (shown as grey placeholder). Click Save Changes at the top when done.
+          </div>
+          {/* Hidden introspect iframe — the mockup posts back its default prompts */}
+          <iframe
+            title="demo-introspect"
+            src={`/mockup/mockup.html?module=${encodeURIComponent(moduleId)}&slide=${encodeURIComponent(slideParam)}&introspect=1`}
+            style={{ width: 0, height: 0, border: 'none', position: 'absolute', visibility: 'hidden' }}
+          />
+          {defaults === null ? (
+            <div style={{ fontSize: '12px', color: C.gray }}>Loading demo steps…</div>
+          ) : defaults.length === 0 ? (
+            <div style={{ fontSize: '12px', color: C.gray }}>This demo has no editable text steps.</div>
+          ) : (
+            defaults.map((d, i) => {
+              const ov = overrides && overrides[i] ? overrides[i] : '';
+              return (
+                <div key={i} style={{ marginBottom: '10px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3px' }}>
+                    <label style={{ fontSize: '11px', fontWeight: 700, color: C.navy }}>Step {i + 1}</label>
+                    {ov && <button onClick={() => setAt(i, '')} style={{ border: 'none', background: 'transparent', color: C.orange, fontSize: '11px', cursor: 'pointer', fontWeight: 600 }}>↺ reset to default</button>}
+                  </div>
+                  <textarea
+                    value={ov}
+                    placeholder={d || '(no text on this step)'}
+                    onChange={e => setAt(i, e.target.value)}
+                    style={{ width: '100%', minHeight: '52px', resize: 'vertical', borderRadius: '6px', border: `1px solid ${ov ? C.orange : C.border}`, padding: '7px 9px', fontSize: '12.5px', fontFamily: 'inherit', color: C.navy, boxSizing: 'border-box' }}
+                  />
+                </div>
+              );
+            })
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Slides Editor ────────────────────────────────────────────────────────────
 
 function SlidesEditor({
@@ -195,7 +279,7 @@ function SlidesEditor({
   slides: Slide[];
   expandedSlide: number | null;
   setExpandedSlide: (i: number | null) => void;
-  onUpdate: (idx: number, field: keyof Slide, val: string | number) => void;
+  onUpdate: (idx: number, field: keyof Slide, val: string | number | string[] | null) => void;
   onAdd: () => void;
   onDelete: (idx: number) => void;
   onMove: (idx: number, dir: -1 | 1) => void;
@@ -299,6 +383,15 @@ function SlidesEditor({
                   style={{ ...inputStyle, minHeight: '160px', resize: 'vertical' }}
                 />
               </Field>
+
+              {slide.simulation_url && (
+                <DemoPromptsEditor
+                  moduleId={moduleId}
+                  simUrl={slide.simulation_url}
+                  overrides={slide.demo_prompts}
+                  onChange={(val) => onUpdate(idx, 'demo_prompts', val)}
+                />
+              )}
 
               {/* Screenshot upload */}
               <div style={{ marginBottom: '16px' }}>
@@ -802,7 +895,7 @@ export default function AdminPanel() {
 
   // ─── Slide mutations ────────────────────────────────────────────────────────
 
-  function updateSlide(modIdx: number, slideIdx: number, field: keyof Slide, value: string | number) {
+  function updateSlide(modIdx: number, slideIdx: number, field: keyof Slide, value: string | number | string[] | null) {
     setModules(prev => {
       const next: Module[] = JSON.parse(JSON.stringify(prev));
       (next[modIdx].slides[slideIdx] as any)[field] = value;

@@ -402,8 +402,27 @@ function showCompletionOverlay() {
   requestAnimationFrame(() => { ov.style.opacity = '1'; });
 }
 
+// Post the default prompts of a demo to the parent (admin uses this to edit them)
+function _postPrompts(steps) {
+  try {
+    parent.postMessage({
+      type: 'wish-demo-prompts',
+      module: (typeof MOD !== 'undefined' ? MOD : null),
+      slide: (typeof SLIDE !== 'undefined' ? SLIDE : null),
+      prompts: steps.map(s => (s.prompt != null ? s.prompt : (s.task != null ? s.task : ''))),
+    }, '*');
+  } catch (e) {}
+}
+// Admin override for step i's prompt, if one was saved
+function _promptOverride(i, fallback) {
+  const o = window.WISH_PROMPTS;
+  if (o && o[i] != null && String(o[i]).trim() !== '') return o[i];
+  return fallback;
+}
+
 function runGuided(steps, opts) {
   opts = opts || {};
+  if (window.WISH_INTROSPECT) { _postPrompts(steps); return; }
   // Cleanup previous session
   if (_gs) {
     if (_gs.handler) document.removeEventListener('click', _gs.handler, true);
@@ -463,7 +482,9 @@ function runGuided(steps, opts) {
       return;
     }
 
-    const s = steps[i];
+    let s = steps[i];
+    const _ov = _promptOverride(i, s.prompt);
+    if (_ov !== s.prompt) s = Object.assign({}, s, { prompt: _ov });
     updateBar(i);
 
     function tryHighlight(attempt) {
@@ -565,6 +586,7 @@ function gradedToast(msg, ok) {
 
 function runGraded(steps, opts) {
   opts = opts || {};
+  if (window.WISH_INTROSPECT) { _postPrompts(steps); return; }
   if (_gs) { if (_gs.handler) document.removeEventListener('click', _gs.handler, true); if (_gs.el) _gs.el.classList.remove('guided-target'); _clearExtra(); _gs = null; }
   ['guided-bar','guided-prompt','guided-complete-overlay'].forEach(id => { const e = document.getElementById(id); if (e) e.remove(); });
   const ar = document.getElementById('guided-arrow'); if (ar) ar.style.display = 'none';
@@ -589,7 +611,9 @@ function runGraded(steps, opts) {
   function showTask() {
     cleanup(); _clearExtra();
     if (idx >= steps.length) { finish(); return; }
-    const s = steps[idx];
+    let s = steps[idx];
+    const _ovt = _promptOverride(idx, s.task);
+    if (_ovt !== s.task) s = Object.assign({}, s, { task: _ovt });
     stepMiss = 0;
     updateBar();
     tip.innerHTML = `<div style="font-size:10.5px;font-weight:bold;letter-spacing:.13em;text-transform:uppercase;color:#ffb96b;margin-bottom:4px">&#129351; Your task</div>${s.task}`;
@@ -13284,8 +13308,24 @@ const routes = {
 };
 
 const key = MOD + '-' + SLIDE;
-if (routes[key]) routes[key]();
-else document.getElementById('content').innerHTML = `<div style="color:#c00;padding:20px">Unknown slide: ${key}</div>`;
+window.WISH_INTROSPECT = params.get('introspect') === '1';
+
+function _dispatch() {
+  if (routes[key]) routes[key]();
+  else document.getElementById('content').innerHTML = `<div style="color:#c00;padding:20px">Unknown slide: ${key}</div>`;
+}
+
+if (window.WISH_INTROSPECT) {
+  // Introspection: run so the engine collects the default prompts and posts them to the admin editor
+  _dispatch();
+} else {
+  // Pull any admin-edited prompt overrides for this slide, then run the demo
+  fetch('/api/demo-prompts?module=' + encodeURIComponent(MOD) + '&slide=' + encodeURIComponent(SLIDE))
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => { if (d && Array.isArray(d.prompts)) window.WISH_PROMPTS = d.prompts; })
+    .catch(() => {})
+    .finally(_dispatch);
+}
 </script>
 </body>
 </html>
