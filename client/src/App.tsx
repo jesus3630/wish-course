@@ -65,6 +65,18 @@ export default function App() {
     })();
   }, []);
 
+  // When embedded (e.g. in WISH ESS), post progress to the host so a parent on a
+  // DIFFERENT origin can show completion (it can't read this app's storage cross-origin).
+  useEffect(() => {
+    if (isAdmin || !progress) return;
+    if (window.parent === window) return; // not embedded
+    try {
+      const mods = (progress as any).modules || {};
+      const completed = Object.keys(mods).filter(id => mods[id] && mods[id].completed);
+      window.parent.postMessage({ type: 'wish-progress', completed, assigned: progress.assigned_modules || null }, '*');
+    } catch { /* ignore */ }
+  }, [progress]);
+
   // Resume session from localStorage
   useEffect(() => {
     if (isAdmin) return;
