@@ -75,6 +75,16 @@ export default function App() {
     }
   }, []);
 
+  // Embedded/demo convenience: ?enter=1 lands straight on the dashboard (no login click).
+  // With no roster assignment, all modules are shown (simulates "received all modules").
+  useEffect(() => {
+    if (isAdmin) return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('enter') === '1' && !getProgress() && !params.get('sso')) {
+      handleEnter();
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   function handleEnter() {
     const existing = getProgress();
     if (existing) {

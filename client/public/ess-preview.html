@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WISH ESS — Employee Portal (integration preview)</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: #333; }
+  body { display: flex; flex-direction: column; background: #e9e9e9; }
+
+  /* ── Top bar ── */
+  .topbar { background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 10px 26px; border-bottom: 1px solid #eee; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand .wish { font-size: 34px; font-weight: 800; font-style: italic; letter-spacing: 1px;
+    background: linear-gradient(90deg,#e8801f,#f0a830); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .brand .globe { font-size: 22px; }
+  .brand .swoosh { width: 70px; height: 5px; border-radius: 5px; background: linear-gradient(90deg,#1b3a6b,#3a6aaa); transform: skewX(-20deg); margin-left: -6px; align-self:flex-end; margin-bottom:8px; }
+  .welcome { background: #1f6fc4; color: #fff; font-weight: 700; font-size: 14px; padding: 9px 18px; border-radius: 5px; }
+
+  /* ── Nav ── */
+  nav { background: #fff; display: flex; align-items: center; justify-content: center; gap: 26px; padding: 4px 26px 14px; flex-wrap: wrap; border-bottom: 1px solid #e3e3e3; }
+  nav a { color: #3a3a3a; text-decoration: none; font-size: 15px; cursor: pointer; padding: 4px 2px; border-bottom: 2px solid transparent; white-space: nowrap; }
+  nav a:hover { color: #1f6fc4; }
+  nav a.active { color: #1f6fc4; font-weight: 700; border-bottom-color: #1f6fc4; }
+  nav a.training-tab { color: #D4782A; font-weight: 800; }
+  nav a.training-tab.active { color: #D4782A; border-bottom-color: #D4782A; }
+  nav a.training-tab .badge { background: #D4782A; color: #fff; font-size: 9px; font-weight: 800; padding: 1px 5px; border-radius: 8px; margin-left: 5px; vertical-align: middle; letter-spacing: .5px; }
+
+  /* ── Content ── */
+  .content { flex: 1; min-height: 0; overflow: auto; }
+  .home { padding: 26px 34px; }
+  .home h1 { font-size: 26px; font-weight: 700; margin: 4px 0 22px; color: #222; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1500px; }
+  .card { background: #fff; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,.08); overflow: hidden; }
+  .card .head { height: 92px; display: flex; align-items: center; justify-content: center; font-size: 34px; color: #fff; }
+  .card .body { padding: 16px 18px; }
+  .card .body .t { font-size: 17px; color: #222; margin-bottom: 10px; }
+  .card .body .d { font-size: 14px; color: #555; }
+  .c-teal .head { background: #1796a3; }
+  .c-green .head { background: #2f8f2f; }
+  .c-olive .head { background: #9fad34; }
+
+  /* ── Training (embed) ── */
+  .training { display: none; height: 100%; }
+  .training.show { display: block; }
+  .home.hide { display: none; }
+  .embed-banner { background: #FFF3E8; border-bottom: 1px solid #f0c089; color: #92400E; font-size: 12.5px; padding: 7px 16px; display: flex; align-items: center; gap: 8px; }
+  iframe.train { width: 100%; height: 100%; border: none; display: block; }
+  .train-wrap { height: calc(100% - 31px); }
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">
+      <span class="globe">🌎</span><span class="wish">WISH</span><span class="swoosh"></span>
+    </div>
+    <div class="welcome">Welcome Jesus Gonzalez</div>
+  </div>
+
+  <nav id="nav">
+    <a data-view="home" class="active">Home</a>
+    <a data-view="home">Training</a>
+    <a data-view="home">My Info</a>
+    <a data-view="home">My Paystub</a>
+    <a data-view="home">My Schedule</a>
+    <a data-view="home">Self-Schedule</a>
+    <a data-view="home">Pending Request</a>
+    <a data-view="home">Task</a>
+    <a data-view="home">My Handbook</a>
+    <a data-view="home">Employment Notifications</a>
+    <a data-view="home">Code</a>
+    <a data-view="training" class="training-tab">WISH Training<span class="badge">NEW</span></a>
+    <a data-view="home">Log out</a>
+  </nav>
+
+  <div class="content">
+    <!-- Existing ESS home (replica of the live portal) -->
+    <div class="home" id="home">
+      <h1>Welcome to Employee Portal</h1>
+      <div class="cards">
+        <div class="card c-teal"><div class="head">📅</div><div class="body"><div class="t">Your Upcoming Schedules</div><div class="d">No Scheduling information available. Please try again after some time.</div></div></div>
+        <div class="card c-green"><div class="head">📆</div><div class="body"><div class="t">Self-Schedule</div><div class="d">No results found. Please try again after some time.</div></div></div>
+        <div class="card c-olive"><div class="head">🗓️</div><div class="body"><div class="t">Pending Schedule</div><div class="d">There is no pending request found.</div></div></div>
+      </div>
+    </div>
+
+    <!-- WISH Training tab — embeds the real training app -->
+    <div class="training" id="training">
+      <div class="embed-banner">🎓 WISH Training is embedded here from the training platform. Your assigned modules load automatically — take them, with synced narration and quizzes.</div>
+      <div class="train-wrap"><iframe class="train" id="trainFrame" title="WISH Training"></iframe></div>
+    </div>
+  </div>
+
+<script>
+  var TRAINING_URL = 'https://www.wishtrainingtest.com/?enter=1';
+  var nav = document.getElementById('nav');
+  var home = document.getElementById('home');
+  var training = document.getElementById('training');
+  var frame = document.getElementById('trainFrame');
+  var loaded = false;
+
+  nav.addEventListener('click', function (e) {
+    var a = e.target.closest('a'); if (!a) return;
+    e.preventDefault();
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (x) { x.classList.remove('active'); });
+    a.classList.add('active');
+    if (a.getAttribute('data-view') === 'training') {
+      home.classList.add('hide'); training.classList.add('show');
+      if (!loaded) { frame.src = TRAINING_URL; loaded = true; }
+    } else {
+      training.classList.remove('show'); home.classList.remove('hide');
+    }
+  });
+</script>
+</body>
+</html>
