@@ -212,6 +212,33 @@ handoff):
 Only **new demo steps/screens** require a developer (edit `client/public/mockup/mockup.html`, then
 deploy). See `SYSTEM.md`.
 
+### 6.1 Where content + demos live, and how they move to your database
+
+| Asset | Lives in | Travels how | Edited by |
+|---|---|---|---|
+| Slide scripts, quiz, demo-prompt overrides | **Database** (seeded from `course_data.json` / `quiz_data.json`) | First boot on an empty DB seeds from the committed JSON | Admin panel (no code) |
+| Interactive demos (the engine + every screen) | **`client/public/mockup/mockup.html`** (a repo file, not the DB) | Travels with the code automatically | Developer edits the file + deploys (`SYSTEM.md`) |
+| Narration audio, screenshots, React build | Committed files in `client/build/` | Travel with the code | Auto-regenerated / rebuilt |
+
+**Moving to your own database:** set `DATABASE_URL` to your new (empty) Postgres and boot. On first
+boot the server seeds it from `course_data.json` + `quiz_data.json` → you get the course **exactly as
+it is now**. _(Verified: a fresh empty DB reproduced 20 modules / 171 slides / 94 demos / 86 quiz
+questions with 0 differences.)_ The demos serve from the repo file regardless of database.
+
+### 6.2 Keep the repo as the source of truth (don't re-trap content in a DB)
+
+Edits made in `/admin` write to **your** database. To fold them back into the repo so it always holds
+the canonical, portable content:
+
+```
+node scripts/export-content.js https://<your-app-url>   # pulls live content → course_data.json + quiz_data.json
+git add course_data.json quiz_data.json && git commit -m "Snapshot content"
+```
+
+Run this after a round of admin edits. A fresh database then seeds to that exact state. This is how
+you guarantee the scripts + demos "stay packaged as you see them" — nothing is ever stuck only in a
+database.
+
 ---
 
 ## 7. Hosting & deploy
