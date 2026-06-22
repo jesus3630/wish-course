@@ -20,10 +20,11 @@ Employees complete assigned modules, take quizzes, and get certificates.
 > **Building interactive demos? Read [SYSTEM.md](./SYSTEM.md) first.** It's the playbook:
 > the guided engine, the reusable component library, the six-step build, and the deploy flow.
 
-**Live site:** https://wish-app-production.up.railway.app  
-**Admin panel:** https://wish-app-production.up.railway.app/admin (password: `wish2026`)  
+**Live site:** https://www.wishtrainingtest.com  (single source of truth — consolidated 2026-06-22; also https://wish-training.up.railway.app)
+**Admin panel:** https://www.wishtrainingtest.com/admin (password: `wish2026`)  
 **GitHub:** https://github.com/jesus3630/wish-course  
-**Railway project:** Wish-course → service: wish-app  
+**Railway project:** `Wish-course` (capital) — **auto-deploys from GitHub `main`** (no `railway up`)  
+> The old duplicate `wish-course` (lowercase) / `wish-app-production.up.railway.app` was retired in the consolidation.
 
 ---
 
@@ -129,23 +130,23 @@ NODE_ENV=development
 
 ## Deploy
 
-### Mac
+**Deploy = `git push`.** The `Wish-course` Railway project auto-deploys from GitHub `main` (~1-2 min).
+No `railway up` / service linking needed.
+
+### Normal flow
 ```bash
-./deploy.sh    # safe deploy — checks git status first
+./deploy.sh "what you changed"            # syncs mockup, guards demos, commits, pushes (auto-deploys)
+./deploy.sh --build "what you changed"    # also rebuilds the React client first
 ```
 
-### Windows
+### Manual equivalent
 ```bash
-git pull origin main
-railway up --detach
+git pull origin main                      # ALWAYS pull before deploy
+cd client && npm run build                # only if React/TS changed
+git add -A && git commit -m "..." && git push origin main   # push → auto-deploy
 ```
 
-### Manual (both)
-```bash
-git pull origin main                   # ALWAYS pull before deploy
-railway service link wish-app          # link to correct service
-railway up --detach                    # deploy
-```
+> To force a redeploy with **no** code change, use the Railway dashboard → Wish-course → Redeploy.
 
 ---
 

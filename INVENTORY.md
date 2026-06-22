@@ -23,7 +23,7 @@ narration, quizzes, certificates, admin, analytics, and AI enrollment. What rema
 | API endpoints | 24 |
 | React components | 8 |
 | Git commits | 529 |
-| Live deployments | 2 (see ⚠️ consolidation below) |
+| Canonical deployment | **www.wishtrainingtest.com** (consolidated 2026-06-22) |
 
 ---
 
@@ -130,10 +130,11 @@ narration, quizzes, certificates, admin, analytics, and AI enrollment. What rema
 
 ## ⚠️ Open items (honest accounting)
 
-1. **Two duplicate deployments — resolve before handoff.** `wish-app-production.up.railway.app`
-   (project `wish-course`, lowercase) and `wishtrainingtest.com` → `wish-training.up.railway.app`
-   (project `Wish-course`, capital) run **separate databases** that drift. Pick one as source of
-   truth and retire the other. All admin/DB edits currently must be applied to **both**.
+1. ~~Two duplicate deployments~~ **CONSOLIDATING (2026-06-22).** Canonical = **www.wishtrainingtest.com**
+   (project `Wish-course`, capital — it has the custom domain + all enrolled users + roster, and
+   auto-deploys from GitHub `main`). Code/docs now target it; `deploy.sh` no longer runs `railway up`.
+   **Final manual step (Railway dashboard):** delete the old `wish-course` (lowercase) project /
+   `wish-app-production.up.railway.app` to remove the duplicate database for good.
 2. **Module 6 — last two real screens.** Sign-Out Exceptions (slide 7) + Employee Time Register
    (slide 9) are still on approximated screens; each needs one screenshot to finish.
 3. **Graded mode** — wire it into real modules as end-of-module checkpoints, feeding Trouble Spots.

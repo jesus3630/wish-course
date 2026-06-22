@@ -62,7 +62,11 @@ if [ "$AHEAD" -gt 0 ]; then
   git push origin main
 fi
 
-echo "🚀 Deploying to Railway (service: wish-app)..."
-railway service link wish-app >/dev/null 2>&1 || true
-railway up --detach
-echo "✅ Deploy started → https://wish-training.up.railway.app"
+# 6. Deploy = the push above. The live site (wishtrainingtest.com, Railway project
+#    "Wish-course") auto-deploys from GitHub main — no `railway up` needed.
+if [ "$AHEAD" -gt 0 ]; then
+  echo "🚀 Pushed — wishtrainingtest.com auto-deploys from GitHub main (~1-2 min)."
+else
+  echo "ℹ️  Nothing to push. To force a redeploy without changes, use the Railway dashboard → Redeploy."
+fi
+echo "✅ Live: https://www.wishtrainingtest.com"
