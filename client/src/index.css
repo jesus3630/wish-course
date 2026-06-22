@@ -1,5 +1,9 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Reserve scrollbar space so a toggling scrollbar can't change layout width
+   (was a cause of the interactive-demo "shake" — the demo rescaled on width changes). */
+html { scrollbar-gutter: stable; }
+
 :root {
   --orange: #D4782A;
   --navy: #1B3A6B;

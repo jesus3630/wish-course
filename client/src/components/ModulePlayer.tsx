@@ -72,23 +72,31 @@ function SimFrame({ src }: { src: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.7);
   const [overflowing, setOverflowing] = useState(false);
+  const lastWRef = useRef(0);
+  const rafRef = useRef(0);
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
     const measure = () => {
-      const fit = el.offsetWidth / 1280;
-      // On phones, don't shrink the demo below a tappable size — keep it usable and
-      // let the learner scroll/pan horizontally instead of squinting at a tiny frame.
+      const w = el.offsetWidth;
+      // Ignore sub-scrollbar-width jitter. Rescaling on a ~15px width change is what made
+      // the demo "shake": scaling toggles a scrollbar, which changes the width, which rescales…
+      // Only react to real resizes (> ~24px). Breaks the feedback loop.
+      if (!w || Math.abs(w - lastWRef.current) < 24) return;
+      lastWRef.current = w;
+      const fit = w / 1280;
+      // On phones, don't shrink below a tappable size — let the learner pan horizontally instead.
       const min = window.innerWidth < 760 ? 0.52 : 0;
       const s = Math.max(fit, min);
       setScale(s);
-      setOverflowing(1280 * s > el.offsetWidth + 1);
+      setOverflowing(1280 * s > w + 1);
     };
-    measure();
-    const obs = new ResizeObserver(measure);
+    const schedule = () => { cancelAnimationFrame(rafRef.current); rafRef.current = requestAnimationFrame(measure); };
+    schedule();
+    const obs = new ResizeObserver(schedule);
     obs.observe(el);
-    window.addEventListener('resize', measure);
-    return () => { obs.disconnect(); window.removeEventListener('resize', measure); };
+    window.addEventListener('resize', schedule);
+    return () => { cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); };
   }, []);
   return (
     <div>
