@@ -95,7 +95,11 @@ narration, quizzes, certificates, admin, analytics, and AI enrollment. What rema
   (`simulation_url`, `screenshot`, etc.) while **preserving admin edits** to text/quizzes/demo prompts.
 - **AI email enrollment agent** (`agent.js` + `gmail.js` + `email.js`): a manager emails a `.docx`
   WISH permission form → the agent (gpt-4o-mini) parses it → enrolls the employee → emails credentials
-  → notifies the manager on completion.
+  → notifies the manager on completion. _(Note: Gmail OAuth token currently expired — re-auth needed
+  to run the agent; not required for the ESS integration, where ESS drives enrollment.)_
+- **SSO** (`POST /api/sso`): verifies an HS256 JWT from the host site (WISH ESS) with a shared
+  `SSO_SECRET`, returns the employee's identity + assigned modules; the client auto-logs them in from
+  a `?sso=` token. Built and unit-verified; set `SSO_SECRET` to enable. See `INTEGRATION.md`.
 
 ---
 

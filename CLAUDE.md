@@ -217,6 +217,7 @@ This rebuilds the client, syncs the mockup, runs the guard, commits, pushes, and
 - `OPENAI_API_KEY` — powers email agent
 - `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID=Znoc6pjc2kSb9hIuR7XU` — narration fallback
 - `GMAIL_CLIENT_ID`, `GMAIL_CLIENT_SECRET`, `GMAIL_REFRESH_TOKEN`, `GMAIL_AGENT_EMAIL` — email agent OAuth
+- `SSO_SECRET` — shared HMAC secret for `/api/sso` (ESS embed SSO). Unset = SSO disabled (returns 503). Set + share with ESS to enable. See `INTEGRATION.md`.
 - `NODE_ENV=production`
 
 ---
