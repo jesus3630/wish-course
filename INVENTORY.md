@@ -138,8 +138,10 @@ narration, quizzes, certificates, admin, analytics, and AI enrollment. What rema
 2. **Module 6 — last two real screens.** Sign-Out Exceptions (slide 7) + Employee Time Register
    (slide 9) are still on approximated screens; each needs one screenshot to finish.
 3. **Graded mode** — wire it into real modules as end-of-module checkpoints, feeding Trouble Spots.
-4. **Handoff artifacts** — write the integration spec (iframe embed + SSO token + enroll/completion
-   API calls + the content-editing model).
+4. ~~Handoff artifacts~~ **Integration spec written** → `INTEGRATION.md` (embed the Training tab in
+   WISH ESS, SSO identity, the checked-boxes→modules map, enroll/completion APIs, content-editing
+   model, security checklist). Remaining handoff adds noted in it: `/api/sso` verify endpoint, a
+   dedicated ESS service key, optional completion webhook.
 5. **Backlog** — auto-reminders (7d/14d no-login), weekly manager digest, Spanish/bilingual track,
    custom domain.
 
