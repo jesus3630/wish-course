@@ -9,17 +9,17 @@
   html, body { margin: 0; height: 100%; font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: #333; }
   body { display: flex; flex-direction: column; background: #e9e9e9; }
 
-  /* ── Top bar ── */
+  /* Top bar */
   .topbar { background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 10px 26px; border-bottom: 1px solid #eee; }
-  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand { display: flex; align-items: flex-end; gap: 8px; }
+  .brand .globe { font-size: 22px; }
   .brand .wish { font-size: 34px; font-weight: 800; font-style: italic; letter-spacing: 1px;
     background: linear-gradient(90deg,#e8801f,#f0a830); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .brand .globe { font-size: 22px; }
-  .brand .swoosh { width: 70px; height: 5px; border-radius: 5px; background: linear-gradient(90deg,#1b3a6b,#3a6aaa); transform: skewX(-20deg); margin-left: -6px; align-self:flex-end; margin-bottom:8px; }
+  .brand .swoosh { width: 70px; height: 5px; border-radius: 5px; background: linear-gradient(90deg,#1b3a6b,#3a6aaa); transform: skewX(-20deg); margin-left: -6px; margin-bottom: 8px; }
   .welcome { background: #1f6fc4; color: #fff; font-weight: 700; font-size: 14px; padding: 9px 18px; border-radius: 5px; }
 
-  /* ── Nav ── */
-  nav { background: #fff; display: flex; align-items: center; justify-content: center; gap: 26px; padding: 4px 26px 14px; flex-wrap: wrap; border-bottom: 1px solid #e3e3e3; }
+  /* Nav */
+  nav { background: #fff; display: flex; align-items: center; justify-content: center; gap: 24px; padding: 4px 26px 14px; flex-wrap: wrap; border-bottom: 1px solid #e3e3e3; }
   nav a { color: #3a3a3a; text-decoration: none; font-size: 15px; cursor: pointer; padding: 4px 2px; border-bottom: 2px solid transparent; white-space: nowrap; }
   nav a:hover { color: #1f6fc4; }
   nav a.active { color: #1f6fc4; font-weight: 700; border-bottom-color: #1f6fc4; }
@@ -27,8 +27,9 @@
   nav a.training-tab.active { color: #D4782A; border-bottom-color: #D4782A; }
   nav a.training-tab .badge { background: #D4782A; color: #fff; font-size: 9px; font-weight: 800; padding: 1px 5px; border-radius: 8px; margin-left: 5px; vertical-align: middle; letter-spacing: .5px; }
 
-  /* ── Content ── */
   .content { flex: 1; min-height: 0; overflow: auto; }
+
+  /* ESS home replica */
   .home { padding: 26px 34px; }
   .home h1 { font-size: 26px; font-weight: 700; margin: 4px 0 22px; color: #222; }
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1500px; }
@@ -37,24 +38,59 @@
   .card .body { padding: 16px 18px; }
   .card .body .t { font-size: 17px; color: #222; margin-bottom: 10px; }
   .card .body .d { font-size: 14px; color: #555; }
-  .c-teal .head { background: #1796a3; }
-  .c-green .head { background: #2f8f2f; }
-  .c-olive .head { background: #9fad34; }
+  .c-teal .head { background: #1796a3; } .c-green .head { background: #2f8f2f; } .c-olive .head { background: #9fad34; }
 
-  /* ── Training (embed) ── */
+  /* Training tab */
   .training { display: none; height: 100%; }
   .training.show { display: block; }
   .home.hide { display: none; }
-  .embed-banner { background: #FFF3E8; border-bottom: 1px solid #f0c089; color: #92400E; font-size: 12.5px; padding: 7px 16px; display: flex; align-items: center; gap: 8px; }
+
+  /* Training landing */
+  .train-landing { padding: 26px 34px; max-width: 1100px; margin: 0 auto; }
+  .train-landing.hide { display: none; }
+  .tl-head { display: flex; justify-content: space-between; align-items: center; background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.07); padding: 22px 26px; margin-bottom: 18px; gap: 20px; flex-wrap: wrap; }
+  .tl-title { font-size: 24px; font-weight: 800; color: #1B3A6B; }
+  .tl-sub { font-size: 13.5px; color: #666; margin-top: 5px; max-width: 560px; line-height: 1.5; }
+  .tl-progress { display: flex; align-items: center; gap: 14px; }
+  .ring { width: 76px; height: 76px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: conic-gradient(#2f8f2f 0deg, #e5e7eb 0deg); }
+  .ring span { width: 58px; height: 58px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; color: #1B3A6B; }
+  .tl-prog-label { font-size: 13px; color: #555; }
+  .tl-prog-label b { color: #1B3A6B; font-size: 15px; }
+
+  .tl-roles { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.07); padding: 16px 22px; margin-bottom: 16px; }
+  .tl-roles-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: .5px; display: block; margin-bottom: 10px; }
+  .tl-roles .btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .role-btn { border: 1.5px solid #e2e8f0; background: #f8fafc; border-radius: 8px; padding: 8px 14px; font-size: 13px; font-weight: 600; color: #334; cursor: pointer; }
+  .role-btn.active { border-color: #D4782A; background: #FFF7ED; color: #92400E; }
+  .role-btn .n { font-size: 11px; color: #999; font-weight: 700; }
+  .role-btn.active .n { color: #D4782A; }
+
+  .tl-modules { background: #fff; border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.07); padding: 8px 0; margin-bottom: 18px; }
+  .mod-row { display: flex; align-items: center; gap: 12px; padding: 11px 22px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+  .mod-row:last-child { border-bottom: none; }
+  .mod-row .num { width: 22px; height: 22px; border-radius: 50%; background: #eef2f7; color: #64748b; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .mod-row.done .num { background: #2f8f2f; color: #fff; }
+  .mod-row .nm { flex: 1; color: #1B3A6B; font-weight: 600; }
+  .mod-row .st { font-size: 12px; color: #94a3b8; font-weight: 600; }
+  .mod-row.done .st { color: #2f8f2f; }
+
+  .tl-actions { text-align: center; }
+  .tl-launch { background: #D4782A; color: #fff; border: none; border-radius: 9px; padding: 13px 34px; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 3px 10px rgba(212,120,42,.3); }
+  .tl-launch:hover { background: #bd6a23; }
+
+  /* Embedded app */
+  .train-embed { display: none; height: 100%; }
+  .train-embed.show { display: block; }
+  .embed-banner { background: #FFF3E8; border-bottom: 1px solid #f0c089; color: #92400E; font-size: 12.5px; padding: 7px 16px; display: flex; align-items: center; gap: 14px; }
+  .embed-banner .back { color: #1f6fc4; font-weight: 700; cursor: pointer; text-decoration: none; white-space: nowrap; }
   iframe.train { width: 100%; height: 100%; border: none; display: block; }
   .train-wrap { height: calc(100% - 31px); }
 </style>
 </head>
 <body>
   <div class="topbar">
-    <div class="brand">
-      <span class="globe">🌎</span><span class="wish">WISH</span><span class="swoosh"></span>
-    </div>
+    <div class="brand"><span class="globe">🌎</span><span class="wish">WISH</span><span class="swoosh"></span></div>
     <div class="welcome">Welcome Jesus Gonzalez</div>
   </div>
 
@@ -75,7 +111,6 @@
   </nav>
 
   <div class="content">
-    <!-- Existing ESS home (replica of the live portal) -->
     <div class="home" id="home">
       <h1>Welcome to Employee Portal</h1>
       <div class="cards">
@@ -85,32 +120,110 @@
       </div>
     </div>
 
-    <!-- WISH Training tab — embeds the real training app -->
     <div class="training" id="training">
-      <div class="embed-banner">🎓 WISH Training is embedded here from the training platform. Your assigned modules load automatically — take them, with synced narration and quizzes.</div>
-      <div class="train-wrap"><iframe class="train" id="trainFrame" title="WISH Training"></iframe></div>
+      <div class="train-landing" id="trainLanding">
+        <div class="tl-head">
+          <div>
+            <div class="tl-title">WISH Training</div>
+            <div class="tl-sub">Modules assigned from your WISH permissions. Complete each with guided demos, synced narration, and a quiz.</div>
+          </div>
+          <div class="tl-progress">
+            <div class="ring" id="tlRing"><span id="tlPct">0%</span></div>
+            <div class="tl-prog-label"><b id="tlDone">0</b> of <b id="tlTotal">0</b><br>modules complete</div>
+          </div>
+        </div>
+
+        <div class="tl-roles">
+          <span class="tl-roles-label">Preview an assignment (simulates the checked boxes on a permission form)</span>
+          <div class="btns" id="tlRoleBtns"></div>
+        </div>
+
+        <div class="tl-modules" id="tlModules"></div>
+
+        <div class="tl-actions"><button class="tl-launch" id="tlLaunch">▶ Start Training</button></div>
+      </div>
+
+      <div class="train-embed" id="trainEmbed">
+        <div class="embed-banner">
+          <a class="back" id="tlBack">← Back to summary</a>
+          <span>🎓 Embedded from the WISH training platform — your assigned modules, with synced narration and quizzes.</span>
+        </div>
+        <div class="train-wrap"><iframe class="train" id="trainFrame" title="WISH Training"></iframe></div>
+      </div>
     </div>
   </div>
 
 <script>
-  var TRAINING_URL = 'https://www.wishtrainingtest.com/?enter=1';
-  var nav = document.getElementById('nav');
-  var home = document.getElementById('home');
-  var training = document.getElementById('training');
-  var frame = document.getElementById('trainFrame');
-  var loaded = false;
+  var ROLES = [
+    { id:'all',      label:'All modules',   modules:null },
+    { id:'scheduler',label:'Scheduler',     modules:['introduction','scheduling','schedule_by_job_admin','mail_by'] },
+    { id:'payroll',  label:'Payroll Clerk', modules:['introduction','payroll_processing','manual_process_hours','payroll_reporting','general_reporting','billing'] },
+    { id:'hiring',   label:'Hiring Manager',modules:['introduction','hiring_manager','hiring_admin','record_maintenance','manage_job'] },
+  ];
+  var idToName = {}, allIds = [], selected = ROLES[0];
 
-  nav.addEventListener('click', function (e) {
-    var a = e.target.closest('a'); if (!a) return;
-    e.preventDefault();
-    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (x) { x.classList.remove('active'); });
+  // module id -> display name (from the real course)
+  fetch('/api/course?nc=' + Date.now()).then(function(r){ return r.json(); }).then(function(course){
+    var mods = Array.isArray(course) ? course : (course.modules || []);
+    mods.forEach(function(m){ if(m && m.id){ idToName[m.id] = m.name || m.id; allIds.push(m.id); } });
+    renderRoleBtns(); render();
+  }).catch(function(){ renderRoleBtns(); render(); });
+
+  function readProgress(){ try { return JSON.parse(localStorage.getItem('wish_course_progress')) || {}; } catch(e){ return {}; } }
+  function assignedIds(){ return selected.modules ? selected.modules : allIds.slice(); }
+
+  function renderRoleBtns(){
+    document.getElementById('tlRoleBtns').innerHTML = ROLES.map(function(r){
+      var n = r.modules ? r.modules.length : allIds.length;
+      return '<button class="role-btn'+(r.id===selected.id?' active':'')+'" data-role="'+r.id+'">'+r.label+' <span class="n">'+n+'</span></button>';
+    }).join('');
+  }
+  document.getElementById('tlRoleBtns').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    selected = ROLES.filter(function(r){ return r.id===b.getAttribute('data-role'); })[0];
+    renderRoleBtns(); render();
+  });
+
+  function render(){
+    var ids = assignedIds();
+    var prog = readProgress();
+    var mods = (prog && prog.modules) || {};
+    var done = ids.filter(function(id){ return mods[id] && mods[id].completed; }).length;
+    var pct = ids.length ? Math.round(done/ids.length*100) : 0;
+    document.getElementById('tlPct').textContent = pct + '%';
+    document.getElementById('tlDone').textContent = done;
+    document.getElementById('tlTotal').textContent = ids.length;
+    document.getElementById('tlRing').style.background = 'conic-gradient(#2f8f2f ' + (pct*3.6) + 'deg, #e5e7eb 0deg)';
+    document.getElementById('tlModules').innerHTML = ids.map(function(id, i){
+      var d = mods[id] && mods[id].completed;
+      return '<div class="mod-row'+(d?' done':'')+'"><span class="num">'+(d?'✓':(i+1))+'</span>'+
+             '<span class="nm">'+(idToName[id]||id)+'</span><span class="st">'+(d?'Completed':'Not started')+'</span></div>';
+    }).join('');
+  }
+
+  // nav
+  var nav = document.getElementById('nav');
+  var home = document.getElementById('home'), training = document.getElementById('training');
+  nav.addEventListener('click', function(e){
+    var a = e.target.closest('a'); if(!a) return; e.preventDefault();
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function(x){ x.classList.remove('active'); });
     a.classList.add('active');
-    if (a.getAttribute('data-view') === 'training') {
-      home.classList.add('hide'); training.classList.add('show');
-      if (!loaded) { frame.src = TRAINING_URL; loaded = true; }
-    } else {
-      training.classList.remove('show'); home.classList.remove('hide');
-    }
+    if (a.getAttribute('data-view') === 'training') { home.classList.add('hide'); training.classList.add('show'); render(); }
+    else { training.classList.remove('show'); home.classList.remove('hide'); }
+  });
+
+  // launch / back
+  var landing = document.getElementById('trainLanding'), embed = document.getElementById('trainEmbed'), frame = document.getElementById('trainFrame');
+  document.getElementById('tlLaunch').addEventListener('click', function(){
+    var ids = selected.modules;
+    var url = '/?enter=1' + (ids ? '&modules=' + ids.join(',') : '');
+    // force a fresh load with the selected assignment
+    try { localStorage.removeItem('wish_course_progress_assignment'); } catch(e){}
+    frame.src = url;
+    landing.classList.add('hide'); embed.classList.add('show');
+  });
+  document.getElementById('tlBack').addEventListener('click', function(){
+    embed.classList.remove('show'); landing.classList.remove('hide'); render(); // refresh progress after training
   });
 </script>
 </body>

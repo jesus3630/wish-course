@@ -68,6 +68,8 @@ export default function App() {
   // Resume session from localStorage
   useEffect(() => {
     if (isAdmin) return;
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('enter') === '1') return; // handled by the enter effect below
     const saved = getProgress();
     if (saved) {
       setProgress(saved);
@@ -76,13 +78,24 @@ export default function App() {
   }, []);
 
   // Embedded/demo convenience: ?enter=1 lands straight on the dashboard (no login click).
-  // With no roster assignment, all modules are shown (simulates "received all modules").
+  // ?modules=a,b,c simulates an assignment (only those show); omitted = all modules.
   useEffect(() => {
     if (isAdmin) return;
     const params = new URLSearchParams(window.location.search);
-    if (params.get('enter') === '1' && !getProgress() && !params.get('sso')) {
-      handleEnter();
+    if (params.get('enter') !== '1' || params.get('sso')) return;
+    const modsParam = params.get('modules');
+    const assigned = modsParam ? modsParam.split(',').map(s => s.trim()).filter(Boolean) : null;
+    let p = getProgress();
+    if (!p) {
+      const anonId = 'anon_' + Math.random().toString(36).slice(2, 10);
+      p = createProgress('Trainee', anonId + '@wish.local', assigned);
+    } else {
+      // keep prior progress, but apply the requested assignment so the selector updates the view
+      p = { ...p, assigned_modules: assigned };
     }
+    saveProgress(p);
+    setProgress(p);
+    setView('dashboard');
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleEnter() {
