@@ -11,11 +11,8 @@
 
   /* Top bar */
   .topbar { background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 10px 26px; border-bottom: 1px solid #eee; }
-  .brand { display: flex; align-items: flex-end; gap: 8px; }
-  .brand .globe { font-size: 22px; }
-  .brand .wish { font-size: 34px; font-weight: 800; font-style: italic; letter-spacing: 1px;
-    background: linear-gradient(90deg,#e8801f,#f0a830); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .brand .swoosh { width: 70px; height: 5px; border-radius: 5px; background: linear-gradient(90deg,#1b3a6b,#3a6aaa); transform: skewX(-20deg); margin-left: -6px; margin-bottom: 8px; }
+  .brand { display: flex; align-items: center; }
+  .brand img.wish-logo { height: 58px; width: auto; display: block; }
   .welcome { background: #1f6fc4; color: #fff; font-weight: 700; font-size: 14px; padding: 9px 18px; border-radius: 5px; }
 
   /* Nav */
@@ -90,7 +87,7 @@
 </head>
 <body>
   <div class="topbar">
-    <div class="brand"><span class="globe">🌎</span><span class="wish">WISH</span><span class="swoosh"></span></div>
+    <div class="brand"><img src="/mockup/wishlogo.png" alt="WISH" class="wish-logo"></div>
     <div class="welcome">Welcome Jesus Gonzalez</div>
   </div>
 
