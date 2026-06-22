@@ -403,6 +403,43 @@ app.post('/api/login', async (req, res) => {
   res.json({ ok: true, email, name, assigned_modules });
 });
 
+// ─── SSO: verify an HS256 JWT from the host site (e.g. WISH ESS) ──────────────
+// ESS signs a short-lived JWT with the shared SSO_SECRET and hands it to the
+// embedded app (via ?sso= or postMessage). We verify it (no library needed —
+// HS256 is HMAC-SHA256), then return the employee's identity + assigned modules.
+function b64url(buf) { return buf.toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+function verifyJwtHS256(token, secret) {
+  if (!token || typeof token !== 'string') return null;
+  const parts = token.split('.');
+  if (parts.length !== 3) return null;
+  const [h, p, sig] = parts;
+  const expected = b64url(crypto.createHmac('sha256', secret).update(h + '.' + p).digest());
+  // constant-time compare
+  const a = Buffer.from(sig), b = Buffer.from(expected);
+  if (a.length !== b.length || !crypto.timingSafeEqual(a, b)) return null;
+  let payload;
+  try { payload = JSON.parse(Buffer.from(p.replace(/-/g, '+').replace(/_/g, '/'), 'base64').toString('utf8')); }
+  catch { return null; }
+  if (payload.exp && Math.floor(Date.now() / 1000) > Number(payload.exp)) return null; // expired
+  return payload;
+}
+
+app.post('/api/sso', async (req, res) => {
+  const secret = process.env.SSO_SECRET;
+  if (!secret) return res.status(503).json({ error: 'sso_not_configured' });
+  const payload = verifyJwtHS256((req.body || {}).token, secret);
+  if (!payload || !payload.email) return res.status(401).json({ error: 'invalid_token' });
+  const email = String(payload.email).toLowerCase().trim();
+  try {
+    const r = await pool.query('SELECT name, assigned_modules FROM roster WHERE LOWER(email) = LOWER($1)', [email]);
+    const row = r.rows[0] || {};
+    const assigned = Array.isArray(row.assigned_modules) && row.assigned_modules.length > 0 ? row.assigned_modules : null;
+    res.json({ ok: true, email, name: payload.name || row.name || null, assigned_modules: assigned });
+  } catch (e) {
+    res.status(500).json({ error: 'sso_lookup_failed' });
+  }
+});
+
 // ─── History ──────────────────────────────────────────────────────────────────
 function diffCourse(oldModules, newModules) {
   const changes = [];

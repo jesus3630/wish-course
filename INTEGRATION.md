@@ -113,9 +113,24 @@ secret, delivered via the iframe `?sso=` param or `postMessage`.
 }
 ```
 
-The app verifies the signature, trusts the `email`, and loads that employee's assignment. (A new
-`/api/sso` verify endpoint is a ~half-day add on our side once the shared secret + claim shape are
-agreed. Until then, the existing username lookup in §C/login works as an interim.)
+**✅ BUILT.** The app verifies the signature, trusts the `email`, and loads that employee's assignment.
+
+- **ESS side:** sign an HS256 JWT with the shared `SSO_SECRET`, put it in the iframe URL:
+  `https://<training-host>/?sso=<JWT>`. Required claim: `email`. Optional: `name`, `employee_id`,
+  `exp` (recommended — short TTL).
+- **App side:** on load it reads `?sso=`, calls `POST /api/sso { token }`, and on success auto-logs
+  the employee in (no login screen) showing their assigned modules. Endpoint:
+
+```
+POST /api/sso
+{ "token": "<HS256 JWT signed with SSO_SECRET>" }
+→ 200 { "ok": true, "email": "...", "name": "...", "assigned_modules": [...] | null }
+→ 401 invalid_token   → 503 sso_not_configured (SSO_SECRET unset)
+```
+
+Set `SSO_SECRET` in the app's env and share it with ESS. No JWT library needed on our side
+(HS256 = HMAC-SHA256, verified with Node's built-in `crypto`, constant-time). Until ESS wires SSO,
+the username lookup in §C/login still works as an interim.
 
 ### C. Assign modules (enroll) — when permissions are granted
 When ESS/WISH grants an employee their permissions (or when the permission form is processed), call:
@@ -209,15 +224,15 @@ deploy). See `SYSTEM.md`.
 
 **Env vars:** `DATABASE_URL`, `ADMIN_PASSWORD`, `ELEVENLABS_API_KEY` (+ `ELEVENLABS_VOICE_ID`),
 `OPENAI_API_KEY` (only if using the email agent), `GMAIL_*` (only for the email agent), `NODE_ENV`.
-For SSO: a shared `SSO_SECRET` (to be added). For ESS server-to-server enroll: a dedicated API key
-(to be added).
+For SSO: a shared **`SSO_SECRET`** (set this + share with ESS — the `/api/sso` endpoint is built).
+For ESS server-to-server enroll: a dedicated API key (recommended hardening).
 
 ---
 
 ## 8. Security & hardening checklist (at handoff)
 
 - [ ] **Service token** for ESS → enroll (don't share the admin password).
-- [ ] **SSO verify endpoint** (`/api/sso`) + shared `SSO_SECRET`; short token TTL.
+- [x] **SSO verify endpoint** (`/api/sso`) built — just set/share `SSO_SECRET`; use a short token TTL.
 - [ ] **Admin panel** behind ESS SSO/role instead of a static password.
 - [ ] **`frame-ancestors`** CSP locking embedding to `ess.schedulingsite.com`.
 - [ ] **Unmatched-permission handling** — when a form box doesn't map to a module, surface it to the
@@ -233,10 +248,11 @@ For SSO: a shared `SSO_SECRET` (to be added). For ESS server-to-server enroll: a
 |---|---|---|---|
 | POST | `/api/admin/login` | password | Get admin token |
 | POST | `/api/admin/roster` | admin/service | **Enroll / assign modules** (upsert by email) |
-| POST | `/api/login` | none | Identify a user by username → email + assigned_modules (interim SSO) |
+| POST | `/api/sso` | none (signed token) | **Verify ESS SSO token** → email + assigned_modules |
+| POST | `/api/login` | none | Identify a user by username → email + assigned_modules (interim) |
 | GET | `/api/progress/:email` | none | **Read completion** for an employee |
 | GET | `/api/admin/users` | admin | All users + completion summary |
 | GET | `/api/course` · `/api/quiz` | none | Course + quiz content |
 
-_To be added for ESS: `/api/sso` (verify SSO token), a dedicated ESS service key, optional completion
-webhook._
+_Remaining optional adds for ESS: a dedicated ESS service key (vs admin password), and a completion
+webhook. `/api/sso` is built._

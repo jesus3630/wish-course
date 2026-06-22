@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.css';
 // v2026-06-02 cache-bust
 import { CourseProgress, Module, QuizQuestion } from './types';
-import { getProgress, createProgress, saveProgress, clearProgress } from './utils/progress';
+import { getProgress, createProgress, saveProgress, clearProgress, fetchProgressFromServer } from './utils/progress';
 import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
@@ -37,6 +37,32 @@ export default function App() {
       console.error('Failed to load course data:', err);
       setDataLoaded(true);
     });
+  }, []);
+
+  // SSO auto-login: when embedded in WISH ESS, a signed ?sso= token identifies the
+  // employee — verify it, load their assigned modules, and skip the login screen.
+  useEffect(() => {
+    if (isAdmin) return;
+    const token = new URLSearchParams(window.location.search).get('sso');
+    if (!token) return;
+    (async () => {
+      try {
+        const res = await fetch('/api/sso', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+        if (!res.ok) return; // fall through to normal login
+        const d = await res.json();
+        if (!d.email) return;
+        let p = await fetchProgressFromServer(d.email).catch(() => null);
+        if (!p) p = createProgress(d.name || 'Trainee', d.email, d.assigned_modules ?? null);
+        if (d.assigned_modules) p.assigned_modules = d.assigned_modules;
+        saveProgress(p);
+        setProgress(p);
+        setView('dashboard');
+      } catch { /* fall through to normal login */ }
+    })();
   }, []);
 
   // Resume session from localStorage
