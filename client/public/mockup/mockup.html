@@ -9610,10 +9610,12 @@ function caManageProcessHoursHTML() {
 }
 
 function caShiftRosterHTML() {
-  const cw = 'text-align:center;padding:4px 6px';
-  const dateSel = '<select class="form-select" style="font-size:11px;width:104px"><option>18-Jun-2026</option></select>';
-  const breaks = (n)=>`<select class="form-select" style="font-size:11px;width:44px">${[1,2,3,4,5,6,7,8].map(i=>`<option${i===n?' selected':''}>${i}</option>`).join('')}</select>`;
-  const wmpbp = (mp,id)=>`<div style="display:flex;gap:3px;justify-content:center"><input type="checkbox"><input type="checkbox"${mp?' checked':''}${id?` id="${id}"`:''}><input type="checkbox"></div><div style="font-size:8px;color:#888;letter-spacing:2px;text-align:center">W MP BP</div>`;
+  // Tightened so the extra CA columns (Breaks, W/MP/BP on the right) fit inside the 1280 canvas
+  // without an overflow-x scrollbar cutting them off.
+  const cw = 'text-align:center;padding:3px 4px';
+  const dateSel = '<select class="form-select" style="font-size:11px;width:78px"><option>18-Jun-2026</option></select>';
+  const breaks = (n)=>`<select class="form-select" style="font-size:11px;width:42px">${[1,2,3,4,5,6,7,8].map(i=>`<option${i===n?' selected':''}>${i}</option>`).join('')}</select>`;
+  const wmpbp = (mp,id)=>`<div style="display:flex;gap:2px;justify-content:center"><input type="checkbox"><input type="checkbox"${mp?' checked':''}${id?` id="${id}"`:''}><input type="checkbox"></div><div style="font-size:8px;color:#888;letter-spacing:1px;text-align:center">W MP BP</div>`;
   // [WF#, Name, signIn, signOut, hrs, rate, ovd, breaks, flag] — randomized names; 12hr=2 breaks, 10hr=1 break
   const emps = [
     ['4810231','Alvarez, Bianca','08:00','20:00','12.00','22.00','22.00',2,''],
@@ -9629,26 +9631,27 @@ function caShiftRosterHTML() {
     ['4810331','Snyder, Jana','08:00','20:00','12.00','21.50','21.50',2,''],
     ['4810342','Walters, Katherine','08:00','20:00','12.00','22.00','22.00',2,''],
   ];
+  const nc = 'padding:3px 5px';  // tightened non-centered cell padding
   const rows = emps.map(e=>`<tr style="background:#fff">
-    <td style="padding:4px 6px;white-space:nowrap;color:#c89000">&#9998; &#9733;</td>
-    <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
-    <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
+    <td style="${nc};white-space:nowrap;color:#c89000">&#9998; &#9733;</td>
+    <td style="${nc};color:#3a6aaa">${e[0]}</td>
+    <td style="${nc};color:#3a6aaa">${e[1]}</td>
     <td style="${cw}"><input type="checkbox"></td>
-    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" value="${e[2]}" style="width:42px"> ${dateSel}</td>
-    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" value="${e[3]}" style="width:42px"> ${dateSel}</td>
+    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[2]}" style="width:40px"> ${dateSel}</td>
+    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[3]}" style="width:40px"> ${dateSel}</td>
     <td style="${cw}"><b>${e[4]}</b></td>
     <td style="${cw}">${e[5]}</td>
-    <td style="${cw}"><input class="form-input" value="${e[6]}" style="width:46px"></td>
-    <td style="${cw}"><input class="form-input" style="width:42px"></td>
+    <td style="${cw}"><input class="form-input" value="${e[6]}" style="width:44px"></td>
+    <td style="${cw}"><input class="form-input" style="width:40px"></td>
     <td style="${cw}">${breaks(e[7])}</td>
     <td style="${cw}">${wmpbp(e[8]==='MP', e[8]==='MP'?'ca-mp':'')}</td>
     <td style="${cw};color:#e53935;font-weight:bold;cursor:pointer">&#10006;</td></tr>`).join('');
   return `
-    <div id="ca-roster" style="overflow-x:auto;margin-top:4px">
-      <table style="min-width:1020px;width:100%;font-size:12px">
+    <div id="ca-roster" style="margin-top:4px">
+      <table style="width:100%;font-size:11px;table-layout:auto">
         <thead><tr style="background:#5a5a5a;color:#fff">
-          <th style="padding:4px 6px"></th><th style="text-align:left;padding:4px 6px">WF#</th><th style="text-align:left;padding:4px 6px">WF Name</th>
-          <th style="${cw}">NS</th><th style="text-align:left;padding:4px 6px">Sign In Adj</th><th style="text-align:left;padding:4px 6px">Sign Out Adj</th>
+          <th style="${nc}"></th><th style="text-align:left;${nc}">WF#</th><th style="text-align:left;${nc}">WF Name</th>
+          <th style="${cw}">NS</th><th style="text-align:left;${nc}">Sign In Adj</th><th style="text-align:left;${nc}">Sign Out Adj</th>
           <th style="${cw}">Hrs</th><th style="${cw}">Rate</th><th style="${cw}">Ovd Rate</th><th style="${cw}">Per Diem</th>
           <th style="${cw}" id="ca-breaks-col">Breaks</th><th style="${cw}">W&nbsp;MP&nbsp;BP</th><th></th></tr></thead>
         <tbody>${rows}</tbody>
