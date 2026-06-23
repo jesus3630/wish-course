@@ -17,9 +17,6 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
   const [animatedPct, setAnimatedPct] = useState(0);
   const confettiFiredRef = useRef(false);
   const isMobile = useIsMobile();
-  // When embedded inside ESS (cross-origin iframe), ESS already shows its own header/nav —
-  // hide our gradient header bar so the embed looks sleeker.
-  const isEmbedded = (() => { try { return window.self !== window.top; } catch { return true; } })();
 
   // ── Quick Reference: search every slide across all modules ──
   const [query, setQuery] = useState('');
@@ -90,8 +87,7 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
 
   return (
     <div style={styles.page}>
-      {/* Header — hidden when embedded in ESS (ESS provides its own header/nav) */}
-      {!isEmbedded && (
+      {/* Header */}
       <div style={{ ...styles.header, height: isMobile ? 'auto' : '72px', padding: isMobile ? '12px 16px' : '0 32px', flexWrap: 'wrap' as const, gap: isMobile ? '8px' : '0' }}>
         <div style={styles.brandMark}>
           <span style={styles.brandWish}>WISH</span>
@@ -103,7 +99,6 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
           <button style={styles.logoutBtn} onClick={onLogout}>Log Out</button>
         </div>
       </div>
-      )}
 
       <div style={{ ...styles.content, padding: isMobile ? '16px' : '32px 24px' }}>
         {/* Progress overview */}
