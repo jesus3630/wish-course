@@ -9810,24 +9810,18 @@ function slide_payroll_processing_6() {
 // Sign-Out Exceptions — Payroll > SignOut Exceptions > Exception Filter > Retrieve > overlap results
 function exceptionFilterHTML() {
   const fi = 'min-width:0';
-  // [Job#, JobName, shift#, EmpName, SignIn, SignOut, overlapId] — randomized names; pairs overlap in time
+  // [Job#, JobName, shift#, EmpName, SignIn, SignOut, overlapId] — randomized name; the exception is the
+  // SignOut landing the NEXT day (6/21) while SignIn was 6/20 — a cross-midnight ~27hr overlap.
   const rows = [
-    ['1013692060','DNS 24HR Security Coverage-6/20/2026','1','Alvarez, Bianca','6/20/2026 8:00:00 AM','6/20/2026 4:00:00 PM',''],
-    ['1013691354','DNS Opening Night','4','Alvarez, Bianca','6/20/2026 3:30:00 PM','6/20/2026 11:00:00 PM','soe-overlap-row'],
-    ['1013692966','In Between Day 6','8','Becker, Janelle','6/20/2026 10:45:00 PM','6/21/2026 7:00:00 AM',''],
-    ['1013705819','Last Mile Coverage','1','Becker, Janelle','6/21/2026 5:00:00 PM','6/21/2026 5:00:00 PM',''],
-    ['1013697010','Branch Office Workers-6/21/2026','1','Castro, Cecil','6/21/2026 8:00:00 AM','6/21/2026 10:00:00 AM',''],
-    ['1013708571','Ambassadors Coverage','1','Castro, Cecil','6/21/2026 9:00:00 AM','6/21/2026 5:00:00 PM',''],
-    ['1013692991','World Cup SEC Main','14','Delgado, Sheryl','6/21/2026 5:00:00 PM','6/21/2026 4:45:00 PM',''],
-    ['1013701879','Watch Party Group I-J','6','Huerta, Bryan','6/22/2026 5:30:00 PM','6/22/2026 11:30:00 PM',''],
+    ['1123705740','Fuerza Regida - SHOW DAY','12','Navarro Alicia','6/20/2026 4:45:00 PM','6/21/2026 8:00:00 PM','soe-overlap-row'],
   ];
-  const tr = rows.map((e,i)=>`<tr${e[6]?` id="${e[6]}"`:''} style="background:${i%2?'#f7f7f7':'#ededed'}">
-    <td style="padding:4px 6px;white-space:nowrap"><input type="checkbox"><br><span style="color:#3a6aaa">${e[0]}</span></td>
-    <td style="padding:4px 6px">${e[1]}</td>
-    <td style="padding:4px 6px;text-align:center">${e[2]}</td>
-    <td style="padding:4px 6px">${e[3]}</td>
-    <td style="padding:4px 6px;white-space:nowrap">${e[4]}</td>
-    <td style="padding:4px 6px;white-space:nowrap">${e[5]}</td></tr>`).join('');
+  const tr = rows.map((e,i)=>`<tr${e[6]?` id="${e[6]}"`:''} style="background:#ededed">
+    <td style="padding:5px 6px;white-space:nowrap"><input type="checkbox"> <span style="color:#3a6aaa">${e[0]}</span></td>
+    <td style="padding:5px 6px">${e[1]}</td>
+    <td style="padding:5px 6px;text-align:center">${e[2]}</td>
+    <td style="padding:5px 6px">${e[3]}</td>
+    <td style="padding:5px 6px;white-space:nowrap">${e[4]}</td>
+    <td style="padding:5px 6px;white-space:nowrap"><b style="color:#c00">${e[5]}</b></td></tr>`).join('');
   return `
     <div class="page-title">Exception Filter</div>
     <div class="note-bar">Note: All the * marked fields are mandatory</div>
@@ -9835,7 +9829,7 @@ function exceptionFilterHTML() {
       <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">Enter Fri End Date :</td>
         <td><input class="form-input" value="06/26/2026" style="${fi};width:88px">${calBtn()}<span style="color:#c00"> *</span></td></tr>
       <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">Branch Name :</td>
-        <td><select class="form-select" id="soe-branch" style="${fi};width:160px"><option>Prota LA Branch Test</option><option>Los Angeles</option></select></td></tr>
+        <td><select class="form-select" id="soe-branch" style="${fi};width:160px"><option>San Francisco</option><option>Los Angeles</option><option>Prota LA Branch Test</option></select></td></tr>
       <tr><td></td><td style="font-size:13px">
         <label style="cursor:pointer"><input type="radio" name="soe-type" id="soe-overlap" checked> Signin/Out OverLap</label><br>
         <label style="cursor:pointer"><input type="radio" name="soe-type"> Negative Hours</label></td></tr>
@@ -9865,7 +9859,7 @@ function slide_payroll_processing_7() {
     { selector: '#soe-overlap', prompt: 'Pick what to check for. "Signin/Out OverLap" finds employees whose shifts overlap in time; "Negative Hours" finds a sign-out earlier than the sign-in.', skipClick: true },
     { selector: '#soe-retrieve', prompt: 'Enter the Friday end date and branch, then click "Retrieve Exception"',
       onConfirm: () => { document.getElementById('soe-results').style.display = ''; }},
-    { selector: '#soe-overlap-row', prompt: 'Here is an overlap: this employee signs out of one shift at 4:00 PM but is signed into another that starts at 3:30 PM the same day — 30 minutes overlap. WISH flags it so the same time is not paid on two jobs.', skipClick: true },
+    { selector: '#soe-overlap-row', prompt: 'Look closely at the times: this employee signed in on 6/20 at 4:45 PM, but the sign-out is recorded the next day, 6/21 at 8:00 PM — about a 27-hour shift. The sign-out crossed midnight into the next day, so it overlaps the following shift. That is the exception WISH is flagging.', skipClick: true },
     { selector: '#soe-adj', prompt: 'Check the row and click "ADJ" to correct the times, then "Submit" to clear the exception. Resolve every overlap before processing payroll.', skipClick: true },
   ]);
 }
