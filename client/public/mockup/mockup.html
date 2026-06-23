@@ -9613,8 +9613,11 @@ function caShiftRosterHTML() {
   // Tightened so the extra CA columns (Breaks, W/MP/BP on the right) fit inside the 1280 canvas
   // without an overflow-x scrollbar cutting them off.
   const cw = 'text-align:center;padding:3px 5px';
-  const dateSel = '<select class="form-select" style="font-size:11px;width:84px"><option>18-Jun-2026</option></select>';
-  const breaks = (n)=>`<select class="form-select" style="font-size:11px;width:42px">${[1,2,3,4,5,6,7,8].map(i=>`<option${i===n?' selected':''}>${i}</option>`).join('')}</select>`;
+  // NOTE: .form-input/.form-select carry min-width:175/185px — must override with min-width:0 here
+  // or every field balloons and the table overflows the canvas (cutting off Breaks + W/MP/BP).
+  const fi = 'min-width:0;height:20px;font-size:11px';
+  const dateSel = `<select class="form-select" style="${fi};width:84px"><option>18-Jun-2026</option></select>`;
+  const breaks = (n)=>`<select class="form-select" style="${fi};width:40px">${[1,2,3,4,5,6,7,8].map(i=>`<option${i===n?' selected':''}>${i}</option>`).join('')}</select>`;
   const wmpbp = (mp,id)=>`<div style="display:flex;gap:2px;justify-content:center"><input type="checkbox"><input type="checkbox"${mp?' checked':''}${id?` id="${id}"`:''}><input type="checkbox"></div><div style="font-size:8px;color:#888;letter-spacing:1px;text-align:center">W MP BP</div>`;
   // [WF#, Name, signIn, signOut, hrs, rate, ovd, breaks, flag] — randomized names; 12hr=2 breaks, 10hr=1 break
   const emps = [
@@ -9637,12 +9640,12 @@ function caShiftRosterHTML() {
     <td style="${nc};color:#3a6aaa">${e[0]}</td>
     <td style="${nc};color:#3a6aaa">${e[1]}</td>
     <td style="${cw}"><input type="checkbox"></td>
-    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[2]}" style="width:40px"> ${dateSel}</td>
-    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[3]}" style="width:40px"> ${dateSel}</td>
+    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[2]}" style="${fi};width:38px"> ${dateSel}</td>
+    <td style="${nc};white-space:nowrap"><input class="form-input" value="${e[3]}" style="${fi};width:38px"> ${dateSel}</td>
     <td style="${cw}"><b>${e[4]}</b></td>
     <td style="${cw}">${e[5]}</td>
-    <td style="${cw}"><input class="form-input" value="${e[6]}" style="width:44px"></td>
-    <td style="${cw}"><input class="form-input" style="width:40px"></td>
+    <td style="${cw}"><input class="form-input" value="${e[6]}" style="${fi};width:44px"></td>
+    <td style="${cw}"><input class="form-input" style="${fi};width:40px"></td>
     <td style="${cw}">${breaks(e[7])}</td>
     <td style="${cw}">${wmpbp(e[8]==='MP', e[8]==='MP'?'ca-mp':'')}</td>
     <td style="${cw};color:#e53935;font-weight:bold;cursor:pointer">&#10006;</td></tr>`).join('');
