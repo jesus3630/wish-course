@@ -36,7 +36,8 @@ export default function Certificate({ progress, modules, onClose }: Props) {
     const img = new Image();
     img.src = '/wish-logo.png';
     try {
-      doc.addImage(img, 'PNG', W / 2 - 28, 20, 56, 22);
+      // wish-logo.png is a 961×81 banner (≈11.86:1) — draw at correct aspect so it isn't distorted
+      doc.addImage(img, 'PNG', W / 2 - 55, 26, 110, 110 / 11.86);
     } catch {
       // fallback if image fails to load — just use text
       doc.setFont('helvetica', 'bold');
@@ -169,7 +170,7 @@ export default function Certificate({ progress, modules, onClose }: Props) {
         <div className="cert-printable" style={{ background: '#FFFFFF', width: '100%', maxWidth: '800px', borderRadius: '4px', padding: '60px 64px', boxShadow: '0 20px 60px rgba(0,0,0,0.3)', border: '12px solid #1B3A6B', outline: '4px solid #D4782A', outlineOffset: '-20px' }}>
 
           <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <img src="/wish-logo.png" alt="WISH" style={{ height: '64px', width: 'auto' }} />
+            <img src="/wish-logo.png" alt="WISH" style={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '0 auto' }} />
             <div style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '6px', letterSpacing: '1px' }}>
               ProtaTECH Training Portal
             </div>
