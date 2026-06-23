@@ -405,7 +405,7 @@
         "slide_name": "Payroll Reports",
         "instructions": "Reports → Payroll Reports → Employee Time Register → Produce Report. Show report with employee names, days worked, hours, pay rate. Then Reports → Job Administration → One Line Shift Summary — set Saturday to Saturday. Then Sign-In Sign-Out Sheets — same date range. Then Payroll → Export Per Diem Report if applicable.",
         "slide_number": 9,
-        "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=8"
+        "simulation_url": "/mockup/mockup.html?module=payroll_reporting&slide=4"
       },
       {
         "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH, from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone.",
