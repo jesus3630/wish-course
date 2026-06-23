@@ -148,6 +148,36 @@ Do this the same way for every slide. Consistency is the system.
 
 ---
 
+## 5.5 Debugging — find the cause, never patch the symptom
+
+> Hard rule, learned the slow way: **diagnose the root cause before changing anything.**
+> Symptom-patching is what turns a 10-minute fix into a stressful afternoon of blind
+> deploys. Extra critical thinking up front (even extra tokens) is always worth it —
+> the goal is a fix that's **understood and reproducible**, not one that "seems to work."
+
+**The process when something looks wrong:**
+1. **Inspect, don't assume.** Before tweaking, find *every* rule/value affecting the
+   element — `grep` the stylesheet for **all** classes on it, not just the inline style.
+   Confirm what's actually winning. An assumed cause is not a cause.
+2. **Ask why the working version works.** If a similar component renders fine, the
+   difference between it and the broken one *is* the bug. (The non-CA roster "worked"
+   only because it scrolled — that pointed straight at field widths.)
+3. **Change once, deliberately.** One understood fix beats five guesses. Guesses cause
+   regressions (e.g. compacting a table to "fit" actually distorted it).
+4. **State the root cause in the commit** so the next person inherits the understanding.
+
+**Known gotcha that caused exactly this — CSS `min-width` overrides inline `width`:**
+The shared mockup classes carry large mins — **`.form-input { min-width: 175px }`** and
+**`.form-select { min-width: 185px }`**. Because `min-width` beats `width`, an inline
+`style="width:84px"` is **ignored** and the field renders at ~180px. In a multi-column
+roster this balloons the table off the canvas and shoves the right-hand columns out of
+view (then guided steps point off-screen).
+**Fix:** on any narrow roster/table field, override the min — e.g.
+`style="min-width:0;width:40px"`. (The existing CA roster uses an `fi` helper:
+`const fi = 'min-width:0;height:20px;font-size:11px'`.)
+
+---
+
 ## 6. Ship It (deploy)
 
 ```bash
