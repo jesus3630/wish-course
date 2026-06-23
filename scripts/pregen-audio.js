@@ -84,7 +84,7 @@ function stripBulletsForTts(text) {
   // "gab", hardening the j. Plain lowercase "job" is read correctly.) The HASH is still computed
   // from the ORIGINAL text, so the on-screen text stays "Job" and the client finds the file.
   return text
-    .replace(/^[•]\s*/gm, '')
+    .replace(/^\s*[•*\-]\s+/gm, '')   // strip leading bullet chars (•, *, -) so they aren't read aloud
     .replace(/\n{3,}/g, '\n\n')
     .replace(/\bJob(s)?\b/g, (m, s) => 'job' + (s || ''))
     .trim();
