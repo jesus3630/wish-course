@@ -81,6 +81,18 @@
         "instructions": "",
         "slide_number": 9,
         "simulation_url": "/mockup/mockup.html?module=introduction&slide=9"
+      },
+      {
+        "slide_number": 10,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed the Introduction to WISH. You now know how to log in, find your way around the portal, and what each menu is for.\n\nDepending on your role and access level, you'll have additional modules to complete. Each one walks you through the parts of WISH you'll actually use."
+      },
+      {
+        "slide_number": 11,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
       }
     ]
   },
