@@ -65,26 +65,6 @@ export default function App() {
     })();
   }, []);
 
-  // When embedded, report content height so the host can size the iframe to fit
-  // (no empty border space below the training, and the host page scrolls naturally).
-  useEffect(() => {
-    if (isAdmin || window.parent === window) return;
-    let last = 0;
-    const post = () => {
-      const h = Math.ceil(Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight
-      ));
-      if (h && Math.abs(h - last) > 4) { last = h; window.parent.postMessage({ type: 'wish-height', height: h }, '*'); }
-    };
-    post();
-    const ro = new ResizeObserver(post);
-    ro.observe(document.body);
-    const iv = window.setInterval(post, 700); // catch async content (audio, demo iframe, slide changes)
-    window.addEventListener('resize', post);
-    return () => { ro.disconnect(); window.clearInterval(iv); window.removeEventListener('resize', post); };
-  }, []);
-
   // When embedded (e.g. in WISH ESS), post progress to the host so a parent on a
   // DIFFERENT origin can show completion (it can't read this app's storage cross-origin).
   useEffect(() => {
