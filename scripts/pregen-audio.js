@@ -79,12 +79,14 @@ function parseTimings(alignment) {
 
 function stripBulletsForTts(text) {
   // Remove bullet chars so ElevenLabs doesn't insert 2-3s pauses at each bullet point.
-  // Lowercase "Job" so ElevenLabs reads it as the noun /dʒɒb/, not the biblical name /dʒoʊb/.
-  // Hash is still computed from original text so the client finds the file.
+  // Normalize "Job" → lowercase "job" so ElevenLabs reads the common noun /dʒɒb/, not the
+  // biblical name /dʒoʊb/. (An earlier respelling to "jahb" backfired — the model read it as
+  // "gab", hardening the j. Plain lowercase "job" is read correctly.) The HASH is still computed
+  // from the ORIGINAL text, so the on-screen text stays "Job" and the client finds the file.
   return text
     .replace(/^[•]\s*/gm, '')
     .replace(/\n{3,}/g, '\n\n')
-    .replace(/\b[Jj]ob(s)?\b/g, (m, s) => 'jahb' + (s || ''))
+    .replace(/\bJob(s)?\b/g, (m, s) => 'job' + (s || ''))
     .trim();
 }
 
