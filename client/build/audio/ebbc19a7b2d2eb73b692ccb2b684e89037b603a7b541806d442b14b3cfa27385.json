@@ -2,181 +2,181 @@
   {
     "word": "In",
     "start": 0,
-    "end": 0.174
+    "end": 0.139
   },
   {
     "word": "this",
-    "start": 0.232,
-    "end": 0.395
+    "start": 0.174,
+    "end": 0.302
   },
   {
     "word": "module,",
-    "start": 0.464,
-    "end": 1.033
+    "start": 0.36,
+    "end": 0.894
   },
   {
     "word": "you",
-    "start": 1.08,
-    "end": 1.184
+    "start": 0.975,
+    "end": 1.068
   },
   {
     "word": "will",
-    "start": 1.231,
-    "end": 1.405
+    "start": 1.103,
+    "end": 1.231
   },
   {
     "word": "learn",
-    "start": 1.474,
-    "end": 1.823
+    "start": 1.277,
+    "end": 1.486
   },
   {
     "word": "how",
-    "start": 1.904,
-    "end": 2.148
+    "start": 1.544,
+    "end": 1.66
   },
   {
     "word": "to",
-    "start": 2.229,
-    "end": 2.322
+    "start": 1.707,
+    "end": 1.765
   },
   {
     "word": "track",
-    "start": 2.403,
-    "end": 2.763
+    "start": 1.823,
+    "end": 2.148
   },
   {
     "word": "and",
-    "start": 2.844,
-    "end": 2.926
+    "start": 2.241,
+    "end": 2.415
   },
   {
     "word": "manage",
-    "start": 2.984,
-    "end": 3.344
+    "start": 2.496,
+    "end": 2.856
   },
   {
     "word": "physical",
-    "start": 3.379,
-    "end": 3.785
+    "start": 2.891,
+    "end": 3.239
   },
   {
     "word": "items",
-    "start": 3.866,
-    "end": 4.214
+    "start": 3.297,
+    "end": 3.564
   },
   {
     "word": "used",
-    "start": 4.296,
-    "end": 4.528
+    "start": 3.657,
+    "end": 3.878
   },
   {
     "word": "at",
-    "start": 4.574,
-    "end": 4.667
+    "start": 3.913,
+    "end": 3.994
   },
   {
     "word": "events,",
-    "start": 4.714,
-    "end": 5.213
+    "start": 4.052,
+    "end": 4.481
   },
   {
     "word": "including",
-    "start": 5.457,
-    "end": 5.909
+    "start": 4.551,
+    "end": 5.016
   },
   {
     "word": "how",
-    "start": 5.968,
-    "end": 6.118
+    "start": 5.085,
+    "end": 5.201
   },
   {
     "word": "to",
-    "start": 6.2,
-    "end": 6.258
+    "start": 5.248,
+    "end": 5.294
   },
   {
     "word": "set",
-    "start": 6.327,
-    "end": 6.49
+    "start": 5.364,
+    "end": 5.538
   },
   {
     "word": "up",
-    "start": 6.536,
-    "end": 6.618
+    "start": 5.584,
+    "end": 5.666
   },
   {
     "word": "asset",
-    "start": 6.734,
-    "end": 7.175
+    "start": 5.782,
+    "end": 6.2
   },
   {
     "word": "tags,",
-    "start": 7.221,
-    "end": 7.755
+    "start": 6.246,
+    "end": 6.78
   },
   {
     "word": "create",
-    "start": 7.872,
-    "end": 8.255
+    "start": 7.024,
+    "end": 7.361
   },
   {
     "word": "inventory",
-    "start": 8.301,
-    "end": 8.847
+    "start": 7.407,
+    "end": 7.872
   },
   {
     "word": "items,",
-    "start": 8.928,
-    "end": 9.474
+    "start": 7.93,
+    "end": 8.371
   },
   {
     "word": "assign",
-    "start": 9.648,
-    "end": 10.043
+    "start": 8.522,
+    "end": 8.928
   },
   {
     "word": "equipment",
-    "start": 10.077,
-    "end": 10.484
+    "start": 8.986,
+    "end": 9.416
   },
   {
     "word": "to",
-    "start": 10.519,
-    "end": 10.577
+    "start": 9.451,
+    "end": 9.52
   },
   {
     "word": "jobs,",
-    "start": 10.693,
-    "end": 11.25
+    "start": 9.613,
+    "end": 10.147
   },
   {
     "word": "and",
-    "start": 11.424,
-    "end": 11.633
+    "start": 10.356,
+    "end": 10.495
   },
   {
     "word": "process",
-    "start": 11.726,
-    "end": 12.225
+    "start": 10.565,
+    "end": 11.029
   },
   {
     "word": "check-in",
-    "start": 12.283,
-    "end": 12.701
+    "start": 11.088,
+    "end": 11.482
   },
   {
     "word": "and",
-    "start": 12.783,
-    "end": 12.957
+    "start": 11.598,
+    "end": 11.749
   },
   {
     "word": "check-out",
-    "start": 13.015,
-    "end": 13.433
+    "start": 11.807,
+    "end": 12.167
   },
   {
     "word": "activity.",
-    "start": 13.479,
-    "end": 14.257
+    "start": 12.214,
+    "end": 13.003
   }
 ]

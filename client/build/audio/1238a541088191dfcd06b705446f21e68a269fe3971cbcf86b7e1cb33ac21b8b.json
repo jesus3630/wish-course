@@ -7,451 +7,451 @@
   {
     "word": "pulling",
     "start": 0.313,
-    "end": 0.569
+    "end": 0.58
   },
   {
     "word": "invoice",
-    "start": 0.639,
-    "end": 1.022
+    "start": 0.65,
+    "end": 1.033
   },
   {
     "word": "data,",
-    "start": 1.057,
-    "end": 1.44
+    "start": 1.068,
+    "end": 1.474
   },
   {
     "word": "review",
-    "start": 1.567,
-    "end": 1.892
+    "start": 1.591,
+    "end": 1.916
   },
   {
     "word": "the",
-    "start": 1.962,
-    "end": 2.032
+    "start": 1.974,
+    "end": 2.043
   },
   {
     "word": "tabs:",
-    "start": 2.078,
-    "end": 2.798
+    "start": 2.09,
+    "end": 2.821
   },
   {
     "word": "Sign-In/Sign-Out,",
-    "start": 2.798,
-    "end": 4.226
+    "start": 2.821,
+    "end": 4.447
   },
   {
     "word": "Adjust",
-    "start": 4.272,
-    "end": 4.748
+    "start": 4.505,
+    "end": 4.957
   },
   {
     "word": "times,",
-    "start": 4.795,
-    "end": 5.213
+    "start": 5.016,
+    "end": 5.492
   },
   {
     "word": "change",
-    "start": 5.271,
-    "end": 5.596
+    "start": 5.561,
+    "end": 5.956
   },
   {
     "word": "roles,",
-    "start": 5.654,
-    "end": 6.026
+    "start": 6.014,
+    "end": 6.362
   },
   {
     "word": "or",
-    "start": 6.095,
-    "end": 6.258
+    "start": 6.409,
+    "end": 6.548
   },
   {
     "word": "update",
-    "start": 6.374,
-    "end": 6.78
-  },
-  {
-    "word": "rates",
-    "start": 6.827,
+    "start": 6.641,
     "end": 7.047
   },
   {
+    "word": "rates",
+    "start": 7.105,
+    "end": 7.372
+  },
+  {
     "word": "for",
-    "start": 7.082,
-    "end": 7.198
+    "start": 7.43,
+    "end": 7.558
   },
   {
     "word": "employees",
-    "start": 7.245,
-    "end": 7.814
+    "start": 7.605,
+    "end": 8.115
   },
   {
     "word": "who",
-    "start": 7.872,
-    "end": 8.011
+    "start": 8.162,
+    "end": 8.301
   },
   {
     "word": "worked",
-    "start": 8.081,
-    "end": 8.313
+    "start": 8.382,
+    "end": 8.673
   },
   {
     "word": "different",
-    "start": 8.348,
-    "end": 8.626
+    "start": 8.766,
+    "end": 9.102
   },
   {
     "word": "positions.",
-    "start": 8.649,
-    "end": 9.253
+    "start": 9.137,
+    "end": 9.787
   },
   {
     "word": "Use",
-    "start": 9.346,
-    "end": 9.567
+    "start": 9.857,
+    "end": 10.077
   },
   {
     "word": "the",
-    "start": 9.601,
-    "end": 9.671
+    "start": 10.112,
+    "end": 10.182
   },
   {
     "word": "change",
-    "start": 9.718,
-    "end": 9.996
-  },
-  {
-    "word": "fields",
-    "start": 10.043,
-    "end": 10.298
-  },
-  {
-    "word": "at",
-    "start": 10.333,
-    "end": 10.403
-  },
-  {
-    "word": "the",
-    "start": 10.437,
+    "start": 10.228,
     "end": 10.507
   },
   {
-    "word": "top",
-    "start": 10.553,
-    "end": 10.786
-  },
-  {
-    "word": "to",
-    "start": 10.844,
-    "end": 10.902
-  },
-  {
-    "word": "apply",
-    "start": 10.96,
-    "end": 11.25
-  },
-  {
-    "word": "changes",
-    "start": 11.32,
-    "end": 11.726
-  },
-  {
-    "word": "to",
-    "start": 11.784,
-    "end": 11.877
-  },
-  {
-    "word": "multiple",
-    "start": 11.993,
-    "end": 12.388
-  },
-  {
-    "word": "employees",
-    "start": 12.411,
-    "end": 12.817
+    "word": "fields",
+    "start": 10.542,
+    "end": 10.82
   },
   {
     "word": "at",
-    "start": 12.864,
-    "end": 12.934
+    "start": 10.855,
+    "end": 10.937
+  },
+  {
+    "word": "the",
+    "start": 10.971,
+    "end": 11.041
+  },
+  {
+    "word": "top",
+    "start": 11.099,
+    "end": 11.355
+  },
+  {
+    "word": "to",
+    "start": 11.413,
+    "end": 11.471
+  },
+  {
+    "word": "apply",
+    "start": 11.552,
+    "end": 11.854
+  },
+  {
+    "word": "changes",
+    "start": 11.935,
+    "end": 12.353
+  },
+  {
+    "word": "to",
+    "start": 12.411,
+    "end": 12.492
+  },
+  {
+    "word": "multiple",
+    "start": 12.608,
+    "end": 13.108
+  },
+  {
+    "word": "employees",
+    "start": 13.142,
+    "end": 13.665
+  },
+  {
+    "word": "at",
+    "start": 13.735,
+    "end": 13.873
   },
   {
     "word": "once.",
-    "start": 13.003,
-    "end": 13.538
+    "start": 13.955,
+    "end": 14.396
   },
   {
     "word": "Billing",
-    "start": 13.538,
-    "end": 13.839
+    "start": 14.396,
+    "end": 14.698
   },
   {
     "word": "Tax,",
-    "start": 13.897,
-    "end": 14.35
+    "start": 14.756,
+    "end": 15.22
   },
   {
     "word": "Apply",
-    "start": 14.443,
-    "end": 14.768
+    "start": 15.336,
+    "end": 15.766
   },
   {
     "word": "tax",
-    "start": 14.849,
-    "end": 15.093
+    "start": 15.847,
+    "end": 16.126
   },
   {
     "word": "rates",
-    "start": 15.163,
-    "end": 15.349
+    "start": 16.195,
+    "end": 16.439
   },
   {
     "word": "to",
-    "start": 15.372,
-    "end": 15.442
+    "start": 16.486,
+    "end": 16.567
   },
   {
     "word": "specific",
-    "start": 15.5,
-    "end": 15.894
+    "start": 16.637,
+    "end": 17.043
   },
   {
     "word": "roles",
-    "start": 15.952,
-    "end": 16.278
+    "start": 17.101,
+    "end": 17.414
   },
   {
     "word": "if",
-    "start": 16.428,
-    "end": 16.614
+    "start": 17.589,
+    "end": 17.774
   },
   {
     "word": "applicable.",
-    "start": 16.672,
-    "end": 17.578
+    "start": 17.832,
+    "end": 18.784
   },
   {
     "word": "Summary,",
-    "start": 17.578,
-    "end": 18.193
+    "start": 18.784,
+    "end": 19.307
   },
   {
     "word": "Clean",
-    "start": 18.274,
-    "end": 18.576
+    "start": 19.365,
+    "end": 19.678
   },
   {
     "word": "overview",
-    "start": 18.646,
-    "end": 19.052
+    "start": 19.748,
+    "end": 20.247
   },
   {
     "word": "of",
-    "start": 19.134,
-    "end": 19.226
+    "start": 20.363,
+    "end": 20.468
   },
   {
     "word": "all",
-    "start": 19.308,
-    "end": 19.54
+    "start": 20.561,
+    "end": 20.781
   },
   {
     "word": "staff",
-    "start": 19.61,
-    "end": 20.028
+    "start": 20.839,
+    "end": 21.211
   },
   {
     "word": "used",
-    "start": 20.144,
-    "end": 20.376
+    "start": 21.292,
+    "end": 21.536
   },
   {
     "word": "across",
-    "start": 20.399,
-    "end": 20.736
+    "start": 21.571,
+    "end": 21.908
   },
   {
     "word": "roles",
-    "start": 20.805,
-    "end": 21.165
+    "start": 21.977,
+    "end": 22.326
   },
   {
     "word": "and",
-    "start": 21.223,
-    "end": 21.386
+    "start": 22.407,
+    "end": 22.674
   },
   {
     "word": "job",
-    "start": 21.467,
-    "end": 21.711
+    "start": 22.755,
+    "end": 23.022
   },
   {
     "word": "days.",
-    "start": 21.769,
-    "end": 22.466
+    "start": 23.092,
+    "end": 23.881
   },
   {
     "word": "Billable",
-    "start": 22.466,
-    "end": 22.872
+    "start": 23.881,
+    "end": 24.288
   },
   {
     "word": "Items,",
-    "start": 22.93,
-    "end": 23.394
-  },
-  {
-    "word": "Add",
-    "start": 23.464,
-    "end": 23.685
-  },
-  {
-    "word": "additional",
-    "start": 23.719,
-    "end": 24.114
-  },
-  {
-    "word": "charges",
-    "start": 24.161,
-    "end": 24.579
-  },
-  {
-    "word": "to",
-    "start": 24.625,
-    "end": 24.695
-  },
-  {
-    "word": "the",
-    "start": 24.753,
+    "start": 24.357,
     "end": 24.822
   },
   {
+    "word": "Add",
+    "start": 25.031,
+    "end": 25.309
+  },
+  {
+    "word": "additional",
+    "start": 25.379,
+    "end": 25.797
+  },
+  {
+    "word": "charges",
+    "start": 25.855,
+    "end": 26.25
+  },
+  {
+    "word": "to",
+    "start": 26.296,
+    "end": 26.377
+  },
+  {
+    "word": "the",
+    "start": 26.447,
+    "end": 26.517
+  },
+  {
     "word": "client:",
-    "start": 24.846,
-    "end": 25.345
+    "start": 26.552,
+    "end": 27.074
   },
   {
     "word": "radios,",
-    "start": 25.624,
-    "end": 26.32
+    "start": 27.248,
+    "end": 27.956
   },
   {
     "word": "carts,",
-    "start": 26.471,
-    "end": 27.075
+    "start": 28.072,
+    "end": 28.676
   },
   {
     "word": "jackets,",
-    "start": 27.319,
-    "end": 27.98
+    "start": 28.85,
+    "end": 29.5
   },
   {
     "word": "wristbands,",
-    "start": 28.155,
-    "end": 29.002
+    "start": 29.675,
+    "end": 30.487
   },
   {
     "word": "etc.",
-    "start": 29.095,
-    "end": 30.175
+    "start": 30.696,
+    "end": 32.159
   },
   {
     "word": "Invoice",
-    "start": 30.175,
-    "end": 30.651
+    "start": 32.159,
+    "end": 32.658
   },
   {
     "word": "Setup,",
-    "start": 30.674,
-    "end": 31.173
+    "start": 32.693,
+    "end": 33.216
   },
   {
     "word": "Set",
-    "start": 31.382,
-    "end": 31.626
+    "start": 33.425,
+    "end": 33.68
   },
   {
     "word": "the",
-    "start": 31.672,
-    "end": 31.742
+    "start": 33.738,
+    "end": 33.819
   },
   {
     "word": "Attention",
-    "start": 31.8,
-    "end": 32.125
+    "start": 33.877,
+    "end": 34.272
   },
   {
     "word": "To",
-    "start": 32.16,
-    "end": 32.206
+    "start": 34.307,
+    "end": 34.353
   },
   {
     "word": "field",
-    "start": 32.265,
-    "end": 32.543
+    "start": 34.411,
+    "end": 34.713
   },
   {
     "word": "(the",
-    "start": 32.566,
-    "end": 32.659
+    "start": 34.748,
+    "end": 34.841
   },
   {
     "word": "client",
-    "start": 32.694,
-    "end": 32.961
+    "start": 34.887,
+    "end": 35.154
   },
   {
     "word": "contact",
-    "start": 33.008,
-    "end": 33.367
+    "start": 35.201,
+    "end": 35.642
   },
   {
     "word": "who",
-    "start": 33.391,
-    "end": 33.46
+    "start": 35.665,
+    "end": 35.735
   },
   {
     "word": "should",
-    "start": 33.495,
-    "end": 33.658
+    "start": 35.758,
+    "end": 35.909
   },
   {
     "word": "receive",
-    "start": 33.693,
-    "end": 33.948
+    "start": 35.944,
+    "end": 36.176
   },
   {
     "word": "the",
-    "start": 33.971,
-    "end": 34.041
+    "start": 36.199,
+    "end": 36.269
   },
   {
     "word": "invoice).",
-    "start": 34.087,
-    "end": 34.552
+    "start": 36.327,
+    "end": 36.838
   },
   {
     "word": "This",
-    "start": 34.761,
-    "end": 34.923
+    "start": 37.012,
+    "end": 37.198
   },
   {
     "word": "is",
-    "start": 34.981,
-    "end": 35.039
+    "start": 37.256,
+    "end": 37.337
   },
   {
     "word": "required",
-    "start": 35.097,
-    "end": 35.597
+    "start": 37.407,
+    "end": 37.813
   },
   {
     "word": "before",
-    "start": 35.643,
-    "end": 35.933
+    "start": 37.848,
+    "end": 38.092
   },
   {
     "word": "generating.",
-    "start": 35.991,
-    "end": 36.734
+    "start": 38.138,
+    "end": 38.963
   }
 ]

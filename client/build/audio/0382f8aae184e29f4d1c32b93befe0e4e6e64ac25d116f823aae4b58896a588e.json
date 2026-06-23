@@ -2,366 +2,366 @@
   {
     "word": "With",
     "start": 0,
-    "end": 0.279
+    "end": 0.313
   },
   {
     "word": "General",
-    "start": 0.406,
-    "end": 0.836
+    "start": 0.43,
+    "end": 0.824
   },
   {
     "word": "Reporting",
     "start": 0.894,
-    "end": 1.37
+    "end": 1.3
   },
   {
     "word": "access,",
-    "start": 1.44,
-    "end": 2.043
+    "start": 1.37,
+    "end": 1.904
   },
   {
     "word": "you",
-    "start": 2.159,
-    "end": 2.276
+    "start": 2.02,
+    "end": 2.148
   },
   {
     "word": "have",
-    "start": 2.368,
-    "end": 2.577
+    "start": 2.241,
+    "end": 2.426
   },
   {
     "word": "access",
-    "start": 2.659,
-    "end": 3.17
+    "start": 2.485,
+    "end": 2.961
   },
   {
     "word": "to",
-    "start": 3.204,
-    "end": 3.286
+    "start": 2.995,
+    "end": 3.135
   },
   {
     "word": "the",
-    "start": 3.367,
-    "end": 3.437
+    "start": 3.228,
+    "end": 3.355
   },
   {
     "word": "full",
-    "start": 3.506,
-    "end": 3.785
+    "start": 3.483,
+    "end": 3.762
   },
   {
     "word": "Reports",
-    "start": 3.855,
-    "end": 4.238
+    "start": 3.843,
+    "end": 4.307
   },
   {
     "word": "menu",
-    "start": 4.296,
-    "end": 4.609
+    "start": 4.4,
+    "end": 4.807
   },
   {
     "word": "in",
-    "start": 4.725,
-    "end": 4.853
+    "start": 4.957,
+    "end": 5.166
   },
   {
     "word": "WISH.",
-    "start": 4.934,
-    "end": 5.619
+    "start": 5.341,
+    "end": 5.875
   },
   {
     "word": "The",
-    "start": 5.619,
-    "end": 5.735
+    "start": 5.875,
+    "end": 6.002
   },
   {
     "word": "Reports",
-    "start": 5.805,
-    "end": 6.2
+    "start": 6.095,
+    "end": 6.525
   },
   {
     "word": "menu",
-    "start": 6.258,
-    "end": 6.513
+    "start": 6.606,
+    "end": 7.012
   },
   {
     "word": "has",
-    "start": 6.594,
-    "end": 6.85
+    "start": 7.129,
+    "end": 7.419
   },
   {
     "word": "three",
-    "start": 6.931,
-    "end": 7.175
+    "start": 7.512,
+    "end": 7.837
   },
   {
     "word": "sections:",
-    "start": 7.221,
-    "end": 8.104
+    "start": 7.906,
+    "end": 8.742
   },
   {
     "word": "*",
-    "start": 8.104,
-    "end": 8.197
+    "start": 8.742,
+    "end": 8.777
   },
   {
-    "word": "jahb",
-    "start": 8.475,
-    "end": 8.928
+    "word": "job",
+    "start": 8.905,
+    "end": 9.172
   },
   {
     "word": "Administration,",
-    "start": 9.009,
-    "end": 9.822
+    "start": 9.23,
+    "end": 10.077
   },
   {
     "word": "your",
-    "start": 9.903,
-    "end": 10.043
+    "start": 10.194,
+    "end": 10.368
   },
   {
     "word": "daily",
-    "start": 10.101,
-    "end": 10.356
+    "start": 10.437,
+    "end": 10.728
   },
   {
     "word": "reports.",
-    "start": 10.426,
-    "end": 10.983
+    "start": 10.809,
+    "end": 11.401
   },
   {
     "word": "Alpha",
-    "start": 11.308,
-    "end": 11.622
+    "start": 11.517,
+    "end": 11.854
   },
   {
     "word": "rosters,",
-    "start": 11.691,
-    "end": 12.365
+    "start": 11.923,
+    "end": 12.516
   },
   {
     "word": "sign-in",
-    "start": 12.516,
-    "end": 12.91
+    "start": 12.666,
+    "end": 13.108
   },
   {
     "word": "sheets,",
-    "start": 12.98,
-    "end": 13.491
+    "start": 13.166,
+    "end": 13.537
   },
   {
     "word": "schedules,",
-    "start": 13.642,
-    "end": 14.373
+    "start": 13.618,
+    "end": 14.315
   },
   {
     "word": "and",
-    "start": 14.431,
-    "end": 14.652
+    "start": 14.35,
+    "end": 14.629
   },
   {
     "word": "post-event",
-    "start": 14.768,
-    "end": 15.453
+    "start": 14.721,
+    "end": 15.36
   },
   {
     "word": "follow-up.",
-    "start": 15.523,
-    "end": 16.521
+    "start": 15.43,
+    "end": 16.057
   },
   {
     "word": "*",
-    "start": 16.521,
-    "end": 16.544
+    "start": 16.057,
+    "end": 16.08
   },
   {
     "word": "Summary",
-    "start": 16.718,
-    "end": 17.159
+    "start": 16.231,
+    "end": 16.695
   },
   {
     "word": "Roster,",
-    "start": 17.229,
-    "end": 17.879
+    "start": 16.777,
+    "end": 17.299
   },
   {
     "word": "high-level",
-    "start": 18.123,
-    "end": 18.645
+    "start": 17.346,
+    "end": 17.891
   },
   {
     "word": "overviews",
-    "start": 18.727,
-    "end": 19.377
+    "start": 17.961,
+    "end": 18.669
   },
   {
     "word": "across",
-    "start": 19.435,
-    "end": 19.772
+    "start": 18.901,
+    "end": 19.447
   },
   {
     "word": "employees,",
-    "start": 19.818,
-    "end": 20.41
+    "start": 19.61,
+    "end": 20.736
   },
   {
-    "word": "jahbs,",
-    "start": 20.445,
-    "end": 21.292
+    "word": "jobs,",
+    "start": 20.898,
+    "end": 21.618
   },
   {
     "word": "clients,",
-    "start": 21.443,
-    "end": 22.14
+    "start": 21.815,
+    "end": 22.64
   },
   {
     "word": "venues,",
-    "start": 22.291,
-    "end": 22.825
+    "start": 22.802,
+    "end": 23.627
   },
   {
     "word": "and",
-    "start": 22.848,
-    "end": 22.929
+    "start": 23.719,
+    "end": 24.033
   },
   {
     "word": "branches.",
-    "start": 22.976,
-    "end": 23.789
+    "start": 24.149,
+    "end": 25.507
   },
   {
     "word": "*",
-    "start": 23.789,
-    "end": 23.823
+    "start": 25.507,
+    "end": 25.531
   },
   {
     "word": "Detailed",
-    "start": 24.032,
-    "end": 24.613
+    "start": 25.705,
+    "end": 26.297
   },
   {
     "word": "Roster,",
-    "start": 24.671,
-    "end": 25.217
+    "start": 26.367,
+    "end": 27.028
   },
   {
     "word": "deeper",
-    "start": 25.333,
-    "end": 25.739
+    "start": 27.295,
+    "end": 27.678
   },
   {
     "word": "employee-level",
-    "start": 25.832,
-    "end": 26.703
+    "start": 27.771,
+    "end": 28.689
   },
   {
     "word": "reports",
-    "start": 26.772,
-    "end": 27.202
+    "start": 28.747,
+    "end": 29.281
   },
   {
     "word": "covering",
-    "start": 27.26,
-    "end": 27.666
+    "start": 29.385,
+    "end": 29.815
   },
   {
     "word": "timesheets,",
-    "start": 27.724,
-    "end": 28.491
+    "start": 29.884,
+    "end": 30.802
   },
   {
     "word": "licensing,",
-    "start": 28.607,
-    "end": 29.35
+    "start": 31.103,
+    "end": 31.997
   },
   {
     "word": "sign-in",
-    "start": 29.385,
-    "end": 29.826
+    "start": 32.311,
+    "end": 32.764
   },
   {
     "word": "activity,",
-    "start": 29.872,
-    "end": 30.522
+    "start": 32.833,
+    "end": 33.588
   },
   {
     "word": "and",
-    "start": 30.697,
-    "end": 30.929
+    "start": 33.75,
+    "end": 34.18
   },
   {
     "word": "availability.",
-    "start": 30.975,
-    "end": 32.113
+    "start": 34.377,
+    "end": 35.538
   },
   {
     "word": "We'll",
-    "start": 32.113,
-    "end": 32.345
+    "start": 35.538,
+    "end": 35.771
   },
   {
     "word": "cover",
-    "start": 32.392,
-    "end": 32.67
+    "start": 35.829,
+    "end": 36.131
   },
   {
     "word": "each",
-    "start": 32.786,
-    "end": 33.019
+    "start": 36.235,
+    "end": 36.49
   },
   {
     "word": "one",
-    "start": 33.1,
-    "end": 33.344
+    "start": 36.607,
+    "end": 37.001
   },
   {
     "word": "so",
-    "start": 33.378,
-    "end": 33.483
+    "start": 37.106,
+    "end": 37.326
   },
   {
     "word": "you",
-    "start": 33.553,
-    "end": 33.645
+    "start": 37.419,
+    "end": 37.489
   },
   {
     "word": "know",
-    "start": 33.715,
-    "end": 33.854
+    "start": 37.559,
+    "end": 37.698
   },
   {
     "word": "where",
-    "start": 33.913,
-    "end": 34.098
+    "start": 37.744,
+    "end": 37.895
   },
   {
     "word": "to",
-    "start": 34.122,
-    "end": 34.168
+    "start": 37.918,
+    "end": 37.965
   },
   {
     "word": "go",
-    "start": 34.238,
-    "end": 34.4
+    "start": 38.035,
+    "end": 38.255
   },
   {
     "word": "when",
-    "start": 34.47,
-    "end": 34.609
+    "start": 38.487,
+    "end": 38.662
   },
   {
     "word": "you",
-    "start": 34.644,
-    "end": 34.714
+    "start": 38.72,
+    "end": 38.789
   },
   {
     "word": "need",
-    "start": 34.772,
-    "end": 34.969
+    "start": 38.847,
+    "end": 39.021
   },
   {
     "word": "something.",
-    "start": 35.015,
-    "end": 35.666
+    "start": 39.079,
+    "end": 39.706
   }
 ]

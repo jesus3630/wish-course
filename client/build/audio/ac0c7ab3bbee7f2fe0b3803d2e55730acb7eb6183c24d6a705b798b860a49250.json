@@ -6,452 +6,452 @@
   },
   {
     "word": "a",
-    "start": 0.197,
-    "end": 0.232
+    "start": 0.209,
+    "end": 0.244
   },
   {
     "word": "job",
-    "start": 0.302,
-    "end": 0.511
-  },
-  {
-    "word": "is",
-    "start": 0.557,
+    "start": 0.337,
     "end": 0.627
   },
   {
-    "word": "canceled,",
+    "word": "is",
     "start": 0.685,
-    "end": 1.173
+    "end": 0.766
+  },
+  {
+    "word": "canceled,",
+    "start": 0.824,
+    "end": 1.428
   },
   {
     "word": "update",
-    "start": 1.207,
-    "end": 1.625
+    "start": 1.602,
+    "end": 1.997
   },
   {
     "word": "the",
-    "start": 1.66,
-    "end": 1.73
+    "start": 2.02,
+    "end": 2.09
   },
   {
     "word": "job",
-    "start": 1.788,
-    "end": 2.009
+    "start": 2.171,
+    "end": 2.426
   },
   {
     "word": "Class",
-    "start": 2.067,
-    "end": 2.45
+    "start": 2.485,
+    "end": 2.891
   },
   {
     "word": "to",
-    "start": 2.508,
-    "end": 2.67
+    "start": 2.984,
+    "end": 3.251
   },
   {
     "word": "\"Canceled\"",
-    "start": 2.786,
-    "end": 3.32
+    "start": 3.46,
+    "end": 4.191
   },
   {
     "word": "immediately.",
-    "start": 3.344,
-    "end": 4.052
+    "start": 4.249,
+    "end": 5.039
   },
   {
     "word": "This",
-    "start": 4.087,
-    "end": 4.284
+    "start": 5.085,
+    "end": 5.283
   },
   {
     "word": "is",
-    "start": 4.342,
-    "end": 4.423
+    "start": 5.341,
+    "end": 5.433
   },
   {
     "word": "critical",
-    "start": 4.493,
-    "end": 4.853
+    "start": 5.526,
+    "end": 5.944
   },
   {
     "word": "for",
-    "start": 4.911,
-    "end": 5.05
+    "start": 6.002,
+    "end": 6.142
   },
   {
     "word": "accounting,",
-    "start": 5.108,
-    "end": 5.759
+    "start": 6.188,
+    "end": 6.827
   },
   {
     "word": "open",
-    "start": 5.875,
-    "end": 6.188
+    "start": 6.92,
+    "end": 7.187
   },
   {
     "word": "invoices",
-    "start": 6.269,
-    "end": 6.943
+    "start": 7.233,
+    "end": 7.837
   },
   {
     "word": "and",
-    "start": 7.001,
-    "end": 7.163
+    "start": 7.895,
+    "end": 8.104
   },
   {
     "word": "pending",
-    "start": 7.233,
-    "end": 7.546
+    "start": 8.185,
+    "end": 8.498
   },
   {
     "word": "payments",
-    "start": 7.593,
-    "end": 7.999
+    "start": 8.557,
+    "end": 8.998
   },
   {
     "word": "depend",
-    "start": 8.057,
-    "end": 8.406
+    "start": 9.149,
+    "end": 9.59
   },
   {
     "word": "on",
-    "start": 8.475,
-    "end": 8.568
+    "start": 9.671,
+    "end": 9.787
   },
   {
     "word": "accurate",
-    "start": 8.649,
-    "end": 9.067
+    "start": 9.903,
+    "end": 10.391
   },
   {
     "word": "information.",
-    "start": 9.091,
-    "end": 9.706
+    "start": 10.414,
+    "end": 11.099
   },
   {
     "word": "To",
-    "start": 9.706,
-    "end": 9.834
+    "start": 11.099,
+    "end": 11.215
   },
   {
     "word": "fully",
-    "start": 9.915,
-    "end": 10.182
+    "start": 11.331,
+    "end": 11.61
   },
   {
     "word": "delete",
-    "start": 10.228,
-    "end": 10.519
+    "start": 11.656,
+    "end": 11.912
   },
   {
     "word": "a",
-    "start": 10.542,
-    "end": 10.565
+    "start": 11.935,
+    "end": 11.958
   },
   {
     "word": "job,",
-    "start": 10.623,
-    "end": 10.96
+    "start": 12.016,
+    "end": 12.376
   },
   {
     "word": "work",
-    "start": 11.006,
-    "end": 11.227
+    "start": 12.423,
+    "end": 12.655
   },
   {
     "word": "in",
-    "start": 11.285,
-    "end": 11.343
+    "start": 12.725,
+    "end": 12.794
   },
   {
     "word": "reverse",
-    "start": 11.413,
-    "end": 11.773
+    "start": 12.852,
+    "end": 13.212
   },
   {
     "word": "order:",
-    "start": 11.819,
-    "end": 12.156
+    "start": 13.259,
+    "end": 13.63
   },
   {
     "word": "delete",
-    "start": 12.225,
-    "end": 12.562
+    "start": 13.7,
+    "end": 14.013
   },
   {
     "word": "roles",
-    "start": 12.608,
-    "end": 12.875
+    "start": 14.048,
+    "end": 14.292
   },
   {
     "word": "first,",
-    "start": 12.933,
-    "end": 13.293
+    "start": 14.361,
+    "end": 14.802
   },
   {
     "word": "then",
-    "start": 13.328,
-    "end": 13.514
+    "start": 14.849,
+    "end": 15.035
   },
   {
     "word": "shifts,",
-    "start": 13.583,
-    "end": 14.001
+    "start": 15.116,
+    "end": 15.592
   },
   {
     "word": "then",
-    "start": 14.025,
-    "end": 14.199
+    "start": 15.65,
+    "end": 15.847
   },
   {
     "word": "the",
-    "start": 14.257,
-    "end": 14.326
+    "start": 15.905,
+    "end": 15.975
   },
   {
     "word": "job",
-    "start": 14.396,
-    "end": 14.652
+    "start": 16.045,
+    "end": 16.3
   },
   {
     "word": "itself.",
-    "start": 14.71,
-    "end": 15.337
-  },
-  {
-    "word": "WISH",
-    "start": 15.662,
-    "end": 16.056
-  },
-  {
-    "word": "will",
-    "start": 16.381,
-    "end": 16.59
-  },
-  {
-    "word": "not",
-    "start": 16.66,
-    "end": 16.811
-  },
-  {
-    "word": "let",
-    "start": 16.869,
+    "start": 16.347,
     "end": 17.008
   },
   {
-    "word": "you",
-    "start": 17.066,
-    "end": 17.148
-  },
-  {
-    "word": "delete",
-    "start": 17.229,
-    "end": 17.589
-  },
-  {
-    "word": "a",
-    "start": 17.612,
-    "end": 17.647
-  },
-  {
-    "word": "job",
-    "start": 17.705,
-    "end": 18.042
-  },
-  {
-    "word": "if",
-    "start": 18.135,
-    "end": 18.274
-  },
-  {
-    "word": "shifts",
-    "start": 18.355,
-    "end": 18.703
-  },
-  {
-    "word": "exist,",
-    "start": 18.761,
-    "end": 19.388
-  },
-  {
-    "word": "and",
-    "start": 19.539,
-    "end": 19.679
+    "word": "WISH",
+    "start": 17.821,
+    "end": 18.146
   },
   {
     "word": "will",
-    "start": 19.737,
-    "end": 19.899
+    "start": 18.39,
+    "end": 18.634
   },
   {
     "word": "not",
-    "start": 19.957,
-    "end": 20.12
+    "start": 18.75,
+    "end": 18.924
   },
   {
     "word": "let",
-    "start": 20.178,
-    "end": 20.317
+    "start": 18.97,
+    "end": 19.098
   },
   {
     "word": "you",
-    "start": 20.375,
-    "end": 20.457
+    "start": 19.133,
+    "end": 19.203
   },
   {
     "word": "delete",
-    "start": 20.526,
-    "end": 20.886
+    "start": 19.272,
+    "end": 19.551
   },
   {
     "word": "a",
-    "start": 20.909,
-    "end": 20.944
-  },
-  {
-    "word": "shift",
-    "start": 21.014,
-    "end": 21.374
-  },
-  {
-    "word": "if",
-    "start": 21.49,
-    "end": 21.676
-  },
-  {
-    "word": "roles",
-    "start": 21.792,
-    "end": 22.198
-  },
-  {
-    "word": "exist.",
-    "start": 22.268,
-    "end": 23.138
-  },
-  {
-    "word": "If",
-    "start": 23.138,
-    "end": 23.289
-  },
-  {
-    "word": "employees",
-    "start": 23.359,
-    "end": 23.905
-  },
-  {
-    "word": "are",
-    "start": 23.951,
-    "end": 24.09
-  },
-  {
-    "word": "already",
-    "start": 24.149,
-    "end": 24.578
-  },
-  {
-    "word": "scheduled,",
-    "start": 24.636,
-    "end": 25.182
-  },
-  {
-    "word": "remove",
-    "start": 25.298,
-    "end": 25.669
-  },
-  {
-    "word": "them",
-    "start": 25.704,
-    "end": 25.855
-  },
-  {
-    "word": "before",
-    "start": 25.925,
-    "end": 26.227
-  },
-  {
-    "word": "deleting",
-    "start": 26.285,
-    "end": 26.691
-  },
-  {
-    "word": "the",
-    "start": 26.738,
-    "end": 26.807
-  },
-  {
-    "word": "role.",
-    "start": 26.865,
-    "end": 27.248
-  },
-  {
-    "word": "Most",
-    "start": 27.573,
-    "end": 27.852
-  },
-  {
-    "word": "branches",
-    "start": 27.922,
-    "end": 28.363
-  },
-  {
-    "word": "leave",
-    "start": 28.445,
-    "end": 28.677
-  },
-  {
-    "word": "canceled",
-    "start": 28.723,
-    "end": 29.188
-  },
-  {
-    "word": "jobs",
-    "start": 29.234,
-    "end": 29.582
-  },
-  {
-    "word": "in",
-    "start": 29.629,
-    "end": 29.687
-  },
-  {
-    "word": "the",
-    "start": 29.733,
-    "end": 29.803
-  },
-  {
-    "word": "system",
-    "start": 29.838,
-    "end": 30.186
-  },
-  {
-    "word": "and",
-    "start": 30.221,
-    "end": 30.291
-  },
-  {
-    "word": "simply",
-    "start": 30.325,
-    "end": 30.581
-  },
-  {
-    "word": "update",
-    "start": 30.662,
-    "end": 31.034
-  },
-  {
-    "word": "the",
-    "start": 31.057,
-    "end": 31.126
+    "start": 19.574,
+    "end": 19.597
   },
   {
     "word": "job",
-    "start": 31.161,
-    "end": 31.359
+    "start": 19.655,
+    "end": 19.946
+  },
+  {
+    "word": "if",
+    "start": 20.027,
+    "end": 20.131
+  },
+  {
+    "word": "shifts",
+    "start": 20.213,
+    "end": 20.538
+  },
+  {
+    "word": "exist,",
+    "start": 20.584,
+    "end": 21.258
+  },
+  {
+    "word": "and",
+    "start": 21.385,
+    "end": 21.606
+  },
+  {
+    "word": "will",
+    "start": 21.676,
+    "end": 21.85
+  },
+  {
+    "word": "not",
+    "start": 21.943,
+    "end": 22.105
+  },
+  {
+    "word": "let",
+    "start": 22.152,
+    "end": 22.268
+  },
+  {
+    "word": "you",
+    "start": 22.303,
+    "end": 22.372
+  },
+  {
+    "word": "delete",
+    "start": 22.442,
+    "end": 22.709
+  },
+  {
+    "word": "a",
+    "start": 22.732,
+    "end": 22.755
+  },
+  {
+    "word": "shift",
+    "start": 22.802,
+    "end": 23.092
+  },
+  {
+    "word": "if",
+    "start": 23.173,
+    "end": 23.324
+  },
+  {
+    "word": "roles",
+    "start": 23.405,
+    "end": 23.707
+  },
+  {
+    "word": "exist.",
+    "start": 23.765,
+    "end": 24.694
+  },
+  {
+    "word": "If",
+    "start": 24.694,
+    "end": 24.88
+  },
+  {
+    "word": "employees",
+    "start": 24.95,
+    "end": 25.356
+  },
+  {
+    "word": "are",
+    "start": 25.391,
+    "end": 25.53
+  },
+  {
+    "word": "already",
+    "start": 25.588,
+    "end": 25.971
+  },
+  {
+    "word": "scheduled,",
+    "start": 26.029,
+    "end": 26.645
+  },
+  {
+    "word": "remove",
+    "start": 26.796,
+    "end": 27.237
+  },
+  {
+    "word": "them",
+    "start": 27.272,
+    "end": 27.434
+  },
+  {
+    "word": "before",
+    "start": 27.504,
+    "end": 27.829
+  },
+  {
+    "word": "deleting",
+    "start": 27.875,
+    "end": 28.224
+  },
+  {
+    "word": "the",
+    "start": 28.258,
+    "end": 28.328
+  },
+  {
+    "word": "role.",
+    "start": 28.386,
+    "end": 28.839
+  },
+  {
+    "word": "Most",
+    "start": 29.222,
+    "end": 29.489
+  },
+  {
+    "word": "branches",
+    "start": 29.535,
+    "end": 30.035
+  },
+  {
+    "word": "leave",
+    "start": 30.151,
+    "end": 30.406
+  },
+  {
+    "word": "canceled",
+    "start": 30.453,
+    "end": 30.894
+  },
+  {
+    "word": "jobs",
+    "start": 30.952,
+    "end": 31.277
+  },
+  {
+    "word": "in",
+    "start": 31.3,
+    "end": 31.37
+  },
+  {
+    "word": "the",
+    "start": 31.416,
+    "end": 31.486
+  },
+  {
+    "word": "system",
+    "start": 31.521,
+    "end": 31.927
+  },
+  {
+    "word": "and",
+    "start": 32.206,
+    "end": 32.415
+  },
+  {
+    "word": "simply",
+    "start": 32.484,
+    "end": 32.798
+  },
+  {
+    "word": "update",
+    "start": 32.891,
+    "end": 33.344
+  },
+  {
+    "word": "the",
+    "start": 33.378,
+    "end": 33.448
+  },
+  {
+    "word": "job",
+    "start": 33.494,
+    "end": 33.727
   },
   {
     "word": "Class.",
-    "start": 31.417,
-    "end": 32.09
+    "start": 33.796,
+    "end": 34.505
   }
 ]

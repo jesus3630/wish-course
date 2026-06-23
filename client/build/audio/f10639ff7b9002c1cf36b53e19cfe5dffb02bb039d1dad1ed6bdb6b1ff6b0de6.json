@@ -2,26 +2,26 @@
   {
     "word": "In",
     "start": 0,
-    "end": 0.139
+    "end": 0.163
   },
   {
     "word": "this",
-    "start": 0.186,
-    "end": 0.313
+    "start": 0.209,
+    "end": 0.348
   },
   {
     "word": "module,",
-    "start": 0.372,
-    "end": 0.836
+    "start": 0.418,
+    "end": 0.848
   },
   {
     "word": "we'll",
-    "start": 0.882,
-    "end": 1.068
+    "start": 0.871,
+    "end": 1.057
   },
   {
     "word": "cover",
-    "start": 1.126,
+    "start": 1.115,
     "end": 1.37
   },
   {
@@ -32,66 +32,66 @@
   {
     "word": "following",
     "start": 1.567,
-    "end": 1.927
+    "end": 1.974
   },
   {
     "word": "Record",
-    "start": 1.997,
-    "end": 2.252
+    "start": 2.02,
+    "end": 2.264
   },
   {
     "word": "menus:",
-    "start": 2.287,
+    "start": 2.31,
     "end": 2.949
   },
   {
     "word": "Manage",
     "start": 2.949,
-    "end": 3.402
+    "end": 3.309
   },
   {
     "word": "job",
-    "start": 3.46,
-    "end": 4.017
+    "start": 3.367,
+    "end": 3.924
   },
   {
     "word": "Manage",
-    "start": 4.017,
-    "end": 4.447
+    "start": 3.924,
+    "end": 4.249
   },
   {
     "word": "Clients",
-    "start": 4.47,
-    "end": 5.132
+    "start": 4.284,
+    "end": 4.807
   },
   {
     "word": "Manage",
-    "start": 5.132,
-    "end": 5.492
+    "start": 4.807,
+    "end": 5.12
   },
   {
     "word": "Contracts",
-    "start": 5.526,
-    "end": 6.397
+    "start": 5.155,
+    "end": 5.979
   },
   {
     "word": "Manage",
-    "start": 6.397,
-    "end": 6.803
+    "start": 5.979,
+    "end": 6.327
   },
   {
     "word": "Events",
-    "start": 6.838,
-    "end": 7.221
+    "start": 6.362,
+    "end": 6.734
   },
   {
     "word": "Manage",
-    "start": 7.5,
-    "end": 7.906
+    "start": 6.908,
+    "end": 7.245
   },
   {
     "word": "Venues",
-    "start": 7.953,
-    "end": 8.684
+    "start": 7.303,
+    "end": 8.081
   }
 ]

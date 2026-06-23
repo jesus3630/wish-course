@@ -2,386 +2,386 @@
   {
     "word": "HR",
     "start": 0,
-    "end": 0.395
+    "end": 0.43
   },
   {
     "word": "Admin",
-    "start": 0.464,
-    "end": 0.813
+    "start": 0.488,
+    "end": 0.848
   },
   {
     "word": "access",
-    "start": 0.882,
-    "end": 1.324
+    "start": 0.94,
+    "end": 1.451
   },
   {
     "word": "gives",
-    "start": 1.393,
-    "end": 1.637
+    "start": 1.521,
+    "end": 1.753
   },
   {
     "word": "you",
-    "start": 1.695,
-    "end": 1.823
+    "start": 1.8,
+    "end": 1.927
   },
   {
     "word": "one",
-    "start": 1.997,
-    "end": 2.31
+    "start": 2.078,
+    "end": 2.368
   },
   {
     "word": "focused",
-    "start": 2.403,
-    "end": 2.833
+    "start": 2.45,
+    "end": 2.891
   },
   {
     "word": "tool:",
-    "start": 2.856,
-    "end": 3.344
+    "start": 2.914,
+    "end": 3.402
   },
   {
     "word": "Manage",
-    "start": 3.587,
-    "end": 4.063
+    "start": 3.576,
+    "end": 3.982
   },
   {
     "word": "Employee",
-    "start": 4.133,
-    "end": 4.621
+    "start": 4.005,
+    "end": 4.4
   },
   {
     "word": "Task.",
-    "start": 4.679,
-    "end": 5.352
+    "start": 4.458,
+    "end": 4.934
   },
   {
     "word": "You'll",
-    "start": 5.352,
-    "end": 5.561
+    "start": 4.934,
+    "end": 5.166
   },
   {
     "word": "find",
-    "start": 5.608,
-    "end": 5.793
+    "start": 5.213,
+    "end": 5.41
   },
   {
     "word": "it",
-    "start": 5.851,
-    "end": 5.921
+    "start": 5.457,
+    "end": 5.515
   },
   {
     "word": "at",
-    "start": 5.968,
-    "end": 6.049
+    "start": 5.561,
+    "end": 5.631
   },
   {
     "word": "the",
-    "start": 6.095,
-    "end": 6.177
+    "start": 5.666,
+    "end": 5.735
   },
   {
     "word": "bottom",
-    "start": 6.258,
-    "end": 6.583
+    "start": 5.817,
+    "end": 6.142
   },
   {
     "word": "of",
-    "start": 6.629,
-    "end": 6.676
+    "start": 6.2,
+    "end": 6.258
   },
   {
     "word": "the",
-    "start": 6.722,
-    "end": 6.792
+    "start": 6.304,
+    "end": 6.374
   },
   {
     "word": "Records",
-    "start": 6.838,
-    "end": 7.152
+    "start": 6.444,
+    "end": 6.745
   },
   {
     "word": "menu,",
-    "start": 7.198,
-    "end": 7.651
+    "start": 6.792,
+    "end": 7.198
   },
   {
     "word": "Records",
-    "start": 7.86,
-    "end": 8.29
+    "start": 7.291,
+    "end": 7.616
   },
   {
     "word": "to",
-    "start": 8.348,
-    "end": 8.44
+    "start": 7.651,
+    "end": 7.709
   },
   {
     "word": "Manage",
-    "start": 8.557,
-    "end": 8.975
+    "start": 7.779,
+    "end": 8.069
   },
   {
     "word": "Employee",
-    "start": 9.033,
-    "end": 9.497
+    "start": 8.092,
+    "end": 8.487
   },
   {
     "word": "Task.",
-    "start": 9.555,
-    "end": 10.066
+    "start": 8.545,
+    "end": 9.009
   },
   {
     "word": "This",
-    "start": 10.066,
-    "end": 10.275
+    "start": 9.009,
+    "end": 9.195
   },
   {
     "word": "screen",
-    "start": 10.298,
-    "end": 10.646
+    "start": 9.23,
+    "end": 9.543
   },
   {
     "word": "shows",
-    "start": 10.704,
-    "end": 10.948
+    "start": 9.601,
+    "end": 9.868
   },
   {
     "word": "you",
-    "start": 10.995,
-    "end": 11.076
+    "start": 9.927,
+    "end": 10.031
   },
   {
     "word": "all",
-    "start": 11.157,
-    "end": 11.343
+    "start": 10.147,
+    "end": 10.403
   },
   {
     "word": "employees",
-    "start": 11.401,
-    "end": 12.074
+    "start": 10.461,
+    "end": 11.146
   },
   {
     "word": "and",
-    "start": 12.132,
-    "end": 12.249
+    "start": 11.204,
+    "end": 11.343
   },
   {
     "word": "whether",
-    "start": 12.307,
-    "end": 12.574
+    "start": 11.413,
+    "end": 11.68
   },
   {
     "word": "they",
-    "start": 12.632,
-    "end": 12.759
+    "start": 11.738,
+    "end": 11.865
   },
   {
     "word": "have",
-    "start": 12.817,
-    "end": 12.992
+    "start": 11.912,
+    "end": 12.063
   },
   {
     "word": "completed",
-    "start": 13.038,
-    "end": 13.549
+    "start": 12.098,
+    "end": 12.585
   },
   {
     "word": "or",
-    "start": 13.607,
-    "end": 13.688
+    "start": 12.655,
+    "end": 12.794
   },
   {
     "word": "still",
-    "start": 13.746,
-    "end": 13.99
+    "start": 12.852,
+    "end": 13.107
   },
   {
     "word": "have",
-    "start": 14.06,
-    "end": 14.339
+    "start": 13.177,
+    "end": 13.409
   },
   {
     "word": "pending",
-    "start": 14.397,
-    "end": 14.757
+    "start": 13.479,
+    "end": 13.839
   },
   {
     "word": "tasks",
-    "start": 14.815,
-    "end": 15.186
+    "start": 13.909,
+    "end": 14.408
   },
   {
     "word": "in",
-    "start": 15.233,
-    "end": 15.326
+    "start": 14.477,
+    "end": 14.617
   },
   {
     "word": "WISH.",
-    "start": 15.442,
-    "end": 15.883
+    "start": 14.71,
+    "end": 15.139
   },
   {
     "word": "Tasks",
-    "start": 15.929,
-    "end": 16.278
+    "start": 15.29,
+    "end": 15.778
   },
   {
     "word": "typically",
-    "start": 16.301,
-    "end": 16.626
+    "start": 15.836,
+    "end": 16.219
   },
   {
     "word": "include",
-    "start": 16.661,
-    "end": 16.974
+    "start": 16.254,
+    "end": 16.637
   },
   {
     "word": "onboarding",
-    "start": 17.032,
-    "end": 17.404
+    "start": 16.683,
+    "end": 17.148
   },
   {
     "word": "requirements,",
-    "start": 17.439,
-    "end": 18.066
+    "start": 17.194,
+    "end": 17.821
   },
   {
     "word": "training",
-    "start": 18.182,
-    "end": 18.495
+    "start": 18.065,
+    "end": 18.402
   },
   {
     "word": "completions,",
-    "start": 18.53,
-    "end": 19.168
+    "start": 18.436,
+    "end": 19.191
   },
   {
     "word": "document",
-    "start": 19.377,
-    "end": 19.772
+    "start": 19.4,
+    "end": 19.876
   },
   {
     "word": "submissions,",
-    "start": 19.795,
-    "end": 20.376
+    "start": 19.911,
+    "end": 20.596
   },
   {
     "word": "and",
-    "start": 20.492,
-    "end": 20.713
+    "start": 20.77,
+    "end": 20.979
   },
   {
     "word": "compliance",
-    "start": 20.805,
-    "end": 21.293
+    "start": 21.06,
+    "end": 21.664
   },
   {
     "word": "acknowledgments.",
-    "start": 21.316,
-    "end": 22.28
+    "start": 21.687,
+    "end": 22.674
   },
   {
     "word": "Your",
-    "start": 22.28,
-    "end": 22.477
+    "start": 22.674,
+    "end": 22.895
   },
   {
     "word": "job",
-    "start": 22.547,
-    "end": 22.814
+    "start": 22.976,
+    "end": 23.243
   },
   {
     "word": "here",
-    "start": 22.884,
-    "end": 23.058
+    "start": 23.301,
+    "end": 23.498
   },
   {
     "word": "is",
-    "start": 23.104,
-    "end": 23.174
+    "start": 23.568,
+    "end": 23.673
   },
   {
     "word": "to",
-    "start": 23.209,
-    "end": 23.278
+    "start": 23.731,
+    "end": 23.8
   },
   {
     "word": "monitor",
-    "start": 23.371,
-    "end": 23.743
+    "start": 23.893,
+    "end": 24.346
   },
   {
     "word": "task",
-    "start": 23.801,
-    "end": 24.068
+    "start": 24.416,
+    "end": 24.81
   },
   {
     "word": "status",
-    "start": 24.103,
-    "end": 24.509
+    "start": 24.88,
+    "end": 25.333
   },
   {
     "word": "across",
-    "start": 24.579,
-    "end": 25.008
+    "start": 25.391,
+    "end": 25.762
   },
   {
     "word": "your",
-    "start": 25.043,
-    "end": 25.159
+    "start": 25.809,
+    "end": 25.925
   },
   {
     "word": "employee",
-    "start": 25.206,
-    "end": 25.6
+    "start": 25.96,
+    "end": 26.354
   },
   {
     "word": "pool",
-    "start": 25.658,
-    "end": 25.995
-  },
-  {
-    "word": "and",
-    "start": 26.076,
-    "end": 26.239
-  },
-  {
-    "word": "follow",
-    "start": 26.355,
-    "end": 26.645
-  },
-  {
-    "word": "up",
-    "start": 26.692,
+    "start": 26.412,
     "end": 26.761
   },
   {
+    "word": "and",
+    "start": 27.005,
+    "end": 27.214
+  },
+  {
+    "word": "follow",
+    "start": 27.283,
+    "end": 27.55
+  },
+  {
+    "word": "up",
+    "start": 27.608,
+    "end": 27.701
+  },
+  {
     "word": "with",
-    "start": 26.796,
-    "end": 26.912
+    "start": 27.736,
+    "end": 27.864
   },
   {
     "word": "anyone",
-    "start": 26.97,
-    "end": 27.33
+    "start": 27.933,
+    "end": 28.375
   },
   {
     "word": "who",
-    "start": 27.354,
-    "end": 27.446
+    "start": 28.409,
+    "end": 28.514
   },
   {
     "word": "has",
-    "start": 27.516,
-    "end": 27.667
+    "start": 28.572,
+    "end": 28.758
   },
   {
     "word": "outstanding",
-    "start": 27.725,
-    "end": 28.224
+    "start": 28.839,
+    "end": 29.431
   },
   {
     "word": "items.",
-    "start": 28.282,
-    "end": 28.886
+    "start": 29.501,
+    "end": 30.093
   }
 ]

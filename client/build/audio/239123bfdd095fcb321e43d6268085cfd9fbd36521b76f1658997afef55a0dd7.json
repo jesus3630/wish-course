@@ -2,556 +2,556 @@
   {
     "word": "The",
     "start": 0,
-    "end": 0.151
+    "end": 0.163
   },
   {
     "word": "Exclusions",
-    "start": 0.209,
-    "end": 0.65
+    "start": 0.232,
+    "end": 0.801
   },
   {
     "word": "tab",
-    "start": 0.697,
-    "end": 0.964
+    "start": 0.859,
+    "end": 1.149
   },
   {
     "word": "lets",
-    "start": 1.045,
-    "end": 1.219
+    "start": 1.219,
+    "end": 1.405
   },
   {
     "word": "you",
-    "start": 1.265,
-    "end": 1.358
+    "start": 1.44,
+    "end": 1.544
   },
   {
     "word": "flag",
-    "start": 1.474,
-    "end": 1.869
+    "start": 1.695,
+    "end": 2.09
   },
   {
     "word": "clients",
-    "start": 1.939,
-    "end": 2.438
+    "start": 2.136,
+    "end": 2.543
   },
   {
     "word": "or",
-    "start": 2.508,
-    "end": 2.682
+    "start": 2.577,
+    "end": 2.647
   },
   {
-    "word": "jahbs",
-    "start": 2.775,
-    "end": 3.216
+    "word": "jobs",
+    "start": 2.705,
+    "end": 3.111
   },
   {
     "word": "that",
-    "start": 3.274,
-    "end": 3.518
+    "start": 3.158,
+    "end": 3.32
   },
   {
     "word": "a",
-    "start": 3.587,
-    "end": 3.646
+    "start": 3.379,
+    "end": 3.425
   },
   {
     "word": "specific",
-    "start": 3.715,
-    "end": 4.203
+    "start": 3.576,
+    "end": 4.063
   },
   {
     "word": "employee",
-    "start": 4.249,
-    "end": 4.934
+    "start": 4.11,
+    "end": 4.656
   },
   {
     "word": "should",
-    "start": 5.027,
-    "end": 5.375
+    "start": 4.702,
+    "end": 4.946
   },
   {
     "word": "never",
-    "start": 5.492,
-    "end": 5.793
+    "start": 5.062,
+    "end": 5.457
   },
   {
     "word": "be",
-    "start": 5.875,
-    "end": 6.002
+    "start": 5.573,
+    "end": 5.724
   },
   {
     "word": "assigned",
-    "start": 6.049,
-    "end": 6.42
+    "start": 5.77,
+    "end": 6.188
   },
   {
     "word": "to.",
-    "start": 6.444,
-    "end": 6.815
+    "start": 6.223,
+    "end": 6.757
   },
   {
     "word": "Once",
-    "start": 6.815,
-    "end": 7.105
+    "start": 6.757,
+    "end": 7.024
   },
   {
     "word": "an",
-    "start": 7.129,
-    "end": 7.198
+    "start": 7.059,
+    "end": 7.129
   },
   {
     "word": "exclusion",
-    "start": 7.245,
-    "end": 7.732
+    "start": 7.175,
+    "end": 7.639
   },
   {
     "word": "is",
-    "start": 7.79,
-    "end": 7.872
+    "start": 7.697,
+    "end": 7.779
   },
   {
     "word": "set:",
-    "start": 7.941,
-    "end": 8.533
+    "start": 7.837,
+    "end": 8.231
   },
   {
     "word": "*",
-    "start": 8.533,
-    "end": 8.557
+    "start": 8.231,
+    "end": 8.278
   },
   {
     "word": "The",
-    "start": 8.626,
-    "end": 8.742
+    "start": 8.394,
+    "end": 8.51
   },
   {
     "word": "employee",
-    "start": 8.789,
-    "end": 9.253
+    "start": 8.568,
+    "end": 8.998
   },
   {
     "word": "will",
-    "start": 9.3,
-    "end": 9.485
+    "start": 9.044,
+    "end": 9.23
   },
   {
     "word": "not",
-    "start": 9.578,
-    "end": 9.799
+    "start": 9.3,
+    "end": 9.462
   },
   {
     "word": "appear",
-    "start": 9.857,
-    "end": 10.217
+    "start": 9.509,
+    "end": 9.776
   },
   {
     "word": "as",
-    "start": 10.31,
-    "end": 10.461
+    "start": 9.834,
+    "end": 9.903
   },
   {
     "word": "available",
-    "start": 10.519,
-    "end": 11.088
+    "start": 9.961,
+    "end": 10.449
   },
   {
     "word": "when",
-    "start": 11.122,
-    "end": 11.285
+    "start": 10.484,
+    "end": 10.623
   },
   {
     "word": "scheduling",
-    "start": 11.343,
-    "end": 11.819
+    "start": 10.681,
+    "end": 11.122
   },
   {
     "word": "for",
-    "start": 11.865,
-    "end": 11.958
+    "start": 11.169,
+    "end": 11.273
   },
   {
     "word": "that",
-    "start": 12.005,
-    "end": 12.144
+    "start": 11.32,
+    "end": 11.447
   },
   {
     "word": "client",
-    "start": 12.19,
-    "end": 12.608
+    "start": 11.494,
+    "end": 11.807
   },
   {
     "word": "or",
-    "start": 12.678,
-    "end": 12.817
+    "start": 11.854,
+    "end": 11.935
   },
   {
-    "word": "jahb",
-    "start": 12.899,
-    "end": 13.607
+    "word": "job",
+    "start": 12.005,
+    "end": 12.457
   },
   {
     "word": "*",
-    "start": 13.607,
-    "end": 13.63
+    "start": 12.457,
+    "end": 12.574
   },
   {
     "word": "This",
-    "start": 13.758,
-    "end": 13.966
+    "start": 12.632,
+    "end": 12.829
   },
   {
     "word": "prevents",
-    "start": 14.036,
-    "end": 14.477
+    "start": 12.899,
+    "end": 13.386
   },
   {
     "word": "accidental",
-    "start": 14.559,
-    "end": 15.267
+    "start": 13.502,
+    "end": 14.025
   },
   {
     "word": "scheduling",
-    "start": 15.325,
-    "end": 15.824
+    "start": 14.071,
+    "end": 14.512
   },
   {
     "word": "conflicts",
-    "start": 15.882,
-    "end": 16.451
+    "start": 14.582,
+    "end": 15.093
   },
   {
     "word": "or",
-    "start": 16.532,
-    "end": 16.672
+    "start": 15.151,
+    "end": 15.313
   },
   {
     "word": "safety",
-    "start": 16.764,
-    "end": 17.124
+    "start": 15.429,
+    "end": 15.789
   },
   {
     "word": "concerns",
-    "start": 17.171,
-    "end": 18.274
+    "start": 15.836,
+    "end": 16.73
   },
   {
     "word": "Common",
-    "start": 18.274,
-    "end": 18.727
+    "start": 16.73,
+    "end": 17.136
   },
   {
     "word": "reasons",
-    "start": 18.831,
-    "end": 19.33
+    "start": 17.217,
+    "end": 17.589
   },
   {
     "word": "for",
-    "start": 19.412,
-    "end": 19.725
+    "start": 17.659,
+    "end": 17.995
   },
   {
     "word": "exclusions:",
-    "start": 19.829,
-    "end": 21.35
+    "start": 18.169,
+    "end": 19.354
   },
   {
     "word": "*",
-    "start": 21.35,
-    "end": 23.963
+    "start": 19.354,
+    "end": 19.377
   },
   {
     "word": "A",
-    "start": 24.439,
-    "end": 24.52
+    "start": 19.47,
+    "end": 19.551
   },
   {
     "word": "client",
-    "start": 24.613,
-    "end": 25.066
+    "start": 19.667,
+    "end": 20.097
   },
   {
     "word": "has",
-    "start": 25.112,
-    "end": 25.251
+    "start": 20.143,
+    "end": 20.271
   },
   {
     "word": "requested",
-    "start": 25.321,
-    "end": 25.797
+    "start": 20.329,
+    "end": 20.805
   },
   {
     "word": "the",
-    "start": 25.843,
-    "end": 25.925
+    "start": 20.84,
+    "end": 20.909
   },
   {
     "word": "employee",
-    "start": 25.983,
-    "end": 26.586
+    "start": 20.979,
+    "end": 21.687
   },
   {
     "word": "not",
-    "start": 26.703,
-    "end": 26.97
+    "start": 21.838,
+    "end": 22.117
   },
   {
     "word": "return",
-    "start": 27.039,
-    "end": 27.399
+    "start": 22.198,
+    "end": 22.674
   },
   {
     "word": "to",
-    "start": 27.446,
-    "end": 27.504
+    "start": 22.732,
+    "end": 22.802
   },
   {
     "word": "their",
-    "start": 27.562,
-    "end": 27.701
+    "start": 22.871,
+    "end": 23.034
   },
   {
     "word": "venue",
-    "start": 27.747,
-    "end": 28.282
+    "start": 23.092,
+    "end": 23.672
   },
   {
     "word": "*",
-    "start": 28.282,
-    "end": 28.316
+    "start": 23.672,
+    "end": 23.731
   },
   {
     "word": "There",
-    "start": 28.479,
-    "end": 28.711
+    "start": 23.847,
+    "end": 24.114
   },
   {
     "word": "is",
-    "start": 28.734,
-    "end": 28.827
+    "start": 24.16,
+    "end": 24.253
   },
   {
     "word": "a",
-    "start": 28.874,
-    "end": 28.908
+    "start": 24.311,
+    "end": 24.346
   },
   {
     "word": "known",
-    "start": 28.99,
-    "end": 29.303
+    "start": 24.462,
+    "end": 24.799
   },
   {
     "word": "conflict",
-    "start": 29.373,
-    "end": 29.849
+    "start": 24.88,
+    "end": 25.391
   },
   {
     "word": "between",
-    "start": 29.895,
-    "end": 30.174
+    "start": 25.437,
+    "end": 25.762
   },
   {
     "word": "the",
-    "start": 30.197,
-    "end": 30.267
+    "start": 25.797,
+    "end": 25.867
   },
   {
     "word": "employee",
-    "start": 30.325,
-    "end": 30.801
+    "start": 25.913,
+    "end": 26.621
   },
   {
     "word": "and",
-    "start": 30.836,
-    "end": 30.963
+    "start": 26.679,
+    "end": 26.981
   },
   {
     "word": "a",
-    "start": 31.01,
-    "end": 31.045
+    "start": 27.051,
+    "end": 27.086
   },
   {
     "word": "specific",
-    "start": 31.091,
-    "end": 31.567
+    "start": 27.144,
+    "end": 27.608
   },
   {
     "word": "account",
-    "start": 31.614,
-    "end": 32.147
+    "start": 27.655,
+    "end": 28.177
   },
   {
     "word": "*",
-    "start": 32.147,
-    "end": 32.171
+    "start": 28.177,
+    "end": 28.212
   },
   {
     "word": "A",
-    "start": 32.368,
-    "end": 32.461
+    "start": 28.328,
+    "end": 28.444
   },
   {
     "word": "safety",
-    "start": 32.6,
-    "end": 33.018
+    "start": 28.618,
+    "end": 29.048
   },
   {
     "word": "or",
-    "start": 33.1,
-    "end": 33.204
+    "start": 29.141,
+    "end": 29.315
   },
   {
     "word": "conduct",
-    "start": 33.285,
-    "end": 33.703
+    "start": 29.408,
+    "end": 29.872
   },
   {
     "word": "issue",
-    "start": 33.773,
-    "end": 34.098
+    "start": 29.953,
+    "end": 30.336
   },
   {
     "word": "tied",
-    "start": 34.121,
-    "end": 34.4
+    "start": 30.383,
+    "end": 30.685
   },
   {
     "word": "to",
-    "start": 34.435,
-    "end": 34.481
+    "start": 30.731,
+    "end": 30.824
   },
   {
     "word": "a",
-    "start": 34.562,
-    "end": 34.586
+    "start": 30.94,
+    "end": 30.975
   },
   {
     "word": "specific",
-    "start": 34.632,
-    "end": 35.201
+    "start": 31.021,
+    "end": 31.474
   },
   {
     "word": "location",
-    "start": 35.259,
-    "end": 36.199
+    "start": 31.532,
+    "end": 32.914
   },
   {
     "word": "Exclusions",
-    "start": 36.199,
-    "end": 37.059
+    "start": 32.914,
+    "end": 33.761
   },
   {
     "word": "are",
-    "start": 37.105,
-    "end": 37.291
+    "start": 33.796,
+    "end": 33.889
   },
   {
     "word": "not",
-    "start": 37.337,
-    "end": 37.488
+    "start": 33.924,
+    "end": 34.028
   },
   {
     "word": "the",
-    "start": 37.535,
-    "end": 37.616
+    "start": 34.063,
+    "end": 34.133
   },
   {
     "word": "same",
-    "start": 37.674,
-    "end": 37.987
+    "start": 34.179,
+    "end": 34.353
   },
   {
     "word": "as",
-    "start": 38.022,
-    "end": 38.115
+    "start": 34.377,
+    "end": 34.435
   },
   {
     "word": "disciplinary",
-    "start": 38.173,
-    "end": 38.835
+    "start": 34.481,
+    "end": 34.98
   },
   {
     "word": "action,",
-    "start": 38.916,
-    "end": 39.415
+    "start": 35.038,
+    "end": 35.352
   },
   {
     "word": "they're",
-    "start": 39.473,
-    "end": 39.694
+    "start": 35.375,
+    "end": 35.561
   },
   {
     "word": "a",
-    "start": 39.717,
-    "end": 39.74
+    "start": 35.584,
+    "end": 35.619
   },
   {
     "word": "scheduling",
-    "start": 39.81,
-    "end": 40.344
+    "start": 35.665,
+    "end": 36.176
   },
   {
     "word": "control.",
-    "start": 40.391,
-    "end": 40.983
+    "start": 36.223,
+    "end": 36.792
   },
   {
     "word": "Document",
-    "start": 41.261,
-    "end": 41.784
+    "start": 36.942,
+    "end": 37.442
   },
   {
     "word": "the",
-    "start": 41.819,
-    "end": 41.888
+    "start": 37.488,
+    "end": 37.558
   },
   {
     "word": "reason",
-    "start": 41.97,
-    "end": 42.306
+    "start": 37.639,
+    "end": 37.999
   },
   {
     "word": "in",
-    "start": 42.376,
-    "end": 42.457
+    "start": 38.08,
+    "end": 38.161
   },
   {
     "word": "Employee",
-    "start": 42.515,
-    "end": 42.898
+    "start": 38.208,
+    "end": 38.591
   },
   {
     "word": "Notes",
-    "start": 42.968,
-    "end": 43.328
+    "start": 38.637,
+    "end": 38.881
   },
   {
     "word": "so",
-    "start": 43.607,
-    "end": 43.769
+    "start": 38.905,
+    "end": 39.009
   },
   {
     "word": "the",
-    "start": 43.839,
-    "end": 43.908
+    "start": 39.067,
+    "end": 39.137
   },
   {
     "word": "context",
-    "start": 43.99,
-    "end": 44.617
+    "start": 39.172,
+    "end": 39.566
   },
   {
     "word": "is",
-    "start": 44.663,
-    "end": 44.756
+    "start": 39.613,
+    "end": 39.682
   },
   {
     "word": "on",
-    "start": 44.814,
-    "end": 44.918
+    "start": 39.74,
+    "end": 39.822
   },
   {
     "word": "record.",
-    "start": 45,
-    "end": 45.65
+    "start": 39.88,
+    "end": 40.449
   }
 ]

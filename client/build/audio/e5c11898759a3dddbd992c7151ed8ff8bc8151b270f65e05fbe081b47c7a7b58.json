@@ -2,281 +2,281 @@
   {
     "word": "Congratulations!",
     "start": 0,
-    "end": 1.416
+    "end": 1.161
   },
   {
     "word": "You've",
-    "start": 1.463,
-    "end": 1.718
+    "start": 1.335,
+    "end": 1.567
   },
   {
     "word": "completed",
-    "start": 1.753,
-    "end": 2.206
+    "start": 1.602,
+    "end": 2.043
   },
   {
     "word": "the",
-    "start": 2.252,
-    "end": 2.345
+    "start": 2.078,
+    "end": 2.148
   },
   {
     "word": "Hiring",
-    "start": 2.426,
-    "end": 2.763
+    "start": 2.229,
+    "end": 2.589
   },
   {
     "word": "Manager",
-    "start": 2.81,
-    "end": 3.135
+    "start": 2.647,
+    "end": 3.007
   },
   {
     "word": "module.",
-    "start": 3.193,
-    "end": 3.785
+    "start": 3.077,
+    "end": 3.738
   },
   {
     "word": "You",
-    "start": 3.785,
-    "end": 3.924
+    "start": 3.738,
+    "end": 3.855
   },
   {
     "word": "now",
-    "start": 4.04,
-    "end": 4.261
+    "start": 3.936,
+    "end": 4.075
   },
   {
     "word": "know",
-    "start": 4.319,
-    "end": 4.528
+    "start": 4.133,
+    "end": 4.261
   },
   {
     "word": "how",
-    "start": 4.609,
-    "end": 4.725
+    "start": 4.319,
+    "end": 4.412
   },
   {
     "word": "to",
-    "start": 4.772,
-    "end": 4.83
+    "start": 4.458,
+    "end": 4.505
   },
   {
     "word": "access",
-    "start": 4.946,
-    "end": 5.468
+    "start": 4.586,
+    "end": 5.062
   },
   {
     "word": "the",
-    "start": 5.526,
-    "end": 5.724
+    "start": 5.108,
+    "end": 5.236
   },
   {
     "word": "Import",
-    "start": 5.84,
-    "end": 6.316
+    "start": 5.329,
+    "end": 5.759
   },
   {
     "word": "From",
-    "start": 6.374,
-    "end": 6.56
+    "start": 5.782,
+    "end": 5.909
   },
   {
     "word": "Hiring",
-    "start": 6.653,
-    "end": 7.001
+    "start": 5.979,
+    "end": 6.339
   },
   {
     "word": "Portal",
-    "start": 7.07,
-    "end": 7.361
+    "start": 6.42,
+    "end": 6.722
   },
   {
     "word": "screen,",
-    "start": 7.407,
-    "end": 7.848
+    "start": 6.769,
+    "end": 7.245
   },
   {
     "word": "review",
-    "start": 7.941,
-    "end": 8.301
+    "start": 7.338,
+    "end": 7.721
   },
   {
     "word": "applicant",
-    "start": 8.394,
-    "end": 8.847
+    "start": 7.814,
+    "end": 8.29
   },
   {
     "word": "status",
-    "start": 8.882,
-    "end": 9.23
+    "start": 8.336,
+    "end": 8.742
   },
   {
     "word": "before",
-    "start": 9.288,
-    "end": 9.601
+    "start": 8.8,
+    "end": 9.137
   },
   {
     "word": "importing,",
-    "start": 9.636,
-    "end": 10.17
+    "start": 9.172,
+    "end": 9.706
   },
   {
     "word": "and",
-    "start": 10.194,
-    "end": 10.344
+    "start": 9.741,
+    "end": 9.903
   },
   {
     "word": "bring",
-    "start": 10.414,
-    "end": 10.646
+    "start": 9.961,
+    "end": 10.182
   },
   {
     "word": "new",
-    "start": 10.739,
-    "end": 10.89
+    "start": 10.275,
+    "end": 10.414
   },
   {
     "word": "employees",
-    "start": 10.96,
-    "end": 11.494
+    "start": 10.461,
+    "end": 11.169
   },
   {
     "word": "into",
-    "start": 11.552,
-    "end": 11.784
+    "start": 11.238,
+    "end": 11.471
   },
   {
     "word": "WISH",
-    "start": 11.9,
-    "end": 12.249
+    "start": 11.587,
+    "end": 11.877
   },
   {
     "word": "so",
-    "start": 12.527,
-    "end": 12.69
+    "start": 11.97,
+    "end": 12.098
   },
   {
     "word": "they",
-    "start": 12.771,
-    "end": 12.934
+    "start": 12.156,
+    "end": 12.26
   },
   {
     "word": "can",
-    "start": 12.98,
-    "end": 13.096
+    "start": 12.295,
+    "end": 12.399
   },
   {
     "word": "be",
-    "start": 13.142,
-    "end": 13.235
+    "start": 12.446,
+    "end": 12.527
   },
   {
     "word": "scheduled",
-    "start": 13.282,
-    "end": 13.676
+    "start": 12.574,
+    "end": 13.003
   },
   {
     "word": "for",
-    "start": 13.711,
-    "end": 13.816
+    "start": 13.038,
+    "end": 13.142
   },
   {
     "word": "jobs.",
-    "start": 13.874,
-    "end": 14.477
+    "start": 13.212,
+    "end": 13.769
   },
   {
     "word": "Remember,",
-    "start": 14.477,
-    "end": 15.069
+    "start": 13.769,
+    "end": 14.268
   },
   {
     "word": "always",
-    "start": 15.116,
-    "end": 15.638
+    "start": 14.303,
+    "end": 14.686
   },
   {
     "word": "confirm",
-    "start": 15.708,
-    "end": 16.323
+    "start": 14.733,
+    "end": 15.128
   },
   {
     "word": "Background",
-    "start": 16.834,
-    "end": 17.345
+    "start": 15.197,
+    "end": 15.592
   },
   {
     "word": "Check",
-    "start": 17.391,
-    "end": 17.612
+    "start": 15.627,
+    "end": 15.836
   },
   {
     "word": "and",
-    "start": 17.67,
-    "end": 17.74
+    "start": 15.917,
+    "end": 16.207
   },
   {
     "word": "E-Verify",
-    "start": 17.821,
-    "end": 18.425
+    "start": 16.532,
+    "end": 17.368
   },
   {
     "word": "status",
-    "start": 18.46,
-    "end": 18.877
+    "start": 17.484,
+    "end": 18.065
   },
   {
     "word": "before",
-    "start": 18.936,
-    "end": 19.226
+    "start": 18.448,
+    "end": 18.843
   },
   {
     "word": "importing.",
-    "start": 19.261,
-    "end": 19.795
+    "start": 18.889,
+    "end": 19.47
   },
   {
     "word": "When",
-    "start": 20.038,
-    "end": 20.236
+    "start": 19.795,
+    "end": 19.992
   },
   {
     "word": "in",
-    "start": 20.282,
-    "end": 20.34
+    "start": 20.039,
+    "end": 20.108
   },
   {
     "word": "doubt,",
-    "start": 20.387,
-    "end": 20.77
+    "start": 20.166,
+    "end": 20.48
   },
   {
     "word": "check",
-    "start": 20.921,
-    "end": 21.13
+    "start": 20.515,
+    "end": 20.747
   },
   {
     "word": "with",
-    "start": 21.165,
-    "end": 21.281
+    "start": 20.805,
+    "end": 20.921
   },
   {
     "word": "your",
-    "start": 21.316,
-    "end": 21.432
+    "start": 20.967,
+    "end": 21.095
   },
   {
     "word": "administrator",
-    "start": 21.467,
-    "end": 22.047
+    "start": 21.13,
+    "end": 21.815
   },
   {
     "word": "before",
-    "start": 22.093,
-    "end": 22.36
+    "start": 22.198,
+    "end": 22.558
   },
   {
     "word": "proceeding.",
-    "start": 22.407,
-    "end": 23.173
+    "start": 22.604,
+    "end": 23.406
   }
 ]

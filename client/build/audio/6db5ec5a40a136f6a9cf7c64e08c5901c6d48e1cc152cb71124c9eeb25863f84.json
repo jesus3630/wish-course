@@ -2,336 +2,336 @@
   {
     "word": "Go",
     "start": 0,
-    "end": 0.279
+    "end": 0.174
   },
   {
     "word": "to",
-    "start": 0.395,
-    "end": 0.569
+    "start": 0.232,
+    "end": 0.29
   },
   {
     "word": "Scheduling",
-    "start": 0.662,
-    "end": 1.254
+    "start": 0.325,
+    "end": 0.743
   },
   {
     "word": "to",
-    "start": 1.312,
-    "end": 1.393
+    "start": 0.778,
+    "end": 0.824
   },
   {
     "word": "Schedule",
-    "start": 1.463,
-    "end": 1.962
+    "start": 0.871,
+    "end": 1.3
   },
   {
     "word": "by",
-    "start": 2.02,
-    "end": 2.206
+    "start": 1.347,
+    "end": 1.591
   },
   {
     "word": "job",
-    "start": 2.322,
-    "end": 2.624
+    "start": 1.707,
+    "end": 1.985
   },
   {
     "word": "Admin.",
-    "start": 2.74,
-    "end": 3.286
+    "start": 2.101,
+    "end": 2.647
   },
   {
     "word": "This",
-    "start": 3.32,
-    "end": 3.495
+    "start": 2.775,
+    "end": 2.972
   },
   {
     "word": "screen",
-    "start": 3.529,
-    "end": 3.808
+    "start": 2.995,
+    "end": 3.297
   },
   {
     "word": "looks",
-    "start": 3.866,
-    "end": 4.075
+    "start": 3.344,
+    "end": 3.541
   },
   {
     "word": "identical",
-    "start": 4.133,
-    "end": 4.69
+    "start": 3.599,
+    "end": 4.098
   },
   {
     "word": "to",
-    "start": 4.76,
-    "end": 4.83
+    "start": 4.168,
+    "end": 4.238
   },
   {
     "word": "Schedule",
-    "start": 4.899,
-    "end": 5.294
+    "start": 4.296,
+    "end": 4.667
   },
   {
     "word": "by",
-    "start": 5.329,
-    "end": 5.457
+    "start": 4.702,
+    "end": 4.853
   },
   {
     "word": "job,",
-    "start": 5.538,
-    "end": 5.898
+    "start": 4.946,
+    "end": 5.248
   },
   {
     "word": "but",
-    "start": 5.956,
-    "end": 6.118
+    "start": 5.283,
+    "end": 5.41
   },
   {
     "word": "employees",
-    "start": 6.165,
-    "end": 6.745
+    "start": 5.445,
+    "end": 5.956
   },
   {
     "word": "already",
-    "start": 6.815,
-    "end": 7.198
+    "start": 6.037,
+    "end": 6.42
   },
   {
     "word": "scheduled,",
-    "start": 7.245,
-    "end": 7.744
+    "start": 6.467,
+    "end": 7.036
   },
   {
     "word": "shown",
-    "start": 7.825,
-    "end": 8.173
+    "start": 7.21,
+    "end": 7.523
   },
   {
     "word": "in",
-    "start": 8.243,
-    "end": 8.313
+    "start": 7.581,
+    "end": 7.651
   },
   {
     "word": "red",
-    "start": 8.406,
-    "end": 8.731
+    "start": 7.767,
+    "end": 8.046
   },
   {
     "word": "on",
-    "start": 8.812,
-    "end": 8.951
+    "start": 8.104,
+    "end": 8.173
   },
   {
     "word": "the",
-    "start": 8.998,
-    "end": 9.067
+    "start": 8.208,
+    "end": 8.278
   },
   {
     "word": "standard",
-    "start": 9.114,
-    "end": 9.462
+    "start": 8.324,
+    "end": 8.719
   },
   {
     "word": "page,",
-    "start": 9.497,
-    "end": 9.915
+    "start": 8.766,
+    "end": 9.242
   },
   {
     "word": "still",
-    "start": 9.973,
-    "end": 10.31
+    "start": 9.416,
+    "end": 9.706
   },
   {
     "word": "have",
-    "start": 10.391,
-    "end": 10.67
+    "start": 9.787,
+    "end": 9.973
   },
   {
     "word": "their",
-    "start": 10.704,
-    "end": 10.867
+    "start": 9.996,
+    "end": 10.136
   },
   {
     "word": "checkboxes",
-    "start": 10.925,
-    "end": 11.552
+    "start": 10.182,
+    "end": 10.844
   },
   {
     "word": "available",
-    "start": 11.587,
-    "end": 12.051
+    "start": 10.902,
+    "end": 11.401
   },
   {
     "word": "here.",
-    "start": 12.098,
-    "end": 12.423
+    "start": 11.447,
+    "end": 11.923
   },
   {
     "word": "If",
-    "start": 12.423,
-    "end": 12.55
+    "start": 11.923,
+    "end": 12.074
   },
   {
     "word": "you",
-    "start": 12.597,
-    "end": 12.678
+    "start": 12.132,
+    "end": 12.225
   },
   {
     "word": "select",
-    "start": 12.748,
-    "end": 13.073
+    "start": 12.318,
+    "end": 12.655
   },
   {
     "word": "an",
-    "start": 13.119,
-    "end": 13.189
+    "start": 12.69,
+    "end": 12.771
   },
   {
     "word": "already-scheduled",
-    "start": 13.259,
-    "end": 14.141
+    "start": 12.887,
+    "end": 13.804
   },
   {
     "word": "employee",
-    "start": 14.176,
-    "end": 14.675
+    "start": 13.839,
+    "end": 14.327
   },
   {
     "word": "and",
-    "start": 14.745,
-    "end": 14.907
+    "start": 14.396,
+    "end": 14.559
   },
   {
     "word": "save,",
-    "start": 14.965,
-    "end": 17.229
+    "start": 14.629,
+    "end": 16.904
   },
   {
     "word": "WISH",
-    "start": 17.717,
-    "end": 23.708
+    "start": 17.334,
+    "end": 24.346
   },
   {
     "word": "displays",
-    "start": 24.195,
-    "end": 24.845
+    "start": 24.764,
+    "end": 25.449
   },
   {
     "word": "an",
-    "start": 25.066,
-    "end": 25.205
+    "start": 25.53,
+    "end": 25.67
   },
   {
     "word": "overlap",
-    "start": 25.298,
-    "end": 25.948
+    "start": 25.774,
+    "end": 26.343
   },
   {
     "word": "warning.",
-    "start": 26.215,
-    "end": 26.935
+    "start": 26.575,
+    "end": 27.202
   },
   {
     "word": "You",
-    "start": 27.411,
-    "end": 27.551
+    "start": 27.62,
+    "end": 27.736
   },
   {
     "word": "can",
-    "start": 27.597,
-    "end": 27.713
+    "start": 27.783,
+    "end": 27.887
   },
   {
     "word": "choose",
-    "start": 27.771,
-    "end": 28.096
+    "start": 27.945,
+    "end": 28.294
   },
   {
     "word": "to",
-    "start": 28.131,
-    "end": 28.201
+    "start": 28.317,
+    "end": 28.398
   },
   {
     "word": "bypass",
-    "start": 28.282,
-    "end": 28.816
+    "start": 28.491,
+    "end": 29.06
   },
   {
     "word": "this",
-    "start": 28.862,
-    "end": 29.013
+    "start": 29.095,
+    "end": 29.234
   },
   {
     "word": "warning",
-    "start": 29.083,
-    "end": 29.455
+    "start": 29.304,
+    "end": 29.64
   },
   {
     "word": "and",
-    "start": 29.71,
-    "end": 30
+    "start": 29.698,
+    "end": 29.861
   },
   {
     "word": "proceed.",
-    "start": 30.105,
-    "end": 31.045
+    "start": 29.931,
+    "end": 31.022
   },
   {
     "word": "Use",
-    "start": 31.045,
-    "end": 31.312
+    "start": 31.022,
+    "end": 31.266
   },
   {
     "word": "this",
-    "start": 31.359,
-    "end": 31.626
+    "start": 31.301,
+    "end": 31.486
   },
   {
     "word": "carefully.",
-    "start": 31.846,
-    "end": 32.531
+    "start": 31.568,
+    "end": 32.171
   },
   {
     "word": "Always",
-    "start": 32.88,
-    "end": 33.286
+    "start": 32.531,
+    "end": 32.926
   },
   {
     "word": "verify",
-    "start": 33.356,
-    "end": 33.89
+    "start": 33.007,
+    "end": 33.495
   },
   {
     "word": "the",
-    "start": 33.959,
-    "end": 34.052
+    "start": 33.553,
+    "end": 33.623
   },
   {
     "word": "employee",
-    "start": 34.099,
-    "end": 34.54
+    "start": 33.681,
+    "end": 34.191
   },
   {
     "word": "is",
-    "start": 34.598,
-    "end": 34.749
+    "start": 34.249,
+    "end": 34.389
   },
   {
     "word": "actually",
-    "start": 34.83,
-    "end": 35.271
+    "start": 34.458,
+    "end": 34.888
   },
   {
     "word": "available",
-    "start": 35.329,
-    "end": 35.828
+    "start": 34.946,
+    "end": 35.422
   },
   {
     "word": "before",
-    "start": 35.863,
-    "end": 36.165
+    "start": 35.457,
+    "end": 35.782
   },
   {
     "word": "proceeding.",
-    "start": 36.212,
-    "end": 36.873
+    "start": 35.828,
+    "end": 36.455
   }
 ]

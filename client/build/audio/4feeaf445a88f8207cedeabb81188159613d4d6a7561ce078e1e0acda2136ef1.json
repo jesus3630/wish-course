@@ -7,406 +7,406 @@
   {
     "word": "Web",
     "start": 0.221,
-    "end": 0.395
+    "end": 0.372
   },
   {
     "word": "Shift",
-    "start": 0.441,
-    "end": 0.65
+    "start": 0.43,
+    "end": 0.604
   },
   {
     "word": "Report",
-    "start": 0.673,
-    "end": 0.987
+    "start": 0.639,
+    "end": 1.057
   },
   {
     "word": "is",
-    "start": 1.022,
-    "end": 1.091
+    "start": 1.231,
+    "end": 1.393
   },
   {
     "word": "your",
-    "start": 1.126,
-    "end": 1.231
+    "start": 1.451,
+    "end": 1.567
   },
   {
     "word": "paper",
-    "start": 1.3,
-    "end": 1.556
+    "start": 1.625,
+    "end": 1.904
   },
   {
     "word": "trail",
-    "start": 1.602,
-    "end": 1.892
-  },
-  {
-    "word": "after",
-    "start": 1.985,
+    "start": 1.95,
     "end": 2.287
   },
   {
+    "word": "after",
+    "start": 2.415,
+    "end": 2.74
+  },
+  {
     "word": "the",
-    "start": 2.357,
-    "end": 2.438
+    "start": 2.798,
+    "end": 2.868
   },
   {
     "word": "Web",
-    "start": 2.519,
-    "end": 2.728
+    "start": 2.937,
+    "end": 3.135
   },
   {
     "word": "Shift",
-    "start": 2.775,
-    "end": 2.972
+    "start": 3.204,
+    "end": 3.425
   },
   {
     "word": "Approval",
-    "start": 2.995,
-    "end": 3.39
+    "start": 3.46,
+    "end": 3.843
   },
   {
     "word": "tab",
-    "start": 3.437,
-    "end": 3.773
+    "start": 3.901,
+    "end": 4.168
   },
   {
     "word": "does",
-    "start": 3.889,
-    "end": 4.133
+    "start": 4.249,
+    "end": 4.47
   },
   {
     "word": "its",
-    "start": 4.191,
-    "end": 4.296
+    "start": 4.528,
+    "end": 4.644
   },
   {
     "word": "job.",
-    "start": 4.354,
-    "end": 4.992
+    "start": 4.702,
+    "end": 5.294
   },
   {
     "word": "Select",
-    "start": 4.992,
-    "end": 5.317
+    "start": 5.294,
+    "end": 5.596
   },
   {
     "word": "your",
-    "start": 5.352,
-    "end": 5.457
+    "start": 5.631,
+    "end": 5.747
   },
   {
     "word": "branch,",
-    "start": 5.503,
-    "end": 5.933
+    "start": 5.793,
+    "end": 6.258
   },
   {
     "word": "set",
-    "start": 6.107,
-    "end": 6.304
+    "start": 6.374,
+    "end": 6.571
   },
   {
     "word": "your",
-    "start": 6.362,
-    "end": 6.478
-  },
-  {
-    "word": "date",
-    "start": 6.525,
+    "start": 6.629,
     "end": 6.745
   },
   {
+    "word": "date",
+    "start": 6.803,
+    "end": 7.012
+  },
+  {
     "word": "range,",
-    "start": 6.792,
-    "end": 7.21
+    "start": 7.059,
+    "end": 7.465
   },
   {
     "word": "and",
-    "start": 7.384,
-    "end": 7.558
+    "start": 7.488,
+    "end": 7.686
   },
   {
     "word": "click",
-    "start": 7.639,
-    "end": 7.883
+    "start": 7.767,
+    "end": 8.046
   },
   {
     "word": "Produce",
-    "start": 7.953,
-    "end": 8.29
+    "start": 8.162,
+    "end": 8.58
   },
   {
     "word": "Report.",
-    "start": 8.324,
-    "end": 8.824
+    "start": 8.626,
+    "end": 9.091
   },
   {
     "word": "You'll",
-    "start": 8.975,
-    "end": 9.23
+    "start": 9.265,
+    "end": 9.485
   },
   {
     "word": "see",
-    "start": 9.276,
-    "end": 9.462
+    "start": 9.532,
+    "end": 9.683
   },
   {
     "word": "every",
-    "start": 9.578,
-    "end": 9.88
+    "start": 9.752,
+    "end": 10.043
   },
   {
     "word": "employee",
-    "start": 9.927,
-    "end": 10.333
-  },
-  {
-    "word": "who",
-    "start": 10.368,
+    "start": 10.089,
     "end": 10.495
   },
   {
+    "word": "who",
+    "start": 10.519,
+    "end": 10.623
+  },
+  {
     "word": "applied",
-    "start": 10.542,
-    "end": 10.902
+    "start": 10.681,
+    "end": 11.088
   },
   {
     "word": "for",
-    "start": 10.948,
-    "end": 11.064
+    "start": 11.134,
+    "end": 11.25
   },
   {
     "word": "a",
-    "start": 11.111,
-    "end": 11.134
+    "start": 11.296,
+    "end": 11.331
   },
   {
     "word": "published",
-    "start": 11.192,
-    "end": 11.564
+    "start": 11.401,
+    "end": 11.773
   },
   {
     "word": "shift,",
-    "start": 11.587,
-    "end": 12.028
+    "start": 11.796,
+    "end": 12.214
   },
   {
     "word": "when",
-    "start": 12.063,
-    "end": 12.237
+    "start": 12.249,
+    "end": 12.423
   },
   {
     "word": "they",
-    "start": 12.272,
-    "end": 12.399
+    "start": 12.457,
+    "end": 12.585
   },
   {
     "word": "applied,",
-    "start": 12.445,
-    "end": 13.049
+    "start": 12.631,
+    "end": 13.212
   },
   {
     "word": "what",
-    "start": 13.2,
-    "end": 13.386
+    "start": 13.386,
+    "end": 13.583
   },
   {
     "word": "shift",
-    "start": 13.456,
-    "end": 13.699
+    "start": 13.653,
+    "end": 14.001
   },
   {
     "word": "and",
-    "start": 13.734,
-    "end": 13.804
+    "start": 14.071,
+    "end": 14.187
   },
   {
     "word": "role",
-    "start": 13.85,
-    "end": 14.036
+    "start": 14.28,
+    "end": 14.594
   },
   {
     "word": "they",
-    "start": 14.059,
-    "end": 14.164
+    "start": 14.628,
+    "end": 14.744
   },
   {
     "word": "applied",
-    "start": 14.199,
-    "end": 14.547
+    "start": 14.779,
+    "end": 15.139
   },
   {
     "word": "for,",
-    "start": 14.582,
-    "end": 14.965
-  },
-  {
-    "word": "and",
-    "start": 15.139,
-    "end": 15.278
-  },
-  {
-    "word": "whether",
-    "start": 15.313,
-    "end": 15.499
-  },
-  {
-    "word": "they",
-    "start": 15.522,
+    "start": 15.186,
     "end": 15.627
   },
   {
+    "word": "and",
+    "start": 15.871,
+    "end": 16.01
+  },
+  {
+    "word": "whether",
+    "start": 16.045,
+    "end": 16.231
+  },
+  {
+    "word": "they",
+    "start": 16.265,
+    "end": 16.358
+  },
+  {
     "word": "were",
-    "start": 15.65,
-    "end": 15.754
+    "start": 16.381,
+    "end": 16.486
   },
   {
     "word": "approved",
-    "start": 15.778,
-    "end": 16.335
+    "start": 16.509,
+    "end": 17.136
   },
   {
     "word": "or",
-    "start": 16.428,
-    "end": 16.579
+    "start": 17.415,
+    "end": 17.589
   },
   {
     "word": "are",
-    "start": 16.625,
-    "end": 16.741
+    "start": 17.635,
+    "end": 17.763
   },
   {
     "word": "still",
-    "start": 16.788,
-    "end": 17.066
+    "start": 17.798,
+    "end": 18.03
   },
   {
     "word": "pending.",
-    "start": 17.147,
-    "end": 17.867
+    "start": 18.111,
+    "end": 19.005
   },
   {
     "word": "If",
-    "start": 17.867,
-    "end": 18.007
+    "start": 19.005,
+    "end": 19.121
   },
   {
     "word": "you",
-    "start": 18.065,
-    "end": 18.146
+    "start": 19.156,
+    "end": 19.226
   },
   {
     "word": "see",
-    "start": 18.216,
-    "end": 18.378
+    "start": 19.284,
+    "end": 19.423
   },
   {
     "word": "Pending",
-    "start": 18.436,
-    "end": 18.738
+    "start": 19.481,
+    "end": 19.795
   },
   {
     "word": "next",
-    "start": 18.796,
-    "end": 18.97
+    "start": 19.853,
+    "end": 20.027
   },
   {
     "word": "to",
-    "start": 19.005,
-    "end": 19.063
+    "start": 20.05,
+    "end": 20.108
   },
   {
     "word": "a",
-    "start": 19.144,
-    "end": 19.168
+    "start": 20.19,
+    "end": 20.213
   },
   {
     "word": "name,",
-    "start": 19.237,
-    "end": 19.551
+    "start": 20.282,
+    "end": 20.735
   },
   {
     "word": "that's",
-    "start": 19.62,
-    "end": 19.887
+    "start": 20.944,
+    "end": 21.223
   },
   {
     "word": "your",
-    "start": 19.922,
-    "end": 20.038
-  },
-  {
-    "word": "cue,",
-    "start": 20.096,
-    "end": 20.526
-  },
-  {
-    "word": "go",
-    "start": 20.677,
-    "end": 20.863
-  },
-  {
-    "word": "back",
-    "start": 20.956,
-    "end": 21.165
-  },
-  {
-    "word": "to",
-    "start": 21.223,
-    "end": 21.269
-  },
-  {
-    "word": "the",
-    "start": 21.327,
+    "start": 21.258,
     "end": 21.397
   },
   {
-    "word": "Web",
-    "start": 21.432,
-    "end": 21.582
+    "word": "cue,",
+    "start": 21.455,
+    "end": 21.908
   },
   {
-    "word": "Shift",
-    "start": 21.629,
-    "end": 21.838
+    "word": "go",
+    "start": 22.117,
+    "end": 22.268
   },
   {
-    "word": "Approval",
-    "start": 21.861,
-    "end": 22.221
+    "word": "back",
+    "start": 22.349,
+    "end": 22.523
   },
   {
-    "word": "tab",
-    "start": 22.267,
-    "end": 22.581
-  },
-  {
-    "word": "and",
-    "start": 22.662,
-    "end": 22.813
-  },
-  {
-    "word": "take",
-    "start": 22.871,
-    "end": 23.115
-  },
-  {
-    "word": "action",
-    "start": 23.173,
-    "end": 23.603
-  },
-  {
-    "word": "before",
-    "start": 23.696,
-    "end": 24.137
+    "word": "to",
+    "start": 22.57,
+    "end": 22.628
   },
   {
     "word": "the",
-    "start": 24.183,
-    "end": 24.264
+    "start": 22.674,
+    "end": 22.744
+  },
+  {
+    "word": "Web",
+    "start": 22.79,
+    "end": 22.964
+  },
+  {
+    "word": "Shift",
+    "start": 23.022,
+    "end": 23.266
+  },
+  {
+    "word": "Approval",
+    "start": 23.301,
+    "end": 23.684
+  },
+  {
+    "word": "tab",
+    "start": 23.731,
+    "end": 24.044
+  },
+  {
+    "word": "and",
+    "start": 24.125,
+    "end": 24.265
+  },
+  {
+    "word": "take",
+    "start": 24.334,
+    "end": 24.578
+  },
+  {
+    "word": "action",
+    "start": 24.625,
+    "end": 25.008
+  },
+  {
+    "word": "before",
+    "start": 25.077,
+    "end": 25.495
+  },
+  {
+    "word": "the",
+    "start": 25.542,
+    "end": 25.623
   },
   {
     "word": "event.",
-    "start": 24.322,
-    "end": 24.938
+    "start": 25.681,
+    "end": 26.285
   }
 ]

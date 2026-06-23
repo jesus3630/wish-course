@@ -2,411 +2,411 @@
   {
     "word": "Hiring",
     "start": 0,
-    "end": 0.395
+    "end": 0.383
   },
   {
     "word": "Manager",
-    "start": 0.441,
-    "end": 0.801
+    "start": 0.43,
+    "end": 0.755
   },
   {
     "word": "access",
-    "start": 0.882,
-    "end": 1.358
+    "start": 0.824,
+    "end": 1.231
   },
   {
     "word": "gives",
-    "start": 1.428,
-    "end": 1.649
+    "start": 1.289,
+    "end": 1.486
   },
   {
     "word": "you",
-    "start": 1.695,
-    "end": 1.788
+    "start": 1.521,
+    "end": 1.614
   },
   {
     "word": "one",
-    "start": 1.904,
-    "end": 2.125
+    "start": 1.73,
+    "end": 1.974
   },
   {
     "word": "specific",
-    "start": 2.159,
-    "end": 2.647
+    "start": 2.009,
+    "end": 2.485
   },
   {
     "word": "tool:",
-    "start": 2.694,
+    "start": 2.543,
     "end": 3.019
   },
   {
     "word": "the",
-    "start": 3.042,
-    "end": 3.135
+    "start": 3.228,
+    "end": 3.344
   },
   {
     "word": "ability",
-    "start": 3.193,
-    "end": 3.576
+    "start": 3.402,
+    "end": 3.831
   },
   {
     "word": "to",
-    "start": 3.634,
-    "end": 3.704
+    "start": 3.889,
+    "end": 3.947
   },
   {
     "word": "import",
-    "start": 3.82,
-    "end": 4.284
+    "start": 4.04,
+    "end": 4.435
   },
   {
     "word": "applicants",
-    "start": 4.354,
-    "end": 4.888
+    "start": 4.505,
+    "end": 4.992
   },
   {
     "word": "from",
-    "start": 4.911,
-    "end": 5.039
-  },
-  {
-    "word": "the",
-    "start": 5.085,
+    "start": 5.016,
     "end": 5.155
   },
   {
+    "word": "the",
+    "start": 5.19,
+    "end": 5.259
+  },
+  {
     "word": "hiring",
-    "start": 5.224,
-    "end": 5.654
+    "start": 5.317,
+    "end": 5.631
   },
   {
     "word": "portal",
-    "start": 5.712,
-    "end": 6.037
+    "start": 5.689,
+    "end": 5.991
   },
   {
     "word": "into",
-    "start": 6.118,
-    "end": 6.327
+    "start": 6.072,
+    "end": 6.269
   },
   {
     "word": "WISH.",
-    "start": 6.444,
-    "end": 6.885
+    "start": 6.385,
+    "end": 7.036
   },
   {
     "word": "You'll",
-    "start": 6.885,
-    "end": 7.105
+    "start": 7.036,
+    "end": 7.268
   },
   {
     "word": "find",
-    "start": 7.163,
-    "end": 7.396
+    "start": 7.314,
+    "end": 7.523
   },
   {
     "word": "it",
-    "start": 7.454,
-    "end": 7.546
+    "start": 7.57,
+    "end": 7.639
   },
   {
     "word": "under",
-    "start": 7.616,
-    "end": 7.872
+    "start": 7.709,
+    "end": 7.906
   },
   {
     "word": "Tools",
-    "start": 7.988,
-    "end": 8.348
+    "start": 7.976,
+    "end": 8.406
   },
   {
     "word": "to",
-    "start": 8.394,
-    "end": 8.464
+    "start": 8.452,
+    "end": 8.545
   },
   {
     "word": "Import",
-    "start": 8.557,
-    "end": 9.033
+    "start": 8.638,
+    "end": 9.021
   },
   {
     "word": "From",
-    "start": 9.091,
-    "end": 9.242
+    "start": 9.067,
+    "end": 9.23
   },
   {
     "word": "Hiring",
-    "start": 9.3,
-    "end": 9.625
+    "start": 9.323,
+    "end": 9.741
   },
   {
     "word": "Portal.",
-    "start": 9.683,
-    "end": 10.043
+    "start": 9.822,
+    "end": 10.298
   },
   {
     "word": "This",
-    "start": 10.066,
-    "end": 10.228
+    "start": 10.507,
+    "end": 10.704
   },
   {
     "word": "is",
-    "start": 10.275,
-    "end": 10.356
+    "start": 10.762,
+    "end": 10.855
   },
   {
     "word": "not",
-    "start": 10.403,
-    "end": 10.53
+    "start": 10.937,
+    "end": 11.122
   },
   {
     "word": "under",
-    "start": 10.588,
-    "end": 10.739
+    "start": 11.18,
+    "end": 11.343
   },
   {
     "word": "the",
-    "start": 10.774,
-    "end": 10.844
+    "start": 11.389,
+    "end": 11.459
   },
   {
     "word": "Records",
-    "start": 10.913,
-    "end": 11.215
+    "start": 11.517,
+    "end": 11.831
   },
   {
     "word": "menu,",
-    "start": 11.25,
-    "end": 11.68
+    "start": 11.889,
+    "end": 12.307
   },
   {
     "word": "go",
-    "start": 11.761,
-    "end": 11.912
+    "start": 12.376,
+    "end": 12.527
   },
   {
     "word": "to",
-    "start": 11.981,
-    "end": 12.04
+    "start": 12.597,
+    "end": 12.678
   },
   {
     "word": "Tools",
-    "start": 12.121,
-    "end": 12.457
+    "start": 12.771,
+    "end": 13.247
   },
   {
     "word": "in",
-    "start": 12.492,
-    "end": 12.55
+    "start": 13.317,
+    "end": 13.421
   },
   {
     "word": "the",
-    "start": 12.597,
-    "end": 12.666
+    "start": 13.467,
+    "end": 13.537
   },
   {
     "word": "top",
-    "start": 12.713,
-    "end": 12.933
+    "start": 13.584,
+    "end": 13.793
   },
   {
     "word": "navigation.",
-    "start": 13.015,
-    "end": 13.734
+    "start": 13.862,
+    "end": 14.768
   },
   {
     "word": "When",
-    "start": 13.734,
-    "end": 13.92
+    "start": 14.768,
+    "end": 14.965
   },
   {
     "word": "someone",
-    "start": 13.99,
-    "end": 14.327
+    "start": 15.035,
+    "end": 15.348
   },
   {
     "word": "applies",
-    "start": 14.35,
-    "end": 14.988
+    "start": 15.371,
+    "end": 15.964
   },
   {
     "word": "and",
-    "start": 15.07,
-    "end": 15.29
+    "start": 16.033,
+    "end": 16.289
   },
   {
     "word": "is",
-    "start": 15.36,
-    "end": 15.441
+    "start": 16.358,
+    "end": 16.44
   },
   {
     "word": "processed",
-    "start": 15.557,
-    "end": 16.242
+    "start": 16.532,
+    "end": 17.217
   },
   {
     "word": "through",
-    "start": 16.289,
-    "end": 16.509
+    "start": 17.252,
+    "end": 17.45
   },
   {
     "word": "the",
-    "start": 16.532,
-    "end": 16.602
+    "start": 17.473,
+    "end": 17.543
   },
   {
     "word": "hiring",
-    "start": 16.649,
-    "end": 17.043
+    "start": 17.601,
+    "end": 18.007
   },
   {
     "word": "portal,",
-    "start": 17.101,
-    "end": 17.554
+    "start": 18.065,
+    "end": 18.587
   },
   {
     "word": "they",
-    "start": 17.833,
-    "end": 17.984
+    "start": 18.796,
+    "end": 18.971
   },
   {
     "word": "don't",
-    "start": 18.019,
-    "end": 18.216
+    "start": 19.052,
+    "end": 19.319
   },
   {
     "word": "automatically",
-    "start": 18.262,
-    "end": 18.982
+    "start": 19.389,
+    "end": 20.05
   },
   {
     "word": "exist",
-    "start": 19.063,
-    "end": 19.609
+    "start": 20.132,
+    "end": 20.654
   },
   {
     "word": "in",
-    "start": 19.725,
-    "end": 19.876
+    "start": 20.735,
+    "end": 20.875
   },
   {
     "word": "WISH.",
-    "start": 19.957,
-    "end": 20.457
+    "start": 20.967,
+    "end": 21.478
   },
   {
     "word": "This",
-    "start": 20.782,
-    "end": 20.991
+    "start": 21.861,
+    "end": 22.07
   },
   {
     "word": "screen",
-    "start": 21.037,
-    "end": 21.467
+    "start": 22.128,
+    "end": 22.546
   },
   {
     "word": "is",
-    "start": 21.548,
-    "end": 21.652
+    "start": 22.604,
+    "end": 22.686
   },
   {
     "word": "where",
-    "start": 21.699,
-    "end": 21.861
+    "start": 22.744,
+    "end": 22.964
   },
   {
     "word": "you",
-    "start": 21.896,
-    "end": 21.978
+    "start": 23.022,
+    "end": 23.127
   },
   {
     "word": "bring",
-    "start": 22.047,
-    "end": 22.233
+    "start": 23.243,
+    "end": 23.475
   },
   {
     "word": "them",
-    "start": 22.279,
-    "end": 22.419
+    "start": 23.533,
+    "end": 23.673
   },
   {
     "word": "in,",
-    "start": 22.488,
-    "end": 22.848
+    "start": 23.742,
+    "end": 24.079
   },
   {
     "word": "review",
-    "start": 23.173,
-    "end": 23.464
+    "start": 24.195,
+    "end": 24.578
   },
   {
     "word": "their",
-    "start": 23.51,
-    "end": 23.649
+    "start": 24.648,
+    "end": 24.81
   },
   {
     "word": "status,",
-    "start": 23.684,
-    "end": 24.323
+    "start": 24.845,
+    "end": 25.414
   },
   {
     "word": "and",
-    "start": 24.392,
-    "end": 24.567
+    "start": 25.53,
+    "end": 25.751
   },
   {
     "word": "create",
-    "start": 24.636,
-    "end": 24.961
+    "start": 25.832,
+    "end": 26.204
   },
   {
     "word": "their",
-    "start": 24.996,
-    "end": 25.147
+    "start": 26.238,
+    "end": 26.401
   },
   {
     "word": "employee",
-    "start": 25.193,
-    "end": 25.611
+    "start": 26.459,
+    "end": 27.016
   },
   {
     "word": "record",
-    "start": 25.681,
-    "end": 26.053
+    "start": 27.109,
+    "end": 27.457
   },
   {
     "word": "so",
-    "start": 26.262,
-    "end": 26.389
+    "start": 27.504,
+    "end": 27.62
   },
   {
     "word": "they",
-    "start": 26.459,
-    "end": 26.575
+    "start": 27.69,
+    "end": 27.806
   },
   {
     "word": "can",
-    "start": 26.61,
-    "end": 26.703
+    "start": 27.841,
+    "end": 27.945
   },
   {
     "word": "be",
-    "start": 26.749,
-    "end": 26.819
+    "start": 28.003,
+    "end": 28.096
   },
   {
     "word": "scheduled",
-    "start": 26.854,
-    "end": 27.237
+    "start": 28.154,
+    "end": 28.665
   },
   {
     "word": "for",
-    "start": 27.26,
-    "end": 27.353
+    "start": 28.7,
+    "end": 28.804
   },
   {
     "word": "jobs.",
-    "start": 27.411,
-    "end": 28.096
+    "start": 28.862,
+    "end": 29.629
   }
 ]

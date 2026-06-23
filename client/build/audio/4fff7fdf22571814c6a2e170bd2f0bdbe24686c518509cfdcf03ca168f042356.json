@@ -2,311 +2,311 @@
   {
     "word": "Congratulations!",
     "start": 0,
-    "end": 1.138
+    "end": 1.057
   },
   {
     "word": "You've",
-    "start": 1.254,
+    "start": 1.265,
     "end": 1.544
   },
   {
     "word": "completed",
     "start": 1.579,
-    "end": 2.02
+    "end": 2.032
   },
   {
     "word": "the",
     "start": 2.078,
-    "end": 2.148
+    "end": 2.159
   },
   {
     "word": "Mail",
-    "start": 2.229,
-    "end": 2.473
+    "start": 2.276,
+    "end": 2.519
   },
   {
     "word": "By",
-    "start": 2.543,
-    "end": 2.682
+    "start": 2.589,
+    "end": 2.775
   },
   {
     "word": "module.",
-    "start": 2.775,
-    "end": 3.471
+    "start": 2.856,
+    "end": 3.564
   },
   {
     "word": "You",
-    "start": 3.471,
-    "end": 3.611
+    "start": 3.564,
+    "end": 3.692
   },
   {
     "word": "now",
-    "start": 3.762,
-    "end": 3.994
+    "start": 3.808,
+    "end": 3.982
   },
   {
     "word": "know",
-    "start": 4.063,
-    "end": 4.238
+    "start": 4.04,
+    "end": 4.191
   },
   {
     "word": "how",
-    "start": 4.296,
-    "end": 4.4
+    "start": 4.261,
+    "end": 4.423
   },
   {
     "word": "to",
-    "start": 4.435,
-    "end": 4.493
+    "start": 4.516,
+    "end": 4.609
   },
   {
     "word": "use",
-    "start": 4.563,
-    "end": 4.783
+    "start": 4.725,
+    "end": 5.039
   },
   {
     "word": "all",
-    "start": 4.841,
-    "end": 5.074
+    "start": 5.108,
+    "end": 5.387
   },
   {
     "word": "three",
-    "start": 5.143,
-    "end": 5.433
+    "start": 5.468,
+    "end": 5.759
   },
   {
     "word": "Mail",
-    "start": 5.492,
-    "end": 5.666
+    "start": 5.828,
+    "end": 6.026
   },
   {
     "word": "By",
-    "start": 5.724,
-    "end": 5.863
+    "start": 6.084,
+    "end": 6.223
   },
   {
     "word": "tools",
-    "start": 5.944,
-    "end": 6.409
+    "start": 6.304,
+    "end": 6.711
   },
   {
     "word": "to",
-    "start": 6.502,
-    "end": 6.606
+    "start": 6.92,
+    "end": 7.047
   },
   {
     "word": "communicate",
-    "start": 6.676,
-    "end": 7.187
+    "start": 7.129,
+    "end": 7.663
   },
   {
     "word": "with",
-    "start": 7.21,
-    "end": 7.326
+    "start": 7.697,
+    "end": 7.825
   },
   {
     "word": "employees",
-    "start": 7.384,
-    "end": 7.872
+    "start": 7.872,
+    "end": 8.591
   },
   {
     "word": "through",
-    "start": 7.918,
-    "end": 8.173
+    "start": 8.649,
+    "end": 8.905
   },
   {
     "word": "WISH,",
-    "start": 8.231,
-    "end": 8.661
+    "start": 8.986,
+    "end": 9.509
   },
   {
     "word": "whether",
-    "start": 8.754,
-    "end": 9.021
+    "start": 9.683,
+    "end": 9.961
   },
   {
     "word": "you're",
-    "start": 9.067,
-    "end": 9.23
+    "start": 10.019,
+    "end": 10.217
   },
   {
     "word": "reaching",
-    "start": 9.265,
-    "end": 9.543
+    "start": 10.252,
+    "end": 10.553
   },
   {
     "word": "a",
-    "start": 9.601,
-    "end": 9.636
+    "start": 10.612,
+    "end": 10.635
   },
   {
     "word": "specific",
-    "start": 9.694,
-    "end": 10.205
+    "start": 10.704,
+    "end": 11.215
   },
   {
     "word": "person,",
-    "start": 10.252,
-    "end": 10.681
+    "start": 11.285,
+    "end": 11.819
   },
   {
     "word": "filling",
-    "start": 10.774,
-    "end": 11.076
+    "start": 11.993,
+    "end": 12.295
   },
   {
     "word": "open",
-    "start": 11.134,
-    "end": 11.331
+    "start": 12.353,
+    "end": 12.562
   },
   {
     "word": "shifts,",
-    "start": 11.378,
-    "end": 11.726
+    "start": 12.62,
+    "end": 13.061
   },
   {
     "word": "or",
-    "start": 11.819,
-    "end": 11.97
+    "start": 13.235,
+    "end": 13.398
   },
   {
     "word": "sending",
-    "start": 12.051,
-    "end": 12.341
+    "start": 13.456,
+    "end": 13.758
   },
   {
     "word": "an",
-    "start": 12.388,
-    "end": 12.446
+    "start": 13.804,
+    "end": 13.862
   },
   {
     "word": "update",
-    "start": 12.527,
-    "end": 12.922
+    "start": 13.943,
+    "end": 14.407
   },
   {
     "word": "to",
-    "start": 12.945,
-    "end": 13.015
+    "start": 14.442,
+    "end": 14.535
   },
   {
     "word": "an",
-    "start": 13.085,
-    "end": 13.143
+    "start": 14.628,
+    "end": 14.686
   },
   {
     "word": "entire",
-    "start": 13.189,
-    "end": 13.665
+    "start": 14.733,
+    "end": 15.174
   },
   {
     "word": "job",
-    "start": 13.723,
-    "end": 13.99
+    "start": 15.243,
+    "end": 15.499
   },
   {
     "word": "crew.",
-    "start": 14.048,
-    "end": 14.42
+    "start": 15.568,
+    "end": 16.091
   },
   {
     "word": "If",
-    "start": 14.42,
-    "end": 14.571
+    "start": 16.091,
+    "end": 16.253
   },
   {
     "word": "an",
-    "start": 14.617,
-    "end": 14.664
+    "start": 16.312,
+    "end": 16.358
   },
   {
     "word": "employee",
-    "start": 14.698,
-    "end": 15.105
+    "start": 16.404,
+    "end": 16.753
   },
   {
     "word": "isn't",
-    "start": 15.174,
-    "end": 15.488
+    "start": 16.811,
+    "end": 17.031
   },
   {
     "word": "receiving",
-    "start": 15.557,
-    "end": 15.964
+    "start": 17.055,
+    "end": 17.356
   },
   {
     "word": "your",
-    "start": 15.999,
-    "end": 16.092
+    "start": 17.391,
+    "end": 17.484
   },
   {
     "word": "messages,",
-    "start": 16.126,
-    "end": 16.626
+    "start": 17.519,
+    "end": 18.088
   },
   {
     "word": "the",
-    "start": 16.684,
-    "end": 16.811
+    "start": 18.239,
+    "end": 18.367
   },
   {
     "word": "first",
-    "start": 16.881,
-    "end": 17.102
+    "start": 18.483,
+    "end": 18.715
   },
   {
     "word": "thing",
-    "start": 17.125,
-    "end": 17.264
+    "start": 18.75,
+    "end": 18.889
   },
   {
     "word": "to",
-    "start": 17.311,
-    "end": 17.369
+    "start": 18.935,
+    "end": 18.993
   },
   {
     "word": "check",
-    "start": 17.415,
-    "end": 17.682
+    "start": 19.051,
+    "end": 19.319
   },
   {
     "word": "is",
-    "start": 17.798,
-    "end": 17.961
+    "start": 19.4,
+    "end": 19.551
   },
   {
     "word": "their",
-    "start": 18.019,
-    "end": 18.193
+    "start": 19.597,
+    "end": 19.76
   },
   {
     "word": "email",
-    "start": 18.263,
-    "end": 18.588
+    "start": 19.829,
+    "end": 20.143
   },
   {
     "word": "address",
-    "start": 18.646,
-    "end": 19.075
+    "start": 20.189,
+    "end": 20.572
   },
   {
     "word": "in",
-    "start": 19.284,
-    "end": 19.458
+    "start": 20.654,
+    "end": 20.816
   },
   {
     "word": "their",
-    "start": 19.516,
-    "end": 19.691
+    "start": 20.874,
+    "end": 21.048
   },
   {
     "word": "WISH",
-    "start": 19.772,
-    "end": 20.062
+    "start": 21.118,
+    "end": 21.339
   },
   {
     "word": "record.",
-    "start": 20.143,
-    "end": 20.573
+    "start": 21.385,
+    "end": 21.966
   }
 ]
