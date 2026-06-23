@@ -551,6 +551,9 @@ export default function ModulePlayer({
   }
 
   function handleRestart() {
+    // Destructive (jumps to slide 1 + clears progress) and sits next to Prev — confirm so an
+    // accidental click while reaching for Prev can't silently throw the learner back to the start.
+    if (!window.confirm('Restart this module from the beginning? Your progress in this module will be cleared.')) return;
     stopAudio();
     const reset = resetModuleProgress(progressRef.current, module.id);
     onProgressUpdate(reset);
@@ -559,7 +562,10 @@ export default function ModulePlayer({
   }
 
   function handlePrev() {
-    if (slideIndex > 0) goToSlide(slideIndex - 1);
+    // Functional update + guard: each click moves back exactly one, even on rapid double-clicks
+    // (no stale-closure jump).
+    stopAudio();
+    setSlideIndex(i => (i > 0 ? i - 1 : i));
   }
 
   function handleNext() {
