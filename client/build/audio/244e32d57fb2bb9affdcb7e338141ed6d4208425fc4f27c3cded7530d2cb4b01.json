@@ -1,0 +1,322 @@
+[
+  {
+    "word": "Let's",
+    "start": 0,
+    "end": 0.302
+  },
+  {
+    "word": "see",
+    "start": 0.337,
+    "end": 0.499
+  },
+  {
+    "word": "how",
+    "start": 0.546,
+    "end": 0.662
+  },
+  {
+    "word": "this",
+    "start": 0.72,
+    "end": 0.859
+  },
+  {
+    "word": "works",
+    "start": 0.917,
+    "end": 1.138
+  },
+  {
+    "word": "in",
+    "start": 1.173,
+    "end": 1.242
+  },
+  {
+    "word": "WISH.",
+    "start": 1.312,
+    "end": 1.776
+  },
+  {
+    "word": "When",
+    "start": 1.858,
+    "end": 2.043
+  },
+  {
+    "word": "you",
+    "start": 2.078,
+    "end": 2.159
+  },
+  {
+    "word": "process",
+    "start": 2.229,
+    "end": 2.775
+  },
+  {
+    "word": "hours",
+    "start": 2.844,
+    "end": 3.228
+  },
+  {
+    "word": "for",
+    "start": 3.274,
+    "end": 3.402
+  },
+  {
+    "word": "a",
+    "start": 3.448,
+    "end": 3.471
+  },
+  {
+    "word": "California",
+    "start": 3.529,
+    "end": 4.063
+  },
+  {
+    "word": "jahb,",
+    "start": 4.122,
+    "end": 4.748
+  },
+  {
+    "word": "the",
+    "start": 4.899,
+    "end": 5.027
+  },
+  {
+    "word": "roster",
+    "start": 5.108,
+    "end": 5.515
+  },
+  {
+    "word": "adds",
+    "start": 5.608,
+    "end": 5.968
+  },
+  {
+    "word": "break",
+    "start": 6.084,
+    "end": 6.351
+  },
+  {
+    "word": "tracking.",
+    "start": 6.397,
+    "end": 6.861
+  },
+  {
+    "word": "Each",
+    "start": 6.943,
+    "end": 7.163
+  },
+  {
+    "word": "employee",
+    "start": 7.198,
+    "end": 7.674
+  },
+  {
+    "word": "shows",
+    "start": 7.732,
+    "end": 8.046
+  },
+  {
+    "word": "how",
+    "start": 8.104,
+    "end": 8.208
+  },
+  {
+    "word": "many",
+    "start": 8.243,
+    "end": 8.406
+  },
+  {
+    "word": "breaks",
+    "start": 8.475,
+    "end": 8.766
+  },
+  {
+    "word": "they",
+    "start": 8.8,
+    "end": 8.928
+  },
+  {
+    "word": "took,",
+    "start": 8.986,
+    "end": 9.392
+  },
+  {
+    "word": "about",
+    "start": 9.509,
+    "end": 9.834
+  },
+  {
+    "word": "one",
+    "start": 9.927,
+    "end": 10.252
+  },
+  {
+    "word": "every",
+    "start": 10.31,
+    "end": 10.565
+  },
+  {
+    "word": "five",
+    "start": 10.646,
+    "end": 10.995
+  },
+  {
+    "word": "hours,",
+    "start": 11.053,
+    "end": 11.552
+  },
+  {
+    "word": "along",
+    "start": 11.587,
+    "end": 11.923
+  },
+  {
+    "word": "with",
+    "start": 11.958,
+    "end": 12.086
+  },
+  {
+    "word": "checkboxes",
+    "start": 12.121,
+    "end": 12.736
+  },
+  {
+    "word": "for",
+    "start": 12.783,
+    "end": 12.899
+  },
+  {
+    "word": "Waiver,",
+    "start": 12.98,
+    "end": 13.386
+  },
+  {
+    "word": "Meal",
+    "start": 13.468,
+    "end": 13.665
+  },
+  {
+    "word": "Premium,",
+    "start": 13.723,
+    "end": 14.187
+  },
+  {
+    "word": "and",
+    "start": 14.21,
+    "end": 14.419
+  },
+  {
+    "word": "Break",
+    "start": 14.536,
+    "end": 14.768
+  },
+  {
+    "word": "Premium.",
+    "start": 14.826,
+    "end": 15.267
+  },
+  {
+    "word": "If",
+    "start": 15.29,
+    "end": 15.43
+  },
+  {
+    "word": "a",
+    "start": 15.499,
+    "end": 15.522
+  },
+  {
+    "word": "meal",
+    "start": 15.615,
+    "end": 15.801
+  },
+  {
+    "word": "break",
+    "start": 15.836,
+    "end": 15.998
+  },
+  {
+    "word": "is",
+    "start": 16.045,
+    "end": 16.115
+  },
+  {
+    "word": "missed,",
+    "start": 16.184,
+    "end": 16.44
+  },
+  {
+    "word": "late,",
+    "start": 16.591,
+    "end": 16.939
+  },
+  {
+    "word": "or",
+    "start": 16.974,
+    "end": 17.136
+  },
+  {
+    "word": "short,",
+    "start": 17.229,
+    "end": 17.74
+  },
+  {
+    "word": "mark",
+    "start": 18.123,
+    "end": 18.425
+  },
+  {
+    "word": "Meal",
+    "start": 18.518,
+    "end": 18.715
+  },
+  {
+    "word": "Premium",
+    "start": 18.773,
+    "end": 19.145
+  },
+  {
+    "word": "so",
+    "start": 19.203,
+    "end": 19.365
+  },
+  {
+    "word": "payroll",
+    "start": 19.481,
+    "end": 19.957
+  },
+  {
+    "word": "adds",
+    "start": 20.027,
+    "end": 20.294
+  },
+  {
+    "word": "the",
+    "start": 20.329,
+    "end": 20.399
+  },
+  {
+    "word": "required",
+    "start": 20.457,
+    "end": 20.898
+  },
+  {
+    "word": "extra",
+    "start": 20.979,
+    "end": 21.293
+  },
+  {
+    "word": "hour",
+    "start": 21.351,
+    "end": 21.606
+  },
+  {
+    "word": "of",
+    "start": 21.664,
+    "end": 21.734
+  },
+  {
+    "word": "pay.",
+    "start": 21.815,
+    "end": 22.477
+  }
+]
