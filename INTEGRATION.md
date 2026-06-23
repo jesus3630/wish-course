@@ -78,6 +78,26 @@ than silently dropping).
 > `["introduction","record_maintenance","manage_job","mss","scheduling","schedule_by_job_admin",
 > "general_reporting","admin_reporting","mail_by","sign-in__sign-out"]`.
 
+### 2.1 State / branch-specific modules (NOT from the permission form)
+
+Some modules are **location-based, not permission-based** — e.g. **`california_breaks`** (California
+Meal & Rest Breaks, AB 1512). The permission form has **no state field, and we do NOT add one** (a
+mis-selected state is a compliance liability). Instead, these modules are assigned by the employee's
+**branch**, which already determines the state (e.g. "San Francisco" is a California branch).
+
+**Assignment rule:** ESS already knows each employee's branch/location, so when ESS enrolls someone it
+**appends state-specific modules** to the permission-derived list:
+
+```
+assigned_modules = [ <permission-based modules from §2> ]
+                 + (employeeBranchIsCalifornia ? ["california_breaks"] : [])
+```
+
+ProtaTECH maintains the branch→state mapping (which branches are in California). No change to the
+permission form, no state-selection liability. Until ESS wires this, California branch admins assign
+`california_breaks` manually (admin panel, or `POST /api/admin/roster` with it in `assigned_modules`).
+The module is a clean, independent unit — toggled in or out per employee.
+
 ---
 
 ## 3. Integration surface — four pieces
