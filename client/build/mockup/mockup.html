@@ -9578,6 +9578,131 @@ function spRecalcHrs() {
   });
 }
 
+// ── California Manage Process Hours (adds break tracking: Breaks count + W/MP/BP) ──
+function caManageProcessHoursHTML() {
+  const req = '<span style="color:#c00"> *</span>';
+  const row = (n,name,id)=>`<tr style="background:${n%2?'#f7f7f7':'#ededed'}"><td style="padding:5px 8px">1123705735</td><td style="padding:5px 8px">Fuerza Regida Load-in-6/18/2026</td><td style="text-align:center;padding:5px 8px">${n}</td><td style="padding:5px 8px"><a${id?` id="${id}"`:''} style="color:#3a6aaa;cursor:pointer">${name}</a></td><td style="padding:5px 8px">06/18/2026</td><td style="padding:5px 8px">06/18/2026</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">Deductions</a></td></tr>`;
+  return `
+    <div class="page-title">Manage Process Hours</div>
+    <div class="note-bar">Note: All the * marked fields are mandatory</div>
+    <table style="border-spacing:0 5px;border-collapse:separate;margin:8px auto 0">
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job# :</td><td><input class="form-input" style="width:175px"></td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Start Time :</td><td><input class="form-input" value="06/23/2026" style="width:90px">${calBtn()}${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Branch :</td><td><select class="form-select" style="width:205px"><option>San Francisco</option></select>${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Event :</td><td><select class="form-select" id="ca-mph-event" style="width:205px"><option>select</option><option>2026 Fuerza Regida Oracle Park</option></select>${req}</td></tr>
+      <tr><td style="text-align:right;font-size:13px;padding-right:8px">Job :</td><td><select class="form-select" id="ca-mph-job" style="width:205px"><option>Fuerza Regida Load-in-6/18/2026</option></select>${req}</td></tr>
+      <tr><td></td><td><select class="form-select" style="width:205px"><option>Default Rate</option></select></td></tr>
+    </table>
+    <div style="text-align:center;margin:12px 0"><button class="btn" id="ca-mph-retrieve">Retrieve</button><button class="btn btn-secondary">Back</button></div>
+    <div id="ca-mph-results" style="display:none">
+      <div class="page-title" style="font-size:18px">Search Result</div>
+      <table style="width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
+        <tbody>
+          ${row(1,'Production Supervisor - DAY')}
+          ${row(2,'Oracle Park - Day','ca-shift-link')}
+          ${row(3,'Oracle Park - Mid')}
+          ${row(4,'Production Supervisor - ON')}
+          ${row(5,'Oracle Park - ON')}
+        </tbody>
+      </table>
+    </div>`;
+}
+
+function caShiftRosterHTML() {
+  const cw = 'text-align:center;padding:4px 6px';
+  const dateSel = '<select class="form-select" style="font-size:11px;width:104px"><option>18-Jun-2026</option></select>';
+  const breaks = (n)=>`<select class="form-select" style="font-size:11px;width:44px">${[1,2,3,4,5,6,7,8].map(i=>`<option${i===n?' selected':''}>${i}</option>`).join('')}</select>`;
+  const wmpbp = (mp,id)=>`<div style="display:flex;gap:3px;justify-content:center"><input type="checkbox"><input type="checkbox"${mp?' checked':''}${id?` id="${id}"`:''}><input type="checkbox"></div><div style="font-size:8px;color:#888;letter-spacing:2px;text-align:center">W MP BP</div>`;
+  // [WF#, Name, signIn, signOut, hrs, rate, ovd, breaks, flag] — randomized names; 12hr=2 breaks, 10hr=1 break
+  const emps = [
+    ['4810231','Alvarez, Bianca','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810242','Becker, Janelle','08:00','18:00','10.00','22.00','22.00',1,''],
+    ['4810253','Castro, Cecil','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810264','Delgado, Sheryl','10:00','20:15','10.25','22.00','22.00',1,'MP'],
+    ['4810275','Dunbar, Harvey','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810286','Fields, Marta','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810297','Jordan, Cecelia','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810308','Mercer, Joel','08:00','20:00','12.00','19.50','19.50',2,''],
+    ['4810319','Ortega, Frank','08:00','20:00','12.00','19.50','19.50',2,''],
+    ['4810320','Russell, Clifton','08:00','20:00','12.00','22.00','22.00',2,''],
+    ['4810331','Snyder, Jana','08:00','20:00','12.00','21.50','21.50',2,''],
+    ['4810342','Walters, Katherine','08:00','20:00','12.00','22.00','22.00',2,''],
+  ];
+  const rows = emps.map(e=>`<tr style="background:#fff">
+    <td style="padding:4px 6px;white-space:nowrap;color:#c89000">&#9998; &#9733;</td>
+    <td style="padding:4px 6px;color:#3a6aaa">${e[0]}</td>
+    <td style="padding:4px 6px;color:#3a6aaa">${e[1]}</td>
+    <td style="${cw}"><input type="checkbox"></td>
+    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" value="${e[2]}" style="width:42px"> ${dateSel}</td>
+    <td style="padding:4px 6px;white-space:nowrap"><input class="form-input" value="${e[3]}" style="width:42px"> ${dateSel}</td>
+    <td style="${cw}"><b>${e[4]}</b></td>
+    <td style="${cw}">${e[5]}</td>
+    <td style="${cw}"><input class="form-input" value="${e[6]}" style="width:46px"></td>
+    <td style="${cw}"><input class="form-input" style="width:42px"></td>
+    <td style="${cw}">${breaks(e[7])}</td>
+    <td style="${cw}">${wmpbp(e[8]==='MP', e[8]==='MP'?'ca-mp':'')}</td>
+    <td style="${cw};color:#e53935;font-weight:bold;cursor:pointer">&#10006;</td></tr>`).join('');
+  return `
+    <div id="ca-roster" style="overflow-x:auto;margin-top:4px">
+      <table style="min-width:1020px;width:100%;font-size:12px">
+        <thead><tr style="background:#5a5a5a;color:#fff">
+          <th style="padding:4px 6px"></th><th style="text-align:left;padding:4px 6px">WF#</th><th style="text-align:left;padding:4px 6px">WF Name</th>
+          <th style="${cw}">NS</th><th style="text-align:left;padding:4px 6px">Sign In Adj</th><th style="text-align:left;padding:4px 6px">Sign Out Adj</th>
+          <th style="${cw}">Hrs</th><th style="${cw}">Rate</th><th style="${cw}">Ovd Rate</th><th style="${cw}">Per Diem</th>
+          <th style="${cw}" id="ca-breaks-col">Breaks</th><th style="${cw}">W&nbsp;MP&nbsp;BP</th><th></th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <div style="margin-top:8px"><button class="btn btn-sm">Create</button></div>
+    </div>`;
+}
+
+function caShiftProcessHTML() {
+  const cw = 'text-align:center;padding:5px 8px';
+  const info = (l,v)=>`<tr><td style="text-align:right;font-size:13px;padding:2px 8px;white-space:nowrap">${l} :</td><td style="font-size:13px;padding:2px 8px">${v}</td></tr>`;
+  return `
+    <div class="page-title">Manage Process Hours</div>
+    <table style="margin:8px auto 0">
+      ${info('Job No','1123705735')}${info('Job Name','Fuerza Regida Load-in-6/18/2026')}${info('Shift No','2')}${info('Shift Name','Oracle Park - Day')}${info('Start Time','06/18/2026 08:00')}${info('End Time','06/18/2026 20:00')}
+    </table>
+    <div style="text-align:center;margin:10px 0">
+      <button class="btn" id="ca-autofill-si">AutoFill SignIn</button><button class="btn" id="ca-autofill-so">AutoFill SignOut</button>
+      <span id="ca-legend" style="font-size:11px;color:#444;margin-left:12px">W# (Waiver), MP# (Meal Premium) &amp; BP# (Break Premium)</span>
+    </div>
+    <table style="width:100%;font-size:12px">
+      <thead><tr style="background:#5a5a5a;color:#fff"><th style="width:30px"></th><th style="text-align:left;padding:5px 8px">Shifts/Role</th><th style="text-align:left;padding:5px 8px">Start</th><th style="text-align:left;padding:5px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
+      <tbody>
+        <tr style="background:#5a5a5a;color:#fff"><td></td><td style="padding:5px 8px">Oracle Park - Day</td><td style="padding:5px 8px">06/18/2026 08:00</td><td style="padding:5px 8px">06/18/2026 20:00</td><td style="${cw}">12</td><td style="${cw}">13</td><td style="${cw}">12</td><td style="${cw}">0</td><td style="${cw}">12</td></tr>
+        <tr style="background:#f4f4f4"><td style="text-align:center;font-weight:bold;color:#2a8a3a">&minus;</td><td style="padding:5px 8px;color:#c00">Role: Event Staff</td><td style="padding:5px 8px"><button class="btn btn-sm">SignIn</button> <button class="btn btn-sm">SignOut</button></td><td></td><td style="${cw}">12</td><td style="${cw}">13</td><td style="${cw}">12</td><td style="${cw}">0</td><td style="${cw}">12</td></tr>
+      </tbody>
+    </table>
+    ${caShiftRosterHTML()}
+    <div style="text-align:center;font-size:13px;margin:8px 0;font-weight:bold">Total Hours: 140.25</div>
+    <div style="text-align:center;margin:8px 0"><button class="btn" id="ca-approve">Approve Hours</button><button class="btn btn-secondary">Back</button></div>`;
+}
+
+function slide_manual_process_hours_8() {
+  // California Meal & Rest Breaks — same Manage Process Hours flow, with break tracking (Breaks + W/MP/BP)
+  setNav('home');
+  document.getElementById('content').innerHTML = homeScreenHTML();
+  runGuided([
+    { selector: '#nav-payroll', prompt: 'California works the same way — open the "Payroll" menu',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.add('active'); document.getElementById('sub-payroll').classList.add('show'); }},
+    { selector: '#sub-pay-mph', prompt: 'Click "Manage Process Hours"',
+      onConfirm: () => { document.getElementById('nav-payroll').classList.remove('active'); document.getElementById('sub-payroll').classList.remove('show'); setNav('payroll'); document.getElementById('content').innerHTML = caManageProcessHoursHTML(); }},
+    { selector: '#ca-mph-event', prompt: 'Select your California event from the dropdown',
+      onConfirm: () => { document.getElementById('ca-mph-event').value = '2026 Fuerza Regida Oracle Park'; }},
+    { selector: '#ca-mph-retrieve', prompt: 'Click "Retrieve" to list the shifts for that job',
+      onConfirm: () => { document.getElementById('ca-mph-results').style.display = ''; }},
+    { selector: '#ca-shift-link', prompt: 'Click a Shift Name to open it',
+      onConfirm: () => { document.getElementById('content').innerHTML = caShiftProcessHTML(); }},
+    { selector: '#ca-legend', prompt: 'This is the same screen as any other job, with one addition for California: each employee row tracks W (Waiver), MP (Meal Premium), and BP (Break Premium).', skipClick: true },
+    { selector: '#ca-breaks-col', prompt: 'The Breaks column shows how many breaks each employee took. California requires a break about every five hours — so a 12-hour shift shows 2 breaks, and a 10-hour shift shows 1.', skipClick: true },
+    { selector: '#ca-mp', prompt: 'If a meal break is missed, late, or cut short, check Meal Premium (MP). California requires an extra hour of pay, and WISH flags it here so payroll pays it correctly.', skipClick: true },
+    { selector: '#ca-approve', prompt: 'Once breaks and any premiums are recorded, click Approve Hours to finalize the shift.', skipClick: true },
+  ]);
+}
+
 // 24-hour warning popup — appears when a sign-out date sits on the wrong day (shift crossing midnight)
 function show24hrWarning() {
   if (document.getElementById('warn24')) return;
@@ -13291,6 +13416,7 @@ const routes = {
   'manual_process_hours-5': slide_manual_process_hours_5,
   'manual_process_hours-6': slide_manual_process_hours_6,
   'manual_process_hours-7': slide_manual_process_hours_7,
+  'manual_process_hours-8': slide_manual_process_hours_8,
   'billing-4': slide_billing_4,
   'billing-5': slide_billing_5,
   'billing-6': slide_billing_6,
