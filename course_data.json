@@ -1293,5 +1293,71 @@
         "slide_number": 9
       }
     ]
+  },
+  {
+    "id": "california_breaks",
+    "name": "California Meal & Rest Breaks (AB 1512)",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "",
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. WISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll.\n\nIn this module, we'll focus on California meal and rest break requirements and how WISH helps you stay compliant."
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "About This Module",
+        "instructions": "",
+        "text": "California has some of the strictest meal and rest break rules in the country, and AB 1512 adds specific provisions for security officers. In this module you'll learn what breaks employees are entitled to, the difference between paid and unpaid breaks, how AB 1512 applies to on-call rest periods, and how WISH tracks all of it."
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "California Break Law — Overview",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing]",
+        "text": "Under California law, non-exempt employees are generally entitled to an unpaid meal period and paid rest periods based on how long they work. Failing to provide these can result in premium pay owed to the employee. Accurate tracking is essential, and WISH is built to capture it."
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Meal Breaks",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing]",
+        "text": "Employees who work more than five hours are generally entitled to a thirty-minute, unpaid, duty-free meal period. A second meal period generally applies to shifts over ten hours. Meal periods are unpaid because the employee is relieved of all duties. In WISH, meal periods are recorded so they are correctly excluded from paid time."
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Rest Breaks",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing]",
+        "text": "Employees are also entitled to paid rest periods, generally ten minutes for every four hours worked. Unlike meal periods, rest breaks are paid and counted as hours worked. WISH records rest periods so they remain part of the employee's paid time."
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "AB 1512 — Security Officer Rest Breaks",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing]",
+        "text": "AB 1512 provides specific rules for security officers registered with the state who are employed by a private patrol operator. Under these rules, a security officer may be required to remain on the premises and on call during a rest period. If a rest period is interrupted, the officer must be permitted to restart a rest period or be paid an additional hour of premium pay. WISH helps track on-call rest periods and any interruptions."
+      },
+      {
+        "slide_number": 7,
+        "slide_name": "Tracking Paid & Unpaid Breaks in WISH",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing] (interactive demo of the WISH break-tracking screens to be built once screens are provided)",
+        "text": "WISH distinguishes between paid and unpaid break time so payroll is accurate. When you process hours, paid rest breaks remain part of the worked hours, while unpaid meal periods are deducted. This keeps the employee's pay and the company's records compliant."
+      },
+      {
+        "slide_number": 8,
+        "slide_name": "Missed or Late Breaks & Premium Pay",
+        "instructions": "[DRAFT — verify with compliance/legal before publishing]",
+        "text": "When a required meal or rest period is missed, late, or interrupted, California generally requires one additional hour of pay at the employee's regular rate. Recording these accurately in WISH ensures employees are paid correctly and the company keeps an audit trail."
+      },
+      {
+        "slide_number": 9,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "text": "Congratulations! You've completed the California Meal and Rest Breaks module. You now understand California's meal and rest break requirements, how AB 1512 applies to security officers, and how WISH tracks paid and unpaid breaks.\n\nDepending on your role, there may be additional modules to complete."
+      },
+      {
+        "slide_number": 10,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+      }
+    ]
   }
 ]
