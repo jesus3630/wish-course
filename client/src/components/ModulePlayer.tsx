@@ -73,6 +73,10 @@ function SimFrame({ src }: { src: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.7);
   const [overflowing, setOverflowing] = useState(false);
+  const [full, setFull] = useState(false);       // fullscreen demo mode
+  const [fsScale, setFsScale] = useState(0.5);    // scale used in fullscreen
+  const [small, setSmall] = useState(false);      // phone-width
+  const [portrait, setPortrait] = useState(false);
   const lastWRef = useRef(0);
   const rafRef = useRef(0);
   useEffect(() => {
@@ -99,17 +103,47 @@ function SimFrame({ src }: { src: string }) {
     window.addEventListener('resize', schedule);
     return () => { cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); };
   }, []);
+  // Track phone width + orientation for the rotate hint
+  useEffect(() => {
+    const check = () => { setSmall(window.innerWidth < 760); setPortrait(window.innerWidth < window.innerHeight); };
+    check();
+    window.addEventListener('resize', check);
+    window.addEventListener('orientationchange', check);
+    return () => { window.removeEventListener('resize', check); window.removeEventListener('orientationchange', check); };
+  }, []);
+  // In fullscreen, fit the WHOLE 1280×720 demo to the viewport (both dimensions) + lock body scroll
+  useEffect(() => {
+    if (!full) return;
+    const calc = () => setFsScale(Math.min(window.innerWidth / 1280, window.innerHeight / 720));
+    calc();
+    window.addEventListener('resize', calc);
+    window.addEventListener('orientationchange', calc);
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc); document.body.style.overflow = ''; };
+  }, [full]);
+
+  const showBar = overflowing || small || full;
   return (
-    <div>
-      {overflowing && (
-        <div style={{ fontSize: '11.5px', color: '#92400E', background: '#FFF7ED', borderBottom: '1px solid #FED7AA', padding: '5px 12px', textAlign: 'center' }}>
-          ↔ Swipe to explore the screen, then tap to interact
+    <div style={full ? { position: 'fixed', inset: 0, zIndex: 2000, background: '#141414', display: 'flex', flexDirection: 'column' } : undefined}>
+      {showBar && (
+        <div style={{
+          fontSize: '11.5px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '5px 12px',
+          color: full ? '#fff' : '#92400E', background: full ? '#141414' : '#FFF7ED', borderBottom: full ? 'none' : '1px solid #FED7AA',
+        }}>
+          <span>{(small || full) && portrait ? '↻ Rotate your phone to landscape for a bigger view' : full ? 'Interactive demo — full screen' : '↔ Swipe to explore the screen, then tap to interact'}</span>
+          <button onClick={() => setFull(f => !f)} style={{
+            background: full ? 'rgba(255,255,255,0.16)' : '#D4782A', color: '#fff', border: 'none', borderRadius: 14,
+            padding: '4px 11px', fontSize: 11, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0,
+          }}>{full ? '✕ Close' : '⛶ Full screen'}</button>
         </div>
       )}
-      <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
+      <div ref={wrapRef} style={{
+        width: '100%', overflowX: (overflowing && !full) ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch',
+        ...(full ? { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#141414' } : {}),
+      } as React.CSSProperties}>
         <iframe
           src={src}
-          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
+          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: full ? fsScale : scale } as React.CSSProperties}
           title="WISH Interactive Simulation"
         />
       </div>
