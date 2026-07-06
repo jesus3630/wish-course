@@ -10,11 +10,9 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
-  const [listening, setListening] = useState(false);
   const [speak, setSpeak] = useState(true);
   const listRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const recogRef = useRef<any>(null);
 
   const scrollDown = () => setTimeout(() => { if (listRef.current) listRef.current.scrollTop = listRef.current.scrollHeight; }, 30);
 
@@ -62,18 +60,6 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
     }
   }
 
-  function toggleMic() {
-    const SR: any = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-    if (!SR) { alert('Voice input is not supported in this browser — please type your question.'); return; }
-    if (listening) { recogRef.current?.stop(); setListening(false); return; }
-    const rec = new SR();
-    rec.lang = 'en-US'; rec.interimResults = false; rec.maxAlternatives = 1;
-    rec.onresult = (e: any) => { const t = e.results[0][0].transcript; setInput(''); ask(t); };
-    rec.onend = () => setListening(false);
-    rec.onerror = () => setListening(false);
-    recogRef.current = rec; setListening(true); rec.start();
-  }
-
   if (!open) {
     return (
       <button onClick={() => setOpen(true)} aria-label="Ask the trainer" style={{
@@ -108,7 +94,7 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
       <div ref={listRef} style={{ flex: 1, overflowY: 'auto', padding: 14, background: '#F7FAFB' }}>
         {msgs.length === 0 && (
           <div style={{ color: '#6B7280', fontSize: 13, lineHeight: 1.5 }}>
-            Ask anything about <b>{moduleName}</b> — type it or tap the mic. Answers come from this module's training material.
+            Ask anything about <b>{moduleName}</b> and I'll answer from this module's training material.
           </div>
         )}
         {msgs.map((m, i) => (
@@ -125,13 +111,9 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
       </div>
 
       <div style={{ padding: 10, borderTop: `1px solid ${C.line}`, display: 'flex', alignItems: 'center', gap: 8 }}>
-        <button onClick={toggleMic} title="Speak your question" style={{
-          width: 38, height: 38, borderRadius: '50%', border: 'none', cursor: 'pointer', flexShrink: 0,
-          background: listening ? C.orange : '#EEF2F4', color: listening ? '#fff' : C.navy, fontSize: 17,
-        }}>🎤</button>
         <input
           value={input} onChange={e => setInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') ask(input); }}
-          placeholder={listening ? 'Listening…' : 'Type your question…'} disabled={busy}
+          placeholder="Type your question…" disabled={busy} autoFocus
           style={{ flex: 1, border: `1px solid ${C.line}`, borderRadius: 10, padding: '9px 11px', fontSize: 13, outline: 'none' }}
         />
         <button onClick={() => ask(input)} disabled={busy || !input.trim()} style={{
