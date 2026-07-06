@@ -147,6 +147,14 @@ async function initDB() {
       misses INTEGER NOT NULL DEFAULT 0,
       updated_at TIMESTAMPTZ DEFAULT NOW()
     );
+    CREATE TABLE IF NOT EXISTS tutor_questions (
+      id SERIAL PRIMARY KEY,
+      module_id TEXT,
+      question TEXT NOT NULL,
+      answer TEXT,
+      deferred BOOLEAN DEFAULT FALSE,
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    );
   `);
 
   const courseCheck = await pool.query('SELECT id FROM course_data WHERE id = 1');
@@ -756,6 +764,14 @@ app.post('/api/tutor/ask', tutorLimit, async (req, res) => {
     });
     const answer = (completion.choices?.[0]?.message?.content || '').trim()
       || 'I am not sure about that one — please check with your WISH administrator.';
+
+    // Log for admin analytics — "deferred" = the tutor couldn't answer from content (a content gap)
+    const deferred = /not sure|wish administrator|contact your/i.test(answer);
+    pool.query(
+      'INSERT INTO tutor_questions (module_id, question, answer, deferred) VALUES ($1, $2, $3, $4)',
+      [moduleId || null, q, answer.slice(0, 1000), deferred]
+    ).catch(e => console.error('[tutor] log failed:', e.message));
+
     res.json({ answer });
   } catch (e) {
     console.error('[tutor] error:', e.message);
@@ -924,6 +940,34 @@ app.post('/api/analytics', async (req, res) => {
     console.error('[analytics] error:', e.message);
     res.status(500).json({ error: 'Failed to record' });
   }
+});
+
+// ─── Tutor analytics (admin): volume, content gaps, recent questions ──────────
+app.get('/api/admin/tutor-analytics', adminAuth, async (req, res) => {
+  try {
+    const [totals, byModule, recent, gaps] = await Promise.all([
+      pool.query(`SELECT COUNT(*)::int AS total, COUNT(*) FILTER (WHERE deferred)::int AS deferred FROM tutor_questions`),
+      pool.query(`SELECT module_id, COUNT(*)::int AS count, COUNT(*) FILTER (WHERE deferred)::int AS deferred
+                  FROM tutor_questions GROUP BY module_id ORDER BY count DESC`),
+      pool.query(`SELECT module_id, question, deferred, created_at FROM tutor_questions ORDER BY created_at DESC LIMIT 100`),
+      pool.query(`SELECT module_id, question, created_at FROM tutor_questions WHERE deferred ORDER BY created_at DESC LIMIT 100`),
+    ]);
+    res.json({
+      total: totals.rows[0].total,
+      deferred: totals.rows[0].deferred,
+      byModule: byModule.rows,
+      recent: recent.rows,
+      gaps: gaps.rows,
+    });
+  } catch (e) {
+    console.error('[tutor-analytics] error:', e.message);
+    res.status(500).json({ error: 'Failed to load tutor analytics' });
+  }
+});
+
+app.delete('/api/admin/tutor-analytics', adminAuth, async (req, res) => {
+  try { await pool.query('DELETE FROM tutor_questions'); res.json({ ok: true }); }
+  catch (e) { res.status(500).json({ error: 'Failed to clear' }); }
 });
 
 // ─── Analytics: trouble spots (admin) ─────────────────────────────────────────

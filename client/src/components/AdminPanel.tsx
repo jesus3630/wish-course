@@ -682,11 +682,13 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
-  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap' | 'analytics'>('content');
+  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap' | 'analytics' | 'tutor'>('content');
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
   const [analytics, setAnalytics] = useState<any[]>([]);
   const [analyticsLoading, setAnalyticsLoading] = useState(false);
+  const [tutor, setTutor] = useState<any>(null);
+  const [tutorLoading, setTutorLoading] = useState(false);
 
   const [roster, setRoster] = useState<RosterEntry[]>([]);
   const [rosterLoading, setRosterLoading] = useState(false);
@@ -737,6 +739,15 @@ export default function AdminPanel() {
       if (res.ok) setAnalytics(await res.json());
     } catch {}
     setAnalyticsLoading(false);
+  }
+
+  async function loadTutor() {
+    setTutorLoading(true);
+    try {
+      const res = await fetch('/api/admin/tutor-analytics', { headers: authHeaders });
+      if (res.ok) setTutor(await res.json());
+    } catch {}
+    setTutorLoading(false);
   }
 
   async function loadRoster() {
@@ -1143,7 +1154,7 @@ export default function AdminPanel() {
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
           {/* Top-level nav */}
           <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
-            {(['content', 'users', 'roster', 'recap', 'analytics'] as const).map(v => (
+            {(['content', 'users', 'roster', 'recap', 'analytics', 'tutor'] as const).map(v => (
               <button
                 key={v}
                 onClick={() => {
@@ -1151,6 +1162,7 @@ export default function AdminPanel() {
                   if (v === 'users') loadUsers();
                   if (v === 'roster') loadRoster();
                   if (v === 'analytics') loadAnalytics();
+                  if (v === 'tutor') loadTutor();
                 }}
                 style={{
                   flex: 1, padding: '10px 4px', border: 'none', fontWeight: 700, fontSize: '11px', cursor: 'pointer',
@@ -1264,6 +1276,72 @@ export default function AdminPanel() {
                   </div>
                 );
               })}
+            </div>
+          )}
+
+          {/* Tutor Q&A analytics tab */}
+          {adminView === 'tutor' && (
+            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              <div style={{ background: '#EFF6FF', border: `1px solid #BFDBFE`, borderRadius: '8px', padding: '10px 12px', marginBottom: '12px', fontSize: '11px', color: C.navy, lineHeight: '1.5' }}>
+                What learners ask the "Ask the Trainer" tutor. <strong>Content gaps</strong> are questions the tutor couldn't answer from the module — the best signal for what to add or clarify.
+              </div>
+              {tutorLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+              {!tutorLoading && tutor && (
+                <>
+                  {/* Summary */}
+                  <div style={{ display: 'flex', gap: '8px', marginBottom: '12px' }}>
+                    <div style={{ flex: 1, background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', textAlign: 'center' }}>
+                      <div style={{ fontSize: '24px', fontWeight: 800, color: C.navy }}>{tutor.total}</div>
+                      <div style={{ fontSize: '10px', color: C.gray, textTransform: 'uppercase', letterSpacing: '0.4px' }}>Questions asked</div>
+                    </div>
+                    <div style={{ flex: 1, background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', textAlign: 'center', borderLeft: `4px solid ${C.orange}` }}>
+                      <div style={{ fontSize: '24px', fontWeight: 800, color: C.orange }}>{tutor.deferred}</div>
+                      <div style={{ fontSize: '10px', color: C.gray, textTransform: 'uppercase', letterSpacing: '0.4px' }}>Content gaps</div>
+                    </div>
+                  </div>
+
+                  {tutor.total === 0 && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No questions yet. Data appears here as learners use the tutor.</div>}
+
+                  {/* Per-module */}
+                  {tutor.byModule && tutor.byModule.length > 0 && (
+                    <div style={{ marginBottom: '14px' }}>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>By module</div>
+                      {tutor.byModule.map((m: any, i: number) => (
+                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: C.white, border: `1px solid ${C.border}`, borderRadius: '6px', padding: '7px 10px', marginBottom: '5px', fontSize: '12px' }}>
+                          <span style={{ color: C.navy, fontWeight: 600 }}>{m.module_id || '—'}</span>
+                          <span style={{ color: C.gray }}>{m.count} asked{m.deferred > 0 && <span style={{ color: C.orange, fontWeight: 700 }}> · {m.deferred} gaps</span>}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Content gaps */}
+                  {tutor.gaps && tutor.gaps.length > 0 && (
+                    <div style={{ marginBottom: '14px' }}>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: C.orange, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Content gaps — questions the course didn't answer</div>
+                      {tutor.gaps.map((g: any, i: number) => (
+                        <div key={i} style={{ background: '#FFF7ED', border: `1px solid #FDBA74`, borderLeft: `4px solid ${C.orange}`, borderRadius: '6px', padding: '8px 10px', marginBottom: '5px' }}>
+                          <div style={{ fontSize: '12.5px', color: C.navy, lineHeight: '1.4' }}>{g.question}</div>
+                          <div style={{ fontSize: '10px', color: C.gray, marginTop: '3px' }}>{g.module_id || '—'} · {new Date(g.created_at).toLocaleDateString()}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Recent */}
+                  {tutor.recent && tutor.recent.length > 0 && (
+                    <div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: C.gray, textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>Recent questions</div>
+                      {tutor.recent.map((r: any, i: number) => (
+                        <div key={i} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '6px', padding: '8px 10px', marginBottom: '5px', borderLeft: r.deferred ? `4px solid ${C.orange}` : `4px solid ${C.green}` }}>
+                          <div style={{ fontSize: '12.5px', color: C.navy, lineHeight: '1.4' }}>{r.question}</div>
+                          <div style={{ fontSize: '10px', color: C.gray, marginTop: '3px' }}>{r.module_id || '—'} · {new Date(r.created_at).toLocaleDateString()}{r.deferred && <span style={{ color: C.orange }}> · gap</span>}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </>
+              )}
             </div>
           )}
 
