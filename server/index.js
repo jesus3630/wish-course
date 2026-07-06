@@ -25,6 +25,10 @@ const SCREENSHOTS_DIR = process.env.SCREENSHOTS_DIR || path.join(__dirname, '../
 const VIDEOS_DIR = process.env.VIDEOS_DIR || path.join('/data', 'videos');
 const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 
+// OpenAI client — powers the voice Q&A tutor (reuses the email agent's key)
+const OpenAI = require('openai');
+const openaiClient = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
+
 // PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -710,6 +714,53 @@ const narrateLimit = rateLimit({
   message: { error: 'Too many requests. Please wait a moment.' },
   standardHeaders: true,
   legacyHeaders: false,
+});
+
+// ─── Voice Q&A Tutor — answers grounded in the current module's slide content ──
+const tutorLimit = rateLimit({ windowMs: 60 * 1000, max: 20 });
+app.post('/api/tutor/ask', tutorLimit, async (req, res) => {
+  try {
+    if (!openaiClient) return res.status(503).json({ error: 'AI tutor not configured' });
+    const { moduleId, question } = req.body || {};
+    if (!question || !String(question).trim()) return res.status(400).json({ error: 'No question provided' });
+    const q = String(question).slice(0, 500);
+
+    // Ground the answer in the module's own slides (fallback: list of module names)
+    const course = await getCourseData();
+    const mods = Array.isArray(course) ? course : (course.modules || []);
+    const mod = mods.find(m => m && m.id === moduleId);
+    let context;
+    if (mod) {
+      context = `MODULE: ${mod.name}\n\n` + (mod.slides || [])
+        .map(s => `## ${s.slide_name || ''}\n${(s.text || '').trim()}`).join('\n\n');
+    } else {
+      context = 'WISH training modules: ' + mods.map(m => m && m.name).filter(Boolean).join(', ');
+    }
+    context = context.slice(0, 12000);
+
+    const system = [
+      'You are the WISH Training assistant, helping an employee taking a WISH (Workforce Information Systems Hosted) training module.',
+      'Answer ONLY using the training content below. Keep it concise (2-4 sentences), clear, and friendly.',
+      'If the answer is not in the training content, say you are not sure and suggest they contact their WISH administrator — never invent WISH procedures, screens, or menu names.',
+      'Answer as a helpful trainer; do not mention that you are an AI or refer to "the training content".',
+      '',
+      '=== TRAINING CONTENT ===',
+      context,
+    ].join('\n');
+
+    const completion = await openaiClient.chat.completions.create({
+      model: 'gpt-4o-mini',
+      temperature: 0.3,
+      max_tokens: 220,
+      messages: [{ role: 'system', content: system }, { role: 'user', content: q }],
+    });
+    const answer = (completion.choices?.[0]?.message?.content || '').trim()
+      || 'I am not sure about that one — please check with your WISH administrator.';
+    res.json({ answer });
+  } catch (e) {
+    console.error('[tutor] error:', e.message);
+    res.status(500).json({ error: 'Tutor failed to respond' });
+  }
 });
 
 app.post('/api/narrate', narrateLimit, async (req, res) => {

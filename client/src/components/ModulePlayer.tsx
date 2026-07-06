@@ -3,6 +3,7 @@ import { Module, CourseProgress, QuizQuestion } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
 import Quiz from './Quiz';
 import Character from './Character';
+import TutorWidget from './TutorWidget';
 import { useIsMobile } from '../utils/useIsMobile';
 
 type Timing = { word: string; start: number; end: number };
@@ -611,6 +612,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
   return (
     <div style={styles.page}>
+      <TutorWidget moduleId={module.id} moduleName={module.name} />
       {/* Top bar */}
       <div style={{ ...styles.topBar, height: isMobile ? 'auto' : '72px', padding: isMobile ? '10px 12px' : '0 24px', flexWrap: 'wrap' as const, gap: '8px' }}>
         <button style={styles.backBtn} onClick={() => { stopAudio(); onBack(); }}>
