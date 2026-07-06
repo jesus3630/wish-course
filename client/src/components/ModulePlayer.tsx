@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Module, CourseProgress, QuizQuestion } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
 import Quiz from './Quiz';
@@ -122,31 +123,49 @@ function SimFrame({ src }: { src: string }) {
     return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc); document.body.style.overflow = ''; };
   }, [full]);
 
-  const showBar = overflowing || small || full;
+  const showBar = overflowing || small;
   return (
-    <div style={full ? { position: 'fixed', inset: 0, zIndex: 2000, background: '#141414', display: 'flex', flexDirection: 'column' } : undefined}>
+    <div>
       {showBar && (
         <div style={{
           fontSize: '11.5px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '5px 12px',
-          color: full ? '#fff' : '#92400E', background: full ? '#141414' : '#FFF7ED', borderBottom: full ? 'none' : '1px solid #FED7AA',
+          color: '#92400E', background: '#FFF7ED', borderBottom: '1px solid #FED7AA',
         }}>
-          <span>{(small || full) && portrait ? '↻ Rotate your phone to landscape for a bigger view' : full ? 'Interactive demo — full screen' : '↔ Swipe to explore the screen, then tap to interact'}</span>
-          <button onClick={() => setFull(f => !f)} style={{
-            background: full ? 'rgba(255,255,255,0.16)' : '#D4782A', color: '#fff', border: 'none', borderRadius: 14,
+          <span>{small && portrait ? '↻ Rotate to landscape, or tap' : '↔ Swipe to explore, then tap to interact'}</span>
+          <button onClick={() => setFull(true)} style={{
+            background: '#D4782A', color: '#fff', border: 'none', borderRadius: 14,
             padding: '4px 11px', fontSize: 11, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap', flexShrink: 0,
-          }}>{full ? '✕ Close' : '⛶ Full screen'}</button>
+          }}>⛶ Full screen</button>
         </div>
       )}
-      <div ref={wrapRef} style={{
-        width: '100%', overflowX: (overflowing && !full) ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch',
-        ...(full ? { flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#141414' } : {}),
-      } as React.CSSProperties}>
+      <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
         <iframe
           src={src}
-          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: full ? fsScale : scale } as React.CSSProperties}
+          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
           title="WISH Interactive Simulation"
         />
       </div>
+
+      {/* Fullscreen demo — portaled to <body> so it escapes any transformed ancestor and covers the whole viewport */}
+      {full && createPortal(
+        <div style={{ position: 'fixed', inset: 0, zIndex: 99999, background: '#141414', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, padding: '8px 14px', color: '#fff', fontSize: 12 }}>
+            <span>{portrait ? '↻ Rotate your phone to landscape for a bigger view' : 'Interactive demo — full screen'}</span>
+            <button onClick={() => setFull(false)} style={{
+              background: 'rgba(255,255,255,0.18)', color: '#fff', border: 'none', borderRadius: 16,
+              padding: '6px 14px', fontSize: 13, fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap',
+            }}>✕ Close</button>
+          </div>
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
+            <iframe
+              src={src}
+              style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: fsScale } as React.CSSProperties}
+              title="WISH Interactive Simulation (full screen)"
+            />
+          </div>
+        </div>,
+        document.body
+      )}
     </div>
   );
 }
