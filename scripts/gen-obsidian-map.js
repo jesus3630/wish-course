@@ -13,6 +13,13 @@ const modules = Array.isArray(course) ? course : (course.modules || []);
 // Filesystem- AND wikilink-safe title (no / : * ? " < > | so filename == link target)
 const safe = t => t.replace(/[\\/:*?"<>|]/g, '-');
 
+// Project status per node → drives graph color groups. Default 'done'.
+const STATUS = {
+  'Gmail Agent': 'blocked',                              // refresh token expired — email path blocked
+  'California Meal & Rest Breaks (AB 1512)': 'draft',    // legal slides pending compliance sign-off
+  'California Breaks Demo': 'draft',
+};
+
 // ── Hand-authored nodes: [title, tag, description, [links]] ───────────────────
 const nodes = [
   ['WISH Training', 'hub',
@@ -122,10 +129,14 @@ if (broken.length) { console.error('BROKEN LINKS:\n  ' + broken.join('\n  ')); p
 // ── Write notes ───────────────────────────────────────────────────────────────
 fs.mkdirSync(VAULT, { recursive: true });
 let written = 0;
+const statusCount = { done: 0, draft: 0, blocked: 0 };
 for (const [title, tag, desc, links] of nodes) {
+  const status = STATUS[title] || 'done';
+  statusCount[status]++;
   const body =
 `---
-tags: [wish, ${tag}]
+tags: [wish, ${tag}, status/${status}]
+status: ${status}
 ---
 # ${title}
 
@@ -138,5 +149,26 @@ ${(links || []).map(l => `- [[${l}]]`).join('\n')}
   written++;
 }
 
+// ── Color the graph automatically: merge status color-groups into .obsidian/graph.json
+const rgb = hex => parseInt(hex.replace('#', ''), 16);
+const statusGroups = [
+  { query: 'tag:#status/blocked', color: { a: 1, rgb: rgb('#E53935') } }, // red
+  { query: 'tag:#status/draft',   color: { a: 1, rgb: rgb('#F59E0B') } }, // amber
+  { query: 'tag:#status/done',    color: { a: 1, rgb: rgb('#10B981') } }, // green
+];
+const graphPath = path.join(VAULT, '..', '.obsidian', 'graph.json');
+try {
+  let g = {};
+  if (fs.existsSync(graphPath)) { try { g = JSON.parse(fs.readFileSync(graphPath, 'utf8')); } catch {} }
+  const others = (g.colorGroups || []).filter(x => !String(x.query || '').includes('status/')); // drop old status groups
+  g.colorGroups = [...statusGroups, ...others]; // status first → wins on ties
+  fs.mkdirSync(path.dirname(graphPath), { recursive: true });
+  fs.writeFileSync(graphPath, JSON.stringify(g, null, 2));
+  console.log('Graph color-groups written to .obsidian/graph.json');
+} catch (e) {
+  console.warn('Could not write graph.json (open Graph → Groups to color manually):', e.message);
+}
+
 console.log(`Wrote ${written} notes to:\n  ${VAULT}`);
-console.log(`Open the vault in Obsidian → Graph view.`);
+console.log(`Status — done: ${statusCount.done}, draft: ${statusCount.draft}, blocked: ${statusCount.blocked}`);
+console.log(`Open the vault in Obsidian → Graph view (green=done, amber=draft, red=blocked).`);
