@@ -17,6 +17,7 @@ const isAdmin = window.location.pathname === '/admin';
 export default function App() {
   const [view, setView] = useState<AppView>('login');
   const [progress, setProgress] = useState<CourseProgress | null>(null);
+  const [reviewMode, setReviewMode] = useState(false);
   const [activeModuleIndex, setActiveModuleIndex] = useState<number>(0);
   const [jumpSlide, setJumpSlide] = useState<number | undefined>(undefined);
   const [modules, setModules] = useState<Module[]>([]);
@@ -91,22 +92,26 @@ export default function App() {
 
   // Embedded/demo convenience: ?enter=1 lands straight on the dashboard (no login click).
   // ?modules=a,b,c simulates an assignment (only those show); omitted = all modules.
+  // ?review=1 = review mode: force ALL modules regardless of any cached assignment.
   useEffect(() => {
     if (isAdmin) return;
     const params = new URLSearchParams(window.location.search);
-    if (params.get('enter') !== '1' || params.get('sso')) return;
+    const isReview = params.get('review') === '1';
+    if ((params.get('enter') !== '1' && !isReview) || params.get('sso')) return;
     const modsParam = params.get('modules');
-    const assigned = modsParam ? modsParam.split(',').map(s => s.trim()).filter(Boolean) : null;
+    // Review mode always shows everything (null = all); otherwise honor ?modules=
+    const assigned = isReview ? null : (modsParam ? modsParam.split(',').map(s => s.trim()).filter(Boolean) : null);
     let p = getProgress();
     if (!p) {
       const anonId = 'anon_' + Math.random().toString(36).slice(2, 10);
-      p = createProgress('Trainee', anonId + '@wish.local', assigned);
+      p = createProgress(isReview ? 'Reviewer' : 'Trainee', anonId + '@wish.local', assigned);
     } else {
       // keep prior progress, but apply the requested assignment so the selector updates the view
       p = { ...p, assigned_modules: assigned };
     }
     saveProgress(p);
     setProgress(p);
+    if (isReview) setReviewMode(true);
     setView('dashboard');
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -195,13 +200,23 @@ export default function App() {
 
   if (progress) {
     return (
-      <Dashboard
-        modules={visibleModules}
-        progress={progress}
-        onStartModule={handleStartModule}
-        onLogout={handleLogout}
-        onViewCertificate={() => setShowCertificate(true)}
-      />
+      <>
+        {reviewMode && (
+          <div style={{
+            background: '#1B3A6B', color: '#fff', textAlign: 'center', fontSize: 13, fontWeight: 600,
+            padding: '7px 14px', letterSpacing: 0.3,
+          }}>
+            Review mode — showing all {modules.length} modules (assignments ignored)
+          </div>
+        )}
+        <Dashboard
+          modules={reviewMode ? modules : visibleModules}
+          progress={progress}
+          onStartModule={handleStartModule}
+          onLogout={handleLogout}
+          onViewCertificate={() => setShowCertificate(true)}
+        />
+      </>
     );
   }
 
