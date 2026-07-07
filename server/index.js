@@ -372,14 +372,18 @@ app.get('/api/quiz', async (req, res) => {
 });
 
 // ─── Admin auth middleware ─────────────────────────────────────────────────────
+// Accepts an admin session Bearer token OR a static service key (x-service-key /
+// Bearer <key>) matching WISH_SERVICE_KEY — the latter lets n8n use one fixed credential.
+const WISH_SERVICE_KEY = process.env.WISH_SERVICE_KEY || '';
 async function adminAuth(req, res, next) {
-  const authHeader = req.headers['authorization'];
-  if (authHeader && authHeader.startsWith('Bearer ')) {
-    const token = authHeader.slice(7);
+  const authHeader = req.headers['authorization'] || '';
+  const bearer = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : '';
+  if (WISH_SERVICE_KEY && (req.headers['x-service-key'] === WISH_SERVICE_KEY || bearer === WISH_SERVICE_KEY)) return next();
+  if (bearer) {
     try {
       const r = await pool.query(
         'SELECT token FROM admin_sessions WHERE token = $1 AND expires_at > NOW()',
-        [token]
+        [bearer]
       );
       if (r.rowCount > 0) return next();
     } catch {}
