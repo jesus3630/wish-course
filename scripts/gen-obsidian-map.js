@@ -135,12 +135,17 @@ for (const [title, tag, desc, links] of nodes) {
   statusCount[status]++;
   const body =
 `---
-tags: [wish, ${tag}, status/${status}]
+tags:
+  - wish
+  - ${tag}
+  - status-${status}
 status: ${status}
 ---
 # ${title}
 
 ${desc}
+
+**Status:** #status-${status}
 
 ## Related
 ${(links || []).map(l => `- [[${l}]]`).join('\n')}
@@ -152,15 +157,15 @@ ${(links || []).map(l => `- [[${l}]]`).join('\n')}
 // ── Color the graph automatically: merge status color-groups into .obsidian/graph.json
 const rgb = hex => parseInt(hex.replace('#', ''), 16);
 const statusGroups = [
-  { query: 'tag:#status/blocked', color: { a: 1, rgb: rgb('#E53935') } }, // red
-  { query: 'tag:#status/draft',   color: { a: 1, rgb: rgb('#F59E0B') } }, // amber
-  { query: 'tag:#status/done',    color: { a: 1, rgb: rgb('#10B981') } }, // green
+  { query: 'tag:#status-blocked', color: { a: 1, rgb: rgb('#E53935') } }, // red
+  { query: 'tag:#status-draft',   color: { a: 1, rgb: rgb('#F59E0B') } }, // amber
+  { query: 'tag:#status-done',    color: { a: 1, rgb: rgb('#10B981') } }, // green
 ];
 const graphPath = path.join(VAULT, '..', '.obsidian', 'graph.json');
 try {
   let g = {};
   if (fs.existsSync(graphPath)) { try { g = JSON.parse(fs.readFileSync(graphPath, 'utf8')); } catch {} }
-  const others = (g.colorGroups || []).filter(x => !String(x.query || '').includes('status/')); // drop old status groups
+  const others = (g.colorGroups || []).filter(x => !String(x.query || '').includes('status')); // drop old status groups
   g.colorGroups = [...statusGroups, ...others]; // status first → wins on ties
   fs.mkdirSync(path.dirname(graphPath), { recursive: true });
   fs.writeFileSync(graphPath, JSON.stringify(g, null, 2));
