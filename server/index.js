@@ -29,6 +29,12 @@ const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 const OpenAI = require('openai');
 const openaiClient = process.env.OPENAI_API_KEY ? new OpenAI({ apiKey: process.env.OPENAI_API_KEY }) : null;
 
+// Enrollment-from-form (used by the n8n Gmail workflow): reuse the form parser + mapping
+const { parseWishFormFields } = require('./gmail');
+const uploadForm = multer({ storage: multer.memoryStorage(), limits: { fileSize: 6 * 1024 * 1024 } });
+// Branch → state module opt-in. Set CA_BRANCHES="San Francisco,Los Angeles,..." to auto-add california_breaks.
+const CA_BRANCHES = new Set((process.env.CA_BRANCHES || '').split(',').map(s => s.trim().toLowerCase()).filter(Boolean));
+
 // PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
@@ -138,6 +144,8 @@ async function initDB() {
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS username TEXT;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS password TEXT;
     ALTER TABLE roster ADD COLUMN IF NOT EXISTS requester_email TEXT;
+    ALTER TABLE roster ADD COLUMN IF NOT EXISTS last_reminded_at TIMESTAMPTZ;
+    ALTER TABLE roster ADD COLUMN IF NOT EXISTS manager_notified_at TIMESTAMPTZ;
     CREATE TABLE IF NOT EXISTS analytics_counts (
       key TEXT PRIMARY KEY,
       type TEXT NOT NULL,
@@ -722,6 +730,96 @@ const narrateLimit = rateLimit({
   message: { error: 'Too many requests. Please wait a moment.' },
   standardHeaders: true,
   legacyHeaders: false,
+});
+
+// ─── Enroll from a WISH permission form (.docx) — deterministic, no LLM ───────
+// Used by the n8n enrollment workflow: Gmail trigger → POST the attachment here.
+app.post('/api/enroll-from-form', adminAuth, uploadForm.single('form'), async (req, res) => {
+  try {
+    const buf = req.file?.buffer || (req.body?.fileBase64 ? Buffer.from(req.body.fileBase64, 'base64') : null);
+    if (!buf) return res.status(400).json({ error: 'No form provided — send a .docx as multipart field "form" or JSON { fileBase64 }' });
+
+    const fields = await parseWishFormFields(buf);
+    if (!fields) return res.status(422).json({ error: 'No WISH permission form found (no checked permissions in the .docx)' });
+    if (!fields.employeeEmail) return res.status(422).json({ error: 'Form has no Employee Email', parsed: fields });
+
+    const email = fields.employeeEmail.toLowerCase().trim();
+    const assigned = agent.mapPermissions(fields.checkedPermissions);
+    const unmatched = fields.checkedPermissions.filter(p => !agent.PERMISSION_TO_MODULE[p.toLowerCase().trim()]);
+
+    // Optional branch-based module (California), only if the branch is configured in CA_BRANCHES
+    const branch = (req.body?.branch || '').trim();
+    if (branch && CA_BRANCHES.has(branch.toLowerCase()) && !assigned.includes('california_breaks')) assigned.push('california_breaks');
+
+    const username = agent.generateUsername(fields.employeeName);
+    const password = agent.generatePassword();
+    const requesterEmail = (req.body?.requesterEmail || '').toLowerCase().trim() || null;
+
+    await pool.query(
+      `INSERT INTO roster (email, name, assigned_modules, username, password, requester_email)
+       VALUES ($1,$2,$3,$4,$5,$6)
+       ON CONFLICT (email) DO UPDATE SET
+         name = COALESCE($2, roster.name), assigned_modules = $3,
+         username = $4, password = $5, requester_email = COALESCE($6, roster.requester_email)`,
+      [email, fields.employeeName?.trim() || null, JSON.stringify(assigned), username, password, requesterEmail]
+    );
+
+    let invited = false;
+    try { await sendInviteEmail(email, fields.employeeName, assigned, username, password); invited = true; }
+    catch (e) { console.error('[enroll-from-form] invite email failed:', e.message); }
+
+    res.json({ ok: true, enrolled: email, name: fields.employeeName || null, username,
+      assigned_modules: assigned, unmatched_permissions: unmatched, invited });
+  } catch (e) {
+    console.error('[enroll-from-form] error:', e.message);
+    res.status(500).json({ error: 'Enrollment failed', detail: e.message });
+  }
+});
+
+// ─── Lifecycle support for the n8n reminder + completion workflows ────────────
+// Non-starters: enrolled ≥N days ago, never logged in, not yet reminded.
+app.get('/api/admin/pending-reminders', adminAuth, async (req, res) => {
+  try {
+    const days = Math.max(1, parseInt(req.query.days) || 7);
+    const r = await pool.query(
+      `SELECT r.email, r.name, r.username, r.added_at
+       FROM roster r LEFT JOIN user_progress up ON up.email = r.email
+       WHERE up.email IS NULL
+         AND r.added_at <= NOW() - make_interval(days => $1)
+         AND r.last_reminded_at IS NULL
+       ORDER BY r.added_at ASC LIMIT 200`, [days]);
+    res.json(r.rows);
+  } catch (e) { console.error('[pending-reminders]', e.message); res.status(500).json({ error: e.message }); }
+});
+app.post('/api/admin/mark-reminded', adminAuth, async (req, res) => {
+  try {
+    const emails = (req.body?.emails || []).map(e => String(e).toLowerCase().trim());
+    if (!emails.length) return res.status(400).json({ error: 'emails[] required' });
+    await pool.query('UPDATE roster SET last_reminded_at = NOW() WHERE email = ANY($1)', [emails]);
+    res.json({ ok: true, marked: emails.length });
+  } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// Newly-completed employees whose manager hasn't been notified yet.
+app.get('/api/admin/pending-completions', adminAuth, async (req, res) => {
+  try {
+    const r = await pool.query(
+      `SELECT up.email, up.data->>'user_name' AS name, r.requester_email, up.data->>'completed_at' AS completed_at
+       FROM user_progress up JOIN roster r ON r.email = up.email
+       WHERE up.data->>'completed_at' IS NOT NULL
+         AND r.requester_email IS NOT NULL
+         AND r.manager_notified_at IS NULL
+       ORDER BY (up.data->>'completed_at') DESC LIMIT 200`);
+    res.json(r.rows);
+  } catch (e) { console.error('[pending-completions]', e.message); res.status(500).json({ error: e.message }); }
+});
+app.post('/api/admin/mark-notified', adminAuth, async (req, res) => {
+  try {
+    const emails = (req.body?.emails || []).map(e => String(e).toLowerCase().trim());
+    if (!emails.length) return res.status(400).json({ error: 'emails[] required' });
+    await pool.query('UPDATE roster SET manager_notified_at = NOW() WHERE email = ANY($1)', [emails]);
+    res.json({ ok: true, marked: emails.length });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 // ─── Voice Q&A Tutor — answers grounded in the current module's slide content ──

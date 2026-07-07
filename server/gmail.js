@@ -64,7 +64,8 @@ function parseMessage(msgData) {
   };
 }
 
-async function parseWishForm(buffer) {
+// Structured extraction — returns { employeeName, employeeEmail, requesterName, checkedPermissions } or null
+async function parseWishFormFields(buffer) {
   const zip = await JSZip.loadAsync(buffer);
   const xml = await zip.file('word/document.xml').async('string');
 
@@ -99,15 +100,20 @@ async function parseWishForm(buffer) {
   }
 
   if (!checkedPermissions.length) return null;
+  return { employeeName, employeeEmail, requesterName, checkedPermissions };
+}
 
+async function parseWishForm(buffer) {
+  const f = await parseWishFormFields(buffer);
+  if (!f) return null;
   const lines = ['WISH PERMISSION FORM (PARSED FROM ATTACHMENT)'];
-  if (employeeName) lines.push(`Employee Name: ${employeeName}`);
-  if (employeeEmail) lines.push(`Employee Email: ${employeeEmail}`);
-  if (requesterName) lines.push(`Requested By: ${requesterName}`);
+  if (f.employeeName) lines.push(`Employee Name: ${f.employeeName}`);
+  if (f.employeeEmail) lines.push(`Employee Email: ${f.employeeEmail}`);
+  if (f.requesterName) lines.push(`Requested By: ${f.requesterName}`);
   lines.push('', 'CHECKED PERMISSIONS:');
-  checkedPermissions.forEach((p) => lines.push(`- ${p}`));
+  f.checkedPermissions.forEach((p) => lines.push(`- ${p}`));
 
-  console.log(`[gmail] Parsed .docx: ${checkedPermissions.length} permissions checked for ${employeeName || 'unknown'}`);
+  console.log(`[gmail] Parsed .docx: ${f.checkedPermissions.length} permissions checked for ${f.employeeName || 'unknown'}`);
   return lines.join('\n');
 }
 
@@ -184,4 +190,4 @@ async function markAsRead(messageId) {
   });
 }
 
-module.exports = { isConfigured, getUnreadEmails, sendEmail, markAsRead, SCOPES, getOAuth2Client };
+module.exports = { isConfigured, getUnreadEmails, sendEmail, markAsRead, SCOPES, getOAuth2Client, parseWishFormFields };

@@ -330,4 +330,4 @@ function start(dbPool) {
   setInterval(poll, POLL_INTERVAL_MS);
 }
 
-module.exports = { start };
+module.exports = { start, mapPermissions, generateUsername, generatePassword, PERMISSION_TO_MODULE };
