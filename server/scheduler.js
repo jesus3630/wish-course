@@ -2,7 +2,7 @@
 // (Completion notifications are already event-driven in POST /api/progress, so they're not here.)
 // Idempotent: roster.last_reminded_at ensures each person is reminded at most once.
 
-const { isConfigured } = require('./gmail');
+const { isConfigured } = require('./mailer');
 const { sendReminderEmail } = require('./email');
 
 const REMINDER_DAYS = parseInt(process.env.REMINDER_DAYS || '7', 10); // remind after N days with no login

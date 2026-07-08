@@ -1,4 +1,4 @@
-const { sendEmail, isConfigured } = require('./gmail');
+const { sendEmail, isConfigured } = require('./mailer');
 
 const SITE_URL = process.env.SITE_URL || 'https://wish-training.up.railway.app';
 

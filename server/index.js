@@ -993,6 +993,12 @@ app.post('/api/progress', async (req, res) => {
             sendManagerCompletionEmail(requesterEmail, progress.user_name, email, progressToSave.completed_at)
               .catch(e => console.error('[email] manager notification failed:', e.message));
           }
+          // Also notify whoever handles login credentials on our end (fixed internal recipient)
+          const credAdmin = process.env.CREDENTIALS_ADMIN_EMAIL;
+          if (credAdmin && credAdmin.toLowerCase() !== (requesterEmail || '').toLowerCase()) {
+            sendManagerCompletionEmail(credAdmin, progress.user_name, email, progressToSave.completed_at)
+              .catch(e => console.error('[email] credentials-admin notification failed:', e.message));
+          }
         }
       }
     }
