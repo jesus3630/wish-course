@@ -70,7 +70,8 @@ function AuditImageHighlight({ src, highlight, caption }: { src: string; highlig
   );
 }
 
-function SimFrame({ src }: { src: string }) {
+function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
+  const url = graded ? src + (src.includes('?') ? '&' : '?') + 'graded=1' : src;
   const wrapRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.7);
   const [overflowing, setOverflowing] = useState(false);
@@ -140,7 +141,7 @@ function SimFrame({ src }: { src: string }) {
       )}
       <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
         <iframe
-          src={src}
+          src={url}
           style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
           title="WISH Interactive Simulation"
         />
@@ -158,7 +159,7 @@ function SimFrame({ src }: { src: string }) {
           </div>
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
             <iframe
-              src={src}
+              src={url}
               style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: fsScale } as React.CSSProperties}
               title="WISH Interactive Simulation (full screen)"
             />
@@ -233,6 +234,31 @@ export default function ModulePlayer({
   const [slideVisible, setSlideVisible] = useState(true);
   const [celebrating, setCelebrating] = useState(false);
   const [playbackRate, setPlaybackRate] = useState(1);
+  const [gradeMode, setGradeMode] = useState(false);   // "Test Yourself" (graded) demo mode
+  const [gradeResult, setGradeResult] = useState<{ firstTry: number; total: number; misses: number } | null>(null);
+
+  // Reset grading when the slide changes
+  useEffect(() => { setGradeMode(false); setGradeResult(null); }, [slideIndex]);
+  // Capture a graded-assessment score posted from the sim iframe + log it for admin analytics
+  useEffect(() => {
+    const onMsg = (e: MessageEvent) => {
+      const d = e.data;
+      if (!d || d.type !== 'wish-graded-result') return;
+      setGradeResult({ firstTry: d.firstTry, total: d.total, misses: d.misses });
+      try {
+        fetch('/api/analytics', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'graded', module_id: module.id, key: `graded:${module.id}:${slideIndex}`,
+            label: `${module.name} — ${module.slides[slideIndex]?.slide_name || ''}`,
+            correct: d.total > 0 && d.firstTry === d.total,
+          }),
+        });
+      } catch { /* ignore */ }
+    };
+    window.addEventListener('message', onMsg);
+    return () => window.removeEventListener('message', onMsg);
+  }, [module, slideIndex]);
   const [simReady, setSimReady] = useState(false);
   const [narrowLayout, setNarrowLayout] = useState(false);
   const slideAreaRef = useRef<HTMLDivElement>(null);
@@ -729,12 +755,21 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
 
               {/* Interactive sim */}
               <div className="sim-demo">
-                <div style={{ background: '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '8px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
-                  Your turn — click through the steps below
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap', background: gradeMode ? '#B45309' : '#2e7d32', color: '#fff', fontSize: '13px', fontWeight: 600, padding: '7px 10px 7px 16px', letterSpacing: '0.3px', borderRadius: '6px 6px 0 0' }}>
+                  <span>{gradeMode ? '🎯 Test yourself — no hints. Do each step.' : 'Your turn — click through the steps below'}</span>
+                  <div style={{ display: 'flex', background: 'rgba(255,255,255,0.18)', borderRadius: 20, padding: 2, flexShrink: 0 }}>
+                    <button onClick={() => setGradeMode(false)} style={{ border: 'none', cursor: 'pointer', fontSize: 11, fontWeight: 700, padding: '4px 11px', borderRadius: 18, background: !gradeMode ? '#fff' : 'transparent', color: !gradeMode ? '#1B3A6B' : '#fff' }}>Practice</button>
+                    <button onClick={() => setGradeMode(true)} style={{ border: 'none', cursor: 'pointer', fontSize: 11, fontWeight: 700, padding: '4px 11px', borderRadius: 18, background: gradeMode ? '#fff' : 'transparent', color: gradeMode ? '#B45309' : '#fff' }}>Test Yourself</button>
+                  </div>
                 </div>
-                <div style={{ border: '2px solid #2e7d32', borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
-                  <SimFrame src={(slide as any).simulation_url} />
+                <div style={{ border: `2px solid ${gradeMode ? '#B45309' : '#2e7d32'}`, borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
+                  <SimFrame key={gradeMode ? 'graded' : 'guided'} src={(slide as any).simulation_url} graded={gradeMode} />
                 </div>
+                {gradeMode && gradeResult && (
+                  <div style={{ marginTop: 8, padding: '10px 14px', borderRadius: 8, fontSize: 13, color: '#1B3A6B', background: gradeResult.firstTry === gradeResult.total ? '#ECFDF5' : '#FFF7ED', border: `1px solid ${gradeResult.firstTry === gradeResult.total ? '#10B981' : '#F59E0B'}` }}>
+                    <b>Assessment:</b> {gradeResult.firstTry}/{gradeResult.total} correct on the first try{gradeResult.misses > 0 ? ` · ${gradeResult.misses} miss${gradeResult.misses === 1 ? '' : 'es'}` : ''}. {gradeResult.firstTry === gradeResult.total ? 'Perfect — you know this flow.' : 'Switch to Practice to review, then try again.'}
+                  </div>
+                )}
               </div>
             </div>
           ) : (

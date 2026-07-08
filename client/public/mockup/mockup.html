@@ -423,6 +423,14 @@ function _promptOverride(i, fallback) {
 function runGuided(steps, opts) {
   opts = opts || {};
   if (window.WISH_INTROSPECT) { _postPrompts(steps); return; }
+  // "Test Yourself" mode: re-run the same demo as a graded assessment (no highlights/prompts).
+  // Drop observation-only steps (skipClick — none carry side-effects) and map prompt→task, onConfirm→onCorrect.
+  if (window.WISH_GRADED && !opts._graded) {
+    const g = steps.filter(s => !s.skipClick).map(s => ({
+      selector: s.selector, task: s.task || s.prompt, value: s.value, onCorrect: s.onCorrect || s.onConfirm,
+    }));
+    if (g.length) return runGraded(g, Object.assign({ _graded: true }, opts));
+  }
   // Cleanup previous session
   if (_gs) {
     if (_gs.handler) document.removeEventListener('click', _gs.handler, true);
@@ -621,9 +629,9 @@ function runGraded(steps, opts) {
 
     const correct = () => document.querySelector(s.selector);
     const el0 = correct();
-    if (el0 && el0.tagName === 'SELECT' && s.value) {
+    if (el0 && el0.tagName === 'SELECT') {
       selEl = el0;
-      selHandler = () => { if (el0.value === s.value) onRight(); };
+      selHandler = () => { if (!s.value || el0.value === s.value) onRight(); };
       el0.addEventListener('change', selHandler);
       return;
     }
@@ -651,6 +659,7 @@ function runGraded(steps, opts) {
 
   function finish() {
     cleanup(); tip.style.display = 'none';
+    try { window.parent.postMessage({ type: 'wish-graded-result', firstTry, total: steps.length, misses }, '*'); } catch (e) {}
     const pct = Math.round(firstTry / steps.length * 100);
     const col = pct >= 80 ? '#2e7d32' : pct >= 50 ? '#e08600' : '#c0392b';
     const ov = document.createElement('div'); ov.id = 'graded-complete';
@@ -13468,6 +13477,7 @@ const routes = {
 
 const key = MOD + '-' + SLIDE;
 window.WISH_INTROSPECT = params.get('introspect') === '1';
+window.WISH_GRADED = params.get('graded') === '1'; // "Test Yourself" mode — route demos through runGraded
 
 function _dispatch() {
   if (routes[key]) routes[key]();
