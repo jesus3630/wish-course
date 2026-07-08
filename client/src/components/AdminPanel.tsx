@@ -1276,6 +1276,32 @@ export default function AdminPanel() {
                   </div>
                 );
               })}
+
+              {/* Skill Assessments — graded "Test Yourself" first-try pass rates */}
+              <div style={{ background: '#F0FDF4', border: `1px solid #BBF7D0`, borderRadius: '8px', padding: '10px 12px', margin: '20px 0 12px', fontSize: '11px', color: C.navy, lineHeight: '1.5' }}>
+                <strong>Skill Assessments</strong> — first-try pass rate on each interactive demo's "Test Yourself" mode. Low pass rates flag tasks learners find hardest to perform.
+              </div>
+              {!analyticsLoading && analytics.filter(a => a.type === 'graded').length === 0 && (
+                <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>No Test Yourself attempts yet. Data appears here as learners run demos in Test Yourself mode.</div>
+              )}
+              {analytics.filter(a => a.type === 'graded').map(a => {
+                const total = (a.hits || 0) + (a.misses || 0);
+                const pass = total ? Math.round((a.hits / total) * 100) : 0;
+                const col = pass >= 75 ? C.green : pass >= 50 ? C.orange : C.red;
+                return (
+                  <div key={a.key} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '12px', marginBottom: '8px', borderLeft: `4px solid ${col}` }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: '10px', alignItems: 'baseline' }}>
+                      <span style={{ fontSize: '10px', color: C.gray, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.4px' }}>{a.module_id || '—'}</span>
+                      <span style={{ fontSize: '13px', fontWeight: 800, color: col, whiteSpace: 'nowrap' }}>{pass}% passed</span>
+                    </div>
+                    <div style={{ fontSize: '12.5px', color: C.navy, margin: '5px 0 7px', lineHeight: '1.4' }}>{(a.label || a.key || '').replace(/^graded:/, '')}</div>
+                    <div style={{ height: '4px', background: C.border, borderRadius: '2px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${pass}%`, background: col, borderRadius: '2px' }} />
+                    </div>
+                    <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>{a.hits} of {total} passed on the first try</div>
+                  </div>
+                );
+              })}
             </div>
           )}
 
