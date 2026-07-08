@@ -81,6 +81,7 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
   const [portrait, setPortrait] = useState(false);
   const lastWRef = useRef(0);
   const rafRef = useRef(0);
+  const scheduleRef = useRef<() => void>(() => {});
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
@@ -99,11 +100,16 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
       setOverflowing(1280 * s > w + 1);
     };
     const schedule = () => { cancelAnimationFrame(rafRef.current); rafRef.current = requestAnimationFrame(measure); };
+    // force = re-measure even if the width looks unchanged (recovers a scale stuck from an early measure)
+    const force = () => { lastWRef.current = 0; schedule(); };
+    scheduleRef.current = force;
     schedule();
+    // Re-measure as the layout settles (transition/first paint) so the scale can't get stuck small
+    const timers = [setTimeout(force, 120), setTimeout(force, 400), setTimeout(force, 1000)];
     const obs = new ResizeObserver(schedule);
     obs.observe(el);
     window.addEventListener('resize', schedule);
-    return () => { cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); };
+    return () => { timers.forEach(clearTimeout); cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); };
   }, []);
   // Track phone width + orientation for the rotate hint
   useEffect(() => {
@@ -142,6 +148,7 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
       <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
         <iframe
           src={url}
+          onLoad={() => scheduleRef.current()}
           style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
           title="WISH Interactive Simulation"
         />
