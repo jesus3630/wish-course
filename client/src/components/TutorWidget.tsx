@@ -10,30 +10,9 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
-  const [speak, setSpeak] = useState(true);
   const listRef = useRef<HTMLDivElement>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const scrollDown = () => setTimeout(() => { if (listRef.current) listRef.current.scrollTop = listRef.current.scrollHeight; }, 30);
-
-  async function speakAnswer(text: string) {
-    if (!speak) return;
-    try {
-      const r = await fetch('/api/narrate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text }) });
-      if (r.ok) {
-        const { audio } = await r.json();
-        if (audio) {
-          if (audioRef.current) audioRef.current.pause();
-          const a = new Audio('data:audio/mpeg;base64,' + audio);
-          audioRef.current = a;
-          a.play().catch(() => {});
-          return;
-        }
-      }
-    } catch { /* fall through */ }
-    // Fallback: browser speech
-    try { const u = new SpeechSynthesisUtterance(text); window.speechSynthesis.speak(u); } catch { /* ignore */ }
-  }
 
   async function ask(question: string) {
     const q = question.trim();
@@ -51,7 +30,6 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
       const answer = data.answer || 'Sorry, I could not answer that. Please contact your WISH administrator.';
       setMsgs(m => [...m, { role: 'tutor', text: answer }]);
       scrollDown();
-      speakAnswer(answer);
     } catch {
       setMsgs(m => [...m, { role: 'tutor', text: 'Something went wrong reaching the trainer. Please try again.' }]);
       scrollDown();
@@ -86,10 +64,7 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
           <div style={{ fontWeight: 800, fontSize: 14 }}>Ask the Trainer</div>
           <div style={{ fontSize: 11, opacity: 0.85 }}>{moduleName}</div>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <button onClick={() => setSpeak(s => !s)} title={speak ? 'Voice on' : 'Voice off'} style={{ background: 'none', border: 'none', cursor: 'pointer', fontSize: 16, opacity: speak ? 1 : 0.45 }}>🔊</button>
-          <button onClick={() => setOpen(false)} aria-label="Close" style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', fontSize: 20, lineHeight: 1 }}>×</button>
-        </div>
+        <button onClick={() => setOpen(false)} aria-label="Close" style={{ background: 'none', border: 'none', color: '#fff', cursor: 'pointer', fontSize: 20, lineHeight: 1 }}>×</button>
       </div>
 
       <div ref={listRef} style={{ flex: 1, overflowY: 'auto', padding: 14, background: '#F7FAFB' }}>
@@ -98,16 +73,28 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
             Ask anything about <b>{moduleName}</b> and I'll answer from this module's training material.
           </div>
         )}
-        {msgs.map((m, i) => (
-          <div key={i} style={{ display: 'flex', justifyContent: m.role === 'you' ? 'flex-end' : 'flex-start', marginBottom: 8 }}>
-            <div style={{
-              maxWidth: '82%', padding: '8px 11px', borderRadius: 12, fontSize: 13, lineHeight: 1.45,
-              background: m.role === 'you' ? C.navy : '#fff', color: m.role === 'you' ? '#fff' : C.ink,
-              border: m.role === 'you' ? 'none' : `1px solid ${C.line}`,
-              borderBottomRightRadius: m.role === 'you' ? 3 : 12, borderBottomLeftRadius: m.role === 'you' ? 12 : 3,
-            }}>{m.text}</div>
-          </div>
-        ))}
+        {msgs.map((m, i) => {
+          const bullets = m.role === 'tutor' ? m.text.split('\n').map(s => s.trim()).filter(Boolean) : null;
+          return (
+            <div key={i} style={{ display: 'flex', justifyContent: m.role === 'you' ? 'flex-end' : 'flex-start', marginBottom: 8 }}>
+              <div style={{
+                maxWidth: '82%', padding: '8px 11px', borderRadius: 12, fontSize: 13, lineHeight: 1.45,
+                background: m.role === 'you' ? C.navy : '#fff', color: m.role === 'you' ? '#fff' : C.ink,
+                border: m.role === 'you' ? 'none' : `1px solid ${C.line}`,
+                borderBottomRightRadius: m.role === 'you' ? 3 : 12, borderBottomLeftRadius: m.role === 'you' ? 12 : 3,
+              }}>
+                {bullets
+                  ? bullets.map((line, li) => (
+                      <div key={li} style={{ display: 'flex', gap: 6, alignItems: 'flex-start', marginTop: li ? 4 : 0 }}>
+                        <span style={{ color: C.orange, flexShrink: 0 }}>•</span>
+                        <span>{line.replace(/^[-•*]\s*/, '')}</span>
+                      </div>
+                    ))
+                  : m.text}
+              </div>
+            </div>
+          );
+        })}
         {busy && <div style={{ color: '#9CA3AF', fontSize: 12, fontStyle: 'italic' }}>Trainer is thinking…</div>}
       </div>
 

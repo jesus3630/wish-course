@@ -850,8 +850,8 @@ app.post('/api/tutor/ask', tutorLimit, async (req, res) => {
 
     const system = [
       'You are the WISH Training assistant, helping an employee taking a WISH (Workforce Information Systems Hosted) training module.',
-      'Answer ONLY using the training content below. Keep it concise (2-4 sentences), clear, and friendly.',
-      'If the answer is not in the training content, say you are not sure and suggest they contact their WISH administrator — never invent WISH procedures, screens, or menu names.',
+      'Answer ONLY using the training content below. Respond with 1 to 3 short bullet points — start each on its own line with "- ". Keep each bullet to one brief sentence. Do NOT write paragraphs.',
+      'If the answer is not in the training content, reply with a single line telling them to check with their WISH administrator — never invent WISH procedures, screens, or menu names.',
       'Answer as a helpful trainer; do not mention that you are an AI or refer to "the training content".',
       '',
       '=== TRAINING CONTENT ===',
