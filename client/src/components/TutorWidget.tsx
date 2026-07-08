@@ -61,9 +61,10 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
   }
 
   if (!open) {
+    // Anchored to the middle of the right edge — clear of the top bar and the bottom Prev/Next nav.
     return (
       <button onClick={() => setOpen(true)} aria-label="Ask the trainer" style={{
-        position: 'fixed', bottom: 20, right: 20, zIndex: 900, border: 'none', cursor: 'pointer',
+        position: 'fixed', top: '50%', right: 14, transform: 'translateY(-50%)', zIndex: 900, border: 'none', cursor: 'pointer',
         background: `linear-gradient(135deg, ${C.teal}, ${C.navy})`, color: '#fff', borderRadius: 24,
         padding: '11px 18px', fontSize: 14, fontWeight: 700, boxShadow: '0 6px 18px rgba(0,0,0,0.22)',
         display: 'flex', alignItems: 'center', gap: 8,
@@ -75,7 +76,7 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
 
   return (
     <div style={{
-      position: 'fixed', bottom: 20, right: 20, zIndex: 900, width: 340, maxWidth: 'calc(100vw - 32px)',
+      position: 'fixed', top: '50%', right: 14, transform: 'translateY(-50%)', zIndex: 900, width: 340, maxWidth: 'calc(100vw - 32px)',
       height: 460, maxHeight: 'calc(100vh - 40px)', background: '#fff', borderRadius: 14,
       boxShadow: '0 14px 44px rgba(0,0,0,0.28)', display: 'flex', flexDirection: 'column', overflow: 'hidden',
       border: `1px solid ${C.line}`,
