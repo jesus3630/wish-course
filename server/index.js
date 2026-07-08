@@ -1147,6 +1147,7 @@ async function bootWithRetry(attempt = 1) {
     await initDB();
     console.log('[boot] DB init complete');
     agent.start(pool);
+    require('./scheduler').start(pool);
   } catch (err) {
     console.error(`[boot] DB init failed (attempt ${attempt}), retrying in 10s:`, err.message);
     setTimeout(() => bootWithRetry(attempt + 1), 10000);

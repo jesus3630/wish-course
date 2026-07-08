@@ -132,4 +132,26 @@ async function sendTrainingRequestEmail({ name, email, department, message }) {
   console.log(`[email] Training request forwarded to admin for ${name} <${email}>`);
 }
 
-module.exports = { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail, sendTrainingRequestEmail };
+async function sendReminderEmail(email, name, username) {
+  if (!isConfigured()) {
+    console.log(`[email] not configured — skipping reminder to ${email}`);
+    return;
+  }
+  const greeting = name ? `Hi ${name},` : 'Hello,';
+  await sendEmail(
+    email,
+    'Reminder: your WISH training is waiting',
+    brandedEmail(`
+      <p style="font-size:16px;color:#111827;margin-top:0">${greeting}</p>
+      <p style="color:#374151;line-height:1.6">Just a friendly reminder that you have <strong>WISH Training</strong> assigned and haven't started yet. It won't take long, and your progress saves automatically so you can stop and resume anytime.</p>
+      ${username ? `<div style="background:#F4F7FA;border-radius:8px;padding:14px 20px;margin:18px 0"><div style="font-size:13px;color:#374151"><span style="font-weight:600;display:inline-block;width:90px">Username:</span> <span style="font-family:monospace;font-size:14px">${username}</span></div></div>` : ''}
+      <div style="text-align:center;margin:28px 0">
+        <a href="${SITE_URL}" target="_blank" style="background:#D4782A;color:#fff;text-decoration:none;padding:14px 32px;border-radius:8px;font-weight:700;font-size:16px;display:inline-block">Start Training</a>
+      </div>
+      <p style="color:#6B7280;font-size:13px;line-height:1.6">If you've already finished, thank you — you can ignore this message.</p>
+    `)
+  );
+  console.log(`[email] Reminder sent to ${email}`);
+}
+
+module.exports = { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail, sendTrainingRequestEmail, sendReminderEmail };
