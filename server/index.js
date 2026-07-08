@@ -839,23 +839,25 @@ app.post('/api/tutor/ask', tutorLimit, async (req, res) => {
     const course = await getCourseData();
     const mods = Array.isArray(course) ? course : (course.modules || []);
     const mod = mods.find(m => m && m.id === moduleId);
-    let context;
-    if (mod) {
-      context = `MODULE: ${mod.name}\n\n` + (mod.slides || [])
-        .map(s => `## ${s.slide_name || ''}\n${(s.text || '').trim()}`).join('\n\n');
-    } else {
-      context = 'WISH training modules: ' + mods.map(m => m && m.name).filter(Boolean).join(', ');
-    }
-    context = context.slice(0, 12000);
+    const moduleNames = mods.map(m => m && m.name).filter(Boolean);
+    const courseOverview = `The WISH course has ${moduleNames.length} modules: ${moduleNames.join(', ')}.`;
+    const modName = mod ? mod.name : 'WISH Training';
+    const moduleContent = mod
+      ? (mod.slides || []).map(s => `## ${s.slide_name || ''}\n${(s.text || '').trim()}`).join('\n\n').slice(0, 11000)
+      : '(This module\'s content is unavailable — answer from the Course Overview.)';
 
     const system = [
-      'You are the WISH Training assistant, helping an employee taking a WISH (Workforce Information Systems Hosted) training module.',
-      'Answer ONLY using the training content below. Respond with 1 to 3 short bullet points — start each on its own line with "- ". Keep each bullet to one brief sentence. Do NOT write paragraphs.',
-      'If the answer is not in the training content, reply with a single line telling them to check with their WISH administrator — never invent WISH procedures, screens, or menu names.',
-      'Answer as a helpful trainer; do not mention that you are an AI or refer to "the training content".',
+      `You are the WISH Training assistant. The employee is currently in the "${modName}" module of ProtaTECH's WISH (Workforce Information Systems Hosted) training.`,
+      'Answer helpfully and specifically using the material below. Respond with 1 to 3 short bullet points — each on its own line starting with "- ", one brief sentence each. Never write paragraphs.',
+      'If a question is short or vague (e.g. "what is this", "how does this work"), treat it as being about the CURRENT module and give a brief overview of what it covers.',
+      'For questions about the overall course (e.g. "how many modules are there"), answer from the Course Overview.',
+      'Only reply exactly "Please check with your WISH administrator." when the question is clearly unrelated to WISH training, or asks for something the material cannot provide — a specific person\'s record, a password, or account-specific data. Do NOT invent WISH screens, menus, or steps that are not in the material.',
+      'Answer as a helpful trainer; never mention being an AI or refer to "the material".',
       '',
-      '=== TRAINING CONTENT ===',
-      context,
+      `COURSE OVERVIEW: ${courseOverview}`,
+      '',
+      `=== "${modName}" MODULE CONTENT ===`,
+      moduleContent,
     ].join('\n');
 
     const completion = await openaiClient.chat.completions.create({
