@@ -86,13 +86,15 @@
         "slide_number": 10,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "text": "Congratulations! You've completed the Introduction to WISH. You now know how to log in, find your way around the portal, and what each menu is for.\n\nDepending on your role and access level, you'll have additional modules to complete. Each one walks you through the parts of WISH you'll actually use."
+        "text": "Congratulations! You've completed the Introduction to WISH. You now know how to log in, find your way around the portal, and what each menu is for.\n\nDepending on your role and access level, you'll have additional modules to complete. Each one walks you through the parts of WISH you'll actually use.",
+        "completion_card": true
       },
       {
         "slide_number": 11,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "next_steps_card": true
       }
     ]
   },
@@ -104,7 +106,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, we'll cover the following Record menus:\r\nManage Job\r\nManage Clients\r\nManage Contracts\r\nManage Events \r\nManage Venues",
@@ -151,13 +154,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 8
+        "slide_number": 8,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 9
+        "slide_number": 9,
+        "next_steps_card": true
       }
     ]
   },
@@ -169,7 +174,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn:\n• How to create a Job\n• How to modify an existing Job\n• How to copy a Job\n• How to delete a Job (and why order matters)\n\nNote: If you have Record Maintenance access, this module is included within that permission. Manage Job is for users who create and modify jobs only.",
@@ -238,7 +244,8 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 8
+        "slide_number": 8,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
@@ -257,7 +264,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods.",
@@ -289,13 +297,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 6
+        "slide_number": 6,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 7
+        "slide_number": 7,
+        "next_steps_card": true
       }
     ]
   },
@@ -307,7 +317,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to use the administrative scheduling screen, which allows you to override standard scheduling restrictions.",
@@ -332,13 +343,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 5
+        "slide_number": 5,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 6
+        "slide_number": 6,
+        "next_steps_card": true
       }
     ]
   },
@@ -350,7 +363,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn the full payroll processing workflow in WISH, from approving employee hours after an event through running the final reports your branch submits each week.\r\n\r\nEvery pay week in WISH runs Saturday through Friday. All hours worked during that window must be approved and processed before Wednesday morning, when the payroll department transmits everything. Stay current throughout the week, do not let hours pile up.",
@@ -411,13 +425,15 @@
         "text": "Congratulations! You've completed the Payroll Processing module.\r\n\r\nYou now know how to move through the full payroll workflow in WISH, from reviewing and approving hours in Manage Process Hours, to clearing exceptions, running Process Payroll, and pulling the reports your branch submits each week.\r\n\r\nStay on top of processing throughout the week. The more current your hours are, the smoother Wednesday morning goes for everyone.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 10
+        "slide_number": 10,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 11
+        "slide_number": 11,
+        "next_steps_card": true
       }
     ]
   },
@@ -429,7 +445,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "With General Reporting access, you have access to the full Reports menu in WISH.\r\n\r\nThe Reports menu has three sections:\r\n* Job Administration, your daily reports. Alpha rosters, sign-in sheets, schedules, and post-event follow-up.\r\n* Summary Roster, high-level overviews across employees, jobs, clients, venues, and branches.\r\n* Detailed Roster, deeper employee-level reports covering timesheets, licensing, sign-in activity, and availability.\r\n \r\nWe'll cover each one so you know where to go when you need something.",
@@ -484,13 +501,15 @@
         "text": "Congratulations! You've completed the General Reporting module.\r\n\r\nYou now know how to navigate all three sections of the Reports menu and how to run the reports you'll use most on the job.\r\n \r\nIf you're ever unsure which report to use, your administrator can help point you in the right direction.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 9
+        "slide_number": 9,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 10
+        "slide_number": 10,
+        "next_steps_card": true
       }
     ]
   },
@@ -502,7 +521,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "With Payroll Reporting access, you have everything in General Reporting plus one additional section, Payroll Reports.\r\n\r\nPayroll Reports is located in the Reports menu alongside Summary Roster, Detailed Roster, and Job Administration. This is where you go to verify employee hours and pay before payroll is finalized.\r\n\r\nThink of these reports as your review tools, you run them to make sure what's in the system matches what actually happened at the event before payroll gets processed.",
@@ -543,13 +563,15 @@
         "text": "Congratulations! You've completed the Payroll Reporting module.\r\n\r\nYou now know how to access Payroll Reports, run the Employee Time Register, and use payroll data to verify hours before payroll is finalized.\r\n\r\nIf anything looks off in a report, contact your administrator before payroll is approved, it's always easier to correct before finalization than after.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -561,7 +583,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Admin Reporting gives you access to the complete Reports menu in WISH, all six sections.\r\n\r\nYou have everything from General Reporting and Payroll Reporting, plus two additional sections that are exclusive to this permission level:\r\n* Billing Reports, invoice and cost reports for client billing oversight\r\n* Manager Reports, credential, scheduling efficiency, and MVR reports for branch management\r\n\r\nAs an admin-level user, you have a full view of event operations from scheduling through billing. These reports support oversight, auditing, and decision-making across your branch.",
@@ -602,13 +625,15 @@
         "text": "Congratulations! You've completed the Admin Reporting module.\r\n\r\nYou now have a full picture of the WISH Reports menu and how each section supports your branch operations, from scheduling and payroll through billing and compliance.\r\n\r\nIf you're unsure which report to use for a specific situation, your administrator or the Quick Reference Guide is the best place to start.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -620,7 +645,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Workforce Scheduler Maintenance gives you access to employee records in WISH, specifically the ability to look up employees and update three things:\r\n\r\n* Licensing, guard card numbers and expiration dates\r\n* Background Checks, status and check history\r\n* Employee Notes, branch-level notes on an employee\r\n\r\nEverything else in the employee record is view-only for you. You won't be able to change pay rates, status, contact information, or anything outside of those three areas. If you see a field you can't edit, that's by design, those changes require a higher permission level.",
@@ -668,13 +694,15 @@
         "text": "Congratulations! You've completed the Workforce Scheduler Maintenance module.\r\n\r\nYou now know how to search for employees in WISH, open their records, and update the three areas within your access: Licensing, Background Check, and Employee Notes.\r\n\r\nRemember, always verify guard card and background check status before scheduling employees for positions that require them. When in doubt, check with your administrator before scheduling.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 8
+        "slide_number": 8,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 9
+        "slide_number": 9,
+        "next_steps_card": true
       }
     ]
   },
@@ -686,7 +714,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Workforce Admin Maintenance builds on Workforce Scheduler Maintenance. You get to the employee record the same way, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this permission level you can view and edit everything from Workforce Scheduler Maintenance, plus three additional areas:\r\n\r\n* Disciplinary Action, view existing records and add new ones\r\n* Pay Rates, view and update employee pay rates\r\n* Training Records, view which WISH training modules an employee has completed",
@@ -720,13 +749,15 @@
         "text": "Congratulations! You've completed the Workforce Admin Maintenance module.\r\n\r\nYou now know how to access and update Disciplinary Action records, Pay Rates, and Training information within an employee's record.\r\n\r\nRemember, always deactivate an existing pay rate before adding a new one. Never edit a rate that's already been used for payroll.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 6
+        "slide_number": 6,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 7
+        "slide_number": 7,
+        "next_steps_card": true
       }
     ]
   },
@@ -738,7 +769,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Employee HR Record Maintenance is the broadest level of access to individual employee data in WISH. You get to the employee record the same way as always, Records to Manage Employee, search, click the employee's last name.\r\n\r\nAt this level you have full access to the employee record, including everything in Workforce Scheduler Maintenance and Workforce Admin Maintenance, plus:\r\n\r\n* Personal Info, name, date of birth, status changes\r\n* Contact Info, address, phone number, email address\r\n* Background Checks, full history and status updates\r\n* Shared Branches, which branches can view and schedule this employee\r\n* Exclusions, clients or jobs this employee cannot be assigned to\r\n* Tasks, onboarding and compliance items\r\n\r\nChanges made here affect the employee system-wide across all branches. Use this access carefully.",
@@ -779,13 +811,15 @@
         "text": "Congratulations! You've completed the Employee HR Record Maintenance module.\r\n\r\nYou now have full access to the employee record in WISH. With that comes responsibility, changes you make here affect the employee across all branches and all functions of the system.\r\n\r\nWhen in doubt about a change, check with your administrator before saving. It's always easier to confirm first than to correct after the fact.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -797,7 +831,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Hiring Manager access gives you one specific tool: the ability to import applicants from the hiring portal into WISH.\r\n\r\nYou'll find it under Tools to Import From Hiring Portal. This is not under the Records menu, go to Tools in the top navigation.\r\n\r\nWhen someone applies and is processed through the hiring portal, they don't automatically exist in WISH. This screen is where you bring them in, review their status, and create their employee record so they can be scheduled for jobs.",
@@ -838,13 +873,15 @@
         "text": "Congratulations! You've completed the Hiring Manager module.\r\n\r\nYou now know how to access the Import From Hiring Portal screen, review applicant status before importing, and bring new employees into WISH so they can be scheduled for jobs.\r\n\r\nRemember, always confirm Background Check and E-Verify status before importing. When in doubt, check with your administrator before proceeding.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -856,7 +893,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.  \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "HR Admin access gives you one focused tool: Manage Employee Task.\r\n\r\nYou'll find it at the bottom of the Records menu, Records to Manage Employee Task.\r\n\r\nThis screen shows you all employees and whether they have completed or still have pending tasks in WISH. Tasks typically include onboarding requirements, training completions, document submissions, and compliance acknowledgments.\r\n\r\nYour job here is to monitor task status across your employee pool and follow up with anyone who has outstanding items.",
@@ -889,13 +927,15 @@
         "text": "Congratulations! You've completed the HR Admin module.\r\n\r\nYou now know how to access Manage Employee Task, read the task status indicators, and identify employees who have pending items that need follow-up.\r\n\r\nCheck this screen regularly, keeping tasks current keeps your employees set up correctly and your branch running smoothly.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 6
+        "slide_number": 6,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 7
+        "slide_number": 7,
+        "next_steps_card": true
       }
     ]
   },
@@ -907,7 +947,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series.\r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.\r\n\r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "Mail By access gives you three communication tools, all found under the Tools menu:\r\n\r\n* Mail By Employee, send a message directly to one or more specific employees\r\n* Mail By Available Employee, send a message to employees who are available but not yet scheduled for a job\r\n* Mail By Job, send a message to all employees already scheduled on a specific job\r\n\r\nAll three options send messages to the email address on file in each employee's WISH record. Choose the right one based on who you're trying to reach and why.",
@@ -947,13 +988,15 @@
         "text": "Congratulations! You've completed the Mail By module.\r\n\r\nYou now know how to use all three Mail By tools to communicate with employees through WISH, whether you're reaching a specific person, filling open shifts, or sending an update to an entire job crew.\r\n\r\nIf an employee isn't receiving your messages, the first thing to check is their email address in their WISH record.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -965,7 +1008,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to configure and manage electronic sign-in and sign-out for events.",
@@ -1004,13 +1048,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 7
+        "slide_number": 7,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 8
+        "slide_number": 8,
+        "next_steps_card": true
       }
     ]
   },
@@ -1022,7 +1068,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to review, adjust, and approve employee hours after an event.",
@@ -1069,13 +1116,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 8
+        "slide_number": 8,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 9
+        "slide_number": 9,
+        "next_steps_card": true
       }
     ]
   },
@@ -1087,7 +1136,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to generate and manage client invoices in WISH.",
@@ -1140,13 +1190,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 9
+        "slide_number": 9,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 10
+        "slide_number": 10,
+        "next_steps_card": true
       }
     ]
   },
@@ -1158,7 +1210,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\n\r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to track and manage physical items used at events, including how to set up asset tags, create inventory items, assign equipment to jobs, and process check-in and check-out activity.",
@@ -1219,13 +1272,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 10
+        "slide_number": 10,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 11
+        "slide_number": 11,
+        "next_steps_card": true
       }
     ]
   },
@@ -1237,7 +1292,8 @@
         "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
         "slide_name": "WISH Training Series",
         "instructions": "ProtaTECH logo, series title",
-        "slide_number": 1
+        "slide_number": 1,
+        "wish_logo_card": true
       },
       {
         "text": "In this module, you will learn how to:\r\n* Publish job shifts to the web so employees can apply\r\n* Enable auto-scheduling for large events\r\n* Review and approve or deny employee shift applications\r\n* Change the Max number of staff that can apply to Shifts\r\nMSS is the manager's side of the scheduling portal. It controls what employees can see and self-schedule for in their ESS app.",
@@ -1284,13 +1340,15 @@
         "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "slide_number": 8
+        "slide_number": 8,
+        "completion_card": true
       },
       {
         "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "slide_number": 9
+        "slide_number": 9,
+        "next_steps_card": true
       }
     ]
   },
@@ -1302,7 +1360,8 @@
         "slide_number": 1,
         "slide_name": "WISH Training Series",
         "instructions": "",
-        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. WISH is ProtaTECH's all-in-one workforce application that supports the entire employee lifecycle.\n\nIn this module, we'll focus on California meal and rest break requirements and how WISH tracks them."
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. WISH is ProtaTECH's all-in-one workforce application that supports the entire employee lifecycle.\n\nIn this module, we'll focus on California meal and rest break requirements and how WISH tracks them.",
+        "wish_logo_card": true
       },
       {
         "slide_number": 2,
@@ -1339,13 +1398,15 @@
         "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "text": "Congratulations! You've completed the California Meal and Rest Breaks module. You now understand California's meal and rest break requirements, how AB 1512 applies to security officers, and how WISH tracks paid and unpaid breaks."
+        "text": "Congratulations! You've completed the California Meal and Rest Breaks module. You now understand California's meal and rest break requirements, how AB 1512 applies to security officers, and how WISH tracks paid and unpaid breaks.",
+        "completion_card": true
       },
       {
         "slide_number": 8,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "next_steps_card": true
       }
     ]
   }

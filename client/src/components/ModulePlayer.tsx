@@ -16,6 +16,10 @@ const PULSE_STYLE = `
     0%,100% { box-shadow: 0 0 0 2px rgba(245,158,11,0.9), 0 0 8px 5px rgba(245,158,11,0.5), 0 0 20px 10px rgba(245,158,11,0.18); }
     50%      { box-shadow: 0 0 0 2px rgba(245,158,11,1),   0 0 14px 7px rgba(245,158,11,0.75), 0 0 30px 14px rgba(245,158,11,0.32); }
   }
+  @keyframes wish-complete-pulse {
+    0%   { transform: scale(0.72); opacity: 0.30; }
+    100% { transform: scale(1.28); opacity: 0; }
+  }
 `;
 type HighlightBox = { x: number; y: number; w: number; h: number };
 function AuditImageHighlight({ src, highlight, caption }: { src: string; highlight: HighlightBox; caption: string }) {
@@ -310,6 +314,8 @@ export default function ModulePlayer({
     && !s_any?.wish_logo_card
     && !s_any?.hierarchy_card
     && !s_any?.menu_card
+    && !s_any?.completion_card
+    && !s_any?.next_steps_card
     && !s_any?.image_below
     && !s_any?.image_below_2;
 
@@ -790,6 +796,9 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 </div>
               )}
 
+              {/* Celebration reads first, then the script — not stranded under it. */}
+              {(slide as any)?.completion_card && <CompletionCard />}
+
               {!(slide as any)?.wish_logo_card && (
                 <div style={{ ...styles.slideContent, ...(isTextOnly ? { maxWidth: '680px', margin: '0 auto 24px' } : {}) }}>
                   {slideText ? (
@@ -815,6 +824,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               )}
               {(slide as any)?.hierarchy_card && <RecordHierarchyCard />}
               {(slide as any)?.menu_card && <RecordMenuCard items={(slide as any).menu_card} />}
+              {(slide as any)?.next_steps_card && <NextStepsCard />}
 
               {!(slide as any)?.hierarchy_card && module.video_url && slide?.video_start !== undefined ? (
                 <div style={styles.screenshotWrap}>
@@ -1224,6 +1234,173 @@ function RecordHierarchyCard() {
 }
 
 // ─── Generic animated menu/list card ─────────────────────────────────────────
+// Respects the OS "reduce motion" setting — these cards autoplay with no user
+// gesture, which is exactly the case that setting exists for.
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+    if (!mq) return;
+    setReduced(mq.matches);
+    const on = (e: MediaQueryListEvent) => setReduced(e.matches);
+    mq.addEventListener?.('change', on);
+    return () => mq.removeEventListener?.('change', on);
+  }, []);
+  return reduced;
+}
+
+// ─── Module-complete celebration ─────────────────────────────────────────────
+// Shown on every "Congratulations!" slide. The checkmark strokes itself in, then
+// the ring settles and the badge/text rise — timed to land under the opening line
+// of the narration rather than all at once.
+function CompletionCard() {
+  const [ring, setRing] = useState(false);
+  const [check, setCheck] = useState(false);
+  const [badge, setBadge] = useState(false);
+  const reduced = usePrefersReducedMotion();
+
+  useEffect(() => {
+    if (reduced) { setRing(true); setCheck(true); setBadge(true); return; }
+    setRing(false); setCheck(false); setBadge(false);
+    const t = [
+      setTimeout(() => setRing(true), 250),
+      setTimeout(() => setCheck(true), 800),
+      setTimeout(() => setBadge(true), 1600),
+    ];
+    return () => t.forEach(clearTimeout);
+  }, [reduced]);
+
+  const R = 54;
+  const CIRC = 2 * Math.PI * R;
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '18px 0 6px' }}>
+      <div style={{ position: 'relative', width: 132, height: 132 }}>
+        {/* Soft pulse ring. `forwards` is load-bearing: without it the animation reverts to
+            opacity:1 when it ends and paints a solid disc over the checkmark. */}
+        {!reduced && check && (
+          <div style={{
+            position: 'absolute', inset: 0, borderRadius: '50%', background: '#2E9E6B',
+            opacity: 0, zIndex: 0,
+            animation: 'wish-complete-pulse 2.4s ease-out 0.2s 2 forwards',
+          }} />
+        )}
+        <svg width="132" height="132" viewBox="0 0 132 132" style={{ position: 'relative', zIndex: 1 }}>
+          {/* opaque base so the pulse never shows through behind the mark */}
+          <circle cx="66" cy="66" r={R} fill="#FFFFFF" />
+          <circle cx="66" cy="66" r={R} fill="none" stroke="#E4EBF2" strokeWidth="7" />
+          <circle
+            cx="66" cy="66" r={R} fill="none" stroke="#2E9E6B" strokeWidth="7" strokeLinecap="round"
+            transform="rotate(-90 66 66)"
+            style={{
+              strokeDasharray: CIRC,
+              strokeDashoffset: ring ? 0 : CIRC,
+              transition: reduced ? 'none' : 'stroke-dashoffset 1.1s cubic-bezier(0.65,0,0.35,1)',
+            }}
+          />
+          <path
+            d="M44 67 L59 82 L89 51" fill="none" stroke="#2E9E6B" strokeWidth="8"
+            strokeLinecap="round" strokeLinejoin="round"
+            style={{
+              strokeDasharray: 80,
+              strokeDashoffset: check ? 0 : 80,
+              transition: reduced ? 'none' : 'stroke-dashoffset 0.55s cubic-bezier(0.22,1,0.36,1)',
+            }}
+          />
+        </svg>
+      </div>
+
+      <div style={{
+        marginTop: 14,
+        opacity: badge ? 1 : 0,
+        transform: badge ? 'none' : 'translateY(12px)',
+        transition: reduced ? 'none' : 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)',
+        textAlign: 'center',
+      }}>
+        <div style={{
+          display: 'inline-block', background: '#2E9E6B', color: '#fff', fontWeight: 800,
+          fontSize: 12, letterSpacing: 1.4, textTransform: 'uppercase',
+          padding: '7px 18px', borderRadius: 999,
+        }}>
+          Module Complete
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Next Steps ──────────────────────────────────────────────────────────────
+// The narration reads the support contact aloud on every module's last slide, so
+// put it on screen where it can actually be written down. Steps stagger in.
+function NextStepsCard() {
+  const [shown, setShown] = useState(-1);
+  const reduced = usePrefersReducedMotion();
+
+  const STEPS = [
+    { icon: '▶', title: 'Proceed to your next module', sub: 'If more are assigned to you', color: '#1B3A6B' },
+    { icon: '📄', title: 'Refer to the Quick Reference Guide', sub: 'For step-by-step reminders', color: '#D4782A' },
+    { icon: '💬', title: 'Contact your WISH Administrator', sub: 'For questions or support', color: '#2E9E6B' },
+  ];
+
+  useEffect(() => {
+    if (reduced) { setShown(STEPS.length - 1); return; }
+    setShown(-1);
+    const t = STEPS.map((_, i) => setTimeout(() => setShown(i), 400 + i * 650));
+    return () => t.forEach(clearTimeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reduced]);
+
+  return (
+    <div style={{ maxWidth: 620, margin: '10px auto 0' }}>
+      {STEPS.map((s, i) => (
+        <div
+          key={s.title}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 14,
+            background: '#fff', border: '1px solid #E4EBF2', borderLeft: `4px solid ${s.color}`,
+            borderRadius: 10, padding: '13px 16px', marginBottom: 10,
+            boxShadow: '0 1px 3px rgba(16,32,56,0.06)',
+            opacity: i <= shown ? 1 : 0,
+            transform: i <= shown ? 'none' : 'translateX(-18px)',
+            transition: reduced ? 'none' : 'opacity 0.45s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1)',
+          }}
+        >
+          <div style={{
+            flexShrink: 0, width: 34, height: 34, borderRadius: 8, background: `${s.color}14`,
+            color: s.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 15,
+          }}>{s.icon}</div>
+          <div style={{ textAlign: 'left' }}>
+            <div style={{ fontWeight: 700, fontSize: 14.5, color: '#111827' }}>{s.title}</div>
+            <div style={{ fontSize: 12.5, color: '#6B7280', marginTop: 1 }}>{s.sub}</div>
+          </div>
+        </div>
+      ))}
+
+      <div style={{
+        marginTop: 14, background: '#F4F7FA', border: '1px solid #E4EBF2', borderRadius: 10,
+        padding: '14px 16px', textAlign: 'center',
+        opacity: shown >= STEPS.length - 1 ? 1 : 0,
+        transform: shown >= STEPS.length - 1 ? 'none' : 'translateY(10px)',
+        transition: reduced ? 'none' : 'opacity 0.5s ease 0.25s, transform 0.5s ease 0.25s',
+      }}>
+        <div style={{
+          fontSize: 10.5, fontWeight: 700, color: '#6B7280', letterSpacing: 1.2,
+          textTransform: 'uppercase', marginBottom: 7,
+        }}>
+          For advanced permissions
+        </div>
+        <a href="mailto:support-wish@csc-usa.com" style={{
+          color: '#1B3A6B', fontWeight: 700, fontSize: 14.5, textDecoration: 'none',
+        }}>support-wish@csc-usa.com</a>
+        <span style={{ color: '#C7D2DE', margin: '0 10px' }}>|</span>
+        <a href="tel:8887915150" style={{
+          color: '#1B3A6B', fontWeight: 700, fontSize: 14.5, textDecoration: 'none',
+        }}>888-791-5150</a>
+      </div>
+    </div>
+  );
+}
+
 function RecordMenuCard({ items }: { items: { label: string; icon?: string; color?: string }[] }) {
   const [step, setStep] = useState(-1);
 
