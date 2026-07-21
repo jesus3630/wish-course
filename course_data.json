@@ -1409,5 +1409,52 @@
         "next_steps_card": true
       }
     ]
+  },
+  {
+    "id": "manual_process_hours_new",
+    "name": "Manual Process Hours (New MSS)",
+    "slides": [
+      {
+        "slide_number": 1,
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "wish_logo_card": true,
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. WISH is ProtaTECH's all-in-one workforce application that supports the entire employee lifecycle.\r\n\r\nIn this module, we'll review Manual Process Hours in the new MSS interface."
+      },
+      {
+        "slide_number": 2,
+        "slide_name": "Manual Process Hours — New MSS",
+        "instructions": "New MSS overview",
+        "text": "Manual Process Hours has moved into the new MSS. After an event is over, you'll come here to review the times captured by electronic sign-in and approve each shift's hours.\r\n\r\nYou'll know you're in the new MSS by the refreshed WISH logo and the menu on the left. In the next few slides we'll walk through finding a job, reviewing its shifts, and approving hours."
+      },
+      {
+        "slide_number": 3,
+        "slide_name": "Opening the New MSS & Approvals",
+        "instructions": "Tools > Manager Portal (NEW MSS) > Approvals",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=3",
+        "text": "Manual Process Hours has moved into the new MSS. From your current system, open the Tools menu and choose Manager Portal (New MSS). Then open Approvals, enter your Job number, and click Search. The yellow bar gives an at-a-glance count of your event, and each scheduled shift is listed below it."
+      },
+      {
+        "slide_number": 4,
+        "slide_name": "Approving Hours",
+        "instructions": "Approve Hours = save",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=4",
+        "text": "When electronic sign-ins are complete, each employee's times are already filled in. Review them, then click Approve Hours to finalize. A confirmation appears at the top-right and a gold star marks the shift as approved."
+      },
+      {
+        "slide_number": 5,
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "completion_card": true,
+        "text": "Congratulations! You've completed the new-MSS Manual Process Hours module. You now know how to find a job under Approvals, review the shift summary, and approve hours in the new interface."
+      },
+      {
+        "slide_number": 6,
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "next_steps_card": true,
+        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+      }
+    ]
   }
 ]

@@ -89,31 +89,22 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-    const measure = () => {
-      const w = el.offsetWidth;
-      // Ignore sub-scrollbar-width jitter. Rescaling on a ~15px width change is what made
-      // the demo "shake": scaling toggles a scrollbar, which changes the width, which rescales…
-      // Only react to real resizes (> ~24px). Breaks the feedback loop.
-      if (!w || Math.abs(w - lastWRef.current) < 24) return;
-      lastWRef.current = w;
-      const fit = w / 1280;
-      // On phones, don't shrink below a tappable size — let the learner pan horizontally instead.
-      const min = window.innerWidth < 760 ? 0.52 : 0;
-      const s = Math.max(fit, min);
-      setScale(s);
-      setOverflowing(1280 * s > w + 1);
-    };
+    // Scale the 1280px demo to exactly fill the container width. No jitter guard: the container
+    // is aspect-ratio locked + overflow:hidden, so scaling never toggles a scrollbar (the old
+    // cause of the "shake"). Re-measured on every container resize AND on browser zoom
+    // (visualViewport), so the demo always fills its box and can't get stuck at a stale scale.
+    const measure = () => { const w = el.offsetWidth; if (w) setScale(w / 1280); };
     const schedule = () => { cancelAnimationFrame(rafRef.current); rafRef.current = requestAnimationFrame(measure); };
-    // force = re-measure even if the width looks unchanged (recovers a scale stuck from an early measure)
-    const force = () => { lastWRef.current = 0; schedule(); };
-    scheduleRef.current = force;
+    scheduleRef.current = schedule;
     schedule();
-    // Re-measure as the layout settles (transition/first paint) so the scale can't get stuck small
-    const timers = [setTimeout(force, 120), setTimeout(force, 400), setTimeout(force, 1000)];
+    // Re-measure as the layout settles (transition/first paint) so the scale can't get stuck.
+    const timers = [setTimeout(schedule, 120), setTimeout(schedule, 400), setTimeout(schedule, 1000)];
     const obs = new ResizeObserver(schedule);
     obs.observe(el);
     window.addEventListener('resize', schedule);
-    return () => { timers.forEach(clearTimeout); cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); };
+    const vv = window.visualViewport;
+    if (vv) vv.addEventListener('resize', schedule);
+    return () => { timers.forEach(clearTimeout); cancelAnimationFrame(rafRef.current); obs.disconnect(); window.removeEventListener('resize', schedule); if (vv) vv.removeEventListener('resize', schedule); };
   }, []);
   // Track phone width + orientation for the rotate hint
   useEffect(() => {
@@ -134,7 +125,7 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
     return () => { window.removeEventListener('resize', calc); window.removeEventListener('orientationchange', calc); document.body.style.overflow = ''; };
   }, [full]);
 
-  const showBar = overflowing || small;
+  const showBar = small;
   return (
     <div>
       {showBar && (
@@ -149,11 +140,11 @@ function SimFrame({ src, graded }: { src: string; graded?: boolean }) {
           }}>⛶ Full screen</button>
         </div>
       )}
-      <div ref={wrapRef} style={{ width: '100%', overflowX: overflowing ? 'auto' : 'hidden', overflowY: 'hidden', WebkitOverflowScrolling: 'touch' } as React.CSSProperties}>
+      <div ref={wrapRef} style={{ width: '100%', aspectRatio: '1280 / 720', overflow: 'hidden', position: 'relative' } as React.CSSProperties}>
         <iframe
           src={url}
           onLoad={() => scheduleRef.current()}
-          style={{ width: '1280px', height: '720px', border: 'none', display: 'block', zoom: scale } as React.CSSProperties}
+          style={{ position: 'absolute', top: 0, left: 0, width: '1280px', height: '720px', border: 'none', display: 'block', transformOrigin: 'top left', transform: `scale(${scale})` } as React.CSSProperties}
           title="WISH Interactive Simulation"
         />
       </div>
