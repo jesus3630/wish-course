@@ -234,6 +234,15 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .ap-green{background:#1f8a3b;}
 #nm-root .ap-red{background:#e23b3b;}
 #nm-root .ap-approve{display:block;margin:22px auto 4px;background:#2f6bed;color:#fff;border:none;border-radius:7px;padding:13px 40px;font-size:16px;font-weight:700;cursor:pointer;}
+/* Expanded shift — employee roster */
+#nm-root .ap-emptbl{width:100%;border-collapse:collapse;margin-top:6px;}
+#nm-root .ap-emptbl thead th{background:#3f3f3f;color:#fff;text-align:left;padding:8px 10px;font-weight:700;font-size:12px;white-space:nowrap;}
+#nm-root .ap-emptbl tbody td{padding:8px 10px;border-bottom:1px solid #edeef1;color:#1a1a1a;font-size:12.5px;white-space:nowrap;}
+#nm-root .ap-arrow{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;}
+#nm-root .ap-arrow svg{width:13px;height:13px;}
+#nm-root .ap-arrow.red{background:#e23b3b;}
+#nm-root .ap-arrow.green{background:#2a9d3f;}
+#nm-root .ap-empchk{width:16px;height:16px;accent-color:#3d7ef7;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13488,6 +13497,37 @@ function newMssHomeHTML(){
   </tbody></table></div>`;
 }
 
+function apEmployeeRowsHTML(){
+  // Randomized, fictional staff (NO real employee names/numbers per the demo rule).
+  // First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
+  var emps=[
+    ['4028871','Rivera Marcus','Supervisor',true],
+    ['4028834','Chen Olivia','Supervisor',true],
+    ['4028812','Okafor Daniel','Event Staff 1',true],
+    ['4028790','Nguyen Sophia','Supervisor',false],
+    ['4028776','Torres Elena','Supervisor',false],
+    ['4028755','Brooks Naomi','Supervisor',false],
+    ['4028743','Silva Lucas','Office Admin',false],
+    ['4028729','Adams Priya','Supervisor',false],
+    ['4028718','Kim Andre','Office Admin',false],
+    ['4028701','Patel Rohan','Supervisor',false],
+    ['4028688','Ford Jasmine','Supervisor',false]
+  ];
+  var arrow='<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  return emps.map(function(e){
+    return `<tr>
+      <td><span class="ap-arrow ${e[3]?'green':'red'}">${arrow}</span></td>
+      <td>${e[0]}</td><td>${e[1]}</td><td>${e[2]}</td>
+      <td><input type="checkbox" class="ap-empchk"></td>
+      <td></td>
+      <td>5023717311-1</td>
+      <td>Event Staff</td>
+      <td>Jul 16 2026 12:00</td><td>Jul 16 2026 22:00</td>
+      <td></td>
+    </tr>`;
+  }).join('');
+}
+
 function newMssApprovalsHTML(opts){
   opts = opts || {};
   var job = opts.job || '';
@@ -13503,7 +13543,7 @@ function newMssApprovalsHTML(opts){
       <span class="s-item">Deployed = 0</span><span class="s-item">OnMealBreak = 0</span><span class="s-item">OnRestBreak = 0</span>
     </div>
     <div class="ap-shift">
-      ${opts.approved ? star : '<span class="ap-plus" id="ap-plus">+</span>'}
+      ${opts.approved ? star : '<span class="ap-plus" id="ap-plus">'+(opts.expanded?'−':'+')+'</span>'}
       <span class="ap-col"><b>Role Name -</b>Event Staff</span>
       <span class="ap-col"><b>ShiftNo -</b>1</span>
       <span class="ap-col"><b>Shift Name -</b>load in</span>
@@ -13517,6 +13557,7 @@ function newMssApprovalsHTML(opts){
         <button class="ap-btn ap-red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
       </div>
     </div>
+    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML()}</tbody></table></div>` : ''}
     <button class="ap-approve" id="ap-approve">Approve Hours</button>`;
   return `<div class="nm-card"><div class="nm-title">Approvals</div><div class="nm-title-div"></div>
     <div class="ap-grid">
@@ -13584,7 +13625,10 @@ function slide_manual_process_hours_new_3(){
 function slide_manual_process_hours_new_4(){
   showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true}));
   runGuided([
-    { selector:'#ap-approve', prompt:'When the electronic sign-in times look correct, click "Approve Hours" — this is your save button. It finalizes the hours for the shift.',
+    { selector:'#ap-plus', prompt:'To review a shift, click the green + next to the role name to open the list of employees assigned to it.',
+      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true})); } },
+    { selector:'#ap-emprows', prompt:'Every employee assigned to this role appears here. The arrow on the left shows their status — red means they haven’t signed in yet, green means they have. When electronic sign-ins are done, each person’s times are already filled in.', skipClick:true },
+    { selector:'#ap-approve', prompt:'Once the times look correct, click "Approve Hours" — this is your save button. It finalizes the hours for the shift.',
       onConfirm:function(){ nmToast('Hours approved successfully'); showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,approved:true})); } },
     { selector:'#ap-summary', prompt:'A confirmation appears at the top-right, and a gold star now marks the shift as approved — that’s how you track which shifts are done.', skipClick:true },
   ]);
