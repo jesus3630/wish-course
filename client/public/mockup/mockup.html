@@ -255,6 +255,20 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .ap-perdiem{display:flex;align-items:center;gap:12px;background:#efefef;padding:10px 14px;font-size:13px;color:#333;}
 #nm-root .ap-perdiem input{width:80px;padding:5px 8px;border:1px solid #cfd4da;border-radius:4px;font-size:12px;}
 #nm-root .ap-perdiem .ovd{margin-left:auto;}
+#nm-root .ap-arrow.orange{background:#f0a020;}
+#nm-root .ap-pencil{cursor:pointer;color:#333;margin-right:4px;}
+#nm-root .ap-tin{padding:5px 7px;border:1px solid #cfd4da;border-radius:4px;font-size:12px;}
+/* Notes modal */
+#nm-notes{position:absolute;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-start;justify-content:center;z-index:60;}
+#nm-notes .nm-notes-box{background:#fff;border-radius:6px;width:470px;margin-top:60px;box-shadow:0 10px 40px rgba(0,0,0,.35);overflow:hidden;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;}
+#nm-notes .nm-notes-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;font-size:20px;font-weight:700;color:#1f2a3a;border-bottom:1px solid #eee;}
+#nm-notes .nm-notes-x{width:26px;height:26px;border-radius:50%;background:#e23b3b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;}
+#nm-notes .nm-notes-body{padding:16px 20px;}
+#nm-notes .nm-notes-body b{font-weight:700;}
+#nm-notes .nm-notes-ta{width:100%;height:130px;border:1px solid #cfd4da;border-radius:5px;padding:8px;font-size:13px;resize:vertical;margin-top:4px;}
+#nm-notes .nm-notes-count{font-size:13px;color:#333;font-weight:600;margin-top:8px;}
+#nm-notes .nm-notes-foot{padding:14px 20px;display:flex;justify-content:flex-end;}
+#nm-notes .nm-notes-save{background:#2f6bed;color:#fff;border:none;border-radius:5px;padding:8px 22px;font-size:14px;font-weight:600;cursor:pointer;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13509,7 +13523,7 @@ function newMssHomeHTML(){
   </tbody></table></div>`;
 }
 
-function apEmployeeRowsHTML(expandedIdx){
+function apEmployeeRowsHTML(expandedIdx, editing){
   // Randomized, fictional staff (NO real employee names/numbers per the demo rule).
   // First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
   var emps=[
@@ -13531,8 +13545,9 @@ function apEmployeeRowsHTML(expandedIdx){
     var isExp=(i===expandedIdx);
     var idAttr=(i===0)?' id="ap-emp0"':'';
     var star=e[3]?'<span class="ap-empstar">&#9733;</span>':'';
+    var arrowClass = e[3] ? (isExp && editing ? 'orange' : 'green') : 'red';
     var row=`<tr>
-      <td><span class="ap-arrow ${e[3]?'green':'red'}"${idAttr} style="cursor:pointer">${isExp?downArrow:rightArrow}</span></td>
+      <td><span class="ap-arrow ${arrowClass}"${idAttr} style="cursor:pointer">${isExp?downArrow:rightArrow}</span></td>
       <td>${e[0]}${star}</td><td>${e[1]}</td><td>${e[2]}</td>
       <td><input type="checkbox" class="ap-empchk"></td>
       <td></td>
@@ -13541,23 +13556,48 @@ function apEmployeeRowsHTML(expandedIdx){
       <td>Jul 16 2026 12:00</td><td>Jul 16 2026 22:00</td>
       <td><i>10:00</i></td>
     </tr>`;
-    if(isExp){ row+=`<tr><td></td><td colspan="10">${apEmpDetailHTML()}</td></tr>`; }
+    if(isExp){ row+=`<tr><td></td><td colspan="10">${apEmpDetailHTML(editing, e)}</td></tr>`; }
     return row;
   }).join('');
 }
 
-function apEmpDetailHTML(){
+function apEmpDetailHTML(editing, emp){
+  emp = emp || ['4028871','Rivera Marcus'];
+  var editingIn = (editing==='signin');
+  var signinTime = editingIn
+    ? `<td><input class="ap-tin" value="16-Jul-2026" style="width:104px"> <input class="ap-tin" value="12:00" style="width:60px"></td>`
+    : `<td><i>Jul 16 2026 12:00</i></td>`;
+  var signinAction = editingIn
+    ? `<a class="ap-edit" id="ap-update">Update</a> <span style="color:#bbb">|</span> <a class="ap-edit">Delete</a> <span style="color:#bbb">|</span> <a class="ap-edit">Cancel</a>`
+    : `<a class="ap-edit" id="ap-editlink">Edit</a>`;
   return `<div class="ap-detail">
     <table class="ap-punchtbl">
       <thead><tr><th>Punch Type</th><th>Valid Break</th><th>Start Time</th><th>End Time</th><th>Start By</th><th>End By</th><th>Hrs</th><th>Valid</th><th class="hist">&#128336; Hist.</th></tr></thead>
       <tbody>
-        <tr><td>&#9998; SignIn</td><td></td><td><i>Jul 16 2026 12:00</i></td><td></td><td>Jesus Gonzalez</td><td></td><td></td><td></td><td><a class="ap-edit">Edit</a></td></tr>
+        <tr><td><span class="ap-pencil" id="ap-notespencil" onclick="showNotesModal('${emp[0]}','${emp[1]}')">&#9998;</span> SignIn</td><td></td>${signinTime}<td></td><td>Jesus Gonzalez</td><td></td><td></td><td></td><td>${signinAction}</td></tr>
         <tr><td>SignOut</td><td></td><td></td><td><i>Jul 16 2026 22:00</i></td><td></td><td>Jesus Gonzalez</td><td></td><td></td><td><a class="ap-edit">Edit</a></td></tr>
       </tbody>
     </table>
     <div class="ap-perdiem"><span>Per Diem</span><input value="0"><span>Rate($16)</span><span class="ovd">Ovd Rate</span><input value="16"></div>
   </div>`;
 }
+
+function showNotesModal(wf, name){
+  var m=document.getElementById('nm-notes');
+  if(!m){ m=document.createElement('div'); m.id='nm-notes'; (document.getElementById('nm-root')||document.body).appendChild(m); }
+  m.innerHTML = `<div class="nm-notes-box">
+    <div class="nm-notes-head">Notes <span class="nm-notes-x" onclick="hideNotesModal()">&#10005;</span></div>
+    <div class="nm-notes-body">
+      <div><b>WF#:</b> ${wf}</div>
+      <div><b>WF Name:</b> ${name}</div>
+      <div style="margin-top:10px">Notes:<span style="color:#e23b3b">*</span></div>
+      <textarea class="nm-notes-ta" id="nm-notes-ta" maxlength="150"></textarea>
+      <div class="nm-notes-count">0 used out of 150 characters.</div>
+    </div>
+    <div class="nm-notes-foot"><button class="nm-notes-save">Save</button></div>`;
+  m.style.display='flex';
+}
+function hideNotesModal(){ var m=document.getElementById('nm-notes'); if(m) m.style.display='none'; }
 
 function newMssApprovalsHTML(opts){
   opts = opts || {};
@@ -13588,7 +13628,7 @@ function newMssApprovalsHTML(opts){
         <button class="ap-btn ap-red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
       </div>
     </div>
-    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded)}</tbody></table></div>` : ''}
+    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded, opts.editing)}</tbody></table></div>` : ''}
     <button class="ap-approve" id="ap-approve">Approve Hours</button>`;
   return `<div class="nm-card"><div class="nm-title">Approvals</div><div class="nm-title-div"></div>
     <div class="ap-grid">
@@ -13661,8 +13701,23 @@ function slide_manual_process_hours_new_4(){
     { selector:'#ap-emprows', prompt:'Every employee assigned to this role appears here. The arrow on the left shows their status — red means they haven’t signed in yet, green means they have.', skipClick:true },
     { selector:'#ap-emp0', prompt:'Click a green arrow to open that person’s record and see their sign-in and sign-out details.',
       onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0})); } },
-    { selector:'.ap-punchtbl', prompt:'This shows the SignIn and SignOut times, who entered them, and the pay rate / per diem. If a time ever needs changing, use the "Edit" link on the right.', skipClick:true },
-    { selector:'#ap-approve', prompt:'Once the times look correct, click "Approve Hours" — this is your save button. It finalizes the hours for the shift.',
+    { selector:'.ap-punchtbl', prompt:'This shows the SignIn and SignOut times, who entered them, and the pay rate / per diem. In the next step we’ll correct a time and add a note before approving.', skipClick:true },
+  ]);
+}
+
+function slide_manual_process_hours_new_5(){
+  // Start with the employee's record already open, then edit a time + add a note + approve.
+  showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0}));
+  runGuided([
+    { selector:'#ap-editlink', prompt:'To correct a punch time, click "Edit" on the right of that row.',
+      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0,editing:'signin'})); } },
+    { selector:'#ap-update', prompt:'The date and time become editable. Adjust them, then click "Update" to save — or Delete / Cancel.',
+      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0})); } },
+    { selector:'#ap-notespencil', prompt:'The pencil on the left is for Notes on that specific employee. Click it.',
+      onConfirm:function(){ showNotesModal('4028871','Rivera Marcus'); } },
+    { selector:'.nm-notes-save', prompt:'Type a note (up to 150 characters) about this employee, then click Save.',
+      onConfirm:function(){ hideNotesModal(); } },
+    { selector:'#ap-approve', prompt:'Once the times are correct, click "Approve Hours" — your save button. It finalizes the hours for the shift.',
       onConfirm:function(){ nmToast('Hours approved successfully'); showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,approved:true})); } },
     { selector:'#ap-summary', prompt:'A confirmation appears at the top-right, and a gold star now marks the shift as approved — that’s how you track which shifts are done.', skipClick:true },
   ]);
@@ -13763,6 +13818,7 @@ const routes = {
   'manual_process_hours-7': slide_manual_process_hours_7,
   'manual_process_hours_new-3': slide_manual_process_hours_new_3,
   'manual_process_hours_new-4': slide_manual_process_hours_new_4,
+  'manual_process_hours_new-5': slide_manual_process_hours_new_5,
   'california_breaks-6':    slide_california_breaks_6,
   'billing-4': slide_billing_4,
   'billing-5': slide_billing_5,

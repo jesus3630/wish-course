@@ -1436,20 +1436,27 @@
       },
       {
         "slide_number": 4,
-        "slide_name": "Approving Hours",
-        "instructions": "Approve Hours = save",
+        "slide_name": "Reviewing the Shift Roster",
+        "instructions": "Expand shift > open employee > sign-in/out",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=4",
-        "text": "When electronic sign-ins are complete, each employee's times are already filled in. Review them, then click Approve Hours to finalize. A confirmation appears at the top-right and a gold star marks the shift as approved."
+        "text": "Open the shift with the green plus to see everyone assigned to the role. A red arrow means the employee hasn't signed in yet; green means they have. Click a green arrow to open that person's record and review their sign-in and sign-out times."
       },
       {
         "slide_number": 5,
+        "slide_name": "Correcting Times & Notes",
+        "instructions": "Edit time > Notes > Approve",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=5",
+        "text": "If a punch time is wrong, click Edit on that row to make the date and time editable, then Update to save. The pencil on the left opens Notes for that specific employee. When everything looks correct, click Approve Hours to finalize the shift."
+      },
+      {
+        "slide_number": 6,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
         "completion_card": true,
         "text": "Congratulations! You've completed the new-MSS Manual Process Hours module. You now know how to find a job under Approvals, review the shift summary, and approve hours in the new interface."
       },
       {
-        "slide_number": 6,
+        "slide_number": 7,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "next_steps_card": true,
