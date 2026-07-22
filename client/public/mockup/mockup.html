@@ -189,7 +189,7 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .nm-nav.active{background:#e8f0fe;}
 #nm-root .nm-nav.active .nm-tile{background:#dbe8ff;}
 #nm-root .nm-nav.active .nm-lbl{color:#2f6bed;font-weight:600;}
-#nm-root .nm-content{flex:1;padding:22px 30px 0;position:relative;overflow-y:auto;}
+#nm-root .nm-content{flex:1;padding:22px 30px 0;position:relative;overflow-y:auto;overflow-x:hidden;}
 #nm-root .nm-card{background:#fff;border-radius:14px;padding:22px 30px 26px;box-shadow:0 1px 3px rgba(20,30,50,.07);}
 #nm-root .nm-title{color:#1f2a3a;font-size:23px;font-weight:700;margin-bottom:12px;}
 #nm-root .nm-title-div{height:1px;background:#e6e8ec;margin-bottom:20px;}
@@ -236,8 +236,12 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .ap-approve{display:block;margin:22px auto 4px;background:#2f6bed;color:#fff;border:none;border-radius:7px;padding:13px 40px;font-size:16px;font-weight:700;cursor:pointer;}
 /* Expanded shift — employee roster */
 #nm-root .ap-emptbl{width:100%;border-collapse:collapse;margin-top:6px;}
-#nm-root .ap-emptbl thead th{background:#3f3f3f;color:#fff;text-align:left;padding:8px 10px;font-weight:700;font-size:12px;white-space:nowrap;}
-#nm-root .ap-emptbl tbody td{padding:8px 10px;border-bottom:1px solid #edeef1;color:#1a1a1a;font-size:12.5px;white-space:nowrap;}
+#nm-root .ap-emptbl{table-layout:fixed;}
+#nm-root .ap-emptbl thead th{background:#3f3f3f;color:#fff;text-align:left;padding:6px 7px;font-weight:700;font-size:11px;}
+#nm-root .ap-emptbl tbody td{padding:6px 7px;border-bottom:1px solid #edeef1;color:#1a1a1a;font-size:11.5px;word-break:break-word;}
+#nm-root .ap-emptbl col.c-arrow{width:34px;}
+#nm-root .ap-emptbl col.c-ns{width:32px;}
+#nm-root .ap-emptbl col.c-hrs{width:48px;}
 #nm-root .ap-arrow{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;}
 #nm-root .ap-arrow svg{width:13px;height:13px;}
 #nm-root .ap-arrow.red{background:#e23b3b;}
@@ -246,10 +250,10 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .ap-empstar{color:#f5b50a;font-size:12px;margin-left:4px;}
 /* Per-employee sign-in/out detail (opened from the arrow) */
 #nm-root .ap-detail{padding:0 0 6px;}
-#nm-root .ap-punchtbl{width:100%;border-collapse:collapse;margin:2px 0 8px;}
-#nm-root .ap-punchtbl th{background:#3f3f3f;color:#fff;text-align:left;padding:7px 10px;font-size:11.5px;font-weight:700;white-space:nowrap;}
+#nm-root .ap-punchtbl{width:100%;border-collapse:collapse;margin:2px 0 8px;table-layout:fixed;}
+#nm-root .ap-punchtbl th{background:#3f3f3f;color:#fff;text-align:left;padding:6px 7px;font-size:10.5px;font-weight:700;}
 #nm-root .ap-punchtbl th.hist{color:#f5d000;}
-#nm-root .ap-punchtbl td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#1a1a1a;}
+#nm-root .ap-punchtbl td{padding:7px 7px;border-bottom:1px solid #eee;font-size:11px;color:#1a1a1a;word-break:break-word;}
 #nm-root .ap-punchtbl td i{font-style:italic;}
 #nm-root .ap-edit{color:#2f6bed;cursor:pointer;font-style:italic;font-weight:600;}
 #nm-root .ap-perdiem{display:flex;align-items:center;gap:12px;background:#efefef;padding:10px 14px;font-size:13px;color:#333;}
@@ -13572,6 +13576,7 @@ function apEmpDetailHTML(editing, emp){
     : `<a class="ap-edit" id="ap-editlink">Edit</a>`;
   return `<div class="ap-detail">
     <table class="ap-punchtbl">
+      <colgroup><col style="width:12%"><col style="width:9%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:12%"><col style="width:6%"><col style="width:6%"><col style="width:17%"></colgroup>
       <thead><tr><th>Punch Type</th><th>Valid Break</th><th>Start Time</th><th>End Time</th><th>Start By</th><th>End By</th><th>Hrs</th><th>Valid</th><th class="hist">&#128336; Hist.</th></tr></thead>
       <tbody>
         <tr><td><span class="ap-pencil" id="ap-notespencil" onclick="showNotesModal('${emp[0]}','${emp[1]}')">&#9998;</span> SignIn</td><td></td>${signinTime}<td></td><td>Jesus Gonzalez</td><td></td><td></td><td></td><td>${signinAction}</td></tr>
@@ -13628,7 +13633,7 @@ function newMssApprovalsHTML(opts){
         <button class="ap-btn ap-red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
       </div>
     </div>
-    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded, opts.editing)}</tbody></table></div>` : ''}
+    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><colgroup><col class="c-arrow"><col><col><col><col class="c-ns"><col><col><col><col><col><col class="c-hrs"></colgroup><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded, opts.editing)}</tbody></table></div>` : ''}
     <button class="ap-approve" id="ap-approve">Approve Hours</button>`;
   return `<div class="nm-card"><div class="nm-title">Approvals</div><div class="nm-title-div"></div>
     <div class="ap-grid">
