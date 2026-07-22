@@ -180,29 +180,40 @@ async function initDB() {
     const dbMap = new Map(dbModules.map(m => [m.id, m]));
     const newIds = jsonCourseData.filter(m => !dbMap.has(m.id)).map(m => m.id);
 
-    // Merge each module: DB base + apply simulation_url / screenshot from JSON slides
     // Visual/structural fields owned by JSON (not admin-edited text). Card fields live here too,
-    // otherwise a card added in JSON renders locally but never reaches the live DB.
-    const SLIDE_FIELDS_FROM_JSON = ['simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'image_below_highlight', 'image_below_2_highlight', 'video_start', 'video_end', 'wish_logo_card', 'acronym_card', 'hierarchy_card', 'menu_card', 'completion_card', 'next_steps_card'];
+    // otherwise a card added in JSON renders locally but never reaches the live DB. slide_number
+    // is structural (position), so it comes from JSON too — otherwise renumbering after an insert
+    // wouldn't propagate.
+    const SLIDE_FIELDS_FROM_JSON = ['slide_number', 'simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'image_below_highlight', 'image_below_2_highlight', 'video_start', 'video_end', 'wish_logo_card', 'acronym_card', 'hierarchy_card', 'menu_card', 'completion_card', 'next_steps_card'];
     const merged = jsonCourseData.map(jsonMod => {
       const dbMod = dbMap.get(jsonMod.id);
       if (!dbMod) return jsonMod; // new module — use JSON fully
 
-      // Existing module: keep DB slide content but apply structural fields from JSON
-      const mergedSlides = (dbMod.slides || []).map((dbSlide, idx) => {
-        const jsonSlide = (jsonMod.slides || [])[idx];
-        if (!jsonSlide) return dbSlide;
-        const merged = { ...dbSlide };
+      // Existing module: iterate the JSON slides (JSON owns structure — order, count, inserts,
+      // removals) and match each to a DB slide by slide_name so admin-edited text is preserved
+      // even when slides are inserted or reordered (index matching broke on insert). A JSON slide
+      // with no DB match is a new slide; a DB slide no JSON slide claims is dropped.
+      const dbSlides = dbMod.slides || [];
+      const usedDb = new Set();
+      const pickDb = (jsonSlide, jIdx) => {
+        const candidates = [];
+        dbSlides.forEach((ds, i) => { if (!usedDb.has(i) && ds.slide_name === jsonSlide.slide_name) candidates.push(i); });
+        if (candidates.length === 0) return -1;
+        // Prefer the same-index candidate (keeps identical structures stable) when a name repeats.
+        return candidates.includes(jIdx) ? jIdx : candidates[0];
+      };
+      const mergedSlides = (jsonMod.slides || []).map((jsonSlide, jIdx) => {
+        const k = pickDb(jsonSlide, jIdx);
+        if (k === -1) return { ...jsonSlide }; // new slide — take from JSON wholesale
+        usedDb.add(k);
+        const m = { ...dbSlides[k] }; // preserve admin-edited text / slide_name / instructions
         for (const field of SLIDE_FIELDS_FROM_JSON) {
           if (field in jsonSlide) {
-            if (jsonSlide[field] === null || jsonSlide[field] === undefined) {
-              delete merged[field]; // JSON explicitly removed — remove from DB
-            } else {
-              merged[field] = jsonSlide[field]; // JSON added/changed — apply
-            }
+            if (jsonSlide[field] === null || jsonSlide[field] === undefined) delete m[field];
+            else m[field] = jsonSlide[field];
           }
         }
-        return merged;
+        return m;
       });
       return { ...dbMod, slides: mergedSlides };
     });
