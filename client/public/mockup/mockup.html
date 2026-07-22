@@ -243,6 +243,18 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .ap-arrow.red{background:#e23b3b;}
 #nm-root .ap-arrow.green{background:#2a9d3f;}
 #nm-root .ap-empchk{width:16px;height:16px;accent-color:#3d7ef7;}
+#nm-root .ap-empstar{color:#f5b50a;font-size:12px;margin-left:4px;}
+/* Per-employee sign-in/out detail (opened from the arrow) */
+#nm-root .ap-detail{padding:0 0 6px;}
+#nm-root .ap-punchtbl{width:100%;border-collapse:collapse;margin:2px 0 8px;}
+#nm-root .ap-punchtbl th{background:#3f3f3f;color:#fff;text-align:left;padding:7px 10px;font-size:11.5px;font-weight:700;white-space:nowrap;}
+#nm-root .ap-punchtbl th.hist{color:#f5d000;}
+#nm-root .ap-punchtbl td{padding:8px 10px;border-bottom:1px solid #eee;font-size:12px;color:#1a1a1a;}
+#nm-root .ap-punchtbl td i{font-style:italic;}
+#nm-root .ap-edit{color:#2f6bed;cursor:pointer;font-style:italic;font-weight:600;}
+#nm-root .ap-perdiem{display:flex;align-items:center;gap:12px;background:#efefef;padding:10px 14px;font-size:13px;color:#333;}
+#nm-root .ap-perdiem input{width:80px;padding:5px 8px;border:1px solid #cfd4da;border-radius:4px;font-size:12px;}
+#nm-root .ap-perdiem .ovd{margin-left:auto;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13497,7 +13509,7 @@ function newMssHomeHTML(){
   </tbody></table></div>`;
 }
 
-function apEmployeeRowsHTML(){
+function apEmployeeRowsHTML(expandedIdx){
   // Randomized, fictional staff (NO real employee names/numbers per the demo rule).
   // First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
   var emps=[
@@ -13513,19 +13525,38 @@ function apEmployeeRowsHTML(){
     ['4028701','Patel Rohan','Supervisor',false],
     ['4028688','Ford Jasmine','Supervisor',false]
   ];
-  var arrow='<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  return emps.map(function(e){
-    return `<tr>
-      <td><span class="ap-arrow ${e[3]?'green':'red'}">${arrow}</span></td>
-      <td>${e[0]}</td><td>${e[1]}</td><td>${e[2]}</td>
+  var rightArrow='<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var downArrow='<svg viewBox="0 0 24 24" fill="none"><path d="M12 4v13M7 12l5 5 5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  return emps.map(function(e,i){
+    var isExp=(i===expandedIdx);
+    var idAttr=(i===0)?' id="ap-emp0"':'';
+    var star=e[3]?'<span class="ap-empstar">&#9733;</span>':'';
+    var row=`<tr>
+      <td><span class="ap-arrow ${e[3]?'green':'red'}"${idAttr} style="cursor:pointer">${isExp?downArrow:rightArrow}</span></td>
+      <td>${e[0]}${star}</td><td>${e[1]}</td><td>${e[2]}</td>
       <td><input type="checkbox" class="ap-empchk"></td>
       <td></td>
       <td>5023717311-1</td>
       <td>Event Staff</td>
       <td>Jul 16 2026 12:00</td><td>Jul 16 2026 22:00</td>
-      <td></td>
+      <td><i>10:00</i></td>
     </tr>`;
+    if(isExp){ row+=`<tr><td></td><td colspan="10">${apEmpDetailHTML()}</td></tr>`; }
+    return row;
   }).join('');
+}
+
+function apEmpDetailHTML(){
+  return `<div class="ap-detail">
+    <table class="ap-punchtbl">
+      <thead><tr><th>Punch Type</th><th>Valid Break</th><th>Start Time</th><th>End Time</th><th>Start By</th><th>End By</th><th>Hrs</th><th>Valid</th><th class="hist">&#128336; Hist.</th></tr></thead>
+      <tbody>
+        <tr><td>&#9998; SignIn</td><td></td><td><i>Jul 16 2026 12:00</i></td><td></td><td>Jesus Gonzalez</td><td></td><td></td><td></td><td><a class="ap-edit">Edit</a></td></tr>
+        <tr><td>SignOut</td><td></td><td></td><td><i>Jul 16 2026 22:00</i></td><td></td><td>Jesus Gonzalez</td><td></td><td></td><td><a class="ap-edit">Edit</a></td></tr>
+      </tbody>
+    </table>
+    <div class="ap-perdiem"><span>Per Diem</span><input value="0"><span>Rate($16)</span><span class="ovd">Ovd Rate</span><input value="16"></div>
+  </div>`;
 }
 
 function newMssApprovalsHTML(opts){
@@ -13557,7 +13588,7 @@ function newMssApprovalsHTML(opts){
         <button class="ap-btn ap-red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
       </div>
     </div>
-    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML()}</tbody></table></div>` : ''}
+    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded)}</tbody></table></div>` : ''}
     <button class="ap-approve" id="ap-approve">Approve Hours</button>`;
   return `<div class="nm-card"><div class="nm-title">Approvals</div><div class="nm-title-div"></div>
     <div class="ap-grid">
@@ -13627,7 +13658,10 @@ function slide_manual_process_hours_new_4(){
   runGuided([
     { selector:'#ap-plus', prompt:'To review a shift, click the green + next to the role name to open the list of employees assigned to it.',
       onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true})); } },
-    { selector:'#ap-emprows', prompt:'Every employee assigned to this role appears here. The arrow on the left shows their status — red means they haven’t signed in yet, green means they have. When electronic sign-ins are done, each person’s times are already filled in.', skipClick:true },
+    { selector:'#ap-emprows', prompt:'Every employee assigned to this role appears here. The arrow on the left shows their status — red means they haven’t signed in yet, green means they have.', skipClick:true },
+    { selector:'#ap-emp0', prompt:'Click a green arrow to open that person’s record and see their sign-in and sign-out details.',
+      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0})); } },
+    { selector:'.ap-punchtbl', prompt:'This shows the SignIn and SignOut times, who entered them, and the pay rate / per diem. If a time ever needs changing, use the "Edit" link on the right.', skipClick:true },
     { selector:'#ap-approve', prompt:'Once the times look correct, click "Approve Hours" — this is your save button. It finalizes the hours for the shift.',
       onConfirm:function(){ nmToast('Hours approved successfully'); showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,approved:true})); } },
     { selector:'#ap-summary', prompt:'A confirmation appears at the top-right, and a gold star now marks the shift as approved — that’s how you track which shifts are done.', skipClick:true },
