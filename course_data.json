@@ -1443,10 +1443,10 @@
       },
       {
         "slide_number": 5,
-        "slide_name": "Handling No-Shows",
-        "instructions": "NS > No Show Reason > Submit",
+        "slide_name": "No-Shows & Auto-Fill",
+        "instructions": "NS + Auto-Fill (SignIn/SignOut, RB/MB)",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=5",
-        "text": "The red NS button records no-shows. It opens the No Show Reason list with every employee preloaded and pre-selected as Not Excused. For each employee who didn't show, set the reason and add a note, then click Submit."
+        "text": "Two shift-management buttons. NS opens the No Show Reason list — everyone preloaded, pre-selected Not Excused; set reasons and notes for actual no-shows. Auto-Fill lets you stamp everyone's sign-in or sign-out with the scheduled times at once (it only fills empty times), still mark a no-show, and flag a Rest Break (RB) or Meal Break (MB) per employee."
       },
       {
         "slide_number": 6,

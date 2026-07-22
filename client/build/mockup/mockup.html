@@ -289,6 +289,12 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .nm-ns-tbl label{display:block;font-size:12.5px;margin:2px 0;cursor:pointer;}
 #nm-root .nm-ns-tbl textarea{width:150px;height:44px;border:1px solid #cfd4da;border-radius:4px;padding:5px;font-size:12px;resize:none;}
 #nm-root .nm-ns-req{color:#e23b3b;font-size:14px;}
+#nm-root .af-btns{display:flex;gap:10px;justify-content:center;margin-bottom:10px;}
+#nm-root .af-btn{background:#1f8a3b;color:#fff;border:none;border-radius:5px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;}
+#nm-root .af-tbl{width:100%;border-collapse:collapse;}
+#nm-root .af-tbl th{background:#3f3f3f;color:#fff;text-align:left;padding:6px 6px;font-size:10px;font-weight:700;position:sticky;top:0;white-space:nowrap;}
+#nm-root .af-tbl td{padding:7px 6px;border-bottom:1px solid #eee;font-size:10.5px;color:#333;white-space:nowrap;}
+#nm-root .af-flag{color:#9aa2ad;font-size:15px;cursor:pointer;margin:0 1px;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13638,6 +13644,32 @@ function showCreateSchedModal(){
     <div class="nm-mfoot"><button class="nm-mbtn" id="ap-sched-submit">Submit</button></div>
   </div>`);
 }
+function showAutoFillModal(){
+  var arrow='<span class="ap-arrow red" style="width:19px;height:19px"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  var flag='<span class="af-flag">&#9873;</span>';
+  var rows = AP_ROSTER.map(function(e){
+    return `<tr>
+      <td>${arrow}</td><td>${e[0]}</td><td>${e[1]}</td><td>${e[2]}</td>
+      <td><input type="checkbox"></td><td></td><td>5023717311-1</td><td>Event Staff</td>
+      <td>Jul 16 2026 12:00</td><td>Jul 16 2026 22:00</td><td></td>
+      <td>${flag}<span style="color:#ccc">|</span>${flag}</td>
+    </tr>`;
+  }).join('');
+  nmShowModal('nm-autofill', `<div class="nm-mbox" style="width:850px">
+    <div class="nm-mhead">Auto Fill <span class="nm-mx" onclick="nmHideModal('nm-autofill')">&#10005;</span></div>
+    <div class="nm-mbody" style="padding:12px 16px">
+      <div class="af-btns">
+        <button class="af-btn">&#128336; SignIn Auto-Fill</button>
+        <button class="af-btn">&#128336; SignOut Auto-Fill</button>
+      </div>
+      <div class="nm-ns-scroll"><table class="af-tbl">
+        <thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th><th>RB|MB</th></tr></thead>
+        <tbody>${rows}</tbody></table></div>
+    </div>
+    <div class="nm-mfoot"><button class="nm-mbtn" id="ap-af-submit">Submit</button></div>
+  </div>`);
+}
+
 function showNSModal(){
   // No-Show Reason: every employee preloaded, pre-selected as "Not Excused".
   var rows = AP_ROSTER.map(function(e,i){
@@ -13781,7 +13813,7 @@ function slide_manual_process_hours_new_4(){
 }
 
 function slide_manual_process_hours_new_5(){
-  // Handling no-shows: the NS button opens the No Show Reason list.
+  // No-shows & auto-fill: the NS and Auto-Fill buttons before reviewing hours.
   showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true}));
   runGuided([
     { selector:'#ap-ns', prompt:'The red "NS" button records no-shows for the shift. Click it.',
@@ -13789,6 +13821,11 @@ function slide_manual_process_hours_new_5(){
     { selector:'#ap-ns-submit', prompt:'The No Show Reason list opens with every employee preloaded and pre-selected as "Not Excused". For each real no-show, set the reason (Excused / Not Excused) and add a note.', skipClick:true },
     { selector:'#ap-ns-submit', prompt:'When the reasons are set, click "Submit" to record the no-shows.',
       onConfirm:function(){ nmHideModal('nm-nsreason'); nmToast('No-show reasons saved'); } },
+    { selector:'#ap-autofill', prompt:'"Auto-Fill" fills the sign-in and sign-out times for the whole shift at once. Click it.',
+      onConfirm:function(){ showAutoFillModal(); } },
+    { selector:'#ap-af-submit', prompt:'Use "SignIn Auto-Fill" or "SignOut Auto-Fill" to stamp everyone with the scheduled times (it only fills what is empty). You can still mark someone NS here, and use the two flags on the right to note a Rest Break (RB) or Meal Break (MB).', skipClick:true },
+    { selector:'#ap-af-submit', prompt:'Click "Submit" to apply the auto-filled times.',
+      onConfirm:function(){ nmHideModal('nm-autofill'); nmToast('Times auto-filled'); } },
   ]);
 }
 
