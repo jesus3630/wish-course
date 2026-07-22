@@ -1436,17 +1436,17 @@
       },
       {
         "slide_number": 4,
-        "slide_name": "Reviewing the Shift Roster",
-        "instructions": "Expand shift > open employee > sign-in/out",
+        "slide_name": "The Roster & Adding Staff",
+        "instructions": "Open shift > roster > Create Sched",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=4",
-        "text": "Open the shift with the green plus to see everyone assigned to the role. A red arrow means the employee hasn't signed in yet; green means they have. Click a green arrow to open that person's record and review their sign-in and sign-out times."
+        "text": "Open the shift with the green plus to see everyone assigned to the role. A red arrow means the employee hasn't signed in yet; green means they have. Before reviewing hours, you can adjust the roster: Create Sched adds an employee (enter their number, look them up, and Save), NS marks a no-show, and Auto-Fill fills in the scheduled times."
       },
       {
         "slide_number": 5,
-        "slide_name": "Correcting Times & Notes",
-        "instructions": "Edit time > Notes > Approve",
+        "slide_name": "Reviewing & Approving Hours",
+        "instructions": "Open employee > Edit time > Notes > Approve",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=5",
-        "text": "If a punch time is wrong, click Edit on that row to make the date and time editable, then Update to save. The pencil on the left opens Notes for that specific employee. When everything looks correct, click Approve Hours to finalize the shift."
+        "text": "Click a green arrow to open an employee's sign-in and sign-out record. If a punch time is wrong, click Edit to make the date and time editable, then Update to save. The pencil on the left opens Notes for that employee. When everything looks correct, click Approve Hours to finalize the shift."
       },
       {
         "slide_number": 6,

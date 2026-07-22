@@ -269,6 +269,19 @@ tr:hover td{background:#f8f4f0;}
 #nm-notes .nm-notes-count{font-size:13px;color:#333;font-weight:600;margin-top:8px;}
 #nm-notes .nm-notes-foot{padding:14px 20px;display:flex;justify-content:flex-end;}
 #nm-notes .nm-notes-save{background:#2f6bed;color:#fff;border:none;border-radius:5px;padding:8px 22px;font-size:14px;font-weight:600;cursor:pointer;}
+/* Generic modal (Create Schedule, Employee List) */
+#nm-root .nm-ov{position:absolute;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-start;justify-content:center;z-index:60;}
+#nm-root .nm-ov.show{display:flex;}
+#nm-root .nm-mbox{background:#fff;border-radius:6px;margin-top:70px;box-shadow:0 10px 40px rgba(0,0,0,.35);overflow:hidden;font-family:-apple-system,"Segoe UI",Roboto,Arial,sans-serif;}
+#nm-root .nm-mhead{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;font-size:19px;font-weight:700;color:#1f2a3a;border-bottom:1px solid #eee;}
+#nm-root .nm-mx{width:26px;height:26px;border-radius:4px;background:#e23b3b;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;}
+#nm-root .nm-mbody{padding:16px 20px;}
+#nm-root .nm-mfoot{padding:12px 20px;display:flex;justify-content:flex-end;}
+#nm-root .nm-mbtn{background:#4a90e2;color:#fff;border:none;border-radius:5px;padding:8px 24px;font-size:14px;font-weight:600;cursor:pointer;}
+#nm-root .nm-min{border:1px solid #cfd4da;border-radius:4px;padding:8px 10px;font-size:14px;}
+#nm-root .nm-emplist-tbl{width:100%;border-collapse:collapse;}
+#nm-root .nm-emplist-tbl th{text-align:left;padding:8px;font-size:13px;font-weight:700;border-bottom:1px solid #ddd;color:#222;}
+#nm-root .nm-emplist-tbl td{padding:9px 8px;font-size:13px;border-bottom:1px solid #eee;color:#333;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13523,7 +13536,7 @@ function newMssHomeHTML(){
   </tbody></table></div>`;
 }
 
-function apEmployeeRowsHTML(expandedIdx, editing){
+function apEmployeeRowsHTML(expandedIdx, editing, added){
   // Randomized, fictional staff (NO real employee names/numbers per the demo rule).
   // First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
   var emps=[
@@ -13539,6 +13552,8 @@ function apEmployeeRowsHTML(expandedIdx, editing){
     ['4028701','Patel Rohan','Supervisor',false],
     ['4028688','Ford Jasmine','Supervisor',false]
   ];
+  // "Create Sched" adds a new employee at the top (not signed in → red arrow).
+  if(added){ emps = [['4029015','Bennett Aria','Supervisor',false]].concat(emps); }
   var rightArrow='<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   var downArrow='<svg viewBox="0 0 24 24" fill="none"><path d="M12 4v13M7 12l5 5 5-5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   return emps.map(function(e,i){
@@ -13599,6 +13614,32 @@ function showNotesModal(wf, name){
 }
 function hideNotesModal(){ var m=document.getElementById('nm-notes'); if(m) m.style.display='none'; }
 
+function nmShowModal(id, html){
+  var root=document.getElementById('nm-root')||document.body;
+  var m=document.getElementById(id);
+  if(!m){ m=document.createElement('div'); m.id=id; m.className='nm-ov'; root.appendChild(m); }
+  m.innerHTML=html; m.classList.add('show');
+}
+function nmHideModal(id){ var m=document.getElementById(id); if(m) m.classList.remove('show'); }
+
+function showCreateSchedModal(){
+  nmShowModal('nm-createsched', `<div class="nm-mbox" style="width:440px">
+    <div class="nm-mhead">Create Schedule <span class="nm-mx" onclick="nmHideModal('nm-createsched')">&#10005;</span></div>
+    <div class="nm-mbody" style="display:flex;align-items:center;gap:18px"><label style="font-size:14px">Emp No</label><input class="nm-min" id="ap-empno-input" style="flex:1"></div>
+    <div class="nm-mfoot"><button class="nm-mbtn" id="ap-sched-submit">Submit</button></div>
+  </div>`);
+}
+function showEmpListModal(){
+  nmShowModal('nm-emplist', `<div class="nm-mbox" style="width:580px">
+    <div class="nm-mhead">Employee List <span class="nm-mx" onclick="nmHideModal('nm-emplist')">&#10005;</span></div>
+    <div class="nm-mbody"><table class="nm-emplist-tbl">
+      <thead><tr><th style="width:34px"></th><th>Employee No</th><th>First Name</th><th>Last Name</th><th>Employee Type</th><th>Branch Name</th></tr></thead>
+      <tbody><tr><td><input type="radio" name="emplist" checked></td><td>4029015</td><td>Aria</td><td>Bennett</td><td>Regular Employee</td><td>Prota LA Branch Test</td></tr></tbody>
+    </table></div>
+    <div class="nm-mfoot"><button class="nm-mbtn" id="ap-emplist-save">Save</button></div>
+  </div>`);
+}
+
 function newMssApprovalsHTML(opts){
   opts = opts || {};
   var job = opts.job || '';
@@ -13610,7 +13651,7 @@ function newMssApprovalsHTML(opts){
     <div class="ap-sep"></div>
     <div class="ap-summary" id="ap-summary">
       <span class="s-item first">Total</span>
-      <span class="s-item">Sched = 11</span><span class="s-item">SignedIn = 3</span><span class="s-item">SignedOut = 1</span>
+      <span class="s-item">Sched = ${opts.added ? 12 : 11}</span><span class="s-item">SignedIn = 3</span><span class="s-item">SignedOut = 1</span>
       <span class="s-item">Deployed = 0</span><span class="s-item">OnMealBreak = 0</span><span class="s-item">OnRestBreak = 0</span>
     </div>
     <div class="ap-shift">
@@ -13622,13 +13663,13 @@ function newMssApprovalsHTML(opts){
       <span class="ap-col"><b>End Time -</b>Jul 16 2026 22:00</span>
       <div class="ap-btns">
         <div class="ap-btncol">
-          <button class="ap-btn ap-green"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4M8.5 15l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Create Sched</button>
-          <button class="ap-btn ap-green"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto-Fill</button>
+          <button class="ap-btn ap-green" id="ap-createsched"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="#fff" stroke-width="2"/><path d="M3 9h18M8 3v4M16 3v4M8.5 15l2.5 2.5 4.5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Create Sched</button>
+          <button class="ap-btn ap-green" id="ap-autofill"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#fff" stroke-width="2"/><path d="M12 7v5l3 2" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Auto-Fill</button>
         </div>
-        <button class="ap-btn ap-red"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
+        <button class="ap-btn ap-red" id="ap-ns"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#fff" stroke-width="2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>NS</button>
       </div>
     </div>
-    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded, opts.editing)}</tbody></table></div>` : ''}
+    ${opts.expanded ? `<div id="ap-emprows"><table class="ap-emptbl"><thead><tr><th></th><th>EmpNo</th><th>Name</th><th>JobTitle</th><th>NS</th><th>Call-Sign</th><th>JobNo-ShiftNo</th><th>RoleName</th><th>RoleStart</th><th>RoleEnd</th><th>Hrs</th></tr></thead><tbody>${apEmployeeRowsHTML(opts.empExpanded, opts.editing, opts.added)}</tbody></table></div>` : ''}
     <button class="ap-approve" id="ap-approve">Approve Hours</button>`;
   return `<div class="nm-card"><div class="nm-title">Approvals</div><div class="nm-title-div"></div>
     <div class="ap-grid">
@@ -13694,21 +13735,29 @@ function slide_manual_process_hours_new_3(){
 }
 
 function slide_manual_process_hours_new_4(){
+  // The roster + adjusting it: open the shift, review the arrows, then add an employee.
   showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true}));
   runGuided([
-    { selector:'#ap-plus', prompt:'To review a shift, click the green + next to the role name to open the list of employees assigned to it.',
+    { selector:'#ap-plus', prompt:'Open the shift by clicking the green + next to the role name.',
       onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true})); } },
-    { selector:'#ap-emprows', prompt:'Every employee assigned to this role appears here. The arrow on the left shows their status — red means they haven’t signed in yet, green means they have.', skipClick:true },
-    { selector:'#ap-emp0', prompt:'Click a green arrow to open that person’s record and see their sign-in and sign-out details.',
-      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0})); } },
-    { selector:'.ap-punchtbl', prompt:'This shows the SignIn and SignOut times, who entered them, and the pay rate / per diem. In the next step we’ll correct a time and add a note before approving.', skipClick:true },
+    { selector:'#ap-emprows', prompt:'Everyone assigned to the role appears here. The arrow on the left shows status \u2014 red means not signed in yet, green means signed in.', skipClick:true },
+    { selector:'#ap-createsched', prompt:'Before reviewing hours you can adjust the roster. "Create Sched" adds an employee to this shift. Click it.',
+      onConfirm:function(){ showCreateSchedModal(); } },
+    { selector:'#ap-empno-input', prompt:'Enter the employee number you want to add.', type:'4029015' },
+    { selector:'#ap-sched-submit', prompt:'Click "Submit" to look that employee up.',
+      onConfirm:function(){ nmHideModal('nm-createsched'); showEmpListModal(); } },
+    { selector:'#ap-emplist-save', prompt:'Select the employee from the results, then click "Save".',
+      onConfirm:function(){ nmHideModal('nm-emplist'); nmToast('Schedule saved successfully!'); showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,added:true})); } },
+    { selector:'#ap-emprows', prompt:'The employee is added to the shift at the top with a red arrow \u2014 no sign-in or sign-out times yet. The Sched count goes up by one.', skipClick:true },
   ]);
 }
 
 function slide_manual_process_hours_new_5(){
-  // Start with the employee's record already open, then edit a time + add a note + approve.
-  showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0}));
+  // Reviewing & approving hours: open an employee, correct a time, add a note, approve.
+  showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true}));
   runGuided([
+    { selector:'#ap-emp0', prompt:'Click a green arrow to open that employee\u2019s record and see their sign-in / sign-out details.',
+      onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0})); } },
     { selector:'#ap-editlink', prompt:'To correct a punch time, click "Edit" on the right of that row.',
       onConfirm:function(){ showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true,empExpanded:0,editing:'signin'})); } },
     { selector:'#ap-update', prompt:'The date and time become editable. Adjust them, then click "Update" to save — or Delete / Cancel.',
