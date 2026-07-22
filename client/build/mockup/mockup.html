@@ -282,6 +282,13 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .nm-emplist-tbl{width:100%;border-collapse:collapse;}
 #nm-root .nm-emplist-tbl th{text-align:left;padding:8px;font-size:13px;font-weight:700;border-bottom:1px solid #ddd;color:#222;}
 #nm-root .nm-emplist-tbl td{padding:9px 8px;font-size:13px;border-bottom:1px solid #eee;color:#333;}
+#nm-root .nm-ns-scroll{max-height:300px;overflow-y:auto;}
+#nm-root .nm-ns-tbl{width:100%;border-collapse:collapse;}
+#nm-root .nm-ns-tbl th{background:#3f3f3f;color:#fff;text-align:left;padding:9px 12px;font-size:12px;font-weight:700;position:sticky;top:0;}
+#nm-root .nm-ns-tbl td{padding:10px 12px;border-bottom:1px solid #eee;font-size:12.5px;color:#333;vertical-align:top;}
+#nm-root .nm-ns-tbl label{display:block;font-size:12.5px;margin:2px 0;cursor:pointer;}
+#nm-root .nm-ns-tbl textarea{width:150px;height:44px;border:1px solid #cfd4da;border-radius:4px;padding:5px;font-size:12px;resize:none;}
+#nm-root .nm-ns-req{color:#e23b3b;font-size:14px;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13536,22 +13543,24 @@ function newMssHomeHTML(){
   </tbody></table></div>`;
 }
 
+// Randomized, fictional staff (NO real employee names/numbers per the demo rule).
+// First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
+var AP_ROSTER = [
+  ['4028871','Rivera Marcus','Supervisor',true],
+  ['4028834','Chen Olivia','Supervisor',true],
+  ['4028812','Okafor Daniel','Event Staff 1',true],
+  ['4028790','Nguyen Sophia','Supervisor',false],
+  ['4028776','Torres Elena','Supervisor',false],
+  ['4028755','Brooks Naomi','Supervisor',false],
+  ['4028743','Silva Lucas','Office Admin',false],
+  ['4028729','Adams Priya','Supervisor',false],
+  ['4028718','Kim Andre','Office Admin',false],
+  ['4028701','Patel Rohan','Supervisor',false],
+  ['4028688','Ford Jasmine','Supervisor',false]
+];
+
 function apEmployeeRowsHTML(expandedIdx, editing, added){
-  // Randomized, fictional staff (NO real employee names/numbers per the demo rule).
-  // First 3 are signed in (green arrow) to match the summary's SignedIn = 3; rest red.
-  var emps=[
-    ['4028871','Rivera Marcus','Supervisor',true],
-    ['4028834','Chen Olivia','Supervisor',true],
-    ['4028812','Okafor Daniel','Event Staff 1',true],
-    ['4028790','Nguyen Sophia','Supervisor',false],
-    ['4028776','Torres Elena','Supervisor',false],
-    ['4028755','Brooks Naomi','Supervisor',false],
-    ['4028743','Silva Lucas','Office Admin',false],
-    ['4028729','Adams Priya','Supervisor',false],
-    ['4028718','Kim Andre','Office Admin',false],
-    ['4028701','Patel Rohan','Supervisor',false],
-    ['4028688','Ford Jasmine','Supervisor',false]
-  ];
+  var emps = AP_ROSTER.slice();
   // "Create Sched" adds a new employee at the top (not signed in → red arrow).
   if(added){ emps = [['4029015','Bennett Aria','Supervisor',false]].concat(emps); }
   var rightArrow='<svg viewBox="0 0 24 24" fill="none"><path d="M4 12h13M12 7l5 5-5 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
@@ -13629,6 +13638,25 @@ function showCreateSchedModal(){
     <div class="nm-mfoot"><button class="nm-mbtn" id="ap-sched-submit">Submit</button></div>
   </div>`);
 }
+function showNSModal(){
+  // No-Show Reason: every employee preloaded, pre-selected as "Not Excused".
+  var rows = AP_ROSTER.map(function(e,i){
+    return `<tr>
+      <td>${e[1]}</td><td>${e[0]}</td>
+      <td><label><input type="radio" name="ns${i}"> Excused</label><label><input type="radio" name="ns${i}" checked> Not Excused</label></td>
+      <td><textarea></textarea><div class="nm-ns-req">*</div></td>
+      <td></td>
+    </tr>`;
+  }).join('');
+  nmShowModal('nm-nsreason', `<div class="nm-mbox" style="width:780px">
+    <div class="nm-mhead">No Show Reason <span class="nm-mx" onclick="nmHideModal('nm-nsreason')">&#10005;</span></div>
+    <div class="nm-mbody" style="padding:0"><div class="nm-ns-scroll"><table class="nm-ns-tbl">
+      <thead><tr><th>Employee Name</th><th>Employee#</th><th>Reason</th><th>Notes</th><th>&#128203; copy notes</th></tr></thead>
+      <tbody>${rows}</tbody></table></div></div>
+    <div class="nm-mfoot"><button class="nm-mbtn" id="ap-ns-submit">Submit</button></div>
+  </div>`);
+}
+
 function showEmpListModal(){
   nmShowModal('nm-emplist', `<div class="nm-mbox" style="width:580px">
     <div class="nm-mhead">Employee List <span class="nm-mx" onclick="nmHideModal('nm-emplist')">&#10005;</span></div>
@@ -13753,6 +13781,18 @@ function slide_manual_process_hours_new_4(){
 }
 
 function slide_manual_process_hours_new_5(){
+  // Handling no-shows: the NS button opens the No Show Reason list.
+  showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true}));
+  runGuided([
+    { selector:'#ap-ns', prompt:'The red "NS" button records no-shows for the shift. Click it.',
+      onConfirm:function(){ showNSModal(); } },
+    { selector:'#ap-ns-submit', prompt:'The No Show Reason list opens with every employee preloaded and pre-selected as "Not Excused". For each real no-show, set the reason (Excused / Not Excused) and add a note.', skipClick:true },
+    { selector:'#ap-ns-submit', prompt:'When the reasons are set, click "Submit" to record the no-shows.',
+      onConfirm:function(){ nmHideModal('nm-nsreason'); nmToast('No-show reasons saved'); } },
+  ]);
+}
+
+function slide_manual_process_hours_new_6(){
   // Reviewing & approving hours: open an employee, correct a time, add a note, approve.
   showNewMss('approvals', newMssApprovalsHTML({job:'5023717311',showResults:true,expanded:true}));
   runGuided([
@@ -13868,6 +13908,7 @@ const routes = {
   'manual_process_hours_new-3': slide_manual_process_hours_new_3,
   'manual_process_hours_new-4': slide_manual_process_hours_new_4,
   'manual_process_hours_new-5': slide_manual_process_hours_new_5,
+  'manual_process_hours_new-6': slide_manual_process_hours_new_6,
   'california_breaks-6':    slide_california_breaks_6,
   'billing-4': slide_billing_4,
   'billing-5': slide_billing_5,

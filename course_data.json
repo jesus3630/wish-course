@@ -1443,20 +1443,27 @@
       },
       {
         "slide_number": 5,
-        "slide_name": "Reviewing & Approving Hours",
-        "instructions": "Open employee > Edit time > Notes > Approve",
+        "slide_name": "Handling No-Shows",
+        "instructions": "NS > No Show Reason > Submit",
         "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=5",
-        "text": "Click a green arrow to open an employee's sign-in and sign-out record. If a punch time is wrong, click Edit to make the date and time editable, then Update to save. The pencil on the left opens Notes for that employee. When everything looks correct, click Approve Hours to finalize the shift."
+        "text": "The red NS button records no-shows. It opens the No Show Reason list with every employee preloaded and pre-selected as Not Excused. For each employee who didn't show, set the reason and add a note, then click Submit."
       },
       {
         "slide_number": 6,
+        "slide_name": "Reviewing & Approving Hours",
+        "instructions": "Open employee > Edit time > Notes > Approve",
+        "simulation_url": "/mockup/mockup.html?module=manual_process_hours_new&slide=6",
+        "text": "Click a green arrow to open an employee's sign-in and sign-out record. If a punch time is wrong, click Edit to make the date and time editable, then Update to save. The pencil on the left opens Notes for that employee. When everything looks correct, click Approve Hours to finalize the shift."
+      },
+      {
+        "slide_number": 7,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
         "completion_card": true,
         "text": "Congratulations! You've completed the new-MSS Manual Process Hours module. You now know how to find a job under Approvals, review the shift summary, and approve hours in the new interface."
       },
       {
-        "slide_number": 7,
+        "slide_number": 8,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "next_steps_card": true,
