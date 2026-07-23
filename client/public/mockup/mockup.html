@@ -295,6 +295,40 @@ tr:hover td{background:#f8f4f0;}
 #nm-root .af-tbl th{background:#3f3f3f;color:#fff;text-align:left;padding:6px 6px;font-size:10px;font-weight:700;position:sticky;top:0;white-space:nowrap;}
 #nm-root .af-tbl td{padding:7px 6px;border-bottom:1px solid #eee;font-size:10.5px;color:#333;white-space:nowrap;}
 #nm-root .af-flag{color:#9aa2ad;font-size:15px;cursor:pointer;margin:0 1px;}
+
+/* ============================================================================
+   NEW-LOOK THEME — re-skins the regular WISH shell to the new MSS palette
+   (colors/look only; same screens + info). Enabled by adding class "newlook"
+   to <body>. Used by the scheduling_new module and any future new-look module.
+   ============================================================================ */
+body.newlook, body.newlook :not(svg):not(path){font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
+body.newlook{background:#eef0f2;}
+body.newlook #topbar{background:#fff;border-bottom:1px solid #e6e8ec;}
+body.newlook #btn-new{background:#eef3ff;color:#2f6bed;}
+body.newlook #btn-welcome{background:#2f6bed;}
+body.newlook #header{background:#fff;border-bottom:1px solid #e6e8ec;}
+body.newlook #sidebar{background:#fff;border-right:1px solid #e6e8ec;}
+body.newlook .nav-item{margin:2px 8px;border-radius:10px;border-bottom:none;}
+body.newlook .nav-item:hover, body.newlook .nav-item.active{background:#e8f0fe;color:#2f6bed;}
+body.newlook .nav-sub{background:#f6f8fc;border-bottom:none;}
+body.newlook .nav-sub-item:hover, body.newlook .nav-sub-item.active-sub{background:#e8f0fe;color:#2f6bed;}
+body.newlook #main{background:#eef0f2;}
+body.newlook #card{border:none;border-radius:14px;box-shadow:0 1px 3px rgba(20,30,50,.08);}
+body.newlook .page-title{border-bottom-color:#2f6bed;color:#1f2a3a;}
+body.newlook .note-bar{background:#eef3ff;border-color:#c3d7ff;color:#2558c8;}
+body.newlook .btn{background:#2f6bed;border-color:#2558c8;border-radius:6px;}
+body.newlook .btn:hover{background:#2558c8;}
+body.newlook .btn-secondary{background:#6b7280;border-color:#556270;}
+body.newlook .btn-blue{background:#2f6bed;border-color:#2558c8;}
+body.newlook .btn-green{background:#1f8a3b;border-color:#166a2c;}
+body.newlook th{background:#3f3f3f;}
+body.newlook .tab{background:#eef3ff;border-color:#c3d7ff;}
+body.newlook .tab.active{background:#fff;border-bottom-color:#fff;color:#2f6bed;}
+body.newlook .form-input:focus, body.newlook .form-select:focus{border-color:#2f6bed;}
+body.newlook .cal-header{background:#3f3f3f;}
+body.newlook .cal-shift{background:#3d7ef7;}
+body.newlook .cal-shift.selected{background:#2f6bed;}
+body.newlook #footer{background:#fff;border-top:1px solid #e6e8ec;}
 /* Success toast (top-right) */
 #nm-toast{position:fixed;top:16px;right:16px;z-index:9998;background:#2a9d3f;color:#fff;padding:13px 20px 13px 44px;border-radius:8px;font-size:15px;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);opacity:0;transform:translateX(30px);transition:opacity .35s ease,transform .35s ease;pointer-events:none;}
 #nm-toast.show{opacity:1;transform:none;}
@@ -13850,6 +13884,12 @@ function slide_manual_process_hours_new_6(){
 }
 
 
+// New-look Scheduling: reuse the EXACT existing Scheduling demos, just re-skinned
+// (newlook theme + the new colorful WISH logo). Same screens + information.
+function nmSwapLogo(){ var img = document.querySelector('#wish-logo img'); if (img) img.src = NM_LOGO; }
+function slide_scheduling_new_3(){ document.body.classList.add('newlook'); nmSwapLogo(); slide_scheduling_3(); }
+function slide_scheduling_new_4(){ document.body.classList.add('newlook'); nmSwapLogo(); slide_scheduling_4(); }
+
 const routes = {
   'introduction-2': slide_introduction_2,
   'introduction-5': slide_introduction_5,
@@ -13946,6 +13986,8 @@ const routes = {
   'manual_process_hours_new-4': slide_manual_process_hours_new_4,
   'manual_process_hours_new-5': slide_manual_process_hours_new_5,
   'manual_process_hours_new-6': slide_manual_process_hours_new_6,
+  'scheduling_new-3': slide_scheduling_new_3,
+  'scheduling_new-4': slide_scheduling_new_4,
   'california_breaks-6':    slide_california_breaks_6,
   'billing-4': slide_billing_4,
   'billing-5': slide_billing_5,

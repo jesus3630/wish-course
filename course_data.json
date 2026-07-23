@@ -1470,5 +1470,58 @@
         "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
       }
     ]
+  },
+  {
+    "id": "scheduling_new",
+    "name": "Scheduling (New MSS)",
+    "slides": [
+      {
+        "text": "Welcome to the WISH, Workforce Information Systems Hosted, training series. \r\nWISH is ProtaTECH's all-in-one workforce application which supports the entire employee lifecycle, from hiring and staff management to timesheets and payroll, all within one integrated system.  \r\nIn this module, we'll focus on the portion of WISH relevant to your role and access level.",
+        "slide_name": "WISH Training Series",
+        "instructions": "ProtaTECH logo, series title",
+        "slide_number": 1,
+        "wish_logo_card": true
+      },
+      {
+        "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods.",
+        "slide_name": "Two Ways to Schedule",
+        "instructions": "",
+        "slide_number": 2
+      },
+      {
+        "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code.",
+        "slide_name": "Schedule by Employee",
+        "instructions": "Scheduling → Schedule by Employee. Show calendar grid. Search employee. Click job. Select shift and role. Click green checkmark. Save.",
+        "slide_number": 3,
+        "simulation_url": "/mockup/mockup.html?module=scheduling_new&slide=3"
+      },
+      {
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "slide_name": "Schedule by Job",
+        "instructions": "Scheduling → Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
+        "slide_number": 4,
+        "simulation_url": "/mockup/mockup.html?module=scheduling_new&slide=4"
+      },
+      {
+        "text": "A few things to know:\r\n\r\n* Red calendar highlights may indicate overtime, informational only, it will not prevent saving.\r\n\r\n* You can set unavailability for an employee on vacation, the calendar shows red across those days.\r\n\r\n* You can send a copy of the schedule directly to the employee from this screen before ending a call.\r\n\r\n* The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets, for example, flagging an employee who will be late.",
+        "slide_name": "Scheduling Tips",
+        "instructions": "",
+        "slide_number": 5
+      },
+      {
+        "text": "Congratulations! You've completed this portion of the WISH training. WISH is here to make workforce management easier, and you're now ready to use it with confidence.\r\n\r\nDepending on your role and access level, there may be additional training videos. Each video provides the knowledge needed for your tools.\r\n\r\nThank you for taking the time to learn how WISH supports staff management.",
+        "slide_name": "Congratulations!",
+        "instructions": "Checkmark/confetti",
+        "slide_number": 6,
+        "completion_card": true
+      },
+      {
+        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "slide_name": "Next Steps",
+        "instructions": "Arrow/progress bar",
+        "slide_number": 7,
+        "next_steps_card": true
+      }
+    ]
   }
 ]
