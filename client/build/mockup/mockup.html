@@ -6,7 +6,7 @@
 <title>WISH</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;font-size:13px;}
-body{background:#d0cfc9;width:1280px;height:720px;overflow:hidden;position:relative;}
+body{background:#eef0f2;width:1280px;height:720px;overflow:hidden;position:relative;}
 
 /* ── Header ── */
 #topbar{width:100%;height:30px;background:#3d3d3d;display:flex;align-items:center;justify-content:flex-end;padding:0 8px;gap:5px;flex-shrink:0;}
@@ -27,16 +27,16 @@ body{background:#d0cfc9;width:1280px;height:720px;overflow:hidden;position:relat
 /* ── Sidebar ── */
 #sidebar{width:145px;background:#fff;border-right:1px solid #b8b8b8;display:flex;flex-direction:column;padding-top:0;flex-shrink:0;overflow-y:auto;}
 .nav-item{display:flex;align-items:center;gap:7px;padding:10px 8px 10px 10px;cursor:pointer;color:#222;text-decoration:none;font-size:13px;white-space:nowrap;border-bottom:1px solid #e0e0e0;}
-.nav-item:hover{background:#fff0e0;}
-.nav-item.active{background:#fff0e0;}
+.nav-item:hover{background:#e8f0fe;}
+.nav-item.active{background:#e8f0fe;}
 .nav-icon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .nav-sub{display:none;flex-direction:column;background:#f8f8f8;border-bottom:1px solid #e0e0e0;}
 .nav-sub.show{display:flex;}
 .nav-sub-item{padding:4px 8px 4px 20px;cursor:pointer;color:#333;font-size:11px;text-decoration:none;border-bottom:1px solid #ececec;}
-.nav-sub-item:hover,.nav-sub-item.active-sub{background:#fff0e0;color:#c07800;}
+.nav-sub-item:hover,.nav-sub-item.active-sub{background:#e8f0fe;color:#2f6bed;}
 
 /* ── Main ── */
-#main{flex:1;padding:12px;overflow-y:auto;background:#d0cfc9;}
+#main{flex:1;padding:12px;overflow-y:auto;background:#eef0f2;}
 #card{background:#fff;border:1px solid #ccc;border-radius:3px;padding:16px 20px;min-height:530px;box-shadow:1px 1px 4px rgba(0,0,0,.1);}
 .page-title{font-size:15px;font-weight:bold;color:#1a1a1a;padding-bottom:6px;border-bottom:2px solid #3a6aaa;margin-bottom:12px;}
 .note-bar{background:#ffffe0;border:1px solid #d4d400;color:#886600;padding:5px 10px;margin-bottom:10px;font-size:12px;}
@@ -46,12 +46,12 @@ body{background:#d0cfc9;width:1280px;height:720px;overflow:hidden;position:relat
 .form-label{text-align:right;width:160px;padding-right:8px;color:#444;flex-shrink:0;font-size:12px;}
 .req{color:#c00;}
 .form-input{border:1px solid #999;padding:3px 5px;min-width:175px;background:#fff;height:23px;font-size:12px;}
-.form-input:focus{outline:none;border-color:#c07800;}
+.form-input:focus{outline:none;border-color:#2f6bed;}
 .form-select{border:1px solid #999;padding:2px 3px;min-width:185px;background:#fff;height:23px;font-size:12px;}
 
 /* ── Buttons ── */
-.btn{background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 14px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px;}
-.btn:hover{background:#c86000;}
+.btn{background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 14px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px;}
+.btn:hover{background:#2558c8;}
 .btn-secondary{background:#787878;border-color:#555;}
 .btn-blue{background:#3a6aaa;border-color:#285090;}
 .btn-green{background:#2a8a3a;border-color:#1a6a2a;}
@@ -65,9 +65,9 @@ body{background:#d0cfc9;width:1280px;height:720px;overflow:hidden;position:relat
 
 /* ── Tables ── */
 table{width:100%;border-collapse:collapse;}
-th{background:#5a5a5a;color:#fff;padding:5px 7px;text-align:left;font-size:12px;font-weight:normal;}
+th{background:#3f3f3f;color:#fff;padding:5px 7px;text-align:left;font-size:12px;font-weight:normal;}
 td{padding:4px 7px;border-bottom:1px solid #e8e8e8;font-size:12px;}
-tr:hover td{background:#f8f4f0;}
+tr:hover td{background:#f2f5fa;}
 .check-green{color:#2a9a2a;}
 
 /* ── Messages ── */
@@ -77,12 +77,12 @@ tr:hover td{background:#f8f4f0;}
 
 /* ── Calendar ── */
 .cal-grid{display:grid;grid-template-columns:150px repeat(7,1fr);border:1px solid #ccc;}
-.cal-header{background:#5a5a5a;color:#fff;padding:4px 3px;text-align:center;font-size:11px;border-right:1px solid #888;}
+.cal-header{background:#3f3f3f;color:#fff;padding:4px 3px;text-align:center;font-size:11px;border-right:1px solid #888;}
 .cal-cell{border-right:1px solid #ddd;border-bottom:1px solid #ddd;height:36px;padding:2px 3px;font-size:11px;}
-.cal-cell:hover{background:#fff8f0;}
+.cal-cell:hover{background:#eef3ff;}
 .cal-emp{padding:4px;border-right:1px solid #ccc;border-bottom:1px solid #ddd;background:#f4f4f4;font-size:11px;display:flex;align-items:center;}
 .cal-shift{background:#4a9ae8;color:#fff;border-radius:2px;padding:1px 3px;font-size:10px;cursor:pointer;}
-.cal-shift.selected{background:#c07800;}
+.cal-shift.selected{background:#2f6bed;}
 
 /* ── Dialog ── */
 #dialog-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.4);display:none;align-items:center;justify-content:center;z-index:100;}
@@ -102,7 +102,7 @@ tr:hover td{background:#f8f4f0;}
 .dropdown-menu{position:absolute;background:#fff;border:1px solid #ccc;box-shadow:2px 4px 8px rgba(0,0,0,.15);z-index:50;min-width:160px;display:none;}
 .dropdown-menu.show{display:block;}
 .dropdown-item{padding:7px 12px;cursor:pointer;color:#333;font-size:12px;}
-.dropdown-item:hover{background:#fff8f0;color:#c07800;}
+.dropdown-item:hover{background:#eef3ff;color:#2f6bed;}
 
 /* ── Footer ── */
 #footer{position:absolute;bottom:0;left:0;width:100%;height:24px;background:#e0ddd8;border-top:1px solid #b8b5b0;display:flex;align-items:center;justify-content:space-between;padding:0 12px;font-size:11px;color:#666;}
@@ -160,7 +160,7 @@ tr:hover td{background:#f8f4f0;}
 .step-pip{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);flex-shrink:0;}
 .step-pip.done{background:#4caf50;}
 .step-pip.current{background:#fff;width:11px;height:11px;}
-.guided-next-btn{margin-left:14px;padding:3px 13px;background:#c07800;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:12px;pointer-events:all;}
+.guided-next-btn{margin-left:14px;padding:3px 13px;background:#2f6bed;color:#fff;border:none;border-radius:3px;cursor:pointer;font-size:12px;pointer-events:all;}
 
 /* ============================================================================
    NEW MSS UI (scoped under #nm-root) — used by manual_process_hours_new module.
@@ -299,7 +299,9 @@ tr:hover td{background:#f8f4f0;}
 /* ============================================================================
    NEW-LOOK THEME — re-skins the regular WISH shell to the new MSS palette
    (colors/look only; same screens + info). Enabled by adding class "newlook"
-   to <body>. Used by the scheduling_new module and any future new-look module.
+   to <body>. Now applied GLOBALLY — the body tag ships with the class, so every
+   module renders in the new look. Inline old-orange styles in screen helpers were
+   also swapped to the blue palette.
    ============================================================================ */
 body.newlook, body.newlook :not(svg):not(path){font-family:-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
 body.newlook{background:#eef0f2;}
@@ -335,7 +337,7 @@ body.newlook #footer{background:#fff;border-top:1px solid #e6e8ec;}
 #nm-toast::before{content:'\2713';position:absolute;left:18px;top:50%;transform:translateY(-50%);font-size:18px;font-weight:700;}
 </style>
 </head>
-<body>
+<body class="newlook">
 
 <!-- Guided arrow indicator -->
 <div id="guided-arrow">
@@ -1660,7 +1662,7 @@ function mssPortalHTML() {
           <div style="background:#fff;border:1px solid #ddd;border-radius:2px;padding:16px;">
             <div style="font-size:14px;font-weight:bold;color:#333;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px;">Upcoming Events</div>
             <table style="width:100%;border-collapse:collapse;">
-              <thead><tr style="background:#5a5a5a;color:#fff;">
+              <thead><tr style="background:#3f3f3f;color:#fff;">
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Event Name</th>
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Start Time</th>
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Time Finish</th>
@@ -1688,7 +1690,7 @@ function slide_mss_3() {
           <div style="background:#fff;border:1px solid #ddd;padding:16px;">
             <div style="font-size:14px;font-weight:bold;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:8px;">Upcoming Events</div>
             <table style="width:100%;border-collapse:collapse;">
-              <thead><tr style="background:#5a5a5a;color:#fff;">
+              <thead><tr style="background:#3f3f3f;color:#fff;">
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Event Name</th>
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Start Time</th>
                 <th style="padding:6px 10px;text-align:left;font-size:12px;">Time Finish</th>
@@ -1756,7 +1758,7 @@ function mssWebShiftHTML() {
                 <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view"> Collapse</label>
               </div>
               <table style="width:100%;border-collapse:collapse;">
-                <thead><tr style="background:#5a5a5a;color:#fff;">
+                <thead><tr style="background:#3f3f3f;color:#fff;">
                   <th style="padding:5px 8px;font-size:11px;width:24px;"><input type="checkbox" id="chk-ws-all"></th>
                   <th style="padding:5px 8px;font-size:11px;">Job &#9650;&#9660;</th>
                   <th style="padding:5px 8px;font-size:11px;">Venue &#9650;&#9660;</th>
@@ -1840,7 +1842,7 @@ function mssWebShiftContent() {
           <label style="font-size:12px;display:flex;align-items:center;gap:4px;"><input type="radio" name="ws-view"> Collapse</label>
         </div>
         <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="background:#5a5a5a;color:#fff;">
+          <thead><tr style="background:#3f3f3f;color:#fff;">
             <th style="padding:5px 8px;font-size:11px;width:24px;"><input type="checkbox" id="chk-ws-all"></th>
             <th style="padding:5px 8px;font-size:11px;">Job &#9650;&#9660;</th>
             <th style="padding:5px 8px;font-size:11px;">Venue &#9650;&#9660;</th>
@@ -2078,7 +2080,7 @@ function openWebScheduleRequest() {
         </table>
         <div style="font-size:14px;font-weight:bold;color:#333;border-bottom:1px solid #ccc;padding-bottom:6px;margin:14px 0 12px;">Search Result</div>
         <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="background:#5a5a5a;color:#fff;">
+          <thead><tr style="background:#3f3f3f;color:#fff;">
             <th style="padding:7px 10px;font-size:11px;width:28px;"><input type="checkbox"></th>
             <th style="padding:7px 10px;font-size:11px;text-align:left;">Employee# &#9650;&#9660;</th>
             <th style="padding:7px 10px;font-size:11px;text-align:left;">First Name &#9650;&#9660;</th>
@@ -2127,7 +2129,7 @@ function slide_mss_6() {
           <label style="font-size:12px;display:flex;align-items:center;gap:5px;"><input type="radio" name="wsa-view" checked> Collapse</label>
         </div>
         <table style="width:100%;border-collapse:collapse;">
-          <thead><tr style="background:#5a5a5a;color:#fff;">
+          <thead><tr style="background:#3f3f3f;color:#fff;">
             <th style="padding:6px 8px;font-size:11px;width:48px;"></th>
             <th style="padding:6px 8px;font-size:11px;text-align:left;">Job &#9650;&#9660;</th>
             <th style="padding:6px 8px;font-size:11px;text-align:left;">Venue &#9650;&#9660;</th>
@@ -2317,7 +2319,7 @@ function openWebShiftReport() {
       <span style="margin-left:auto;color:#888;">&#128190; &#8635;</span>
     </div>
     <div style="padding:22px 28px;">
-      <div style="font-size:22px;font-weight:900;font-style:italic;color:#c07800;font-family:Impact,Arial,sans-serif;letter-spacing:1px;">WISH</div>
+      <div style="font-size:22px;font-weight:900;font-style:italic;color:#2f6bed;font-family:Impact,Arial,sans-serif;letter-spacing:1px;">WISH</div>
       <div style="display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #333;padding-bottom:5px;margin-top:6px;">
         <div style="font-size:18px;font-weight:bold;color:#222;">Employee Web Shift Approval Status Report</div>
         <div style="font-size:11px;font-weight:bold;color:#222;">Print Date : 06/09/26 12:00</div>
@@ -2351,7 +2353,7 @@ function slide_mss_7() {
 function schedEmpHTML() {
   const cell = `<td style="border-right:1px solid #ccc;border-bottom:1px solid #ccc;height:20px;width:20px;padding:0;background-image:linear-gradient(to bottom,transparent 49%,rgba(0,0,0,0.07) 49%,rgba(0,0,0,0.07) 51%,transparent 51%)"></td>`;
   const cells24 = Array.from({length:24},()=>cell).join('');
-  const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;height:16px;text-align:center;font-size:9px;background:#5a5a5a;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
+  const hrNum = Array.from({length:24},(_,i)=>`<td style="width:20px;height:16px;text-align:center;font-size:9px;background:#3f3f3f;color:#fff;padding:1px 0;border-right:1px solid #888">${i}</td>`).join('');
   const hrLabel = `<td style="width:38px;background:#3a3a3a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td>`;
   const days2 = [
     {label:'Saturday',date:'5/30/2026',orange:true},
@@ -2433,15 +2435,15 @@ function schedEmpHTML() {
         <label style="font-size:11px"><input type="checkbox"> Excluded WorkGroup Employee</label>
       </div>
       <div style="margin-left:111px">
-        <button class="btn btn-sm" id="btn-empsearch" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px">Search</button>
+        <button class="btn btn-sm" id="btn-empsearch" style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px">Search</button>
         <button style="background:#e8e4dc;color:#333;border:1px solid #aaa;padding:3px 12px;border-radius:2px;cursor:pointer;font-size:12px;margin-left:3px">Clear</button>
         <span id="emp-extra-btns" style="display:none">
           <button style="background:#e8e4dc;color:#333;border:1px solid #aaa;padding:3px 8px;border-radius:2px;cursor:pointer;font-size:12px;margin-left:3px">...</button>
         </span>
       </div>
       <div id="emp-extra-row" style="display:none;margin-left:111px;margin-top:4px">
-        <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px">Emp Mail Sched</button>
-        <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px;margin-left:3px">Non-Availability</button>
+        <button style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px">Emp Mail Sched</button>
+        <button style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:3px 10px;border-radius:2px;cursor:pointer;font-size:11px;margin-left:3px">Non-Availability</button>
       </div>
     </div>
   </div>
@@ -2476,26 +2478,26 @@ function schedEmpHTML() {
         </tr>
       </thead>
       <tbody>
-        <tr id="emp-row-1"><td style="padding:3px 6px">3951657</td><td><a href="#" id="emp-link-1" style="color:#c07800">Nagdev</a></td><td style="color:#333">Priyanka</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">1234567911</td><td><a href="#" style="color:#c07800">-2611</a></td><td style="color:#333">Prota</td><td>xxxxx3333</td><td>Supervisor</td><td></td><td></td></tr>
-        <tr><td style="padding:3px 6px">3951664</td><td><a href="#" style="color:#c07800">Banik</a></td><td style="color:#333">Shiny</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951660</td><td><a href="#" style="color:#c07800">Bhattacharyya</a></td><td style="color:#333">Shreya</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952376</td><td><a href="#" style="color:#c07800">Bisht</a></td><td style="color:#333">Mahendra singh</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952379</td><td><a href="#" style="color:#c07800">Chaudhary</a></td><td style="color:#333">Prachi</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951163</td><td><a href="#" style="color:#c07800">Chauhan</a></td><td style="color:#333">Vikrant</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">10111</td><td><a href="#" style="color:#c07800">cscadmin</a></td><td style="color:#333">cscadmin</td><td>xxxxx3333</td><td>Unclassified</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951244</td><td><a href="#" style="color:#c07800">Dahiya</a></td><td style="color:#333">Naman</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>07 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952223</td><td><a href="#" style="color:#c07800">Das</a></td><td style="color:#333">Tirthamoy</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951662</td><td><a href="#" style="color:#c07800">Das</a></td><td style="color:#333">Tulika</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">1234565</td><td><a href="#" style="color:#c07800">-Devadoss</a></td><td style="color:#333">Paul</td><td>xxxxx3333</td><td>Supervisor in Training</td><td>(818) 885-5150</td><td>23 Mar 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952394</td><td><a href="#" style="color:#c07800">Garg</a></td><td style="color:#333">Mayank</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3950683</td><td><a href="#" style="color:#c07800">Gopal</a></td><td style="color:#333">Tgopalakrishnan</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951623</td><td><a href="#" style="color:#c07800">Goswami</a></td><td style="color:#333">Ragini</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951628</td><td><a href="#" style="color:#c07800">Goyal</a></td><td style="color:#333">Aashish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>21 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952377</td><td><a href="#" style="color:#c07800">Gupta</a></td><td style="color:#333">Tanupriya</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3951551</td><td><a href="#" style="color:#c07800">Handa</a></td><td style="color:#333">Ankish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952313</td><td><a href="#" style="color:#c07800">Kapoor</a></td><td style="color:#333">Kopal</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
-        <tr><td style="padding:3px 6px">3952311</td><td><a href="#" style="color:#c07800">Kathuria</a></td><td style="color:#333">Raghav</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr id="emp-row-1"><td style="padding:3px 6px">3951657</td><td><a href="#" id="emp-link-1" style="color:#2f6bed">Nagdev</a></td><td style="color:#333">Priyanka</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">1234567911</td><td><a href="#" style="color:#2f6bed">-2611</a></td><td style="color:#333">Prota</td><td>xxxxx3333</td><td>Supervisor</td><td></td><td></td></tr>
+        <tr><td style="padding:3px 6px">3951664</td><td><a href="#" style="color:#2f6bed">Banik</a></td><td style="color:#333">Shiny</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>26 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951660</td><td><a href="#" style="color:#2f6bed">Bhattacharyya</a></td><td style="color:#333">Shreya</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952376</td><td><a href="#" style="color:#2f6bed">Bisht</a></td><td style="color:#333">Mahendra singh</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952379</td><td><a href="#" style="color:#2f6bed">Chaudhary</a></td><td style="color:#333">Prachi</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951163</td><td><a href="#" style="color:#2f6bed">Chauhan</a></td><td style="color:#333">Vikrant</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">10111</td><td><a href="#" style="color:#2f6bed">cscadmin</a></td><td style="color:#333">cscadmin</td><td>xxxxx3333</td><td>Unclassified</td><td>(1.2) 345-6e+009</td><td>05 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951244</td><td><a href="#" style="color:#2f6bed">Dahiya</a></td><td style="color:#333">Naman</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>07 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952223</td><td><a href="#" style="color:#2f6bed">Das</a></td><td style="color:#333">Tirthamoy</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951662</td><td><a href="#" style="color:#2f6bed">Das</a></td><td style="color:#333">Tulika</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">1234565</td><td><a href="#" style="color:#2f6bed">-Devadoss</a></td><td style="color:#333">Paul</td><td>xxxxx3333</td><td>Supervisor in Training</td><td>(818) 885-5150</td><td>23 Mar 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952394</td><td><a href="#" style="color:#2f6bed">Garg</a></td><td style="color:#333">Mayank</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3950683</td><td><a href="#" style="color:#2f6bed">Gopal</a></td><td style="color:#333">Tgopalakrishnan</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951623</td><td><a href="#" style="color:#2f6bed">Goswami</a></td><td style="color:#333">Ragini</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951628</td><td><a href="#" style="color:#2f6bed">Goyal</a></td><td style="color:#333">Aashish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>21 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952377</td><td><a href="#" style="color:#2f6bed">Gupta</a></td><td style="color:#333">Tanupriya</td><td>xxxxx3333</td><td>Office Admin</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3951551</td><td><a href="#" style="color:#2f6bed">Handa</a></td><td style="color:#333">Ankish</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952313</td><td><a href="#" style="color:#2f6bed">Kapoor</a></td><td style="color:#333">Kopal</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
+        <tr><td style="padding:3px 6px">3952311</td><td><a href="#" style="color:#2f6bed">Kathuria</a></td><td style="color:#333">Raghav</td><td>xxxxx3333</td><td>Supervisor</td><td>(1.2) 345-6e+009</td><td>03 May 2026</td></tr>
       </tbody>
     </table>
     <div style="padding:5px 8px;font-size:11px;border-top:1px solid #ddd;background:#f9f9f9">
@@ -2521,7 +2523,7 @@ function schedEmpHTML() {
         </tr>
       </thead>
       <tbody>
-        <tr style="background:#e07820;color:#fff;font-weight:bold">
+        <tr style="background:#2f6bed;color:#fff;font-weight:bold">
           <td style="padding:3px 6px">3951657</td>
           <td><a href="#" style="color:#fff">Nagdev</a></td>
           <td>Priyanka</td>
@@ -2535,23 +2537,23 @@ function schedEmpHTML() {
   </div>
   <!-- Week nav -->
   <div style="display:flex;align-items:stretch;gap:2px;margin-bottom:0">
-    <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:2px 0 0 2px">&#9664;</button>
-    ${days2.map(d=>`<div style="background:${d.orange?'#e07820':'#d4d4d4'};color:${d.orange?'#fff':'#333'};text-align:center;padding:4px 2px;font-size:10px;font-weight:bold;flex:1">${d.label}<br>${d.date}</div>`).join('')}
-    <button style="background:#e07820;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:0 2px 2px 0">&#9654;</button>
+    <button style="background:#2f6bed;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:2px 0 0 2px">&#9664;</button>
+    ${days2.map(d=>`<div style="background:${d.orange?'#2f6bed':'#d4d4d4'};color:${d.orange?'#fff':'#333'};text-align:center;padding:4px 2px;font-size:10px;font-weight:bold;flex:1">${d.label}<br>${d.date}</div>`).join('')}
+    <button style="background:#2f6bed;color:#fff;border:none;padding:4px 8px;cursor:pointer;font-size:14px;border-radius:0 2px 2px 0">&#9654;</button>
   </div>
   <!-- Calendar grid -->
   <div id="cal-section" style="overflow-x:auto">
     <table style="border-collapse:collapse;width:100%;table-layout:fixed">
       <thead>
-        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}${hrLabel}</tr>
+        <tr style="background:#3f3f3f;color:#fff">${hrLabel}${hrNum}${hrLabel}</tr>
       </thead>
       <tbody>${calRows}</tbody>
       <tfoot>
-        <tr style="background:#5a5a5a;color:#fff">${hrLabel}${hrNum}<td id="cal-tfoot-end" style="width:38px;background:#5a5a5a;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td></tr>
+        <tr style="background:#3f3f3f;color:#fff">${hrLabel}${hrNum}<td id="cal-tfoot-end" style="width:38px;background:#3f3f3f;color:#fff;font-size:10px;font-weight:bold;padding:2px 4px;text-align:center">Hours</td></tr>
       </tfoot>
     </table>
     <div style="text-align:right;margin-top:6px">
-      <button class="btn" id="btn-cal-save" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
+      <button class="btn" id="btn-cal-save" style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
     </div>
     <div style="margin-top:12px;font-size:12px;font-weight:bold">Branch :Prota LA Branch Test &nbsp;&nbsp; Department :Staff</div>
     <div style="display:flex;gap:16px;margin:5px 0 6px;align-items:center">
@@ -2576,7 +2578,7 @@ function schedEmpHTML() {
       <tbody>
         <tr>
           <td id="cal-s1" style="color:#2a8a3a;font-weight:bold;font-size:14px;cursor:pointer;text-align:center">+</td>
-          <td style="font-size:11px"><a href="#" style="color:#c07800">Sierra Erica WISH Training<br>May 2026-5/30/2026 \<br>5023704828</a></td>
+          <td style="font-size:11px"><a href="#" style="color:#2f6bed">Sierra Erica WISH Training<br>May 2026-5/30/2026 \<br>5023704828</a></td>
           <td style="font-size:11px">Grand Bell Arena</td>
           <td></td>
           <td style="font-size:11px">05/30/2026 10:00</td>
@@ -2588,7 +2590,7 @@ function schedEmpHTML() {
         <!-- Shift rows — shown when + is clicked -->
         <tr id="job-shift-1" style="display:none;background:#f9f9f9">
           <td id="cal-shift1" style="color:#2a8a3a;font-weight:bold;font-size:14px;text-align:center;cursor:pointer">+</td>
-          <td style="font-size:11px;padding-left:16px"><a href="#" style="color:#c07800">Staff 1 Call</a></td>
+          <td style="font-size:11px;padding-left:16px"><a href="#" style="color:#2f6bed">Staff 1 Call</a></td>
           <td style="font-size:11px"></td>
           <td style="font-size:11px;text-align:center">1</td>
           <td style="font-size:11px">05/30/2026 10:00</td>
@@ -2611,7 +2613,7 @@ function schedEmpHTML() {
         </tr>
         <tr id="job-shift-2" style="display:none;background:#f9f9f9">
           <td style="color:#2a8a3a;font-weight:bold;font-size:14px;text-align:center">+</td>
-          <td style="font-size:11px;padding-left:16px"><a href="#" style="color:#c07800">Main Call</a></td>
+          <td style="font-size:11px;padding-left:16px"><a href="#" style="color:#2f6bed">Main Call</a></td>
           <td style="font-size:11px"></td>
           <td style="font-size:11px;text-align:center">2</td>
           <td style="font-size:11px">05/30/2026 14:00</td>
@@ -2623,13 +2625,13 @@ function schedEmpHTML() {
       </tbody>
     </table>
     <div style="text-align:right;margin-top:8px">
-      <button style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
+      <button style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">Save Sched</button>
     </div>
   </div>
   <!-- Sched Delete modal -->
   <div id="sched-delete-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:999">
     <div style="position:absolute;top:90px;left:130px;background:#fff;width:385px;box-shadow:2px 2px 10px rgba(0,0,0,0.4);border:1px solid #ccc">
-      <div style="background:#e07820;color:#fff;padding:7px 12px;font-size:13px;font-weight:bold">Sched Delete</div>
+      <div style="background:#2f6bed;color:#fff;padding:7px 12px;font-size:13px;font-weight:bold">Sched Delete</div>
       <div style="padding:14px 16px">
         <div style="font-size:12px;margin-bottom:12px">Are you sure you want to delete this sched information ?</div>
         <div style="font-size:12px;margin-bottom:10px">
@@ -2644,7 +2646,7 @@ function schedEmpHTML() {
             <div style="position:relative;display:inline-block">
               <button id="reason-select" style="border:1px solid #999;background:#fff;height:22px;width:130px;font-size:11px;padding:2px 6px;text-align:left;cursor:pointer">--Select-- &#9660;</button>
               <div id="reason-dropdown" style="display:none;position:absolute;top:22px;left:0;background:#fff;border:1px solid #999;z-index:1001;min-width:140px;box-shadow:1px 2px 5px rgba(0,0,0,0.3)">
-                <div style="padding:3px 8px;font-size:11px;background:#5a5a5a;color:#fff">--Select--</div>
+                <div style="padding:3px 8px;font-size:11px;background:#3f3f3f;color:#fff">--Select--</div>
                 <div style="padding:3px 8px;font-size:11px">Childcare</div>
                 <div style="padding:3px 8px;font-size:11px">Emergency</div>
                 <div style="padding:3px 8px;font-size:11px">Entry</div>
@@ -2670,7 +2672,7 @@ function schedEmpHTML() {
           <textarea style="border:1px solid #ccc;flex:1;height:75px;font-size:11px;padding:3px;resize:both"></textarea>
         </div>
         <div>
-          <button id="sd-yes-btn" style="background:#e07820;color:#fff;border:1px solid #b85e00;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
+          <button id="sd-yes-btn" style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
           <button style="background:#e8e8e8;color:#333;border:1px solid #999;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">No</button>
         </div>
       </div>
@@ -2782,10 +2784,10 @@ function schedJobSearchHTML() {
           <tbody>
             <tr style="border-bottom:1px solid #ddd;">
               <td style="padding:5px 8px">08/15/2026</td>
-              <td style="padding:5px 8px;color:#c07800">5023705541</td>
-              <td style="padding:5px 8px"><span id="drake-job-link" style="color:#c07800;cursor:pointer">Drake Job</span></td>
+              <td style="padding:5px 8px;color:#2f6bed">5023705541</td>
+              <td style="padding:5px 8px"><span id="drake-job-link" style="color:#2f6bed;cursor:pointer">Drake Job</span></td>
               <td style="padding:5px 8px"></td>
-              <td style="padding:5px 8px;color:#c07800">AB Convention Center</td>
+              <td style="padding:5px 8px;color:#2f6bed">AB Convention Center</td>
               <td style="padding:5px 8px"></td>
               <td style="padding:5px 8px"></td>
               <td style="padding:5px 8px"></td>
@@ -2809,8 +2811,8 @@ function schedJobSearchHTML() {
 function drakeJobDetailHTML() {
   const LBL = 'width:90px;text-align:right;color:#444;padding-right:8px;font-size:12px;flex-shrink:0;';
   const VAL = 'background:#e8f4fa;border:1px solid #b8d8e8;padding:2px 6px;font-size:12px;min-width:160px;';
-  const LINK = VAL + 'color:#c07800;cursor:pointer;';
-  const ORANGE = VAL + 'color:#c07800;';
+  const LINK = VAL + 'color:#2f6bed;cursor:pointer;';
+  const ORANGE = VAL + 'color:#2f6bed;';
   return `
     <div style="padding:10px 16px;font-size:12px;">
       <div style="font-size:16px;font-weight:bold;color:#1a1a1a;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-bottom:12px;">Schedule by Job</div>
@@ -2870,18 +2872,18 @@ function drakeJobDetailHTML() {
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
               <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
+              <td style="padding:4px 6px;text-align:center;color:#2f6bed">-5</td>
             </tr>
             <tr id="role-row" style="display:none;background:#f8f8f8;border-bottom:1px solid #ddd;">
               <td style="padding:4px 6px;text-align:center"><input type="checkbox" id="role-chk"></td>
-              <td style="padding:4px 6px;color:#c07800;cursor:pointer;white-space:nowrap">Event Staff</td>
+              <td style="padding:4px 6px;color:#2f6bed;cursor:pointer;white-space:nowrap">Event Staff</td>
               <td style="padding:4px 6px;text-align:center"></td>
               <td style="padding:4px 6px;white-space:nowrap">08/15/2026 08:00</td>
               <td style="padding:4px 6px;white-space:nowrap">08/15/2026 17:00</td>
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
               <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#c07800">-5</td>
+              <td style="padding:4px 6px;text-align:center;color:#2f6bed">-5</td>
             </tr>
           </tbody>
         </table>
@@ -2914,11 +2916,11 @@ function slide_scheduling_3() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
             <tr><td>Sierra Erica WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#c07800">Dosier Stadium</td></tr>
+            <tr><td style="color:#2f6bed">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#2f6bed">Dosier Stadium</td></tr>
             <tr><td>LA WISH Training Job May 2026</td><td>Dosier Stadium</td></tr>
             <tr><td>KC DC Staff WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
           </tbody>
@@ -3012,7 +3014,7 @@ function slide_scheduling_3() {
         document.getElementById('td-var-sierra').textContent = '-27';
         // Update calendar footer cell to show 4.00 Hours with orange highlight
         const fc = document.getElementById('cal-tfoot-end');
-        fc.style.background = '#e07820';
+        fc.style.background = '#2f6bed';
         fc.style.lineHeight = '1.2';
         fc.innerHTML = '4.00<br>Hours';
       }},
@@ -3076,12 +3078,12 @@ function slide_scheduling_4() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/27/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
             <tr><td>Sierra Erica WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#c07800">Dosier Stadium</td></tr>
+            <tr><td style="color:#2f6bed">LA WISH Training Job May 2026-5/20/2026</td><td style="color:#2f6bed">Dosier Stadium</td></tr>
             <tr><td>LA WISH Training Job May 2026</td><td>Dosier Stadium</td></tr>
             <tr><td>KC DC Staff WISH Training May 2026</td><td>Grand Bell Arena</td></tr>
           </tbody>
@@ -3356,10 +3358,10 @@ function slide_schedule_by_job_admin_4() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Darinka Flores WISH Training May 2026-5/22/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Darinka Flores WISH Training May 2026</td><td>Crocket Arena</td></tr>
           </tbody>
         </table>
@@ -3462,7 +3464,7 @@ function slide_schedule_by_job_admin_4() {
                 </thead>
                 <tbody>
                   <tr id="jac1-row">
-                    <td style="color:#c07800;font-weight:bold">08/15/2026</td>
+                    <td style="color:#2f6bed;font-weight:bold">08/15/2026</td>
                     <td><span style="color:#3a6aaa;cursor:pointer">5023705541</span></td>
                     <td><span id="jac1" style="color:#3a6aaa;cursor:pointer">Drake Job</span></td>
                     <td></td>
@@ -3504,7 +3506,7 @@ function slide_schedule_by_job_admin_4() {
                 <table style="border-collapse:separate;border-spacing:2px 3px;width:1%">
                   <tr>
                     <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap;width:82px">Event :</td>
-                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#c07800;cursor:pointer">2026 DRAKE CONCERT</span></td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden"><span style="color:#2f6bed;cursor:pointer">2026 DRAKE CONCERT</span></td>
                   </tr>
                   <tr>
                     <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Job Name :</td>
@@ -3520,11 +3522,11 @@ function slide_schedule_by_job_admin_4() {
                   </tr>
                   <tr>
                     <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Start :</td>
-                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#c07800">08/15/2026 08:00</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#2f6bed">08/15/2026 08:00</td>
                   </tr>
                   <tr>
                     <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Finish :</td>
-                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#c07800">08/16/2026 17:00</td>
+                    <td style="border:1px solid #bbb;padding:2px 5px;font-size:12px;white-space:nowrap;max-width:158px;overflow:hidden;color:#2f6bed">08/16/2026 17:00</td>
                   </tr>
                   <tr>
                     <td style="text-align:right;padding:2px 6px;font-size:12px;color:#444;white-space:nowrap">Venue :</td>
@@ -3604,7 +3606,7 @@ function slide_schedule_by_job_admin_4() {
                   <tbody>
                     <tr>
                       <td id="shift-plus" style="color:#2a8a3a;font-weight:bold;cursor:pointer">+</td>
-                      <td>Staff &nbsp;<span style="color:#c07800">One Call</span></td><td>1</td>
+                      <td>Staff &nbsp;<span style="color:#2f6bed">One Call</span></td><td>1</td>
                       <td>08/15/2026 08:00</td><td>08/15/2026 17:00</td>
                       <td>5</td><td>7</td><td>3</td>
                       <td style="color:#cc0000;font-weight:bold">-2</td>
@@ -3669,7 +3671,7 @@ function slide_schedule_by_job_admin_4() {
           ['Test','6Aug','3',true,false],['Test','7Aug','4',true,false],
           ['Test','8Aug','5',false,false],['Test','9Aug','6',false,false]
         ];
-        const clr = r => r[3] ? '#c07800' : '#333';
+        const clr = r => r[3] ? '#2f6bed' : '#333';
         const dot = r => r[3]
           ? `<span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#cc0000;color:#fff;font-size:10px;line-height:16px;text-align:center">&#10003;</span>`
           : `<span style="display:inline-block;width:16px;height:16px;border-radius:50%;background:#2a9a2a;color:#fff;font-size:10px;line-height:16px;text-align:center">&#10003;</span>`;
@@ -3712,11 +3714,11 @@ function reportsHTML(activeSection, reportList) {
   return `<div class="page-title">Reports</div>
     <div style="display:flex;gap:0;height:480px">
       <div style="width:200px;border-right:1px solid #ccc">
-        ${sections.map(s=>`<div class="dropdown-item ${s===activeSection?'active':''}" style="border-bottom:1px solid #eee;${s===activeSection?'background:#fff8f0;color:#c07800;font-weight:bold;':''}">${s}</div>`).join('')}
+        ${sections.map(s=>`<div class="dropdown-item ${s===activeSection?'active':''}" style="border-bottom:1px solid #eee;${s===activeSection?'background:#eef3ff;color:#2f6bed;font-weight:bold;':''}">${s}</div>`).join('')}
       </div>
       <div style="flex:1;padding-left:16px">
         <div style="font-weight:bold;margin-bottom:10px;color:#555">Available Reports:</div>
-        ${reportList.map(r=>`<div style="padding:5px 8px;border-bottom:1px solid #eee;cursor:pointer;color:#3a6aaa" onmouseover="this.style.background='#fff8f0'" onmouseout="this.style.background=''">${r}</div>`).join('')}
+        ${reportList.map(r=>`<div style="padding:5px 8px;border-bottom:1px solid #eee;cursor:pointer;color:#3a6aaa" onmouseover="this.style.background='#eef3ff'" onmouseout="this.style.background=''">${r}</div>`).join('')}
       </div>
     </div>`;
 }
@@ -4269,7 +4271,7 @@ function manageEmpTaskHTML() {
     <div id="met-empty" style="background:#fcf8e3;border:1px solid #e0d8a0;color:#8a7a30;padding:8px 12px;font-size:13px;text-align:center;margin-top:6px"><span style="color:#c0a000;font-weight:bold">&#9888;</span> No Records found.</div>
     <div id="met-results" style="display:none;margin-top:6px">
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
+        <thead><tr style="background:#3f3f3f;color:#fff">
           <th style="${c}"><input type="checkbox"></th><th style="text-align:left;${c}">Last Name</th><th style="text-align:left;${c}">First Name</th><th style="text-align:left;${c}">Employee#</th>
           <th style="text-align:left;${c}">Status</th><th style="text-align:left;${c}">BGStatus</th><th style="text-align:left;${c}">BGExpiration Date</th><th style="text-align:center;${c}">Task</th></tr></thead>
         <tbody id="met-tbody">${rows}</tbody>
@@ -4302,7 +4304,7 @@ function empTaskDetailHTML(e) {
       <div style="background:#fff;width:820px;max-width:94%;margin-top:40px;padding:16px 24px;box-shadow:0 8px 28px rgba(0,0,0,.45);border-radius:3px">
         <div class="page-title" style="font-size:20px">View Task</div>
         <table id="met-d-table" style="width:100%;font-size:13px;margin-top:8px">
-          <thead><tr style="background:#5a5a5a;color:#fff"><th style="padding:7px 10px;width:40px"></th><th style="text-align:left;padding:7px 12px">Task</th><th style="text-align:left;padding:7px 12px">Status</th><th style="padding:7px 12px"></th></tr></thead>
+          <thead><tr style="background:#3f3f3f;color:#fff"><th style="padding:7px 10px;width:40px"></th><th style="text-align:left;padding:7px 12px">Task</th><th style="text-align:left;padding:7px 12px">Status</th><th style="padding:7px 12px"></th></tr></thead>
           <tbody>${trs}</tbody>
         </table>
         <div style="text-align:center;margin-top:24px"><button class="btn" id="met-d-cancel" onclick="var d=document.getElementById('met-detail');d.style.display='none';d.innerHTML='';">Cancel</button></div>
@@ -4458,7 +4460,7 @@ function empRecordTabContent(tab) {
     'Disciplinary Action': `
       <div id="da-save-msg" class="msg-success" style="margin:6px 0">&#10004; Disciplinary action saved successfully.</div>
       <table id="da-history" style="width:100%;border-collapse:collapse">
-        <thead><tr style="background:#5a5a5a;color:#fff;font-size:12px">
+        <thead><tr style="background:#3f3f3f;color:#fff;font-size:12px">
           <th style="text-align:left;padding:6px 8px">Name</th><th style="text-align:left;padding:6px 8px">Additional Status</th>
           <th style="text-align:left;padding:6px 8px">Violation Type</th><th style="text-align:left;padding:6px 8px">Effective Date</th>
           <th style="padding:6px 8px">No Of Days</th><th style="text-align:left;padding:6px 8px">Notes</th>
@@ -4483,7 +4485,7 @@ function empRecordTabContent(tab) {
       <div style="margin:4px 0 8px"><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Show all roles ( Including de-active )</label></div>
       <div id="pr-table-wrap" style="overflow-x:auto;border:1px solid #ddd">
         <table id="pr-history" style="border-collapse:collapse;font-size:12px;min-width:920px;width:100%">
-          <thead><tr style="background:#5a5a5a;color:#fff">
+          <thead><tr style="background:#3f3f3f;color:#fff">
             <th style="text-align:left;padding:6px 8px">Branch</th><th style="text-align:left;padding:6px 8px">Dept</th><th style="text-align:left;padding:6px 8px">Role</th>
             <th style="text-align:left;padding:6px 8px">ActiveDate</th><th style="text-align:left;padding:6px 8px">DeActivationDate</th><th style="text-align:left;padding:6px 8px">Status</th>
             <th style="text-align:right;padding:6px 8px">Amount($)</th><th style="text-align:left;padding:6px 8px">PayStructure</th><th style="text-align:left;padding:6px 8px">Created By</th><th style="text-align:left;padding:6px 8px">Action</th>
@@ -4547,7 +4549,7 @@ function empRecordTabContent(tab) {
       return `
         <div id="note-save-msg" class="msg-success" style="margin:6px 0">&#10004; Note saved successfully.</div>
         <table id="note-history" style="width:100%;border-collapse:collapse">
-          <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:6px 8px">Notes Type</th><th style="text-align:left;padding:6px 8px">Notes</th><th style="padding:6px 8px">Confidential</th><th style="padding:6px 8px">Edit</th></tr></thead>
+          <thead><tr style="background:#3f3f3f;color:#fff"><th style="text-align:left;padding:6px 8px">Notes Type</th><th style="text-align:left;padding:6px 8px">Notes</th><th style="padding:6px 8px">Confidential</th><th style="padding:6px 8px">Edit</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
         <div class="page-title" style="font-size:18px;margin-top:14px;display:flex;justify-content:space-between;align-items:center">Add New Employee Notes <label style="font-size:12px;font-weight:normal"><input type="checkbox"> No Show Notes</label></div>
@@ -4858,7 +4860,7 @@ function manageEmpStatusHTML() {
     <div id="mes-save-msg" class="msg-success" style="margin:12px 0 0">&#10004; Status updated for the selected employees.</div>
     <div id="mes-results" style="display:none;margin-top:14px">
       <div class="page-title" style="font-size:18px">Search Result</div>
-      <table style="width:100%"><thead><tr style="background:#5a5a5a;color:#fff">
+      <table style="width:100%"><thead><tr style="background:#3f3f3f;color:#fff">
         <th style="padding:5px 8px"><input type="checkbox" id="mes-all"></th>
         <th style="text-align:left;padding:5px 8px">Last Name &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">First Name &#9650;&#9660;</th>
         <th style="text-align:left;padding:5px 8px">Employee# &#9650;&#9660;</th><th style="text-align:left;padding:5px 8px">Status &#9650;&#9660;</th></tr></thead>
@@ -4970,7 +4972,7 @@ function importPortalHTML() {
       <div id="imp-summary" style="font-size:13px;margin:8px 0">Total:2 &nbsp;&nbsp; Duplicate:1 &nbsp;&nbsp; Import:0 &nbsp;&nbsp; Hired:2 &nbsp;&nbsp; Rehired:0</div>
       <div style="overflow-x:auto">
         <table id="imp-table" style="min-width:1000px;width:100%;font-size:12px">
-          <thead><tr style="background:#5a5a5a;color:#fff">
+          <thead><tr style="background:#3f3f3f;color:#fff">
             <th style="text-align:left;${cell}">SSN</th><th style="text-align:left;${cell}">First Name</th><th style="text-align:left;${cell}">Middle Name</th><th style="text-align:left;${cell}">Last Name</th><th style="${cell}">Exp</th><th style="text-align:left;${cell}">Branch</th>
             <th style="text-align:left;${cell}" id="imp-h-bg">BG Status</th><th style="text-align:left;${cell}" id="imp-h-ev">E-Verify Status</th><th style="text-align:left;${cell}" id="imp-h-st">Status</th><th style="text-align:left;${cell}">Hiring Status</th><th style="${cell}">D</th><th style="text-align:left;${cell}">Phone</th></tr></thead>
           <tbody>
@@ -5148,7 +5150,7 @@ function mailResultsHTML(p, emps) {
   return `
     <div style="text-align:center;font-size:12px;margin-bottom:6px"><label style="cursor:pointer"><input type="checkbox" id="${p}-all"> Send email to all employees in the search list</label></div>
     <table style="width:100%;font-size:12px">
-      <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="${p}-all-hdr"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
+      <thead><tr style="background:#3f3f3f;color:#fff"><th style="${c}"><input type="checkbox" id="${p}-all-hdr"></th><th style="text-align:left;${c}">Employee#</th><th style="text-align:left;${c}">LastName</th><th style="text-align:left;${c}">FirstName</th><th style="text-align:left;${c}">Email</th><th style="text-align:left;${c}">Phone No</th></tr></thead>
       <tbody id="${p}-body">${rows}</tbody>
     </table>
     <div style="display:flex;justify-content:space-between;font-size:11px;padding:4px 8px;background:#f4f4f4;border:1px solid #ddd"><span>Total Pages: 3</span><span>Go To page: <select><option>1</option><option>2</option><option>3</option></select></span></div>
@@ -5374,7 +5376,7 @@ function mailByJobHTML() {
     <div class="page-title" style="font-size:18px">Search Result</div>
     <div id="mbj-results" style="display:none;margin-top:8px">
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff"><th style="${c}"><input type="checkbox" id="mbj-all-hdr"></th><th style="${c}"></th><th style="text-align:left;${c}">Job#</th><th style="text-align:left;${c}">Job Name</th><th style="${c}">Shift#</th><th style="text-align:left;${c}">Shift Name</th><th style="text-align:left;${c}">Start Time</th><th style="text-align:left;${c}">Finish Time</th></tr></thead>
+        <thead><tr style="background:#3f3f3f;color:#fff"><th style="${c}"><input type="checkbox" id="mbj-all-hdr"></th><th style="${c}"></th><th style="text-align:left;${c}">Job#</th><th style="text-align:left;${c}">Job Name</th><th style="${c}">Shift#</th><th style="text-align:left;${c}">Shift Name</th><th style="text-align:left;${c}">Start Time</th><th style="text-align:left;${c}">Finish Time</th></tr></thead>
         <tbody id="mbj-body">${rows}</tbody>
       </table>
       <div style="text-align:center;margin-top:10px"><button class="btn" id="mbj-send">Send Email</button></div>
@@ -5429,8 +5431,8 @@ function slide_sign_in_sign_out_3() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</span></td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</span></td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</span></td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</span></td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026</span></td><td>Crocket Arena</td></tr>
             <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/30/2026</span></td><td>Grand Bell Arena</td></tr>
           </tbody>
@@ -6189,10 +6191,10 @@ function slide_sign_in_sign_out_4() {
               <tr><th>Employee #</th><th>Last Name</th><th>First Name</th><th>Branch</th><th>Status</th></tr>
             </thead>
             <tbody>
-              <tr><td style="color:#3a6aaa;cursor:pointer">3951624</td><td>Malhotra</td><td>Priya</td><td>Prota LA Branch Test 3951624</td><td style="color:#c07800">Pending</td></tr>
-              <tr><td style="color:#3a6aaa;cursor:pointer">3951682</td><td>Menon</td><td>Shweta</td><td>Prota LA Branch Test 3951682</td><td style="color:#c07800">Pending</td></tr>
+              <tr><td style="color:#3a6aaa;cursor:pointer">3951624</td><td>Malhotra</td><td>Priya</td><td>Prota LA Branch Test 3951624</td><td style="color:#2f6bed">Pending</td></tr>
+              <tr><td style="color:#3a6aaa;cursor:pointer">3951682</td><td>Menon</td><td>Shweta</td><td>Prota LA Branch Test 3951682</td><td style="color:#2f6bed">Pending</td></tr>
               <tr><td style="color:#3a6aaa;cursor:pointer">3951657</td><td>Nagdev</td><td>Priyanka</td><td>Prota LA Branch Test 3951657</td><td>Active</td></tr>
-              <tr><td style="color:#3a6aaa;cursor:pointer">4181106</td><td>100</td><td>Test100</td><td>Prota LA Branch Test 4181106</td><td style="color:#c07800">Pending</td></tr>
+              <tr><td style="color:#3a6aaa;cursor:pointer">4181106</td><td>100</td><td>Test100</td><td>Prota LA Branch Test 4181106</td><td style="color:#2f6bed">Pending</td></tr>
               <tr><td style="color:#3a6aaa;cursor:pointer">3951664</td><td>Banik</td><td>Shiny</td><td>Prota LA Branch Test 3951664</td><td>Active</td></tr>
               <tr><td style="color:#3a6aaa;cursor:pointer">3951660</td><td>Bhattacharyya</td><td>Shreya</td><td>Prota LA Branch Test 3951660</td><td>Active</td></tr>
               <tr><td style="color:#3a6aaa;cursor:pointer">3952376</td><td>Bisht</td><td>Mahendra singh</td><td>Prota LA Branch Test 3952376</td><td>Active</td></tr>
@@ -6226,8 +6228,8 @@ function slide_sign_in_sign_out_5() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</span></td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</span></td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</span></td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026-6/3/2026</span></td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td><span style="color:#3a6aaa">Grant Sands WISH Job June 2026</span></td><td>Crocket Arena</td></tr>
             <tr><td><span style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/30/2026</span></td><td>Grand Bell Arena</td></tr>
           </tbody>
@@ -6838,16 +6840,16 @@ function slide_sign_in_sign_out_6() {
               </tr>
             </thead>
             <tbody style="font-size:11px">
-              <tr><td style="padding:3px 6px">1</td><td style="color:#c07800">Nagdev</td><td style="color:#c07800">Priyanka</td><td style="color:#c07800">3951657</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
-              <tr><td style="padding:3px 6px">2</td><td style="color:#c07800">Banik</td><td style="color:#c07800">Shiny</td><td style="color:#c07800">3951664</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
-              <tr><td style="padding:3px 6px">3</td><td style="color:#c07800">Bhattacharyya</td><td style="color:#c07800">Shreya</td><td style="color:#c07800">3951660</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td></td></tr>
-              <tr><td style="padding:3px 6px">4</td><td style="color:#c07800;font-weight:bold">Bisht</td><td style="color:#c07800;font-weight:bold">Mahendra singh</td><td style="color:#c07800;font-weight:bold">3952376</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:15</td><td></td></tr>
-              <tr><td style="padding:3px 6px">5</td><td style="color:#c07800">Chaudhary</td><td style="color:#c07800">Prachi</td><td style="color:#c07800">3952379</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 10:00</td><td></td></tr>
-              <tr><td style="padding:3px 6px">6</td><td style="color:#c07800">Chauhan</td><td style="color:#c07800">Vikrant</td><td style="color:#c07800">3951163</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
-              <tr><td style="padding:3px 6px">7</td><td style="color:#c07800">cscadmin</td><td style="color:#c07800">cscadmin</td><td style="color:#c07800">10111</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
-              <tr><td style="padding:3px 6px">8</td><td style="color:#c07800">Test</td><td style="color:#c07800">5Aug</td><td style="color:#c07800">2</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
-              <tr><td style="padding:3px 6px">9</td><td style="color:#c07800">Test</td><td style="color:#c07800">7Aug</td><td style="color:#c07800">4</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
-              <tr><td style="padding:3px 6px">10</td><td style="color:#c07800">Test</td><td style="color:#c07800">6Aug</td><td style="color:#c07800">3</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
+              <tr><td style="padding:3px 6px">1</td><td style="color:#2f6bed">Nagdev</td><td style="color:#2f6bed">Priyanka</td><td style="color:#2f6bed">3951657</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
+              <tr><td style="padding:3px 6px">2</td><td style="color:#2f6bed">Banik</td><td style="color:#2f6bed">Shiny</td><td style="color:#2f6bed">3951664</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
+              <tr><td style="padding:3px 6px">3</td><td style="color:#2f6bed">Bhattacharyya</td><td style="color:#2f6bed">Shreya</td><td style="color:#2f6bed">3951660</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td></td></tr>
+              <tr><td style="padding:3px 6px">4</td><td style="color:#2f6bed;font-weight:bold">Bisht</td><td style="color:#2f6bed;font-weight:bold">Mahendra singh</td><td style="color:#2f6bed;font-weight:bold">3952376</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:15</td><td></td></tr>
+              <tr><td style="padding:3px 6px">5</td><td style="color:#2f6bed">Chaudhary</td><td style="color:#2f6bed">Prachi</td><td style="color:#2f6bed">3952379</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 10:00</td><td></td></tr>
+              <tr><td style="padding:3px 6px">6</td><td style="color:#2f6bed">Chauhan</td><td style="color:#2f6bed">Vikrant</td><td style="color:#2f6bed">3951163</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
+              <tr><td style="padding:3px 6px">7</td><td style="color:#2f6bed">cscadmin</td><td style="color:#2f6bed">cscadmin</td><td style="color:#2f6bed">10111</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td>08/15/2026 08:00</td><td>08/15/2026 10:00</td></tr>
+              <tr><td style="padding:3px 6px">8</td><td style="color:#2f6bed">Test</td><td style="color:#2f6bed">5Aug</td><td style="color:#2f6bed">2</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
+              <tr><td style="padding:3px 6px">9</td><td style="color:#2f6bed">Test</td><td style="color:#2f6bed">7Aug</td><td style="color:#2f6bed">4</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
+              <tr><td style="padding:3px 6px">10</td><td style="color:#2f6bed">Test</td><td style="color:#2f6bed">6Aug</td><td style="color:#2f6bed">3</td><td>Event Staff</td><td>08/15/2026 08:00</td><td>08/15/2026 17:00</td><td></td><td></td></tr>
             </tbody>
           </table>
           <div style="margin-top:12px">
@@ -8399,7 +8401,7 @@ function slide_introduction_6() {
   setNav('home');
   document.getElementById('content').innerHTML = `
     <div style="margin-bottom:14px;">
-      <div style="font-weight:bold;font-size:12px;padding:5px 8px;background:#5a5a5a;color:#fff;border:1px solid #888;margin-bottom:0;">Unapproved Jobs</div>
+      <div style="font-weight:bold;font-size:12px;padding:5px 8px;background:#3f3f3f;color:#fff;border:1px solid #888;margin-bottom:0;">Unapproved Jobs</div>
       <table style="margin-bottom:0;">
         <thead><tr><th>Job</th><th>Venue</th></tr></thead>
         <tbody>
@@ -8422,7 +8424,7 @@ function slide_introduction_6() {
       </div>
     </div>
     <div>
-      <div style="font-weight:bold;font-size:12px;padding:5px 8px;background:#5a5a5a;color:#fff;border:1px solid #888;margin-bottom:0;">Today's Sign-In</div>
+      <div style="font-weight:bold;font-size:12px;padding:5px 8px;background:#3f3f3f;color:#fff;border:1px solid #888;margin-bottom:0;">Today's Sign-In</div>
       <table style="margin-bottom:0;">
         <thead><tr><th></th><th>Job</th><th>Venue</th></tr></thead>
         <tbody>
@@ -8476,21 +8478,21 @@ function slide_introduction_6() {
             <tbody>
               <tr>
                 <td><input type="checkbox"></td>
-                <td><span style="color:#e07820;font-size:14px;">&#9993;</span></td>
+                <td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td>
                 <td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td>
                 <td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td>
                 <td style="font-size:11px;">Jun 1 2016 10:34PM</td>
               </tr>
               <tr>
                 <td><input type="checkbox"></td>
-                <td><span style="color:#e07820;font-size:14px;">&#9993;</span></td>
+                <td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td>
                 <td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td>
                 <td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td>
                 <td style="font-size:11px;">Jun 1 2016 10:25PM</td>
               </tr>
               <tr>
                 <td><input type="checkbox"></td>
-                <td><span style="color:#e07820;font-size:14px;">&#9993;</span></td>
+                <td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td>
                 <td style="font-weight:bold;font-size:12px;">Welcome to WISH 3.0 Messaging System.</td>
                 <td style="font-size:12px;color:#555;">Hello Everyone, This is a test message. We have added a feature in to send messages to all WIS...</td>
                 <td style="font-size:11px;">May 26 2016 11:17AM</td>
@@ -8534,9 +8536,9 @@ function slide_introduction_7() {
     <table id="bcast-table2">
       <thead><tr><th style="width:24px;"></th><th style="width:24px;"></th><th>Subject</th><th>Message</th><th style="width:140px;">Date</th></tr></thead>
       <tbody>
-        <tr><td><input type="checkbox"></td><td><span style="color:#e07820;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td><td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td><td style="font-size:11px;">Jun 1 2016 10:34PM</td></tr>
-        <tr><td><input type="checkbox"></td><td><span style="color:#e07820;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td><td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td><td style="font-size:11px;">Jun 1 2016 10:25PM</td></tr>
-        <tr><td><input type="checkbox"></td><td><span style="color:#e07820;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Welcome to WISH 3.0 Messaging System.</td><td style="font-size:12px;color:#555;">Hello Everyone, This is a test message. We have added a feature in to send messages to all WIS...</td><td style="font-size:11px;">May 26 2016 11:17AM</td></tr>
+        <tr><td><input type="checkbox"></td><td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td><td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td><td style="font-size:11px;">Jun 1 2016 10:34PM</td></tr>
+        <tr><td><input type="checkbox"></td><td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Shared Shifts Hours Processing</td><td style="font-size:12px;color:#555;">We have added the functionality to process hours on shared shifts by both the shared and the hostin...</td><td style="font-size:11px;">Jun 1 2016 10:25PM</td></tr>
+        <tr><td><input type="checkbox"></td><td><span style="color:#2f6bed;font-size:14px;">&#9993;</span></td><td style="font-weight:bold;font-size:12px;">Welcome to WISH 3.0 Messaging System.</td><td style="font-size:12px;color:#555;">Hello Everyone, This is a test message. We have added a feature in to send messages to all WIS...</td><td style="font-size:11px;">May 26 2016 11:17AM</td></tr>
       </tbody>
     </table>
   `;
@@ -8636,11 +8638,11 @@ function addEditEventHTML(eventNum, eventName, showTabs) {
         <input style="${inp}" id="f-evtnum" value="${eventNum}" readonly></div>
       <div style="${row};margin-top:4px;"><span style="${lbl}">Count As Worked :</span>
         <span style="display:flex;align-items:center;gap:12px;font-size:12px;">
-          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" checked style="accent-color:#c07800;width:14px;height:14px;">Yes</label>
-          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" style="accent-color:#c07800;width:14px;height:14px;">No</label>
+          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" checked style="accent-color:#2f6bed;width:14px;height:14px;">Yes</label>
+          <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="caw" style="accent-color:#2f6bed;width:14px;height:14px;">No</label>
         </span></div>
       <div style="${row}"><span style="${lbl}">Allow for scheduling :</span>
-        <input type="checkbox" style="width:14px;height:14px;accent-color:#c07800;cursor:pointer;"></div>
+        <input type="checkbox" style="width:14px;height:14px;accent-color:#2f6bed;cursor:pointer;"></div>
       <div style="margin:10px 0 6px 0;font-weight:bold;font-size:12px;color:#222;">Other Information</div>
       <div style="${row}"><span style="${lbl}">Notes :</span>
         <textarea style="border:1px solid #aaa;padding:3px;width:200px;height:70px;font-size:12px;resize:vertical;"></textarea></div>
@@ -9238,8 +9240,8 @@ function slide_record_maintenance_7() {
       <select style="${sel}"><option>Grand Bell Arena</option></select></div>
     <div style="${row}"><span style="${lbl}">Sorting :</span>
       <span style="display:flex;align-items:center;gap:14px;font-size:12px;">
-        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" checked style="accent-color:#c07800;">Start Date</label>
-        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" style="accent-color:#c07800;">JobName</label>
+        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" checked style="accent-color:#2f6bed;">Start Date</label>
+        <label style="display:flex;align-items:center;gap:4px;cursor:pointer;"><input type="radio" name="job-sort" style="accent-color:#2f6bed;">JobName</label>
       </span>
     </div>
     <div style="margin:14px 0 0 163px;display:flex;gap:6px;">
@@ -9546,7 +9548,7 @@ function homeScreenHTML() {
   return `
     <div style="display:flex;flex-direction:column;gap:16px">
       <div>
-        <div style="background:#5a5a5a;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold;margin-bottom:0">Unapproved Jobs</div>
+        <div style="background:#3f3f3f;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold;margin-bottom:0">Unapproved Jobs</div>
         <table style="width:100%"><thead><tr><th>Job</th><th>Venue</th></tr></thead>
         <tbody>
           <tr><td><a style="color:#3a6aaa">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</a></td><td>Grand Bell Arena</td></tr>
@@ -9559,7 +9561,7 @@ function homeScreenHTML() {
         </div>
       </div>
       <div>
-        <div style="background:#5a5a5a;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold">Today&#39;s Sign-In</div>
+        <div style="background:#3f3f3f;color:#fff;padding:6px 10px;font-size:13px;font-weight:bold">Today&#39;s Sign-In</div>
         <table style="width:100%"><thead><tr><th>Job</th><th>Venue</th></tr></thead>
         <tbody>
           <tr><td><span style="color:#3a6aaa;cursor:pointer">&#43; 060726 NGA</span></td><td>ORANGE CO. CONVENTION CENTER</td></tr>
@@ -9618,7 +9620,7 @@ function processPayrollJobHTML() {
     <div id="ppj-results" style="display:none">
       <div class="page-title" style="font-size:18px">Search Result</div>
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
+        <thead><tr style="background:#3f3f3f;color:#fff">
           <th style="${cw}"><input type="checkbox" checked style="accent-color:#e53935"></th>
           <th style="text-align:left;padding:6px 8px">Job</th><th style="text-align:left;padding:6px 8px">Job#</th>
           <th style="text-align:left;padding:6px 8px">TimeStart</th><th style="text-align:left;padding:6px 8px">TimeFinish</th>
@@ -9646,7 +9648,7 @@ function manageProcessHoursHTML() {
     <div id="mph-results" style="display:none">
       <div class="page-title" style="font-size:18px">Search Result</div>
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
+        <thead><tr style="background:#3f3f3f;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
         <tbody>
           <tr style="background:#f7f7f7"><td style="padding:5px 8px">5023705541</td><td style="padding:5px 8px">Drake Job</td><td style="text-align:center;padding:5px 8px">1</td><td style="padding:5px 8px"><a id="mph-shift-link" style="color:#3a6aaa;cursor:pointer">Staff One Call</a></td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">Deductions</a></td></tr>
           <tr style="background:#fff"><td style="padding:5px 8px">5023705541</td><td style="padding:5px 8px">Drake Job</td><td style="text-align:center;padding:5px 8px">2</td><td style="padding:5px 8px"><a id="mph-shift-link-2" style="color:#3a6aaa;cursor:pointer">Main Call</a></td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px">08/15/2026</td><td style="padding:5px 8px"><a style="color:#3a6aaa;cursor:pointer">Deductions</a></td></tr>
@@ -9692,9 +9694,9 @@ function shiftProcessHTML() {
     </table>
     <div style="text-align:center;margin:10px 0"><button class="btn" id="sp-autofill-si">AutoFill SignIn</button><button class="btn" id="sp-autofill-so">AutoFill SignOut</button></div>
     <table style="width:100%;font-size:12px">
-      <thead><tr style="background:#5a5a5a;color:#fff"><th style="width:34px"></th><th style="text-align:left;padding:5px 8px">Shifts/Role</th><th style="text-align:left;padding:5px 8px">Start</th><th style="text-align:left;padding:5px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
+      <thead><tr style="background:#3f3f3f;color:#fff"><th style="width:34px"></th><th style="text-align:left;padding:5px 8px">Shifts/Role</th><th style="text-align:left;padding:5px 8px">Start</th><th style="text-align:left;padding:5px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
       <tbody>
-        <tr style="background:#5a5a5a;color:#fff"><td></td><td style="padding:5px 8px">Staff One Call</td><td style="padding:5px 8px">08/15/2026 13:00</td><td style="padding:5px 8px">08/15/2026 17:00</td><td style="${cw}">13</td><td style="${cw}">15</td><td style="${cw}">0</td><td style="${cw};color:#ff9b9b">-13</td><td style="${cw}"><a id="sp-signin" onclick="showShiftRoster()" style="color:#9fd0ff;cursor:pointer;font-weight:bold">0</a></td></tr>
+        <tr style="background:#3f3f3f;color:#fff"><td></td><td style="padding:5px 8px">Staff One Call</td><td style="padding:5px 8px">08/15/2026 13:00</td><td style="padding:5px 8px">08/15/2026 17:00</td><td style="${cw}">13</td><td style="${cw}">15</td><td style="${cw}">0</td><td style="${cw};color:#ff9b9b">-13</td><td style="${cw}"><a id="sp-signin" onclick="showShiftRoster()" style="color:#9fd0ff;cursor:pointer;font-weight:bold">0</a></td></tr>
         <tr style="background:#ededed"><td style="text-align:center;padding:5px 4px">${plus()}</td><td style="padding:5px 8px">Role: Supervisor</td><td style="padding:5px 8px">${sob}</td><td></td><td style="${cw}">1</td><td style="${cw}">1</td><td style="${cw}">0</td><td style="${red}">-1</td><td style="${cw}">0</td></tr>
         <tr style="background:#f4f4f4"><td style="text-align:center;padding:5px 4px">${plus('sp-role-toggle')}</td><td style="padding:5px 8px">Role: Event Staff</td><td style="padding:5px 8px"><button class="btn btn-sm" id="sp-role-signin">SignIn</button> <button class="btn btn-sm" id="sp-role-signout">SignOut</button></td><td></td><td style="${cw}">12</td><td style="${cw}">14</td><td style="${cw}">0</td><td style="${red}">-12</td><td style="${cw}">0</td></tr>
       </tbody>
@@ -9734,7 +9736,7 @@ function shiftRosterHTML() {
   return `
     <div id="sp-roster" style="display:none;overflow-x:auto;margin-top:4px">
       <table style="min-width:880px;width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
+        <thead><tr style="background:#3f3f3f;color:#fff">
           <th style="padding:4px 6px"></th><th style="text-align:left;padding:4px 6px">WF#</th><th style="text-align:left;padding:4px 6px">WF Name</th>
           <th style="${cw}">NS<br><input type="checkbox"></th><th style="text-align:left;padding:4px 6px">Sign In Adj</th><th style="text-align:left;padding:4px 6px">Sign Out Adj</th>
           <th style="${cw}">Hrs</th><th style="${cw}">Rate<br><input type="checkbox"></th><th style="${cw}">Ovd Rate<br><input class="form-input" id="sp-ovd-all" style="width:48px"></th><th style="${cw}">Per Diem<br><input class="form-input" id="sp-pd-all" style="width:48px"></th><th style="padding:4px 6px"></th></tr></thead>
@@ -9778,7 +9780,7 @@ function caManageProcessHoursHTML() {
     <div id="ca-mph-results" style="display:none">
       <div class="page-title" style="font-size:18px">Search Result</div>
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
+        <thead><tr style="background:#3f3f3f;color:#fff"><th style="text-align:left;padding:5px 8px">Job#</th><th style="text-align:left;padding:5px 8px">Job Name</th><th style="padding:5px 8px">Shift#</th><th style="text-align:left;padding:5px 8px">ShiftName</th><th style="text-align:left;padding:5px 8px">Shift Start Time</th><th style="text-align:left;padding:5px 8px">Shift Finish Time</th><th style="text-align:left;padding:5px 8px">Deductions</th></tr></thead>
         <tbody>
           ${row(1,'Production Supervisor - DAY')}
           ${row(2,'Oracle Park - Day','ca-shift-link')}
@@ -9833,7 +9835,7 @@ function caShiftRosterHTML() {
   return `
     <div id="ca-roster" style="margin-top:4px">
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
+        <thead><tr style="background:#3f3f3f;color:#fff">
           <th style="${nc}"></th><th style="text-align:left;${nc}">WF#</th><th style="text-align:left;${nc}">WF Name</th>
           <th style="${cw}">NS</th><th style="text-align:left;${nc}">Sign In Adj</th><th style="text-align:left;${nc}">Sign Out Adj</th>
           <th style="${cw}">Hrs</th><th style="${cw}">Rate</th><th style="${cw}">Ovd Rate</th><th style="${cw}">Per Diem</th>
@@ -9857,9 +9859,9 @@ function caShiftProcessHTML() {
       <span id="ca-legend" style="font-size:11px;color:#444;margin-left:12px">W# (Waiver), MP# (Meal Premium) &amp; BP# (Break Premium)</span>
     </div>
     <table style="width:100%;font-size:12px">
-      <thead><tr style="background:#5a5a5a;color:#fff"><th style="width:30px"></th><th style="text-align:left;padding:4px 8px">Shifts/Role</th><th style="text-align:left;padding:4px 8px">Start</th><th style="text-align:left;padding:4px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
+      <thead><tr style="background:#3f3f3f;color:#fff"><th style="width:30px"></th><th style="text-align:left;padding:4px 8px">Shifts/Role</th><th style="text-align:left;padding:4px 8px">Start</th><th style="text-align:left;padding:4px 8px">Finish</th><th style="${cw}">Min</th><th style="${cw}">Max</th><th style="${cw}">Sched</th><th style="${cw}">Var</th><th style="${cw}">SignIn</th></tr></thead>
       <tbody>
-        <tr style="background:#5a5a5a;color:#fff"><td></td><td style="padding:4px 8px">Oracle Park - Day</td><td style="padding:4px 8px">06/18/2026 08:00</td><td style="padding:4px 8px">06/18/2026 20:00</td><td style="${cw}">12</td><td style="${cw}">13</td><td style="${cw}">12</td><td style="${cw}">0</td><td style="${cw}">12</td></tr>
+        <tr style="background:#3f3f3f;color:#fff"><td></td><td style="padding:4px 8px">Oracle Park - Day</td><td style="padding:4px 8px">06/18/2026 08:00</td><td style="padding:4px 8px">06/18/2026 20:00</td><td style="${cw}">12</td><td style="${cw}">13</td><td style="${cw}">12</td><td style="${cw}">0</td><td style="${cw}">12</td></tr>
         <tr style="background:#f4f4f4"><td style="text-align:center;font-weight:bold;color:#2a8a3a">&minus;</td><td style="padding:4px 8px;color:#c00">Role: Event Staff</td><td style="padding:4px 8px"><button class="btn btn-sm">SignIn</button> <button class="btn btn-sm">SignOut</button></td><td></td><td style="${cw}">12</td><td style="${cw}">13</td><td style="${cw}">12</td><td style="${cw}">0</td><td style="${cw}">12</td></tr>
       </tbody>
     </table>
@@ -9897,7 +9899,7 @@ function show24hrWarning() {
   ov.id = 'warn24';
   ov.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.35);display:flex;align-items:center;justify-content:center;z-index:9998';
   ov.innerHTML = `<div style="background:#fff;border:1px solid #999;border-radius:4px;box-shadow:0 4px 18px rgba(0,0,0,.3);max-width:360px;width:90%">
-    <div style="background:#5a5a5a;color:#fff;padding:8px 12px;font-weight:bold;font-size:13px">24 Hour Warning</div>
+    <div style="background:#3f3f3f;color:#fff;padding:8px 12px;font-weight:bold;font-size:13px">24 Hour Warning</div>
     <div style="padding:14px 16px;font-size:13px;color:#333">One or more sign-out times are more than 24 hours after the sign-in. This usually means the out-date is on the wrong day. Please verify the out-date before approving.</div>
     <div style="text-align:right;padding:10px 16px;border-top:1px solid #eee"><button class="btn" id="warn24-ok">OK</button></div>
   </div>`;
@@ -10019,7 +10021,7 @@ function exceptionFilterHTML() {
     <div style="text-align:right;margin-bottom:8px"><button class="btn" style="background:#e08a2a;border-color:#e08a2a">Remove</button></div>
     <div id="soe-results" style="display:none">
       <table style="width:100%;font-size:12px">
-        <thead><tr style="background:#5a5a5a;color:#fff">
+        <thead><tr style="background:#3f3f3f;color:#fff">
           <th style="padding:5px 6px;text-align:left">Job#</th><th style="padding:5px 6px;text-align:left">JobName</th>
           <th style="padding:5px 6px">shift#</th><th style="padding:5px 6px;text-align:left">Emp Name</th>
           <th style="padding:5px 6px;text-align:left">SignIn</th><th style="padding:5px 6px;text-align:left">SignOut</th></tr></thead>
@@ -10086,12 +10088,12 @@ function slide_inventory_3() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -10145,12 +10147,12 @@ function slide_inventory_4() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -10240,12 +10242,12 @@ function slide_inventory_5() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -10345,7 +10347,7 @@ function slide_inventory_5() {
         document.getElementById('inv-item-list').innerHTML = `
           <table style="width:100%;border-collapse:collapse;margin-top:6px">
             <thead>
-              <tr style="background:#5a5a5a;color:#fff;font-size:12px">
+              <tr style="background:#3f3f3f;color:#fff;font-size:12px">
                 <th style="padding:6px 10px;text-align:left">Category</th>
                 <th style="padding:6px 10px;text-align:left">Type</th>
                 <th style="padding:6px 10px;text-align:left">Item Name</th>
@@ -10496,12 +10498,12 @@ function slide_inventory_6() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -10577,7 +10579,7 @@ function slide_inventory_6() {
               <div style="font-size:16px;font-weight:bold;color:#333;border-bottom:2px solid #3a6aaa;padding-bottom:4px;margin-top:14px;margin-bottom:6px">Item Job Equipment List</div>
               <table style="width:100%;border-collapse:collapse">
                 <thead>
-                  <tr style="background:#5a5a5a;color:#fff;font-size:12px">
+                  <tr style="background:#3f3f3f;color:#fff;font-size:12px">
                     <th style="padding:6px 10px;text-align:left">Item Name</th>
                     <th style="padding:6px 10px;text-align:left">Quantity</th>
                     <th style="padding:6px 10px;text-align:center">Action</th>
@@ -10746,12 +10748,12 @@ function slide_inventory_7() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -10959,12 +10961,12 @@ function slide_inventory_8() {
         <table style="width:100%">
           <thead><tr><th>Job</th><th>Venue</th></tr></thead>
           <tbody>
-            <tr><td style="color:#c07800">Special Ops WISH training June 2026</td><td style="color:#c07800">Majestic Hall</td></tr>
-            <tr><td style="color:#c07800">testjob6/9</td><td style="color:#c07800">AJ Super Bowl 2026</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
-            <tr><td style="color:#c07800">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#c07800">Crocket Arena</td></tr>
+            <tr><td style="color:#2f6bed">Special Ops WISH training June 2026</td><td style="color:#2f6bed">Majestic Hall</td></tr>
+            <tr><td style="color:#2f6bed">testjob6/9</td><td style="color:#2f6bed">AJ Super Bowl 2026</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/31/2026-6/4/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Grant Sands WISH Job June 2026-6/3/2026</td><td style="color:#2f6bed">Crocket Arena</td></tr>
             <tr><td>Grant Sands WISH Job June 2026</td><td>Crocket Arena</td></tr>
-            <tr><td style="color:#c07800">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#c07800">Grand Bell Arena</td></tr>
+            <tr><td style="color:#2f6bed">Sierra Erica WISH Training May 2026-5/30/2026</td><td style="color:#2f6bed">Grand Bell Arena</td></tr>
           </tbody>
         </table>
         <div style="padding:5px 10px;font-size:11px;color:#555;border-top:1px solid #eee;">Total Pages: 1 &nbsp;&nbsp; Current Page: 1</div>
@@ -11038,7 +11040,7 @@ function slide_inventory_8() {
                   <td style="padding:4px 6px;position:relative">
                     <div id="f-inv8-event" style="display:inline-block;width:170px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
                     <div id="f-inv8-event-menu" style="display:none;position:absolute;top:30px;left:6px;width:170px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
-                      <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+                      <div style="background:#3f3f3f;color:#fff;padding:4px 8px">--Select--</div>
                       <div id="f-inv8-event-opt-shane" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Shane Concert Event June 2026</div>
                     </div>
                   </td>
@@ -11246,7 +11248,7 @@ function slide_inventory_9() {
       <td style="padding:4px 6px;position:relative">
         <div id="f-inv9-itype" style="display:inline-block;width:178px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">All<span style="float:right;color:#666">&#9662;</span></div>
         <div id="f-inv9-itype-menu" style="display:none;position:absolute;top:30px;left:6px;width:178px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
-          <div style="background:#5a5a5a;color:#fff;padding:4px 8px">All</div>
+          <div style="background:#3f3f3f;color:#fff;padding:4px 8px">All</div>
           <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Bike Equipment</div>
           <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">HHMD</div>
           <div style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Keys</div>
@@ -11264,7 +11266,7 @@ function slide_inventory_9() {
       <td style="padding:4px 6px;position:relative">
         <div id="f-inv9-iname" style="display:inline-block;width:178px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
         <div id="f-inv9-iname-menu" style="display:none;position:absolute;top:30px;left:6px;width:178px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
-          <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+          <div style="background:#3f3f3f;color:#fff;padding:4px 8px">--Select--</div>
           <div id="f-inv9-iname-opt-umbrella" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">Umbrella</div>
         </div>
       </td>
@@ -11378,7 +11380,7 @@ function slide_inventory_9() {
                   <td style="padding:4px 6px;position:relative">
                     <div id="f-inv9-event" style="display:inline-block;width:170px;background:#fff;border:1px solid #888;padding:3px 6px;font-size:13px;cursor:pointer;box-sizing:border-box;vertical-align:middle">--Select--<span style="float:right;color:#666">&#9662;</span></div>&nbsp;<span style="color:#c00">*</span>
                     <div id="f-inv9-event-menu" style="display:none;position:absolute;top:30px;left:6px;width:170px;background:#fff;border:1px solid #888;box-shadow:2px 2px 6px rgba(0,0,0,.2);z-index:60;font-size:13px;font-family:Arial">
-                      <div style="background:#5a5a5a;color:#fff;padding:4px 8px">--Select--</div>
+                      <div style="background:#3f3f3f;color:#fff;padding:4px 8px">--Select--</div>
                       <div id="f-inv9-event-opt-drake" style="color:#1a6aaa;padding:4px 8px;cursor:pointer">2026 DRAKE CONCERT</div>
                     </div>
                   </td>
@@ -12107,7 +12109,7 @@ function slide_general_reporting_5() {
         document.getElementById('content').innerHTML = `
           <div style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:18px 24px;font-family:Arial;font-size:11px;color:#222">
             <div style="display:flex;align-items:flex-start;justify-content:space-between">
-              <div style="font-weight:bold;color:#c07800;font-size:22px;font-style:italic">WISH</div>
+              <div style="font-weight:bold;color:#2f6bed;font-size:22px;font-style:italic">WISH</div>
               <div style="font-weight:bold;color:#c0a040;font-size:18px;font-style:italic">CSC</div>
             </div>
             <div style="font-size:18px;font-weight:bold;margin-top:6px">Job Sign-in Sign-out</div>
@@ -12434,7 +12436,7 @@ function slide_general_reporting_6() {
             <div style="background:#c8d8f0;padding:5px 10px;font-weight:bold;color:#1a3c7a;font-size:13px;border-top:1px solid #999;border-bottom:1px solid #999">5023705541-Drake Job-08/15/2026</div>
             <table style="width:100%;border-collapse:collapse;margin-top:0;font-size:11px">
               <thead>
-                <tr style="color:#c07800;font-weight:bold;border-bottom:1px solid #c07800">
+                <tr style="color:#2f6bed;font-weight:bold;border-bottom:1px solid #2f6bed">
                   <th style="text-align:left;padding:6px 4px">Employee#</th>
                   <th style="text-align:left;padding:6px 4px">Last Name</th>
                   <th style="text-align:left;padding:6px 4px">First Name</th>
@@ -12892,7 +12894,7 @@ function slide_payroll_reporting_4() {
         document.getElementById('content').innerHTML = `
           <div id="etr-pdf" style="background:#fff;border:1px solid #ccc;border-radius:3px;padding:18px 24px;font-family:Arial;font-size:11px;color:#222">
             <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-              <div style="font-weight:bold;color:#c07800;font-size:24px;font-style:italic">WISH</div>
+              <div style="font-weight:bold;color:#2f6bed;font-size:24px;font-style:italic">WISH</div>
               <div style="font-size:18px;font-weight:bold;color:#222">Employee Time Register</div>
               <div style="font-size:11px;color:#555">Print Date: 06/15/2026 02:31</div>
             </div>
@@ -13330,8 +13332,8 @@ function slide_admin_reporting_6() {
       ${phaseRow('ar6-sched','Schedule Efficiency',                               'review past events to improve future scheduling')}
     </div>
 
-    <div style="background:#fff8f0;border-left:4px solid #c07800;padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
-      <div style="font-weight:bold;color:#c07800;font-size:13px;margin-bottom:7px">During and after the event</div>
+    <div style="background:#eef3ff;border-left:4px solid #2f6bed;padding:10px 14px;margin-bottom:10px;border-radius:0 3px 3px 0">
+      <div style="font-weight:bold;color:#2f6bed;font-size:13px;margin-bottom:7px">During and after the event</div>
       ${phaseRow('ar6-jadmin','Job Administration reports', 'alpha rosters, sign-in sheets, no-show follow-up')}
       ${phaseRow('ar6-pay',   'Payroll Reports',            'verify hours before finalizing')}
       ${phaseRow('ar6-pubh',  'Payroll UnBilled Hour Report','confirm all worked hours are captured for billing')}
@@ -13884,9 +13886,13 @@ function slide_manual_process_hours_new_6(){
 }
 
 
-// New-look Scheduling: reuse the EXACT existing Scheduling demos, just re-skinned
-// (newlook theme + the new colorful WISH logo). Same screens + information.
-function nmSwapLogo(){ var img = document.querySelector('#wish-logo img'); if (img) img.src = NM_LOGO; }
+// New-look skin is now GLOBAL: every demo runs with the newlook theme + the new
+// colorful WISH logo. nmSwapLogo replaces every wishlogo.png on the page (some
+// screens render their own inline headers), and the observer catches logos added
+// later by overlays/steps.
+function nmSwapLogo(){ document.querySelectorAll('img[src$="wishlogo.png"]').forEach(function(i){ i.src = NM_LOGO; }); }
+nmSwapLogo();
+new MutationObserver(nmSwapLogo).observe(document.body, {childList:true, subtree:true});
 function slide_scheduling_new_3(){ document.body.classList.add('newlook'); nmSwapLogo(); slide_scheduling_3(); }
 function slide_scheduling_new_4(){ document.body.classList.add('newlook'); nmSwapLogo(); slide_scheduling_4(); }
 
