@@ -137,7 +137,7 @@
         "simulation_url": "/mockup/mockup.html?module=record_maintenance&slide=5"
       },
       {
-        "text": "The same thing we did for the clients, we are going to do for the venue. We are going to select and add an existing venue to our event. A well-established venue may have all venues already created so you should search for the venue to see if it is already in the system. Only create after checking. An event can be taking place at multiple venues, if this is the case make sure to select all the venues where your event is taking place.",
+        "text": "The same thing we did for the clients, we are going to do for the venue. We are going to select and add an existing venue to our event. A well-established venue may have all venues already created, so you should search for the venue to see if it is already in the system. Only create after checking and confirming the venue does not exist. An event can be taking place at multiple venues; if this is the case, make sure to select all the venues where your event is taking place.",
         "slide_name": "Manage Event Tabs-Venues",
         "instructions": "",
         "slide_number": 6,
