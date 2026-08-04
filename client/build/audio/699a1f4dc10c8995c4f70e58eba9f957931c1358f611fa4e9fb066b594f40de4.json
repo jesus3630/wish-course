@@ -1,0 +1,382 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.197
+  },
+  {
+    "word": "Detailed",
+    "start": 0.29,
+    "end": 0.766
+  },
+  {
+    "word": "Roster",
+    "start": 0.813,
+    "end": 1.103
+  },
+  {
+    "word": "section",
+    "start": 1.161,
+    "end": 1.428
+  },
+  {
+    "word": "goes",
+    "start": 1.486,
+    "end": 1.683
+  },
+  {
+    "word": "deeper,",
+    "start": 1.73,
+    "end": 2.159
+  },
+  {
+    "word": "employee-level",
+    "start": 2.194,
+    "end": 2.914
+  },
+  {
+    "word": "reports",
+    "start": 2.984,
+    "end": 3.355
+  },
+  {
+    "word": "with",
+    "start": 3.39,
+    "end": 3.518
+  },
+  {
+    "word": "specifics",
+    "start": 3.541,
+    "end": 4.11
+  },
+  {
+    "word": "on",
+    "start": 4.191,
+    "end": 4.365
+  },
+  {
+    "word": "time,",
+    "start": 4.423,
+    "end": 4.853
+  },
+  {
+    "word": "licensing,",
+    "start": 4.981,
+    "end": 5.7
+  },
+  {
+    "word": "availability,",
+    "start": 5.747,
+    "end": 6.618
+  },
+  {
+    "word": "and",
+    "start": 6.641,
+    "end": 6.815
+  },
+  {
+    "word": "training.",
+    "start": 6.873,
+    "end": 7.639
+  },
+  {
+    "word": "Reports",
+    "start": 7.639,
+    "end": 8.034
+  },
+  {
+    "word": "you",
+    "start": 8.069,
+    "end": 8.139
+  },
+  {
+    "word": "may",
+    "start": 8.185,
+    "end": 8.29
+  },
+  {
+    "word": "find",
+    "start": 8.359,
+    "end": 8.557
+  },
+  {
+    "word": "useful",
+    "start": 8.626,
+    "end": 8.951
+  },
+  {
+    "word": "here:\rEmployee",
+    "start": 9.009,
+    "end": 9.927
+  },
+  {
+    "word": "Time",
+    "start": 9.996,
+    "end": 10.286
+  },
+  {
+    "word": "Sheet",
+    "start": 10.31,
+    "end": 10.588
+  },
+  {
+    "word": "Details,",
+    "start": 10.762,
+    "end": 11.413
+  },
+  {
+    "word": "full",
+    "start": 11.656,
+    "end": 11.923
+  },
+  {
+    "word": "timesheet",
+    "start": 11.981,
+    "end": 12.481
+  },
+  {
+    "word": "data",
+    "start": 12.539,
+    "end": 12.806
+  },
+  {
+    "word": "for",
+    "start": 12.864,
+    "end": 12.98
+  },
+  {
+    "word": "an",
+    "start": 13.015,
+    "end": 13.073
+  },
+  {
+    "word": "employee",
+    "start": 13.108,
+    "end": 13.56
+  },
+  {
+    "word": "over",
+    "start": 13.618,
+    "end": 13.827
+  },
+  {
+    "word": "a",
+    "start": 13.885,
+    "end": 13.908
+  },
+  {
+    "word": "date",
+    "start": 13.966,
+    "end": 14.199
+  },
+  {
+    "word": "range\rEmployee",
+    "start": 14.257,
+    "end": 15.093
+  },
+  {
+    "word": "Sign-In",
+    "start": 15.151,
+    "end": 15.615
+  },
+  {
+    "word": "Sign-Out",
+    "start": 15.766,
+    "end": 16.219
+  },
+  {
+    "word": "Details,",
+    "start": 16.265,
+    "end": 16.915
+  },
+  {
+    "word": "exact",
+    "start": 17.089,
+    "end": 17.484
+  },
+  {
+    "word": "timestamps",
+    "start": 17.519,
+    "end": 18.111
+  },
+  {
+    "word": "for",
+    "start": 18.158,
+    "end": 18.297
+  },
+  {
+    "word": "sign-in",
+    "start": 18.378,
+    "end": 18.982
+  },
+  {
+    "word": "and",
+    "start": 19.052,
+    "end": 19.179
+  },
+  {
+    "word": "sign-out",
+    "start": 19.26,
+    "end": 19.713
+  },
+  {
+    "word": "activity\rEmployee",
+    "start": 19.76,
+    "end": 21.176
+  },
+  {
+    "word": "Licensing",
+    "start": 21.234,
+    "end": 21.675
+  },
+  {
+    "word": "Report,",
+    "start": 21.733,
+    "end": 22.267
+  },
+  {
+    "word": "guard",
+    "start": 22.593,
+    "end": 22.836
+  },
+  {
+    "word": "card",
+    "start": 22.894,
+    "end": 23.185
+  },
+  {
+    "word": "and",
+    "start": 23.231,
+    "end": 23.312
+  },
+  {
+    "word": "licensing",
+    "start": 23.37,
+    "end": 23.812
+  },
+  {
+    "word": "status",
+    "start": 23.87,
+    "end": 24.288
+  },
+  {
+    "word": "across",
+    "start": 24.369,
+    "end": 24.845
+  },
+  {
+    "word": "your",
+    "start": 24.891,
+    "end": 25.019
+  },
+  {
+    "word": "employee",
+    "start": 25.054,
+    "end": 25.507
+  },
+  {
+    "word": "pool\rAvailable",
+    "start": 25.565,
+    "end": 26.575
+  },
+  {
+    "word": "Employees",
+    "start": 26.61,
+    "end": 27.074
+  },
+  {
+    "word": "Report,",
+    "start": 27.132,
+    "end": 27.62
+  },
+  {
+    "word": "who",
+    "start": 27.794,
+    "end": 27.956
+  },
+  {
+    "word": "is",
+    "start": 28.026,
+    "end": 28.118
+  },
+  {
+    "word": "eligible",
+    "start": 28.2,
+    "end": 28.769
+  },
+  {
+    "word": "and",
+    "start": 28.815,
+    "end": 28.954
+  },
+  {
+    "word": "available",
+    "start": 29.001,
+    "end": 29.477
+  },
+  {
+    "word": "to",
+    "start": 29.512,
+    "end": 29.57
+  },
+  {
+    "word": "be",
+    "start": 29.628,
+    "end": 29.709
+  },
+  {
+    "word": "scheduled\rjob",
+    "start": 29.744,
+    "end": 30.417
+  },
+  {
+    "word": "Training",
+    "start": 30.464,
+    "end": 30.719
+  },
+  {
+    "word": "Report,",
+    "start": 30.766,
+    "end": 31.125
+  },
+  {
+    "word": "which",
+    "start": 31.149,
+    "end": 31.323
+  },
+  {
+    "word": "WISH",
+    "start": 31.392,
+    "end": 31.636
+  },
+  {
+    "word": "training",
+    "start": 31.683,
+    "end": 31.985
+  },
+  {
+    "word": "modules",
+    "start": 32.031,
+    "end": 32.426
+  },
+  {
+    "word": "each",
+    "start": 32.519,
+    "end": 32.716
+  },
+  {
+    "word": "employee",
+    "start": 32.762,
+    "end": 33.227
+  },
+  {
+    "word": "has",
+    "start": 33.285,
+    "end": 33.505
+  },
+  {
+    "word": "completed",
+    "start": 33.564,
+    "end": 34.365
+  }
+]

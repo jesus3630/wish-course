@@ -1,0 +1,352 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "Summary",
+    "start": 0.244,
+    "end": 0.534
+  },
+  {
+    "word": "Roster",
+    "start": 0.604,
+    "end": 0.917
+  },
+  {
+    "word": "section",
+    "start": 0.975,
+    "end": 1.324
+  },
+  {
+    "word": "gives",
+    "start": 1.382,
+    "end": 1.567
+  },
+  {
+    "word": "you",
+    "start": 1.602,
+    "end": 1.683
+  },
+  {
+    "word": "high-level",
+    "start": 1.765,
+    "end": 2.241
+  },
+  {
+    "word": "overviews,",
+    "start": 2.322,
+    "end": 3.019
+  },
+  {
+    "word": "useful",
+    "start": 3.111,
+    "end": 3.46
+  },
+  {
+    "word": "when",
+    "start": 3.506,
+    "end": 3.622
+  },
+  {
+    "word": "you",
+    "start": 3.657,
+    "end": 3.727
+  },
+  {
+    "word": "need",
+    "start": 3.773,
+    "end": 3.936
+  },
+  {
+    "word": "a",
+    "start": 3.971,
+    "end": 3.994
+  },
+  {
+    "word": "broad",
+    "start": 4.063,
+    "end": 4.331
+  },
+  {
+    "word": "picture",
+    "start": 4.389,
+    "end": 4.923
+  },
+  {
+    "word": "rather",
+    "start": 5.074,
+    "end": 5.364
+  },
+  {
+    "word": "than",
+    "start": 5.422,
+    "end": 5.584
+  },
+  {
+    "word": "a",
+    "start": 5.642,
+    "end": 5.677
+  },
+  {
+    "word": "specific",
+    "start": 5.747,
+    "end": 6.246
+  },
+  {
+    "word": "job's",
+    "start": 6.293,
+    "end": 6.629
+  },
+  {
+    "word": "details.",
+    "start": 6.676,
+    "end": 7.512
+  },
+  {
+    "word": "Reports",
+    "start": 7.512,
+    "end": 7.918
+  },
+  {
+    "word": "available",
+    "start": 7.953,
+    "end": 8.371
+  },
+  {
+    "word": "here",
+    "start": 8.417,
+    "end": 8.707
+  },
+  {
+    "word": "include",
+    "start": 8.766,
+    "end": 9.23
+  },
+  {
+    "word": "summaries",
+    "start": 9.265,
+    "end": 9.718
+  },
+  {
+    "word": "organized",
+    "start": 9.81,
+    "end": 10.344
+  },
+  {
+    "word": "by",
+    "start": 10.379,
+    "end": 10.484
+  },
+  {
+    "word": "employee,",
+    "start": 10.542,
+    "end": 11.134
+  },
+  {
+    "word": "workgroup,",
+    "start": 11.227,
+    "end": 11.796
+  },
+  {
+    "word": "job,",
+    "start": 11.842,
+    "end": 12.202
+  },
+  {
+    "word": "client,",
+    "start": 12.225,
+    "end": 12.643
+  },
+  {
+    "word": "venue,",
+    "start": 12.678,
+    "end": 13.05
+  },
+  {
+    "word": "and",
+    "start": 13.085,
+    "end": 13.213
+  },
+  {
+    "word": "branch.",
+    "start": 13.271,
+    "end": 13.723
+  },
+  {
+    "word": "There's",
+    "start": 13.898,
+    "end": 14.153
+  },
+  {
+    "word": "also",
+    "start": 14.199,
+    "end": 14.455
+  },
+  {
+    "word": "a",
+    "start": 14.524,
+    "end": 14.548
+  },
+  {
+    "word": "Background",
+    "start": 14.617,
+    "end": 15.059
+  },
+  {
+    "word": "Check",
+    "start": 15.105,
+    "end": 15.314
+  },
+  {
+    "word": "status",
+    "start": 15.384,
+    "end": 15.767
+  },
+  {
+    "word": "overview.",
+    "start": 15.836,
+    "end": 16.394
+  },
+  {
+    "word": "These",
+    "start": 16.394,
+    "end": 16.626
+  },
+  {
+    "word": "reports",
+    "start": 16.672,
+    "end": 17.079
+  },
+  {
+    "word": "are",
+    "start": 17.137,
+    "end": 17.311
+  },
+  {
+    "word": "most",
+    "start": 17.404,
+    "end": 17.648
+  },
+  {
+    "word": "useful",
+    "start": 17.717,
+    "end": 18.066
+  },
+  {
+    "word": "for",
+    "start": 18.135,
+    "end": 18.344
+  },
+  {
+    "word": "reviewing",
+    "start": 18.472,
+    "end": 18.89
+  },
+  {
+    "word": "patterns",
+    "start": 18.948,
+    "end": 19.354
+  },
+  {
+    "word": "across",
+    "start": 19.401,
+    "end": 19.737
+  },
+  {
+    "word": "your",
+    "start": 19.784,
+    "end": 19.9
+  },
+  {
+    "word": "branch,",
+    "start": 19.946,
+    "end": 20.376
+  },
+  {
+    "word": "like",
+    "start": 20.434,
+    "end": 20.643
+  },
+  {
+    "word": "checking",
+    "start": 20.689,
+    "end": 21.014
+  },
+  {
+    "word": "which",
+    "start": 21.072,
+    "end": 21.235
+  },
+  {
+    "word": "employees",
+    "start": 21.281,
+    "end": 21.746
+  },
+  {
+    "word": "are",
+    "start": 21.792,
+    "end": 21.897
+  },
+  {
+    "word": "active,",
+    "start": 21.943,
+    "end": 22.396
+  },
+  {
+    "word": "or",
+    "start": 22.454,
+    "end": 22.628
+  },
+  {
+    "word": "getting",
+    "start": 22.721,
+    "end": 22.965
+  },
+  {
+    "word": "an",
+    "start": 23,
+    "end": 23.046
+  },
+  {
+    "word": "overview",
+    "start": 23.116,
+    "end": 23.511
+  },
+  {
+    "word": "of",
+    "start": 23.569,
+    "end": 23.627
+  },
+  {
+    "word": "all",
+    "start": 23.72,
+    "end": 23.94
+  },
+  {
+    "word": "jobs",
+    "start": 24.021,
+    "end": 24.358
+  },
+  {
+    "word": "in",
+    "start": 24.393,
+    "end": 24.451
+  },
+  {
+    "word": "a",
+    "start": 24.497,
+    "end": 24.532
+  },
+  {
+    "word": "date",
+    "start": 24.59,
+    "end": 24.788
+  },
+  {
+    "word": "range.",
+    "start": 24.823,
+    "end": 25.403
+  }
+]

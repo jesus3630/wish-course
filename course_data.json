@@ -93,7 +93,7 @@
         "slide_number": 11,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to your next module (if applicable) or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "next_steps_card": true
       }
     ]
@@ -248,7 +248,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 9,
@@ -301,7 +301,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 7,
@@ -347,7 +347,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 6,
@@ -484,14 +484,14 @@
         "simulation_url": "/mockup/mockup.html?module=general_reporting&slide=6"
       },
       {
-        "text": "The Summary Roster section gives you high-level overviews, useful when you need a broad picture rather than a specific job's details.\r\n\r\nReports available here include summaries organized by employee, workgroup, job, client, venue, and branch. There's also a Background Check status overview.\r\n\r\nThese reports are most useful for reviewing patterns across your branch, like checking which employees are active, or getting an overview of all jobs in a date range.\r\n\r\nFor descriptions of each report, refer to your Quick Reference Guide.",
+        "text": "The Summary Roster section gives you high-level overviews, useful when you need a broad picture rather than a specific job's details.\r\n\r\nReports available here include summaries organized by employee, workgroup, job, client, venue, and branch. There's also a Background Check status overview.\r\n\r\nThese reports are most useful for reviewing patterns across your branch, like checking which employees are active, or getting an overview of all jobs in a date range.",
         "slide_name": "Summary Roster",
         "instructions": "Reports → Summary Roster. Show the dropdown list of report options: Employee Summary, Workgroup Summary, Job Summary, Client Summary, Venue Summary, Branch Summary, Background Check.",
         "slide_number": 7,
         "simulation_url": "/mockup/mockup.html?module=general_reporting&slide=7"
       },
       {
-        "text": "The Detailed Roster section goes deeper, employee-level reports with specifics on time, licensing, availability, and training.\r\n\r\nReports you may find useful here:\r\n* Employee Time Sheet Details, full timesheet data for an employee over a date range\r\n* Employee Sign-In Sign-Out Details, exact timestamps for sign-in and sign-out activity\r\n* Employee Licensing Report, guard card and licensing status across your employee pool\r\n* Available Employees Report, who is eligible and available to be scheduled\r\n* Job Training Report, which WISH training modules each employee has completed\r\n\r\nFor the full list of Detailed Roster reports, refer to your Quick Reference Guide.",
+        "text": "The Detailed Roster section goes deeper, employee-level reports with specifics on time, licensing, availability, and training.\r\n\r\nReports you may find useful here:\r\n* Employee Time Sheet Details, full timesheet data for an employee over a date range\r\n* Employee Sign-In Sign-Out Details, exact timestamps for sign-in and sign-out activity\r\n* Employee Licensing Report, guard card and licensing status across your employee pool\r\n* Available Employees Report, who is eligible and available to be scheduled\r\n* Job Training Report, which WISH training modules each employee has completed",
         "slide_name": "Detailed Roster",
         "instructions": "Reports → Detailed Roster. Show the dropdown list of report options. Highlight Employee Time Sheet Details, Employee Sign-In Sign-Out Details, Employee Licensing Report.",
         "slide_number": 8,
@@ -622,7 +622,7 @@
         "simulation_url": "/mockup/mockup.html?module=admin_reporting&slide=6"
       },
       {
-        "text": "Congratulations! You've completed the Admin Reporting module.\r\n\r\nYou now have a full picture of the WISH Reports menu and how each section supports your branch operations, from scheduling and payroll through billing and compliance.\r\n\r\nIf you're unsure which report to use for a specific situation, your administrator or the Quick Reference Guide is the best place to start.",
+        "text": "Congratulations! You've completed the Admin Reporting module.\r\n\r\nYou now have a full picture of the WISH Reports menu and how each section supports your branch operations, from scheduling and payroll through billing and compliance.\r\n\r\nIf you're unsure which report to use for a specific situation, your administrator is the best place to start.",
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti animation",
         "slide_number": 7,
@@ -1052,7 +1052,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 8,
@@ -1120,7 +1120,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 9,
@@ -1194,7 +1194,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 10,
@@ -1276,7 +1276,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 11,
@@ -1344,7 +1344,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 9,
@@ -1405,7 +1405,7 @@
         "slide_number": 8,
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
-        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to your next module (if applicable) or contact your WISH Administrator for support.\n\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "next_steps_card": true
       }
     ]
@@ -1467,7 +1467,7 @@
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "next_steps_card": true,
-        "text": "Proceed to your next module (if applicable), refer to the Quick Reference Guide, or contact your WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
+        "text": "Proceed to your next module (if applicable) or contact your WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150."
       }
     ]
   },
@@ -1516,7 +1516,7 @@
         "completion_card": true
       },
       {
-        "text": "Proceed to next module (if applicable), refer to Quick Reference Guide, contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
+        "text": "Proceed to next module (if applicable), contact WISH Administrator for support.\r\n\r\nFor advanced permissions contact support-wish@csc-usa.com or call 888-791-5150.",
         "slide_name": "Next Steps",
         "instructions": "Arrow/progress bar",
         "slide_number": 7,

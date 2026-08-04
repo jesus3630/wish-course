@@ -1329,7 +1329,6 @@ function NextStepsCard() {
 
   const STEPS = [
     { icon: '▶', title: 'Proceed to your next module', sub: 'If more are assigned to you', color: '#1B3A6B' },
-    { icon: '📄', title: 'Refer to the Quick Reference Guide', sub: 'For step-by-step reminders', color: '#D4782A' },
     { icon: '💬', title: 'Contact your WISH Administrator', sub: 'For questions or support', color: '#2E9E6B' },
   ];
 
