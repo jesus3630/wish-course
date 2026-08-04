@@ -238,6 +238,19 @@ async function initDB() {
     console.log('[boot] Seeding quiz_data from committed file');
     const quizData = JSON.parse(fs.readFileSync(QUIZ_SEED_PATH, 'utf8'));
     await pool.query('INSERT INTO quiz_data (id, data) VALUES (1, $1)', [JSON.stringify(quizData)]);
+  } else {
+    // Merge NEW quiz modules from JSON into DB (like the course boot-merge):
+    // only module keys absent from the DB are added — admin edits to existing
+    // modules are never touched.
+    const quizSeed = JSON.parse(fs.readFileSync(QUIZ_SEED_PATH, 'utf8'));
+    const quizRow = await pool.query('SELECT data FROM quiz_data WHERE id = 1');
+    const quizDb = quizRow.rows[0].data;
+    const newQuizModules = Object.keys(quizSeed).filter(k => !(k in quizDb));
+    if (newQuizModules.length > 0) {
+      console.log('[boot] Adding quiz questions for new module(s):', newQuizModules);
+      for (const k of newQuizModules) quizDb[k] = quizSeed[k];
+      await pool.query('UPDATE quiz_data SET data = $1 WHERE id = 1', [JSON.stringify(quizDb)]);
+    }
   }
 
   // Fix mojibake encoding (UTF-8 text misread as Windows-1252) — safe to run every boot, no-op if clean

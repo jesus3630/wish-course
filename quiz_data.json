@@ -1066,5 +1066,327 @@
       "explanation": "The employee's email address in Contact Info is what WISH uses for all Mail By communications and to deliver their login credentials. An outdated email means they won't receive schedule messages or credentials.",
       "correct_index": 1
     }
+  ],
+  "payroll_processing": [
+    {
+      "id": "payroll_processing_1",
+      "question": "When does the WISH pay week run, and by when must all hours be approved and processed?",
+      "options": [
+        "Sunday through Saturday, processed by Monday",
+        "Saturday through Friday, processed before Wednesday morning",
+        "Friday through Thursday, processed before Saturday",
+        "Monday through Sunday, processed by Friday"
+      ],
+      "correct_index": 1,
+      "explanation": "Every pay week in WISH runs Saturday through Friday, and all hours must be approved and processed before Wednesday morning, when the payroll department transmits everything."
+    },
+    {
+      "id": "payroll_processing_2",
+      "question": "What happens when you click Autofill Sign-In on a shift in Manage Process Hours?",
+      "options": [
+        "It marks all employees without times as No Shows",
+        "It only fills employees who signed in electronically",
+        "It overwrites every employee's time with the scheduled time",
+        "It fills the scheduled time for every employee, but keeps any times already recorded"
+      ],
+      "correct_index": 3,
+      "explanation": "Autofill fills every employee with the shift's scheduled time in one click, but employees who already have a different time recorded keep their time — autofill will not overwrite individual entries."
+    },
+    {
+      "id": "payroll_processing_3",
+      "question": "An employee has no sign-in or sign-out times and did not show up for the shift. What should you do?",
+      "options": [
+        "Enter zeros for both times",
+        "Leave the row blank and approve the rest",
+        "Check the NS checkbox to mark them as a No Show",
+        "Delete the employee from the shift"
+      ],
+      "correct_index": 2,
+      "explanation": "If an employee with no times did not show up, check the NS checkbox to mark them as a No Show. The system will not let you approve hours with incomplete records."
+    },
+    {
+      "id": "payroll_processing_4",
+      "question": "On the shift list, what does a green sunburst icon mean?",
+      "options": [
+        "The shift's hours have been approved and completed",
+        "The shift has a sign-out exception",
+        "The shift still has work to do",
+        "The shift crosses midnight"
+      ],
+      "correct_index": 0,
+      "explanation": "Green sunburst icons mark the shifts you have completed — Approve Hours has been clicked. Blue links mean there is still work to do."
+    },
+    {
+      "id": "payroll_processing_5",
+      "question": "What does the Sign-Out Exceptions report flag?",
+      "options": [
+        "Overlapping hours, where an employee's time on one job runs into their time on another",
+        "Jobs with no scheduled shifts",
+        "Employees paid at an override rate",
+        "Employees who forgot to sign in"
+      ],
+      "correct_index": 0,
+      "explanation": "Sign-Out Exceptions flags overlapping hours. Select the employee row, click Adj, and correct the out-time so it ends before the next job begins — submitting with overlaps gets sent back by payroll."
+    },
+    {
+      "id": "payroll_processing_6",
+      "question": "While reviewing the Employee Time Register, you spot an entry with a zero pay rate. What does that indicate?",
+      "options": [
+        "The job was not processed — fix it and re-run Process Payroll",
+        "The employee worked overtime",
+        "The report is out of date",
+        "The employee is a volunteer"
+      ],
+      "correct_index": 0,
+      "explanation": "Zero pay rates or missing days in the Employee Time Register mean a job was not processed. Fix it in Manage Process Hours, re-run Process Payroll, then pull the report again."
+    }
+  ],
+  "inventory": [
+    {
+      "id": "inventory_1",
+      "question": "What are asset tags in WISH?",
+      "options": [
+        "Barcodes on employee badges",
+        "Physical identifiers attached to trackable items like radios and jackets",
+        "Price labels for billing",
+        "Categories in the item catalog"
+      ],
+      "correct_index": 1,
+      "explanation": "Asset tags are the physical identifiers attached to trackable items — like radios, jackets, and wristbands — so each individual item can be located and accounted for through check-in and check-out."
+    },
+    {
+      "id": "inventory_2",
+      "question": "An item is missing from the Item Job Equipment screen. Where do you go first?",
+      "options": [
+        "Item Creation — items must be created there before they appear anywhere else",
+        "The Admin menu",
+        "Manage Asset Tag",
+        "Check-In Check-Out Report"
+      ],
+      "correct_index": 0,
+      "explanation": "Items must be created in Item Creation before they can appear in Item Job Equipment or be selected during check-in and check-out. If an item is missing, come back to Item Creation first."
+    },
+    {
+      "id": "inventory_3",
+      "question": "In Item Job Equipment, which Category should you choose for consumable supplies like earplugs and ponchos?",
+      "options": [
+        "Inventory Items",
+        "Asset Tags",
+        "Job Equipment",
+        "Consumables"
+      ],
+      "correct_index": 2,
+      "explanation": "Choose Job Equipment for consumable supplies, and Inventory Items for tracked assets."
+    },
+    {
+      "id": "inventory_4",
+      "question": "After an event, you want to see only the items that were checked out but never returned. Which button gives you that?",
+      "options": [
+        "History",
+        "Search",
+        "Produce Report",
+        "CheckOut Report"
+      ],
+      "correct_index": 3,
+      "explanation": "Produce Report gives the full activity log; CheckOut Report shows only items that were checked out but have not yet been returned."
+    },
+    {
+      "id": "inventory_5",
+      "question": "A discrepancy comes up after an event — an item is unaccounted for. What is your audit trail?",
+      "options": [
+        "The job's sign-in sheet",
+        "The History button, which pulls the full check-in and check-out log for any item or employee",
+        "The Item Creation screen",
+        "The employee's timesheet"
+      ],
+      "correct_index": 1,
+      "explanation": "The History button pulls the full check-in and check-out log for any item or employee — your audit trail if a discrepancy comes up after an event."
+    }
+  ],
+  "california_breaks": [
+    {
+      "id": "california_breaks_1",
+      "question": "An employee works more than five hours in California. What meal period are they generally entitled to?",
+      "options": [
+        "No meal period until 8 hours",
+        "A one-hour paid lunch",
+        "A 30-minute unpaid, duty-free meal period",
+        "A 15-minute paid break"
+      ],
+      "correct_index": 2,
+      "explanation": "Employees who work more than five hours are generally entitled to a thirty-minute, unpaid, duty-free meal period. A second meal period generally applies to shifts over ten hours."
+    },
+    {
+      "id": "california_breaks_2",
+      "question": "How do rest breaks differ from meal periods?",
+      "options": [
+        "Rest breaks only apply to shifts over ten hours",
+        "Rest breaks are paid and counted as hours worked; meal periods are unpaid",
+        "Rest breaks are unpaid; meal periods are paid",
+        "Both are unpaid"
+      ],
+      "correct_index": 1,
+      "explanation": "Rest periods — generally ten minutes for every four hours worked — are paid and counted as hours worked, while meal periods are unpaid because the employee is relieved of all duties."
+    },
+    {
+      "id": "california_breaks_3",
+      "question": "Under AB 1512, what must happen if a security officer's on-call rest period is interrupted?",
+      "options": [
+        "The officer's shift ends immediately",
+        "The officer files a complaint with the state",
+        "The officer must be permitted to restart a rest period or be paid an additional hour of premium pay",
+        "Nothing — on-call rest periods count regardless"
+      ],
+      "correct_index": 2,
+      "explanation": "AB 1512 lets security officers be required to remain on premises and on call during rest periods — but if a rest period is interrupted, the officer must be permitted to restart it or be paid an additional hour of premium pay."
+    },
+    {
+      "id": "california_breaks_4",
+      "question": "An employee's meal break was cut short during a California job. What do you mark in WISH?",
+      "options": [
+        "The NS checkbox",
+        "The Waiver checkbox",
+        "Nothing — short breaks are allowed",
+        "The Meal Premium checkbox, so payroll adds the required extra hour of pay"
+      ],
+      "correct_index": 3,
+      "explanation": "If a meal break is missed, late, or short, mark Meal Premium so payroll adds the required extra hour of pay."
+    },
+    {
+      "id": "california_breaks_5",
+      "question": "Roughly how often does the WISH roster expect breaks on a California job?",
+      "options": [
+        "Two every hour",
+        "One every two hours",
+        "One per shift regardless of length",
+        "One every five hours"
+      ],
+      "correct_index": 3,
+      "explanation": "When you process hours for a California job, each employee shows how many breaks they took — about one every five hours — along with the Waiver, Meal Premium, and Break Premium checkboxes."
+    }
+  ],
+  "manual_process_hours_new": [
+    {
+      "id": "manual_process_hours_new_1",
+      "question": "How do you reach Manual Process Hours in the new MSS?",
+      "options": [
+        "Tools menu, then Manager Portal (New MSS), then Approvals",
+        "Scheduling menu, then Process Hours",
+        "Records menu, then Approvals",
+        "Payroll menu, then Manage Process Hours"
+      ],
+      "correct_index": 0,
+      "explanation": "From your current system, open the Tools menu and choose Manager Portal (New MSS). Then open Approvals, enter your Job number, and click Search."
+    },
+    {
+      "id": "manual_process_hours_new_2",
+      "question": "On the shift roster, what does a red arrow next to an employee mean?",
+      "options": [
+        "The employee hasn't signed in yet",
+        "The employee has an overlapping shift",
+        "The employee is a no-show",
+        "The employee's hours are approved"
+      ],
+      "correct_index": 0,
+      "explanation": "A red arrow means the employee hasn't signed in yet; green means they have."
+    },
+    {
+      "id": "manual_process_hours_new_3",
+      "question": "What times does Auto-Fill stamp when you use it on a shift?",
+      "options": [
+        "Only sign-out times",
+        "Only employees marked as no-shows",
+        "Only empty times, using the scheduled times",
+        "Every employee's times, overwriting existing entries"
+      ],
+      "correct_index": 2,
+      "explanation": "Auto-Fill stamps everyone's sign-in or sign-out with the scheduled times at once — but it only fills empty times, so recorded punches are preserved."
+    },
+    {
+      "id": "manual_process_hours_new_4",
+      "question": "What does the NS button open, and what reason is pre-selected?",
+      "options": [
+        "The Notes panel, with no reason",
+        "The No Show Reason list, pre-selected Not Excused",
+        "The sign-in record, pre-selected Excused",
+        "The roster search, pre-selected Late"
+      ],
+      "correct_index": 1,
+      "explanation": "NS opens the No Show Reason list with everyone preloaded and Not Excused pre-selected — set reasons and notes for the actual no-shows."
+    },
+    {
+      "id": "manual_process_hours_new_5",
+      "question": "A punch time is wrong on an employee's record. What is the correct fix?",
+      "options": [
+        "Delete the employee and re-add them",
+        "Mark them as a no-show",
+        "Re-run Auto-Fill to overwrite it",
+        "Click Edit to make the date and time editable, then Update to save"
+      ],
+      "correct_index": 3,
+      "explanation": "Click a green arrow to open the record, click Edit to make the date and time editable, then Update to save. When everything looks correct, Approve Hours finalizes the shift."
+    }
+  ],
+  "scheduling_new": [
+    {
+      "id": "scheduling_new_1",
+      "question": "When should you use Schedule by Employee rather than Schedule by Job?",
+      "options": [
+        "When scheduling many employees to one shift at once",
+        "Only when the employee has no pay rate",
+        "Only for overtime shifts",
+        "When working with one employee at a time, such as on the phone"
+      ],
+      "correct_index": 3,
+      "explanation": "Schedule by Employee is for working with one employee at a time — you select the employee and assign them to multiple days or shifts. Schedule by Job schedules multiple employees at once."
+    },
+    {
+      "id": "scheduling_new_2",
+      "question": "In Schedule by Job, what does the Check Employee Roles box do?",
+      "options": [
+        "Filters results to employees who have an active pay rate for the role you are filling",
+        "Sorts employees by seniority",
+        "Checks for scheduling conflicts",
+        "Shows each employee's job history"
+      ],
+      "correct_index": 0,
+      "explanation": "Check Employee Roles filters the search to only show employees who have an active pay rate for the role you are filling."
+    },
+    {
+      "id": "scheduling_new_3",
+      "question": "In Schedule by Job search results, what do green and red employee names mean?",
+      "options": [
+        "Green passed training, red did not",
+        "Green signed in, red did not",
+        "Green is full-time, red is part-time",
+        "Green employees are ready to be scheduled; red employees are already scheduled"
+      ],
+      "correct_index": 3,
+      "explanation": "Employees ready to be scheduled appear in green; already-scheduled employees appear in red. Click the green names you want, then Save to assign them all at once."
+    },
+    {
+      "id": "scheduling_new_4",
+      "question": "A day on the scheduling calendar is highlighted red for possible overtime. What does that mean for saving?",
+      "options": [
+        "The employee is automatically removed",
+        "The schedule cannot be saved",
+        "It is informational only — it will not prevent saving",
+        "Manager approval is required first"
+      ],
+      "correct_index": 2,
+      "explanation": "Red calendar highlights may indicate overtime, but they are informational only and will not prevent saving."
+    },
+    {
+      "id": "scheduling_new_5",
+      "question": "Where do notes added with the scheduling comments (asterisk) button appear?",
+      "options": [
+        "On sign-in sheets — for example, flagging an employee who will be late",
+        "Nowhere; they are private",
+        "Only in the admin panel",
+        "In the employee's pay stub"
+      ],
+      "correct_index": 0,
+      "explanation": "The scheduling comments button lets you add notes that appear on sign-in sheets, such as flagging an employee who will arrive late."
+    }
   ]
 }

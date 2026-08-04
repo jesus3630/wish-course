@@ -1,0 +1,302 @@
+[
+  {
+    "word": "Open",
+    "start": 0,
+    "end": 0.255
+  },
+  {
+    "word": "the",
+    "start": 0.313,
+    "end": 0.383
+  },
+  {
+    "word": "shift",
+    "start": 0.441,
+    "end": 0.801
+  },
+  {
+    "word": "with",
+    "start": 0.871,
+    "end": 1.08
+  },
+  {
+    "word": "the",
+    "start": 1.126,
+    "end": 1.231
+  },
+  {
+    "word": "green",
+    "start": 1.347,
+    "end": 1.579
+  },
+  {
+    "word": "plus",
+    "start": 1.625,
+    "end": 1.927
+  },
+  {
+    "word": "to",
+    "start": 1.974,
+    "end": 2.043
+  },
+  {
+    "word": "see",
+    "start": 2.113,
+    "end": 2.287
+  },
+  {
+    "word": "everyone",
+    "start": 2.357,
+    "end": 2.937
+  },
+  {
+    "word": "assigned",
+    "start": 2.995,
+    "end": 3.46
+  },
+  {
+    "word": "to",
+    "start": 3.483,
+    "end": 3.541
+  },
+  {
+    "word": "the",
+    "start": 3.611,
+    "end": 3.68
+  },
+  {
+    "word": "role.",
+    "start": 3.762,
+    "end": 4.122
+  },
+  {
+    "word": "A",
+    "start": 4.365,
+    "end": 4.481
+  },
+  {
+    "word": "red",
+    "start": 4.632,
+    "end": 4.818
+  },
+  {
+    "word": "arrow",
+    "start": 4.876,
+    "end": 5.155
+  },
+  {
+    "word": "means",
+    "start": 5.224,
+    "end": 5.492
+  },
+  {
+    "word": "the",
+    "start": 5.55,
+    "end": 5.642
+  },
+  {
+    "word": "employee",
+    "start": 5.7,
+    "end": 6.13
+  },
+  {
+    "word": "hasn't",
+    "start": 6.177,
+    "end": 6.444
+  },
+  {
+    "word": "signed",
+    "start": 6.49,
+    "end": 6.815
+  },
+  {
+    "word": "in",
+    "start": 6.861,
+    "end": 6.943
+  },
+  {
+    "word": "yet;",
+    "start": 7.012,
+    "end": 7.326
+  },
+  {
+    "word": "green",
+    "start": 7.5,
+    "end": 7.767
+  },
+  {
+    "word": "means",
+    "start": 7.814,
+    "end": 8.092
+  },
+  {
+    "word": "they",
+    "start": 8.15,
+    "end": 8.313
+  },
+  {
+    "word": "have.",
+    "start": 8.382,
+    "end": 8.754
+  },
+  {
+    "word": "Before",
+    "start": 8.824,
+    "end": 9.207
+  },
+  {
+    "word": "reviewing",
+    "start": 9.265,
+    "end": 9.671
+  },
+  {
+    "word": "hours,",
+    "start": 9.741,
+    "end": 10.217
+  },
+  {
+    "word": "you",
+    "start": 10.275,
+    "end": 10.379
+  },
+  {
+    "word": "can",
+    "start": 10.426,
+    "end": 10.542
+  },
+  {
+    "word": "adjust",
+    "start": 10.588,
+    "end": 10.96
+  },
+  {
+    "word": "the",
+    "start": 11.006,
+    "end": 11.076
+  },
+  {
+    "word": "roster:",
+    "start": 11.134,
+    "end": 11.633
+  },
+  {
+    "word": "Create",
+    "start": 11.691,
+    "end": 12.051
+  },
+  {
+    "word": "Sched",
+    "start": 12.086,
+    "end": 12.411
+  },
+  {
+    "word": "adds",
+    "start": 12.504,
+    "end": 12.817
+  },
+  {
+    "word": "an",
+    "start": 12.841,
+    "end": 12.899
+  },
+  {
+    "word": "employee",
+    "start": 12.945,
+    "end": 13.445
+  },
+  {
+    "word": "(enter",
+    "start": 13.561,
+    "end": 13.851
+  },
+  {
+    "word": "their",
+    "start": 13.898,
+    "end": 14.025
+  },
+  {
+    "word": "number,",
+    "start": 14.072,
+    "end": 14.432
+  },
+  {
+    "word": "look",
+    "start": 14.548,
+    "end": 14.745
+  },
+  {
+    "word": "them",
+    "start": 14.791,
+    "end": 14.908
+  },
+  {
+    "word": "up,",
+    "start": 14.966,
+    "end": 15.14
+  },
+  {
+    "word": "and",
+    "start": 15.163,
+    "end": 15.407
+  },
+  {
+    "word": "Save),",
+    "start": 15.5,
+    "end": 15.999
+  },
+  {
+    "word": "NS",
+    "start": 16.15,
+    "end": 16.417
+  },
+  {
+    "word": "marks",
+    "start": 16.487,
+    "end": 16.719
+  },
+  {
+    "word": "a",
+    "start": 16.754,
+    "end": 16.777
+  },
+  {
+    "word": "no-show,",
+    "start": 16.846,
+    "end": 17.334
+  },
+  {
+    "word": "and",
+    "start": 17.381,
+    "end": 17.566
+  },
+  {
+    "word": "Auto-Fill",
+    "start": 17.648,
+    "end": 18.17
+  },
+  {
+    "word": "fills",
+    "start": 18.286,
+    "end": 18.6
+  },
+  {
+    "word": "in",
+    "start": 18.658,
+    "end": 18.739
+  },
+  {
+    "word": "the",
+    "start": 18.785,
+    "end": 18.855
+  },
+  {
+    "word": "scheduled",
+    "start": 18.89,
+    "end": 19.25
+  },
+  {
+    "word": "times.",
+    "start": 19.273,
+    "end": 19.784
+  }
+]
