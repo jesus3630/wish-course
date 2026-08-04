@@ -76,7 +76,7 @@
         "wish_logo_card": true
       },
       {
-        "text": "The menus on the left are your map of WISH. Let's walk through them.\n\nAdmin handles system setup, creating companies and branches, and granting user access.\n\nBilling turns a completed job into a client invoice once its schedule is saved.\n\nInventory tracks items used at events, like radios, jackets, and other supplies.\n\nRecords is where you'll spend much of your time, entering, editing, and updating essential data.\n\nReports holds your key documents: alpha rosters, sign-in and sign-out sheets, and payroll and billing reports.\n\nScheduling is used by your branch to assign employees to jobs, by employee or by job.\n\nPayroll is where staff review and approve work hours after an event.\n\nAnd Time Clock runs on-site, where employees sign in and out of their shifts.\n\nYou'll only ever see the menus your role and completed training allow.",
+        "text": "The menus on the left are your map of WISH.\n\nAdmin handles system setup, creating companies and branches, and granting user access.\n\nBilling turns a completed job into a client invoice once its schedule is saved.\n\nInventory tracks items used at events, like radios, jackets, and other supplies.\n\nRecords is where you'll spend much of your time, entering, editing, and updating essential data.\n\nReports holds your key documents: alpha rosters, sign-in and sign-out sheets, and payroll and billing reports.\n\nScheduling is used by your branch to assign employees to jobs, by employee or by job.\n\nPayroll is where staff review and approve work hours after an event.\n\nAnd Time Clock runs on-site, where employees sign in and out of their shifts.\n\nYou'll only ever see the menus your role and completed training allow.",
         "slide_name": "Touring the Menus",
         "instructions": "",
         "slide_number": 9,
@@ -86,7 +86,7 @@
         "slide_number": 10,
         "slide_name": "Congratulations!",
         "instructions": "Checkmark/confetti",
-        "text": "Congratulations! You've completed the Introduction to WISH. You now know how to log in, find your way around the portal, and what each menu is for.\n\nDepending on your role and access level, you'll have additional modules to complete. Each one walks you through the parts of WISH you'll actually use.",
+        "text": "Congratulations! You've completed the Introduction to WISH. You now know how to log in, find your way around the portal, and what each menu is for.\n\nDepending on your role and access level, you'll have additional modules to complete. Each one walks you through the parts of WISH you'll use.",
         "completion_card": true
       },
       {
@@ -227,7 +227,7 @@
         "simulation_url": "/mockup/mockup.html?module=manage_job&slide=5"
       },
       {
-        "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting, open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and simply update the Job Class.",
+        "text": "If a job is canceled, update the Job Class to \"Canceled\" immediately. This is critical for accounting, open invoices and pending payments depend on accurate information.\r\n\r\nTo fully delete a job, work in reverse order: delete roles first, then shifts, then the job itself. WISH will not let you delete a job if shifts exist, and will not let you delete a shift if roles exist.\r\n\r\nIf employees are already scheduled, remove them before deleting the role. Most branches leave canceled jobs in the system and update the Job Class.",
         "slide_name": "Canceling or Deleting a Job",
         "instructions": "",
         "slide_number": 6,
@@ -333,7 +333,7 @@
         "slide_number": 3
       },
       {
-        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is actually available before proceeding.",
+        "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is available before proceeding.",
         "slide_name": "Using Schedule by Job Admin",
         "instructions": "Scheduling → Schedule by Job Admin. Search for job. Select role. Show already-scheduled employees with checkboxes still available. Select one. Show overlap warning. Confirm and save.",
         "slide_number": 4,
@@ -394,7 +394,7 @@
         "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=5"
       },
       {
-        "text": "Once all times are entered and no-shows are marked, scroll to the bottom and click Approve Hours, this is your save button.\r\n\r\nYou will see a green confirmation and the shift rows will turn green. Back on the shift list, green sunburst icons mark the shifts you have completed. Blue links mean there is still work to do.\r\n\r\nProcess every shift across every job for the week before moving on. You can always go back and make corrections, just remember to re-run Process Payroll afterward so the changes are reflected in the reports.",
+        "text": "Once all times are entered and no-shows are marked, scroll to the bottom and click Approve Hours, this is your save button.\r\n\r\nYou will see a green confirmation and the shift rows will turn green. Back on the shift list, green sunburst icons mark the shifts you have completed. Blue links mean there is still work to do.\r\n\r\nProcess every shift across every job for the week before moving on. You can always go back and make corrections, remember to re-run Process Payroll afterward so the changes are reflected in the reports.",
         "slide_name": "Approving Hours",
         "instructions": "Show the Approve Hours button at the bottom of a shift role. Click it. Show the green confirmation. Show green sunburst icons on the shift list. Show back button returning to job list.",
         "slide_number": 6,
@@ -408,7 +408,7 @@
         "simulation_url": "/mockup/mockup.html?module=payroll_processing&slide=7"
       },
       {
-        "text": "Once your hours are approved, the next step is to run the payroll. Go to Payroll, then Process Payroll.\n\nEnter the Friday end date for the pay week and click Get Job. The system pulls every job from that week, Saturday through Friday.\n\nNow look at the Approved Hours column. This reflects the Approve Hours button from Manage Process Hours: Yes means the job is ready, No means it still needs work. Only jobs marked Yes will be paid, even though every row is checked on the left.\n\nIf a job shows No that should be done, click into it, complete the sign-in and sign-out, approve the hours, then come back and Get Job again. If a job fell on a holiday, check the Holiday box so it pays and bills correctly.\n\nWhen the Yes jobs look right, click Start Process. The hours are processed, and the employees on those jobs are paid for that pay week.",
+        "text": "Once your hours are approved, the next step is to run the payroll. Go to Payroll, then Process Payroll.\n\nEnter the Friday end date for the pay week and click Get Job. The system pulls every job from that week, Saturday through Friday.\n\nLook at the Approved Hours column. This reflects the Approve Hours button from Manage Process Hours: Yes means the job is ready, No means it still needs work. Only jobs marked Yes will be paid, even though every row is checked on the left.\n\nIf a job shows No that should be done, click into it, complete the sign-in and sign-out, approve the hours, then come back and Get Job again. If a job fell on a holiday, check the Holiday box so it pays and bills correctly.\n\nWhen the Yes jobs look right, click Start Process. The hours are processed, and the employees on those jobs are paid for that pay week.",
         "slide_name": "Process Payroll",
         "instructions": "",
         "slide_number": 8,
@@ -1391,7 +1391,7 @@
         "slide_number": 6,
         "slide_name": "Tracking Breaks in WISH",
         "instructions": "[DRAFT - verify with compliance/legal before publishing]",
-        "text": "Let's see how this works in WISH. When you process hours for a California job, the roster adds break tracking. Each employee shows how many breaks they took, about one every five hours, along with checkboxes for Waiver, Meal Premium, and Break Premium. If a meal break is missed, late, or short, mark Meal Premium so payroll adds the required extra hour of pay.",
+        "text": "When you process hours for a California job, the roster adds break tracking. Each employee shows how many breaks they took, about one every five hours, along with checkboxes for Waiver, Meal Premium, and Break Premium. If a meal break is missed, late, or short, mark Meal Premium so payroll adds the required extra hour of pay.",
         "simulation_url": "/mockup/mockup.html?module=california_breaks&slide=6"
       },
       {
