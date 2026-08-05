@@ -3315,7 +3315,7 @@ function slide_scheduling_4() {
           const bg = i % 2 ? 'background:#e8e8e8;' : '';
           const tipText = e[3] ? 'Available for scheduling' : 'Employee not available';
           return `<tr style="border-bottom:1px solid #ddd;${bg}">
-            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox" style="vertical-align:middle">${badge(tipText)}</td>
+            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox"${e[3] ? '' : ' data-unavail="1"'} style="vertical-align:middle">${badge(tipText)}</td>
             <td style="padding:3px 6px;color:${col}">${e[0]}</td>
             <td style="padding:3px 6px;color:${col}">${e[1]}</td>
             <td style="padding:3px 6px;color:${col === '#c00000' ? col : '#222'}">${e[2]}</td>
@@ -3338,6 +3338,10 @@ function slide_scheduling_4() {
             availTip.style.top = (r.top - 4) + 'px';
           });
           b.addEventListener('mouseleave', () => { availTip.style.display = 'none'; });
+        });
+        // Red (not-available) employees cannot be selected, same as real WISH
+        document.querySelectorAll('#emp-sel-body input[data-unavail]').forEach(c => {
+          c.addEventListener('click', ev => ev.preventDefault());
         });
         // Max-7 enforcement on the employee checkboxes
         document.querySelectorAll('#emp-sel-body input[type="checkbox"]').forEach(c => {
