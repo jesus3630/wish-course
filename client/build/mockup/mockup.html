@@ -2874,8 +2874,8 @@ function drakeJobDetailHTML() {
               <td style="padding:4px 6px;white-space:nowrap">08/15/2026 17:00</td>
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
-              <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
+              <td id="shift-sched" style="padding:4px 6px;text-align:center">0</td>
+              <td id="shift-var" style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
             </tr>
             <tr id="role-row" style="display:none;background:#f8f8f8;border-bottom:1px solid #ddd;">
               <td style="padding:4px 6px;text-align:center"><input type="checkbox" id="role-chk"></td>
@@ -2885,8 +2885,8 @@ function drakeJobDetailHTML() {
               <td style="padding:4px 6px;white-space:nowrap">08/15/2026 17:00</td>
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
-              <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
+              <td id="role-sched" style="padding:4px 6px;text-align:center">0</td>
+              <td id="role-var" style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
             </tr>
           </tbody>
         </table>
@@ -3355,7 +3355,15 @@ function slide_scheduling_4() {
     { selector: '#btn-savesched', prompt: 'Click "SaveSched" to finalize the schedule',
       onConfirm: () => {
         document.getElementById('sched-success').style.display = '';
+        // Scheduling 7 employees fills the shift: Sched 0 -> 7, Var -5 -> 2
+        ['shift', 'role'].forEach(p => {
+          const sc = document.getElementById(p + '-sched');
+          const va = document.getElementById(p + '-var');
+          if (sc) sc.textContent = '7';
+          if (va) { va.textContent = '2'; va.style.color = '#222'; }
+        });
       }},
+    { selector: '#emp-table', prompt: 'Schedule saved — Sched went from 0 to 7 and Var is now a positive 2. The shift is fully staffed, start to finish.', skipClick: true },
   ]);
 }
 
