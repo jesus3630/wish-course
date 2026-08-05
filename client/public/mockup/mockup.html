@@ -3316,7 +3316,7 @@ function slide_scheduling_4() {
           const tipText = e[3] === 1 ? 'Available for scheduling' : e[3] === 2 ? 'No Active Role' : 'Employee not available';
           const badgeCol = e[3] === 2 ? '#b03030' : '#3a9a3a';
           return `<tr style="border-bottom:1px solid #ddd;${bg}">
-            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox"${e[3] === 0 ? ' data-unavail="1"' : ''} style="vertical-align:middle">${badge(tipText, badgeCol)}</td>
+            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox"${e[3] === 1 ? '' : ' data-unavail="1"'} style="vertical-align:middle">${badge(tipText, badgeCol)}</td>
             <td style="padding:3px 6px;color:${col}">${e[0]}</td>
             <td style="padding:3px 6px;color:${col}">${e[1]}</td>
             <td style="padding:3px 6px;color:${col === '#c00000' ? col : '#222'}">${e[2]}</td>
