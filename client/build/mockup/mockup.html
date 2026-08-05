@@ -2890,7 +2890,7 @@ function drakeJobDetailHTML() {
             </tr>
           </tbody>
         </table>
-        <div style="flex:1;max-height:230px;overflow-y:auto">
+        <div id="emp-select-wrap" style="flex:1;max-height:230px;overflow-y:auto">
         <table id="emp-select-table" style="border-collapse:collapse;font-size:12px;width:100%">
           <thead><tr>
             <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center;position:sticky;top:0">Select</th>
@@ -3351,7 +3351,7 @@ function slide_scheduling_4() {
           });
         });
       }},
-    { selector: '#emp-sel-body tr:nth-child(2)', also: ['#emp-select-table'], prompt: 'Max 7 — check up to 7 employees you\'d like to schedule (green = ready, red = already scheduled), then click Next →', skipClick: true },
+    { selector: '#emp-select-wrap', prompt: 'Max 7 — check up to 7 employees you\'d like to schedule (green = ready, red = already scheduled), then click Next →', skipClick: true },
     { selector: '#btn-savesched', prompt: 'Click "SaveSched" to finalize the schedule',
       onConfirm: () => {
         document.getElementById('sched-success').style.display = '';
