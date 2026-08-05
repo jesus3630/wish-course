@@ -20,8 +20,6 @@ export default function LoginScreen({ onEnter }: Props) {
         </button>
         <p style={styles.footer}>
           Powered by ProtaTECH · WISH Training Series
-          <br />
-          <span style={{ opacity: 0.75 }}>Interactive demos animated by Nick · Summer 2026</span>
         </p>
       </div>
     </div>
