@@ -3364,7 +3364,7 @@ function slide_scheduling_4() {
           if (va) { va.textContent = '2'; va.style.color = '#222'; }
         });
       }},
-    { selector: '#emp-table', prompt: 'Schedule saved — Sched went from 0 to 7 and Var is now a positive 2. The shift is fully staffed, start to finish.', skipClick: true },
+    { selector: '#shift-sched', also: ['#shift-var', '#role-sched', '#role-var'], prompt: 'Schedule saved — Sched went from 0 to 7 and Var is now a positive 2. The shift is fully staffed, start to finish.', skipClick: true },
   ]);
 }
 
