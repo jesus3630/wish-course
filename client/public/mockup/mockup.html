@@ -3308,18 +3308,37 @@ function slide_scheduling_4() {
           ['Kapoor','Kopal','3952313',1],
           ['Kathuria','Raghav','3952311',1],
         ];
-        const badge = '<span style="display:inline-block;width:15px;height:15px;border-radius:50%;background:#3a9a3a;color:#fff;font-size:10px;line-height:15px;text-align:center;margin-left:7px;vertical-align:middle">&#10003;</span>';
+        const badge = (tipText) => `<span class="avail-badge" data-tip="${tipText}" style="display:inline-block;width:15px;height:15px;border-radius:50%;background:#3a9a3a;color:#fff;font-size:10px;line-height:15px;text-align:center;margin-left:7px;vertical-align:middle;cursor:default">&#10003;</span>`;
         const body = document.getElementById('emp-sel-body');
         body.innerHTML = employees.map((e, i) => {
           const col = e[3] ? '#222' : '#c00000';
           const bg = i % 2 ? 'background:#e8e8e8;' : '';
+          const tipText = e[3] ? 'Available for scheduling' : 'Employee not available';
           return `<tr style="border-bottom:1px solid #ddd;${bg}">
-            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox" style="vertical-align:middle">${badge}</td>
+            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox" style="vertical-align:middle">${badge(tipText)}</td>
             <td style="padding:3px 6px;color:${col}">${e[0]}</td>
             <td style="padding:3px 6px;color:${col}">${e[1]}</td>
             <td style="padding:3px 6px;color:${col === '#c00000' ? col : '#222'}">${e[2]}</td>
           </tr>`;
         }).join('');
+        // Hover tooltip on the check badges (pale yellow, as in real WISH)
+        let availTip = document.getElementById('emp-avail-tip');
+        if (!availTip) {
+          availTip = document.createElement('div');
+          availTip.id = 'emp-avail-tip';
+          availTip.style.cssText = 'position:fixed;display:none;background:#fdf9c9;border:1px solid #d8cc80;color:#b03030;font-size:11px;padding:4px 10px;z-index:9000;box-shadow:1px 2px 6px rgba(0,0,0,.2);white-space:nowrap';
+          document.body.appendChild(availTip);
+        }
+        document.querySelectorAll('#emp-sel-body .avail-badge').forEach(b => {
+          b.addEventListener('mouseenter', () => {
+            availTip.textContent = b.dataset.tip;
+            availTip.style.display = 'block';
+            const r = b.getBoundingClientRect();
+            availTip.style.left = Math.max(4, r.left - availTip.offsetWidth - 10) + 'px';
+            availTip.style.top = (r.top - 4) + 'px';
+          });
+          b.addEventListener('mouseleave', () => { availTip.style.display = 'none'; });
+        });
         // Max-7 enforcement on the employee checkboxes
         document.querySelectorAll('#emp-sel-body input[type="checkbox"]').forEach(c => {
           c.addEventListener('change', () => {
