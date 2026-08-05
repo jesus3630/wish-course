@@ -288,7 +288,7 @@
         "simulation_url": "/mockup/mockup.html?module=scheduling&slide=4"
       },
       {
-        "text": "A few things to know:\r\n\r\n* Red calendar highlights may indicate overtime, informational only, it will not prevent saving.\r\n\r\n* You can set unavailability for an employee on vacation, the calendar shows red across those days.\r\n\r\n* You can send a copy of the schedule directly to the employee from this screen before ending a call.\r\n\r\n* The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets, for example, flagging an employee who will be late.",
+        "text": "A few things to know:\r\n\r\n* In the search results, click the employee’s row to select them. Clicking their name opens their employee record instead.\r\n\r\n* Once an employee is selected, review the Hours Estimation box under the Start Date. It flags expired job training, guard cards, and background checks before you schedule.\r\n\r\n* In Schedule by Job, hover the check mark next to an employee to see their status. Green means available for scheduling, a red name means not available, and a red check mark means no active role.\r\n\r\n* Watch the Var column. A red negative number means the shift is still short. Once enough employees are scheduled, it turns positive.\r\n\r\n* From Schedule by Employee you can also send the employee a copy of their schedule with Emp Mail Sched, or mark vacation days with Non-Availability.",
         "slide_name": "Scheduling Tips",
         "instructions": "",
         "slide_number": 5
@@ -1503,7 +1503,7 @@
         "simulation_url": "/mockup/mockup.html?module=scheduling_new&slide=4"
       },
       {
-        "text": "A few things to know:\r\n\r\n* Red calendar highlights may indicate overtime, informational only, it will not prevent saving.\r\n\r\n* You can set unavailability for an employee on vacation, the calendar shows red across those days.\r\n\r\n* You can send a copy of the schedule directly to the employee from this screen before ending a call.\r\n\r\n* The scheduling comments button (asterisk icon) lets you add notes that appear on sign-in sheets, for example, flagging an employee who will be late.",
+        "text": "A few things to know:\r\n\r\n* In the search results, click the employee’s row to select them. Clicking their name opens their employee record instead.\r\n\r\n* Once an employee is selected, review the Hours Estimation box under the Start Date. It flags expired job training, guard cards, and background checks before you schedule.\r\n\r\n* In Schedule by Job, hover the check mark next to an employee to see their status. Green means available for scheduling, a red name means not available, and a red check mark means no active role.\r\n\r\n* Watch the Var column. A red negative number means the shift is still short. Once enough employees are scheduled, it turns positive.\r\n\r\n* From Schedule by Employee you can also send the employee a copy of their schedule with Emp Mail Sched, or mark vacation days with Non-Availability.",
         "slide_name": "Scheduling Tips",
         "instructions": "",
         "slide_number": 5
