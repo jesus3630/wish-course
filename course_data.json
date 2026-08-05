@@ -281,7 +281,7 @@
         "simulation_url": "/mockup/mockup.html?module=scheduling&slide=3"
       },
       {
-        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nOpen the job, expand the shift, and select the role you are filling.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role.\r\n\r\nRun the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
         "slide_name": "Schedule by Job",
         "instructions": "Scheduling → Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
         "slide_number": 4,
@@ -1496,7 +1496,7 @@
         "simulation_url": "/mockup/mockup.html?module=scheduling_new&slide=3"
       },
       {
-        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role you are filling.\r\n\r\nSelect the role, run the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
+        "text": "Go to Scheduling to Schedule by Job. Search for the job.\r\n\r\nOpen the job, expand the shift, and select the role you are filling.\r\n\r\nBefore searching for employees, check the Check Employee Roles box. This filters results to only show employees who have an active pay rate for the role.\r\n\r\nRun the search. Employees ready to be scheduled appear in green. Already-scheduled employees appear in red.\r\n\r\nClick the names of all employees you want to schedule, then click Save. They will all be assigned at once.",
         "slide_name": "Schedule by Job",
         "instructions": "Scheduling → Schedule by Job. Paste job number. Check employee roles box. Select role. Search. Select multiple employees. Click Save.",
         "slide_number": 4,
