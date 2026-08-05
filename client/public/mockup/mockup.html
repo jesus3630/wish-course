@@ -2875,7 +2875,7 @@ function drakeJobDetailHTML() {
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
               <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#2f6bed">-5</td>
+              <td style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
             </tr>
             <tr id="role-row" style="display:none;background:#f8f8f8;border-bottom:1px solid #ddd;">
               <td style="padding:4px 6px;text-align:center"><input type="checkbox" id="role-chk"></td>
@@ -2886,19 +2886,21 @@ function drakeJobDetailHTML() {
               <td style="padding:4px 6px;text-align:center">5</td>
               <td style="padding:4px 6px;text-align:center">7</td>
               <td style="padding:4px 6px;text-align:center">0</td>
-              <td style="padding:4px 6px;text-align:center;color:#2f6bed">-5</td>
+              <td style="padding:4px 6px;text-align:center;color:#c00000">-5</td>
             </tr>
           </tbody>
         </table>
-        <table id="emp-select-table" style="border-collapse:collapse;font-size:12px;flex:1">
+        <div style="flex:1;max-height:230px;overflow-y:auto">
+        <table id="emp-select-table" style="border-collapse:collapse;font-size:12px;width:100%">
           <thead><tr>
-            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center">Select</th>
-            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Last Name</th>
-            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">First Name</th>
-            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left">Emp#</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:center;position:sticky;top:0">Select</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left;position:sticky;top:0">Last Name</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left;position:sticky;top:0">First Name</th>
+            <th style="background:#3d3d3d;color:#fff;padding:4px 6px;font-weight:normal;text-align:left;position:sticky;top:0">Emp#</th>
           </tr></thead>
           <tbody id="emp-sel-body"></tbody>
         </table>
+        </div>
       </div>
       <!-- Footer -->
       <div style="margin-top:20px;display:flex;justify-content:flex-end;gap:8px;">
@@ -3287,15 +3289,15 @@ function slide_scheduling_4() {
       onConfirm: () => {
         // Employees ready to schedule appear green; already-scheduled appear red (per training text)
         const employees = [
-          ['Nagdev','Priyanka','3951657',1],
+          ['Nagdev','Priyanka','3951657',0],
           ['Banik','Shiny','3951664',1],
           ['Bhattacharyya','Shreya','3951660',1],
           ['Bisht','Mahendra singh','3952376',1],
           ['Chaudhary','Prachi','3952379',1],
-          ['Chauhan','Vikrant','3951163',0],
+          ['Chauhan','Vikrant','3951163',1],
           ['cscadmin','cscadmin','10111',1],
           ['Dahlya','Naman','3951244',1],
-          ['Das','Tulika','3951662',0],
+          ['Das','Tulika','3951662',1],
           ['Das','Tirthamoy','3952223',1],
           ['Garg','Mayank','3952394',1],
           ['Gopal','Tgopalakrishnan','3950683',1],
@@ -3306,14 +3308,16 @@ function slide_scheduling_4() {
           ['Kapoor','Kopal','3952313',1],
           ['Kathuria','Raghav','3952311',1],
         ];
+        const badge = '<span style="display:inline-block;width:15px;height:15px;border-radius:50%;background:#3a9a3a;color:#fff;font-size:10px;line-height:15px;text-align:center;margin-left:7px;vertical-align:middle">&#10003;</span>';
         const body = document.getElementById('emp-sel-body');
-        body.innerHTML = employees.map(e => {
-          const col = e[3] ? '#2a8a2a' : '#c00000';
-          return `<tr style="border-bottom:1px solid #ddd">
-            <td style="padding:3px 6px;text-align:center"><input type="checkbox"${e[3] ? '' : ' disabled'}></td>
+        body.innerHTML = employees.map((e, i) => {
+          const col = e[3] ? '#222' : '#c00000';
+          const bg = i % 2 ? 'background:#e8e8e8;' : '';
+          return `<tr style="border-bottom:1px solid #ddd;${bg}">
+            <td style="padding:3px 6px;text-align:center;white-space:nowrap"><input type="checkbox" style="vertical-align:middle">${badge}</td>
             <td style="padding:3px 6px;color:${col}">${e[0]}</td>
             <td style="padding:3px 6px;color:${col}">${e[1]}</td>
-            <td style="padding:3px 6px">${e[2]}</td>
+            <td style="padding:3px 6px;color:${col === '#c00000' ? col : '#222'}">${e[2]}</td>
           </tr>`;
         }).join('');
         // Max-7 enforcement on the employee checkboxes
