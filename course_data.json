@@ -271,7 +271,19 @@
         "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods.",
         "slide_name": "Two Ways to Schedule",
         "instructions": "",
-        "slide_number": 2
+        "slide_number": 2,
+        "menu_card": [
+          {
+            "icon": "👤",
+            "color": "#1B3A6B",
+            "label": "Schedule by Employee — one employee at a time, ideal on a call"
+          },
+          {
+            "icon": "👥",
+            "color": "#2a8a3a",
+            "label": "Schedule by Job — many employees at once to the same role and shift"
+          }
+        ]
       },
       {
         "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code.",
@@ -1486,7 +1498,19 @@
         "text": "WISH offers two manual scheduling methods found under the Scheduling menu:\r\n\r\nSchedule by Employee, Used when working with one employee at a time, such as on the phone. You select the employee and assign them to multiple days or shifts.\r\n\r\nSchedule by Job, Used to schedule multiple employees at once to the same role and shift. Ideal for bulk scheduling from a list.\r\n\r\nIn this module, you will learn both methods.",
         "slide_name": "Two Ways to Schedule",
         "instructions": "",
-        "slide_number": 2
+        "slide_number": 2,
+        "menu_card": [
+          {
+            "icon": "👤",
+            "color": "#1B3A6B",
+            "label": "Schedule by Employee — one employee at a time, ideal on a call"
+          },
+          {
+            "icon": "👥",
+            "color": "#2a8a3a",
+            "label": "Schedule by Job — many employees at once to the same role and shift"
+          }
+        ]
       },
       {
         "text": "Go to Scheduling to Schedule by Employee.\r\n\r\nThe calendar defaults to Saturday through Friday, this is the beginning of the pay week and the end of the pay week.\r\n\r\nSearch for your employee by number or name. Once found, click on the job in the calendar.   Select the shift and role, then click the green checkmark. The scheduled hours will populate on the calendar to the right of the grid.\r\n\r\nClick Save Schedule when ready. You can schedule the same employee across multiple days before saving.\r\n\r\nTo remove an employee, click the role on the calendar and delete them, or bring them up and click in their scheduled area, a dialogue box will pop up and ask you to provide a reason why you are removing the employee from the schedule.  You will select a reason code.",
