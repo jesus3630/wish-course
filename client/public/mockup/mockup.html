@@ -3352,8 +3352,7 @@ function slide_scheduling_4() {
           });
         });
       }},
-    { selector: '#emp-select-wrap', prompt: 'Max 7 — check up to 7 employees you\'d like to schedule (green = ready, red = already scheduled), then click Next →', skipClick: true },
-    { selector: '#btn-savesched', prompt: 'Click "SaveSched" to finalize the schedule',
+    { selector: '#btn-savesched', also: ['#emp-select-wrap'], prompt: 'Max 7 — check up to 7 employees you\'d like to schedule (green = ready, red = can\'t be scheduled), then click "SaveSched"',
       onConfirm: () => {
         document.getElementById('sched-success').style.display = '';
         // Scheduling 7 employees fills the shift: Sched 0 -> 7, Var -5 -> 2
