@@ -2219,7 +2219,7 @@ function slide_mss_6() {
     { selector: '#btn-wsa-search', prompt: 'Click "Search" to pull up the published shifts for this date range.',
       onConfirm: () => { document.getElementById('wsa-results').style.display = ''; }},
     { selector: '.wsa-alert', prompt: 'The orange "!" icon to the left of a job means there are employees waiting to be approved for it. Click Next.', skipClick: true },
-    { selector: '#wsa-var-col', also: ['#wsa-var-val'], prompt: 'The Var column is the variance — a red negative number means the job is still short that many employees. Click Next.', skipClick: true },
+    { selector: '#wsa-var-val', prompt: 'The Var column is the variance — a red negative number means the job is still short that many employees. This job is short 15. Click Next.', skipClick: true },
     { selector: '#wsa-expand-icon', prompt: 'Click the "+" next to the job to drop down all of its shifts.',
       onConfirm: () => {
         document.querySelectorAll('.wsa-shift-rows').forEach(r => { r.style.display = ''; });
