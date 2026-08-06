@@ -739,7 +739,13 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 )}
                 <div style={styles.slideContent}>
                   {slideText ? (
-                    <HighlightedText text={slideText} activeWordIndex={activeWordIndex} isPlaying={isPlaying} />
+                    <HighlightedText
+                      text={slideText}
+                      activeWordIndex={activeWordIndex}
+                      isPlaying={isPlaying}
+                      fontSize={isMobile ? '16px' : '18px'}
+                      lineHeight="1.95"
+                    />
                   ) : (
                     <p style={styles.emptyText}>No narration text for this slide.</p>
                   )}
