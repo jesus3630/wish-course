@@ -10211,14 +10211,20 @@ function slide_inventory_4() {
     { selector: '#sub-inv-asset', prompt: 'Click "Manage Asset Tag"',
       onConfirm: () => {
         document.getElementById('content').innerHTML = `
-          <div class="page-title">Manage Asset Tag</div>
-          <div class="form-row"><span class="form-label">Branch Name :</span>
-            <select class="form-select" id="f-inv-branch"><option>--Select--</option><option>Prota LA Branch Test</option></select>
-            <span style="color:#c00">*</span></div>
-          <div style="margin:8px 0 8px 160px">
+          <div class="page-title">Search Asset Tag</div>
+          <div style="background:#fffde8;border:1px solid #e6d87a;color:#7a6a00;padding:6px 12px;margin-bottom:16px;font-size:12px;display:flex;align-items:center;justify-content:center;gap:8px;">
+            <span style="font-size:14px">&#9888;</span> All fields marked with * are mandatory.
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:14px;">
+            <span style="color:#444;font-size:12px;">Branch :</span>
+            <select class="form-select" id="f-inv-branch" style="min-width:210px"><option>--Select--</option><option>Prota LA Branch Test</option></select>
+            <span style="color:#c00">*</span>
+          </div>
+          <div style="display:flex;justify-content:center;gap:6px;margin-bottom:18px;">
             <button class="btn" id="btn-inv-search">Search</button>
             <button class="btn btn-secondary" id="btn-inv-addtag">Add Asset Tag</button>
           </div>
+          <div class="page-title" style="margin-bottom:10px">Asset Tag List</div>
           <div id="inv-tags-tbl" style="display:none">
             <table><thead><tr><th>Tag ID</th><th>Description</th><th>Status</th><th>Assigned To</th></tr></thead>
             <tbody>
