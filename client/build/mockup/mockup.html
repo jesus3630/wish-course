@@ -1777,8 +1777,8 @@ function mssWebShiftHTML() {
                     <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-autosched"></td>
                     <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
                     <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;">3</td>
+                    <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">-2</td>
                   </tr>
                   <tr id="ws-sub-rows" style="display:none;">
                     <td colspan="8" style="padding:0 0 0 20px;">
@@ -1861,8 +1861,8 @@ function mssWebShiftContent() {
               <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-autosched"></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td id="ws-var-val" style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">0</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">3</td>
+              <td id="ws-var-val" style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">-2</td>
             </tr>
             <!-- Shift header row (flattened into parent table so columns align) -->
             <tr class="ws-sub-rows" style="display:none;background:#f0f0f0;border-bottom:1px solid #ddd;">
@@ -1872,8 +1872,8 @@ function mssWebShiftContent() {
               <td style="padding:4px 8px;"></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">0</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">-2</td>
             </tr>
             <!-- Role detail row — Auto Schedule checkbox now sits directly under the Auto Schedule column -->
             <tr class="ws-sub-rows" style="display:none;background:#fff;border-bottom:1px solid #eee;">
@@ -1889,8 +1889,8 @@ function mssWebShiftContent() {
               <td style="padding:4px 8px;text-align:center;"><input type="checkbox" id="ws-role-autosched" style="accent-color:#3a6aaa;width:14px;height:14px;"></td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
               <td style="padding:4px 8px;font-size:11px;text-align:center;">7</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">5</td>
-              <td style="padding:4px 8px;font-size:11px;text-align:center;">0</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;">3</td>
+              <td style="padding:4px 8px;font-size:11px;text-align:center;color:#c00;font-weight:bold;">-2</td>
             </tr>
           </tbody>
         </table>
@@ -1948,7 +1948,7 @@ function slide_mss_4() {
     { selector: '#f-ws-end', prompt: 'Set the End Date — required field' },
     { selector: '#btn-ws-search', prompt: 'Click Search to find jobs with shifts in this date range',
       onConfirm: () => { document.getElementById('ws-results').style.display = ''; }},
-    { selector: '#ws-var-col', also: ['#ws-var-val'], prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed. Click Next.', skipClick: true },
+    { selector: '#ws-var-val', prompt: 'The Var column shows variance — how many more employees are still needed. Red means the job is under-staffed: this job still needs 2 more people. Click Next.', skipClick: true },
     { selector: '#ws-expand-radio', prompt: 'Click "Expand" to open the job and see its shift details before publishing.',
       onConfirm: () => {
         document.getElementById('ws-expand-radio').checked = true;
