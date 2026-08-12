@@ -50,13 +50,24 @@ export const FRESH_QUIZ_SESSION: QuizSession = {
   shuffle: false,
 };
 
-// Fisher-Yates over 0..n-1
+// Fisher-Yates over 0..n-1, never returning the original order.
+// A plain shuffle of four options lands back on the authored order about once in
+// twenty-four — and on those retakes the learner sees exactly what they saw before,
+// which is the one thing the shuffle exists to prevent. Retry until it actually moves.
 export function shuffledOrder(n: number): number[] {
-  const a = Array.from({ length: n }, (_, i) => i);
-  for (let i = n - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
+  if (n < 2) return Array.from({ length: n }, (_, i) => i);
+  const identity = Array.from({ length: n }, (_, i) => i);
+  for (let attempt = 0; attempt < 12; attempt++) {
+    const a = [...identity];
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    if (a.some((v, i) => v !== identity[i])) return a;
   }
+  // Astronomically unlikely; a single swap still guarantees a different order
+  const a = [...identity];
+  [a[0], a[1]] = [a[1], a[0]];
   return a;
 }
 
