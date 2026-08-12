@@ -25,11 +25,17 @@ export interface QuizQuestion {
 export interface QuizSession {
   currentQ: number;
   answers: boolean[];      // one per completed question: correct on the very first try?
-  locked: number[];        // option indices ruled out on the current question
+  locked: number[];        // ORIGINAL option indices ruled out on the current question
   wrongThisRound: number;  // wrong attempts since the last review trip
   reviewCount: number;     // review trips taken on the current question
   solved: boolean;         // current question answered correctly
   showResults: boolean;
+  // Display order for the current question: position → original option index.
+  // Empty means "not built yet"; Quiz fills it in on first render of a question.
+  order: number[];
+  // Shuffle options on every question. Set on a retake so nobody can pass by
+  // remembering "it was the third one" — they have to read for the answer.
+  shuffle: boolean;
 }
 
 export const FRESH_QUIZ_SESSION: QuizSession = {
@@ -40,7 +46,19 @@ export const FRESH_QUIZ_SESSION: QuizSession = {
   reviewCount: 0,
   solved: false,
   showResults: false,
+  order: [],
+  shuffle: false,
 };
+
+// Fisher-Yates over 0..n-1
+export function shuffledOrder(n: number): number[] {
+  const a = Array.from({ length: n }, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
 
 export interface ModuleVideo {
   title: string;

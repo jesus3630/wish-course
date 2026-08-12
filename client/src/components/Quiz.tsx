@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { QuizQuestion, QuizSession } from '../types';
+import { QuizQuestion, QuizSession, shuffledOrder } from '../types';
 import { useIsMobile } from '../utils/useIsMobile';
 
 interface Props {
@@ -48,6 +48,20 @@ export default function Quiz({
   // A fresh question (or a return from review) always starts with nothing selected
   useEffect(() => { setSelected(null); }, [currentQ, wrongThisRound, reviewCount]);
 
+  // Build the display order once per question. `order` maps display position →
+  // original option index, so `locked` (original indices) survives a reshuffle.
+  const optionsLength = question?.options?.length ?? 0;
+  useEffect(() => {
+    if (session.order.length === optionsLength) return;
+    onSessionChange({
+      ...session,
+      order: session.shuffle ? shuffledOrder(optionsLength) : Array.from({ length: optionsLength }, (_, i) => i),
+    });
+  }); // runs after every render until the order matches the current question
+  const order = session.order.length === optionsLength
+    ? session.order
+    : Array.from({ length: optionsLength }, (_, i) => i);
+
   // Locked out: two misses this round, or every wrong option has been ruled out
   const optionCount = question?.options?.length ?? 0;
   const needsReview = !solved && (
@@ -93,6 +107,7 @@ export default function Quiz({
       wrongThisRound: 0,
       reviewCount: 0,
       solved: false,
+      order: [], // rebuilt for the next question on render
     });
   }
 
@@ -144,7 +159,8 @@ export default function Quiz({
         )}
 
         <div style={styles.options}>
-          {question.options.map((opt, i) => {
+          {order.map((i, pos) => {
+            const opt = question.options[i];
             const isLocked = locked.includes(i);
             const isRight = solved && i === question.correct_index;
             let optStyle = { ...styles.option };
@@ -160,7 +176,7 @@ export default function Quiz({
                 onClick={() => handleSelect(i)}
               >
                 <span style={{ ...styles.optionLetter, ...(isLocked ? styles.optionLetterLocked : {}) }}>
-                  {String.fromCharCode(65 + i)}
+                  {String.fromCharCode(65 + pos)}
                 </span>
                 <span style={styles.optionText}>{opt}</span>
                 {isRight && <span style={styles.checkmark}>✓</span>}

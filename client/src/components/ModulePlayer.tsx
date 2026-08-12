@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Module, CourseProgress, QuizQuestion, QuizSession, FRESH_QUIZ_SESSION } from '../types';
+import { Module, CourseProgress, QuizQuestion, QuizSession, FRESH_QUIZ_SESSION, shuffledOrder } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
 import { pickReviewSlide } from '../utils/reviewSlide';
 import Quiz from './Quiz';
@@ -691,7 +691,12 @@ export default function ModulePlayer({
   function handleTakeQuiz() {
     stopAudio();
     // Mid-review, the Quiz button resumes where they left off instead of restarting
-    if (!reviewReturn) setQuizSession(FRESH_QUIZ_SESSION);
+    if (!reviewReturn) {
+      // Anyone who has attempted this quiz before gets shuffled options, so a retake
+      // can't be passed by remembering positions instead of reading the answers.
+      const retake = getModuleProgress(progressRef.current, module.id).quiz_score !== null;
+      setQuizSession({ ...FRESH_QUIZ_SESSION, shuffle: retake });
+    }
     setView('quiz');
   }
 
@@ -705,11 +710,19 @@ export default function ModulePlayer({
     setView('slides');
   }
 
-  // Back to the question, with the options they already ruled out still locked
+  // Back to the question, with the options they already ruled out still locked.
+  // The remaining options are reshuffled — a second attempt has to be read, not
+  // guessed by elimination from where the answers used to sit.
   function handleReturnToQuiz() {
     if (reviewGate > 0) return;
     stopAudio();
-    setQuizSession(s => ({ ...s, wrongThisRound: 0, reviewCount: s.reviewCount + 1 }));
+    setQuizSession(s => ({
+      ...s,
+      wrongThisRound: 0,
+      reviewCount: s.reviewCount + 1,
+      shuffle: true,
+      order: shuffledOrder(questions[s.currentQ]?.options?.length ?? 0),
+    }));
     setReviewReturn(null);
     setView('quiz');
   }
