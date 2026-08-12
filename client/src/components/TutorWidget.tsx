@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useIsMobile } from '../utils/useIsMobile';
 
 // Voice Q&A tutor — ask by text or voice, answered from the module's own content, spoken back.
 type Msg = { role: 'you' | 'tutor'; text: string };
@@ -11,6 +12,14 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
+
+  // Top-left, inside the header band next to "← Back". The old right-edge anchor floated
+  // over the interactive sim and the narration column; the header strip is the one place
+  // that is empty on every slide type. On mobile the header wraps, so sit just below it.
+  const anchor: React.CSSProperties = isMobile
+    ? { position: 'fixed', top: 'auto', bottom: 14, left: 14, transform: 'none' }
+    : { position: 'fixed', top: 17, left: 116, transform: 'none' };
 
   const scrollDown = () => setTimeout(() => { if (listRef.current) listRef.current.scrollTop = listRef.current.scrollHeight; }, 30);
 
@@ -39,13 +48,13 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
   }
 
   if (!open) {
-    // Anchored to the middle of the right edge — clear of the top bar and the bottom Prev/Next nav.
     return (
       <button onClick={() => setOpen(true)} aria-label="Ask the trainer" style={{
-        position: 'fixed', top: '50%', right: 14, transform: 'translateY(-50%)', zIndex: 900, border: 'none', cursor: 'pointer',
+        ...anchor, zIndex: 900, border: 'none', cursor: 'pointer',
         background: `linear-gradient(135deg, ${C.teal}, ${C.navy})`, color: '#fff', borderRadius: 24,
-        padding: '11px 18px', fontSize: 14, fontWeight: 700, boxShadow: '0 6px 18px rgba(0,0,0,0.22)',
-        display: 'flex', alignItems: 'center', gap: 8,
+        padding: isMobile ? '11px 18px' : '8px 15px', fontSize: isMobile ? 14 : 13, fontWeight: 700,
+        boxShadow: '0 6px 18px rgba(0,0,0,0.22)',
+        display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap',
       }}>
         <span style={{ fontSize: 16 }}>💬</span> Ask the Trainer
       </button>
@@ -54,8 +63,11 @@ export default function TutorWidget({ moduleId, moduleName }: { moduleId: string
 
   return (
     <div style={{
-      position: 'fixed', top: '50%', right: 14, transform: 'translateY(-50%)', zIndex: 900, width: 340, maxWidth: 'calc(100vw - 32px)',
-      height: 460, maxHeight: 'calc(100vh - 40px)', background: '#fff', borderRadius: 14,
+      ...(isMobile
+        ? { position: 'fixed' as const, bottom: 14, left: 14 }
+        : { position: 'fixed' as const, top: 80, left: 14 }),
+      zIndex: 900, width: 340, maxWidth: 'calc(100vw - 32px)',
+      height: 460, maxHeight: 'calc(100vh - 100px)', background: '#fff', borderRadius: 14,
       boxShadow: '0 14px 44px rgba(0,0,0,0.28)', display: 'flex', flexDirection: 'column', overflow: 'hidden',
       border: `1px solid ${C.line}`,
     }}>

@@ -1430,7 +1430,7 @@
         "slide_number": 6,
         "slide_name": "Tracking Breaks in WISH",
         "instructions": "[DRAFT - verify with compliance/legal before publishing]",
-        "text": "When you process hours for a California job, the roster adds break tracking. Each employee shows how many breaks they took, about one every five hours, along with checkboxes for Waiver, Meal Premium, and Break Premium. If a meal break is missed, late, or short, mark Meal Premium so payroll adds the required extra hour of pay.",
+        "text": "When you process hours for a California job, the roster adds break tracking. Each employee shows how many breaks they took, along with checkboxes for Waiver, Meal Premium, and Break Premium. The counts should match the rules you just learned: a thirty-minute unpaid meal period once a shift passes five hours, a second meal period past ten hours, and a paid ten-minute rest period for every four hours worked. If a meal break is missed, late, or short, mark Meal Premium so payroll adds the required extra hour of pay.",
         "simulation_url": "/mockup/mockup.html?module=california_breaks&slide=6"
       },
       {

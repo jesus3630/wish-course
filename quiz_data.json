@@ -1254,15 +1254,15 @@
     },
     {
       "id": "california_breaks_5",
-      "question": "Roughly how often does the WISH roster expect breaks on a California job?",
+      "question": "On a California job, how many paid rest periods should an employee who works an eight-hour shift have taken?",
       "options": [
-        "Two every hour",
-        "One every two hours",
-        "One per shift regardless of length",
-        "One every five hours"
+        "One",
+        "Two",
+        "Four",
+        "None - rest periods are unpaid and not tracked"
       ],
-      "correct_index": 3,
-      "explanation": "When you process hours for a California job, each employee shows how many breaks they took — about one every five hours — along with the Waiver, Meal Premium, and Break Premium checkboxes."
+      "correct_index": 1,
+      "explanation": "Rest periods are paid and run ten minutes for every four hours worked, so an eight-hour shift earns two. WISH shows each employee's break count on the California roster next to the Waiver, Meal Premium, and Break Premium checkboxes."
     }
   ],
   "manual_process_hours_new": [
