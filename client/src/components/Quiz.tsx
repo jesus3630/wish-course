@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
-import { QuizQuestion } from '../types';
+import React, { useEffect, useState } from 'react';
+import { QuizQuestion, QuizSession } from '../types';
 import { useIsMobile } from '../utils/useIsMobile';
 
 interface Props {
   questions: QuizQuestion[];
   moduleName: string;
   moduleId?: string;
+  session: QuizSession;
+  onSessionChange: (next: QuizSession) => void;
+  /** Send the learner back to a slide to re-read the material. null = no match found. */
+  onReview: (questionIndex: number) => void;
+  /** True when the matcher found a slide for the current question. */
+  canReview: boolean;
   onComplete: (score: number, passed: boolean) => void;
 }
 
 const PASS_SCORE = 80;
+const MAX_WRONG_PER_ROUND = 2; // two misses and you go back to the material
 
 // Fire-and-forget: record each quiz answer so admins can see which questions trip people up
 function recordQuizAnswer(moduleId: string | undefined, q: QuizQuestion, idx: number, correct: boolean) {
@@ -28,42 +35,65 @@ function recordQuizAnswer(moduleId: string | undefined, q: QuizQuestion, idx: nu
   } catch { /* never block the quiz */ }
 }
 
-export default function Quiz({ questions, moduleName, moduleId, onComplete }: Props) {
+export default function Quiz({
+  questions, moduleName, moduleId, session, onSessionChange, onReview, canReview, onComplete,
+}: Props) {
   const isMobile = useIsMobile();
-  const [currentQ, setCurrentQ] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
-  const [confirmed, setConfirmed] = useState(false);
-  const [answers, setAnswers] = useState<boolean[]>([]);
-  const [showResults, setShowResults] = useState(false);
 
+  const { currentQ, answers, locked, wrongThisRound, reviewCount, solved, showResults } = session;
   const question = questions[currentQ];
   const isLast = currentQ === questions.length - 1;
 
+  // A fresh question (or a return from review) always starts with nothing selected
+  useEffect(() => { setSelected(null); }, [currentQ, wrongThisRound, reviewCount]);
+
+  // Locked out: two misses this round, or every wrong option has been ruled out
+  const optionCount = question?.options?.length ?? 0;
+  const needsReview = !solved && (
+    wrongThisRound >= MAX_WRONG_PER_ROUND || (optionCount > 0 && locked.length >= optionCount - 1)
+  );
+
   function handleSelect(index: number) {
-    if (confirmed) return;
+    if (solved || needsReview || locked.includes(index)) return;
     setSelected(index);
   }
 
-  function handleConfirm() {
-    if (selected === null) return;
-    setConfirmed(true);
+  function handleSubmit() {
+    if (selected === null || solved || needsReview) return;
+
+    if (selected === question.correct_index) {
+      onSessionChange({ ...session, solved: true });
+      return;
+    }
+    // Wrong: rule that option out. We never reveal which one is right.
+    onSessionChange({
+      ...session,
+      locked: [...locked, selected],
+      wrongThisRound: wrongThisRound + 1,
+    });
+    setSelected(null);
   }
 
   function handleNext() {
-    const correct = selected === question.correct_index;
-    recordQuizAnswer(moduleId, question, currentQ, correct);
-    const newAnswers = [...answers, correct];
-    setAnswers(newAnswers);
+    // Score on first-try mastery: no misses and no review trips on this question
+    const firstTry = locked.length === 0 && reviewCount === 0;
+    recordQuizAnswer(moduleId, question, currentQ, firstTry);
+    const newAnswers = [...answers, firstTry];
 
     if (isLast) {
-      setAnswers(newAnswers);
-      setShowResults(true);
+      onSessionChange({ ...session, answers: newAnswers, showResults: true });
       return;
     }
-
-    setCurrentQ(currentQ + 1);
-    setSelected(null);
-    setConfirmed(false);
+    onSessionChange({
+      ...session,
+      answers: newAnswers,
+      currentQ: currentQ + 1,
+      locked: [],
+      wrongThisRound: 0,
+      reviewCount: 0,
+      solved: false,
+    });
   }
 
   if (showResults) {
@@ -79,8 +109,8 @@ export default function Quiz({ questions, moduleName, moduleId, onComplete }: Pr
           <h2 style={styles.resultTitle}>{passed ? 'Module Passed!' : 'Review Needed'}</h2>
           <p style={styles.resultSub}>
             {passed
-              ? `You answered ${answers.filter(Boolean).length} of ${questions.length} questions correctly. Great work!`
-              : `You answered ${answers.filter(Boolean).length} of ${questions.length} questions correctly. A score of ${PASS_SCORE}% or higher is required to pass.`}
+              ? `You answered ${answers.filter(Boolean).length} of ${questions.length} questions correctly on the first try. Great work!`
+              : `You answered ${answers.filter(Boolean).length} of ${questions.length} questions correctly on the first try. A score of ${PASS_SCORE}% or higher is required to pass ${moduleName}.`}
           </p>
           <button
             style={{ ...styles.btn, background: passed ? '#10B981' : '#D4782A' }}
@@ -92,8 +122,6 @@ export default function Quiz({ questions, moduleName, moduleId, onComplete }: Pr
       </div>
     );
   }
-
-  const isCorrect = selected === question.correct_index;
 
   return (
     <div style={styles.page}>
@@ -109,47 +137,82 @@ export default function Quiz({ questions, moduleName, moduleId, onComplete }: Pr
 
         <h2 style={{ ...styles.question, fontSize: isMobile ? '17px' : '20px' }}>{question.question}</h2>
 
+        {reviewCount > 0 && !solved && !needsReview && (
+          <div style={styles.retryNote}>
+            You reviewed the material — try again. Options you already ruled out stay locked.
+          </div>
+        )}
+
         <div style={styles.options}>
           {question.options.map((opt, i) => {
+            const isLocked = locked.includes(i);
+            const isRight = solved && i === question.correct_index;
             let optStyle = { ...styles.option };
-            if (confirmed) {
-              if (i === question.correct_index) optStyle = { ...optStyle, ...styles.optionCorrect };
-              else if (i === selected) optStyle = { ...optStyle, ...styles.optionWrong };
-            } else if (i === selected) {
-              optStyle = { ...optStyle, ...styles.optionSelected };
-            }
+            if (isRight) optStyle = { ...optStyle, ...styles.optionCorrect };
+            else if (isLocked) optStyle = { ...optStyle, ...styles.optionLocked };
+            else if (solved || needsReview) optStyle = { ...optStyle, ...styles.optionMuted };
+            else if (i === selected) optStyle = { ...optStyle, ...styles.optionSelected };
             return (
-              <button key={i} style={optStyle} onClick={() => handleSelect(i)}>
-                <span style={styles.optionLetter}>{String.fromCharCode(65 + i)}</span>
+              <button
+                key={i}
+                style={optStyle}
+                disabled={isLocked || solved || needsReview}
+                onClick={() => handleSelect(i)}
+              >
+                <span style={{ ...styles.optionLetter, ...(isLocked ? styles.optionLetterLocked : {}) }}>
+                  {String.fromCharCode(65 + i)}
+                </span>
                 <span style={styles.optionText}>{opt}</span>
-                {confirmed && i === question.correct_index && <span style={styles.checkmark}>✓</span>}
-                {confirmed && i === selected && i !== question.correct_index && <span style={styles.xmark}>✗</span>}
+                {isRight && <span style={styles.checkmark}>✓</span>}
+                {isLocked && <span style={styles.xmark}>✗</span>}
               </button>
             );
           })}
         </div>
 
-        {confirmed && (
-          <div style={{ ...styles.explanation, background: isCorrect ? '#ECFDF5' : '#FEF2F2', borderColor: isCorrect ? '#10B981' : '#EF4444' }}>
-            <strong style={{ color: isCorrect ? '#059669' : '#DC2626' }}>
-              {isCorrect ? 'Correct! ' : 'Not quite. '}
-            </strong>
+        {/* Wrong, but still has attempts left — no answer revealed, no explanation */}
+        {!solved && !needsReview && locked.length > 0 && (
+          <div style={{ ...styles.explanation, background: '#FEF2F2', borderColor: '#EF4444' }}>
+            <strong style={{ color: '#DC2626' }}>Not correct. </strong>
+            That option is now ruled out. You have {MAX_WRONG_PER_ROUND - wrongThisRound} attempt
+            {MAX_WRONG_PER_ROUND - wrongThisRound === 1 ? '' : 's'} left before you go back to the material.
+          </div>
+        )}
+
+        {/* Two misses — locked out until the material is re-read */}
+        {needsReview && (
+          <div style={{ ...styles.explanation, background: '#FFF7ED', borderColor: '#D4782A' }}>
+            <strong style={{ color: '#B45309' }}>Review required. </strong>
+            {canReview
+              ? 'Go back to the section that covers this question. Once you have re-read it you can try again.'
+              : 'Go back through the module material, then return to try this question again.'}
+          </div>
+        )}
+
+        {/* Correct — now the explanation is worth showing */}
+        {solved && (
+          <div style={{ ...styles.explanation, background: '#ECFDF5', borderColor: '#10B981' }}>
+            <strong style={{ color: '#059669' }}>Correct! </strong>
             {question.explanation}
           </div>
         )}
 
         <div style={styles.footer}>
-          {!confirmed ? (
+          {needsReview ? (
+            <button style={{ ...styles.btn, background: '#D4782A' }} onClick={() => onReview(currentQ)}>
+              Review the material →
+            </button>
+          ) : solved ? (
+            <button style={styles.btn} onClick={handleNext}>
+              {isLast ? 'See Results' : 'Next Question'} →
+            </button>
+          ) : (
             <button
               style={{ ...styles.btn, opacity: selected === null ? 0.5 : 1 }}
               disabled={selected === null}
-              onClick={handleConfirm}
+              onClick={handleSubmit}
             >
               Submit Answer
-            </button>
-          ) : (
-            <button style={styles.btn} onClick={handleNext}>
-              {isLast ? 'See Results' : 'Next Question'} →
             </button>
           )}
         </div>
@@ -190,6 +253,15 @@ const styles: Record<string, React.CSSProperties> = {
   progressBar: { height: '4px', background: '#E5E7EB', borderRadius: '2px', marginBottom: '28px', overflow: 'hidden' },
   progressFill: { height: '100%', background: '#D4782A', borderRadius: '2px', transition: 'width 0.3s' },
   question: { fontSize: '20px', fontWeight: 700, color: '#1B3A6B', lineHeight: '1.4', marginBottom: '24px' },
+  retryNote: {
+    background: '#EFF6FF',
+    border: '1px solid #BFDBFE',
+    borderRadius: '8px',
+    padding: '10px 14px',
+    fontSize: '13px',
+    color: '#1E40AF',
+    marginBottom: '16px',
+  },
   options: { display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '20px' },
   option: {
     display: 'flex',
@@ -207,7 +279,14 @@ const styles: Record<string, React.CSSProperties> = {
   },
   optionSelected: { border: '2px solid #1B3A6B', background: '#EFF6FF' },
   optionCorrect: { border: '2px solid #10B981', background: '#ECFDF5' },
-  optionWrong: { border: '2px solid #EF4444', background: '#FEF2F2' },
+  optionLocked: {
+    border: '2px solid #E5E7EB',
+    background: '#F3F4F6',
+    opacity: 0.55,
+    cursor: 'not-allowed',
+    textDecoration: 'line-through',
+  },
+  optionMuted: { opacity: 0.65, cursor: 'default' },
   optionLetter: {
     minWidth: '28px',
     height: '28px',
@@ -220,6 +299,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '12px',
     fontWeight: 700,
   },
+  optionLetterLocked: { background: '#9CA3AF' },
   optionText: { flex: 1, color: '#1F2937', lineHeight: '1.4' },
   checkmark: { color: '#10B981', fontWeight: 700, fontSize: '18px' },
   xmark: { color: '#EF4444', fontWeight: 700, fontSize: '18px' },

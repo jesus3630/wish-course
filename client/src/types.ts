@@ -17,7 +17,30 @@ export interface QuizQuestion {
   options: string[];
   correct_index: number;
   explanation: string;
+  review_slide?: number; // 1-based slide to re-read after misses; auto-matched when absent
 }
+
+// Knowledge Check state lives in ModulePlayer so it survives a trip back to the
+// slides for review — the learner returns to the question they were locked out of.
+export interface QuizSession {
+  currentQ: number;
+  answers: boolean[];      // one per completed question: correct on the very first try?
+  locked: number[];        // option indices ruled out on the current question
+  wrongThisRound: number;  // wrong attempts since the last review trip
+  reviewCount: number;     // review trips taken on the current question
+  solved: boolean;         // current question answered correctly
+  showResults: boolean;
+}
+
+export const FRESH_QUIZ_SESSION: QuizSession = {
+  currentQ: 0,
+  answers: [],
+  locked: [],
+  wrongThisRound: 0,
+  reviewCount: 0,
+  solved: false,
+  showResults: false,
+};
 
 export interface ModuleVideo {
   title: string;

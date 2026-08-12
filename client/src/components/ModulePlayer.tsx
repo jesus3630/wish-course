@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Module, CourseProgress, QuizQuestion } from '../types';
+import { Module, CourseProgress, QuizQuestion, QuizSession, FRESH_QUIZ_SESSION } from '../types';
 import { getModuleProgress, markSlideViewed, markModuleComplete, resetModuleProgress } from '../utils/progress';
+import { pickReviewSlide } from '../utils/reviewSlide';
 import Quiz from './Quiz';
 import Character from './Character';
 import TutorWidget from './TutorWidget';
@@ -9,6 +10,10 @@ import { useIsMobile } from '../utils/useIsMobile';
 
 type Timing = { word: string; start: number; end: number };
 type PrefetchEntry = { url: string; timings: Timing[] };
+
+// After two misses the learner is sent back to the material and must spend real time
+// on it before retrying — a knowledge check is a credential gate, not a clickthrough.
+const REVIEW_GATE_SECONDS = 15;
 
 // ─── Audit Image with pulsing gold highlight + click-to-zoom ─────────────────
 const PULSE_STYLE = `
@@ -238,13 +243,22 @@ export default function ModulePlayer({
   const [playbackRate, setPlaybackRate] = useState(1);
   const [gradeMode, setGradeMode] = useState(false);   // "Test Yourself" (graded) demo mode
   const [gradeResult, setGradeResult] = useState<{ firstTry: number; total: number; misses: number } | null>(null);
+  const [practiceDone, setPracticeDone] = useState(false); // guided run finished on this slide
+
+  // Knowledge Check state lives here (not in Quiz) so a review trip back to the
+  // slides doesn't wipe the learner's progress through the questions.
+  const [quizSession, setQuizSession] = useState<QuizSession>(FRESH_QUIZ_SESSION);
+  const [reviewReturn, setReviewReturn] = useState<{ slide: number; question: number } | null>(null);
+  const [reviewGate, setReviewGate] = useState(0); // seconds left before they may return
 
   // Reset grading when the slide changes
-  useEffect(() => { setGradeMode(false); setGradeResult(null); }, [slideIndex]);
+  useEffect(() => { setGradeMode(false); setGradeResult(null); setPracticeDone(false); }, [slideIndex]);
   // Capture a graded-assessment score posted from the sim iframe + log it for admin analytics
   useEffect(() => {
     const onMsg = (e: MessageEvent) => {
       const d = e.data;
+      // Guided (Practice) run finished — surface the "test yourself" offer
+      if (d && d.type === 'wish-guided-complete') { setPracticeDone(true); return; }
       if (!d || d.type !== 'wish-graded-result') return;
       setGradeResult({ firstTry: d.firstTry, total: d.total, misses: d.misses });
       try {
@@ -261,6 +275,15 @@ export default function ModulePlayer({
     window.addEventListener('message', onMsg);
     return () => window.removeEventListener('message', onMsg);
   }, [module, slideIndex]);
+  // Countdown that keeps the "Return to Knowledge Check" button disabled while the
+  // learner is re-reading. It only ticks while they're actually on the review slide.
+  useEffect(() => {
+    if (!reviewReturn || reviewGate <= 0) return;
+    if (slideIndex !== reviewReturn.slide) return;
+    const t = setTimeout(() => setReviewGate(s => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [reviewReturn, reviewGate, slideIndex]);
+
   const [simReady, setSimReady] = useState(false);
   const [narrowLayout, setNarrowLayout] = useState(false);
   const slideAreaRef = useRef<HTMLDivElement>(null);
@@ -290,6 +313,12 @@ export default function ModulePlayer({
 
   const slide = module.slides[slideIndex];
   const questions: QuizQuestion[] = quizData[module.id] ?? [];
+
+  // Slide a missed Knowledge Check question sends the learner back to
+  function reviewSlideFor(questionIndex: number): number | null {
+    const q = questions[questionIndex];
+    return q ? pickReviewSlide(q, module.slides) : null;
+  }
   const isLastSlide = slideIndex === module.slides.length - 1;
   const slideText = normalizeText(slide?.text ?? '');
   const slideName = slide?.slide_name ?? '';
@@ -661,11 +690,34 @@ export default function ModulePlayer({
 
   function handleTakeQuiz() {
     stopAudio();
+    // Mid-review, the Quiz button resumes where they left off instead of restarting
+    if (!reviewReturn) setQuizSession(FRESH_QUIZ_SESSION);
+    setView('quiz');
+  }
+
+  // Two misses on a question — send the learner to the slide that covers it
+  function handleReviewQuestion(questionIndex: number) {
+    const target = reviewSlideFor(questionIndex);
+    stopAudio();
+    setReviewReturn({ slide: target ?? 0, question: questionIndex });
+    setReviewGate(REVIEW_GATE_SECONDS);
+    setSlideIndex(target ?? 0);
+    setView('slides');
+  }
+
+  // Back to the question, with the options they already ruled out still locked
+  function handleReturnToQuiz() {
+    if (reviewGate > 0) return;
+    stopAudio();
+    setQuizSession(s => ({ ...s, wrongThisRound: 0, reviewCount: s.reviewCount + 1 }));
+    setReviewReturn(null);
     setView('quiz');
   }
 
   function handleQuizComplete(score: number, passed: boolean) {
     const updated = markModuleComplete(progressRef.current, module.id, score, passed);
+    setQuizSession(FRESH_QUIZ_SESSION);
+    setReviewReturn(null);
     if (passed) {
       onComplete(updated);
     } else {
@@ -681,6 +733,10 @@ export default function ModulePlayer({
         questions={questions}
         moduleName={module.name}
         moduleId={module.id}
+        session={quizSession}
+        onSessionChange={setQuizSession}
+        onReview={handleReviewQuestion}
+        canReview={reviewSlideFor(quizSession.currentQ) !== null}
         onComplete={handleQuizComplete}
       />
     );
@@ -712,6 +768,42 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
           <span style={styles.miniProgressLabel}>{slidesViewed}/{totalSlides}</span>
         </div>
       </div>
+
+      {/* Review-required banner — shown while the learner is sent back from the Knowledge Check */}
+      {reviewReturn && (
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px',
+          flexWrap: 'wrap', background: '#FFF7ED', borderBottom: '2px solid #D4782A',
+          padding: isMobile ? '10px 12px' : '12px 24px',
+        }}>
+          <div style={{ fontSize: isMobile ? '13px' : '14px', color: '#92400E', fontWeight: 600 }}>
+            📖 Review required — Knowledge Check question {reviewReturn.question + 1}.
+            {slideIndex === reviewReturn.slide
+              ? ' Read this section, then return to try again.'
+              : ` The material is on slide ${reviewReturn.slide + 1}.`}
+          </div>
+          <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+            {slideIndex !== reviewReturn.slide && (
+              <button
+                style={{ ...styles.navBtn, padding: '8px 14px', fontSize: '13px' }}
+                onClick={() => goToSlide(reviewReturn.slide)}
+              >
+                Go to slide {reviewReturn.slide + 1}
+              </button>
+            )}
+            <button
+              style={{
+                ...styles.navBtn, ...styles.navBtnPrimary, padding: '8px 16px', fontSize: '13px',
+                opacity: reviewGate > 0 ? 0.5 : 1, cursor: reviewGate > 0 ? 'not-allowed' : 'pointer',
+              }}
+              disabled={reviewGate > 0}
+              onClick={handleReturnToQuiz}
+            >
+              {reviewGate > 0 ? `Return in ${reviewGate}s` : 'Return to Knowledge Check →'}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Slide area */}
       <div ref={slideAreaRef} style={{ ...styles.slideArea, padding: isMobile ? '12px' : '32px 24px', justifyContent: isTextOnly && !isMobile ? 'center' : 'flex-start' }}>
@@ -772,6 +864,31 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 <div style={{ border: `2px solid ${gradeMode ? '#B45309' : '#2e7d32'}`, borderTop: 'none', borderRadius: '0 0 6px 6px', overflow: 'hidden' }}>
                   <SimFrame key={gradeMode ? 'graded' : 'guided'} src={(slide as any).simulation_url} graded={gradeMode} />
                 </div>
+                {/* Practice run finished — offer Test Yourself instead of leaving it buried in the toggle */}
+                {!gradeMode && practiceDone && (
+                  <div style={{
+                    marginTop: 10, padding: '14px 16px', borderRadius: 8,
+                    background: '#FFF7ED', border: '2px solid #D4782A',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    gap: 12, flexWrap: 'wrap',
+                  }}>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: '#92400E' }}>
+                      ✓ Section complete. Would you like additional practice?
+                      <div style={{ fontSize: 12, fontWeight: 500, color: '#B45309', marginTop: 3 }}>
+                        Test Yourself runs the same tasks with no hints and no highlighted targets.
+                      </div>
+                    </div>
+                    <button
+                      style={{
+                        border: 'none', cursor: 'pointer', background: '#D4782A', color: '#fff',
+                        fontSize: 13, fontWeight: 700, padding: '10px 18px', borderRadius: 8, flexShrink: 0,
+                      }}
+                      onClick={() => { setPracticeDone(false); setGradeResult(null); setGradeMode(true); }}
+                    >
+                      🎯 Test yourself →
+                    </button>
+                  </div>
+                )}
                 {gradeMode && gradeResult && (
                   <div style={{ marginTop: 8, padding: '10px 14px', borderRadius: 8, fontSize: 13, color: '#1B3A6B', background: gradeResult.firstTry === gradeResult.total ? '#ECFDF5' : '#FFF7ED', border: `1px solid ${gradeResult.firstTry === gradeResult.total ? '#10B981' : '#F59E0B'}` }}>
                     <b>Assessment:</b> {gradeResult.firstTry}/{gradeResult.total} correct on the first try{gradeResult.misses > 0 ? ` · ${gradeResult.misses} miss${gradeResult.misses === 1 ? '' : 'es'}` : ''}. {gradeResult.firstTry === gradeResult.total ? 'Perfect — you know this flow.' : 'Switch to Practice to review, then try again.'}

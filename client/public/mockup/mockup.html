@@ -657,6 +657,8 @@ function runGuided(steps, opts) {
       tip.style.display = 'none';
       bar.innerHTML = '<span style="color:#4caf50;font-weight:bold;font-size:12px">&#10004; Section complete!</span>';
       if (opts.completionOverlay !== false) showCompletionOverlay(); // default ON; pass { completionOverlay: false } to disable
+      // Tell the player the guided run finished so it can offer "Test Yourself"
+      try { window.parent.postMessage({ type: 'wish-guided-complete', steps: steps.length }, '*'); } catch (e) {}
       setTimeout(() => { bar.remove(); tip.remove(); }, 2800);
       return;
     }
@@ -2666,10 +2668,11 @@ function schedEmpHTML() {
         </div>
         <div style="font-size:12px;margin-bottom:12px;display:flex;align-items:flex-start;gap:6px">
           <span style="white-space:nowrap;padding-top:2px;min-width:54px">Notes :</span>
-          <textarea style="border:1px solid #ccc;flex:1;height:75px;font-size:11px;padding:3px;resize:both"></textarea>
+          <textarea id="sd-notes" style="border:1px solid #ccc;flex:1;height:75px;font-size:11px;padding:3px;resize:both"></textarea>
+          <span style="color:#c00;font-weight:bold;padding-top:2px">*</span>
         </div>
         <div>
-          <button id="sd-yes-btn" style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
+          <button id="sd-yes-btn" onclick="sdValidateNotes()" style="background:#2f6bed;color:#fff;border:1px solid #2558c8;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px;margin-right:4px">Yes</button>
           <button style="background:#e8e8e8;color:#333;border:1px solid #999;padding:4px 16px;border-radius:2px;cursor:pointer;font-size:12px">No</button>
         </div>
       </div>
@@ -2682,7 +2685,25 @@ function schedEmpHTML() {
     <div style="text-align:right">
       <button id="sd-alert-ok" style="background:#3a3a3a;color:#fff;border:none;padding:5px 22px;border-radius:3px;cursor:pointer;font-size:13px">OK</button>
     </div>
+  </div>
+  <!-- WISH blocks the removal until a note is entered -->
+  <div id="sd-note-alert" style="display:none;position:fixed;top:8px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #ccc;border-radius:4px;box-shadow:0 6px 24px rgba(0,0,0,0.35);padding:20px 24px;min-width:330px;z-index:10000">
+    <div style="font-size:11px;color:#666;margin-bottom:10px">wish.schedulingsite.com says</div>
+    <div style="font-size:13px;color:#222;margin-bottom:22px">Notes are required. Please document the reason before removing this employee.</div>
+    <div style="text-align:right">
+      <button id="sd-note-alert-ok" onclick="document.getElementById('sd-note-alert').style.display='none';document.getElementById('sd-notes').focus()" style="background:#3a3a3a;color:#fff;border:none;padding:5px 22px;border-radius:3px;cursor:pointer;font-size:13px">OK</button>
+    </div>
   </div>`;
+}
+
+// WISH will not remove scheduled hours without a note explaining why. The demo
+// enforces the same rule so learners can't practice skipping it.
+function sdValidateNotes() {
+  const box = document.getElementById('sd-notes');
+  if (box && box.value.trim()) return true;
+  const alertBox = document.getElementById('sd-note-alert');
+  if (alertBox) alertBox.style.display = '';
+  return false;
 }
 
 function schedJobSearchHTML() {
@@ -3041,8 +3062,17 @@ function slide_scheduling_3() {
         document.getElementById('td-var-sierra').textContent = '-26';
         document.getElementById('sched-summary').textContent = 'Min: 27| Max: 32| Sched: 1| Var: -26';
       }},
+    { selector: '#sd-notes',
+      type: 'Employee requested to reschedule - moved to the 6/2 shift.',
+      prompt: 'Notes are required. Click the Notes box and document why the employee is being removed — WISH will not save the removal without it',
+      onConfirm: () => {
+        // Graded mode doesn't type, so make sure the note exists either way
+        const box = document.getElementById('sd-notes');
+        if (box && !box.value.trim()) box.value = 'Employee requested to reschedule - moved to the 6/2 shift.';
+      }},
     { selector: '#sd-yes-btn', prompt: 'Click "Yes" to confirm removing the employee from this job',
       onConfirm: () => {
+        if (!sdValidateNotes()) return;
         document.getElementById('sd-alert-box').style.display = '';
       }},
     { selector: '#sd-alert-ok', prompt: 'Click OK to dismiss the confirmation',

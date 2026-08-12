@@ -198,6 +198,13 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
                 </h4>
                 <p style={styles.moduleSlides}>{mod.slides.length} slides</p>
 
+                {/* Completed modules stay open for review — say so, don't make people guess */}
+                {status === 'completed' && (
+                  <p style={{ fontSize: '12px', color: '#10B981', fontWeight: 600, margin: '4px 0 0' }}>
+                    ↻ Open to review any time
+                  </p>
+                )}
+
                 {mp.quiz_score !== null && (
                   <div style={styles.quizScore}>
                     Quiz: {mp.quiz_score}% {mp.quiz_passed ? '✓' : '✗'}
