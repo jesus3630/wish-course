@@ -1,10 +1,19 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 type CharacterState = 'idle' | 'talking' | 'celebrating';
 
 interface Props {
   state: CharacterState;
+  /** Which face to show. Defaults to the first entry in AVATARS. */
+  avatar?: string;
 }
+
+// The trainer's face. Add more entries (Daryl, others) and pass `avatar="daryl"`
+// from ModulePlayer to rotate — nothing else needs to change.
+export const AVATARS: Record<string, { src: string; name: string }> = {
+  jesus: { src: '/avatars/jesus.png', name: 'Jesus Gonzalez' },
+};
+const DEFAULT_AVATAR = 'jesus';
 
 // Inject keyframe animations once
 const STYLE_ID = 'wish-character-styles';
@@ -64,8 +73,9 @@ function injectStyles() {
   document.head.appendChild(style);
 }
 
-export default function Character({ state }: Props) {
+export default function Character({ state, avatar }: Props) {
   useEffect(() => { injectStyles(); }, []);
+  const face = AVATARS[avatar ?? DEFAULT_AVATAR] ?? AVATARS[DEFAULT_AVATAR];
 
   const bodyAnim =
     state === 'talking'     ? 'wish-talk 0.5s ease-in-out infinite' :
@@ -102,80 +112,31 @@ export default function Character({ state }: Props) {
         </div>
       )}
 
-      {/* Character SVG */}
-      <div style={{ animation: bodyAnim }}>
-        <svg width="90" height="110" viewBox="0 0 50 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* Body */}
-          <ellipse cx="25" cy="52" rx="13" ry="16" fill="#D4782A" />
-
-          {/* Arms */}
-          <rect
-            x="7" y="44" width="6" height="14" rx="3"
-            fill="#D4782A"
-            style={isCelebrating ? { animation: 'wish-wave 0.5s ease-in-out infinite', animationDelay: '0s' } : undefined}
+      {/* Trainer's face */}
+      <div style={{ animation: bodyAnim, display: 'flex', justifyContent: 'center' }}>
+        <div
+          title={face.name}
+          style={{
+            width: '78px',
+            height: '78px',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            border: `3px solid ${isCelebrating ? '#F5B841' : isTalking ? '#D4782A' : '#FFFFFF'}`,
+            boxShadow: isTalking
+              ? '0 0 0 3px rgba(212,120,42,0.28), 0 6px 16px rgba(27,58,107,0.28)'
+              : '0 6px 16px rgba(27,58,107,0.24)',
+            transition: 'border-color 0.25s ease, box-shadow 0.25s ease',
+            background: '#EEF2F5',
+          }}
+        >
+          <img
+            src={face.src}
+            alt={`${face.name}, your trainer`}
+            width={78}
+            height={78}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
-          <rect
-            x="37" y="44" width="6" height="14" rx="3"
-            fill="#D4782A"
-            style={isCelebrating ? { animation: 'wish-wave 0.5s ease-in-out infinite', animationDelay: '0.15s' } : undefined}
-          />
-
-          {/* Shirt accent */}
-          <ellipse cx="25" cy="48" rx="6" ry="4" fill="#B8621F" opacity="0.5" />
-
-          {/* Neck */}
-          <rect x="21" y="34" width="8" height="6" rx="2" fill="#F5CBA7" />
-
-          {/* Head */}
-          <ellipse cx="25" cy="26" rx="16" ry="16" fill="#F5CBA7" />
-
-          {/* Hair */}
-          <ellipse cx="25" cy="11" rx="16" ry="6" fill="#1B3A6B" />
-          <rect x="9" y="11" width="32" height="8" rx="0" fill="#1B3A6B" />
-
-          {/* Eyes */}
-          <g style={{ animation: 'wish-blink 4s ease-in-out infinite', transformOrigin: '18px 24px' }}>
-            <ellipse cx="18" cy="24" rx="3" ry="3.5" fill="white" />
-            <circle cx="18.5" cy="24.5" r="1.8" fill="#1B3A6B" />
-            <circle cx="19.2" cy="23.5" r="0.6" fill="white" />
-          </g>
-          <g style={{ animation: 'wish-blink 4s ease-in-out infinite', animationDelay: '0.05s', transformOrigin: '32px 24px' }}>
-            <ellipse cx="32" cy="24" rx="3" ry="3.5" fill="white" />
-            <circle cx="32.5" cy="24.5" r="1.8" fill="#1B3A6B" />
-            <circle cx="33.2" cy="23.5" r="0.6" fill="white" />
-          </g>
-
-          {/* Eyebrows */}
-          <path
-            d={isCelebrating ? 'M 14 19 Q 18 16 22 19' : 'M 14 20 Q 18 18 22 20'}
-            stroke="#1B3A6B" strokeWidth="1.5" strokeLinecap="round" fill="none"
-            style={{ transition: 'd 0.3s ease' }}
-          />
-          <path
-            d={isCelebrating ? 'M 28 19 Q 32 16 36 19' : 'M 28 20 Q 32 18 36 20'}
-            stroke="#1B3A6B" strokeWidth="1.5" strokeLinecap="round" fill="none"
-            style={{ transition: 'd 0.3s ease' }}
-          />
-
-          {/* Mouth */}
-          <path
-            d={
-              isCelebrating ? 'M 16 30 Q 25 40 34 30' :
-              isTalking     ? 'M 18 30 Q 25 38 32 30' :
-                              'M 18 30 Q 25 34 32 30'
-            }
-            stroke="#1B3A6B" strokeWidth="1.8" strokeLinecap="round" fill={isCelebrating ? '#FF6B6B' : isTalking ? '#FF9999' : 'none'}
-            style={{ transition: 'd 0.2s ease' }}
-          />
-
-          {/* Cheek blush */}
-          <ellipse cx="12" cy="28" rx="3.5" ry="2" fill="#FFB3C1" opacity="0.5" />
-          <ellipse cx="38" cy="28" rx="3.5" ry="2" fill="#FFB3C1" opacity="0.5" />
-
-          {/* Legs */}
-          <rect x="17" y="66" width="6" height="4" rx="2" fill="#1B3A6B" />
-          <rect x="27" y="66" width="6" height="4" rx="2" fill="#1B3A6B" />
-        </svg>
+        </div>
       </div>
     </div>
   );

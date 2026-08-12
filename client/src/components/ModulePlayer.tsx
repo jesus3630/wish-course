@@ -823,7 +823,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
         <div style={{ ...styles.slideCard, padding: isMobile ? '20px 16px' : (isTextOnly ? '48px 56px' : '40px 48px'), maxWidth: isTextOnly ? '820px' : undefined, margin: isTextOnly ? '0 auto' : undefined, textAlign: isTextOnly ? 'center' : undefined, opacity: slideVisible ? 1 : 0, transform: slideVisible ? 'translateY(0)' : 'translateY(12px)', transition: 'opacity 0.35s ease, transform 0.35s ease' }}>
           {/* Character inline top-right — hidden on mobile to avoid clipping */}
           {!isMobile && (
-            <div style={{ position: 'absolute', top: '-60px', right: '24px' }}>
+            <div style={{ position: 'absolute', top: '-42px', right: '24px' }}>
               <Character state={celebrating ? 'celebrating' : isPlaying ? 'talking' : 'idle'} />
             </div>
           )}
