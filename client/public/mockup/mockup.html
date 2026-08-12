@@ -5229,15 +5229,42 @@ function mailComposeHTML(p, toEmails) {
         <table style="border-spacing:0 8px;border-collapse:separate;margin-top:8px">
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;white-space:nowrap">From Email :</td><td><select class="form-select" id="${p}-from" style="width:200px"><option>--Select--</option><option>scheduler@protatech.com</option></select>${req}</td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">To Email :</td><td><textarea id="${p}-to" style="width:320px;height:56px;border:1px solid #999;font-size:12px">${toEmails}</textarea>${req}</td></tr>
-          <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox"> Add CC :</label></td></tr>
+          <tr><td></td><td><label style="font-size:12px;cursor:pointer"><input type="checkbox" id="${p}-cc-chk"> Add CC :</label></td></tr>
+          <tr id="${p}-cc-row" style="display:none"><td style="text-align:right;font-size:13px;padding-right:8px">CC :</td><td><textarea id="${p}-cc" style="width:320px;height:38px;border:1px solid #999;font-size:12px"></textarea></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px">Subject :</td><td><input class="form-input" id="${p}-subject" style="width:320px">${req}</td></tr>
-          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary">Choose File</button> <span style="font-size:12px;color:#555">No file chosen &nbsp;(pdf Files)</span></td></tr>
+          <tr><td style="text-align:right;font-size:13px;padding-right:8px">Attachment :</td><td><button class="btn btn-sm btn-secondary" id="${p}-attach">Choose File</button> <span style="font-size:12px;color:#555" id="${p}-attach-name">No file chosen &nbsp;(pdf Files)</span></td></tr>
           <tr><td style="text-align:right;font-size:13px;padding-right:8px;vertical-align:top">Message :</td><td>${toolbar}<textarea id="${p}-message" style="width:400px;height:120px;border:1px solid #999;border-top:none"></textarea>${req}</td></tr>
         </table>
-        <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox"> Include ESS link</label></div>
+        <div style="margin-left:92px;font-size:12px"><label style="cursor:pointer"><input type="checkbox" id="${p}-ess"> Include ESS link</label></div>
         <div style="margin:10px 0 0 92px"><button class="btn" id="${p}-compose-send">Send</button><button class="btn btn-secondary">Cancel</button></div>
       </div>
     </div>`;
+}
+
+// Guided steps for the compose window, shared by all three Mail By tools so every
+// field on the screen gets taught the same way — CC and Include ESS link included,
+// not skipped past. `p` is the screen prefix (mbe / mba / mbj).
+function composeSteps(p, opts) {
+  const g = id => document.getElementById(p + id);
+  return [
+    { selector: `#${p}-from`, prompt: opts.fromPrompt,
+      onConfirm: () => { g('-from').value = 'scheduler@protatech.com'; }},
+    { selector: `#${p}-cc-chk`,
+      prompt: 'Check "Add CC" when someone outside the recipient list needs a copy — a supervisor or the account manager. Leave it unchecked if nobody else needs it',
+      onConfirm: () => { g('-cc-chk').checked = true; g('-cc-row').style.display = ''; }},
+    { selector: `#${p}-cc`, type: 'supervisor@protatech.com',
+      prompt: 'Type the CC address. Separate multiple addresses with commas — CC recipients see the message but are not part of the employee list' },
+    { selector: `#${p}-subject`, prompt: 'Enter a Subject. This field is marked with a red asterisk, so WISH will not send without it', type: opts.subject },
+    { selector: `#${p}-attach`, skipClick: true,
+      prompt: 'Attachment takes PDF files only — use it for schedules, post orders, or parking maps. Leave it empty if there is nothing to attach' },
+    { selector: `#${p}-message`, prompt: opts.messagePrompt, type: opts.message },
+    { selector: `#${p}-ess`,
+      prompt: 'Check "Include ESS link" to add a link to Employee Self Service at the bottom of the email, so employees can open their schedule directly',
+      onConfirm: () => { g('-ess').checked = true; }},
+    { selector: `#${p}-compose-send`, prompt: opts.sendPrompt,
+      onConfirm: () => { g('-compose').style.display = 'none'; g('-msg').classList.add('show'); }},
+    { selector: `#${p}-msg`, prompt: opts.donePrompt, skipClick: true },
+  ];
 }
 
 function mailByEmployeeHTML() {
@@ -5313,13 +5340,14 @@ function slide_mail_by_3() {
       onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'flex'; }},
     { selector: '#mbe-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
       onConfirm: () => { document.getElementById('mbe-confirm').style.display = 'none'; document.getElementById('mbe-compose').style.display = 'flex'; }},
-    { selector: '#mbe-from', prompt: 'The compose window opens with your selected employees already in "To Email". Pick the From Email address',
-      onConfirm: () => { document.getElementById('mbe-from').value = 'scheduler@protatech.com'; }},
-    { selector: '#mbe-subject', prompt: 'Enter a Subject', type: 'Your Schedule for Next Week' },
-    { selector: '#mbe-message', prompt: 'Type your message. You can attach a PDF and toggle "Include ESS link" if needed', type: 'Hi team, your schedule for next week is attached. Please confirm your shifts.' },
-    { selector: '#mbe-compose-send', prompt: 'Click "Send" to deliver the message',
-      onConfirm: () => { document.getElementById('mbe-compose').style.display = 'none'; document.getElementById('mbe-msg').classList.add('show'); }},
-    { selector: '#mbe-msg', prompt: 'The message is sent to everyone in your selection', skipClick: true },
+    ...composeSteps('mbe', {
+      fromPrompt: 'The compose window opens with your selected employees already in "To Email". Pick the From Email address',
+      subject: 'Your Schedule for Next Week',
+      messagePrompt: 'Type your message',
+      message: 'Hi team, your schedule for next week is attached. Please confirm your shifts.',
+      sendPrompt: 'Click "Send" to deliver the message',
+      donePrompt: 'The message is sent to everyone in your selection',
+    }),
   ]);
 }
 
@@ -5379,13 +5407,14 @@ function slide_mail_by_4() {
       onConfirm: () => { document.getElementById('mba-confirm').style.display = 'flex'; }},
     { selector: '#mba-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
       onConfirm: () => { document.getElementById('mba-confirm').style.display = 'none'; document.getElementById('mba-compose').style.display = 'flex'; }},
-    { selector: '#mba-from', prompt: 'The compose window opens with every available employee in "To Email". Pick the From Email',
-      onConfirm: () => { document.getElementById('mba-from').value = 'scheduler@protatech.com'; }},
-    { selector: '#mba-subject', prompt: 'Enter a Subject', type: 'Open Shifts This Weekend' },
-    { selector: '#mba-message', prompt: 'Type your message', type: 'We have open shifts this weekend. Reply if you are available to pick any up.' },
-    { selector: '#mba-compose-send', prompt: 'Click "Send"',
-      onConfirm: () => { document.getElementById('mba-compose').style.display = 'none'; document.getElementById('mba-msg').classList.add('show'); }},
-    { selector: '#mba-msg', prompt: 'The message goes out to all available employees you selected', skipClick: true },
+    ...composeSteps('mba', {
+      fromPrompt: 'The compose window opens with every available employee in "To Email". Pick the From Email',
+      subject: 'Open Shifts This Weekend',
+      messagePrompt: 'Type your message',
+      message: 'We have open shifts this weekend. Reply if you are available to pick any up.',
+      sendPrompt: 'Click "Send"',
+      donePrompt: 'The message goes out to all available employees you selected',
+    }),
   ]);
 }
 
@@ -5456,13 +5485,14 @@ function slide_mail_by_5() {
       onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'flex'; }},
     { selector: '#mbj-confirm-ok', prompt: 'WISH asks you to confirm. Click "OK"',
       onConfirm: () => { document.getElementById('mbj-confirm').style.display = 'none'; document.getElementById('mbj-compose').style.display = 'flex'; }},
-    { selector: '#mbj-from', prompt: 'The compose window opens with the whole scheduled crew already in "To Email". Pick the From Email',
-      onConfirm: () => { document.getElementById('mbj-from').value = 'scheduler@protatech.com'; }},
-    { selector: '#mbj-subject', prompt: 'Enter a Subject', type: 'Call Time & Parking - Special Ops Training' },
-    { selector: '#mbj-message', prompt: 'Type your message — call time, where to park, what to wear, etc.', type: 'Reminder: report at your call time, park in Lot C, wear all black. See you there.' },
-    { selector: '#mbj-compose-send', prompt: 'Click "Send" — every employee scheduled on the job gets the message at once',
-      onConfirm: () => { document.getElementById('mbj-compose').style.display = 'none'; document.getElementById('mbj-msg').classList.add('show'); }},
-    { selector: '#mbj-msg', prompt: 'The whole event crew receives the message simultaneously — the fastest way to reach everyone on a job', skipClick: true },
+    ...composeSteps('mbj', {
+      fromPrompt: 'The compose window opens with the whole scheduled crew already in "To Email". Pick the From Email',
+      subject: 'Call Time & Parking - Special Ops Training',
+      messagePrompt: 'Type your message — call time, where to park, what to wear, etc.',
+      message: 'Reminder: report at your call time, park in Lot C, wear all black. See you there.',
+      sendPrompt: 'Click "Send" — every employee scheduled on the job gets the message at once',
+      donePrompt: 'The whole event crew receives the message simultaneously — the fastest way to reach everyone on a job',
+    }),
   ]);
 }
 
