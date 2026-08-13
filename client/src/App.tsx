@@ -151,6 +151,9 @@ export default function App() {
     ? modules.filter(m => progress.assigned_modules!.includes(m.id))
     : modules;
 
+  // One continuous training: finishing a section rolls straight into the next one
+  // rather than bouncing back to a menu. The learner only leaves the player when
+  // the whole course is done — or when they choose to step out.
   function handleModuleComplete(updated: CourseProgress) {
     saveProgress(updated);
     setProgress(updated);
@@ -158,6 +161,13 @@ export default function App() {
     const allComplete = assignedMods.every(m => updated.modules[m.id]?.completed === true);
     if (allComplete) {
       setShowCertificate(true);
+      return;
+    }
+    const next = activeModuleIndex + 1;
+    if (next < visibleModules.length) {
+      setActiveModuleIndex(next);
+      setJumpSlide(0);
+      setView('module');
     } else {
       setView('dashboard');
     }

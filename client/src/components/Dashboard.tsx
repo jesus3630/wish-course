@@ -86,6 +86,22 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
 
   const circumference = 2 * Math.PI * 34;
 
+  // One continuous training: find the point the learner has reached, so the page
+  // offers a single "carry on" rather than asking them to choose from a menu.
+  const resumeIndex = (() => {
+    const started = modules.findIndex(m => {
+      const mp = getModuleProgress(progress, m.id);
+      return mp.started && !mp.completed;
+    });
+    if (started !== -1) return started;
+    const firstUnfinished = modules.findIndex(m => !getModuleProgress(progress, m.id).completed);
+    return firstUnfinished === -1 ? 0 : firstUnfinished;
+  })();
+  const resumeModule = modules[resumeIndex];
+  const resumeProgress = resumeModule ? getModuleProgress(progress, resumeModule.id) : null;
+  const hasStarted = modules.some(m => getModuleProgress(progress, m.id).started);
+  const allDone = overall === 100;
+
   return (
     <div style={styles.page}>
       {/* Header */}
@@ -107,7 +123,7 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
           <div style={styles.overviewLeft}>
             <h2 style={{ ...styles.overviewTitle, fontSize: isMobile ? '18px' : '22px' }}>Training Progress</h2>
             <p style={styles.overviewSub}>
-              {Object.values(progress.modules).filter(m => m.completed).length} of {modules.length} modules completed
+              {Object.values(progress.modules).filter(m => m.completed).length} of {modules.length} parts completed
             </p>
           </div>
           <div style={{ ...styles.overviewRight, alignSelf: isMobile ? 'flex-end' : 'auto', marginTop: isMobile ? '-48px' : '0' }}>
@@ -166,8 +182,45 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
           )}
         </div>
 
-        {/* Module grid */}
-        <h3 style={styles.sectionTitle}>Training Modules</h3>
+        {/* One continuous training — a single way in, not a menu to choose from */}
+        {!allDone && (
+          <div
+            onClick={() => onStartModule(resumeIndex, hasStarted ? (resumeProgress?.last_slide ?? 0) : 0)}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px',
+              flexWrap: 'wrap', background: '#1B3A6B', borderRadius: '12px',
+              padding: isMobile ? '18px' : '22px 26px', margin: '8px 0 18px', cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(27,58,107,0.22)',
+            }}
+          >
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.09em', textTransform: 'uppercase', color: '#9DB8DC' }}>
+                {hasStarted ? 'Pick up where you left off' : 'Your WISH training'}
+              </div>
+              <div style={{ fontSize: isMobile ? '18px' : '21px', fontWeight: 800, color: '#fff', marginTop: '5px', lineHeight: 1.25 }}>
+                {hasStarted
+                  ? `Part ${resumeIndex + 1} — ${resumeModule?.name}`
+                  : 'Start the training'}
+              </div>
+              <div style={{ fontSize: '13px', color: '#C6D8EE', marginTop: '5px', lineHeight: 1.5 }}>
+                One training, start to finish — {modules.length} parts covering every part of WISH.
+                Where a screen changes with your access level, it is pointed out as you go.
+              </div>
+            </div>
+            <button
+              onClick={(e) => { e.stopPropagation(); onStartModule(resumeIndex, hasStarted ? (resumeProgress?.last_slide ?? 0) : 0); }}
+              style={{
+                background: '#D4782A', color: '#fff', border: 'none', borderRadius: '8px',
+                padding: '13px 26px', fontSize: '15px', fontWeight: 700, cursor: 'pointer', flexShrink: 0,
+              }}
+            >
+              {hasStarted ? 'Continue →' : 'Begin →'}
+            </button>
+          </div>
+        )}
+
+        {/* Contents — what the training covers, in order */}
+        <h3 style={styles.sectionTitle}>What the training covers</h3>
         <div style={{ ...styles.grid, gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fill, minmax(280px, 1fr))' }}>
           {modules.map((mod, index) => {
             const status = getModuleStatus(index);
@@ -188,7 +241,7 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
               >
                 <div style={styles.moduleHeader}>
                   <span style={{ ...styles.moduleNumber, color: cfg.color }}>
-                    Module {index + 1}
+                    Part {index + 1} of {modules.length}
                   </span>
                   <span style={{ ...styles.statusBadge, color: cfg.color, borderColor: cfg.color }}>
                     {cfg.icon} {cfg.label}

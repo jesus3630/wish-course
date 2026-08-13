@@ -187,7 +187,7 @@ async function initDB() {
     // otherwise a card added in JSON renders locally but never reaches the live DB. slide_number
     // is structural (position), so it comes from JSON too — otherwise renumbering after an insert
     // wouldn't propagate.
-    const SLIDE_FIELDS_FROM_JSON = ['slide_number', 'simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'image_below_highlight', 'image_below_2_highlight', 'video_start', 'video_end', 'wish_logo_card', 'acronym_card', 'hierarchy_card', 'menu_card', 'completion_card', 'next_steps_card'];
+    const SLIDE_FIELDS_FROM_JSON = ['slide_number', 'simulation_url', 'screenshot', 'screenshot_below', 'image_below', 'image_below_2', 'image_below_caption', 'image_below_2_caption', 'image_below_highlight', 'image_below_2_highlight', 'video_start', 'video_end', 'wish_logo_card', 'acronym_card', 'hierarchy_card', 'menu_card', 'completion_card', 'next_steps_card', 'access_note'];
     const merged = jsonCourseData.map(jsonMod => {
       const dbMod = dbMap.get(jsonMod.id);
       if (!dbMod) return jsonMod; // new module — use JSON fully
