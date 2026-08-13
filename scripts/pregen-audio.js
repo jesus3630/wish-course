@@ -21,6 +21,7 @@ const crypto = require('crypto');
 
 const API_KEY  = process.env.ELEVENLABS_API_KEY;
 const VOICE_ID = process.env.ELEVENLABS_VOICE_ID || 'EXAVITQu4vr4xnSDxMaL';
+const { voiceForModule } = require('../server/voices');
 const OUTPUT   = path.join(__dirname, '../client/public/audio');
 const DATA_FILE = path.join(__dirname, '../course_data.json');
 
@@ -45,8 +46,12 @@ if (MOD_ONLY && modules.length === 0) {
   process.exit(1);
 }
 
-function textHash(text) {
-  return crypto.createHash('sha256').update(text).digest('hex');
+// Must match the browser's lookup exactly: the narrator is part of the filename,
+// so the same sentence read by two different voices produces two different files.
+function textHash(text, voiceId) {
+  return crypto.createHash('sha256')
+    .update(voiceId ? `${voiceId}:${text}` : text)
+    .digest('hex');
 }
 
 function sleep(ms) {
@@ -90,7 +95,7 @@ function stripBulletsForTts(text) {
     .trim();
 }
 
-function callElevenLabs(text) {
+function callElevenLabs(text, voiceId) {
   return new Promise((resolve, reject) => {
     const ttsText = stripBulletsForTts(text);
     const body = JSON.stringify({
@@ -101,7 +106,7 @@ function callElevenLabs(text) {
 
     const options = {
       hostname: 'api.elevenlabs.io',
-      path: `/v1/text-to-speech/${VOICE_ID}/with-timestamps`,
+      path: `/v1/text-to-speech/${voiceId}/with-timestamps`,
       method: 'POST',
       headers: {
         'xi-api-key': API_KEY,
@@ -169,16 +174,22 @@ async function main() {
   let count = 0, generated = 0, skipped = 0, errors = 0, charsSent = 0;
 
   for (const mod of modules) {
+    // Which narrator reads this chapter. The index is the module's position in the
+    // FULL course, not the filtered subset, so --module regenerates in the same
+    // voice the learner would otherwise hear.
+    const voice = voiceForModule(mod.id, courseData.findIndex(m => m.id === mod.id));
+    console.log(`\n── ${mod.id} — narrated by ${voice.name} (${voice.note})`);
+
     for (let i = 0; i < mod.slides.length; i++) {
       const slide = mod.slides[i];
       if (!slide.text?.trim()) continue;
 
       count++;
       const text     = slide.text.trim();
-      const hash     = textHash(text);
+      const hash     = textHash(text, voice.id);
       const mp3Path  = path.join(OUTPUT, `${hash}.mp3`);
       const jsonPath = path.join(OUTPUT, `${hash}.json`);
-      const label    = `[${String(count).padStart(3)}/${total}]  ${mod.id} › slide ${i}`;
+      const label    = `[${String(count).padStart(3)}/${total}]  ${mod.id} › slide ${i} (${voice.name})`;
 
       try {
         if (fs.statSync(mp3Path).size > 1000) {
@@ -190,7 +201,7 @@ async function main() {
 
       process.stdout.write(`GEN   ${label}  (${hash.slice(0, 8)}…) ...`);
       try {
-        const { audio_base64, timings } = await callElevenLabs(text);
+        const { audio_base64, timings } = await callElevenLabs(text, voice.id);
 
         fs.writeFileSync(mp3Path, Buffer.from(audio_base64, 'base64'));
         fs.writeFileSync(jsonPath, JSON.stringify(timings, null, 2));

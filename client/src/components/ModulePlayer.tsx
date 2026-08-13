@@ -451,21 +451,32 @@ export default function ModulePlayer({
     if (!text) return Promise.resolve(null);
 
     const promise = (async (): Promise<PrefetchEntry | null> => {
-      // Try pre-generated static file first (named by text hash — auto-invalidates on edit)
-      try {
-        const hash = await textHash(text);
-        const tr   = await fetch(`/audio/${hash}.json`);
-        if (tr.ok) {
-          return { url: `/audio/${hash}.mp3`, timings: await tr.json() };
-        }
-      } catch {}
+      // Pre-generated narration, named by a hash that covers BOTH the narrator and
+      // the text. Two chapters can hold the same sentence in different voices, so
+      // the voice has to be part of the filename or they collide.
+      //
+      // The plain text-only hash is tried second: every file generated before the
+      // rotation existed is named that way, so old audio keeps playing until it is
+      // regenerated rather than falling through to a paid API call.
+      const voiceId = (module as any)?.voice_id as string | undefined;
+      const candidates = voiceId
+        ? [await textHash(`${voiceId}:${text}`), await textHash(text)]
+        : [await textHash(text)];
+      for (const hash of candidates) {
+        try {
+          const tr = await fetch(`/audio/${hash}.json`);
+          if (tr.ok) {
+            return { url: `/audio/${hash}.mp3`, timings: await tr.json() };
+          }
+        } catch {}
+      }
 
       // Fall back to ElevenLabs API
       try {
         const r = await fetch('/api/narrate', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text }),
+          body: JSON.stringify({ text, voiceId: (module as any)?.voice_id }),
         });
         if (!r.ok) throw new Error();
         const { audio: b64, timings } = await r.json();

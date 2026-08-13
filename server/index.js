@@ -12,6 +12,8 @@ const crypto = require('crypto');
 const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = require('./email');
 const agent = require('./agent');
 const { ExamBlueprint, ExamAttempt, ExamRepository, LearnerExamHistory } = require('./exam');
+const { voiceForModule, allVoices } = require('./voices');
+const VOICE_ROTATION_ON = (process.env.VOICE_ROTATION || '').toLowerCase() === 'on';
 
 const app = express();
 app.set('trust proxy', 1); // Required for express-rate-limit behind Railway's proxy
@@ -293,11 +295,16 @@ async function setQuizData(data) {
 }
 
 // ─── Narration cache helpers ──────────────────────────────────────────────────
-function narrationHash(text) {
-  return crypto.createHash('sha256').update(`${VOICE_ID}:${text}`).digest('hex');
+function narrationHash(text, voiceId) {
+  return crypto.createHash('sha256').update(`${voiceId || VOICE_ID}:${text}`).digest('hex');
 }
-function clientHash(text) {
-  return crypto.createHash('sha256').update(text).digest('hex');
+// What the browser looks for under /audio/. With one narrator this was the text
+// alone; with a rotation the voice has to be in it, or two chapters sharing a
+// sentence would collide on one file.
+function clientHash(text, voiceId) {
+  return crypto.createHash('sha256')
+    .update(voiceId ? `${voiceId}:${text}` : text)
+    .digest('hex');
 }
 async function getCachedNarration(hash) {
   const r = await pool.query('SELECT audio, timings FROM narration_cache WHERE text_hash = $1', [hash]);
@@ -382,6 +389,19 @@ app.get(['/api/course', '/api/course-v2'], async (req, res) => {
       const ids = visibleModules.split(',').map(s => s.trim());
       data = data.filter(m => ids.includes(m.id));
       console.log('[course] after filter, length:', data.length);
+    }
+    // Tell the client which narrator reads each chapter. The player needs it to
+    // find the right pre-generated audio, since the filename hash covers the voice.
+    //
+    // Off until the rotation audio has actually been generated: with it on and the
+    // files missing, any slide without pre-generated narration would be read by its
+    // chapter's new narrator while every neighbouring slide still played the old one.
+    // Set VOICE_ROTATION=on in the same change that ships the generated audio.
+    if (VOICE_ROTATION_ON && Array.isArray(data)) {
+      data = data.map((m, i) => {
+        const v = voiceForModule(m.id, i);
+        return { ...m, voice_id: v.id, voice_name: v.name };
+      });
     }
     res.json(data);
   } catch (e) {
@@ -911,20 +931,21 @@ app.post('/api/tutor/ask', tutorLimit, async (req, res) => {
 });
 
 app.post('/api/narrate', narrateLimit, async (req, res) => {
-  const { text } = req.body;
+  const { text, voiceId } = req.body;
+  const narratorId = voiceId || VOICE_ID;
   if (!text) return res.status(400).json({ error: 'No text provided' });
   if (!ELEVENLABS_API_KEY) {
     return res.status(503).json({ error: 'ElevenLabs API key not configured' });
   }
 
   const trimmedText = text.substring(0, 5000);
-  const hash = narrationHash(trimmedText);
+  const hash = narrationHash(trimmedText, narratorId);
 
   // Serve from cache if available — avoids hitting ElevenLabs for repeated requests
   const cached = await getCachedNarration(hash);
   if (cached) {
     // Also ensure client_timings is populated (for /audio/{hash}.json route)
-    setClientTimings(clientHash(trimmedText), cached.timings);
+    setClientTimings(clientHash(trimmedText, voiceId), cached.timings);
     return res.json({ audio: cached.audio, timings: cached.timings });
   }
 
@@ -936,7 +957,7 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
 
   const options = {
     hostname: 'api.elevenlabs.io',
-    path: `/v1/text-to-speech/${VOICE_ID}/with-timestamps`,
+    path: `/v1/text-to-speech/${narratorId}/with-timestamps`,
     method: 'POST',
     headers: {
       'xi-api-key': ELEVENLABS_API_KEY,
@@ -978,7 +999,7 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
         if (word.trim()) timings.push({ word: word.trim(), start: wordStart, end: ends[ends.length - 1] });
 
         setCachedNarration(hash, data.audio_base64, timings).catch(() => {});
-        setClientTimings(clientHash(trimmedText), timings); // also store by client hash for /audio/{hash}.json fallback
+        setClientTimings(clientHash(trimmedText, voiceId), timings); // also store by client hash for /audio/{hash}.json fallback
         res.json({ audio: data.audio_base64, timings });
       } catch (e) {
         console.error('Failed to parse ElevenLabs response:', e);
