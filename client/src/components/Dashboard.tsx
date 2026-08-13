@@ -10,9 +10,10 @@ interface Props {
   onStartModule: (index: number, slide?: number) => void;
   onLogout: () => void;
   onViewCertificate: () => void;
+  onStartExam: () => void;
 }
 
-export default function Dashboard({ modules, progress, onStartModule, onLogout, onViewCertificate }: Props) {
+export default function Dashboard({ modules, progress, onStartModule, onLogout, onViewCertificate, onStartExam }: Props) {
   const overall = getOverallCompletion(progress, modules.length);
   const [animatedPct, setAnimatedPct] = useState(0);
   const confettiFiredRef = useRef(false);
@@ -224,6 +225,35 @@ export default function Dashboard({ modules, progress, onStartModule, onLogout, 
               </div>
             );
           })}
+        </div>
+
+        {/* One exam for the whole course — a single attempt, marked at the end. */}
+        <div
+          onClick={onStartExam}
+          style={{
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '16px',
+            flexWrap: 'wrap', background: '#FFF7ED', border: '2px solid #D4782A',
+            borderRadius: '12px', padding: '18px 22px', margin: '8px 0 20px', cursor: 'pointer',
+          }}
+        >
+          <div>
+            <div style={{ fontSize: '17px', fontWeight: 800, color: '#1B3A6B' }}>
+              WISH Certification Exam
+            </div>
+            <div style={{ fontSize: '13.5px', color: '#92400E', marginTop: '4px', lineHeight: 1.5 }}>
+              25 questions covering the whole course · one attempt per sitting · 70% to pass.
+              {overall < 100 && ' Finish the training first — you can take it whenever you are ready.'}
+            </div>
+          </div>
+          <button
+            onClick={(e) => { e.stopPropagation(); onStartExam(); }}
+            style={{
+              background: '#D4782A', color: '#fff', border: 'none', borderRadius: '8px',
+              padding: '11px 22px', fontSize: '14px', fontWeight: 700, cursor: 'pointer', flexShrink: 0,
+            }}
+          >
+            Take the exam
+          </button>
         </div>
 
         {overall < 100 && (

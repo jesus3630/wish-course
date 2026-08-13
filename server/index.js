@@ -11,6 +11,7 @@ const multer = require('multer');
 const crypto = require('crypto');
 const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = require('./email');
 const agent = require('./agent');
+const { ExamBlueprint, ExamAttempt, ExamRepository, LearnerExamHistory } = require('./exam');
 
 const app = express();
 app.set('trust proxy', 1); // Required for express-rate-limit behind Railway's proxy
@@ -995,6 +996,131 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
   elReq.end();
 });
 
+// ─── Final exam ───────────────────────────────────────────────────────────────
+// One exam for the whole course. A sitting is one pass — every question answered
+// once, marked on the server, 70% to pass. The rules live in server/exam.js; the
+// routes below only translate HTTP into those objects and back.
+const examBlueprint = new ExamBlueprint({
+  questionCount: parseInt(process.env.EXAM_QUESTION_COUNT || '25', 10),
+  passMark: parseInt(process.env.EXAM_PASS_MARK || '70', 10),
+});
+const examRepo = new ExamRepository(pool);
+
+// The chapters worth going back to, worst first. Returns at most `limit` of them
+// plus how many more were missed, so the advice stays usable when a learner has
+// missed something almost everywhere.
+function rankWeakModules(answers, limit) {
+  const missed = new Map();
+  for (const a of answers) {
+    if (a.correct) continue;
+    missed.set(a.module_id, (missed.get(a.module_id) || 0) + 1);
+  }
+  const ranked = [...missed.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([id, misses]) => ({ id, misses }));
+  return { top: ranked.slice(0, limit), moreCount: Math.max(0, ranked.length - limit) };
+}
+
+// Start a sitting. Returns the paper WITHOUT the answer key — the learner's copy
+// never contains correct_index, so the answers can't be read out of the network tab.
+app.post('/api/exam/start', async (req, res) => {
+  const { email, name } = req.body || {};
+  if (!email) return res.status(400).json({ error: 'Missing email' });
+  try {
+    const bank = await getQuizData();
+    const questions = examBlueprint.drawQuestions(bank || {});
+    if (questions.length < examBlueprint.minQuestions) {
+      return res.status(503).json({ error: 'Not enough questions available to set an exam' });
+    }
+    const attemptNo = (await examRepo.attemptCount(email)) + 1;
+    const attempt = new ExamAttempt({ email, name, questions, attemptNo });
+    examRepo.holdOpen(attempt);
+    res.json({
+      attemptId: attempt.id,
+      attemptNo,
+      passMark: examBlueprint.passMark,
+      questions: attempt.questionsForLearner(),
+    });
+  } catch (e) {
+    console.error('[exam] start failed:', e.message);
+    res.status(500).json({ error: 'Could not start the exam' });
+  }
+});
+
+// Submit a sitting. The paper is collected on submit, so the same one can never
+// be marked twice — that is what makes "one chance" real rather than intended.
+app.post('/api/exam/submit', async (req, res) => {
+  const { attemptId, answers } = req.body || {};
+  if (!attemptId) return res.status(400).json({ error: 'Missing attemptId' });
+  const attempt = examRepo.takeOpen(attemptId);
+  if (!attempt) {
+    return res.status(409).json({ error: 'This exam has already been submitted, or the session expired. Start a new attempt.' });
+  }
+  try {
+    const result = attempt.mark(answers, examBlueprint);
+    await examRepo.save(result);
+    res.json({
+      attemptNo: result.attemptNo,
+      score: result.score,
+      correct: result.correct,
+      total: result.total,
+      passed: result.passed,
+      perfect: result.perfect,
+      unanswered: result.unanswered,
+      passMark: examBlueprint.passMark,
+      // Which chapters to revisit — not which option was right, so retakes stay honest.
+      // Ranked by how many were missed and capped: a learner who scores badly misses
+      // something in nearly every chapter, and a list of all 23 is no guidance at all.
+      weakModules: rankWeakModules(result.answers, 6),
+    });
+  } catch (e) {
+    console.error('[exam] submit failed:', e.message);
+    res.status(500).json({ error: 'Could not mark the exam' });
+  }
+});
+
+// One person's exam record.
+app.get('/api/exam/history/:email', async (req, res) => {
+  try {
+    const rows = await examRepo.attemptsFor(req.params.email);
+    const history = new LearnerExamHistory(req.params.email, '', rows);
+    res.json({ ...history.toJSON(), attempts: rows });
+  } catch (e) {
+    res.status(500).json({ error: 'Could not load exam history' });
+  }
+});
+
+// Admin: every learner's exam record, including how many attempts it took to
+// reach 100% — the number the CEO asked to be able to look back on.
+app.get('/api/admin/exam-results', adminAuth, async (req, res) => {
+  try {
+    const [rows, difficulty] = await Promise.all([
+      examRepo.allAttempts(),
+      examRepo.questionDifficulty(),
+    ]);
+    const learners = LearnerExamHistory.fromRows(rows).map(h => h.toJSON());
+    const perfect = learners.filter(l => l.attemptsToPerfect !== null);
+    res.json({
+      passMark: examBlueprint.passMark,
+      questionCount: examBlueprint.questionCount,
+      learners: learners.sort((a, b) => b.totalAttempts - a.totalAttempts),
+      summary: {
+        learnersAttempted: learners.length,
+        learnersPassed: learners.filter(l => l.hasPassed).length,
+        learnersPerfect: perfect.length,
+        totalAttempts: learners.reduce((n, l) => n + l.totalAttempts, 0),
+        averageAttemptsToPerfect: perfect.length
+          ? Math.round((perfect.reduce((n, l) => n + l.attemptsToPerfect, 0) / perfect.length) * 10) / 10
+          : null,
+      },
+      hardestQuestions: difficulty.slice(0, 15),
+    });
+  } catch (e) {
+    console.error('[exam] results failed:', e.message);
+    res.status(500).json({ error: 'Could not load exam results' });
+  }
+});
+
 // ─── Progress tracking ────────────────────────────────────────────────────────
 app.post('/api/progress', async (req, res) => {
   const { email, progress } = req.body;
@@ -1179,6 +1305,7 @@ app.listen(PORT, () => {
 async function bootWithRetry(attempt = 1) {
   try {
     await initDB();
+    await examRepo.init();
     console.log('[boot] DB init complete');
     agent.start(pool);
     require('./scheduler').start(pool);

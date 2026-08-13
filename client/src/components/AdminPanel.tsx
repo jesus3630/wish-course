@@ -682,7 +682,9 @@ export default function AdminPanel() {
   const [historyLoading, setHistoryLoading] = useState(false);
   const [restoring, setRestoring] = useState<string | null>(null);
 
-  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap' | 'analytics' | 'tutor'>('content');
+  const [adminView, setAdminView] = useState<'content' | 'users' | 'roster' | 'recap' | 'exam' | 'analytics' | 'tutor'>('content');
+  const [exam, setExam] = useState<any>(null);
+  const [examLoading, setExamLoading] = useState(false);
   const [users, setUsers] = useState<UserEntry[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
   const [analytics, setAnalytics] = useState<any[]>([]);
@@ -730,6 +732,15 @@ export default function AdminPanel() {
       if (res.ok) setUsers(await res.json());
     } catch {}
     setUsersLoading(false);
+  }
+
+  async function loadExam() {
+    setExamLoading(true);
+    try {
+      const res = await fetch('/api/admin/exam-results', { headers: { Authorization: `Bearer ${token}` } });
+      if (res.ok) setExam(await res.json());
+    } catch { /* leave the previous view in place */ }
+    setExamLoading(false);
   }
 
   async function loadAnalytics() {
@@ -1154,13 +1165,14 @@ export default function AdminPanel() {
         <div style={{ width: '260px', background: C.white, borderRight: `1px solid ${C.border}`, display: 'flex', flexDirection: 'column', flexShrink: 0 }}>
           {/* Top-level nav */}
           <div style={{ display: 'flex', borderBottom: `1px solid ${C.border}` }}>
-            {(['content', 'users', 'roster', 'recap', 'analytics', 'tutor'] as const).map(v => (
+            {(['content', 'users', 'roster', 'recap', 'exam', 'analytics', 'tutor'] as const).map(v => (
               <button
                 key={v}
                 onClick={() => {
                   setAdminView(v);
                   if (v === 'users') loadUsers();
                   if (v === 'roster') loadRoster();
+                  if (v === 'exam') loadExam();
                   if (v === 'analytics') loadAnalytics();
                   if (v === 'tutor') loadTutor();
                 }}
@@ -1245,6 +1257,102 @@ export default function AdminPanel() {
                   </div>
                 );
               })}
+            </div>
+          )}
+
+          {/* Final exam results — attempts, and how many it took to reach 100% */}
+          {adminView === 'exam' && (
+            <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
+              <div style={{ background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: '8px', padding: '10px 12px', marginBottom: '12px', fontSize: '11px', color: '#92400E', lineHeight: '1.5' }}>
+                <strong>Final exam record.</strong> One exam for the whole course, {exam?.questionCount ?? 25} questions,
+                one attempt per sitting, {exam?.passMark ?? 70}% to pass. Every sitting is kept, so you can see how many
+                attempts each person needed to reach 100%.
+              </div>
+
+              {examLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
+              {!examLoading && exam && exam.learners.length === 0 && (
+                <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Nobody has sat the exam yet.</div>
+              )}
+
+              {!examLoading && exam && exam.learners.length > 0 && (
+                <>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '8px', marginBottom: '12px' }}>
+                    {[
+                      { k: 'Sat the exam', v: exam.summary.learnersAttempted },
+                      { k: 'Passed', v: exam.summary.learnersPassed },
+                      { k: 'Reached 100%', v: exam.summary.learnersPerfect },
+                      { k: 'Avg attempts to 100%', v: exam.summary.averageAttemptsToPerfect ?? '—' },
+                    ].map(s2 => (
+                      <div key={s2.k} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 12px' }}>
+                        <div style={{ fontSize: '20px', fontWeight: 800, color: C.navy, lineHeight: 1 }}>{s2.v}</div>
+                        <div style={{ fontSize: '10px', color: C.gray, marginTop: '4px' }}>{s2.k}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {exam.learners.map((l: any) => (
+                    <div key={l.email} style={{
+                      background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px',
+                      padding: '12px', marginBottom: '8px',
+                      borderLeft: `4px solid ${l.attemptsToPerfect ? C.green : l.hasPassed ? C.orange : '#EF4444'}`,
+                    }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
+                        <div>
+                          <div style={{ fontWeight: 700, fontSize: '13px', color: C.navy }}>{l.name || l.email}</div>
+                          <div style={{ fontSize: '11px', color: C.gray }}>{l.email}</div>
+                        </div>
+                        <div style={{ textAlign: 'right' }}>
+                          <div style={{ fontSize: '11px', fontWeight: 700, color: l.hasPassed ? C.green : '#EF4444' }}>
+                            {l.hasPassed ? 'Passed' : 'Not passed'} · best {l.bestScore}%
+                          </div>
+                          <div style={{ fontSize: '10px', color: C.gray }}>
+                            {l.totalAttempts} attempt{l.totalAttempts === 1 ? '' : 's'}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div style={{ fontSize: '11px', color: C.navy, marginTop: '8px', fontWeight: 600 }}>
+                        {l.attemptsToPerfect
+                          ? `Scored 100% on attempt ${l.attemptsToPerfect}`
+                          : l.hasPassed
+                            ? `Passed on attempt ${l.attemptsToPass} — has not reached 100% yet`
+                            : 'Has not passed yet'}
+                      </div>
+
+                      {/* every sitting, in order */}
+                      <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '8px' }}>
+                        {l.scores.map((sc: number, i: number) => (
+                          <span key={i} title={`Attempt ${i + 1}`} style={{
+                            fontSize: '10px', fontWeight: 700, padding: '2px 7px', borderRadius: '10px',
+                            background: sc >= 100 ? '#ECFDF5' : sc >= (exam.passMark || 70) ? '#FFF7ED' : '#FEF2F2',
+                            color: sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? '#92400E' : '#DC2626',
+                            border: `1px solid ${sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? C.orange : '#FCA5A5'}`,
+                          }}>{sc}%</span>
+                        ))}
+                      </div>
+                      <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
+                        Last sat: {l.lastAttemptAt ? new Date(l.lastAttemptAt).toLocaleDateString() : '—'}
+                      </div>
+                    </div>
+                  ))}
+
+                  {exam.hardestQuestions?.length > 0 && (
+                    <>
+                      <div style={{ fontSize: '11px', fontWeight: 700, color: C.navy, textTransform: 'uppercase', letterSpacing: '0.5px', margin: '16px 0 8px' }}>
+                        Hardest exam questions
+                      </div>
+                      {exam.hardestQuestions.map((q: any) => (
+                        <div key={q.id} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 12px', marginBottom: '6px' }}>
+                          <div style={{ fontSize: '12px', color: C.navy, lineHeight: 1.4 }}>{q.question}</div>
+                          <div style={{ fontSize: '10px', color: C.gray, marginTop: '4px' }}>
+                            {q.module_id} · answered right {q.passRate}% of the time ({q.correct}/{q.asked})
+                          </div>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </>
+              )}
             </div>
           )}
 

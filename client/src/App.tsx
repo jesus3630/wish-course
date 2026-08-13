@@ -8,8 +8,9 @@ import Dashboard from './components/Dashboard';
 import ModulePlayer from './components/ModulePlayer';
 import AdminPanel from './components/AdminPanel';
 import Certificate from './components/Certificate';
+import FinalExam from './components/FinalExam';
 
-type AppView = 'login' | 'dashboard' | 'module';
+type AppView = 'login' | 'dashboard' | 'module' | 'exam';
 const _BUILD = '20260602';
 
 const isAdmin = window.location.pathname === '/admin';
@@ -182,6 +183,17 @@ export default function App() {
     return <Certificate progress={progress} modules={visibleModules} onClose={() => setShowCertificate(false)} />;
   }
 
+  if (view === 'exam' && progress) {
+    return (
+      <FinalExam
+        email={progress.user_email}
+        name={progress.user_name}
+        moduleNames={Object.fromEntries(modules.map(m => [m.id, m.name]))}
+        onExit={() => setView('dashboard')}
+      />
+    );
+  }
+
   if (view === 'module' && progress) {
     return (
       <ModulePlayer
@@ -215,6 +227,7 @@ export default function App() {
           onStartModule={handleStartModule}
           onLogout={handleLogout}
           onViewCertificate={() => setShowCertificate(true)}
+          onStartExam={() => setView('exam')}
         />
       </>
     );
