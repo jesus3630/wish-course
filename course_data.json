@@ -369,7 +369,13 @@
         "text": "Schedule by Job Admin works exactly like Schedule by Job with one key difference: it bypasses certain restrictions.\r\n\r\nWith admin scheduling, you can:\r\n* Double-book an employee who is already scheduled for another shift at the same time\r\n* Schedule an employee who has exceeded their weekly hour limit\r\n* Override overlap warnings when necessary\r\n\r\nThis access gives managers flexibility in high-pressure situations such as last-minute event changes.",
         "slide_name": "What Admin Scheduling Allows",
         "instructions": "",
-        "slide_number": 3
+        "slide_number": 3,
+        "access_note": {
+          "field": "Scheduling overrides",
+          "requires": "Scheduling Admin",
+          "base": "WISH blocks the save when an employee is double-booked or would go over their hour limit. You must resolve the conflict before scheduling.",
+          "elevated": "You can override the block and schedule anyway. The warning still appears — it becomes your judgement call, and the override is recorded against your account."
+        }
       },
       {
         "text": "Go to Scheduling to Schedule by Job Admin. This screen looks identical to Schedule by Job, but employees already scheduled, shown in red on the standard page, still have their checkboxes available here.\r\n\r\nIf you select an already-scheduled employee and save, WISH displays an overlap warning. You can choose to bypass this warning and proceed.\r\n\r\nUse this carefully. Always verify the employee is available before proceeding.",
@@ -720,7 +726,13 @@
         "slide_name": "Background Check Tab",
         "instructions": "Click the Background Check tab. Show the BG check status field and date. Show updating the status and adding a new check date. Click Save.",
         "slide_number": 6,
-        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=6"
+        "simulation_url": "/mockup/mockup.html?module=workforce_scheduler_mntnnce&slide=6",
+        "access_note": {
+          "field": "Background Check",
+          "requires": "Workforce Scheduler",
+          "base": "You see only whether the employee is clear to work. The underlying check results are not shown.",
+          "elevated": "You see the check status, the dates, and which items are outstanding — enough to chase what is missing before a shift."
+        }
       },
       {
         "text": "The Employee Notes tab is where your branch records important information about an employee that isn't captured elsewhere in the system.\r\n\r\nNotes are branch-level, they're visible to anyone at your branch with access to the employee record, but are not shared system-wide.\r\n\r\nCommon uses for employee notes:\r\n* Flagging a scheduling concern or preference\r\n* Recording follow-up items that need attention\r\n* Noting equipment issued to an employee\r\n* Documenting any informal communications that should be on record\r\n\r\nWhen adding a note, always include the date and a brief description of what the note is about. This makes it easier for others on your team to understand the context later.\r\n\r\nClick Save after adding or editing a note.",
@@ -768,14 +780,26 @@
         "slide_name": "Disciplinary Action Tab",
         "instructions": "Open an employee record. Click the Disciplinary Action tab. Show any existing records. Show clicking Add New — fill in date, type, and notes fields. Click Save.",
         "slide_number": 3,
-        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=3"
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=3",
+        "access_note": {
+          "field": "Disciplinary Action",
+          "requires": "Workforce Admin",
+          "base": "The Disciplinary Action tab is hidden. If an employee is flagged as Do Not Schedule you will see the scheduling block, but not the reason behind it.",
+          "elevated": "You can read and record disciplinary entries, and you are responsible for documenting the reason behind any scheduling restriction."
+        }
       },
       {
         "text": "The Pay Rates tab shows what an employee is paid per hour for each role they're qualified for.\r\n\r\nImportant rule: never edit an existing pay rate directly. Changing a rate that's already in the system will alter historical payroll records.\r\n\r\nThe correct process to update a pay rate:\r\n1. Find the current active rate\r\n2. Deactivate it, this closes it out without deleting the history\r\n3. Add a new rate with the updated amount and an effective start date\r\n\r\nIf a role is missing from the employee's pay rate list, add it here. An employee cannot be scheduled for a role they don't have an active pay rate for, WISH uses this to filter results in Schedule by Job.",
         "slide_name": "Pay Rates Tab",
         "instructions": "Click the Pay Rates tab. Show the current active pay rate. Show clicking to deactivate the current rate. Show adding a new rate with the role and dollar amount. Click Save.",
         "slide_number": 4,
-        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=4"
+        "simulation_url": "/mockup/mockup.html?module=workforce_admin_maintenance&slide=4",
+        "access_note": {
+          "field": "Pay Rates",
+          "requires": "Workforce Admin",
+          "base": "The Pay Rates tab is not shown. You can schedule and manage an employee without ever seeing what they are paid.",
+          "elevated": "Pay Rates opens with the employee's current and historical rates, and you can add a new rate with an effective date."
+        }
       },
       {
         "text": "The Training Records tab shows which WISH training modules an employee has been assigned and completed.\r\n\r\nWhat you can do here:\r\n* View training completion status for each module\r\n* Confirm whether an employee has finished the training required for their role\r\n\r\nThis is useful before scheduling someone for a position that requires specific training. If a module shows as incomplete, the employee may not have the access or knowledge needed to perform that role in WISH.\r\n\r\nTraining assignments and completions are managed by administrators, if a training record looks incorrect, flag it with your administrator rather than attempting to change it yourself.",
@@ -823,7 +847,13 @@
         "slide_name": "Personal Info & Contact Info",
         "instructions": "Open an employee record. Show the Personal Info tab — name, date of birth, status dropdown. Then show the Contact Info tab — address, phone, email fields. Make a small edit and click Save.",
         "slide_number": 3,
-        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=3"
+        "simulation_url": "/mockup/mockup.html?module=employee_hr_record_maintenance&slide=3",
+        "access_note": {
+          "field": "Social Security Number",
+          "requires": "HR Admin",
+          "base": "The SSN field shows only the last four digits and cannot be edited. You can confirm you have the right person, but you cannot read or change the full number.",
+          "elevated": "The full Social Security Number is visible and editable. Every view and change is written to the audit trail under your account."
+        }
       },
       {
         "text": "The Shared Branches tab controls which branches beyond the employee's home branch can see and schedule them.\r\n\r\nWhen an employee is shared to another branch:\r\n* That branch can search for them in Manage Employee\r\n* That branch can schedule them for their jobs\r\n* The employee's record and pay rate information becomes visible to that branch\r\n\r\nCommon use cases:\r\n* Large events where staff from multiple locations are needed\r\n* Employees who regularly work across multiple branches\r\n\r\nAdd branches carefully, sharing an employee gives another branch access to their record information. Remove the sharing when it's no longer needed.",
@@ -947,7 +977,13 @@
         "slide_name": "Reading the Manage Employee Task Screen",
         "instructions": "Show the Manage Employee Task screen fully loaded. Point out the employee list with columns for name, employee number, status. Zoom in on the task column at the far right — show a checkmark on one row and an X on another.",
         "slide_number": 3,
-        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=3"
+        "simulation_url": "/mockup/mockup.html?module=hiring_admin&slide=3",
+        "access_note": {
+          "field": "Employee Tasks",
+          "requires": "Hiring Admin",
+          "base": "You can import an applicant, but the task list that tracks their onboarding paperwork is not available to you.",
+          "elevated": "You see every outstanding onboarding task across the branch and are responsible for chasing them to completion."
+        }
       },
       {
         "text": "When you see an X next to an employee, click on their row to see the details of what's outstanding.\r\n\r\nThe task detail will show you:\r\n* The name of the task\r\n* A description of what needs to be completed\r\n* The due date if one has been set\r\n* The current status, pending, in progress, or complete\r\n\r\nFrom here you can:\r\n* Review exactly what the employee needs to do\r\n* Follow up with the employee directly to make sure they complete it\r\n* Coordinate with your administrator if a task requires action from the branch side\r\n\r\nTask completion itself is typically done by the employee through their ESS account or by an administrator, your role is to monitor and follow up, not to mark tasks complete on their behalf.",

@@ -6,6 +6,7 @@ import { pickReviewSlide } from '../utils/reviewSlide';
 import Quiz from './Quiz';
 import Character from './Character';
 import TutorWidget from './TutorWidget';
+import AccessNote from './AccessNote';
 import { useIsMobile } from '../utils/useIsMobile';
 
 type Timing = { word: string; start: number; end: number };
@@ -330,6 +331,7 @@ export default function ModulePlayer({
     && !s_any?.simulation_url
     && !slide?.screenshot
     && slide?.video_start === undefined
+    && !s_any?.access_note
     && !s_any?.acronym_card
     && !s_any?.wish_logo_card
     && !s_any?.hierarchy_card
@@ -855,6 +857,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                     <p style={styles.emptyText}>No narration text for this slide.</p>
                   )}
                 </div>
+                {(slide as any)?.access_note && <AccessNote variant={(slide as any).access_note} />}
                 {slideText && (
                   <button
                     style={{ ...styles.audioBtn, background: isPlaying ? '#1B3A6B' : '#D4782A', alignSelf: 'flex-start' }}
@@ -939,6 +942,7 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
                 </div>
               )}
 
+              {(slide as any)?.access_note && <AccessNote variant={(slide as any).access_note} />}
               {(slide as any)?.acronym_card && <WishAcronymCard />}
               {(slide as any)?.wish_logo_card && <WishLogoCard />}
               {(slide as any)?.wish_logo_card && slideText && (

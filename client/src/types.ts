@@ -9,6 +9,17 @@ export interface Slide {
   video_end?: number;
   simulation_url?: string | null;
   demo_prompts?: string[] | null;
+  /**
+   * Screens that behave differently by permission level. One course is taught to
+   * everyone, so a screen that hides or locks a field says so here and the player
+   * shows both views side by side.
+   */
+  access_note?: {
+    requires: string;   // permission that unlocks the fuller view
+    base: string;       // what standard access shows
+    elevated: string;   // what the higher permission shows
+    field?: string;     // the field or area in question
+  } | null;
 }
 
 export interface QuizQuestion {
