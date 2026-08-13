@@ -1,0 +1,262 @@
+[
+  {
+    "word": "Click",
+    "start": 0,
+    "end": 0.302
+  },
+  {
+    "word": "a",
+    "start": 0.348,
+    "end": 0.372
+  },
+  {
+    "word": "green",
+    "start": 0.43,
+    "end": 0.673
+  },
+  {
+    "word": "arrow",
+    "start": 0.731,
+    "end": 0.975
+  },
+  {
+    "word": "to",
+    "start": 1.045,
+    "end": 1.126
+  },
+  {
+    "word": "open",
+    "start": 1.207,
+    "end": 1.463
+  },
+  {
+    "word": "an",
+    "start": 1.544,
+    "end": 1.637
+  },
+  {
+    "word": "employee's",
+    "start": 1.683,
+    "end": 2.194
+  },
+  {
+    "word": "sign-in",
+    "start": 2.241,
+    "end": 2.705
+  },
+  {
+    "word": "and",
+    "start": 2.821,
+    "end": 3.042
+  },
+  {
+    "word": "sign-out",
+    "start": 3.135,
+    "end": 3.611
+  },
+  {
+    "word": "record.",
+    "start": 3.68,
+    "end": 4.319
+  },
+  {
+    "word": "If",
+    "start": 4.76,
+    "end": 4.923
+  },
+  {
+    "word": "a",
+    "start": 4.981,
+    "end": 5.004
+  },
+  {
+    "word": "punch",
+    "start": 5.062,
+    "end": 5.341
+  },
+  {
+    "word": "time",
+    "start": 5.387,
+    "end": 5.608
+  },
+  {
+    "word": "is",
+    "start": 5.642,
+    "end": 5.735
+  },
+  {
+    "word": "wrong,",
+    "start": 5.793,
+    "end": 6.2
+  },
+  {
+    "word": "click",
+    "start": 6.316,
+    "end": 6.583
+  },
+  {
+    "word": "Edit",
+    "start": 6.699,
+    "end": 7.105
+  },
+  {
+    "word": "to",
+    "start": 7.163,
+    "end": 7.256
+  },
+  {
+    "word": "make",
+    "start": 7.326,
+    "end": 7.5
+  },
+  {
+    "word": "the",
+    "start": 7.535,
+    "end": 7.605
+  },
+  {
+    "word": "date",
+    "start": 7.674,
+    "end": 7.988
+  },
+  {
+    "word": "and",
+    "start": 8.022,
+    "end": 8.127
+  },
+  {
+    "word": "time",
+    "start": 8.208,
+    "end": 8.499
+  },
+  {
+    "word": "editable,",
+    "start": 8.557,
+    "end": 9.207
+  },
+  {
+    "word": "then",
+    "start": 9.416,
+    "end": 9.625
+  },
+  {
+    "word": "Update",
+    "start": 9.741,
+    "end": 10.275
+  },
+  {
+    "word": "to",
+    "start": 10.31,
+    "end": 10.391
+  },
+  {
+    "word": "save.",
+    "start": 10.507,
+    "end": 11.111
+  },
+  {
+    "word": "The",
+    "start": 11.622,
+    "end": 11.726
+  },
+  {
+    "word": "pencil",
+    "start": 11.773,
+    "end": 12.144
+  },
+  {
+    "word": "on",
+    "start": 12.19,
+    "end": 12.26
+  },
+  {
+    "word": "the",
+    "start": 12.295,
+    "end": 12.365
+  },
+  {
+    "word": "left",
+    "start": 12.434,
+    "end": 12.701
+  },
+  {
+    "word": "opens",
+    "start": 12.794,
+    "end": 13.224
+  },
+  {
+    "word": "Notes",
+    "start": 13.34,
+    "end": 13.653
+  },
+  {
+    "word": "for",
+    "start": 13.711,
+    "end": 13.816
+  },
+  {
+    "word": "that",
+    "start": 13.851,
+    "end": 14.002
+  },
+  {
+    "word": "employee.",
+    "start": 14.071,
+    "end": 14.826
+  },
+  {
+    "word": "When",
+    "start": 15.07,
+    "end": 15.244
+  },
+  {
+    "word": "everything",
+    "start": 15.29,
+    "end": 15.639
+  },
+  {
+    "word": "looks",
+    "start": 15.697,
+    "end": 15.929
+  },
+  {
+    "word": "correct,",
+    "start": 15.987,
+    "end": 16.591
+  },
+  {
+    "word": "click",
+    "start": 16.707,
+    "end": 16.997
+  },
+  {
+    "word": "Approve",
+    "start": 17.113,
+    "end": 17.682
+  },
+  {
+    "word": "Hours",
+    "start": 17.74,
+    "end": 18.216
+  },
+  {
+    "word": "to",
+    "start": 18.39,
+    "end": 18.506
+  },
+  {
+    "word": "finalize",
+    "start": 18.622,
+    "end": 19.215
+  },
+  {
+    "word": "the",
+    "start": 19.249,
+    "end": 19.331
+  },
+  {
+    "word": "shift.",
+    "start": 19.377,
+    "end": 20.155
+  }
+]

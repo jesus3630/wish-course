@@ -1,0 +1,612 @@
+[
+  {
+    "word": "Payroll",
+    "start": 0,
+    "end": 0.534
+  },
+  {
+    "word": "is",
+    "start": 0.627,
+    "end": 0.801
+  },
+  {
+    "word": "rarely",
+    "start": 0.975,
+    "end": 1.463
+  },
+  {
+    "word": "perfect.",
+    "start": 1.579,
+    "end": 2.31
+  },
+  {
+    "word": "When",
+    "start": 2.589,
+    "end": 2.752
+  },
+  {
+    "word": "you",
+    "start": 2.786,
+    "end": 2.868
+  },
+  {
+    "word": "open",
+    "start": 2.926,
+    "end": 3.146
+  },
+  {
+    "word": "a",
+    "start": 3.193,
+    "end": 3.216
+  },
+  {
+    "word": "shift",
+    "start": 3.274,
+    "end": 3.611
+  },
+  {
+    "word": "you",
+    "start": 3.669,
+    "end": 3.762
+  },
+  {
+    "word": "may",
+    "start": 3.82,
+    "end": 3.947
+  },
+  {
+    "word": "see",
+    "start": 4.017,
+    "end": 4.226
+  },
+  {
+    "word": "three",
+    "start": 4.296,
+    "end": 4.598
+  },
+  {
+    "word": "situations:",
+    "start": 4.656,
+    "end": 6.06
+  },
+  {
+    "word": "Employee",
+    "start": 6.06,
+    "end": 6.711
+  },
+  {
+    "word": "has",
+    "start": 6.78,
+    "end": 6.989
+  },
+  {
+    "word": "both",
+    "start": 7.082,
+    "end": 7.361
+  },
+  {
+    "word": "times,",
+    "start": 7.419,
+    "end": 8.022
+  },
+  {
+    "word": "no",
+    "start": 8.139,
+    "end": 8.278
+  },
+  {
+    "word": "action",
+    "start": 8.359,
+    "end": 8.719
+  },
+  {
+    "word": "needed.",
+    "start": 8.8,
+    "end": 9.776
+  },
+  {
+    "word": "Employee",
+    "start": 9.776,
+    "end": 10.403
+  },
+  {
+    "word": "has",
+    "start": 10.461,
+    "end": 10.612
+  },
+  {
+    "word": "a",
+    "start": 10.67,
+    "end": 10.704
+  },
+  {
+    "word": "sign-in",
+    "start": 10.762,
+    "end": 11.273
+  },
+  {
+    "word": "but",
+    "start": 11.366,
+    "end": 11.575
+  },
+  {
+    "word": "no",
+    "start": 11.645,
+    "end": 11.831
+  },
+  {
+    "word": "sign-out,",
+    "start": 11.947,
+    "end": 12.794
+  },
+  {
+    "word": "add",
+    "start": 13.038,
+    "end": 13.317
+  },
+  {
+    "word": "the",
+    "start": 13.386,
+    "end": 13.526
+  },
+  {
+    "word": "out-time",
+    "start": 13.642,
+    "end": 14.234
+  },
+  {
+    "word": "manually.",
+    "start": 14.292,
+    "end": 15
+  },
+  {
+    "word": "The",
+    "start": 15.383,
+    "end": 15.499
+  },
+  {
+    "word": "system",
+    "start": 15.546,
+    "end": 15.848
+  },
+  {
+    "word": "will",
+    "start": 15.882,
+    "end": 16.01
+  },
+  {
+    "word": "not",
+    "start": 16.057,
+    "end": 16.161
+  },
+  {
+    "word": "let",
+    "start": 16.208,
+    "end": 16.324
+  },
+  {
+    "word": "you",
+    "start": 16.37,
+    "end": 16.451
+  },
+  {
+    "word": "approve",
+    "start": 16.498,
+    "end": 16.881
+  },
+  {
+    "word": "hours",
+    "start": 16.939,
+    "end": 17.415
+  },
+  {
+    "word": "with",
+    "start": 17.508,
+    "end": 17.694
+  },
+  {
+    "word": "any",
+    "start": 17.752,
+    "end": 17.961
+  },
+  {
+    "word": "incomplete",
+    "start": 18.054,
+    "end": 18.75
+  },
+  {
+    "word": "record.",
+    "start": 18.808,
+    "end": 19.969
+  },
+  {
+    "word": "Employee",
+    "start": 19.969,
+    "end": 20.434
+  },
+  {
+    "word": "has",
+    "start": 20.492,
+    "end": 20.666
+  },
+  {
+    "word": "no",
+    "start": 20.794,
+    "end": 20.979
+  },
+  {
+    "word": "times,",
+    "start": 21.072,
+    "end": 21.583
+  },
+  {
+    "word": "if",
+    "start": 21.618,
+    "end": 21.757
+  },
+  {
+    "word": "they",
+    "start": 21.804,
+    "end": 21.931
+  },
+  {
+    "word": "did",
+    "start": 21.989,
+    "end": 22.117
+  },
+  {
+    "word": "not",
+    "start": 22.175,
+    "end": 22.326
+  },
+  {
+    "word": "show",
+    "start": 22.373,
+    "end": 22.582
+  },
+  {
+    "word": "up,",
+    "start": 22.651,
+    "end": 22.965
+  },
+  {
+    "word": "check",
+    "start": 23.139,
+    "end": 23.394
+  },
+  {
+    "word": "the",
+    "start": 23.464,
+    "end": 23.557
+  },
+  {
+    "word": "NS",
+    "start": 23.638,
+    "end": 23.94
+  },
+  {
+    "word": "checkbox",
+    "start": 24.033,
+    "end": 24.613
+  },
+  {
+    "word": "to",
+    "start": 24.671,
+    "end": 24.741
+  },
+  {
+    "word": "mark",
+    "start": 24.822,
+    "end": 25.02
+  },
+  {
+    "word": "them",
+    "start": 25.078,
+    "end": 25.217
+  },
+  {
+    "word": "as",
+    "start": 25.298,
+    "end": 25.461
+  },
+  {
+    "word": "a",
+    "start": 25.554,
+    "end": 25.612
+  },
+  {
+    "word": "No",
+    "start": 25.763,
+    "end": 25.948
+  },
+  {
+    "word": "Show.",
+    "start": 26.041,
+    "end": 26.552
+  },
+  {
+    "word": "If",
+    "start": 26.877,
+    "end": 27.017
+  },
+  {
+    "word": "they",
+    "start": 27.063,
+    "end": 27.202
+  },
+  {
+    "word": "did",
+    "start": 27.284,
+    "end": 27.458
+  },
+  {
+    "word": "work",
+    "start": 27.527,
+    "end": 27.806
+  },
+  {
+    "word": "but",
+    "start": 27.876,
+    "end": 28.003
+  },
+  {
+    "word": "were",
+    "start": 28.038,
+    "end": 28.154
+  },
+  {
+    "word": "not",
+    "start": 28.189,
+    "end": 28.305
+  },
+  {
+    "word": "signed",
+    "start": 28.375,
+    "end": 28.7
+  },
+  {
+    "word": "in",
+    "start": 28.746,
+    "end": 28.804
+  },
+  {
+    "word": "electronically,",
+    "start": 28.863,
+    "end": 29.78
+  },
+  {
+    "word": "enter",
+    "start": 29.989,
+    "end": 30.267
+  },
+  {
+    "word": "their",
+    "start": 30.314,
+    "end": 30.476
+  },
+  {
+    "word": "times",
+    "start": 30.523,
+    "end": 30.848
+  },
+  {
+    "word": "from",
+    "start": 30.906,
+    "end": 31.045
+  },
+  {
+    "word": "your",
+    "start": 31.092,
+    "end": 31.208
+  },
+  {
+    "word": "paper",
+    "start": 31.277,
+    "end": 31.602
+  },
+  {
+    "word": "sign-in",
+    "start": 31.661,
+    "end": 32.055
+  },
+  {
+    "word": "sheet.",
+    "start": 32.136,
+    "end": 33.158
+  },
+  {
+    "word": "Watch",
+    "start": 33.158,
+    "end": 33.46
+  },
+  {
+    "word": "for",
+    "start": 33.518,
+    "end": 33.599
+  },
+  {
+    "word": "the",
+    "start": 33.645,
+    "end": 33.715
+  },
+  {
+    "word": "24-hour",
+    "start": 33.808,
+    "end": 34.714
+  },
+  {
+    "word": "warning.",
+    "start": 34.795,
+    "end": 35.387
+  },
+  {
+    "word": "This",
+    "start": 35.712,
+    "end": 35.909
+  },
+  {
+    "word": "appears",
+    "start": 35.956,
+    "end": 36.351
+  },
+  {
+    "word": "when",
+    "start": 36.397,
+    "end": 36.548
+  },
+  {
+    "word": "an",
+    "start": 36.583,
+    "end": 36.652
+  },
+  {
+    "word": "out-date",
+    "start": 36.734,
+    "end": 37.326
+  },
+  {
+    "word": "is",
+    "start": 37.361,
+    "end": 37.465
+  },
+  {
+    "word": "left",
+    "start": 37.558,
+    "end": 37.802
+  },
+  {
+    "word": "on",
+    "start": 37.86,
+    "end": 37.929
+  },
+  {
+    "word": "the",
+    "start": 37.976,
+    "end": 38.046
+  },
+  {
+    "word": "wrong",
+    "start": 38.092,
+    "end": 38.313
+  },
+  {
+    "word": "day,",
+    "start": 38.382,
+    "end": 38.823
+  },
+  {
+    "word": "for",
+    "start": 38.881,
+    "end": 39.032
+  },
+  {
+    "word": "example,",
+    "start": 39.09,
+    "end": 39.566
+  },
+  {
+    "word": "a",
+    "start": 39.59,
+    "end": 39.625
+  },
+  {
+    "word": "shift",
+    "start": 39.694,
+    "end": 39.984
+  },
+  {
+    "word": "that",
+    "start": 40.031,
+    "end": 40.182
+  },
+  {
+    "word": "crosses",
+    "start": 40.251,
+    "end": 40.681
+  },
+  {
+    "word": "midnight.",
+    "start": 40.797,
+    "end": 41.529
+  },
+  {
+    "word": "Click",
+    "start": 42.039,
+    "end": 42.33
+  },
+  {
+    "word": "OK,",
+    "start": 42.423,
+    "end": 43.049
+  },
+  {
+    "word": "then",
+    "start": 43.258,
+    "end": 43.467
+  },
+  {
+    "word": "go",
+    "start": 43.537,
+    "end": 43.665
+  },
+  {
+    "word": "back",
+    "start": 43.734,
+    "end": 43.932
+  },
+  {
+    "word": "and",
+    "start": 43.99,
+    "end": 44.071
+  },
+  {
+    "word": "correct",
+    "start": 44.129,
+    "end": 44.443
+  },
+  {
+    "word": "the",
+    "start": 44.477,
+    "end": 44.559
+  },
+  {
+    "word": "out-date",
+    "start": 44.628,
+    "end": 45.151
+  },
+  {
+    "word": "to",
+    "start": 45.186,
+    "end": 45.255
+  },
+  {
+    "word": "the",
+    "start": 45.325,
+    "end": 45.406
+  },
+  {
+    "word": "actual",
+    "start": 45.499,
+    "end": 45.929
+  },
+  {
+    "word": "day",
+    "start": 45.987,
+    "end": 46.161
+  },
+  {
+    "word": "the",
+    "start": 46.219,
+    "end": 46.289
+  },
+  {
+    "word": "employee",
+    "start": 46.347,
+    "end": 46.823
+  },
+  {
+    "word": "finished.",
+    "start": 46.881,
+    "end": 47.786
+  }
+]

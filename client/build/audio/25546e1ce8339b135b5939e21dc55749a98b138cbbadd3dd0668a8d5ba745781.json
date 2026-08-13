@@ -1,0 +1,352 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.174
+  },
+  {
+    "word": "this",
+    "start": 0.232,
+    "end": 0.406
+  },
+  {
+    "word": "module,",
+    "start": 0.488,
+    "end": 1.01
+  },
+  {
+    "word": "you",
+    "start": 1.219,
+    "end": 1.312
+  },
+  {
+    "word": "will",
+    "start": 1.347,
+    "end": 1.486
+  },
+  {
+    "word": "learn",
+    "start": 1.533,
+    "end": 1.753
+  },
+  {
+    "word": "the",
+    "start": 1.8,
+    "end": 1.881
+  },
+  {
+    "word": "full",
+    "start": 1.962,
+    "end": 2.229
+  },
+  {
+    "word": "payroll",
+    "start": 2.299,
+    "end": 2.752
+  },
+  {
+    "word": "processing",
+    "start": 2.821,
+    "end": 3.39
+  },
+  {
+    "word": "workflow",
+    "start": 3.437,
+    "end": 3.889
+  },
+  {
+    "word": "in",
+    "start": 3.982,
+    "end": 4.133
+  },
+  {
+    "word": "WISH,",
+    "start": 4.284,
+    "end": 4.865
+  },
+  {
+    "word": "from",
+    "start": 5.039,
+    "end": 5.213
+  },
+  {
+    "word": "approving",
+    "start": 5.248,
+    "end": 5.7
+  },
+  {
+    "word": "employee",
+    "start": 5.759,
+    "end": 6.246
+  },
+  {
+    "word": "hours",
+    "start": 6.293,
+    "end": 6.722
+  },
+  {
+    "word": "after",
+    "start": 6.838,
+    "end": 7.187
+  },
+  {
+    "word": "an",
+    "start": 7.233,
+    "end": 7.291
+  },
+  {
+    "word": "event",
+    "start": 7.338,
+    "end": 7.732
+  },
+  {
+    "word": "through",
+    "start": 7.976,
+    "end": 8.255
+  },
+  {
+    "word": "running",
+    "start": 8.29,
+    "end": 8.545
+  },
+  {
+    "word": "the",
+    "start": 8.591,
+    "end": 8.661
+  },
+  {
+    "word": "final",
+    "start": 8.719,
+    "end": 9.044
+  },
+  {
+    "word": "reports",
+    "start": 9.091,
+    "end": 9.509
+  },
+  {
+    "word": "your",
+    "start": 9.555,
+    "end": 9.694
+  },
+  {
+    "word": "branch",
+    "start": 9.752,
+    "end": 10.089
+  },
+  {
+    "word": "submits",
+    "start": 10.136,
+    "end": 10.635
+  },
+  {
+    "word": "each",
+    "start": 10.786,
+    "end": 11.064
+  },
+  {
+    "word": "week.",
+    "start": 11.134,
+    "end": 12.167
+  },
+  {
+    "word": "Every",
+    "start": 12.167,
+    "end": 12.481
+  },
+  {
+    "word": "pay",
+    "start": 12.539,
+    "end": 12.725
+  },
+  {
+    "word": "week",
+    "start": 12.783,
+    "end": 13.026
+  },
+  {
+    "word": "in",
+    "start": 13.108,
+    "end": 13.189
+  },
+  {
+    "word": "WISH",
+    "start": 13.27,
+    "end": 13.595
+  },
+  {
+    "word": "runs",
+    "start": 13.677,
+    "end": 14.025
+  },
+  {
+    "word": "Saturday",
+    "start": 14.199,
+    "end": 14.721
+  },
+  {
+    "word": "through",
+    "start": 14.791,
+    "end": 15.069
+  },
+  {
+    "word": "Friday.",
+    "start": 15.139,
+    "end": 15.859
+  },
+  {
+    "word": "All",
+    "start": 16.37,
+    "end": 16.648
+  },
+  {
+    "word": "hours",
+    "start": 16.73,
+    "end": 17.055
+  },
+  {
+    "word": "worked",
+    "start": 17.147,
+    "end": 17.554
+  },
+  {
+    "word": "during",
+    "start": 17.623,
+    "end": 17.902
+  },
+  {
+    "word": "that",
+    "start": 17.949,
+    "end": 18.076
+  },
+  {
+    "word": "window",
+    "start": 18.134,
+    "end": 18.483
+  },
+  {
+    "word": "must",
+    "start": 18.552,
+    "end": 18.773
+  },
+  {
+    "word": "be",
+    "start": 18.831,
+    "end": 18.924
+  },
+  {
+    "word": "approved",
+    "start": 18.97,
+    "end": 19.446
+  },
+  {
+    "word": "and",
+    "start": 19.493,
+    "end": 19.586
+  },
+  {
+    "word": "processed",
+    "start": 19.702,
+    "end": 20.271
+  },
+  {
+    "word": "before",
+    "start": 20.317,
+    "end": 20.642
+  },
+  {
+    "word": "Wednesday",
+    "start": 20.689,
+    "end": 21.141
+  },
+  {
+    "word": "morning,",
+    "start": 21.211,
+    "end": 21.757
+  },
+  {
+    "word": "when",
+    "start": 21.931,
+    "end": 22.105
+  },
+  {
+    "word": "the",
+    "start": 22.128,
+    "end": 22.198
+  },
+  {
+    "word": "payroll",
+    "start": 22.233,
+    "end": 22.616
+  },
+  {
+    "word": "department",
+    "start": 22.674,
+    "end": 23.196
+  },
+  {
+    "word": "transmits",
+    "start": 23.243,
+    "end": 23.893
+  },
+  {
+    "word": "everything.",
+    "start": 24.021,
+    "end": 24.798
+  },
+  {
+    "word": "Stay",
+    "start": 25.24,
+    "end": 25.553
+  },
+  {
+    "word": "current",
+    "start": 25.634,
+    "end": 26.017
+  },
+  {
+    "word": "throughout",
+    "start": 26.064,
+    "end": 26.459
+  },
+  {
+    "word": "the",
+    "start": 26.505,
+    "end": 26.575
+  },
+  {
+    "word": "week,",
+    "start": 26.633,
+    "end": 27.039
+  },
+  {
+    "word": "do",
+    "start": 27.155,
+    "end": 27.271
+  },
+  {
+    "word": "not",
+    "start": 27.387,
+    "end": 27.573
+  },
+  {
+    "word": "let",
+    "start": 27.643,
+    "end": 27.852
+  },
+  {
+    "word": "hours",
+    "start": 27.922,
+    "end": 28.258
+  },
+  {
+    "word": "pile",
+    "start": 28.374,
+    "end": 28.723
+  },
+  {
+    "word": "up.",
+    "start": 28.769,
+    "end": 29.35
+  }
+]

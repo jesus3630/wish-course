@@ -1,0 +1,452 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "you",
+    "start": 0.221,
+    "end": 0.29
+  },
+  {
+    "word": "process",
+    "start": 0.36,
+    "end": 0.813
+  },
+  {
+    "word": "hours",
+    "start": 0.859,
+    "end": 1.173
+  },
+  {
+    "word": "for",
+    "start": 1.231,
+    "end": 1.347
+  },
+  {
+    "word": "a",
+    "start": 1.405,
+    "end": 1.428
+  },
+  {
+    "word": "California",
+    "start": 1.486,
+    "end": 2.032
+  },
+  {
+    "word": "job,",
+    "start": 2.09,
+    "end": 2.577
+  },
+  {
+    "word": "the",
+    "start": 2.856,
+    "end": 2.949
+  },
+  {
+    "word": "roster",
+    "start": 3.019,
+    "end": 3.413
+  },
+  {
+    "word": "adds",
+    "start": 3.483,
+    "end": 3.715
+  },
+  {
+    "word": "break",
+    "start": 3.773,
+    "end": 3.994
+  },
+  {
+    "word": "tracking.",
+    "start": 4.052,
+    "end": 4.632
+  },
+  {
+    "word": "Each",
+    "start": 5.329,
+    "end": 5.561
+  },
+  {
+    "word": "employee",
+    "start": 5.619,
+    "end": 6.037
+  },
+  {
+    "word": "shows",
+    "start": 6.095,
+    "end": 6.362
+  },
+  {
+    "word": "how",
+    "start": 6.432,
+    "end": 6.571
+  },
+  {
+    "word": "many",
+    "start": 6.629,
+    "end": 6.792
+  },
+  {
+    "word": "breaks",
+    "start": 6.85,
+    "end": 7.14
+  },
+  {
+    "word": "they",
+    "start": 7.187,
+    "end": 7.314
+  },
+  {
+    "word": "took,",
+    "start": 7.372,
+    "end": 7.779
+  },
+  {
+    "word": "along",
+    "start": 8.104,
+    "end": 8.464
+  },
+  {
+    "word": "with",
+    "start": 8.51,
+    "end": 8.661
+  },
+  {
+    "word": "checkboxes",
+    "start": 8.707,
+    "end": 9.334
+  },
+  {
+    "word": "for",
+    "start": 9.392,
+    "end": 9.509
+  },
+  {
+    "word": "Waiver,",
+    "start": 9.567,
+    "end": 10.112
+  },
+  {
+    "word": "Meal",
+    "start": 10.391,
+    "end": 10.612
+  },
+  {
+    "word": "Premium,",
+    "start": 10.67,
+    "end": 11.169
+  },
+  {
+    "word": "and",
+    "start": 11.285,
+    "end": 11.447
+  },
+  {
+    "word": "Break",
+    "start": 11.505,
+    "end": 11.726
+  },
+  {
+    "word": "Premium.",
+    "start": 11.784,
+    "end": 12.307
+  },
+  {
+    "word": "The",
+    "start": 13.003,
+    "end": 13.119
+  },
+  {
+    "word": "counts",
+    "start": 13.177,
+    "end": 13.468
+  },
+  {
+    "word": "should",
+    "start": 13.502,
+    "end": 13.7
+  },
+  {
+    "word": "match",
+    "start": 13.746,
+    "end": 14.002
+  },
+  {
+    "word": "the",
+    "start": 14.06,
+    "end": 14.129
+  },
+  {
+    "word": "rules",
+    "start": 14.187,
+    "end": 14.443
+  },
+  {
+    "word": "you",
+    "start": 14.489,
+    "end": 14.559
+  },
+  {
+    "word": "just",
+    "start": 14.629,
+    "end": 14.803
+  },
+  {
+    "word": "learned:",
+    "start": 14.861,
+    "end": 15.337
+  },
+  {
+    "word": "a",
+    "start": 15.778,
+    "end": 15.848
+  },
+  {
+    "word": "thirty-minute",
+    "start": 15.941,
+    "end": 16.521
+  },
+  {
+    "word": "unpaid",
+    "start": 16.603,
+    "end": 17.021
+  },
+  {
+    "word": "meal",
+    "start": 17.079,
+    "end": 17.253
+  },
+  {
+    "word": "period",
+    "start": 17.311,
+    "end": 17.647
+  },
+  {
+    "word": "once",
+    "start": 17.798,
+    "end": 18.042
+  },
+  {
+    "word": "a",
+    "start": 18.077,
+    "end": 18.1
+  },
+  {
+    "word": "shift",
+    "start": 18.147,
+    "end": 18.414
+  },
+  {
+    "word": "passes",
+    "start": 18.483,
+    "end": 18.82
+  },
+  {
+    "word": "five",
+    "start": 18.878,
+    "end": 19.122
+  },
+  {
+    "word": "hours,",
+    "start": 19.145,
+    "end": 19.656
+  },
+  {
+    "word": "a",
+    "start": 20.039,
+    "end": 20.109
+  },
+  {
+    "word": "second",
+    "start": 20.225,
+    "end": 20.492
+  },
+  {
+    "word": "meal",
+    "start": 20.527,
+    "end": 20.666
+  },
+  {
+    "word": "period",
+    "start": 20.724,
+    "end": 21.003
+  },
+  {
+    "word": "past",
+    "start": 21.061,
+    "end": 21.305
+  },
+  {
+    "word": "ten",
+    "start": 21.351,
+    "end": 21.525
+  },
+  {
+    "word": "hours,",
+    "start": 21.572,
+    "end": 22.071
+  },
+  {
+    "word": "and",
+    "start": 22.454,
+    "end": 22.605
+  },
+  {
+    "word": "a",
+    "start": 22.651,
+    "end": 22.675
+  },
+  {
+    "word": "paid",
+    "start": 22.733,
+    "end": 22.988
+  },
+  {
+    "word": "ten-minute",
+    "start": 23.046,
+    "end": 23.499
+  },
+  {
+    "word": "rest",
+    "start": 23.534,
+    "end": 23.719
+  },
+  {
+    "word": "period",
+    "start": 23.778,
+    "end": 24.079
+  },
+  {
+    "word": "for",
+    "start": 24.137,
+    "end": 24.254
+  },
+  {
+    "word": "every",
+    "start": 24.335,
+    "end": 24.579
+  },
+  {
+    "word": "four",
+    "start": 24.648,
+    "end": 24.834
+  },
+  {
+    "word": "hours",
+    "start": 24.88,
+    "end": 25.159
+  },
+  {
+    "word": "worked.",
+    "start": 25.217,
+    "end": 25.647
+  },
+  {
+    "word": "If",
+    "start": 26.343,
+    "end": 26.483
+  },
+  {
+    "word": "a",
+    "start": 26.541,
+    "end": 26.564
+  },
+  {
+    "word": "meal",
+    "start": 26.622,
+    "end": 26.796
+  },
+  {
+    "word": "break",
+    "start": 26.854,
+    "end": 27.075
+  },
+  {
+    "word": "is",
+    "start": 27.121,
+    "end": 27.202
+  },
+  {
+    "word": "missed,",
+    "start": 27.272,
+    "end": 27.713
+  },
+  {
+    "word": "late,",
+    "start": 27.957,
+    "end": 28.34
+  },
+  {
+    "word": "or",
+    "start": 28.41,
+    "end": 28.572
+  },
+  {
+    "word": "short,",
+    "start": 28.642,
+    "end": 29.118
+  },
+  {
+    "word": "mark",
+    "start": 29.501,
+    "end": 29.757
+  },
+  {
+    "word": "Meal",
+    "start": 29.85,
+    "end": 30.035
+  },
+  {
+    "word": "Premium",
+    "start": 30.105,
+    "end": 30.546
+  },
+  {
+    "word": "so",
+    "start": 30.697,
+    "end": 30.836
+  },
+  {
+    "word": "payroll",
+    "start": 30.918,
+    "end": 31.301
+  },
+  {
+    "word": "adds",
+    "start": 31.37,
+    "end": 31.603
+  },
+  {
+    "word": "the",
+    "start": 31.637,
+    "end": 31.707
+  },
+  {
+    "word": "required",
+    "start": 31.765,
+    "end": 32.218
+  },
+  {
+    "word": "extra",
+    "start": 32.288,
+    "end": 32.59
+  },
+  {
+    "word": "hour",
+    "start": 32.648,
+    "end": 32.868
+  },
+  {
+    "word": "of",
+    "start": 32.926,
+    "end": 32.984
+  },
+  {
+    "word": "pay.",
+    "start": 33.054,
+    "end": 33.762
+  }
+]

@@ -1,0 +1,107 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.139
+  },
+  {
+    "word": "this",
+    "start": 0.186,
+    "end": 0.325
+  },
+  {
+    "word": "module,",
+    "start": 0.406,
+    "end": 0.998
+  },
+  {
+    "word": "you",
+    "start": 1.207,
+    "end": 1.3
+  },
+  {
+    "word": "will",
+    "start": 1.335,
+    "end": 1.463
+  },
+  {
+    "word": "learn",
+    "start": 1.498,
+    "end": 1.695
+  },
+  {
+    "word": "how",
+    "start": 1.753,
+    "end": 1.858
+  },
+  {
+    "word": "to",
+    "start": 1.892,
+    "end": 1.939
+  },
+  {
+    "word": "use",
+    "start": 2.02,
+    "end": 2.252
+  },
+  {
+    "word": "the",
+    "start": 2.287,
+    "end": 2.357
+  },
+  {
+    "word": "administrative",
+    "start": 2.415,
+    "end": 3.088
+  },
+  {
+    "word": "scheduling",
+    "start": 3.123,
+    "end": 3.622
+  },
+  {
+    "word": "screen,",
+    "start": 3.68,
+    "end": 4.238
+  },
+  {
+    "word": "which",
+    "start": 4.447,
+    "end": 4.632
+  },
+  {
+    "word": "allows",
+    "start": 4.667,
+    "end": 4.969
+  },
+  {
+    "word": "you",
+    "start": 5.016,
+    "end": 5.108
+  },
+  {
+    "word": "to",
+    "start": 5.166,
+    "end": 5.236
+  },
+  {
+    "word": "override",
+    "start": 5.352,
+    "end": 6.118
+  },
+  {
+    "word": "standard",
+    "start": 6.177,
+    "end": 6.583
+  },
+  {
+    "word": "scheduling",
+    "start": 6.641,
+    "end": 7.094
+  },
+  {
+    "word": "restrictions.",
+    "start": 7.163,
+    "end": 8.266
+  }
+]

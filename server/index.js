@@ -13,7 +13,9 @@ const { sendInviteEmail, sendCompletionEmail, sendManagerCompletionEmail } = req
 const agent = require('./agent');
 const { ExamBlueprint, ExamAttempt, ExamRepository, LearnerExamHistory } = require('./exam');
 const { voiceForModule, allVoices } = require('./voices');
-const VOICE_ROTATION_ON = (process.env.VOICE_ROTATION || '').toLowerCase() === 'on';
+// On by default now that the five-voice audio is generated and shipped alongside
+// this code. Set VOICE_ROTATION=off to fall back to a single narrator.
+const VOICE_ROTATION_ON = (process.env.VOICE_ROTATION || 'on').toLowerCase() !== 'off';
 
 const app = express();
 app.set('trust proxy', 1); // Required for express-rate-limit behind Railway's proxy

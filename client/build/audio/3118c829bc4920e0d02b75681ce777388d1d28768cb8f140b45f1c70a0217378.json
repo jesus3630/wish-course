@@ -1,0 +1,412 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.221
+  },
+  {
+    "word": "to",
+    "start": 0.302,
+    "end": 0.36
+  },
+  {
+    "word": "Time",
+    "start": 0.43,
+    "end": 0.697
+  },
+  {
+    "word": "Clock",
+    "start": 0.731,
+    "end": 1.01
+  },
+  {
+    "word": "to",
+    "start": 1.091,
+    "end": 1.173
+  },
+  {
+    "word": "Sign-In",
+    "start": 1.254,
+    "end": 1.672
+  },
+  {
+    "word": "Config.",
+    "start": 1.753,
+    "end": 2.461
+  },
+  {
+    "word": "Do",
+    "start": 2.844,
+    "end": 2.984
+  },
+  {
+    "word": "not",
+    "start": 3.077,
+    "end": 3.274
+  },
+  {
+    "word": "use",
+    "start": 3.344,
+    "end": 3.587
+  },
+  {
+    "word": "the",
+    "start": 3.622,
+    "end": 3.692
+  },
+  {
+    "word": "Sign-In",
+    "start": 3.75,
+    "end": 4.168
+  },
+  {
+    "word": "or",
+    "start": 4.238,
+    "end": 4.319
+  },
+  {
+    "word": "Sign-Out",
+    "start": 4.389,
+    "end": 4.795
+  },
+  {
+    "word": "pages",
+    "start": 4.841,
+    "end": 5.19
+  },
+  {
+    "word": "directly,",
+    "start": 5.236,
+    "end": 6.002
+  },
+  {
+    "word": "those",
+    "start": 6.177,
+    "end": 6.502
+  },
+  {
+    "word": "show",
+    "start": 6.548,
+    "end": 6.78
+  },
+  {
+    "word": "logs.",
+    "start": 6.861,
+    "end": 7.442
+  },
+  {
+    "word": "Use",
+    "start": 7.883,
+    "end": 8.208
+  },
+  {
+    "word": "Sign-In",
+    "start": 8.255,
+    "end": 8.638
+  },
+  {
+    "word": "Config",
+    "start": 8.707,
+    "end": 9.172
+  },
+  {
+    "word": "to",
+    "start": 9.23,
+    "end": 9.288
+  },
+  {
+    "word": "set",
+    "start": 9.358,
+    "end": 9.543
+  },
+  {
+    "word": "up",
+    "start": 9.601,
+    "end": 9.683
+  },
+  {
+    "word": "your",
+    "start": 9.729,
+    "end": 9.857
+  },
+  {
+    "word": "active",
+    "start": 9.927,
+    "end": 10.333
+  },
+  {
+    "word": "session.",
+    "start": 10.379,
+    "end": 11.436
+  },
+  {
+    "word": "Select",
+    "start": 11.436,
+    "end": 11.819
+  },
+  {
+    "word": "your",
+    "start": 11.854,
+    "end": 11.97
+  },
+  {
+    "word": "event,",
+    "start": 12.028,
+    "end": 12.632
+  },
+  {
+    "word": "and",
+    "start": 12.806,
+    "end": 12.957
+  },
+  {
+    "word": "your",
+    "start": 13.026,
+    "end": 13.142
+  },
+  {
+    "word": "venue",
+    "start": 13.201,
+    "end": 13.549
+  },
+  {
+    "word": "and",
+    "start": 13.584,
+    "end": 13.677
+  },
+  {
+    "word": "job",
+    "start": 13.746,
+    "end": 13.99
+  },
+  {
+    "word": "will",
+    "start": 14.048,
+    "end": 14.211
+  },
+  {
+    "word": "auto-populate.",
+    "start": 14.28,
+    "end": 15.418
+  },
+  {
+    "word": "Select",
+    "start": 15.801,
+    "end": 16.196
+  },
+  {
+    "word": "the",
+    "start": 16.231,
+    "end": 16.3
+  },
+  {
+    "word": "shifts",
+    "start": 16.346,
+    "end": 16.637
+  },
+  {
+    "word": "you",
+    "start": 16.683,
+    "end": 16.764
+  },
+  {
+    "word": "want,",
+    "start": 16.834,
+    "end": 17.333
+  },
+  {
+    "word": "click",
+    "start": 17.507,
+    "end": 17.751
+  },
+  {
+    "word": "Add",
+    "start": 17.867,
+    "end": 18.1
+  },
+  {
+    "word": "to",
+    "start": 18.146,
+    "end": 18.227
+  },
+  {
+    "word": "Shift",
+    "start": 18.285,
+    "end": 18.552
+  },
+  {
+    "word": "List,",
+    "start": 18.599,
+    "end": 19.075
+  },
+  {
+    "word": "then",
+    "start": 19.249,
+    "end": 19.435
+  },
+  {
+    "word": "click",
+    "start": 19.504,
+    "end": 19.771
+  },
+  {
+    "word": "Go",
+    "start": 19.887,
+    "end": 20.073
+  },
+  {
+    "word": "to",
+    "start": 20.155,
+    "end": 20.224
+  },
+  {
+    "word": "Sign-In.",
+    "start": 20.282,
+    "end": 21.362
+  },
+  {
+    "word": "The",
+    "start": 21.362,
+    "end": 21.478
+  },
+  {
+    "word": "late",
+    "start": 21.559,
+    "end": 21.792
+  },
+  {
+    "word": "sign-in",
+    "start": 21.838,
+    "end": 22.221
+  },
+  {
+    "word": "parameter",
+    "start": 22.291,
+    "end": 22.813
+  },
+  {
+    "word": "defaults",
+    "start": 22.906,
+    "end": 23.405
+  },
+  {
+    "word": "to",
+    "start": 23.44,
+    "end": 23.498
+  },
+  {
+    "word": "15",
+    "start": 23.579,
+    "end": 23.963
+  },
+  {
+    "word": "minutes,",
+    "start": 24.021,
+    "end": 24.52
+  },
+  {
+    "word": "the",
+    "start": 24.694,
+    "end": 24.799
+  },
+  {
+    "word": "CSC",
+    "start": 24.857,
+    "end": 25.309
+  },
+  {
+    "word": "standard.",
+    "start": 25.437,
+    "end": 26.11
+  },
+  {
+    "word": "Do",
+    "start": 26.552,
+    "end": 26.726
+  },
+  {
+    "word": "not",
+    "start": 26.807,
+    "end": 26.935
+  },
+  {
+    "word": "change",
+    "start": 26.981,
+    "end": 27.283
+  },
+  {
+    "word": "this",
+    "start": 27.306,
+    "end": 27.492
+  },
+  {
+    "word": "unless",
+    "start": 27.585,
+    "end": 27.956
+  },
+  {
+    "word": "instructed.",
+    "start": 28.014,
+    "end": 28.792
+  },
+  {
+    "word": "The",
+    "start": 29.234,
+    "end": 29.361
+  },
+  {
+    "word": "15-minute",
+    "start": 29.419,
+    "end": 30.127
+  },
+  {
+    "word": "interval",
+    "start": 30.174,
+    "end": 30.557
+  },
+  {
+    "word": "means",
+    "start": 30.638,
+    "end": 30.871
+  },
+  {
+    "word": "sign-in",
+    "start": 30.917,
+    "end": 31.3
+  },
+  {
+    "word": "times",
+    "start": 31.37,
+    "end": 31.811
+  },
+  {
+    "word": "snap",
+    "start": 32.055,
+    "end": 32.368
+  },
+  {
+    "word": "to",
+    "start": 32.438,
+    "end": 32.484
+  },
+  {
+    "word": "the",
+    "start": 32.542,
+    "end": 32.612
+  },
+  {
+    "word": "nearest",
+    "start": 32.67,
+    "end": 33.007
+  },
+  {
+    "word": "quarter",
+    "start": 33.053,
+    "end": 33.378
+  },
+  {
+    "word": "hour.",
+    "start": 33.436,
+    "end": 34.086
+  }
+]

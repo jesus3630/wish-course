@@ -1,0 +1,322 @@
+[
+  {
+    "word": "That's",
+    "start": 0,
+    "end": 0.302
+  },
+  {
+    "word": "the",
+    "start": 0.348,
+    "end": 0.43
+  },
+  {
+    "word": "whole",
+    "start": 0.476,
+    "end": 0.731
+  },
+  {
+    "word": "of",
+    "start": 0.766,
+    "end": 0.824
+  },
+  {
+    "word": "WISH.",
+    "start": 0.894,
+    "end": 1.451
+  },
+  {
+    "word": "You've",
+    "start": 1.776,
+    "end": 2.02
+  },
+  {
+    "word": "seen",
+    "start": 2.055,
+    "end": 2.241
+  },
+  {
+    "word": "how",
+    "start": 2.299,
+    "end": 2.438
+  },
+  {
+    "word": "records,",
+    "start": 2.554,
+    "end": 3.402
+  },
+  {
+    "word": "scheduling,",
+    "start": 3.611,
+    "end": 4.4
+  },
+  {
+    "word": "hours,",
+    "start": 4.574,
+    "end": 5.201
+  },
+  {
+    "word": "payroll,",
+    "start": 5.375,
+    "end": 6.188
+  },
+  {
+    "word": "hiring,",
+    "start": 6.432,
+    "end": 7.14
+  },
+  {
+    "word": "reporting,",
+    "start": 7.314,
+    "end": 8.057
+  },
+  {
+    "word": "billing",
+    "start": 8.266,
+    "end": 8.661
+  },
+  {
+    "word": "and",
+    "start": 8.754,
+    "end": 8.905
+  },
+  {
+    "word": "inventory",
+    "start": 8.986,
+    "end": 9.694
+  },
+  {
+    "word": "fit",
+    "start": 10.077,
+    "end": 10.344
+  },
+  {
+    "word": "together,",
+    "start": 10.391,
+    "end": 10.995
+  },
+  {
+    "word": "and",
+    "start": 11.32,
+    "end": 11.471
+  },
+  {
+    "word": "where",
+    "start": 11.54,
+    "end": 11.796
+  },
+  {
+    "word": "each",
+    "start": 11.865,
+    "end": 12.098
+  },
+  {
+    "word": "screen",
+    "start": 12.144,
+    "end": 12.574
+  },
+  {
+    "word": "changes",
+    "start": 12.69,
+    "end": 13.293
+  },
+  {
+    "word": "depending",
+    "start": 13.677,
+    "end": 14.153
+  },
+  {
+    "word": "on",
+    "start": 14.234,
+    "end": 14.35
+  },
+  {
+    "word": "the",
+    "start": 14.385,
+    "end": 14.454
+  },
+  {
+    "word": "access",
+    "start": 14.524,
+    "end": 15.058
+  },
+  {
+    "word": "you're",
+    "start": 15.383,
+    "end": 15.627
+  },
+  {
+    "word": "given.",
+    "start": 15.662,
+    "end": 16.138
+  },
+  {
+    "word": "One",
+    "start": 16.834,
+    "end": 17.09
+  },
+  {
+    "word": "last",
+    "start": 17.148,
+    "end": 17.461
+  },
+  {
+    "word": "step:",
+    "start": 17.485,
+    "end": 17.972
+  },
+  {
+    "word": "the",
+    "start": 18.355,
+    "end": 18.46
+  },
+  {
+    "word": "certification",
+    "start": 18.506,
+    "end": 19.273
+  },
+  {
+    "word": "exam.",
+    "start": 19.331,
+    "end": 19.934
+  },
+  {
+    "word": "It's",
+    "start": 20.375,
+    "end": 20.584
+  },
+  {
+    "word": "twenty-five",
+    "start": 20.643,
+    "end": 21.316
+  },
+  {
+    "word": "questions",
+    "start": 21.351,
+    "end": 21.896
+  },
+  {
+    "word": "covering",
+    "start": 21.978,
+    "end": 22.384
+  },
+  {
+    "word": "everything",
+    "start": 22.535,
+    "end": 22.999
+  },
+  {
+    "word": "you've",
+    "start": 23.057,
+    "end": 23.243
+  },
+  {
+    "word": "just",
+    "start": 23.278,
+    "end": 23.475
+  },
+  {
+    "word": "worked",
+    "start": 23.545,
+    "end": 23.8
+  },
+  {
+    "word": "through.",
+    "start": 23.835,
+    "end": 24.242
+  },
+  {
+    "word": "You",
+    "start": 24.845,
+    "end": 24.961
+  },
+  {
+    "word": "get",
+    "start": 25.043,
+    "end": 25.182
+  },
+  {
+    "word": "one",
+    "start": 25.252,
+    "end": 25.414
+  },
+  {
+    "word": "attempt",
+    "start": 25.449,
+    "end": 25.809
+  },
+  {
+    "word": "per",
+    "start": 25.879,
+    "end": 26.041
+  },
+  {
+    "word": "sitting",
+    "start": 26.111,
+    "end": 26.494
+  },
+  {
+    "word": "and",
+    "start": 26.935,
+    "end": 27.167
+  },
+  {
+    "word": "you",
+    "start": 27.225,
+    "end": 27.307
+  },
+  {
+    "word": "need",
+    "start": 27.388,
+    "end": 27.585
+  },
+  {
+    "word": "seventy",
+    "start": 27.701,
+    "end": 28.096
+  },
+  {
+    "word": "percent",
+    "start": 28.154,
+    "end": 28.502
+  },
+  {
+    "word": "to",
+    "start": 28.549,
+    "end": 28.619
+  },
+  {
+    "word": "pass,",
+    "start": 28.7,
+    "end": 29.338
+  },
+  {
+    "word": "so",
+    "start": 29.582,
+    "end": 29.745
+  },
+  {
+    "word": "take",
+    "start": 29.814,
+    "end": 30.047
+  },
+  {
+    "word": "it",
+    "start": 30.081,
+    "end": 30.151
+  },
+  {
+    "word": "when",
+    "start": 30.198,
+    "end": 30.337
+  },
+  {
+    "word": "you're",
+    "start": 30.372,
+    "end": 30.569
+  },
+  {
+    "word": "ready.",
+    "start": 30.604,
+    "end": 31.254
+  }
+]

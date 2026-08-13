@@ -1,0 +1,582 @@
+[
+  {
+    "word": "Not",
+    "start": 0,
+    "end": 0.221
+  },
+  {
+    "word": "sure",
+    "start": 0.267,
+    "end": 0.464
+  },
+  {
+    "word": "which",
+    "start": 0.511,
+    "end": 0.72
+  },
+  {
+    "word": "Mail",
+    "start": 0.778,
+    "end": 0.964
+  },
+  {
+    "word": "By",
+    "start": 1.022,
+    "end": 1.138
+  },
+  {
+    "word": "option",
+    "start": 1.219,
+    "end": 1.544
+  },
+  {
+    "word": "to",
+    "start": 1.602,
+    "end": 1.649
+  },
+  {
+    "word": "use?",
+    "start": 1.718,
+    "end": 2.218
+  },
+  {
+    "word": "Here's",
+    "start": 2.426,
+    "end": 2.659
+  },
+  {
+    "word": "a",
+    "start": 2.682,
+    "end": 2.705
+  },
+  {
+    "word": "quick",
+    "start": 2.752,
+    "end": 2.926
+  },
+  {
+    "word": "guide:",
+    "start": 2.984,
+    "end": 3.68
+  },
+  {
+    "word": "\"I",
+    "start": 3.68,
+    "end": 3.82
+  },
+  {
+    "word": "need",
+    "start": 3.901,
+    "end": 4.063
+  },
+  {
+    "word": "to",
+    "start": 4.087,
+    "end": 4.133
+  },
+  {
+    "word": "reach",
+    "start": 4.191,
+    "end": 4.365
+  },
+  {
+    "word": "a",
+    "start": 4.4,
+    "end": 4.423
+  },
+  {
+    "word": "specific",
+    "start": 4.481,
+    "end": 4.946
+  },
+  {
+    "word": "employee",
+    "start": 4.992,
+    "end": 5.515
+  },
+  {
+    "word": "or",
+    "start": 5.573,
+    "end": 5.689
+  },
+  {
+    "word": "a",
+    "start": 5.747,
+    "end": 5.77
+  },
+  {
+    "word": "few",
+    "start": 5.84,
+    "end": 6.002
+  },
+  {
+    "word": "people",
+    "start": 6.06,
+    "end": 6.351
+  },
+  {
+    "word": "by",
+    "start": 6.397,
+    "end": 6.513
+  },
+  {
+    "word": "name.\"",
+    "start": 6.594,
+    "end": 7.674
+  },
+  {
+    "word": "to",
+    "start": 7.674,
+    "end": 7.767
+  },
+  {
+    "word": "Mail",
+    "start": 7.848,
+    "end": 8.057
+  },
+  {
+    "word": "By",
+    "start": 8.127,
+    "end": 8.243
+  },
+  {
+    "word": "Employee",
+    "start": 8.313,
+    "end": 9.172
+  },
+  {
+    "word": "\"I",
+    "start": 9.172,
+    "end": 9.334
+  },
+  {
+    "word": "have",
+    "start": 9.416,
+    "end": 9.555
+  },
+  {
+    "word": "open",
+    "start": 9.601,
+    "end": 9.88
+  },
+  {
+    "word": "shifts",
+    "start": 9.961,
+    "end": 10.333
+  },
+  {
+    "word": "and",
+    "start": 10.507,
+    "end": 10.658
+  },
+  {
+    "word": "need",
+    "start": 10.716,
+    "end": 10.867
+  },
+  {
+    "word": "to",
+    "start": 10.902,
+    "end": 10.948
+  },
+  {
+    "word": "find",
+    "start": 11.006,
+    "end": 11.215
+  },
+  {
+    "word": "employees",
+    "start": 11.262,
+    "end": 11.784
+  },
+  {
+    "word": "who",
+    "start": 11.819,
+    "end": 11.912
+  },
+  {
+    "word": "aren't",
+    "start": 11.958,
+    "end": 12.132
+  },
+  {
+    "word": "scheduled",
+    "start": 12.179,
+    "end": 12.608
+  },
+  {
+    "word": "yet.\"",
+    "start": 12.655,
+    "end": 13.584
+  },
+  {
+    "word": "to",
+    "start": 13.584,
+    "end": 13.665
+  },
+  {
+    "word": "Mail",
+    "start": 13.735,
+    "end": 13.932
+  },
+  {
+    "word": "By",
+    "start": 13.99,
+    "end": 14.106
+  },
+  {
+    "word": "Available",
+    "start": 14.176,
+    "end": 14.628
+  },
+  {
+    "word": "Employee",
+    "start": 14.663,
+    "end": 15.464
+  },
+  {
+    "word": "\"I",
+    "start": 15.464,
+    "end": 15.604
+  },
+  {
+    "word": "need",
+    "start": 15.685,
+    "end": 15.848
+  },
+  {
+    "word": "to",
+    "start": 15.871,
+    "end": 15.917
+  },
+  {
+    "word": "send",
+    "start": 15.964,
+    "end": 16.126
+  },
+  {
+    "word": "the",
+    "start": 16.173,
+    "end": 16.242
+  },
+  {
+    "word": "same",
+    "start": 16.289,
+    "end": 16.521
+  },
+  {
+    "word": "message",
+    "start": 16.567,
+    "end": 16.916
+  },
+  {
+    "word": "to",
+    "start": 16.95,
+    "end": 17.02
+  },
+  {
+    "word": "everyone",
+    "start": 17.101,
+    "end": 17.519
+  },
+  {
+    "word": "working",
+    "start": 17.566,
+    "end": 17.856
+  },
+  {
+    "word": "a",
+    "start": 17.903,
+    "end": 17.926
+  },
+  {
+    "word": "specific",
+    "start": 17.984,
+    "end": 18.437
+  },
+  {
+    "word": "job.\"",
+    "start": 18.483,
+    "end": 19.574
+  },
+  {
+    "word": "to",
+    "start": 19.574,
+    "end": 19.69
+  },
+  {
+    "word": "Mail",
+    "start": 19.783,
+    "end": 20.097
+  },
+  {
+    "word": "By",
+    "start": 20.178,
+    "end": 20.294
+  },
+  {
+    "word": "job",
+    "start": 20.375,
+    "end": 21.2
+  },
+  {
+    "word": "A",
+    "start": 21.2,
+    "end": 21.583
+  },
+  {
+    "word": "few",
+    "start": 21.664,
+    "end": 21.803
+  },
+  {
+    "word": "things",
+    "start": 21.838,
+    "end": 22.059
+  },
+  {
+    "word": "to",
+    "start": 22.094,
+    "end": 22.14
+  },
+  {
+    "word": "keep",
+    "start": 22.187,
+    "end": 22.338
+  },
+  {
+    "word": "in",
+    "start": 22.396,
+    "end": 22.454
+  },
+  {
+    "word": "mind:\rMessages",
+    "start": 22.512,
+    "end": 23.742
+  },
+  {
+    "word": "go",
+    "start": 23.8,
+    "end": 23.916
+  },
+  {
+    "word": "to",
+    "start": 23.975,
+    "end": 24.033
+  },
+  {
+    "word": "the",
+    "start": 24.079,
+    "end": 24.149
+  },
+  {
+    "word": "email",
+    "start": 24.218,
+    "end": 24.52
+  },
+  {
+    "word": "address",
+    "start": 24.567,
+    "end": 24.915
+  },
+  {
+    "word": "on",
+    "start": 24.985,
+    "end": 25.112
+  },
+  {
+    "word": "file",
+    "start": 25.205,
+    "end": 25.646
+  },
+  {
+    "word": "in",
+    "start": 25.704,
+    "end": 25.821
+  },
+  {
+    "word": "WISH,",
+    "start": 25.937,
+    "end": 26.436
+  },
+  {
+    "word": "if",
+    "start": 26.68,
+    "end": 26.796
+  },
+  {
+    "word": "an",
+    "start": 26.842,
+    "end": 26.9
+  },
+  {
+    "word": "employee's",
+    "start": 26.935,
+    "end": 27.434
+  },
+  {
+    "word": "email",
+    "start": 27.516,
+    "end": 27.864
+  },
+  {
+    "word": "is",
+    "start": 27.934,
+    "end": 28.015
+  },
+  {
+    "word": "outdated,",
+    "start": 28.073,
+    "end": 28.677
+  },
+  {
+    "word": "they",
+    "start": 28.7,
+    "end": 28.828
+  },
+  {
+    "word": "won't",
+    "start": 28.863,
+    "end": 29.06
+  },
+  {
+    "word": "receive",
+    "start": 29.106,
+    "end": 29.443
+  },
+  {
+    "word": "it\rThese",
+    "start": 29.49,
+    "end": 30.407
+  },
+  {
+    "word": "are",
+    "start": 30.43,
+    "end": 30.534
+  },
+  {
+    "word": "one-way",
+    "start": 30.581,
+    "end": 30.86
+  },
+  {
+    "word": "communications,",
+    "start": 30.906,
+    "end": 31.963
+  },
+  {
+    "word": "employees",
+    "start": 32.206,
+    "end": 32.833
+  },
+  {
+    "word": "cannot",
+    "start": 32.903,
+    "end": 33.228
+  },
+  {
+    "word": "reply",
+    "start": 33.274,
+    "end": 33.669
+  },
+  {
+    "word": "through",
+    "start": 33.75,
+    "end": 33.983
+  },
+  {
+    "word": "WISH\rIf",
+    "start": 34.052,
+    "end": 34.505
+  },
+  {
+    "word": "an",
+    "start": 34.552,
+    "end": 34.61
+  },
+  {
+    "word": "employee",
+    "start": 34.644,
+    "end": 35.132
+  },
+  {
+    "word": "hasn't",
+    "start": 35.19,
+    "end": 35.446
+  },
+  {
+    "word": "received",
+    "start": 35.504,
+    "end": 35.852
+  },
+  {
+    "word": "a",
+    "start": 35.875,
+    "end": 35.91
+  },
+  {
+    "word": "message",
+    "start": 35.956,
+    "end": 36.258
+  },
+  {
+    "word": "you",
+    "start": 36.281,
+    "end": 36.363
+  },
+  {
+    "word": "sent,",
+    "start": 36.444,
+    "end": 36.92
+  },
+  {
+    "word": "verify",
+    "start": 37.164,
+    "end": 37.628
+  },
+  {
+    "word": "their",
+    "start": 37.686,
+    "end": 37.826
+  },
+  {
+    "word": "email",
+    "start": 37.884,
+    "end": 38.197
+  },
+  {
+    "word": "address",
+    "start": 38.244,
+    "end": 38.603
+  },
+  {
+    "word": "in",
+    "start": 38.638,
+    "end": 38.708
+  },
+  {
+    "word": "their",
+    "start": 38.743,
+    "end": 38.882
+  },
+  {
+    "word": "employee",
+    "start": 38.929,
+    "end": 39.335
+  },
+  {
+    "word": "record",
+    "start": 39.405,
+    "end": 39.753
+  },
+  {
+    "word": "before",
+    "start": 39.799,
+    "end": 40.078
+  },
+  {
+    "word": "resending",
+    "start": 40.136,
+    "end": 41.053
+  }
+]

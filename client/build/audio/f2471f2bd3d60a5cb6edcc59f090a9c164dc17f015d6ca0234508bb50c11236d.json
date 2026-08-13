@@ -1,0 +1,367 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "Web",
+    "start": 0.197,
+    "end": 0.348
+  },
+  {
+    "word": "Shift",
+    "start": 0.395,
+    "end": 0.639
+  },
+  {
+    "word": "Approval",
+    "start": 0.673,
+    "end": 1.057
+  },
+  {
+    "word": "tab",
+    "start": 1.115,
+    "end": 1.416
+  },
+  {
+    "word": "shows",
+    "start": 1.741,
+    "end": 2.043
+  },
+  {
+    "word": "applications",
+    "start": 2.101,
+    "end": 2.844
+  },
+  {
+    "word": "for",
+    "start": 2.995,
+    "end": 3.146
+  },
+  {
+    "word": "published",
+    "start": 3.204,
+    "end": 3.587
+  },
+  {
+    "word": "shifts.",
+    "start": 3.611,
+    "end": 4.702
+  },
+  {
+    "word": "Set",
+    "start": 4.702,
+    "end": 4.911
+  },
+  {
+    "word": "your",
+    "start": 4.969,
+    "end": 5.085
+  },
+  {
+    "word": "date",
+    "start": 5.132,
+    "end": 5.329
+  },
+  {
+    "word": "range",
+    "start": 5.375,
+    "end": 5.84
+  },
+  {
+    "word": "and",
+    "start": 5.898,
+    "end": 6.153
+  },
+  {
+    "word": "click",
+    "start": 6.223,
+    "end": 6.467
+  },
+  {
+    "word": "Show",
+    "start": 6.583,
+    "end": 6.873
+  },
+  {
+    "word": "All",
+    "start": 6.989,
+    "end": 7.256
+  },
+  {
+    "word": "Published",
+    "start": 7.338,
+    "end": 7.732
+  },
+  {
+    "word": "Shifts.",
+    "start": 7.755,
+    "end": 8.44
+  },
+  {
+    "word": "Shifts",
+    "start": 9.044,
+    "end": 9.416
+  },
+  {
+    "word": "with",
+    "start": 9.474,
+    "end": 9.636
+  },
+  {
+    "word": "pending",
+    "start": 9.694,
+    "end": 10.019
+  },
+  {
+    "word": "activity",
+    "start": 10.077,
+    "end": 10.693
+  },
+  {
+    "word": "show",
+    "start": 11.076,
+    "end": 11.343
+  },
+  {
+    "word": "small",
+    "start": 11.459,
+    "end": 11.819
+  },
+  {
+    "word": "breadcrumb",
+    "start": 11.9,
+    "end": 12.388
+  },
+  {
+    "word": "indicators.",
+    "start": 12.469,
+    "end": 13.851
+  },
+  {
+    "word": "Open",
+    "start": 13.851,
+    "end": 14.141
+  },
+  {
+    "word": "a",
+    "start": 14.199,
+    "end": 14.222
+  },
+  {
+    "word": "shift",
+    "start": 14.28,
+    "end": 14.571
+  },
+  {
+    "word": "role",
+    "start": 14.629,
+    "end": 15.047
+  },
+  {
+    "word": "to",
+    "start": 15.197,
+    "end": 15.314
+  },
+  {
+    "word": "see",
+    "start": 15.406,
+    "end": 15.592
+  },
+  {
+    "word": "applicants.",
+    "start": 15.662,
+    "end": 16.486
+  },
+  {
+    "word": "Approve",
+    "start": 16.811,
+    "end": 17.473
+  },
+  {
+    "word": "or",
+    "start": 17.601,
+    "end": 17.751
+  },
+  {
+    "word": "deny",
+    "start": 17.821,
+    "end": 18.239
+  },
+  {
+    "word": "each",
+    "start": 18.39,
+    "end": 18.622
+  },
+  {
+    "word": "one.",
+    "start": 18.704,
+    "end": 19.156
+  },
+  {
+    "word": "The",
+    "start": 19.667,
+    "end": 19.795
+  },
+  {
+    "word": "system",
+    "start": 19.853,
+    "end": 20.213
+  },
+  {
+    "word": "enforces",
+    "start": 20.282,
+    "end": 20.805
+  },
+  {
+    "word": "your",
+    "start": 20.851,
+    "end": 20.991
+  },
+  {
+    "word": "headcount",
+    "start": 21.06,
+    "end": 21.478
+  },
+  {
+    "word": "limits,",
+    "start": 21.525,
+    "end": 22.059
+  },
+  {
+    "word": "it",
+    "start": 22.384,
+    "end": 22.488
+  },
+  {
+    "word": "will",
+    "start": 22.523,
+    "end": 22.674
+  },
+  {
+    "word": "not",
+    "start": 22.721,
+    "end": 22.848
+  },
+  {
+    "word": "let",
+    "start": 22.895,
+    "end": 23.011
+  },
+  {
+    "word": "you",
+    "start": 23.069,
+    "end": 23.139
+  },
+  {
+    "word": "approve",
+    "start": 23.208,
+    "end": 23.789
+  },
+  {
+    "word": "more",
+    "start": 23.998,
+    "end": 24.439
+  },
+  {
+    "word": "than",
+    "start": 24.52,
+    "end": 24.694
+  },
+  {
+    "word": "the",
+    "start": 24.729,
+    "end": 24.799
+  },
+  {
+    "word": "maximum",
+    "start": 24.834,
+    "end": 25.24
+  },
+  {
+    "word": "allows.",
+    "start": 25.286,
+    "end": 26.401
+  },
+  {
+    "word": "If",
+    "start": 26.401,
+    "end": 26.54
+  },
+  {
+    "word": "you",
+    "start": 26.598,
+    "end": 26.691
+  },
+  {
+    "word": "approve",
+    "start": 26.772,
+    "end": 27.248
+  },
+  {
+    "word": "one",
+    "start": 27.306,
+    "end": 27.504
+  },
+  {
+    "word": "applicant",
+    "start": 27.562,
+    "end": 28.108
+  },
+  {
+    "word": "for",
+    "start": 28.259,
+    "end": 28.444
+  },
+  {
+    "word": "a",
+    "start": 28.491,
+    "end": 28.526
+  },
+  {
+    "word": "full",
+    "start": 28.595,
+    "end": 28.827
+  },
+  {
+    "word": "role,",
+    "start": 28.897,
+    "end": 29.408
+  },
+  {
+    "word": "go",
+    "start": 29.791,
+    "end": 29.954
+  },
+  {
+    "word": "back",
+    "start": 30.035,
+    "end": 30.279
+  },
+  {
+    "word": "and",
+    "start": 30.453,
+    "end": 30.604
+  },
+  {
+    "word": "deny",
+    "start": 30.65,
+    "end": 30.952
+  },
+  {
+    "word": "others",
+    "start": 31.068,
+    "end": 31.463
+  },
+  {
+    "word": "who",
+    "start": 31.637,
+    "end": 31.811
+  },
+  {
+    "word": "applied.",
+    "start": 31.881,
+    "end": 32.786
+  }
+]

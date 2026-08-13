@@ -1,0 +1,552 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.267
+  },
+  {
+    "word": "to",
+    "start": 0.36,
+    "end": 0.43
+  },
+  {
+    "word": "Reports",
+    "start": 0.499,
+    "end": 0.894
+  },
+  {
+    "word": "to",
+    "start": 0.929,
+    "end": 0.987
+  },
+  {
+    "word": "Payroll",
+    "start": 1.045,
+    "end": 1.405
+  },
+  {
+    "word": "Reports",
+    "start": 1.463,
+    "end": 1.904
+  },
+  {
+    "word": "to",
+    "start": 1.95,
+    "end": 2.009
+  },
+  {
+    "word": "access",
+    "start": 2.09,
+    "end": 2.554
+  },
+  {
+    "word": "this",
+    "start": 2.601,
+    "end": 2.752
+  },
+  {
+    "word": "section.",
+    "start": 2.81,
+    "end": 3.82
+  },
+  {
+    "word": "Reports",
+    "start": 3.82,
+    "end": 4.249
+  },
+  {
+    "word": "available",
+    "start": 4.296,
+    "end": 4.76
+  },
+  {
+    "word": "here:\rEmployee",
+    "start": 4.818,
+    "end": 6.188
+  },
+  {
+    "word": "Time",
+    "start": 6.246,
+    "end": 6.513
+  },
+  {
+    "word": "Register,",
+    "start": 6.548,
+    "end": 7.233
+  },
+  {
+    "word": "the",
+    "start": 7.477,
+    "end": 7.581
+  },
+  {
+    "word": "primary",
+    "start": 7.639,
+    "end": 8.046
+  },
+  {
+    "word": "report.",
+    "start": 8.115,
+    "end": 8.812
+  },
+  {
+    "word": "Shows",
+    "start": 9.253,
+    "end": 9.555
+  },
+  {
+    "word": "each",
+    "start": 9.636,
+    "end": 9.868
+  },
+  {
+    "word": "employee's",
+    "start": 9.915,
+    "end": 10.333
+  },
+  {
+    "word": "hours",
+    "start": 10.403,
+    "end": 10.704
+  },
+  {
+    "word": "worked",
+    "start": 10.762,
+    "end": 11.088
+  },
+  {
+    "word": "by",
+    "start": 11.146,
+    "end": 11.273
+  },
+  {
+    "word": "job",
+    "start": 11.355,
+    "end": 11.668
+  },
+  {
+    "word": "and",
+    "start": 11.749,
+    "end": 11.877
+  },
+  {
+    "word": "shift.\rEmployee",
+    "start": 11.958,
+    "end": 13.456
+  },
+  {
+    "word": "Time",
+    "start": 13.514,
+    "end": 13.781
+  },
+  {
+    "word": "Register",
+    "start": 13.816,
+    "end": 14.292
+  },
+  {
+    "word": "(Break),",
+    "start": 14.466,
+    "end": 15.314
+  },
+  {
+    "word": "same",
+    "start": 15.557,
+    "end": 15.848
+  },
+  {
+    "word": "as",
+    "start": 15.871,
+    "end": 15.94
+  },
+  {
+    "word": "above,",
+    "start": 15.999,
+    "end": 16.591
+  },
+  {
+    "word": "with",
+    "start": 16.835,
+    "end": 17.009
+  },
+  {
+    "word": "break",
+    "start": 17.044,
+    "end": 17.276
+  },
+  {
+    "word": "time",
+    "start": 17.334,
+    "end": 17.566
+  },
+  {
+    "word": "broken",
+    "start": 17.59,
+    "end": 17.88
+  },
+  {
+    "word": "out",
+    "start": 17.926,
+    "end": 18.066
+  },
+  {
+    "word": "separately.\rEmp",
+    "start": 18.135,
+    "end": 20.202
+  },
+  {
+    "word": "Time",
+    "start": 20.411,
+    "end": 20.689
+  },
+  {
+    "word": "Register",
+    "start": 20.724,
+    "end": 21.293
+  },
+  {
+    "word": "With",
+    "start": 21.537,
+    "end": 21.746
+  },
+  {
+    "word": "Notes,",
+    "start": 21.827,
+    "end": 22.292
+  },
+  {
+    "word": "includes",
+    "start": 22.408,
+    "end": 22.872
+  },
+  {
+    "word": "any",
+    "start": 22.942,
+    "end": 23.162
+  },
+  {
+    "word": "notes",
+    "start": 23.22,
+    "end": 23.464
+  },
+  {
+    "word": "attached",
+    "start": 23.511,
+    "end": 23.894
+  },
+  {
+    "word": "to",
+    "start": 23.917,
+    "end": 23.963
+  },
+  {
+    "word": "an",
+    "start": 24.033,
+    "end": 24.08
+  },
+  {
+    "word": "employee's",
+    "start": 24.126,
+    "end": 24.579
+  },
+  {
+    "word": "timesheet",
+    "start": 24.637,
+    "end": 25.113
+  },
+  {
+    "word": "entry.\rFinancial",
+    "start": 25.182,
+    "end": 26.634
+  },
+  {
+    "word": "Analysis",
+    "start": 26.669,
+    "end": 27.121
+  },
+  {
+    "word": "Report,",
+    "start": 27.179,
+    "end": 27.806
+  },
+  {
+    "word": "a",
+    "start": 28.131,
+    "end": 28.201
+  },
+  {
+    "word": "cost-facing",
+    "start": 28.317,
+    "end": 28.991
+  },
+  {
+    "word": "view",
+    "start": 29.049,
+    "end": 29.281
+  },
+  {
+    "word": "of",
+    "start": 29.374,
+    "end": 29.455
+  },
+  {
+    "word": "hours",
+    "start": 29.536,
+    "end": 29.896
+  },
+  {
+    "word": "and",
+    "start": 29.931,
+    "end": 30.012
+  },
+  {
+    "word": "pay",
+    "start": 30.07,
+    "end": 30.279
+  },
+  {
+    "word": "across",
+    "start": 30.326,
+    "end": 30.651
+  },
+  {
+    "word": "jobs.\rExport",
+    "start": 30.709,
+    "end": 32.299
+  },
+  {
+    "word": "PerDiem",
+    "start": 32.369,
+    "end": 32.926
+  },
+  {
+    "word": "Report,",
+    "start": 33.007,
+    "end": 33.657
+  },
+  {
+    "word": "exports",
+    "start": 33.901,
+    "end": 34.447
+  },
+  {
+    "word": "per",
+    "start": 34.493,
+    "end": 34.656
+  },
+  {
+    "word": "diem",
+    "start": 34.726,
+    "end": 34.993
+  },
+  {
+    "word": "payments",
+    "start": 35.062,
+    "end": 35.492
+  },
+  {
+    "word": "for",
+    "start": 35.538,
+    "end": 35.643
+  },
+  {
+    "word": "payroll",
+    "start": 35.701,
+    "end": 36.13
+  },
+  {
+    "word": "processing.\rManage",
+    "start": 36.188,
+    "end": 37.814
+  },
+  {
+    "word": "Temp",
+    "start": 37.86,
+    "end": 38.104
+  },
+  {
+    "word": "Cost",
+    "start": 38.162,
+    "end": 38.464
+  },
+  {
+    "word": "Code",
+    "start": 38.545,
+    "end": 38.824
+  },
+  {
+    "word": "Number,",
+    "start": 38.87,
+    "end": 39.381
+  },
+  {
+    "word": "for",
+    "start": 39.555,
+    "end": 39.695
+  },
+  {
+    "word": "branches",
+    "start": 39.741,
+    "end": 40.205
+  },
+  {
+    "word": "that",
+    "start": 40.24,
+    "end": 40.368
+  },
+  {
+    "word": "use",
+    "start": 40.438,
+    "end": 40.647
+  },
+  {
+    "word": "cost",
+    "start": 40.705,
+    "end": 40.972
+  },
+  {
+    "word": "codes",
+    "start": 41.03,
+    "end": 41.366
+  },
+  {
+    "word": "to",
+    "start": 41.401,
+    "end": 41.471
+  },
+  {
+    "word": "categorize",
+    "start": 41.541,
+    "end": 42.214
+  },
+  {
+    "word": "labor.\rEmployee",
+    "start": 42.272,
+    "end": 43.793
+  },
+  {
+    "word": "Estimate",
+    "start": 43.863,
+    "end": 44.292
+  },
+  {
+    "word": "Hours,",
+    "start": 44.339,
+    "end": 45
+  },
+  {
+    "word": "projected",
+    "start": 45.175,
+    "end": 45.697
+  },
+  {
+    "word": "hours",
+    "start": 45.732,
+    "end": 46.057
+  },
+  {
+    "word": "based",
+    "start": 46.115,
+    "end": 46.359
+  },
+  {
+    "word": "on",
+    "start": 46.405,
+    "end": 46.475
+  },
+  {
+    "word": "scheduled",
+    "start": 46.544,
+    "end": 47.009
+  },
+  {
+    "word": "shifts",
+    "start": 47.044,
+    "end": 47.346
+  },
+  {
+    "word": "before",
+    "start": 47.392,
+    "end": 47.682
+  },
+  {
+    "word": "actuals",
+    "start": 47.74,
+    "end": 48.24
+  },
+  {
+    "word": "are",
+    "start": 48.286,
+    "end": 48.379
+  },
+  {
+    "word": "entered.",
+    "start": 48.425,
+    "end": 49.447
+  },
+  {
+    "word": "For",
+    "start": 49.447,
+    "end": 49.598
+  },
+  {
+    "word": "most",
+    "start": 49.656,
+    "end": 49.877
+  },
+  {
+    "word": "day-to-day",
+    "start": 49.935,
+    "end": 50.399
+  },
+  {
+    "word": "payroll",
+    "start": 50.469,
+    "end": 50.864
+  },
+  {
+    "word": "review,",
+    "start": 50.922,
+    "end": 51.467
+  },
+  {
+    "word": "you'll",
+    "start": 51.583,
+    "end": 51.781
+  },
+  {
+    "word": "be",
+    "start": 51.827,
+    "end": 51.897
+  },
+  {
+    "word": "working",
+    "start": 51.943,
+    "end": 52.303
+  },
+  {
+    "word": "with",
+    "start": 52.338,
+    "end": 52.443
+  },
+  {
+    "word": "the",
+    "start": 52.477,
+    "end": 52.547
+  },
+  {
+    "word": "Employee",
+    "start": 52.605,
+    "end": 53.035
+  },
+  {
+    "word": "Time",
+    "start": 53.104,
+    "end": 53.395
+  },
+  {
+    "word": "Register.",
+    "start": 53.429,
+    "end": 54.289
+  }
+]

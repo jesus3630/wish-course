@@ -1,0 +1,32 @@
+[
+  {
+    "word": "WISH",
+    "start": 0,
+    "end": 0.325
+  },
+  {
+    "word": "is",
+    "start": 0.395,
+    "end": 0.522
+  },
+  {
+    "word": "available",
+    "start": 0.569,
+    "end": 1.022
+  },
+  {
+    "word": "online",
+    "start": 1.057,
+    "end": 1.474
+  },
+  {
+    "word": "at",
+    "start": 1.521,
+    "end": 1.683
+  },
+  {
+    "word": "wish.schedulingsite.com.",
+    "start": 1.765,
+    "end": 4.412
+  }
+]

@@ -1,0 +1,457 @@
+[
+  {
+    "word": "Once",
+    "start": 0,
+    "end": 0.313
+  },
+  {
+    "word": "an",
+    "start": 0.36,
+    "end": 0.43
+  },
+  {
+    "word": "applicant",
+    "start": 0.464,
+    "end": 0.929
+  },
+  {
+    "word": "is",
+    "start": 0.998,
+    "end": 1.115
+  },
+  {
+    "word": "imported,",
+    "start": 1.184,
+    "end": 1.858
+  },
+  {
+    "word": "their",
+    "start": 2.183,
+    "end": 2.368
+  },
+  {
+    "word": "basic",
+    "start": 2.415,
+    "end": 2.763
+  },
+  {
+    "word": "record",
+    "start": 2.844,
+    "end": 3.228
+  },
+  {
+    "word": "is",
+    "start": 3.297,
+    "end": 3.413
+  },
+  {
+    "word": "created",
+    "start": 3.483,
+    "end": 4.04
+  },
+  {
+    "word": "in",
+    "start": 4.133,
+    "end": 4.272
+  },
+  {
+    "word": "WISH",
+    "start": 4.354,
+    "end": 5.074
+  },
+  {
+    "word": "using",
+    "start": 5.352,
+    "end": 5.666
+  },
+  {
+    "word": "the",
+    "start": 5.724,
+    "end": 5.793
+  },
+  {
+    "word": "information",
+    "start": 5.863,
+    "end": 6.583
+  },
+  {
+    "word": "from",
+    "start": 6.908,
+    "end": 7.082
+  },
+  {
+    "word": "the",
+    "start": 7.129,
+    "end": 7.198
+  },
+  {
+    "word": "hiring",
+    "start": 7.268,
+    "end": 7.686
+  },
+  {
+    "word": "portal.",
+    "start": 7.755,
+    "end": 8.858
+  },
+  {
+    "word": "Your",
+    "start": 8.858,
+    "end": 9.091
+  },
+  {
+    "word": "next",
+    "start": 9.16,
+    "end": 9.404
+  },
+  {
+    "word": "steps",
+    "start": 9.451,
+    "end": 9.88
+  },
+  {
+    "word": "after",
+    "start": 10.089,
+    "end": 10.437
+  },
+  {
+    "word": "importing:\rGo",
+    "start": 10.507,
+    "end": 11.889
+  },
+  {
+    "word": "to",
+    "start": 11.958,
+    "end": 12.04
+  },
+  {
+    "word": "Records",
+    "start": 12.156,
+    "end": 12.643
+  },
+  {
+    "word": "to",
+    "start": 12.701,
+    "end": 12.783
+  },
+  {
+    "word": "Manage",
+    "start": 12.864,
+    "end": 13.201
+  },
+  {
+    "word": "Employee",
+    "start": 13.247,
+    "end": 14.106
+  },
+  {
+    "word": "and",
+    "start": 14.35,
+    "end": 14.512
+  },
+  {
+    "word": "search",
+    "start": 14.594,
+    "end": 14.907
+  },
+  {
+    "word": "for",
+    "start": 14.965,
+    "end": 15.07
+  },
+  {
+    "word": "the",
+    "start": 15.105,
+    "end": 15.174
+  },
+  {
+    "word": "new",
+    "start": 15.29,
+    "end": 15.488
+  },
+  {
+    "word": "employee",
+    "start": 15.557,
+    "end": 16.44
+  },
+  {
+    "word": "to",
+    "start": 16.614,
+    "end": 16.73
+  },
+  {
+    "word": "confirm",
+    "start": 16.8,
+    "end": 17.322
+  },
+  {
+    "word": "their",
+    "start": 17.392,
+    "end": 17.566
+  },
+  {
+    "word": "record",
+    "start": 17.612,
+    "end": 18.042
+  },
+  {
+    "word": "was",
+    "start": 18.193,
+    "end": 18.355
+  },
+  {
+    "word": "created",
+    "start": 18.425,
+    "end": 18.901
+  },
+  {
+    "word": "correctly\rVerify",
+    "start": 18.971,
+    "end": 20.619
+  },
+  {
+    "word": "their",
+    "start": 20.701,
+    "end": 20.851
+  },
+  {
+    "word": "personal",
+    "start": 20.898,
+    "end": 21.281
+  },
+  {
+    "word": "information",
+    "start": 21.351,
+    "end": 22.036
+  },
+  {
+    "word": "populated",
+    "start": 22.407,
+    "end": 23.011
+  },
+  {
+    "word": "properly,",
+    "start": 23.069,
+    "end": 23.707
+  },
+  {
+    "word": "name,",
+    "start": 24.137,
+    "end": 24.729
+  },
+  {
+    "word": "SSN,",
+    "start": 24.961,
+    "end": 25.786
+  },
+  {
+    "word": "contact",
+    "start": 26.111,
+    "end": 26.587
+  },
+  {
+    "word": "details\rAssign",
+    "start": 26.633,
+    "end": 28.189
+  },
+  {
+    "word": "their",
+    "start": 28.247,
+    "end": 28.386
+  },
+  {
+    "word": "default",
+    "start": 28.444,
+    "end": 28.874
+  },
+  {
+    "word": "pay",
+    "start": 28.92,
+    "end": 29.106
+  },
+  {
+    "word": "rate",
+    "start": 29.176,
+    "end": 29.512
+  },
+  {
+    "word": "if",
+    "start": 29.826,
+    "end": 29.954
+  },
+  {
+    "word": "it",
+    "start": 30.012,
+    "end": 30.081
+  },
+  {
+    "word": "wasn't",
+    "start": 30.128,
+    "end": 30.395
+  },
+  {
+    "word": "set",
+    "start": 30.441,
+    "end": 30.65
+  },
+  {
+    "word": "during",
+    "start": 30.708,
+    "end": 30.987
+  },
+  {
+    "word": "import,",
+    "start": 31.068,
+    "end": 31.742
+  },
+  {
+    "word": "they",
+    "start": 32.322,
+    "end": 32.473
+  },
+  {
+    "word": "cannot",
+    "start": 32.508,
+    "end": 32.775
+  },
+  {
+    "word": "be",
+    "start": 32.845,
+    "end": 32.961
+  },
+  {
+    "word": "scheduled",
+    "start": 33.019,
+    "end": 33.646
+  },
+  {
+    "word": "without",
+    "start": 33.68,
+    "end": 33.994
+  },
+  {
+    "word": "an",
+    "start": 34.04,
+    "end": 34.098
+  },
+  {
+    "word": "active",
+    "start": 34.168,
+    "end": 34.586
+  },
+  {
+    "word": "pay",
+    "start": 34.632,
+    "end": 34.818
+  },
+  {
+    "word": "rate",
+    "start": 34.888,
+    "end": 35.26
+  },
+  {
+    "word": "on",
+    "start": 35.364,
+    "end": 35.538
+  },
+  {
+    "word": "file",
+    "start": 35.654,
+    "end": 36.978
+  },
+  {
+    "word": "If",
+    "start": 36.978,
+    "end": 37.14
+  },
+  {
+    "word": "anything",
+    "start": 37.21,
+    "end": 37.616
+  },
+  {
+    "word": "looks",
+    "start": 37.686,
+    "end": 37.93
+  },
+  {
+    "word": "incorrect",
+    "start": 38.011,
+    "end": 38.638
+  },
+  {
+    "word": "in",
+    "start": 38.754,
+    "end": 38.894
+  },
+  {
+    "word": "the",
+    "start": 38.94,
+    "end": 39.01
+  },
+  {
+    "word": "record",
+    "start": 39.068,
+    "end": 39.567
+  },
+  {
+    "word": "after",
+    "start": 39.776,
+    "end": 40.124
+  },
+  {
+    "word": "import,",
+    "start": 40.205,
+    "end": 40.902
+  },
+  {
+    "word": "contact",
+    "start": 41.227,
+    "end": 41.761
+  },
+  {
+    "word": "your",
+    "start": 41.808,
+    "end": 41.982
+  },
+  {
+    "word": "administrator",
+    "start": 42.04,
+    "end": 42.806
+  },
+  {
+    "word": "before",
+    "start": 43.189,
+    "end": 43.549
+  },
+  {
+    "word": "scheduling",
+    "start": 43.607,
+    "end": 44.13
+  },
+  {
+    "word": "the",
+    "start": 44.188,
+    "end": 44.269
+  },
+  {
+    "word": "employee",
+    "start": 44.339,
+    "end": 45.116
+  },
+  {
+    "word": "for",
+    "start": 45.36,
+    "end": 45.534
+  },
+  {
+    "word": "any",
+    "start": 45.616,
+    "end": 45.836
+  },
+  {
+    "word": "jobs.",
+    "start": 45.906,
+    "end": 46.719
+  }
+]

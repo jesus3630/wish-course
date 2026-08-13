@@ -1,0 +1,317 @@
+[
+  {
+    "word": "job",
+    "start": 0,
+    "end": 0.255
+  },
+  {
+    "word": "Administration",
+    "start": 0.302,
+    "end": 1.01
+  },
+  {
+    "word": "is",
+    "start": 1.08,
+    "end": 1.173
+  },
+  {
+    "word": "where",
+    "start": 1.219,
+    "end": 1.347
+  },
+  {
+    "word": "you'll",
+    "start": 1.382,
+    "end": 1.556
+  },
+  {
+    "word": "spend",
+    "start": 1.602,
+    "end": 1.869
+  },
+  {
+    "word": "most",
+    "start": 1.985,
+    "end": 2.252
+  },
+  {
+    "word": "of",
+    "start": 2.299,
+    "end": 2.345
+  },
+  {
+    "word": "your",
+    "start": 2.392,
+    "end": 2.519
+  },
+  {
+    "word": "time",
+    "start": 2.577,
+    "end": 2.868
+  },
+  {
+    "word": "in",
+    "start": 2.926,
+    "end": 3.007
+  },
+  {
+    "word": "the",
+    "start": 3.053,
+    "end": 3.123
+  },
+  {
+    "word": "Reports",
+    "start": 3.181,
+    "end": 3.622
+  },
+  {
+    "word": "menu.",
+    "start": 3.692,
+    "end": 4.226
+  },
+  {
+    "word": "These",
+    "start": 4.667,
+    "end": 5.016
+  },
+  {
+    "word": "are",
+    "start": 5.062,
+    "end": 5.155
+  },
+  {
+    "word": "the",
+    "start": 5.178,
+    "end": 5.248
+  },
+  {
+    "word": "reports",
+    "start": 5.306,
+    "end": 5.805
+  },
+  {
+    "word": "that",
+    "start": 5.84,
+    "end": 5.968
+  },
+  {
+    "word": "support",
+    "start": 6.014,
+    "end": 6.432
+  },
+  {
+    "word": "your",
+    "start": 6.478,
+    "end": 6.606
+  },
+  {
+    "word": "day-to-day",
+    "start": 6.664,
+    "end": 7.291
+  },
+  {
+    "word": "event",
+    "start": 7.384,
+    "end": 7.732
+  },
+  {
+    "word": "operations.",
+    "start": 7.79,
+    "end": 9.218
+  },
+  {
+    "word": "The",
+    "start": 9.218,
+    "end": 9.334
+  },
+  {
+    "word": "reports",
+    "start": 9.404,
+    "end": 9.892
+  },
+  {
+    "word": "you'll",
+    "start": 9.927,
+    "end": 10.136
+  },
+  {
+    "word": "use",
+    "start": 10.217,
+    "end": 10.495
+  },
+  {
+    "word": "most",
+    "start": 10.565,
+    "end": 10.832
+  },
+  {
+    "word": "often:\rAlpha",
+    "start": 10.89,
+    "end": 12.144
+  },
+  {
+    "word": "Roster,",
+    "start": 12.202,
+    "end": 12.771
+  },
+  {
+    "word": "who",
+    "start": 12.887,
+    "end": 13.038
+  },
+  {
+    "word": "is",
+    "start": 13.096,
+    "end": 13.166
+  },
+  {
+    "word": "scheduled",
+    "start": 13.201,
+    "end": 13.665
+  },
+  {
+    "word": "for",
+    "start": 13.711,
+    "end": 13.816
+  },
+  {
+    "word": "a",
+    "start": 13.874,
+    "end": 13.897
+  },
+  {
+    "word": "job,",
+    "start": 13.978,
+    "end": 14.454
+  },
+  {
+    "word": "in",
+    "start": 14.779,
+    "end": 14.919
+  },
+  {
+    "word": "alphabetical",
+    "start": 15.012,
+    "end": 15.674
+  },
+  {
+    "word": "order\rSign-In",
+    "start": 15.755,
+    "end": 17.183
+  },
+  {
+    "word": "and",
+    "start": 17.427,
+    "end": 17.775
+  },
+  {
+    "word": "Sign-Out",
+    "start": 17.949,
+    "end": 18.657
+  },
+  {
+    "word": "Sheets,",
+    "start": 18.716,
+    "end": 19.377
+  },
+  {
+    "word": "paper",
+    "start": 19.586,
+    "end": 19.911
+  },
+  {
+    "word": "backup",
+    "start": 19.969,
+    "end": 20.387
+  },
+  {
+    "word": "when",
+    "start": 20.666,
+    "end": 20.84
+  },
+  {
+    "word": "electronic",
+    "start": 20.898,
+    "end": 21.455
+  },
+  {
+    "word": "sign-in",
+    "start": 21.525,
+    "end": 21.955
+  },
+  {
+    "word": "isn't",
+    "start": 22.28,
+    "end": 22.651
+  },
+  {
+    "word": "available\rEmployee",
+    "start": 22.698,
+    "end": 24.509
+  },
+  {
+    "word": "Not",
+    "start": 24.59,
+    "end": 24.788
+  },
+  {
+    "word": "Sign-In,",
+    "start": 24.857,
+    "end": 25.519
+  },
+  {
+    "word": "after",
+    "start": 25.96,
+    "end": 26.366
+  },
+  {
+    "word": "an",
+    "start": 26.436,
+    "end": 26.494
+  },
+  {
+    "word": "event,",
+    "start": 26.552,
+    "end": 27.133
+  },
+  {
+    "word": "who",
+    "start": 27.342,
+    "end": 27.504
+  },
+  {
+    "word": "was",
+    "start": 27.551,
+    "end": 27.655
+  },
+  {
+    "word": "scheduled",
+    "start": 27.713,
+    "end": 28.317
+  },
+  {
+    "word": "but",
+    "start": 28.561,
+    "end": 28.735
+  },
+  {
+    "word": "didn't",
+    "start": 28.793,
+    "end": 29.072
+  },
+  {
+    "word": "sign",
+    "start": 29.13,
+    "end": 29.408
+  },
+  {
+    "word": "in",
+    "start": 29.455,
+    "end": 29.513
+  },
+  {
+    "word": "electronically",
+    "start": 29.571,
+    "end": 30.604
+  }
+]

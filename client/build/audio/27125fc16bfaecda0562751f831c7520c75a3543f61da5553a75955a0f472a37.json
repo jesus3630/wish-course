@@ -1,0 +1,477 @@
+[
+  {
+    "word": "Client",
+    "start": 0,
+    "end": 0.418
+  },
+  {
+    "word": "contracts",
+    "start": 0.464,
+    "end": 1.022
+  },
+  {
+    "word": "are",
+    "start": 1.057,
+    "end": 1.138
+  },
+  {
+    "word": "managed",
+    "start": 1.173,
+    "end": 1.533
+  },
+  {
+    "word": "under",
+    "start": 1.591,
+    "end": 1.776
+  },
+  {
+    "word": "Records",
+    "start": 1.834,
+    "end": 2.252
+  },
+  {
+    "word": "to",
+    "start": 2.299,
+    "end": 2.38
+  },
+  {
+    "word": "Manage",
+    "start": 2.473,
+    "end": 2.833
+  },
+  {
+    "word": "Contract.",
+    "start": 2.891,
+    "end": 3.715
+  },
+  {
+    "word": "If",
+    "start": 4.04,
+    "end": 4.18
+  },
+  {
+    "word": "a",
+    "start": 4.226,
+    "end": 4.261
+  },
+  {
+    "word": "contract",
+    "start": 4.319,
+    "end": 4.76
+  },
+  {
+    "word": "does",
+    "start": 4.807,
+    "end": 4.957
+  },
+  {
+    "word": "not",
+    "start": 5.004,
+    "end": 5.143
+  },
+  {
+    "word": "exist,",
+    "start": 5.213,
+    "end": 5.805
+  },
+  {
+    "word": "you",
+    "start": 6.049,
+    "end": 6.13
+  },
+  {
+    "word": "will",
+    "start": 6.165,
+    "end": 6.281
+  },
+  {
+    "word": "need",
+    "start": 6.316,
+    "end": 6.467
+  },
+  {
+    "word": "to",
+    "start": 6.49,
+    "end": 6.548
+  },
+  {
+    "word": "create",
+    "start": 6.594,
+    "end": 6.954
+  },
+  {
+    "word": "one",
+    "start": 7.012,
+    "end": 7.21
+  },
+  {
+    "word": "before",
+    "start": 7.256,
+    "end": 7.721
+  },
+  {
+    "word": "billing",
+    "start": 7.779,
+    "end": 8.092
+  },
+  {
+    "word": "is",
+    "start": 8.162,
+    "end": 8.301
+  },
+  {
+    "word": "possible.",
+    "start": 8.417,
+    "end": 9.578
+  },
+  {
+    "word": "Inside",
+    "start": 9.578,
+    "end": 10.019
+  },
+  {
+    "word": "a",
+    "start": 10.043,
+    "end": 10.077
+  },
+  {
+    "word": "contract",
+    "start": 10.136,
+    "end": 10.646
+  },
+  {
+    "word": "you",
+    "start": 10.693,
+    "end": 10.762
+  },
+  {
+    "word": "will",
+    "start": 10.809,
+    "end": 10.948
+  },
+  {
+    "word": "find:\rContract",
+    "start": 10.995,
+    "end": 12.307
+  },
+  {
+    "word": "dates",
+    "start": 12.353,
+    "end": 12.655
+  },
+  {
+    "word": "and",
+    "start": 12.701,
+    "end": 12.794
+  },
+  {
+    "word": "payment",
+    "start": 12.864,
+    "end": 13.259
+  },
+  {
+    "word": "terms,",
+    "start": 13.305,
+    "end": 13.827
+  },
+  {
+    "word": "standard",
+    "start": 14.106,
+    "end": 14.582
+  },
+  {
+    "word": "is",
+    "start": 14.629,
+    "end": 14.71
+  },
+  {
+    "word": "net",
+    "start": 14.826,
+    "end": 15.035
+  },
+  {
+    "word": "30",
+    "start": 15.116,
+    "end": 15.488
+  },
+  {
+    "word": "days",
+    "start": 15.557,
+    "end": 15.987
+  },
+  {
+    "word": "with",
+    "start": 16.08,
+    "end": 16.277
+  },
+  {
+    "word": "150%",
+    "start": 16.347,
+    "end": 17.519
+  },
+  {
+    "word": "late",
+    "start": 17.67,
+    "end": 17.903
+  },
+  {
+    "word": "fee\rBill",
+    "start": 17.961,
+    "end": 19.11
+  },
+  {
+    "word": "rates",
+    "start": 19.203,
+    "end": 19.458
+  },
+  {
+    "word": "by",
+    "start": 19.516,
+    "end": 19.656
+  },
+  {
+    "word": "role,",
+    "start": 19.749,
+    "end": 20.225
+  },
+  {
+    "word": "what",
+    "start": 20.352,
+    "end": 20.55
+  },
+  {
+    "word": "you",
+    "start": 20.596,
+    "end": 20.701
+  },
+  {
+    "word": "charge",
+    "start": 20.77,
+    "end": 21.095
+  },
+  {
+    "word": "the",
+    "start": 21.142,
+    "end": 21.211
+  },
+  {
+    "word": "client",
+    "start": 21.246,
+    "end": 21.583
+  },
+  {
+    "word": "per",
+    "start": 21.653,
+    "end": 21.804
+  },
+  {
+    "word": "hour",
+    "start": 21.873,
+    "end": 22.198
+  },
+  {
+    "word": "for",
+    "start": 22.291,
+    "end": 22.407
+  },
+  {
+    "word": "each",
+    "start": 22.477,
+    "end": 22.697
+  },
+  {
+    "word": "position\rTax",
+    "start": 22.756,
+    "end": 23.661
+  },
+  {
+    "word": "rates,",
+    "start": 23.742,
+    "end": 24.207
+  },
+  {
+    "word": "set",
+    "start": 24.451,
+    "end": 24.683
+  },
+  {
+    "word": "appropriately",
+    "start": 24.729,
+    "end": 25.437
+  },
+  {
+    "word": "for",
+    "start": 25.507,
+    "end": 25.612
+  },
+  {
+    "word": "your",
+    "start": 25.658,
+    "end": 25.774
+  },
+  {
+    "word": "location\rContract",
+    "start": 25.832,
+    "end": 27.005
+  },
+  {
+    "word": "document,",
+    "start": 27.051,
+    "end": 27.69
+  },
+  {
+    "word": "upload",
+    "start": 28.131,
+    "end": 28.584
+  },
+  {
+    "word": "the",
+    "start": 28.63,
+    "end": 28.7
+  },
+  {
+    "word": "PDF",
+    "start": 28.758,
+    "end": 29.211
+  },
+  {
+    "word": "directly",
+    "start": 29.304,
+    "end": 29.931
+  },
+  {
+    "word": "into",
+    "start": 29.989,
+    "end": 30.186
+  },
+  {
+    "word": "WISH",
+    "start": 30.279,
+    "end": 30.883
+  },
+  {
+    "word": "To",
+    "start": 30.883,
+    "end": 30.999
+  },
+  {
+    "word": "update",
+    "start": 31.08,
+    "end": 31.486
+  },
+  {
+    "word": "a",
+    "start": 31.509,
+    "end": 31.533
+  },
+  {
+    "word": "rate,",
+    "start": 31.614,
+    "end": 32.078
+  },
+  {
+    "word": "deactivate",
+    "start": 32.462,
+    "end": 33.112
+  },
+  {
+    "word": "the",
+    "start": 33.147,
+    "end": 33.216
+  },
+  {
+    "word": "current",
+    "start": 33.274,
+    "end": 33.611
+  },
+  {
+    "word": "rate",
+    "start": 33.669,
+    "end": 34.041
+  },
+  {
+    "word": "and",
+    "start": 34.11,
+    "end": 34.366
+  },
+  {
+    "word": "enter",
+    "start": 34.458,
+    "end": 34.679
+  },
+  {
+    "word": "the",
+    "start": 34.726,
+    "end": 34.795
+  },
+  {
+    "word": "new",
+    "start": 34.853,
+    "end": 35.004
+  },
+  {
+    "word": "one.",
+    "start": 35.085,
+    "end": 35.352
+  },
+  {
+    "word": "If",
+    "start": 35.678,
+    "end": 35.828
+  },
+  {
+    "word": "a",
+    "start": 35.887,
+    "end": 35.91
+  },
+  {
+    "word": "role",
+    "start": 35.968,
+    "end": 36.177
+  },
+  {
+    "word": "is",
+    "start": 36.212,
+    "end": 36.281
+  },
+  {
+    "word": "missing,",
+    "start": 36.351,
+    "end": 36.804
+  },
+  {
+    "word": "add",
+    "start": 36.839,
+    "end": 37.059
+  },
+  {
+    "word": "it",
+    "start": 37.094,
+    "end": 37.164
+  },
+  {
+    "word": "here",
+    "start": 37.233,
+    "end": 37.477
+  },
+  {
+    "word": "with",
+    "start": 37.512,
+    "end": 37.64
+  },
+  {
+    "word": "its",
+    "start": 37.686,
+    "end": 37.825
+  },
+  {
+    "word": "bill",
+    "start": 37.883,
+    "end": 38.081
+  },
+  {
+    "word": "rate.",
+    "start": 38.15,
+    "end": 38.777
+  }
+]

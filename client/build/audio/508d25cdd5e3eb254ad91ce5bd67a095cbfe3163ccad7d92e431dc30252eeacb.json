@@ -1,0 +1,562 @@
+[
+  {
+    "word": "Once",
+    "start": 0,
+    "end": 0.255
+  },
+  {
+    "word": "you've",
+    "start": 0.302,
+    "end": 0.546
+  },
+  {
+    "word": "confirmed",
+    "start": 0.58,
+    "end": 1.161
+  },
+  {
+    "word": "an",
+    "start": 1.207,
+    "end": 1.277
+  },
+  {
+    "word": "applicant",
+    "start": 1.347,
+    "end": 1.788
+  },
+  {
+    "word": "is",
+    "start": 1.846,
+    "end": 1.939
+  },
+  {
+    "word": "cleared",
+    "start": 2.032,
+    "end": 2.392
+  },
+  {
+    "word": "and",
+    "start": 2.426,
+    "end": 2.508
+  },
+  {
+    "word": "ready:",
+    "start": 2.566,
+    "end": 3.506
+  },
+  {
+    "word": "1.",
+    "start": 3.506,
+    "end": 3.994
+  },
+  {
+    "word": "Click",
+    "start": 4.319,
+    "end": 4.528
+  },
+  {
+    "word": "the",
+    "start": 4.586,
+    "end": 4.656
+  },
+  {
+    "word": "checkbox",
+    "start": 4.702,
+    "end": 5.236
+  },
+  {
+    "word": "next",
+    "start": 5.317,
+    "end": 5.538
+  },
+  {
+    "word": "to",
+    "start": 5.573,
+    "end": 5.619
+  },
+  {
+    "word": "their",
+    "start": 5.677,
+    "end": 5.851
+  },
+  {
+    "word": "name,",
+    "start": 5.921,
+    "end": 6.432
+  },
+  {
+    "word": "a",
+    "start": 6.757,
+    "end": 6.827
+  },
+  {
+    "word": "dropdown",
+    "start": 6.896,
+    "end": 7.407
+  },
+  {
+    "word": "will",
+    "start": 7.442,
+    "end": 7.581
+  },
+  {
+    "word": "appear",
+    "start": 7.616,
+    "end": 7.883
+  },
+  {
+    "word": "with",
+    "start": 7.941,
+    "end": 8.092
+  },
+  {
+    "word": "three",
+    "start": 8.162,
+    "end": 8.475
+  },
+  {
+    "word": "options:\rSelect,",
+    "start": 8.533,
+    "end": 10.263
+  },
+  {
+    "word": "marks",
+    "start": 10.507,
+    "end": 10.82
+  },
+  {
+    "word": "the",
+    "start": 10.867,
+    "end": 10.948
+  },
+  {
+    "word": "applicant",
+    "start": 11.006,
+    "end": 11.389
+  },
+  {
+    "word": "for",
+    "start": 11.424,
+    "end": 11.529
+  },
+  {
+    "word": "import\rRejected,",
+    "start": 11.587,
+    "end": 12.69
+  },
+  {
+    "word": "marks",
+    "start": 13.015,
+    "end": 13.317
+  },
+  {
+    "word": "them",
+    "start": 13.351,
+    "end": 13.479
+  },
+  {
+    "word": "as",
+    "start": 13.537,
+    "end": 13.665
+  },
+  {
+    "word": "rejected,",
+    "start": 13.746,
+    "end": 14.478
+  },
+  {
+    "word": "removing",
+    "start": 14.803,
+    "end": 15.244
+  },
+  {
+    "word": "them",
+    "start": 15.29,
+    "end": 15.429
+  },
+  {
+    "word": "from",
+    "start": 15.487,
+    "end": 15.638
+  },
+  {
+    "word": "consideration\rRescind,",
+    "start": 15.708,
+    "end": 17.717
+  },
+  {
+    "word": "reverses",
+    "start": 18.1,
+    "end": 18.703
+  },
+  {
+    "word": "a",
+    "start": 18.773,
+    "end": 18.843
+  },
+  {
+    "word": "previous",
+    "start": 18.924,
+    "end": 19.377
+  },
+  {
+    "word": "action",
+    "start": 19.435,
+    "end": 19.864
+  },
+  {
+    "word": "if",
+    "start": 20.19,
+    "end": 20.375
+  },
+  {
+    "word": "needed",
+    "start": 20.457,
+    "end": 20.909
+  },
+  {
+    "word": "2.",
+    "start": 20.909,
+    "end": 21.385
+  },
+  {
+    "word": "Choose",
+    "start": 21.989,
+    "end": 22.477
+  },
+  {
+    "word": "Select",
+    "start": 22.593,
+    "end": 23.324
+  },
+  {
+    "word": "3.",
+    "start": 23.324,
+    "end": 23.893
+  },
+  {
+    "word": "Click",
+    "start": 24.334,
+    "end": 24.59
+  },
+  {
+    "word": "Import",
+    "start": 24.671,
+    "end": 25.077
+  },
+  {
+    "word": "Applicant",
+    "start": 25.135,
+    "end": 25.635
+  },
+  {
+    "word": "at",
+    "start": 25.751,
+    "end": 25.902
+  },
+  {
+    "word": "the",
+    "start": 25.948,
+    "end": 26.018
+  },
+  {
+    "word": "bottom",
+    "start": 26.076,
+    "end": 26.354
+  },
+  {
+    "word": "of",
+    "start": 26.401,
+    "end": 26.459
+  },
+  {
+    "word": "the",
+    "start": 26.505,
+    "end": 26.575
+  },
+  {
+    "word": "screen",
+    "start": 26.621,
+    "end": 27.782
+  },
+  {
+    "word": "The",
+    "start": 27.782,
+    "end": 27.91
+  },
+  {
+    "word": "system",
+    "start": 27.968,
+    "end": 28.328
+  },
+  {
+    "word": "will",
+    "start": 28.375,
+    "end": 28.514
+  },
+  {
+    "word": "create",
+    "start": 28.56,
+    "end": 28.897
+  },
+  {
+    "word": "their",
+    "start": 28.932,
+    "end": 29.083
+  },
+  {
+    "word": "employee",
+    "start": 29.129,
+    "end": 29.57
+  },
+  {
+    "word": "record",
+    "start": 29.64,
+    "end": 30.139
+  },
+  {
+    "word": "in",
+    "start": 30.221,
+    "end": 30.406
+  },
+  {
+    "word": "WISH.",
+    "start": 30.522,
+    "end": 31.173
+  },
+  {
+    "word": "After",
+    "start": 31.683,
+    "end": 31.997
+  },
+  {
+    "word": "a",
+    "start": 32.055,
+    "end": 32.078
+  },
+  {
+    "word": "successful",
+    "start": 32.136,
+    "end": 32.693
+  },
+  {
+    "word": "import,",
+    "start": 32.763,
+    "end": 33.367
+  },
+  {
+    "word": "the",
+    "start": 33.576,
+    "end": 33.692
+  },
+  {
+    "word": "applicant",
+    "start": 33.761,
+    "end": 34.191
+  },
+  {
+    "word": "will",
+    "start": 34.237,
+    "end": 34.365
+  },
+  {
+    "word": "appear",
+    "start": 34.4,
+    "end": 34.667
+  },
+  {
+    "word": "in",
+    "start": 34.748,
+    "end": 34.83
+  },
+  {
+    "word": "Records",
+    "start": 34.922,
+    "end": 35.34
+  },
+  {
+    "word": "to",
+    "start": 35.398,
+    "end": 35.48
+  },
+  {
+    "word": "Manage",
+    "start": 35.596,
+    "end": 35.944
+  },
+  {
+    "word": "Employee",
+    "start": 35.979,
+    "end": 36.78
+  },
+  {
+    "word": "and",
+    "start": 37.024,
+    "end": 37.233
+  },
+  {
+    "word": "can",
+    "start": 37.291,
+    "end": 37.419
+  },
+  {
+    "word": "be",
+    "start": 37.477,
+    "end": 37.57
+  },
+  {
+    "word": "assigned",
+    "start": 37.616,
+    "end": 38.115
+  },
+  {
+    "word": "a",
+    "start": 38.197,
+    "end": 38.278
+  },
+  {
+    "word": "pay",
+    "start": 38.394,
+    "end": 38.614
+  },
+  {
+    "word": "rate",
+    "start": 38.684,
+    "end": 39.044
+  },
+  {
+    "word": "and",
+    "start": 39.253,
+    "end": 39.45
+  },
+  {
+    "word": "scheduled",
+    "start": 39.532,
+    "end": 40.054
+  },
+  {
+    "word": "for",
+    "start": 40.101,
+    "end": 40.205
+  },
+  {
+    "word": "jobs.",
+    "start": 40.275,
+    "end": 41.378
+  },
+  {
+    "word": "You",
+    "start": 41.378,
+    "end": 41.494
+  },
+  {
+    "word": "can",
+    "start": 41.54,
+    "end": 41.656
+  },
+  {
+    "word": "also",
+    "start": 41.714,
+    "end": 42.051
+  },
+  {
+    "word": "use",
+    "start": 42.167,
+    "end": 42.504
+  },
+  {
+    "word": "CSV",
+    "start": 42.562,
+    "end": 43.154
+  },
+  {
+    "word": "Export",
+    "start": 43.398,
+    "end": 43.978
+  },
+  {
+    "word": "to",
+    "start": 44.257,
+    "end": 44.385
+  },
+  {
+    "word": "download",
+    "start": 44.466,
+    "end": 44.954
+  },
+  {
+    "word": "the",
+    "start": 45,
+    "end": 45.081
+  },
+  {
+    "word": "applicant",
+    "start": 45.139,
+    "end": 45.534
+  },
+  {
+    "word": "list",
+    "start": 45.58,
+    "end": 45.847
+  },
+  {
+    "word": "to",
+    "start": 46.022,
+    "end": 46.149
+  },
+  {
+    "word": "a",
+    "start": 46.231,
+    "end": 46.254
+  },
+  {
+    "word": "spreadsheet",
+    "start": 46.3,
+    "end": 46.916
+  },
+  {
+    "word": "if",
+    "start": 47.241,
+    "end": 47.392
+  },
+  {
+    "word": "you",
+    "start": 47.45,
+    "end": 47.531
+  },
+  {
+    "word": "need",
+    "start": 47.612,
+    "end": 47.81
+  },
+  {
+    "word": "to",
+    "start": 47.844,
+    "end": 47.902
+  },
+  {
+    "word": "share",
+    "start": 47.96,
+    "end": 48.448
+  },
+  {
+    "word": "or",
+    "start": 48.599,
+    "end": 48.808
+  },
+  {
+    "word": "archive",
+    "start": 48.889,
+    "end": 49.493
+  },
+  {
+    "word": "the",
+    "start": 49.528,
+    "end": 49.597
+  },
+  {
+    "word": "data.",
+    "start": 49.656,
+    "end": 50.387
+  }
+]

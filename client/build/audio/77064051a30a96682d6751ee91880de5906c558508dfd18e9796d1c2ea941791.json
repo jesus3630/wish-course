@@ -1,0 +1,467 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.209
+  },
+  {
+    "word": "you",
+    "start": 0.255,
+    "end": 0.337
+  },
+  {
+    "word": "log",
+    "start": 0.395,
+    "end": 0.557
+  },
+  {
+    "word": "in,",
+    "start": 0.65,
+    "end": 0.975
+  },
+  {
+    "word": "you",
+    "start": 1.149,
+    "end": 1.242
+  },
+  {
+    "word": "will",
+    "start": 1.277,
+    "end": 1.428
+  },
+  {
+    "word": "see",
+    "start": 1.474,
+    "end": 1.602
+  },
+  {
+    "word": "your",
+    "start": 1.637,
+    "end": 1.765
+  },
+  {
+    "word": "name",
+    "start": 1.823,
+    "end": 2.067
+  },
+  {
+    "word": "in",
+    "start": 2.125,
+    "end": 2.229
+  },
+  {
+    "word": "the",
+    "start": 2.276,
+    "end": 2.345
+  },
+  {
+    "word": "top",
+    "start": 2.392,
+    "end": 2.624
+  },
+  {
+    "word": "right",
+    "start": 2.74,
+    "end": 2.972
+  },
+  {
+    "word": "corner",
+    "start": 3.042,
+    "end": 3.332
+  },
+  {
+    "word": "of",
+    "start": 3.379,
+    "end": 3.437
+  },
+  {
+    "word": "the",
+    "start": 3.483,
+    "end": 3.553
+  },
+  {
+    "word": "page.",
+    "start": 3.611,
+    "end": 4.156
+  },
+  {
+    "word": "On",
+    "start": 4.598,
+    "end": 4.748
+  },
+  {
+    "word": "your",
+    "start": 4.807,
+    "end": 4.934
+  },
+  {
+    "word": "first",
+    "start": 5.016,
+    "end": 5.317
+  },
+  {
+    "word": "login,",
+    "start": 5.364,
+    "end": 5.898
+  },
+  {
+    "word": "an",
+    "start": 6.072,
+    "end": 6.223
+  },
+  {
+    "word": "envelope",
+    "start": 6.304,
+    "end": 6.769
+  },
+  {
+    "word": "icon",
+    "start": 6.838,
+    "end": 7.268
+  },
+  {
+    "word": "will",
+    "start": 7.384,
+    "end": 7.558
+  },
+  {
+    "word": "appear",
+    "start": 7.605,
+    "end": 7.906
+  },
+  {
+    "word": "next",
+    "start": 7.988,
+    "end": 8.243
+  },
+  {
+    "word": "to",
+    "start": 8.266,
+    "end": 8.313
+  },
+  {
+    "word": "your",
+    "start": 8.382,
+    "end": 8.51
+  },
+  {
+    "word": "name.",
+    "start": 8.568,
+    "end": 9.009
+  },
+  {
+    "word": "You",
+    "start": 9.451,
+    "end": 9.59
+  },
+  {
+    "word": "will",
+    "start": 9.625,
+    "end": 9.764
+  },
+  {
+    "word": "need",
+    "start": 9.822,
+    "end": 9.985
+  },
+  {
+    "word": "to",
+    "start": 10.031,
+    "end": 10.089
+  },
+  {
+    "word": "click",
+    "start": 10.147,
+    "end": 10.356
+  },
+  {
+    "word": "on",
+    "start": 10.414,
+    "end": 10.484
+  },
+  {
+    "word": "the",
+    "start": 10.519,
+    "end": 10.588
+  },
+  {
+    "word": "envelope",
+    "start": 10.646,
+    "end": 11.099
+  },
+  {
+    "word": "to",
+    "start": 11.134,
+    "end": 11.238
+  },
+  {
+    "word": "open",
+    "start": 11.355,
+    "end": 11.61
+  },
+  {
+    "word": "your",
+    "start": 11.68,
+    "end": 11.819
+  },
+  {
+    "word": "message.",
+    "start": 11.877,
+    "end": 12.527
+  },
+  {
+    "word": "This",
+    "start": 12.91,
+    "end": 13.108
+  },
+  {
+    "word": "will",
+    "start": 13.154,
+    "end": 13.305
+  },
+  {
+    "word": "direct",
+    "start": 13.34,
+    "end": 13.642
+  },
+  {
+    "word": "you",
+    "start": 13.7,
+    "end": 13.793
+  },
+  {
+    "word": "to",
+    "start": 13.851,
+    "end": 13.921
+  },
+  {
+    "word": "the",
+    "start": 13.979,
+    "end": 14.048
+  },
+  {
+    "word": "Broadcast",
+    "start": 14.118,
+    "end": 14.71
+  },
+  {
+    "word": "Messages",
+    "start": 14.78,
+    "end": 15.209
+  },
+  {
+    "word": "screen.",
+    "start": 15.244,
+    "end": 15.778
+  },
+  {
+    "word": "Periodic",
+    "start": 16.103,
+    "end": 16.661
+  },
+  {
+    "word": "updates",
+    "start": 16.719,
+    "end": 17.137
+  },
+  {
+    "word": "will",
+    "start": 17.183,
+    "end": 17.322
+  },
+  {
+    "word": "be",
+    "start": 17.369,
+    "end": 17.439
+  },
+  {
+    "word": "posted",
+    "start": 17.497,
+    "end": 17.903
+  },
+  {
+    "word": "here",
+    "start": 17.961,
+    "end": 18.193
+  },
+  {
+    "word": "to",
+    "start": 18.251,
+    "end": 18.333
+  },
+  {
+    "word": "inform",
+    "start": 18.414,
+    "end": 18.785
+  },
+  {
+    "word": "of",
+    "start": 18.867,
+    "end": 18.994
+  },
+  {
+    "word": "system",
+    "start": 19.087,
+    "end": 19.505
+  },
+  {
+    "word": "changes,",
+    "start": 19.586,
+    "end": 20.26
+  },
+  {
+    "word": "new",
+    "start": 20.434,
+    "end": 20.608
+  },
+  {
+    "word": "features,",
+    "start": 20.678,
+    "end": 21.363
+  },
+  {
+    "word": "or",
+    "start": 21.572,
+    "end": 21.769
+  },
+  {
+    "word": "scheduled",
+    "start": 21.827,
+    "end": 22.326
+  },
+  {
+    "word": "downtime",
+    "start": 22.384,
+    "end": 22.965
+  },
+  {
+    "word": "for",
+    "start": 23.023,
+    "end": 23.162
+  },
+  {
+    "word": "WISH",
+    "start": 23.244,
+    "end": 23.522
+  },
+  {
+    "word": "system",
+    "start": 23.592,
+    "end": 23.998
+  },
+  {
+    "word": "updates.",
+    "start": 24.091,
+    "end": 24.881
+  },
+  {
+    "word": "You",
+    "start": 25.264,
+    "end": 25.403
+  },
+  {
+    "word": "can",
+    "start": 25.449,
+    "end": 25.566
+  },
+  {
+    "word": "read",
+    "start": 25.624,
+    "end": 25.786
+  },
+  {
+    "word": "the",
+    "start": 25.833,
+    "end": 25.902
+  },
+  {
+    "word": "message,",
+    "start": 25.949,
+    "end": 26.483
+  },
+  {
+    "word": "mark",
+    "start": 26.599,
+    "end": 26.831
+  },
+  {
+    "word": "it",
+    "start": 26.877,
+    "end": 26.947
+  },
+  {
+    "word": "as",
+    "start": 26.994,
+    "end": 27.086
+  },
+  {
+    "word": "read,",
+    "start": 27.203,
+    "end": 27.609
+  },
+  {
+    "word": "or",
+    "start": 27.725,
+    "end": 27.946
+  },
+  {
+    "word": "delete",
+    "start": 28.027,
+    "end": 28.352
+  },
+  {
+    "word": "messages.",
+    "start": 28.398,
+    "end": 29.165
+  },
+  {
+    "word": "Broadcast",
+    "start": 29.769,
+    "end": 30.384
+  },
+  {
+    "word": "Messages",
+    "start": 30.454,
+    "end": 30.895
+  },
+  {
+    "word": "present",
+    "start": 30.965,
+    "end": 31.359
+  },
+  {
+    "word": "one-way",
+    "start": 31.475,
+    "end": 31.998
+  },
+  {
+    "word": "communications",
+    "start": 32.067,
+    "end": 32.985
+  },
+  {
+    "word": "which",
+    "start": 33.159,
+    "end": 33.391
+  },
+  {
+    "word": "cannot",
+    "start": 33.461,
+    "end": 33.832
+  },
+  {
+    "word": "be",
+    "start": 33.89,
+    "end": 33.995
+  },
+  {
+    "word": "replied",
+    "start": 34.053,
+    "end": 34.471
+  },
+  {
+    "word": "to.",
+    "start": 34.517,
+    "end": 35.063
+  }
+]

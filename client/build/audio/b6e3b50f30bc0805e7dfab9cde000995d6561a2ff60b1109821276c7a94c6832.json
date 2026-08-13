@@ -1,0 +1,317 @@
+[
+  {
+    "word": "For",
+    "start": 0,
+    "end": 0.174
+  },
+  {
+    "word": "jobs",
+    "start": 0.221,
+    "end": 0.453
+  },
+  {
+    "word": "where",
+    "start": 0.488,
+    "end": 0.65
+  },
+  {
+    "word": "no",
+    "start": 0.708,
+    "end": 0.824
+  },
+  {
+    "word": "electronic",
+    "start": 0.882,
+    "end": 1.382
+  },
+  {
+    "word": "sign-ins",
+    "start": 1.44,
+    "end": 1.881
+  },
+  {
+    "word": "were",
+    "start": 1.927,
+    "end": 2.067
+  },
+  {
+    "word": "done",
+    "start": 2.101,
+    "end": 2.392
+  },
+  {
+    "word": "and",
+    "start": 2.508,
+    "end": 2.763
+  },
+  {
+    "word": "you",
+    "start": 2.798,
+    "end": 2.868
+  },
+  {
+    "word": "want",
+    "start": 2.902,
+    "end": 3.042
+  },
+  {
+    "word": "to",
+    "start": 3.077,
+    "end": 3.123
+  },
+  {
+    "word": "give",
+    "start": 3.17,
+    "end": 3.32
+  },
+  {
+    "word": "everyone",
+    "start": 3.355,
+    "end": 3.75
+  },
+  {
+    "word": "the",
+    "start": 3.785,
+    "end": 3.855
+  },
+  {
+    "word": "full",
+    "start": 3.924,
+    "end": 4.156
+  },
+  {
+    "word": "scheduled",
+    "start": 4.214,
+    "end": 4.702
+  },
+  {
+    "word": "time,",
+    "start": 4.748,
+    "end": 5.329
+  },
+  {
+    "word": "use",
+    "start": 5.608,
+    "end": 5.851
+  },
+  {
+    "word": "Autofill",
+    "start": 5.921,
+    "end": 6.629
+  },
+  {
+    "word": "Sign-In",
+    "start": 6.711,
+    "end": 7.175
+  },
+  {
+    "word": "and",
+    "start": 7.349,
+    "end": 7.593
+  },
+  {
+    "word": "Autofill",
+    "start": 7.709,
+    "end": 8.429
+  },
+  {
+    "word": "Sign-Out.",
+    "start": 8.545,
+    "end": 9.985
+  },
+  {
+    "word": "These",
+    "start": 9.985,
+    "end": 10.275
+  },
+  {
+    "word": "buttons",
+    "start": 10.321,
+    "end": 10.704
+  },
+  {
+    "word": "instantly",
+    "start": 10.82,
+    "end": 11.424
+  },
+  {
+    "word": "populate",
+    "start": 11.505,
+    "end": 12.121
+  },
+  {
+    "word": "every",
+    "start": 12.19,
+    "end": 12.574
+  },
+  {
+    "word": "employee",
+    "start": 12.632,
+    "end": 13.328
+  },
+  {
+    "word": "with",
+    "start": 13.456,
+    "end": 13.642
+  },
+  {
+    "word": "the",
+    "start": 13.677,
+    "end": 13.746
+  },
+  {
+    "word": "shift's",
+    "start": 13.793,
+    "end": 14.187
+  },
+  {
+    "word": "scheduled",
+    "start": 14.245,
+    "end": 14.791
+  },
+  {
+    "word": "start",
+    "start": 14.849,
+    "end": 15.221
+  },
+  {
+    "word": "and",
+    "start": 15.267,
+    "end": 15.384
+  },
+  {
+    "word": "end",
+    "start": 15.453,
+    "end": 15.639
+  },
+  {
+    "word": "time.",
+    "start": 15.72,
+    "end": 16.301
+  },
+  {
+    "word": "Click",
+    "start": 16.742,
+    "end": 17.055
+  },
+  {
+    "word": "Approve",
+    "start": 17.148,
+    "end": 17.949
+  },
+  {
+    "word": "Hours",
+    "start": 18.333,
+    "end": 18.82
+  },
+  {
+    "word": "to",
+    "start": 18.89,
+    "end": 18.983
+  },
+  {
+    "word": "finalize.",
+    "start": 19.064,
+    "end": 20.202
+  },
+  {
+    "word": "This",
+    "start": 20.202,
+    "end": 20.399
+  },
+  {
+    "word": "is",
+    "start": 20.446,
+    "end": 20.527
+  },
+  {
+    "word": "the",
+    "start": 20.585,
+    "end": 20.666
+  },
+  {
+    "word": "fastest",
+    "start": 20.759,
+    "end": 21.293
+  },
+  {
+    "word": "way",
+    "start": 21.34,
+    "end": 21.49
+  },
+  {
+    "word": "to",
+    "start": 21.548,
+    "end": 21.618
+  },
+  {
+    "word": "process",
+    "start": 21.688,
+    "end": 22.164
+  },
+  {
+    "word": "hours",
+    "start": 22.233,
+    "end": 22.593
+  },
+  {
+    "word": "for",
+    "start": 22.663,
+    "end": 22.791
+  },
+  {
+    "word": "clean",
+    "start": 22.849,
+    "end": 23.151
+  },
+  {
+    "word": "sessions",
+    "start": 23.232,
+    "end": 23.789
+  },
+  {
+    "word": "where",
+    "start": 23.998,
+    "end": 24.207
+  },
+  {
+    "word": "you",
+    "start": 24.242,
+    "end": 24.323
+  },
+  {
+    "word": "are",
+    "start": 24.37,
+    "end": 24.474
+  },
+  {
+    "word": "confident",
+    "start": 24.532,
+    "end": 25.136
+  },
+  {
+    "word": "everyone",
+    "start": 25.252,
+    "end": 25.798
+  },
+  {
+    "word": "worked",
+    "start": 25.844,
+    "end": 26.181
+  },
+  {
+    "word": "their",
+    "start": 26.227,
+    "end": 26.413
+  },
+  {
+    "word": "full",
+    "start": 26.471,
+    "end": 26.68
+  },
+  {
+    "word": "shift.",
+    "start": 26.738,
+    "end": 27.586
+  }
+]

@@ -1,0 +1,462 @@
+[
+  {
+    "word": "Clicking",
+    "start": 0,
+    "end": 0.36
+  },
+  {
+    "word": "an",
+    "start": 0.406,
+    "end": 0.453
+  },
+  {
+    "word": "employee's",
+    "start": 0.499,
+    "end": 1.033
+  },
+  {
+    "word": "last",
+    "start": 1.091,
+    "end": 1.37
+  },
+  {
+    "word": "name",
+    "start": 1.44,
+    "end": 1.811
+  },
+  {
+    "word": "opens",
+    "start": 2.02,
+    "end": 2.392
+  },
+  {
+    "word": "their",
+    "start": 2.438,
+    "end": 2.589
+  },
+  {
+    "word": "full",
+    "start": 2.635,
+    "end": 2.833
+  },
+  {
+    "word": "record.",
+    "start": 2.902,
+    "end": 3.518
+  },
+  {
+    "word": "You'll",
+    "start": 3.959,
+    "end": 4.203
+  },
+  {
+    "word": "see",
+    "start": 4.261,
+    "end": 4.423
+  },
+  {
+    "word": "several",
+    "start": 4.481,
+    "end": 4.83
+  },
+  {
+    "word": "tabs",
+    "start": 4.888,
+    "end": 5.294
+  },
+  {
+    "word": "across",
+    "start": 5.468,
+    "end": 5.909
+  },
+  {
+    "word": "the",
+    "start": 5.944,
+    "end": 6.014
+  },
+  {
+    "word": "top.",
+    "start": 6.06,
+    "end": 7.221
+  },
+  {
+    "word": "With",
+    "start": 7.221,
+    "end": 7.407
+  },
+  {
+    "word": "Workforce",
+    "start": 7.465,
+    "end": 7.999
+  },
+  {
+    "word": "Scheduler",
+    "start": 8.034,
+    "end": 8.522
+  },
+  {
+    "word": "Maintenance",
+    "start": 8.58,
+    "end": 9.067
+  },
+  {
+    "word": "access,",
+    "start": 9.114,
+    "end": 9.88
+  },
+  {
+    "word": "the",
+    "start": 10.321,
+    "end": 10.414
+  },
+  {
+    "word": "tabs",
+    "start": 10.472,
+    "end": 10.809
+  },
+  {
+    "word": "you",
+    "start": 10.855,
+    "end": 10.925
+  },
+  {
+    "word": "can",
+    "start": 10.983,
+    "end": 11.099
+  },
+  {
+    "word": "work",
+    "start": 11.157,
+    "end": 11.343
+  },
+  {
+    "word": "with",
+    "start": 11.389,
+    "end": 11.587
+  },
+  {
+    "word": "are:\rLicensing\rBackground",
+    "start": 11.703,
+    "end": 14.141
+  },
+  {
+    "word": "Check\rEmployee",
+    "start": 14.211,
+    "end": 15.592
+  },
+  {
+    "word": "Notes",
+    "start": 15.673,
+    "end": 16.742
+  },
+  {
+    "word": "Other",
+    "start": 16.742,
+    "end": 16.985
+  },
+  {
+    "word": "tabs,",
+    "start": 17.032,
+    "end": 17.566
+  },
+  {
+    "word": "such",
+    "start": 17.74,
+    "end": 17.984
+  },
+  {
+    "word": "as",
+    "start": 18.042,
+    "end": 18.204
+  },
+  {
+    "word": "Personal",
+    "start": 18.297,
+    "end": 18.75
+  },
+  {
+    "word": "Info,",
+    "start": 18.808,
+    "end": 19.447
+  },
+  {
+    "word": "Pay",
+    "start": 19.772,
+    "end": 20.004
+  },
+  {
+    "word": "Rate,",
+    "start": 20.085,
+    "end": 20.503
+  },
+  {
+    "word": "and",
+    "start": 20.677,
+    "end": 20.828
+  },
+  {
+    "word": "Disciplinary",
+    "start": 20.886,
+    "end": 21.455
+  },
+  {
+    "word": "Action,",
+    "start": 21.525,
+    "end": 22.082
+  },
+  {
+    "word": "are",
+    "start": 22.593,
+    "end": 22.744
+  },
+  {
+    "word": "visible",
+    "start": 22.779,
+    "end": 23.289
+  },
+  {
+    "word": "but",
+    "start": 23.44,
+    "end": 23.615
+  },
+  {
+    "word": "not",
+    "start": 23.673,
+    "end": 23.835
+  },
+  {
+    "word": "editable",
+    "start": 23.905,
+    "end": 24.555
+  },
+  {
+    "word": "at",
+    "start": 24.671,
+    "end": 24.845
+  },
+  {
+    "word": "this",
+    "start": 24.892,
+    "end": 25.054
+  },
+  {
+    "word": "permission",
+    "start": 25.112,
+    "end": 25.519
+  },
+  {
+    "word": "level.",
+    "start": 25.588,
+    "end": 26.076
+  },
+  {
+    "word": "If",
+    "start": 26.772,
+    "end": 26.958
+  },
+  {
+    "word": "you",
+    "start": 27.016,
+    "end": 27.097
+  },
+  {
+    "word": "need",
+    "start": 27.167,
+    "end": 27.353
+  },
+  {
+    "word": "to",
+    "start": 27.388,
+    "end": 27.434
+  },
+  {
+    "word": "make",
+    "start": 27.504,
+    "end": 27.678
+  },
+  {
+    "word": "changes",
+    "start": 27.724,
+    "end": 28.166
+  },
+  {
+    "word": "outside",
+    "start": 28.235,
+    "end": 28.827
+  },
+  {
+    "word": "of",
+    "start": 28.851,
+    "end": 28.897
+  },
+  {
+    "word": "your",
+    "start": 28.955,
+    "end": 29.094
+  },
+  {
+    "word": "three",
+    "start": 29.152,
+    "end": 29.396
+  },
+  {
+    "word": "tabs,",
+    "start": 29.443,
+    "end": 30.128
+  },
+  {
+    "word": "you'll",
+    "start": 30.453,
+    "end": 30.662
+  },
+  {
+    "word": "need",
+    "start": 30.708,
+    "end": 30.882
+  },
+  {
+    "word": "to",
+    "start": 30.929,
+    "end": 30.987
+  },
+  {
+    "word": "contact",
+    "start": 31.056,
+    "end": 31.533
+  },
+  {
+    "word": "someone",
+    "start": 31.591,
+    "end": 32.09
+  },
+  {
+    "word": "with",
+    "start": 32.241,
+    "end": 32.461
+  },
+  {
+    "word": "higher",
+    "start": 32.543,
+    "end": 32.891
+  },
+  {
+    "word": "access.",
+    "start": 32.949,
+    "end": 34.122
+  },
+  {
+    "word": "Always",
+    "start": 34.122,
+    "end": 34.539
+  },
+  {
+    "word": "confirm",
+    "start": 34.597,
+    "end": 35.259
+  },
+  {
+    "word": "you",
+    "start": 35.584,
+    "end": 35.712
+  },
+  {
+    "word": "have",
+    "start": 35.793,
+    "end": 35.956
+  },
+  {
+    "word": "the",
+    "start": 35.991,
+    "end": 36.06
+  },
+  {
+    "word": "right",
+    "start": 36.13,
+    "end": 36.374
+  },
+  {
+    "word": "employee",
+    "start": 36.432,
+    "end": 37.314
+  },
+  {
+    "word": "before",
+    "start": 37.558,
+    "end": 37.918
+  },
+  {
+    "word": "making",
+    "start": 37.964,
+    "end": 38.266
+  },
+  {
+    "word": "any",
+    "start": 38.336,
+    "end": 38.522
+  },
+  {
+    "word": "updates,",
+    "start": 38.591,
+    "end": 39.381
+  },
+  {
+    "word": "double-check",
+    "start": 39.706,
+    "end": 40.217
+  },
+  {
+    "word": "the",
+    "start": 40.286,
+    "end": 40.356
+  },
+  {
+    "word": "name",
+    "start": 40.414,
+    "end": 40.797
+  },
+  {
+    "word": "and",
+    "start": 40.971,
+    "end": 41.204
+  },
+  {
+    "word": "employee",
+    "start": 41.273,
+    "end": 41.807
+  },
+  {
+    "word": "number",
+    "start": 41.877,
+    "end": 42.225
+  },
+  {
+    "word": "at",
+    "start": 42.469,
+    "end": 42.632
+  },
+  {
+    "word": "the",
+    "start": 42.678,
+    "end": 42.748
+  },
+  {
+    "word": "top",
+    "start": 42.806,
+    "end": 43.084
+  },
+  {
+    "word": "of",
+    "start": 43.2,
+    "end": 43.317
+  },
+  {
+    "word": "the",
+    "start": 43.375,
+    "end": 43.444
+  },
+  {
+    "word": "record.",
+    "start": 43.502,
+    "end": 44.35
+  }
+]

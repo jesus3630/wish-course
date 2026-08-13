@@ -1,0 +1,87 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "this",
+    "start": 0.209,
+    "end": 0.372
+  },
+  {
+    "word": "module,",
+    "start": 0.453,
+    "end": 1.01
+  },
+  {
+    "word": "you",
+    "start": 1.184,
+    "end": 1.289
+  },
+  {
+    "word": "will",
+    "start": 1.335,
+    "end": 1.498
+  },
+  {
+    "word": "learn",
+    "start": 1.567,
+    "end": 1.858
+  },
+  {
+    "word": "how",
+    "start": 1.927,
+    "end": 2.043
+  },
+  {
+    "word": "to",
+    "start": 2.09,
+    "end": 2.136
+  },
+  {
+    "word": "configure",
+    "start": 2.194,
+    "end": 2.67
+  },
+  {
+    "word": "and",
+    "start": 2.717,
+    "end": 2.833
+  },
+  {
+    "word": "manage",
+    "start": 2.914,
+    "end": 3.309
+  },
+  {
+    "word": "electronic",
+    "start": 3.379,
+    "end": 3.947
+  },
+  {
+    "word": "sign-in",
+    "start": 4.017,
+    "end": 4.423
+  },
+  {
+    "word": "and",
+    "start": 4.493,
+    "end": 4.621
+  },
+  {
+    "word": "sign-out",
+    "start": 4.714,
+    "end": 5.19
+  },
+  {
+    "word": "for",
+    "start": 5.236,
+    "end": 5.341
+  },
+  {
+    "word": "events.",
+    "start": 5.399,
+    "end": 6.223
+  }
+]

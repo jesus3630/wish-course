@@ -1,0 +1,232 @@
+[
+  {
+    "word": "Employees",
+    "start": 0,
+    "end": 0.522
+  },
+  {
+    "word": "who",
+    "start": 0.569,
+    "end": 0.662
+  },
+  {
+    "word": "work",
+    "start": 0.72,
+    "end": 0.917
+  },
+  {
+    "word": "more",
+    "start": 0.998,
+    "end": 1.173
+  },
+  {
+    "word": "than",
+    "start": 1.207,
+    "end": 1.335
+  },
+  {
+    "word": "five",
+    "start": 1.416,
+    "end": 1.672
+  },
+  {
+    "word": "hours",
+    "start": 1.707,
+    "end": 2.09
+  },
+  {
+    "word": "are",
+    "start": 2.299,
+    "end": 2.496
+  },
+  {
+    "word": "generally",
+    "start": 2.543,
+    "end": 2.937
+  },
+  {
+    "word": "entitled",
+    "start": 2.995,
+    "end": 3.448
+  },
+  {
+    "word": "to",
+    "start": 3.483,
+    "end": 3.553
+  },
+  {
+    "word": "a",
+    "start": 3.634,
+    "end": 3.657
+  },
+  {
+    "word": "thirty-minute,",
+    "start": 3.715,
+    "end": 4.412
+  },
+  {
+    "word": "unpaid,",
+    "start": 4.586,
+    "end": 5.201
+  },
+  {
+    "word": "duty-free",
+    "start": 5.317,
+    "end": 5.828
+  },
+  {
+    "word": "meal",
+    "start": 5.875,
+    "end": 6.049
+  },
+  {
+    "word": "period,",
+    "start": 6.107,
+    "end": 6.606
+  },
+  {
+    "word": "and",
+    "start": 6.989,
+    "end": 7.152
+  },
+  {
+    "word": "a",
+    "start": 7.198,
+    "end": 7.233
+  },
+  {
+    "word": "second",
+    "start": 7.303,
+    "end": 7.57
+  },
+  {
+    "word": "meal",
+    "start": 7.605,
+    "end": 7.755
+  },
+  {
+    "word": "period",
+    "start": 7.814,
+    "end": 8.162
+  },
+  {
+    "word": "generally",
+    "start": 8.278,
+    "end": 8.673
+  },
+  {
+    "word": "applies",
+    "start": 8.719,
+    "end": 9.125
+  },
+  {
+    "word": "to",
+    "start": 9.195,
+    "end": 9.265
+  },
+  {
+    "word": "shifts",
+    "start": 9.346,
+    "end": 9.718
+  },
+  {
+    "word": "over",
+    "start": 9.799,
+    "end": 9.996
+  },
+  {
+    "word": "ten",
+    "start": 10.054,
+    "end": 10.24
+  },
+  {
+    "word": "hours.",
+    "start": 10.298,
+    "end": 10.832
+  },
+  {
+    "word": "Because",
+    "start": 11.529,
+    "end": 11.9
+  },
+  {
+    "word": "the",
+    "start": 11.923,
+    "end": 11.993
+  },
+  {
+    "word": "employee",
+    "start": 12.051,
+    "end": 12.457
+  },
+  {
+    "word": "is",
+    "start": 12.504,
+    "end": 12.597
+  },
+  {
+    "word": "relieved",
+    "start": 12.666,
+    "end": 13.073
+  },
+  {
+    "word": "of",
+    "start": 13.108,
+    "end": 13.154
+  },
+  {
+    "word": "all",
+    "start": 13.212,
+    "end": 13.34
+  },
+  {
+    "word": "duties,",
+    "start": 13.41,
+    "end": 13.944
+  },
+  {
+    "word": "meal",
+    "start": 14.327,
+    "end": 14.536
+  },
+  {
+    "word": "periods",
+    "start": 14.605,
+    "end": 14.942
+  },
+  {
+    "word": "are",
+    "start": 14.977,
+    "end": 15.081
+  },
+  {
+    "word": "unpaid",
+    "start": 15.139,
+    "end": 15.627
+  },
+  {
+    "word": "and",
+    "start": 15.708,
+    "end": 15.848
+  },
+  {
+    "word": "excluded",
+    "start": 15.894,
+    "end": 16.416
+  },
+  {
+    "word": "from",
+    "start": 16.463,
+    "end": 16.602
+  },
+  {
+    "word": "paid",
+    "start": 16.66,
+    "end": 16.893
+  },
+  {
+    "word": "time.",
+    "start": 16.951,
+    "end": 17.647
+  }
+]

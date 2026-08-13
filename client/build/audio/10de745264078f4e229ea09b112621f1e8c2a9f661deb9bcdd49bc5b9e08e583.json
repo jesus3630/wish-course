@@ -1,0 +1,387 @@
+[
+  {
+    "word": "HR",
+    "start": 0,
+    "end": 0.464
+  },
+  {
+    "word": "Admin",
+    "start": 0.546,
+    "end": 0.871
+  },
+  {
+    "word": "access",
+    "start": 0.94,
+    "end": 1.463
+  },
+  {
+    "word": "gives",
+    "start": 2.032,
+    "end": 2.264
+  },
+  {
+    "word": "you",
+    "start": 2.31,
+    "end": 2.426
+  },
+  {
+    "word": "one",
+    "start": 2.589,
+    "end": 2.937
+  },
+  {
+    "word": "focused",
+    "start": 3.019,
+    "end": 3.471
+  },
+  {
+    "word": "tool:",
+    "start": 3.506,
+    "end": 4.04
+  },
+  {
+    "word": "Manage",
+    "start": 4.528,
+    "end": 5.016
+  },
+  {
+    "word": "Employee",
+    "start": 5.05,
+    "end": 5.712
+  },
+  {
+    "word": "Task.",
+    "start": 5.793,
+    "end": 6.978
+  },
+  {
+    "word": "You'll",
+    "start": 6.978,
+    "end": 7.21
+  },
+  {
+    "word": "find",
+    "start": 7.268,
+    "end": 7.477
+  },
+  {
+    "word": "it",
+    "start": 7.523,
+    "end": 7.616
+  },
+  {
+    "word": "at",
+    "start": 7.686,
+    "end": 7.802
+  },
+  {
+    "word": "the",
+    "start": 7.848,
+    "end": 7.918
+  },
+  {
+    "word": "bottom",
+    "start": 7.988,
+    "end": 8.336
+  },
+  {
+    "word": "of",
+    "start": 8.44,
+    "end": 8.545
+  },
+  {
+    "word": "the",
+    "start": 8.591,
+    "end": 8.661
+  },
+  {
+    "word": "Records",
+    "start": 8.731,
+    "end": 9.079
+  },
+  {
+    "word": "menu,",
+    "start": 9.137,
+    "end": 9.718
+  },
+  {
+    "word": "Records",
+    "start": 10.077,
+    "end": 10.484
+  },
+  {
+    "word": "to",
+    "start": 10.542,
+    "end": 10.612
+  },
+  {
+    "word": "Manage",
+    "start": 10.693,
+    "end": 11.018
+  },
+  {
+    "word": "Employee",
+    "start": 11.064,
+    "end": 11.633
+  },
+  {
+    "word": "Task.",
+    "start": 11.691,
+    "end": 12.783
+  },
+  {
+    "word": "This",
+    "start": 12.783,
+    "end": 12.968
+  },
+  {
+    "word": "screen",
+    "start": 13.026,
+    "end": 13.479
+  },
+  {
+    "word": "shows",
+    "start": 13.642,
+    "end": 13.99
+  },
+  {
+    "word": "you",
+    "start": 14.048,
+    "end": 14.141
+  },
+  {
+    "word": "all",
+    "start": 14.257,
+    "end": 14.536
+  },
+  {
+    "word": "employees",
+    "start": 14.605,
+    "end": 15.43
+  },
+  {
+    "word": "and",
+    "start": 15.743,
+    "end": 15.975
+  },
+  {
+    "word": "whether",
+    "start": 16.022,
+    "end": 16.254
+  },
+  {
+    "word": "they",
+    "start": 16.3,
+    "end": 16.417
+  },
+  {
+    "word": "have",
+    "start": 16.463,
+    "end": 16.579
+  },
+  {
+    "word": "completed",
+    "start": 16.614,
+    "end": 17.136
+  },
+  {
+    "word": "or",
+    "start": 17.403,
+    "end": 17.566
+  },
+  {
+    "word": "still",
+    "start": 17.636,
+    "end": 17.914
+  },
+  {
+    "word": "have",
+    "start": 17.984,
+    "end": 18.135
+  },
+  {
+    "word": "pending",
+    "start": 18.181,
+    "end": 18.518
+  },
+  {
+    "word": "tasks",
+    "start": 18.576,
+    "end": 19.087
+  },
+  {
+    "word": "in",
+    "start": 19.203,
+    "end": 19.342
+  },
+  {
+    "word": "WISH.",
+    "start": 19.424,
+    "end": 19.993
+  },
+  {
+    "word": "Tasks",
+    "start": 20.562,
+    "end": 21.096
+  },
+  {
+    "word": "typically",
+    "start": 21.177,
+    "end": 21.618
+  },
+  {
+    "word": "include",
+    "start": 21.676,
+    "end": 22.175
+  },
+  {
+    "word": "onboarding",
+    "start": 22.222,
+    "end": 22.814
+  },
+  {
+    "word": "requirements,",
+    "start": 22.93,
+    "end": 23.824
+  },
+  {
+    "word": "training",
+    "start": 24.033,
+    "end": 24.451
+  },
+  {
+    "word": "completions,",
+    "start": 24.532,
+    "end": 25.426
+  },
+  {
+    "word": "document",
+    "start": 25.751,
+    "end": 26.227
+  },
+  {
+    "word": "submissions,",
+    "start": 26.274,
+    "end": 27.075
+  },
+  {
+    "word": "and",
+    "start": 27.226,
+    "end": 27.377
+  },
+  {
+    "word": "compliance",
+    "start": 27.435,
+    "end": 28.027
+  },
+  {
+    "word": "acknowledgments.",
+    "start": 28.05,
+    "end": 29.594
+  },
+  {
+    "word": "Your",
+    "start": 29.594,
+    "end": 29.803
+  },
+  {
+    "word": "job",
+    "start": 29.873,
+    "end": 30.093
+  },
+  {
+    "word": "here",
+    "start": 30.163,
+    "end": 30.476
+  },
+  {
+    "word": "is",
+    "start": 30.72,
+    "end": 30.883
+  },
+  {
+    "word": "to",
+    "start": 30.929,
+    "end": 30.999
+  },
+  {
+    "word": "monitor",
+    "start": 31.092,
+    "end": 31.486
+  },
+  {
+    "word": "task",
+    "start": 31.545,
+    "end": 31.928
+  },
+  {
+    "word": "status",
+    "start": 32.044,
+    "end": 32.601
+  },
+  {
+    "word": "across",
+    "start": 32.926,
+    "end": 33.367
+  },
+  {
+    "word": "your",
+    "start": 33.425,
+    "end": 33.565
+  },
+  {
+    "word": "employee",
+    "start": 33.623,
+    "end": 34.099
+  },
+  {
+    "word": "pool",
+    "start": 34.157,
+    "end": 34.517
+  },
+  {
+    "word": "and",
+    "start": 34.842,
+    "end": 35.039
+  },
+  {
+    "word": "follow",
+    "start": 35.12,
+    "end": 35.364
+  },
+  {
+    "word": "up",
+    "start": 35.422,
+    "end": 35.515
+  },
+  {
+    "word": "with",
+    "start": 35.55,
+    "end": 35.678
+  },
+  {
+    "word": "anyone",
+    "start": 35.736,
+    "end": 36.328
+  },
+  {
+    "word": "who",
+    "start": 36.479,
+    "end": 36.641
+  },
+  {
+    "word": "has",
+    "start": 36.711,
+    "end": 36.885
+  },
+  {
+    "word": "outstanding",
+    "start": 36.955,
+    "end": 37.663
+  },
+  {
+    "word": "items.",
+    "start": 37.779,
+    "end": 38.638
+  }
+]

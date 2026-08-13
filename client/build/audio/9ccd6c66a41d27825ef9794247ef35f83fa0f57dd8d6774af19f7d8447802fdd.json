@@ -1,0 +1,332 @@
+[
+  {
+    "word": "New",
+    "start": 0,
+    "end": 0.232
+  },
+  {
+    "word": "tabs",
+    "start": 0.29,
+    "end": 0.627
+  },
+  {
+    "word": "appear",
+    "start": 0.65,
+    "end": 0.987
+  },
+  {
+    "word": "after",
+    "start": 1.103,
+    "end": 1.405
+  },
+  {
+    "word": "event",
+    "start": 1.463,
+    "end": 1.695
+  },
+  {
+    "word": "is",
+    "start": 1.741,
+    "end": 1.811
+  },
+  {
+    "word": "saved.",
+    "start": 1.858,
+    "end": 2.426
+  },
+  {
+    "word": "Tabs",
+    "start": 2.81,
+    "end": 3.146
+  },
+  {
+    "word": "are",
+    "start": 3.181,
+    "end": 3.286
+  },
+  {
+    "word": "added",
+    "start": 3.32,
+    "end": 3.599
+  },
+  {
+    "word": "for",
+    "start": 3.646,
+    "end": 3.762
+  },
+  {
+    "word": "billing",
+    "start": 3.82,
+    "end": 4.087
+  },
+  {
+    "word": "purposes.",
+    "start": 4.133,
+    "end": 4.865
+  },
+  {
+    "word": "Clients",
+    "start": 5.306,
+    "end": 5.735
+  },
+  {
+    "word": "tab,",
+    "start": 5.782,
+    "end": 6.246
+  },
+  {
+    "word": "we",
+    "start": 6.327,
+    "end": 6.455
+  },
+  {
+    "word": "can",
+    "start": 6.49,
+    "end": 6.606
+  },
+  {
+    "word": "add",
+    "start": 6.653,
+    "end": 6.827
+  },
+  {
+    "word": "an",
+    "start": 6.861,
+    "end": 6.92
+  },
+  {
+    "word": "existing",
+    "start": 6.978,
+    "end": 7.407
+  },
+  {
+    "word": "client",
+    "start": 7.454,
+    "end": 7.848
+  },
+  {
+    "word": "directly",
+    "start": 7.906,
+    "end": 8.336
+  },
+  {
+    "word": "from",
+    "start": 8.382,
+    "end": 8.51
+  },
+  {
+    "word": "here",
+    "start": 8.58,
+    "end": 8.951
+  },
+  {
+    "word": "or",
+    "start": 9.276,
+    "end": 9.427
+  },
+  {
+    "word": "we",
+    "start": 9.485,
+    "end": 9.543
+  },
+  {
+    "word": "can",
+    "start": 9.59,
+    "end": 9.706
+  },
+  {
+    "word": "go",
+    "start": 9.752,
+    "end": 9.892
+  },
+  {
+    "word": "to",
+    "start": 9.961,
+    "end": 10.043
+  },
+  {
+    "word": "the",
+    "start": 10.101,
+    "end": 10.17
+  },
+  {
+    "word": "Manage",
+    "start": 10.228,
+    "end": 10.542
+  },
+  {
+    "word": "Client",
+    "start": 10.565,
+    "end": 10.867
+  },
+  {
+    "word": "menu",
+    "start": 10.913,
+    "end": 11.215
+  },
+  {
+    "word": "and",
+    "start": 11.389,
+    "end": 11.552
+  },
+  {
+    "word": "add",
+    "start": 11.61,
+    "end": 11.796
+  },
+  {
+    "word": "new",
+    "start": 11.854,
+    "end": 11.981
+  },
+  {
+    "word": "clients.",
+    "start": 12.028,
+    "end": 12.666
+  },
+  {
+    "word": "Once",
+    "start": 13.363,
+    "end": 13.618
+  },
+  {
+    "word": "you",
+    "start": 13.653,
+    "end": 13.735
+  },
+  {
+    "word": "find",
+    "start": 13.804,
+    "end": 14.036
+  },
+  {
+    "word": "the",
+    "start": 14.083,
+    "end": 14.153
+  },
+  {
+    "word": "client",
+    "start": 14.187,
+    "end": 14.536
+  },
+  {
+    "word": "make",
+    "start": 14.605,
+    "end": 14.779
+  },
+  {
+    "word": "sure",
+    "start": 14.803,
+    "end": 14.977
+  },
+  {
+    "word": "their",
+    "start": 15,
+    "end": 15.139
+  },
+  {
+    "word": "status",
+    "start": 15.174,
+    "end": 15.546
+  },
+  {
+    "word": "is",
+    "start": 15.604,
+    "end": 15.673
+  },
+  {
+    "word": "checked",
+    "start": 15.743,
+    "end": 16.103
+  },
+  {
+    "word": "and",
+    "start": 16.138,
+    "end": 16.219
+  },
+  {
+    "word": "add",
+    "start": 16.289,
+    "end": 16.498
+  },
+  {
+    "word": "them,",
+    "start": 16.533,
+    "end": 16.846
+  },
+  {
+    "word": "you",
+    "start": 17.229,
+    "end": 17.31
+  },
+  {
+    "word": "can",
+    "start": 17.345,
+    "end": 17.45
+  },
+  {
+    "word": "have",
+    "start": 17.496,
+    "end": 17.647
+  },
+  {
+    "word": "multiple",
+    "start": 17.705,
+    "end": 18.123
+  },
+  {
+    "word": "clients",
+    "start": 18.146,
+    "end": 18.564
+  },
+  {
+    "word": "in",
+    "start": 18.599,
+    "end": 18.657
+  },
+  {
+    "word": "the",
+    "start": 18.692,
+    "end": 18.762
+  },
+  {
+    "word": "same",
+    "start": 18.808,
+    "end": 19.029
+  },
+  {
+    "word": "event",
+    "start": 19.075,
+    "end": 19.331
+  },
+  {
+    "word": "that",
+    "start": 19.365,
+    "end": 19.47
+  },
+  {
+    "word": "you",
+    "start": 19.493,
+    "end": 19.563
+  },
+  {
+    "word": "need",
+    "start": 19.609,
+    "end": 19.76
+  },
+  {
+    "word": "to",
+    "start": 19.783,
+    "end": 19.83
+  },
+  {
+    "word": "bill",
+    "start": 19.876,
+    "end": 20.039
+  },
+  {
+    "word": "for.",
+    "start": 20.108,
+    "end": 20.712
+  }
+]

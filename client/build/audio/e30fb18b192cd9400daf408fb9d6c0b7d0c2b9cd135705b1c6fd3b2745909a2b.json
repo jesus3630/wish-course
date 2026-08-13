@@ -1,0 +1,547 @@
+[
+  {
+    "word": "Pending",
+    "start": 0,
+    "end": 0.453
+  },
+  {
+    "word": "tasks",
+    "start": 0.522,
+    "end": 1.08
+  },
+  {
+    "word": "aren't",
+    "start": 1.173,
+    "end": 1.416
+  },
+  {
+    "word": "just",
+    "start": 1.474,
+    "end": 1.707
+  },
+  {
+    "word": "administrative,",
+    "start": 1.765,
+    "end": 2.74
+  },
+  {
+    "word": "they",
+    "start": 3.123,
+    "end": 3.274
+  },
+  {
+    "word": "can",
+    "start": 3.309,
+    "end": 3.425
+  },
+  {
+    "word": "directly",
+    "start": 3.483,
+    "end": 3.889
+  },
+  {
+    "word": "affect",
+    "start": 3.947,
+    "end": 4.284
+  },
+  {
+    "word": "what",
+    "start": 4.342,
+    "end": 4.505
+  },
+  {
+    "word": "an",
+    "start": 4.54,
+    "end": 4.598
+  },
+  {
+    "word": "employee",
+    "start": 4.656,
+    "end": 5.166
+  },
+  {
+    "word": "can",
+    "start": 5.213,
+    "end": 5.364
+  },
+  {
+    "word": "do",
+    "start": 5.433,
+    "end": 5.631
+  },
+  {
+    "word": "in",
+    "start": 5.747,
+    "end": 5.828
+  },
+  {
+    "word": "the",
+    "start": 5.875,
+    "end": 5.944
+  },
+  {
+    "word": "system.",
+    "start": 5.991,
+    "end": 7.314
+  },
+  {
+    "word": "In",
+    "start": 7.314,
+    "end": 7.465
+  },
+  {
+    "word": "WISH,",
+    "start": 7.546,
+    "end": 8.15
+  },
+  {
+    "word": "certain",
+    "start": 8.359,
+    "end": 8.766
+  },
+  {
+    "word": "access",
+    "start": 8.847,
+    "end": 9.462
+  },
+  {
+    "word": "and",
+    "start": 9.52,
+    "end": 9.671
+  },
+  {
+    "word": "scheduling",
+    "start": 9.787,
+    "end": 10.333
+  },
+  {
+    "word": "capabilities",
+    "start": 10.391,
+    "end": 11.146
+  },
+  {
+    "word": "are",
+    "start": 11.355,
+    "end": 11.54
+  },
+  {
+    "word": "tied",
+    "start": 11.564,
+    "end": 11.831
+  },
+  {
+    "word": "to",
+    "start": 11.865,
+    "end": 11.935
+  },
+  {
+    "word": "training",
+    "start": 11.993,
+    "end": 12.423
+  },
+  {
+    "word": "and",
+    "start": 12.666,
+    "end": 12.887
+  },
+  {
+    "word": "task",
+    "start": 12.945,
+    "end": 13.328
+  },
+  {
+    "word": "completion.",
+    "start": 13.41,
+    "end": 14.245
+  },
+  {
+    "word": "An",
+    "start": 14.849,
+    "end": 14.988
+  },
+  {
+    "word": "employee",
+    "start": 15.035,
+    "end": 15.685
+  },
+  {
+    "word": "with",
+    "start": 15.743,
+    "end": 15.917
+  },
+  {
+    "word": "outstanding",
+    "start": 15.987,
+    "end": 16.823
+  },
+  {
+    "word": "tasks",
+    "start": 16.893,
+    "end": 17.404
+  },
+  {
+    "word": "may:\rNot",
+    "start": 17.578,
+    "end": 18.669
+  },
+  {
+    "word": "yet",
+    "start": 18.727,
+    "end": 18.89
+  },
+  {
+    "word": "have",
+    "start": 18.948,
+    "end": 19.226
+  },
+  {
+    "word": "their",
+    "start": 19.261,
+    "end": 19.412
+  },
+  {
+    "word": "WISH",
+    "start": 19.47,
+    "end": 19.679
+  },
+  {
+    "word": "login",
+    "start": 19.749,
+    "end": 20.109
+  },
+  {
+    "word": "credentials",
+    "start": 20.19,
+    "end": 20.771
+  },
+  {
+    "word": "issued\rBe",
+    "start": 20.84,
+    "end": 21.978
+  },
+  {
+    "word": "restricted",
+    "start": 22.048,
+    "end": 22.57
+  },
+  {
+    "word": "from",
+    "start": 22.617,
+    "end": 22.756
+  },
+  {
+    "word": "accessing",
+    "start": 22.826,
+    "end": 23.394
+  },
+  {
+    "word": "menus",
+    "start": 23.476,
+    "end": 23.917
+  },
+  {
+    "word": "they",
+    "start": 23.963,
+    "end": 24.103
+  },
+  {
+    "word": "need",
+    "start": 24.184,
+    "end": 24.463
+  },
+  {
+    "word": "for",
+    "start": 24.521,
+    "end": 24.637
+  },
+  {
+    "word": "their",
+    "start": 24.672,
+    "end": 24.857
+  },
+  {
+    "word": "role\rShow",
+    "start": 24.915,
+    "end": 26.494
+  },
+  {
+    "word": "as",
+    "start": 26.61,
+    "end": 26.854
+  },
+  {
+    "word": "incomplete",
+    "start": 26.97,
+    "end": 27.725
+  },
+  {
+    "word": "in",
+    "start": 27.783,
+    "end": 27.888
+  },
+  {
+    "word": "compliance",
+    "start": 27.957,
+    "end": 28.573
+  },
+  {
+    "word": "reporting",
+    "start": 28.607,
+    "end": 29.768
+  },
+  {
+    "word": "For",
+    "start": 29.768,
+    "end": 29.942
+  },
+  {
+    "word": "new",
+    "start": 30.001,
+    "end": 30.151
+  },
+  {
+    "word": "employees",
+    "start": 30.21,
+    "end": 30.744
+  },
+  {
+    "word": "especially,",
+    "start": 30.813,
+    "end": 31.614
+  },
+  {
+    "word": "task",
+    "start": 31.893,
+    "end": 32.334
+  },
+  {
+    "word": "completion",
+    "start": 32.404,
+    "end": 33.089
+  },
+  {
+    "word": "is",
+    "start": 33.414,
+    "end": 33.576
+  },
+  {
+    "word": "part",
+    "start": 33.646,
+    "end": 33.936
+  },
+  {
+    "word": "of",
+    "start": 34.052,
+    "end": 34.18
+  },
+  {
+    "word": "the",
+    "start": 34.238,
+    "end": 34.307
+  },
+  {
+    "word": "onboarding",
+    "start": 34.377,
+    "end": 34.9
+  },
+  {
+    "word": "process.",
+    "start": 34.969,
+    "end": 35.77
+  },
+  {
+    "word": "Staying",
+    "start": 36.281,
+    "end": 36.711
+  },
+  {
+    "word": "on",
+    "start": 36.792,
+    "end": 36.92
+  },
+  {
+    "word": "top",
+    "start": 36.989,
+    "end": 37.256
+  },
+  {
+    "word": "of",
+    "start": 37.349,
+    "end": 37.465
+  },
+  {
+    "word": "the",
+    "start": 37.523,
+    "end": 37.593
+  },
+  {
+    "word": "Manage",
+    "start": 37.663,
+    "end": 37.988
+  },
+  {
+    "word": "Employee",
+    "start": 38.011,
+    "end": 38.452
+  },
+  {
+    "word": "Task",
+    "start": 38.522,
+    "end": 38.847
+  },
+  {
+    "word": "screen",
+    "start": 38.917,
+    "end": 39.335
+  },
+  {
+    "word": "helps",
+    "start": 39.845,
+    "end": 40.124
+  },
+  {
+    "word": "make",
+    "start": 40.194,
+    "end": 40.379
+  },
+  {
+    "word": "sure",
+    "start": 40.426,
+    "end": 40.716
+  },
+  {
+    "word": "new",
+    "start": 40.832,
+    "end": 41.053
+  },
+  {
+    "word": "hires",
+    "start": 41.134,
+    "end": 41.575
+  },
+  {
+    "word": "get",
+    "start": 41.9,
+    "end": 42.086
+  },
+  {
+    "word": "fully",
+    "start": 42.156,
+    "end": 42.423
+  },
+  {
+    "word": "set",
+    "start": 42.504,
+    "end": 42.736
+  },
+  {
+    "word": "up",
+    "start": 42.806,
+    "end": 42.968
+  },
+  {
+    "word": "and",
+    "start": 43.572,
+    "end": 43.804
+  },
+  {
+    "word": "can",
+    "start": 43.862,
+    "end": 43.99
+  },
+  {
+    "word": "start",
+    "start": 44.048,
+    "end": 44.35
+  },
+  {
+    "word": "working",
+    "start": 44.42,
+    "end": 44.814
+  },
+  {
+    "word": "without",
+    "start": 45.198,
+    "end": 45.581
+  },
+  {
+    "word": "delays.",
+    "start": 45.65,
+    "end": 47.113
+  },
+  {
+    "word": "Make",
+    "start": 47.113,
+    "end": 47.322
+  },
+  {
+    "word": "it",
+    "start": 47.357,
+    "end": 47.415
+  },
+  {
+    "word": "a",
+    "start": 47.45,
+    "end": 47.485
+  },
+  {
+    "word": "habit",
+    "start": 47.543,
+    "end": 47.856
+  },
+  {
+    "word": "to",
+    "start": 48.065,
+    "end": 48.193
+  },
+  {
+    "word": "check",
+    "start": 48.251,
+    "end": 48.483
+  },
+  {
+    "word": "this",
+    "start": 48.541,
+    "end": 48.692
+  },
+  {
+    "word": "screen",
+    "start": 48.75,
+    "end": 49.145
+  },
+  {
+    "word": "regularly,",
+    "start": 49.238,
+    "end": 49.958
+  },
+  {
+    "word": "not",
+    "start": 50.341,
+    "end": 50.55
+  },
+  {
+    "word": "just",
+    "start": 50.666,
+    "end": 51.014
+  },
+  {
+    "word": "when",
+    "start": 51.072,
+    "end": 51.246
+  },
+  {
+    "word": "something",
+    "start": 51.328,
+    "end": 51.688
+  },
+  {
+    "word": "seems",
+    "start": 51.769,
+    "end": 52.082
+  },
+  {
+    "word": "wrong.",
+    "start": 52.129,
+    "end": 52.895
+  }
+]

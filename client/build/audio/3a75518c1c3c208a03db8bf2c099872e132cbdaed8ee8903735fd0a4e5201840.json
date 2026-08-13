@@ -1,0 +1,302 @@
+[
+  {
+    "word": "When",
+    "start": 0,
+    "end": 0.197
+  },
+  {
+    "word": "creating",
+    "start": 0.255,
+    "end": 0.627
+  },
+  {
+    "word": "a",
+    "start": 0.662,
+    "end": 0.685
+  },
+  {
+    "word": "shift,",
+    "start": 0.755,
+    "end": 1.312
+  },
+  {
+    "word": "you",
+    "start": 1.637,
+    "end": 1.73
+  },
+  {
+    "word": "can",
+    "start": 1.776,
+    "end": 1.904
+  },
+  {
+    "word": "share",
+    "start": 1.962,
+    "end": 2.206
+  },
+  {
+    "word": "it",
+    "start": 2.241,
+    "end": 2.31
+  },
+  {
+    "word": "with",
+    "start": 2.345,
+    "end": 2.473
+  },
+  {
+    "word": "other",
+    "start": 2.531,
+    "end": 2.728
+  },
+  {
+    "word": "branches",
+    "start": 2.763,
+    "end": 3.32
+  },
+  {
+    "word": "using",
+    "start": 3.495,
+    "end": 3.785
+  },
+  {
+    "word": "the",
+    "start": 3.82,
+    "end": 3.889
+  },
+  {
+    "word": "Select",
+    "start": 3.947,
+    "end": 4.272
+  },
+  {
+    "word": "Branch",
+    "start": 4.331,
+    "end": 4.609
+  },
+  {
+    "word": "field.",
+    "start": 4.656,
+    "end": 5.12
+  },
+  {
+    "word": "Once",
+    "start": 5.817,
+    "end": 6.095
+  },
+  {
+    "word": "saved,",
+    "start": 6.142,
+    "end": 6.641
+  },
+  {
+    "word": "those",
+    "start": 6.757,
+    "end": 7.012
+  },
+  {
+    "word": "branches",
+    "start": 7.047,
+    "end": 7.454
+  },
+  {
+    "word": "can",
+    "start": 7.512,
+    "end": 7.639
+  },
+  {
+    "word": "see",
+    "start": 7.697,
+    "end": 7.848
+  },
+  {
+    "word": "that",
+    "start": 7.883,
+    "end": 8.011
+  },
+  {
+    "word": "shift",
+    "start": 8.069,
+    "end": 8.44
+  },
+  {
+    "word": "and",
+    "start": 8.557,
+    "end": 8.754
+  },
+  {
+    "word": "schedule",
+    "start": 8.824,
+    "end": 9.218
+  },
+  {
+    "word": "their",
+    "start": 9.242,
+    "end": 9.381
+  },
+  {
+    "word": "own",
+    "start": 9.427,
+    "end": 9.567
+  },
+  {
+    "word": "employees",
+    "start": 9.613,
+    "end": 10.066
+  },
+  {
+    "word": "to",
+    "start": 10.136,
+    "end": 10.228
+  },
+  {
+    "word": "it.",
+    "start": 10.344,
+    "end": 11.355
+  },
+  {
+    "word": "This",
+    "start": 11.355,
+    "end": 11.54
+  },
+  {
+    "word": "is",
+    "start": 11.598,
+    "end": 11.68
+  },
+  {
+    "word": "useful",
+    "start": 11.749,
+    "end": 12.156
+  },
+  {
+    "word": "for",
+    "start": 12.237,
+    "end": 12.365
+  },
+  {
+    "word": "large",
+    "start": 12.434,
+    "end": 12.678
+  },
+  {
+    "word": "events",
+    "start": 12.713,
+    "end": 13.073
+  },
+  {
+    "word": "where",
+    "start": 13.201,
+    "end": 13.398
+  },
+  {
+    "word": "staff",
+    "start": 13.444,
+    "end": 13.758
+  },
+  {
+    "word": "from",
+    "start": 13.804,
+    "end": 13.955
+  },
+  {
+    "word": "multiple",
+    "start": 14.013,
+    "end": 14.431
+  },
+  {
+    "word": "locations",
+    "start": 14.466,
+    "end": 15.011
+  },
+  {
+    "word": "are",
+    "start": 15.046,
+    "end": 15.151
+  },
+  {
+    "word": "needed.",
+    "start": 15.185,
+    "end": 15.638
+  },
+  {
+    "word": "You",
+    "start": 16.149,
+    "end": 16.265
+  },
+  {
+    "word": "can",
+    "start": 16.312,
+    "end": 16.416
+  },
+  {
+    "word": "even",
+    "start": 16.486,
+    "end": 16.718
+  },
+  {
+    "word": "rename",
+    "start": 16.811,
+    "end": 17.194
+  },
+  {
+    "word": "the",
+    "start": 17.217,
+    "end": 17.287
+  },
+  {
+    "word": "shift",
+    "start": 17.333,
+    "end": 17.67
+  },
+  {
+    "word": "to",
+    "start": 17.74,
+    "end": 17.856
+  },
+  {
+    "word": "identify",
+    "start": 17.937,
+    "end": 18.401
+  },
+  {
+    "word": "the",
+    "start": 18.46,
+    "end": 18.529
+  },
+  {
+    "word": "contributing",
+    "start": 18.564,
+    "end": 19.052
+  },
+  {
+    "word": "branch,",
+    "start": 19.086,
+    "end": 19.551
+  },
+  {
+    "word": "for",
+    "start": 19.76,
+    "end": 19.899
+  },
+  {
+    "word": "example,",
+    "start": 19.946,
+    "end": 20.526
+  },
+  {
+    "word": "\"San",
+    "start": 20.77,
+    "end": 21.13
+  },
+  {
+    "word": "Diego",
+    "start": 21.176,
+    "end": 21.49
+  },
+  {
+    "word": "Staff.\"",
+    "start": 21.559,
+    "end": 22.244
+  }
+]

@@ -1,0 +1,332 @@
+[
+  {
+    "word": "Your",
+    "start": 0,
+    "end": 0.232
+  },
+  {
+    "word": "name,",
+    "start": 0.29,
+    "end": 0.778
+  },
+  {
+    "word": "displayed",
+    "start": 0.929,
+    "end": 1.393
+  },
+  {
+    "word": "in",
+    "start": 1.428,
+    "end": 1.486
+  },
+  {
+    "word": "the",
+    "start": 1.533,
+    "end": 1.602
+  },
+  {
+    "word": "top",
+    "start": 1.66,
+    "end": 1.939
+  },
+  {
+    "word": "right",
+    "start": 2.02,
+    "end": 2.241
+  },
+  {
+    "word": "corner,",
+    "start": 2.299,
+    "end": 2.844
+  },
+  {
+    "word": "offers",
+    "start": 3.019,
+    "end": 3.332
+  },
+  {
+    "word": "three",
+    "start": 3.425,
+    "end": 3.692
+  },
+  {
+    "word": "menu",
+    "start": 3.762,
+    "end": 4.063
+  },
+  {
+    "word": "options",
+    "start": 4.145,
+    "end": 4.609
+  },
+  {
+    "word": "when",
+    "start": 4.679,
+    "end": 4.876
+  },
+  {
+    "word": "clicked.",
+    "start": 4.957,
+    "end": 5.573
+  },
+  {
+    "word": "You",
+    "start": 5.956,
+    "end": 6.072
+  },
+  {
+    "word": "can",
+    "start": 6.13,
+    "end": 6.246
+  },
+  {
+    "word": "click",
+    "start": 6.293,
+    "end": 6.513
+  },
+  {
+    "word": "on",
+    "start": 6.594,
+    "end": 6.734
+  },
+  {
+    "word": "My",
+    "start": 6.827,
+    "end": 7.036
+  },
+  {
+    "word": "Messages",
+    "start": 7.117,
+    "end": 7.663
+  },
+  {
+    "word": "to",
+    "start": 7.744,
+    "end": 7.848
+  },
+  {
+    "word": "navigate",
+    "start": 7.93,
+    "end": 8.44
+  },
+  {
+    "word": "to",
+    "start": 8.487,
+    "end": 8.568
+  },
+  {
+    "word": "the",
+    "start": 8.626,
+    "end": 8.696
+  },
+  {
+    "word": "Broadcast",
+    "start": 8.754,
+    "end": 9.381
+  },
+  {
+    "word": "Messages",
+    "start": 9.462,
+    "end": 9.938
+  },
+  {
+    "word": "screen.",
+    "start": 9.985,
+    "end": 10.553
+  },
+  {
+    "word": "Log",
+    "start": 11.064,
+    "end": 11.285
+  },
+  {
+    "word": "out",
+    "start": 11.355,
+    "end": 11.505
+  },
+  {
+    "word": "of",
+    "start": 11.564,
+    "end": 11.622
+  },
+  {
+    "word": "your",
+    "start": 11.668,
+    "end": 11.784
+  },
+  {
+    "word": "session",
+    "start": 11.831,
+    "end": 12.19
+  },
+  {
+    "word": "by",
+    "start": 12.272,
+    "end": 12.411
+  },
+  {
+    "word": "clicking",
+    "start": 12.481,
+    "end": 12.841
+  },
+  {
+    "word": "Log",
+    "start": 12.91,
+    "end": 13.096
+  },
+  {
+    "word": "Out,",
+    "start": 13.189,
+    "end": 13.595
+  },
+  {
+    "word": "and",
+    "start": 13.839,
+    "end": 13.99
+  },
+  {
+    "word": "change",
+    "start": 14.06,
+    "end": 14.35
+  },
+  {
+    "word": "your",
+    "start": 14.373,
+    "end": 14.489
+  },
+  {
+    "word": "password",
+    "start": 14.559,
+    "end": 15.128
+  },
+  {
+    "word": "by",
+    "start": 15.197,
+    "end": 15.337
+  },
+  {
+    "word": "clicking",
+    "start": 15.406,
+    "end": 15.766
+  },
+  {
+    "word": "on",
+    "start": 15.824,
+    "end": 15.905
+  },
+  {
+    "word": "the",
+    "start": 15.952,
+    "end": 16.022
+  },
+  {
+    "word": "Change",
+    "start": 16.114,
+    "end": 16.567
+  },
+  {
+    "word": "Password",
+    "start": 16.625,
+    "end": 17.148
+  },
+  {
+    "word": "menu.",
+    "start": 17.229,
+    "end": 17.786
+  },
+  {
+    "word": "We",
+    "start": 18.111,
+    "end": 18.251
+  },
+  {
+    "word": "recommend",
+    "start": 18.332,
+    "end": 18.75
+  },
+  {
+    "word": "changing",
+    "start": 18.808,
+    "end": 19.191
+  },
+  {
+    "word": "your",
+    "start": 19.249,
+    "end": 19.365
+  },
+  {
+    "word": "password",
+    "start": 19.423,
+    "end": 19.899
+  },
+  {
+    "word": "regularly.",
+    "start": 20.015,
+    "end": 20.77
+  },
+  {
+    "word": "Changing",
+    "start": 21.095,
+    "end": 21.513
+  },
+  {
+    "word": "your",
+    "start": 21.559,
+    "end": 21.676
+  },
+  {
+    "word": "password",
+    "start": 21.722,
+    "end": 22.256
+  },
+  {
+    "word": "in",
+    "start": 22.326,
+    "end": 22.488
+  },
+  {
+    "word": "WISH",
+    "start": 22.616,
+    "end": 23.011
+  },
+  {
+    "word": "only",
+    "start": 23.255,
+    "end": 23.51
+  },
+  {
+    "word": "updates",
+    "start": 23.556,
+    "end": 23.951
+  },
+  {
+    "word": "your",
+    "start": 23.986,
+    "end": 24.125
+  },
+  {
+    "word": "password",
+    "start": 24.195,
+    "end": 24.752
+  },
+  {
+    "word": "in",
+    "start": 24.822,
+    "end": 24.926
+  },
+  {
+    "word": "the",
+    "start": 24.961,
+    "end": 25.031
+  },
+  {
+    "word": "WISH",
+    "start": 25.112,
+    "end": 25.426
+  },
+  {
+    "word": "application.",
+    "start": 25.495,
+    "end": 26.656
+  }
+]

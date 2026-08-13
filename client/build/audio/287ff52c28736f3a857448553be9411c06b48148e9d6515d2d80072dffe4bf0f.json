@@ -1,0 +1,277 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.209
+  },
+  {
+    "word": "to",
+    "start": 0.29,
+    "end": 0.372
+  },
+  {
+    "word": "Billing",
+    "start": 0.464,
+    "end": 0.801
+  },
+  {
+    "word": "to",
+    "start": 0.859,
+    "end": 0.929
+  },
+  {
+    "word": "Check",
+    "start": 0.987,
+    "end": 1.231
+  },
+  {
+    "word": "Bill",
+    "start": 1.312,
+    "end": 1.544
+  },
+  {
+    "word": "for",
+    "start": 1.614,
+    "end": 1.73
+  },
+  {
+    "word": "job.",
+    "start": 1.788,
+    "end": 2.252
+  },
+  {
+    "word": "Click",
+    "start": 2.635,
+    "end": 2.914
+  },
+  {
+    "word": "View",
+    "start": 2.984,
+    "end": 3.193
+  },
+  {
+    "word": "Unbilled",
+    "start": 3.309,
+    "end": 3.959
+  },
+  {
+    "word": "to",
+    "start": 4.017,
+    "end": 4.098
+  },
+  {
+    "word": "see",
+    "start": 4.168,
+    "end": 4.319
+  },
+  {
+    "word": "everything",
+    "start": 4.377,
+    "end": 4.841
+  },
+  {
+    "word": "that",
+    "start": 4.888,
+    "end": 5.004
+  },
+  {
+    "word": "has",
+    "start": 5.039,
+    "end": 5.143
+  },
+  {
+    "word": "not",
+    "start": 5.213,
+    "end": 5.352
+  },
+  {
+    "word": "been",
+    "start": 5.399,
+    "end": 5.573
+  },
+  {
+    "word": "invoiced",
+    "start": 5.654,
+    "end": 6.223
+  },
+  {
+    "word": "yet.",
+    "start": 6.304,
+    "end": 7.14
+  },
+  {
+    "word": "The",
+    "start": 7.14,
+    "end": 7.245
+  },
+  {
+    "word": "report",
+    "start": 7.303,
+    "end": 7.663
+  },
+  {
+    "word": "shows",
+    "start": 7.709,
+    "end": 7.988
+  },
+  {
+    "word": "an",
+    "start": 8.057,
+    "end": 8.173
+  },
+  {
+    "word": "Hours",
+    "start": 8.29,
+    "end": 8.673
+  },
+  {
+    "word": "Processed",
+    "start": 8.754,
+    "end": 9.288
+  },
+  {
+    "word": "column.",
+    "start": 9.346,
+    "end": 9.845
+  },
+  {
+    "word": "If",
+    "start": 10.286,
+    "end": 10.437
+  },
+  {
+    "word": "it",
+    "start": 10.507,
+    "end": 10.588
+  },
+  {
+    "word": "shows",
+    "start": 10.646,
+    "end": 10.925
+  },
+  {
+    "word": "Yes,",
+    "start": 11.006,
+    "end": 11.424
+  },
+  {
+    "word": "the",
+    "start": 11.471,
+    "end": 11.587
+  },
+  {
+    "word": "job",
+    "start": 11.656,
+    "end": 11.877
+  },
+  {
+    "word": "is",
+    "start": 11.958,
+    "end": 12.086
+  },
+  {
+    "word": "ready",
+    "start": 12.202,
+    "end": 12.469
+  },
+  {
+    "word": "to",
+    "start": 12.527,
+    "end": 12.62
+  },
+  {
+    "word": "bill.",
+    "start": 12.701,
+    "end": 13.154
+  },
+  {
+    "word": "If",
+    "start": 13.537,
+    "end": 13.688
+  },
+  {
+    "word": "it",
+    "start": 13.746,
+    "end": 13.827
+  },
+  {
+    "word": "shows",
+    "start": 13.886,
+    "end": 14.164
+  },
+  {
+    "word": "No,",
+    "start": 14.257,
+    "end": 14.71
+  },
+  {
+    "word": "go",
+    "start": 14.884,
+    "end": 15.035
+  },
+  {
+    "word": "back",
+    "start": 15.116,
+    "end": 15.302
+  },
+  {
+    "word": "to",
+    "start": 15.372,
+    "end": 15.464
+  },
+  {
+    "word": "Manage",
+    "start": 15.581,
+    "end": 15.964
+  },
+  {
+    "word": "Process",
+    "start": 16.022,
+    "end": 16.475
+  },
+  {
+    "word": "Hours",
+    "start": 16.533,
+    "end": 16.916
+  },
+  {
+    "word": "and",
+    "start": 16.962,
+    "end": 17.125
+  },
+  {
+    "word": "complete",
+    "start": 17.194,
+    "end": 17.612
+  },
+  {
+    "word": "the",
+    "start": 17.647,
+    "end": 17.717
+  },
+  {
+    "word": "approval",
+    "start": 17.752,
+    "end": 18.216
+  },
+  {
+    "word": "for",
+    "start": 18.274,
+    "end": 18.379
+  },
+  {
+    "word": "that",
+    "start": 18.425,
+    "end": 18.599
+  },
+  {
+    "word": "job",
+    "start": 18.68,
+    "end": 18.936
+  },
+  {
+    "word": "first.",
+    "start": 19.029,
+    "end": 19.923
+  }
+]

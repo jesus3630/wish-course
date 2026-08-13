@@ -1,0 +1,662 @@
+[
+  {
+    "word": "It",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "is",
+    "start": 0.197,
+    "end": 0.279
+  },
+  {
+    "word": "important",
+    "start": 0.337,
+    "end": 0.964
+  },
+  {
+    "word": "that",
+    "start": 1.033,
+    "end": 1.173
+  },
+  {
+    "word": "you",
+    "start": 1.219,
+    "end": 1.3
+  },
+  {
+    "word": "do",
+    "start": 1.37,
+    "end": 1.474
+  },
+  {
+    "word": "NOT",
+    "start": 1.625,
+    "end": 1.904
+  },
+  {
+    "word": "share",
+    "start": 1.962,
+    "end": 2.206
+  },
+  {
+    "word": "your",
+    "start": 2.241,
+    "end": 2.368
+  },
+  {
+    "word": "login",
+    "start": 2.426,
+    "end": 2.705
+  },
+  {
+    "word": "credentials",
+    "start": 2.752,
+    "end": 3.309
+  },
+  {
+    "word": "with",
+    "start": 3.355,
+    "end": 3.506
+  },
+  {
+    "word": "anyone.",
+    "start": 3.553,
+    "end": 4.122
+  },
+  {
+    "word": "All",
+    "start": 4.632,
+    "end": 4.853
+  },
+  {
+    "word": "actions",
+    "start": 4.911,
+    "end": 5.283
+  },
+  {
+    "word": "performed",
+    "start": 5.352,
+    "end": 5.817
+  },
+  {
+    "word": "using",
+    "start": 5.898,
+    "end": 6.211
+  },
+  {
+    "word": "your",
+    "start": 6.258,
+    "end": 6.374
+  },
+  {
+    "word": "credentials",
+    "start": 6.42,
+    "end": 7.001
+  },
+  {
+    "word": "will",
+    "start": 7.059,
+    "end": 7.21
+  },
+  {
+    "word": "be",
+    "start": 7.256,
+    "end": 7.338
+  },
+  {
+    "word": "recorded",
+    "start": 7.396,
+    "end": 7.941
+  },
+  {
+    "word": "in",
+    "start": 8.022,
+    "end": 8.127
+  },
+  {
+    "word": "the",
+    "start": 8.173,
+    "end": 8.243
+  },
+  {
+    "word": "system",
+    "start": 8.313,
+    "end": 8.754
+  },
+  {
+    "word": "as",
+    "start": 9.033,
+    "end": 9.207
+  },
+  {
+    "word": "being",
+    "start": 9.276,
+    "end": 9.485
+  },
+  {
+    "word": "completed",
+    "start": 9.555,
+    "end": 10.344
+  },
+  {
+    "word": "by",
+    "start": 10.461,
+    "end": 10.67
+  },
+  {
+    "word": "you.",
+    "start": 10.762,
+    "end": 11.215
+  },
+  {
+    "word": "Some",
+    "start": 11.656,
+    "end": 11.9
+  },
+  {
+    "word": "tasks",
+    "start": 11.935,
+    "end": 12.341
+  },
+  {
+    "word": "may",
+    "start": 12.399,
+    "end": 12.539
+  },
+  {
+    "word": "require",
+    "start": 12.608,
+    "end": 12.968
+  },
+  {
+    "word": "you",
+    "start": 13.003,
+    "end": 13.096
+  },
+  {
+    "word": "to",
+    "start": 13.166,
+    "end": 13.235
+  },
+  {
+    "word": "complete",
+    "start": 13.293,
+    "end": 13.688
+  },
+  {
+    "word": "multiple",
+    "start": 13.746,
+    "end": 14.211
+  },
+  {
+    "word": "training",
+    "start": 14.234,
+    "end": 14.571
+  },
+  {
+    "word": "sessions",
+    "start": 14.629,
+    "end": 15.024
+  },
+  {
+    "word": "before",
+    "start": 15.093,
+    "end": 15.453
+  },
+  {
+    "word": "you",
+    "start": 15.488,
+    "end": 15.558
+  },
+  {
+    "word": "can",
+    "start": 15.604,
+    "end": 15.732
+  },
+  {
+    "word": "perform",
+    "start": 15.778,
+    "end": 16.115
+  },
+  {
+    "word": "them.",
+    "start": 16.173,
+    "end": 16.521
+  },
+  {
+    "word": "You",
+    "start": 16.905,
+    "end": 17.021
+  },
+  {
+    "word": "will",
+    "start": 17.055,
+    "end": 17.195
+  },
+  {
+    "word": "not",
+    "start": 17.23,
+    "end": 17.357
+  },
+  {
+    "word": "be",
+    "start": 17.404,
+    "end": 17.497
+  },
+  {
+    "word": "able",
+    "start": 17.555,
+    "end": 17.775
+  },
+  {
+    "word": "to",
+    "start": 17.81,
+    "end": 17.868
+  },
+  {
+    "word": "complete",
+    "start": 17.926,
+    "end": 18.321
+  },
+  {
+    "word": "certain",
+    "start": 18.367,
+    "end": 18.751
+  },
+  {
+    "word": "work",
+    "start": 18.809,
+    "end": 19.064
+  },
+  {
+    "word": "duties",
+    "start": 19.122,
+    "end": 19.563
+  },
+  {
+    "word": "until",
+    "start": 19.644,
+    "end": 19.946
+  },
+  {
+    "word": "all",
+    "start": 20.016,
+    "end": 20.237
+  },
+  {
+    "word": "assigned",
+    "start": 20.283,
+    "end": 20.678
+  },
+  {
+    "word": "training",
+    "start": 20.713,
+    "end": 21.084
+  },
+  {
+    "word": "is",
+    "start": 21.142,
+    "end": 21.223
+  },
+  {
+    "word": "finished.",
+    "start": 21.316,
+    "end": 21.943
+  },
+  {
+    "word": "Your",
+    "start": 22.384,
+    "end": 22.582
+  },
+  {
+    "word": "system",
+    "start": 22.651,
+    "end": 22.988
+  },
+  {
+    "word": "access",
+    "start": 23.058,
+    "end": 23.557
+  },
+  {
+    "word": "and",
+    "start": 23.603,
+    "end": 23.754
+  },
+  {
+    "word": "available",
+    "start": 23.824,
+    "end": 24.312
+  },
+  {
+    "word": "features",
+    "start": 24.358,
+    "end": 24.857
+  },
+  {
+    "word": "are",
+    "start": 24.927,
+    "end": 25.124
+  },
+  {
+    "word": "determined",
+    "start": 25.171,
+    "end": 25.775
+  },
+  {
+    "word": "by",
+    "start": 25.844,
+    "end": 26.007
+  },
+  {
+    "word": "your",
+    "start": 26.123,
+    "end": 26.32
+  },
+  {
+    "word": "assigned",
+    "start": 26.367,
+    "end": 26.866
+  },
+  {
+    "word": "and",
+    "start": 26.936,
+    "end": 27.075
+  },
+  {
+    "word": "completed",
+    "start": 27.156,
+    "end": 27.795
+  },
+  {
+    "word": "training.",
+    "start": 27.841,
+    "end": 28.967
+  },
+  {
+    "word": "You",
+    "start": 28.967,
+    "end": 29.084
+  },
+  {
+    "word": "will",
+    "start": 29.118,
+    "end": 29.234
+  },
+  {
+    "word": "have",
+    "start": 29.269,
+    "end": 29.397
+  },
+  {
+    "word": "access",
+    "start": 29.432,
+    "end": 29.792
+  },
+  {
+    "word": "to",
+    "start": 29.827,
+    "end": 29.896
+  },
+  {
+    "word": "all",
+    "start": 29.989,
+    "end": 30.186
+  },
+  {
+    "word": "menus",
+    "start": 30.245,
+    "end": 30.628
+  },
+  {
+    "word": "necessary",
+    "start": 30.721,
+    "end": 31.313
+  },
+  {
+    "word": "for",
+    "start": 31.382,
+    "end": 31.498
+  },
+  {
+    "word": "your",
+    "start": 31.556,
+    "end": 31.742
+  },
+  {
+    "word": "role.",
+    "start": 31.823,
+    "end": 32.3
+  },
+  {
+    "word": "If",
+    "start": 32.683,
+    "end": 32.822
+  },
+  {
+    "word": "you",
+    "start": 32.88,
+    "end": 32.961
+  },
+  {
+    "word": "attempt",
+    "start": 33.031,
+    "end": 33.379
+  },
+  {
+    "word": "to",
+    "start": 33.414,
+    "end": 33.484
+  },
+  {
+    "word": "open",
+    "start": 33.6,
+    "end": 33.867
+  },
+  {
+    "word": "a",
+    "start": 33.925,
+    "end": 33.948
+  },
+  {
+    "word": "menu",
+    "start": 33.995,
+    "end": 34.308
+  },
+  {
+    "word": "for",
+    "start": 34.378,
+    "end": 34.494
+  },
+  {
+    "word": "which",
+    "start": 34.54,
+    "end": 34.726
+  },
+  {
+    "word": "you",
+    "start": 34.772,
+    "end": 34.854
+  },
+  {
+    "word": "have",
+    "start": 34.9,
+    "end": 35.028
+  },
+  {
+    "word": "not",
+    "start": 35.074,
+    "end": 35.237
+  },
+  {
+    "word": "completed",
+    "start": 35.295,
+    "end": 35.829
+  },
+  {
+    "word": "the",
+    "start": 35.875,
+    "end": 35.945
+  },
+  {
+    "word": "required",
+    "start": 36.015,
+    "end": 36.467
+  },
+  {
+    "word": "training,",
+    "start": 36.502,
+    "end": 37.071
+  },
+  {
+    "word": "access",
+    "start": 37.35,
+    "end": 37.861
+  },
+  {
+    "word": "will",
+    "start": 37.919,
+    "end": 38.104
+  },
+  {
+    "word": "be",
+    "start": 38.174,
+    "end": 38.29
+  },
+  {
+    "word": "restricted.",
+    "start": 38.36,
+    "end": 39.289
+  },
+  {
+    "word": "If",
+    "start": 39.8,
+    "end": 39.962
+  },
+  {
+    "word": "you",
+    "start": 40.032,
+    "end": 40.125
+  },
+  {
+    "word": "believe",
+    "start": 40.206,
+    "end": 40.612
+  },
+  {
+    "word": "you",
+    "start": 40.659,
+    "end": 40.763
+  },
+  {
+    "word": "need",
+    "start": 40.879,
+    "end": 41.088
+  },
+  {
+    "word": "access",
+    "start": 41.135,
+    "end": 41.541
+  },
+  {
+    "word": "to",
+    "start": 41.576,
+    "end": 41.646
+  },
+  {
+    "word": "additional",
+    "start": 41.715,
+    "end": 42.145
+  },
+  {
+    "word": "menus,",
+    "start": 42.191,
+    "end": 42.679
+  },
+  {
+    "word": "please",
+    "start": 42.888,
+    "end": 43.19
+  },
+  {
+    "word": "contact",
+    "start": 43.236,
+    "end": 43.677
+  },
+  {
+    "word": "your",
+    "start": 43.724,
+    "end": 43.84
+  },
+  {
+    "word": "administrator",
+    "start": 43.875,
+    "end": 44.583
+  },
+  {
+    "word": "to",
+    "start": 44.653,
+    "end": 44.734
+  },
+  {
+    "word": "arrange",
+    "start": 44.804,
+    "end": 45.152
+  },
+  {
+    "word": "the",
+    "start": 45.198,
+    "end": 45.268
+  },
+  {
+    "word": "necessary",
+    "start": 45.314,
+    "end": 45.825
+  },
+  {
+    "word": "training",
+    "start": 45.883,
+    "end": 46.324
+  },
+  {
+    "word": "and",
+    "start": 46.568,
+    "end": 46.824
+  },
+  {
+    "word": "obtain",
+    "start": 46.893,
+    "end": 47.218
+  },
+  {
+    "word": "the",
+    "start": 47.276,
+    "end": 47.346
+  },
+  {
+    "word": "appropriate",
+    "start": 47.381,
+    "end": 47.996
+  },
+  {
+    "word": "permissions",
+    "start": 48.031,
+    "end": 48.554
+  },
+  {
+    "word": "for",
+    "start": 48.623,
+    "end": 48.728
+  },
+  {
+    "word": "your",
+    "start": 48.786,
+    "end": 48.937
+  },
+  {
+    "word": "position.",
+    "start": 48.995,
+    "end": 49.877
+  }
+]

@@ -1,0 +1,272 @@
+[
+  {
+    "word": "Create",
+    "start": 0,
+    "end": 0.406
+  },
+  {
+    "word": "an",
+    "start": 0.43,
+    "end": 0.488
+  },
+  {
+    "word": "event,",
+    "start": 0.546,
+    "end": 1.045
+  },
+  {
+    "word": "add",
+    "start": 1.219,
+    "end": 1.428
+  },
+  {
+    "word": "an",
+    "start": 1.463,
+    "end": 1.521
+  },
+  {
+    "word": "event",
+    "start": 1.567,
+    "end": 1.823
+  },
+  {
+    "word": "name,",
+    "start": 1.881,
+    "end": 2.276
+  },
+  {
+    "word": "explain",
+    "start": 2.485,
+    "end": 2.937
+  },
+  {
+    "word": "start",
+    "start": 3.007,
+    "end": 3.32
+  },
+  {
+    "word": "and",
+    "start": 3.39,
+    "end": 3.483
+  },
+  {
+    "word": "end",
+    "start": 3.553,
+    "end": 3.704
+  },
+  {
+    "word": "date.",
+    "start": 3.738,
+    "end": 4.145
+  },
+  {
+    "word": "Load",
+    "start": 4.748,
+    "end": 5.004
+  },
+  {
+    "word": "in",
+    "start": 5.062,
+    "end": 5.132
+  },
+  {
+    "word": "date,",
+    "start": 5.19,
+    "end": 5.619
+  },
+  {
+    "word": "date",
+    "start": 5.828,
+    "end": 6.06
+  },
+  {
+    "word": "where",
+    "start": 6.084,
+    "end": 6.246
+  },
+  {
+    "word": "branch",
+    "start": 6.281,
+    "end": 6.583
+  },
+  {
+    "word": "moves",
+    "start": 6.641,
+    "end": 6.85
+  },
+  {
+    "word": "into",
+    "start": 6.885,
+    "end": 7.024
+  },
+  {
+    "word": "event.",
+    "start": 7.105,
+    "end": 7.628
+  },
+  {
+    "word": "Load",
+    "start": 8.069,
+    "end": 8.301
+  },
+  {
+    "word": "out",
+    "start": 8.348,
+    "end": 8.475
+  },
+  {
+    "word": "date,",
+    "start": 8.533,
+    "end": 8.928
+  },
+  {
+    "word": "moving",
+    "start": 9.102,
+    "end": 9.392
+  },
+  {
+    "word": "out",
+    "start": 9.451,
+    "end": 9.567
+  },
+  {
+    "word": "of",
+    "start": 9.601,
+    "end": 9.659
+  },
+  {
+    "word": "event.",
+    "start": 9.718,
+    "end": 10.194
+  },
+  {
+    "word": "Satisfy",
+    "start": 10.89,
+    "end": 11.447
+  },
+  {
+    "word": "the",
+    "start": 11.505,
+    "end": 11.575
+  },
+  {
+    "word": "asterisks",
+    "start": 11.645,
+    "end": 12.272
+  },
+  {
+    "word": "and",
+    "start": 12.307,
+    "end": 12.446
+  },
+  {
+    "word": "Save",
+    "start": 12.516,
+    "end": 12.759
+  },
+  {
+    "word": "the",
+    "start": 12.783,
+    "end": 12.852
+  },
+  {
+    "word": "record,",
+    "start": 12.91,
+    "end": 13.433
+  },
+  {
+    "word": "receive",
+    "start": 13.758,
+    "end": 14.129
+  },
+  {
+    "word": "your",
+    "start": 14.164,
+    "end": 14.269
+  },
+  {
+    "word": "confirmation",
+    "start": 14.315,
+    "end": 15.023
+  },
+  {
+    "word": "and",
+    "start": 15.232,
+    "end": 15.383
+  },
+  {
+    "word": "review",
+    "start": 15.453,
+    "end": 15.708
+  },
+  {
+    "word": "that",
+    "start": 15.755,
+    "end": 15.882
+  },
+  {
+    "word": "clicking",
+    "start": 15.929,
+    "end": 16.347
+  },
+  {
+    "word": "save",
+    "start": 16.498,
+    "end": 17.078
+  },
+  {
+    "word": "generates",
+    "start": 17.403,
+    "end": 17.926
+  },
+  {
+    "word": "an",
+    "start": 17.961,
+    "end": 18.019
+  },
+  {
+    "word": "event",
+    "start": 18.065,
+    "end": 18.309
+  },
+  {
+    "word": "number",
+    "start": 18.355,
+    "end": 18.669
+  },
+  {
+    "word": "and",
+    "start": 18.797,
+    "end": 18.971
+  },
+  {
+    "word": "adds",
+    "start": 19.04,
+    "end": 19.261
+  },
+  {
+    "word": "new",
+    "start": 19.342,
+    "end": 19.493
+  },
+  {
+    "word": "tabs",
+    "start": 19.551,
+    "end": 19.888
+  },
+  {
+    "word": "to",
+    "start": 19.934,
+    "end": 20.004
+  },
+  {
+    "word": "the",
+    "start": 20.05,
+    "end": 20.12
+  },
+  {
+    "word": "menu.",
+    "start": 20.155,
+    "end": 20.805
+  }
+]
