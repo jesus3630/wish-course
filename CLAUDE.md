@@ -146,10 +146,15 @@ NODE_ENV=development
 >
 > If it times out, the push never triggered a build. The fix is:
 > ```bash
-> railway up --service Wish-Training --detach
+> ./scripts/deploy-now.sh          # stamps the commit, uploads, prints the watch command
 > ```
 > **`railway redeploy` does NOT help** — it rebuilds the *same* commit, so it looks
 > like you retried when you didn't.
+>
+> As of 2026-08-17 two consecutive pushes failed to trigger a build, so the
+> GitHub→Railway connection on `Wish-Training` may be disconnected. Until that is
+> confirmed working in the Railway dashboard, treat `deploy-now.sh` as the deploy
+> and the push as source control only.
 
 ### Normal flow
 ```bash
