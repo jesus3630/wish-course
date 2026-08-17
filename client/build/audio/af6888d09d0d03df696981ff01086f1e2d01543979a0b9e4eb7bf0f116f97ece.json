@@ -1,0 +1,607 @@
+[
+  {
+    "word": "Use",
+    "start": 0,
+    "end": 0.267
+  },
+  {
+    "word": "Mail",
+    "start": 0.325,
+    "end": 0.639
+  },
+  {
+    "word": "By",
+    "start": 1.022,
+    "end": 1.184
+  },
+  {
+    "word": "job",
+    "start": 1.3,
+    "end": 1.591
+  },
+  {
+    "word": "when",
+    "start": 1.637,
+    "end": 1.765
+  },
+  {
+    "word": "you",
+    "start": 1.8,
+    "end": 1.869
+  },
+  {
+    "word": "need",
+    "start": 1.916,
+    "end": 2.101
+  },
+  {
+    "word": "to",
+    "start": 2.136,
+    "end": 2.206
+  },
+  {
+    "word": "reach",
+    "start": 2.322,
+    "end": 2.554
+  },
+  {
+    "word": "everyone",
+    "start": 2.601,
+    "end": 2.995
+  },
+  {
+    "word": "already",
+    "start": 3.042,
+    "end": 3.437
+  },
+  {
+    "word": "scheduled",
+    "start": 3.483,
+    "end": 3.924
+  },
+  {
+    "word": "on",
+    "start": 3.959,
+    "end": 4.029
+  },
+  {
+    "word": "a",
+    "start": 4.063,
+    "end": 4.087
+  },
+  {
+    "word": "specific",
+    "start": 4.133,
+    "end": 4.598
+  },
+  {
+    "word": "job",
+    "start": 4.644,
+    "end": 4.876
+  },
+  {
+    "word": "at",
+    "start": 4.923,
+    "end": 4.992
+  },
+  {
+    "word": "once.",
+    "start": 5.085,
+    "end": 5.77
+  },
+  {
+    "word": "To",
+    "start": 5.77,
+    "end": 5.898
+  },
+  {
+    "word": "send",
+    "start": 5.968,
+    "end": 6.142
+  },
+  {
+    "word": "a",
+    "start": 6.2,
+    "end": 6.223
+  },
+  {
+    "word": "message:",
+    "start": 6.281,
+    "end": 7.082
+  },
+  {
+    "word": "1.",
+    "start": 7.082,
+    "end": 7.535
+  },
+  {
+    "word": "Go",
+    "start": 7.709,
+    "end": 7.872
+  },
+  {
+    "word": "to",
+    "start": 7.941,
+    "end": 7.999
+  },
+  {
+    "word": "Tools",
+    "start": 8.081,
+    "end": 8.487
+  },
+  {
+    "word": "to",
+    "start": 8.545,
+    "end": 8.615
+  },
+  {
+    "word": "Mail",
+    "start": 8.707,
+    "end": 8.905
+  },
+  {
+    "word": "By",
+    "start": 8.986,
+    "end": 9.114
+  },
+  {
+    "word": "job",
+    "start": 9.195,
+    "end": 9.845
+  },
+  {
+    "word": "2.",
+    "start": 9.845,
+    "end": 10.286
+  },
+  {
+    "word": "Enter",
+    "start": 10.461,
+    "end": 10.797
+  },
+  {
+    "word": "the",
+    "start": 10.867,
+    "end": 10.948
+  },
+  {
+    "word": "job",
+    "start": 11.029,
+    "end": 11.297
+  },
+  {
+    "word": "Number",
+    "start": 11.366,
+    "end": 11.668
+  },
+  {
+    "word": "or",
+    "start": 11.784,
+    "end": 11.947
+  },
+  {
+    "word": "search",
+    "start": 12.063,
+    "end": 12.341
+  },
+  {
+    "word": "for",
+    "start": 12.388,
+    "end": 12.492
+  },
+  {
+    "word": "the",
+    "start": 12.539,
+    "end": 12.608
+  },
+  {
+    "word": "job",
+    "start": 12.678,
+    "end": 13.491
+  },
+  {
+    "word": "3.",
+    "start": 13.491,
+    "end": 13.944
+  },
+  {
+    "word": "The",
+    "start": 14.118,
+    "end": 14.269
+  },
+  {
+    "word": "system",
+    "start": 14.338,
+    "end": 14.733
+  },
+  {
+    "word": "automatically",
+    "start": 14.814,
+    "end": 15.453
+  },
+  {
+    "word": "pulls",
+    "start": 15.523,
+    "end": 15.859
+  },
+  {
+    "word": "all",
+    "start": 15.929,
+    "end": 16.184
+  },
+  {
+    "word": "employees",
+    "start": 16.242,
+    "end": 16.765
+  },
+  {
+    "word": "scheduled",
+    "start": 16.823,
+    "end": 17.311
+  },
+  {
+    "word": "for",
+    "start": 17.345,
+    "end": 17.462
+  },
+  {
+    "word": "that",
+    "start": 17.508,
+    "end": 17.659
+  },
+  {
+    "word": "job",
+    "start": 17.729,
+    "end": 18.681
+  },
+  {
+    "word": "4.",
+    "start": 18.681,
+    "end": 19.157
+  },
+  {
+    "word": "Compose",
+    "start": 19.482,
+    "end": 19.923
+  },
+  {
+    "word": "your",
+    "start": 19.958,
+    "end": 20.074
+  },
+  {
+    "word": "subject",
+    "start": 20.12,
+    "end": 20.503
+  },
+  {
+    "word": "and",
+    "start": 20.538,
+    "end": 20.608
+  },
+  {
+    "word": "message",
+    "start": 20.654,
+    "end": 21.664
+  },
+  {
+    "word": "5.",
+    "start": 21.664,
+    "end": 22.256
+  },
+  {
+    "word": "Click",
+    "start": 22.431,
+    "end": 22.709
+  },
+  {
+    "word": "Send,",
+    "start": 22.779,
+    "end": 23.301
+  },
+  {
+    "word": "all",
+    "start": 23.545,
+    "end": 23.789
+  },
+  {
+    "word": "scheduled",
+    "start": 23.835,
+    "end": 24.23
+  },
+  {
+    "word": "employees",
+    "start": 24.253,
+    "end": 24.869
+  },
+  {
+    "word": "receive",
+    "start": 24.938,
+    "end": 25.345
+  },
+  {
+    "word": "the",
+    "start": 25.38,
+    "end": 25.449
+  },
+  {
+    "word": "message",
+    "start": 25.507,
+    "end": 25.902
+  },
+  {
+    "word": "simultaneously",
+    "start": 25.937,
+    "end": 27.481
+  },
+  {
+    "word": "Common",
+    "start": 27.481,
+    "end": 27.829
+  },
+  {
+    "word": "uses:",
+    "start": 27.887,
+    "end": 28.7
+  },
+  {
+    "word": "*",
+    "start": 28.7,
+    "end": 28.793
+  },
+  {
+    "word": "Last-minute",
+    "start": 28.909,
+    "end": 29.443
+  },
+  {
+    "word": "schedule",
+    "start": 29.466,
+    "end": 29.873
+  },
+  {
+    "word": "changes",
+    "start": 29.896,
+    "end": 30.314
+  },
+  {
+    "word": "or",
+    "start": 30.383,
+    "end": 30.534
+  },
+  {
+    "word": "location",
+    "start": 30.627,
+    "end": 31.092
+  },
+  {
+    "word": "updates",
+    "start": 31.138,
+    "end": 31.544
+  },
+  {
+    "word": "before",
+    "start": 31.614,
+    "end": 31.986
+  },
+  {
+    "word": "an",
+    "start": 32.02,
+    "end": 32.09
+  },
+  {
+    "word": "event",
+    "start": 32.137,
+    "end": 32.613
+  },
+  {
+    "word": "*",
+    "start": 32.613,
+    "end": 32.764
+  },
+  {
+    "word": "Sending",
+    "start": 32.915,
+    "end": 33.228
+  },
+  {
+    "word": "reminders",
+    "start": 33.286,
+    "end": 33.82
+  },
+  {
+    "word": "about",
+    "start": 33.855,
+    "end": 34.099
+  },
+  {
+    "word": "what",
+    "start": 34.134,
+    "end": 34.285
+  },
+  {
+    "word": "to",
+    "start": 34.331,
+    "end": 34.401
+  },
+  {
+    "word": "wear,",
+    "start": 34.482,
+    "end": 34.912
+  },
+  {
+    "word": "where",
+    "start": 35.028,
+    "end": 35.248
+  },
+  {
+    "word": "to",
+    "start": 35.272,
+    "end": 35.318
+  },
+  {
+    "word": "park,",
+    "start": 35.388,
+    "end": 35.899
+  },
+  {
+    "word": "or",
+    "start": 36.108,
+    "end": 36.398
+  },
+  {
+    "word": "what",
+    "start": 36.642,
+    "end": 36.851
+  },
+  {
+    "word": "time",
+    "start": 36.885,
+    "end": 37.118
+  },
+  {
+    "word": "to",
+    "start": 37.153,
+    "end": 37.211
+  },
+  {
+    "word": "arrive",
+    "start": 37.292,
+    "end": 37.954
+  },
+  {
+    "word": "*",
+    "start": 37.954,
+    "end": 40.009
+  },
+  {
+    "word": "Post-event",
+    "start": 40.218,
+    "end": 40.752
+  },
+  {
+    "word": "communications",
+    "start": 40.786,
+    "end": 41.518
+  },
+  {
+    "word": "to",
+    "start": 41.576,
+    "end": 41.715
+  },
+  {
+    "word": "everyone",
+    "start": 41.831,
+    "end": 42.249
+  },
+  {
+    "word": "who",
+    "start": 42.272,
+    "end": 42.377
+  },
+  {
+    "word": "worked",
+    "start": 42.447,
+    "end": 42.69
+  },
+  {
+    "word": "a",
+    "start": 42.725,
+    "end": 42.76
+  },
+  {
+    "word": "specific",
+    "start": 42.807,
+    "end": 43.271
+  },
+  {
+    "word": "job",
+    "start": 43.329,
+    "end": 44.084
+  },
+  {
+    "word": "This",
+    "start": 44.084,
+    "end": 44.42
+  },
+  {
+    "word": "is",
+    "start": 44.49,
+    "end": 44.653
+  },
+  {
+    "word": "the",
+    "start": 44.711,
+    "end": 44.792
+  },
+  {
+    "word": "fastest",
+    "start": 44.873,
+    "end": 45.314
+  },
+  {
+    "word": "way",
+    "start": 45.372,
+    "end": 45.581
+  },
+  {
+    "word": "to",
+    "start": 45.651,
+    "end": 45.709
+  },
+  {
+    "word": "get",
+    "start": 45.767,
+    "end": 45.883
+  },
+  {
+    "word": "a",
+    "start": 45.918,
+    "end": 45.941
+  },
+  {
+    "word": "message",
+    "start": 45.999,
+    "end": 46.336
+  },
+  {
+    "word": "out",
+    "start": 46.382,
+    "end": 46.557
+  },
+  {
+    "word": "to",
+    "start": 46.603,
+    "end": 46.673
+  },
+  {
+    "word": "your",
+    "start": 46.766,
+    "end": 46.928
+  },
+  {
+    "word": "entire",
+    "start": 46.986,
+    "end": 47.439
+  },
+  {
+    "word": "event",
+    "start": 47.497,
+    "end": 47.764
+  },
+  {
+    "word": "crew",
+    "start": 47.81,
+    "end": 48.066
+  },
+  {
+    "word": "at",
+    "start": 48.182,
+    "end": 48.368
+  },
+  {
+    "word": "once.",
+    "start": 48.484,
+    "end": 49.18
+  }
+]

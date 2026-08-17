@@ -1,0 +1,632 @@
+[
+  {
+    "word": "Employee",
+    "start": 0,
+    "end": 0.673
+  },
+  {
+    "word": "HR",
+    "start": 0.72,
+    "end": 1.149
+  },
+  {
+    "word": "Record",
+    "start": 1.219,
+    "end": 1.509
+  },
+  {
+    "word": "Maintenance",
+    "start": 1.556,
+    "end": 1.997
+  },
+  {
+    "word": "is",
+    "start": 2.043,
+    "end": 2.206
+  },
+  {
+    "word": "the",
+    "start": 2.276,
+    "end": 2.368
+  },
+  {
+    "word": "broadest",
+    "start": 2.485,
+    "end": 2.984
+  },
+  {
+    "word": "level",
+    "start": 3.042,
+    "end": 3.32
+  },
+  {
+    "word": "of",
+    "start": 3.367,
+    "end": 3.425
+  },
+  {
+    "word": "access",
+    "start": 3.518,
+    "end": 3.971
+  },
+  {
+    "word": "to",
+    "start": 4.005,
+    "end": 4.087
+  },
+  {
+    "word": "individual",
+    "start": 4.203,
+    "end": 4.807
+  },
+  {
+    "word": "employee",
+    "start": 4.888,
+    "end": 5.306
+  },
+  {
+    "word": "data",
+    "start": 5.364,
+    "end": 5.677
+  },
+  {
+    "word": "in",
+    "start": 5.793,
+    "end": 5.944
+  },
+  {
+    "word": "WISH.",
+    "start": 6.026,
+    "end": 6.409
+  },
+  {
+    "word": "You",
+    "start": 6.467,
+    "end": 6.606
+  },
+  {
+    "word": "get",
+    "start": 6.722,
+    "end": 6.885
+  },
+  {
+    "word": "to",
+    "start": 6.92,
+    "end": 6.989
+  },
+  {
+    "word": "the",
+    "start": 7.07,
+    "end": 7.152
+  },
+  {
+    "word": "employee",
+    "start": 7.221,
+    "end": 7.767
+  },
+  {
+    "word": "record",
+    "start": 7.848,
+    "end": 8.185
+  },
+  {
+    "word": "the",
+    "start": 8.231,
+    "end": 8.324
+  },
+  {
+    "word": "same",
+    "start": 8.394,
+    "end": 8.649
+  },
+  {
+    "word": "way",
+    "start": 8.696,
+    "end": 8.835
+  },
+  {
+    "word": "as",
+    "start": 8.882,
+    "end": 8.963
+  },
+  {
+    "word": "always,",
+    "start": 9.009,
+    "end": 9.497
+  },
+  {
+    "word": "Records",
+    "start": 9.578,
+    "end": 9.915
+  },
+  {
+    "word": "to",
+    "start": 9.95,
+    "end": 10.019
+  },
+  {
+    "word": "Manage",
+    "start": 10.089,
+    "end": 10.414
+  },
+  {
+    "word": "Employee,",
+    "start": 10.437,
+    "end": 10.995
+  },
+  {
+    "word": "search,",
+    "start": 11.146,
+    "end": 11.575
+  },
+  {
+    "word": "click",
+    "start": 11.622,
+    "end": 11.9
+  },
+  {
+    "word": "the",
+    "start": 11.981,
+    "end": 12.074
+  },
+  {
+    "word": "employee's",
+    "start": 12.132,
+    "end": 12.725
+  },
+  {
+    "word": "last",
+    "start": 12.794,
+    "end": 13.038
+  },
+  {
+    "word": "name.",
+    "start": 13.108,
+    "end": 13.444
+  },
+  {
+    "word": "At",
+    "start": 13.444,
+    "end": 13.583
+  },
+  {
+    "word": "this",
+    "start": 13.63,
+    "end": 13.792
+  },
+  {
+    "word": "level",
+    "start": 13.85,
+    "end": 14.141
+  },
+  {
+    "word": "you",
+    "start": 14.257,
+    "end": 14.361
+  },
+  {
+    "word": "have",
+    "start": 14.443,
+    "end": 14.605
+  },
+  {
+    "word": "full",
+    "start": 14.663,
+    "end": 14.895
+  },
+  {
+    "word": "access",
+    "start": 14.977,
+    "end": 15.441
+  },
+  {
+    "word": "to",
+    "start": 15.487,
+    "end": 15.546
+  },
+  {
+    "word": "the",
+    "start": 15.604,
+    "end": 15.673
+  },
+  {
+    "word": "employee",
+    "start": 15.685,
+    "end": 16.033
+  },
+  {
+    "word": "record,",
+    "start": 16.103,
+    "end": 16.509
+  },
+  {
+    "word": "including",
+    "start": 16.753,
+    "end": 17.183
+  },
+  {
+    "word": "everything",
+    "start": 17.229,
+    "end": 17.519
+  },
+  {
+    "word": "in",
+    "start": 17.554,
+    "end": 17.6
+  },
+  {
+    "word": "Workforce",
+    "start": 17.647,
+    "end": 17.984
+  },
+  {
+    "word": "Scheduler",
+    "start": 18.007,
+    "end": 18.402
+  },
+  {
+    "word": "Maintenance",
+    "start": 18.436,
+    "end": 18.808
+  },
+  {
+    "word": "and",
+    "start": 18.831,
+    "end": 18.982
+  },
+  {
+    "word": "Workforce",
+    "start": 19.063,
+    "end": 19.563
+  },
+  {
+    "word": "Admin",
+    "start": 19.632,
+    "end": 19.981
+  },
+  {
+    "word": "Maintenance,",
+    "start": 20.05,
+    "end": 20.503
+  },
+  {
+    "word": "plus:",
+    "start": 20.712,
+    "end": 21.42
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 21.42,
+    "end": 25.414
+  },
+  {
+    "word": "Personal",
+    "start": 25.739,
+    "end": 26.087
+  },
+  {
+    "word": "Info,",
+    "start": 26.122,
+    "end": 26.621
+  },
+  {
+    "word": "name,",
+    "start": 26.772,
+    "end": 27.167
+  },
+  {
+    "word": "date",
+    "start": 27.341,
+    "end": 27.539
+  },
+  {
+    "word": "of",
+    "start": 27.55,
+    "end": 27.597
+  },
+  {
+    "word": "birth,",
+    "start": 27.643,
+    "end": 28.015
+  },
+  {
+    "word": "status",
+    "start": 28.166,
+    "end": 28.514
+  },
+  {
+    "word": "changes",
+    "start": 28.549,
+    "end": 29.234
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 29.234,
+    "end": 33.681
+  },
+  {
+    "word": "Contact",
+    "start": 33.855,
+    "end": 34.296
+  },
+  {
+    "word": "Info,",
+    "start": 34.342,
+    "end": 34.702
+  },
+  {
+    "word": "address,",
+    "start": 34.749,
+    "end": 35.097
+  },
+  {
+    "word": "phone",
+    "start": 35.12,
+    "end": 35.283
+  },
+  {
+    "word": "number,",
+    "start": 35.306,
+    "end": 35.527
+  },
+  {
+    "word": "email",
+    "start": 35.561,
+    "end": 35.77
+  },
+  {
+    "word": "address",
+    "start": 35.805,
+    "end": 36.119
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 36.119,
+    "end": 39.346
+  },
+  {
+    "word": "Background",
+    "start": 39.509,
+    "end": 39.869
+  },
+  {
+    "word": "Checks,",
+    "start": 39.903,
+    "end": 40.159
+  },
+  {
+    "word": "full",
+    "start": 40.205,
+    "end": 40.379
+  },
+  {
+    "word": "history",
+    "start": 40.414,
+    "end": 40.705
+  },
+  {
+    "word": "and",
+    "start": 40.763,
+    "end": 40.855
+  },
+  {
+    "word": "status",
+    "start": 40.89,
+    "end": 41.169
+  },
+  {
+    "word": "updates",
+    "start": 41.239,
+    "end": 41.691
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 41.691,
+    "end": 44.443
+  },
+  {
+    "word": "Shared",
+    "start": 44.629,
+    "end": 44.873
+  },
+  {
+    "word": "Branches,",
+    "start": 44.919,
+    "end": 45.279
+  },
+  {
+    "word": "which",
+    "start": 45.302,
+    "end": 45.465
+  },
+  {
+    "word": "branches",
+    "start": 45.523,
+    "end": 45.825
+  },
+  {
+    "word": "can",
+    "start": 45.859,
+    "end": 45.975
+  },
+  {
+    "word": "view",
+    "start": 46.034,
+    "end": 46.208
+  },
+  {
+    "word": "and",
+    "start": 46.254,
+    "end": 46.335
+  },
+  {
+    "word": "schedule",
+    "start": 46.382,
+    "end": 46.672
+  },
+  {
+    "word": "this",
+    "start": 46.707,
+    "end": 46.823
+  },
+  {
+    "word": "employee",
+    "start": 46.869,
+    "end": 47.358
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 47.358,
+    "end": 50.167
+  },
+  {
+    "word": "Exclusions,",
+    "start": 50.388,
+    "end": 50.945
+  },
+  {
+    "word": "clients",
+    "start": 50.968,
+    "end": 51.305
+  },
+  {
+    "word": "or",
+    "start": 51.34,
+    "end": 51.409
+  },
+  {
+    "word": "jobs",
+    "start": 51.456,
+    "end": 51.804
+  },
+  {
+    "word": "this",
+    "start": 51.839,
+    "end": 51.978
+  },
+  {
+    "word": "employee",
+    "start": 52.036,
+    "end": 52.385
+  },
+  {
+    "word": "cannot",
+    "start": 52.419,
+    "end": 52.652
+  },
+  {
+    "word": "be",
+    "start": 52.698,
+    "end": 52.791
+  },
+  {
+    "word": "assigned",
+    "start": 52.837,
+    "end": 53.221
+  },
+  {
+    "word": "to",
+    "start": 53.255,
+    "end": 53.511
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 53.511,
+    "end": 56.576
+  },
+  {
+    "word": "Tasks,",
+    "start": 56.785,
+    "end": 57.435
+  },
+  {
+    "word": "onboarding",
+    "start": 57.493,
+    "end": 58.085
+  },
+  {
+    "word": "and",
+    "start": 58.143,
+    "end": 58.236
+  },
+  {
+    "word": "compliance",
+    "start": 58.283,
+    "end": 58.782
+  },
+  {
+    "word": "items",
+    "start": 58.84,
+    "end": 59.653
+  },
+  {
+    "word": "Changes",
+    "start": 59.653,
+    "end": 60.105
+  },
+  {
+    "word": "made",
+    "start": 60.187,
+    "end": 60.407
+  },
+  {
+    "word": "here",
+    "start": 60.454,
+    "end": 60.721
+  },
+  {
+    "word": "affect",
+    "start": 60.79,
+    "end": 61.231
+  },
+  {
+    "word": "the",
+    "start": 61.266,
+    "end": 61.336
+  },
+  {
+    "word": "employee",
+    "start": 61.382,
+    "end": 61.777
+  },
+  {
+    "word": "system-wide",
+    "start": 61.847,
+    "end": 62.59
+  },
+  {
+    "word": "across",
+    "start": 62.648,
+    "end": 63.066
+  },
+  {
+    "word": "all",
+    "start": 63.124,
+    "end": 63.344
+  },
+  {
+    "word": "branches.",
+    "start": 63.403,
+    "end": 64.041
+  },
+  {
+    "word": "Use",
+    "start": 64.366,
+    "end": 64.656
+  },
+  {
+    "word": "this",
+    "start": 64.691,
+    "end": 64.865
+  },
+  {
+    "word": "access",
+    "start": 64.935,
+    "end": 65.423
+  },
+  {
+    "word": "carefully.",
+    "start": 65.504,
+    "end": 66.317
+  }
+]

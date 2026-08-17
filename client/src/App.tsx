@@ -151,6 +151,14 @@ export default function App() {
     ? modules.filter(m => progress.assigned_modules!.includes(m.id))
     : modules;
 
+  // Marks a part complete in progress and returns the updated record. Passing its
+  // quiz is what completes a part now, not merely reaching the last slide.
+  function markPartComplete(moduleId: string): CourseProgress {
+    const base = progress!;
+    const mp = base.modules[moduleId] || { started: true, completed: false, quiz_score: null, quiz_passed: false, slides_viewed: [], last_slide: 0 };
+    return { ...base, modules: { ...base.modules, [moduleId]: { ...mp, completed: true, quiz_passed: true } } };
+  }
+
   // One continuous training: finishing a section rolls straight into the next one
   // rather than bouncing back to a menu. The learner only leaves the player when
   // the whole course is done — or when they choose to step out.
@@ -193,13 +201,16 @@ export default function App() {
     return <Certificate progress={progress} modules={visibleModules} onClose={() => setShowCertificate(false)} />;
   }
 
-  if (view === 'exam' && progress) {
+  if (view === 'exam' && progress && visibleModules[activeModuleIndex]) {
+    const part = visibleModules[activeModuleIndex];
     return (
       <FinalExam
         email={progress.user_email}
         name={progress.user_name}
-        moduleNames={Object.fromEntries(modules.map(m => [m.id, m.name]))}
-        onExit={() => setView('dashboard')}
+        moduleId={part.id}
+        moduleName={part.name}
+        onPassed={() => handleModuleComplete(markPartComplete(part.id))}
+        onReview={() => { setJumpSlide(0); setView('module'); }}
       />
     );
   }
@@ -215,6 +226,7 @@ export default function App() {
         onProgressUpdate={handleProgressUpdate}
         onComplete={handleModuleComplete}
         onBack={() => setView('dashboard')}
+        onTakeGradedQuiz={() => setView('exam')}
         initialSlide={jumpSlide}
       />
     );
@@ -237,7 +249,6 @@ export default function App() {
           onStartModule={handleStartModule}
           onLogout={handleLogout}
           onViewCertificate={() => setShowCertificate(true)}
-          onStartExam={() => setView('exam')}
         />
       </>
     );

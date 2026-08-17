@@ -1,0 +1,477 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "Manage",
+    "start": 0.232,
+    "end": 0.569
+  },
+  {
+    "word": "Employee",
+    "start": 0.592,
+    "end": 1.045
+  },
+  {
+    "word": "Task",
+    "start": 1.126,
+    "end": 1.451
+  },
+  {
+    "word": "screen",
+    "start": 1.498,
+    "end": 1.962
+  },
+  {
+    "word": "displays",
+    "start": 2.055,
+    "end": 2.554
+  },
+  {
+    "word": "your",
+    "start": 2.601,
+    "end": 2.717
+  },
+  {
+    "word": "employees",
+    "start": 2.74,
+    "end": 3.448
+  },
+  {
+    "word": "in",
+    "start": 3.518,
+    "end": 3.599
+  },
+  {
+    "word": "a",
+    "start": 3.657,
+    "end": 3.68
+  },
+  {
+    "word": "list",
+    "start": 3.762,
+    "end": 3.994
+  },
+  {
+    "word": "with",
+    "start": 4.04,
+    "end": 4.18
+  },
+  {
+    "word": "their",
+    "start": 4.214,
+    "end": 4.365
+  },
+  {
+    "word": "basic",
+    "start": 4.435,
+    "end": 4.748
+  },
+  {
+    "word": "information,",
+    "start": 4.795,
+    "end": 5.55
+  },
+  {
+    "word": "name,",
+    "start": 5.793,
+    "end": 6.281
+  },
+  {
+    "word": "employee",
+    "start": 6.362,
+    "end": 6.827
+  },
+  {
+    "word": "number,",
+    "start": 6.873,
+    "end": 7.338
+  },
+  {
+    "word": "and",
+    "start": 7.384,
+    "end": 7.546
+  },
+  {
+    "word": "current",
+    "start": 7.616,
+    "end": 7.918
+  },
+  {
+    "word": "status.",
+    "start": 7.953,
+    "end": 8.557
+  },
+  {
+    "word": "At",
+    "start": 8.557,
+    "end": 8.684
+  },
+  {
+    "word": "the",
+    "start": 8.731,
+    "end": 8.812
+  },
+  {
+    "word": "end",
+    "start": 8.882,
+    "end": 8.998
+  },
+  {
+    "word": "of",
+    "start": 9.056,
+    "end": 9.114
+  },
+  {
+    "word": "each",
+    "start": 9.172,
+    "end": 9.323
+  },
+  {
+    "word": "row",
+    "start": 9.381,
+    "end": 9.578
+  },
+  {
+    "word": "you'll",
+    "start": 9.636,
+    "end": 9.834
+  },
+  {
+    "word": "see",
+    "start": 9.88,
+    "end": 10.043
+  },
+  {
+    "word": "the",
+    "start": 10.077,
+    "end": 10.159
+  },
+  {
+    "word": "task",
+    "start": 10.217,
+    "end": 10.519
+  },
+  {
+    "word": "indicator:",
+    "start": 10.577,
+    "end": 11.285
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 11.285,
+    "end": 15.964
+  },
+  {
+    "word": "Checkmark,",
+    "start": 16.115,
+    "end": 16.765
+  },
+  {
+    "word": "the",
+    "start": 16.8,
+    "end": 16.916
+  },
+  {
+    "word": "employee",
+    "start": 16.974,
+    "end": 17.461
+  },
+  {
+    "word": "has",
+    "start": 17.52,
+    "end": 17.694
+  },
+  {
+    "word": "completed",
+    "start": 17.752,
+    "end": 18.181
+  },
+  {
+    "word": "all",
+    "start": 18.251,
+    "end": 18.46
+  },
+  {
+    "word": "assigned",
+    "start": 18.518,
+    "end": 18.831
+  },
+  {
+    "word": "tasks.",
+    "start": 18.843,
+    "end": 19.354
+  },
+  {
+    "word": "No",
+    "start": 19.621,
+    "end": 19.783
+  },
+  {
+    "word": "action",
+    "start": 19.865,
+    "end": 20.178
+  },
+  {
+    "word": "needed.",
+    "start": 20.236,
+    "end": 21.212
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 21.212,
+    "end": 29.234
+  },
+  {
+    "word": "X,",
+    "start": 29.327,
+    "end": 29.78
+  },
+  {
+    "word": "the",
+    "start": 30.012,
+    "end": 30.105
+  },
+  {
+    "word": "employee",
+    "start": 30.163,
+    "end": 30.592
+  },
+  {
+    "word": "has",
+    "start": 30.639,
+    "end": 30.801
+  },
+  {
+    "word": "one",
+    "start": 30.894,
+    "end": 31.115
+  },
+  {
+    "word": "or",
+    "start": 31.138,
+    "end": 31.196
+  },
+  {
+    "word": "more",
+    "start": 31.254,
+    "end": 31.428
+  },
+  {
+    "word": "pending",
+    "start": 31.475,
+    "end": 31.788
+  },
+  {
+    "word": "tasks",
+    "start": 31.835,
+    "end": 32.276
+  },
+  {
+    "word": "that",
+    "start": 32.357,
+    "end": 32.508
+  },
+  {
+    "word": "still",
+    "start": 32.554,
+    "end": 32.787
+  },
+  {
+    "word": "need",
+    "start": 32.856,
+    "end": 33.03
+  },
+  {
+    "word": "to",
+    "start": 33.077,
+    "end": 33.123
+  },
+  {
+    "word": "be",
+    "start": 33.181,
+    "end": 33.321
+  },
+  {
+    "word": "completed.",
+    "start": 33.367,
+    "end": 34.25
+  },
+  {
+    "word": "Employees",
+    "start": 34.25,
+    "end": 34.726
+  },
+  {
+    "word": "with",
+    "start": 34.772,
+    "end": 34.888
+  },
+  {
+    "word": "an",
+    "start": 34.923,
+    "end": 34.969
+  },
+  {
+    "word": "X",
+    "start": 35.051,
+    "end": 35.248
+  },
+  {
+    "word": "need",
+    "start": 35.376,
+    "end": 35.585
+  },
+  {
+    "word": "your",
+    "start": 35.62,
+    "end": 35.736
+  },
+  {
+    "word": "attention.",
+    "start": 35.759,
+    "end": 36.212
+  },
+  {
+    "word": "They",
+    "start": 36.386,
+    "end": 36.537
+  },
+  {
+    "word": "may",
+    "start": 36.583,
+    "end": 36.688
+  },
+  {
+    "word": "be",
+    "start": 36.746,
+    "end": 36.827
+  },
+  {
+    "word": "missing",
+    "start": 36.862,
+    "end": 37.117
+  },
+  {
+    "word": "a",
+    "start": 37.163,
+    "end": 37.187
+  },
+  {
+    "word": "required",
+    "start": 37.256,
+    "end": 37.628
+  },
+  {
+    "word": "training,",
+    "start": 37.663,
+    "end": 38.092
+  },
+  {
+    "word": "a",
+    "start": 38.127,
+    "end": 38.208
+  },
+  {
+    "word": "document",
+    "start": 38.29,
+    "end": 38.684
+  },
+  {
+    "word": "submission,",
+    "start": 38.719,
+    "end": 39.242
+  },
+  {
+    "word": "or",
+    "start": 39.335,
+    "end": 39.602
+  },
+  {
+    "word": "another",
+    "start": 39.845,
+    "end": 40.368
+  },
+  {
+    "word": "compliance",
+    "start": 40.426,
+    "end": 40.96
+  },
+  {
+    "word": "item",
+    "start": 41.006,
+    "end": 41.273
+  },
+  {
+    "word": "that",
+    "start": 41.448,
+    "end": 41.68
+  },
+  {
+    "word": "needs",
+    "start": 41.761,
+    "end": 42.098
+  },
+  {
+    "word": "to",
+    "start": 42.144,
+    "end": 42.202
+  },
+  {
+    "word": "be",
+    "start": 42.272,
+    "end": 42.365
+  },
+  {
+    "word": "resolved",
+    "start": 42.434,
+    "end": 42.91
+  },
+  {
+    "word": "before",
+    "start": 42.968,
+    "end": 43.421
+  },
+  {
+    "word": "they",
+    "start": 43.468,
+    "end": 43.595
+  },
+  {
+    "word": "can",
+    "start": 43.642,
+    "end": 43.77
+  },
+  {
+    "word": "fully",
+    "start": 43.839,
+    "end": 44.118
+  },
+  {
+    "word": "perform",
+    "start": 44.187,
+    "end": 44.571
+  },
+  {
+    "word": "their",
+    "start": 44.605,
+    "end": 44.745
+  },
+  {
+    "word": "role",
+    "start": 44.791,
+    "end": 45.023
+  },
+  {
+    "word": "in",
+    "start": 45.058,
+    "end": 45.128
+  },
+  {
+    "word": "WISH.",
+    "start": 45.198,
+    "end": 45.79
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "word": "Personal",
+    "start": 0,
+    "end": 0.43
+  },
+  {
+    "word": "Info",
+    "start": 0.511,
+    "end": 0.917
+  },
+  {
+    "word": "and",
+    "start": 1.01,
+    "end": 1.219
+  },
+  {
+    "word": "Contact",
+    "start": 1.3,
+    "end": 1.788
+  },
+  {
+    "word": "Info",
+    "start": 1.858,
+    "end": 2.252
+  },
+  {
+    "word": "are",
+    "start": 2.322,
+    "end": 2.461
+  },
+  {
+    "word": "the",
+    "start": 2.496,
+    "end": 2.566
+  },
+  {
+    "word": "foundation",
+    "start": 2.612,
+    "end": 3.158
+  },
+  {
+    "word": "of",
+    "start": 3.228,
+    "end": 3.309
+  },
+  {
+    "word": "the",
+    "start": 3.367,
+    "end": 3.448
+  },
+  {
+    "word": "employee",
+    "start": 3.506,
+    "end": 3.971
+  },
+  {
+    "word": "record.",
+    "start": 4.052,
+    "end": 4.423
+  },
+  {
+    "word": "Personal",
+    "start": 4.423,
+    "end": 4.795
+  },
+  {
+    "word": "Info",
+    "start": 4.865,
+    "end": 5.19
+  },
+  {
+    "word": "includes:",
+    "start": 5.248,
+    "end": 5.921
+  },
+  {
+    "word": "*",
+    "start": 5.921,
+    "end": 6.037
+  },
+  {
+    "word": "Legal",
+    "start": 6.153,
+    "end": 6.432
+  },
+  {
+    "word": "name",
+    "start": 6.49,
+    "end": 6.85
+  },
+  {
+    "word": "*",
+    "start": 6.85,
+    "end": 6.931
+  },
+  {
+    "word": "Date",
+    "start": 7.047,
+    "end": 7.256
+  },
+  {
+    "word": "of",
+    "start": 7.291,
+    "end": 7.349
+  },
+  {
+    "word": "birth",
+    "start": 7.419,
+    "end": 7.872
+  },
+  {
+    "word": "*",
+    "start": 7.872,
+    "end": 7.941
+  },
+  {
+    "word": "Employee",
+    "start": 7.988,
+    "end": 8.51
+  },
+  {
+    "word": "status,",
+    "start": 8.557,
+    "end": 9.149
+  },
+  {
+    "word": "Active,",
+    "start": 9.218,
+    "end": 9.799
+  },
+  {
+    "word": "Inactive,",
+    "start": 9.845,
+    "end": 10.542
+  },
+  {
+    "word": "etc.",
+    "start": 10.577,
+    "end": 11.355
+  },
+  {
+    "word": "Contact",
+    "start": 11.355,
+    "end": 11.842
+  },
+  {
+    "word": "Info",
+    "start": 11.912,
+    "end": 12.318
+  },
+  {
+    "word": "includes:",
+    "start": 12.434,
+    "end": 13.328
+  },
+  {
+    "word": "*",
+    "start": 13.328,
+    "end": 13.351
+  },
+  {
+    "word": "Home",
+    "start": 13.421,
+    "end": 13.63
+  },
+  {
+    "word": "address",
+    "start": 13.653,
+    "end": 14.118
+  },
+  {
+    "word": "*",
+    "start": 14.118,
+    "end": 14.164
+  },
+  {
+    "word": "Phone",
+    "start": 14.28,
+    "end": 14.582
+  },
+  {
+    "word": "number",
+    "start": 14.617,
+    "end": 15.035
+  },
+  {
+    "word": "*",
+    "start": 15.035,
+    "end": 15.081
+  },
+  {
+    "word": "Email",
+    "start": 15.151,
+    "end": 15.511
+  },
+  {
+    "word": "address,",
+    "start": 15.557,
+    "end": 16.022
+  },
+  {
+    "word": "this",
+    "start": 16.092,
+    "end": 16.289
+  },
+  {
+    "word": "is",
+    "start": 16.347,
+    "end": 16.428
+  },
+  {
+    "word": "the",
+    "start": 16.475,
+    "end": 16.556
+  },
+  {
+    "word": "address",
+    "start": 16.614,
+    "end": 17.067
+  },
+  {
+    "word": "WISH",
+    "start": 17.392,
+    "end": 17.81
+  },
+  {
+    "word": "uses",
+    "start": 18.054,
+    "end": 18.576
+  },
+  {
+    "word": "for",
+    "start": 18.82,
+    "end": 18.994
+  },
+  {
+    "word": "all",
+    "start": 19.064,
+    "end": 19.261
+  },
+  {
+    "word": "Mail",
+    "start": 19.342,
+    "end": 19.667
+  },
+  {
+    "word": "By",
+    "start": 20.782,
+    "end": 20.991
+  },
+  {
+    "word": "communications",
+    "start": 21.061,
+    "end": 21.804
+  },
+  {
+    "word": "and",
+    "start": 21.85,
+    "end": 21.955
+  },
+  {
+    "word": "login",
+    "start": 22.024,
+    "end": 22.373
+  },
+  {
+    "word": "credential",
+    "start": 22.442,
+    "end": 22.825
+  },
+  {
+    "word": "delivery",
+    "start": 22.883,
+    "end": 23.603
+  },
+  {
+    "word": "Keep",
+    "start": 23.603,
+    "end": 23.835
+  },
+  {
+    "word": "these",
+    "start": 23.882,
+    "end": 24.068
+  },
+  {
+    "word": "fields",
+    "start": 24.114,
+    "end": 24.509
+  },
+  {
+    "word": "accurate.",
+    "start": 24.578,
+    "end": 25.159
+  },
+  {
+    "word": "An",
+    "start": 25.31,
+    "end": 25.449
+  },
+  {
+    "word": "outdated",
+    "start": 25.507,
+    "end": 25.937
+  },
+  {
+    "word": "email",
+    "start": 25.995,
+    "end": 26.343
+  },
+  {
+    "word": "address",
+    "start": 26.39,
+    "end": 26.761
+  },
+  {
+    "word": "means",
+    "start": 26.819,
+    "end": 27.04
+  },
+  {
+    "word": "the",
+    "start": 27.075,
+    "end": 27.144
+  },
+  {
+    "word": "employee",
+    "start": 27.191,
+    "end": 27.678
+  },
+  {
+    "word": "won't",
+    "start": 27.748,
+    "end": 27.992
+  },
+  {
+    "word": "receive",
+    "start": 28.038,
+    "end": 28.445
+  },
+  {
+    "word": "schedule",
+    "start": 28.479,
+    "end": 28.874
+  },
+  {
+    "word": "communications",
+    "start": 28.909,
+    "end": 29.582
+  },
+  {
+    "word": "or",
+    "start": 29.698,
+    "end": 29.919
+  },
+  {
+    "word": "their",
+    "start": 30,
+    "end": 30.163
+  },
+  {
+    "word": "login",
+    "start": 30.232,
+    "end": 30.581
+  },
+  {
+    "word": "credentials.",
+    "start": 30.65,
+    "end": 31.324
+  },
+  {
+    "word": "An",
+    "start": 31.533,
+    "end": 31.672
+  },
+  {
+    "word": "incorrect",
+    "start": 31.742,
+    "end": 32.183
+  },
+  {
+    "word": "status",
+    "start": 32.218,
+    "end": 32.647
+  },
+  {
+    "word": "can",
+    "start": 32.694,
+    "end": 32.787
+  },
+  {
+    "word": "prevent",
+    "start": 32.833,
+    "end": 33.065
+  },
+  {
+    "word": "them",
+    "start": 33.089,
+    "end": 33.181
+  },
+  {
+    "word": "from",
+    "start": 33.216,
+    "end": 33.309
+  },
+  {
+    "word": "being",
+    "start": 33.344,
+    "end": 33.483
+  },
+  {
+    "word": "scheduled",
+    "start": 33.565,
+    "end": 34.25
+  },
+  {
+    "word": "or",
+    "start": 34.319,
+    "end": 34.447
+  },
+  {
+    "word": "paid",
+    "start": 34.54,
+    "end": 34.981
+  },
+  {
+    "word": "correctly.",
+    "start": 35.074,
+    "end": 35.956
+  },
+  {
+    "word": "Always",
+    "start": 35.956,
+    "end": 36.293
+  },
+  {
+    "word": "click",
+    "start": 36.351,
+    "end": 36.572
+  },
+  {
+    "word": "Save",
+    "start": 36.641,
+    "end": 36.966
+  },
+  {
+    "word": "after",
+    "start": 37.001,
+    "end": 37.187
+  },
+  {
+    "word": "making",
+    "start": 37.245,
+    "end": 37.5
+  },
+  {
+    "word": "any",
+    "start": 37.582,
+    "end": 37.779
+  },
+  {
+    "word": "changes.",
+    "start": 37.837,
+    "end": 38.638
+  }
+]

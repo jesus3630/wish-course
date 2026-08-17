@@ -1,0 +1,612 @@
+[
+  {
+    "word": "Under",
+    "start": 0,
+    "end": 0.221
+  },
+  {
+    "word": "the",
+    "start": 0.255,
+    "end": 0.325
+  },
+  {
+    "word": "Event,",
+    "start": 0.383,
+    "end": 0.743
+  },
+  {
+    "word": "we",
+    "start": 0.789,
+    "end": 0.906
+  },
+  {
+    "word": "will",
+    "start": 0.94,
+    "end": 1.115
+  },
+  {
+    "word": "always",
+    "start": 1.184,
+    "end": 1.614
+  },
+  {
+    "word": "have",
+    "start": 1.695,
+    "end": 2.02
+  },
+  {
+    "word": "our",
+    "start": 2.078,
+    "end": 2.241
+  },
+  {
+    "word": "job.",
+    "start": 2.322,
+    "end": 2.786
+  },
+  {
+    "word": "Look",
+    "start": 2.995,
+    "end": 3.216
+  },
+  {
+    "word": "at",
+    "start": 3.274,
+    "end": 3.344
+  },
+  {
+    "word": "the",
+    "start": 3.39,
+    "end": 3.46
+  },
+  {
+    "word": "Start",
+    "start": 3.518,
+    "end": 3.82
+  },
+  {
+    "word": "and",
+    "start": 3.878,
+    "end": 3.971
+  },
+  {
+    "word": "End",
+    "start": 4.087,
+    "end": 4.354
+  },
+  {
+    "word": "Date",
+    "start": 4.505,
+    "end": 4.818
+  },
+  {
+    "word": "between",
+    "start": 4.865,
+    "end": 5.201
+  },
+  {
+    "word": "our",
+    "start": 5.248,
+    "end": 5.387
+  },
+  {
+    "word": "jobs,",
+    "start": 5.457,
+    "end": 5.991
+  },
+  {
+    "word": "there",
+    "start": 6.165,
+    "end": 6.374
+  },
+  {
+    "word": "is",
+    "start": 6.42,
+    "end": 6.502
+  },
+  {
+    "word": "a",
+    "start": 6.56,
+    "end": 6.594
+  },
+  {
+    "word": "15",
+    "start": 6.687,
+    "end": 7.221
+  },
+  {
+    "word": "day",
+    "start": 7.291,
+    "end": 7.477
+  },
+  {
+    "word": "span.",
+    "start": 7.535,
+    "end": 8.104
+  },
+  {
+    "word": "Click",
+    "start": 8.278,
+    "end": 8.522
+  },
+  {
+    "word": "on",
+    "start": 8.603,
+    "end": 8.893
+  },
+  {
+    "word": "Add",
+    "start": 9.067,
+    "end": 9.404
+  },
+  {
+    "word": "New",
+    "start": 9.485,
+    "end": 9.764
+  },
+  {
+    "word": "to",
+    "start": 9.938,
+    "end": 10.054
+  },
+  {
+    "word": "create",
+    "start": 10.147,
+    "end": 10.484
+  },
+  {
+    "word": "a",
+    "start": 10.507,
+    "end": 10.53
+  },
+  {
+    "word": "new",
+    "start": 10.588,
+    "end": 10.716
+  },
+  {
+    "word": "job.",
+    "start": 10.774,
+    "end": 11.204
+  },
+  {
+    "word": "Look",
+    "start": 11.413,
+    "end": 11.587
+  },
+  {
+    "word": "at",
+    "start": 11.633,
+    "end": 11.691
+  },
+  {
+    "word": "asterisks",
+    "start": 11.773,
+    "end": 12.376
+  },
+  {
+    "word": "to",
+    "start": 12.423,
+    "end": 12.504
+  },
+  {
+    "word": "identify",
+    "start": 12.585,
+    "end": 13.119
+  },
+  {
+    "word": "what",
+    "start": 13.189,
+    "end": 13.317
+  },
+  {
+    "word": "is",
+    "start": 13.363,
+    "end": 13.433
+  },
+  {
+    "word": "needed",
+    "start": 13.491,
+    "end": 13.769
+  },
+  {
+    "word": "to",
+    "start": 13.827,
+    "end": 13.909
+  },
+  {
+    "word": "create",
+    "start": 13.99,
+    "end": 14.303
+  },
+  {
+    "word": "a",
+    "start": 14.327,
+    "end": 14.35
+  },
+  {
+    "word": "job.",
+    "start": 14.408,
+    "end": 14.826
+  },
+  {
+    "word": "job",
+    "start": 14.942,
+    "end": 15.186
+  },
+  {
+    "word": "Name,",
+    "start": 15.255,
+    "end": 15.615
+  },
+  {
+    "word": "job",
+    "start": 15.79,
+    "end": 16.01
+  },
+  {
+    "word": "Class-important",
+    "start": 16.068,
+    "end": 16.811
+  },
+  {
+    "word": "for",
+    "start": 16.858,
+    "end": 16.974
+  },
+  {
+    "word": "payroll",
+    "start": 17.043,
+    "end": 17.485
+  },
+  {
+    "word": "to",
+    "start": 17.543,
+    "end": 17.624
+  },
+  {
+    "word": "know",
+    "start": 17.717,
+    "end": 17.937
+  },
+  {
+    "word": "how",
+    "start": 17.995,
+    "end": 18.077
+  },
+  {
+    "word": "the",
+    "start": 18.123,
+    "end": 18.193
+  },
+  {
+    "word": "job",
+    "start": 18.251,
+    "end": 18.518
+  },
+  {
+    "word": "is",
+    "start": 18.599,
+    "end": 18.866
+  },
+  {
+    "word": "classified.",
+    "start": 19.075,
+    "end": 20.12
+  },
+  {
+    "word": "Branch",
+    "start": 20.445,
+    "end": 20.817
+  },
+  {
+    "word": "Name",
+    "start": 20.886,
+    "end": 21.188
+  },
+  {
+    "word": "should",
+    "start": 21.223,
+    "end": 21.432
+  },
+  {
+    "word": "be",
+    "start": 21.478,
+    "end": 21.629
+  },
+  {
+    "word": "your",
+    "start": 21.699,
+    "end": 21.896
+  },
+  {
+    "word": "Branch",
+    "start": 22.013,
+    "end": 22.477
+  },
+  {
+    "word": "Name,",
+    "start": 22.558,
+    "end": 22.988
+  },
+  {
+    "word": "Event",
+    "start": 23.162,
+    "end": 23.487
+  },
+  {
+    "word": "should",
+    "start": 23.522,
+    "end": 23.719
+  },
+  {
+    "word": "be",
+    "start": 23.766,
+    "end": 23.917
+  },
+  {
+    "word": "the",
+    "start": 23.975,
+    "end": 24.137
+  },
+  {
+    "word": "Event",
+    "start": 24.265,
+    "end": 24.671
+  },
+  {
+    "word": "name",
+    "start": 24.741,
+    "end": 24.973
+  },
+  {
+    "word": "you",
+    "start": 25.02,
+    "end": 25.112
+  },
+  {
+    "word": "created",
+    "start": 25.194,
+    "end": 25.728
+  },
+  {
+    "word": "in",
+    "start": 25.809,
+    "end": 25.948
+  },
+  {
+    "word": "the",
+    "start": 26.006,
+    "end": 26.088
+  },
+  {
+    "word": "Manage",
+    "start": 26.204,
+    "end": 26.622
+  },
+  {
+    "word": "Event",
+    "start": 26.68,
+    "end": 27.005
+  },
+  {
+    "word": "menu.",
+    "start": 27.121,
+    "end": 27.678
+  },
+  {
+    "word": "Venue",
+    "start": 28.003,
+    "end": 28.41
+  },
+  {
+    "word": "and",
+    "start": 28.433,
+    "end": 28.514
+  },
+  {
+    "word": "Client",
+    "start": 28.561,
+    "end": 28.874
+  },
+  {
+    "word": "information",
+    "start": 28.897,
+    "end": 29.396
+  },
+  {
+    "word": "should",
+    "start": 29.443,
+    "end": 29.617
+  },
+  {
+    "word": "provide",
+    "start": 29.64,
+    "end": 30.047
+  },
+  {
+    "word": "the",
+    "start": 30.081,
+    "end": 30.151
+  },
+  {
+    "word": "selections",
+    "start": 30.209,
+    "end": 30.755
+  },
+  {
+    "word": "you",
+    "start": 30.813,
+    "end": 30.906
+  },
+  {
+    "word": "chose",
+    "start": 30.987,
+    "end": 31.405
+  },
+  {
+    "word": "in",
+    "start": 31.452,
+    "end": 31.533
+  },
+  {
+    "word": "the",
+    "start": 31.579,
+    "end": 31.649
+  },
+  {
+    "word": "Manage",
+    "start": 31.707,
+    "end": 32.044
+  },
+  {
+    "word": "Event",
+    "start": 32.067,
+    "end": 32.299
+  },
+  {
+    "word": "record.",
+    "start": 32.392,
+    "end": 32.926
+  },
+  {
+    "word": "If",
+    "start": 33.309,
+    "end": 33.507
+  },
+  {
+    "word": "this",
+    "start": 33.576,
+    "end": 33.785
+  },
+  {
+    "word": "information",
+    "start": 33.866,
+    "end": 34.551
+  },
+  {
+    "word": "does",
+    "start": 34.795,
+    "end": 35.051
+  },
+  {
+    "word": "not",
+    "start": 35.12,
+    "end": 35.294
+  },
+  {
+    "word": "pop-up,",
+    "start": 35.352,
+    "end": 36.072
+  },
+  {
+    "word": "then",
+    "start": 36.281,
+    "end": 36.455
+  },
+  {
+    "word": "you",
+    "start": 36.525,
+    "end": 36.63
+  },
+  {
+    "word": "may",
+    "start": 36.722,
+    "end": 36.885
+  },
+  {
+    "word": "not",
+    "start": 36.955,
+    "end": 37.094
+  },
+  {
+    "word": "have",
+    "start": 37.129,
+    "end": 37.257
+  },
+  {
+    "word": "saved",
+    "start": 37.303,
+    "end": 37.698
+  },
+  {
+    "word": "the",
+    "start": 37.744,
+    "end": 37.814
+  },
+  {
+    "word": "data",
+    "start": 37.883,
+    "end": 38.278
+  },
+  {
+    "word": "in",
+    "start": 38.452,
+    "end": 38.638
+  },
+  {
+    "word": "the",
+    "start": 38.685,
+    "end": 38.754
+  },
+  {
+    "word": "Event",
+    "start": 38.824,
+    "end": 39.056
+  },
+  {
+    "word": "record",
+    "start": 39.137,
+    "end": 39.52
+  },
+  {
+    "word": "or",
+    "start": 39.695,
+    "end": 39.938
+  },
+  {
+    "word": "you",
+    "start": 40.055,
+    "end": 40.159
+  },
+  {
+    "word": "may",
+    "start": 40.24,
+    "end": 40.403
+  },
+  {
+    "word": "have",
+    "start": 40.449,
+    "end": 40.589
+  },
+  {
+    "word": "added",
+    "start": 40.635,
+    "end": 40.937
+  },
+  {
+    "word": "the",
+    "start": 40.995,
+    "end": 41.076
+  },
+  {
+    "word": "wrong",
+    "start": 41.146,
+    "end": 41.459
+  },
+  {
+    "word": "venue",
+    "start": 41.529,
+    "end": 41.935
+  },
+  {
+    "word": "and",
+    "start": 41.982,
+    "end": 42.109
+  },
+  {
+    "word": "client.",
+    "start": 42.168,
+    "end": 42.911
+  }
+]

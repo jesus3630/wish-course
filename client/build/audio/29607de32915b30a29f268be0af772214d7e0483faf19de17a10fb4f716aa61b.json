@@ -1,0 +1,597 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "Employee",
+    "start": 0.197,
+    "end": 0.546
+  },
+  {
+    "word": "Notes",
+    "start": 0.592,
+    "end": 0.824
+  },
+  {
+    "word": "tab",
+    "start": 0.859,
+    "end": 1.126
+  },
+  {
+    "word": "is",
+    "start": 1.196,
+    "end": 1.277
+  },
+  {
+    "word": "where",
+    "start": 1.358,
+    "end": 1.567
+  },
+  {
+    "word": "your",
+    "start": 1.625,
+    "end": 1.776
+  },
+  {
+    "word": "branch",
+    "start": 1.846,
+    "end": 2.194
+  },
+  {
+    "word": "records",
+    "start": 2.264,
+    "end": 2.624
+  },
+  {
+    "word": "important",
+    "start": 2.682,
+    "end": 3.135
+  },
+  {
+    "word": "information",
+    "start": 3.181,
+    "end": 3.738
+  },
+  {
+    "word": "about",
+    "start": 3.808,
+    "end": 4.087
+  },
+  {
+    "word": "an",
+    "start": 4.133,
+    "end": 4.191
+  },
+  {
+    "word": "employee",
+    "start": 4.238,
+    "end": 4.714
+  },
+  {
+    "word": "that",
+    "start": 4.76,
+    "end": 4.981
+  },
+  {
+    "word": "isn't",
+    "start": 5.097,
+    "end": 5.399
+  },
+  {
+    "word": "captured",
+    "start": 5.445,
+    "end": 5.909
+  },
+  {
+    "word": "elsewhere",
+    "start": 5.979,
+    "end": 6.502
+  },
+  {
+    "word": "in",
+    "start": 6.56,
+    "end": 6.653
+  },
+  {
+    "word": "the",
+    "start": 6.699,
+    "end": 6.769
+  },
+  {
+    "word": "system.",
+    "start": 6.815,
+    "end": 7.477
+  },
+  {
+    "word": "Notes",
+    "start": 7.477,
+    "end": 7.779
+  },
+  {
+    "word": "are",
+    "start": 7.848,
+    "end": 8.104
+  },
+  {
+    "word": "branch-level",
+    "start": 8.185,
+    "end": 8.916
+  },
+  {
+    "word": "—",
+    "start": 8.975,
+    "end": 9.021
+  },
+  {
+    "word": "they're",
+    "start": 9.056,
+    "end": 9.265
+  },
+  {
+    "word": "visible",
+    "start": 9.311,
+    "end": 9.694
+  },
+  {
+    "word": "to",
+    "start": 9.729,
+    "end": 9.834
+  },
+  {
+    "word": "anyone",
+    "start": 9.961,
+    "end": 10.461
+  },
+  {
+    "word": "at",
+    "start": 10.507,
+    "end": 10.635
+  },
+  {
+    "word": "your",
+    "start": 10.693,
+    "end": 10.832
+  },
+  {
+    "word": "branch",
+    "start": 10.89,
+    "end": 11.238
+  },
+  {
+    "word": "with",
+    "start": 11.296,
+    "end": 11.494
+  },
+  {
+    "word": "access",
+    "start": 11.587,
+    "end": 12.016
+  },
+  {
+    "word": "to",
+    "start": 12.051,
+    "end": 12.132
+  },
+  {
+    "word": "the",
+    "start": 12.214,
+    "end": 12.283
+  },
+  {
+    "word": "employee",
+    "start": 12.33,
+    "end": 12.724
+  },
+  {
+    "word": "record,",
+    "start": 12.794,
+    "end": 13.258
+  },
+  {
+    "word": "but",
+    "start": 13.409,
+    "end": 13.549
+  },
+  {
+    "word": "are",
+    "start": 13.584,
+    "end": 13.7
+  },
+  {
+    "word": "not",
+    "start": 13.758,
+    "end": 13.943
+  },
+  {
+    "word": "shared",
+    "start": 14.001,
+    "end": 14.338
+  },
+  {
+    "word": "system-wide.",
+    "start": 14.431,
+    "end": 15.871
+  },
+  {
+    "word": "Common",
+    "start": 15.871,
+    "end": 16.312
+  },
+  {
+    "word": "uses",
+    "start": 16.393,
+    "end": 16.8
+  },
+  {
+    "word": "for",
+    "start": 16.881,
+    "end": 17.229
+  },
+  {
+    "word": "employee",
+    "start": 17.496,
+    "end": 18.553
+  },
+  {
+    "word": "notes:",
+    "start": 18.796,
+    "end": 19.853
+  },
+  {
+    "word": "•",
+    "start": 19.853,
+    "end": 19.923
+  },
+  {
+    "word": "Flagging",
+    "start": 20.097,
+    "end": 20.596
+  },
+  {
+    "word": "a",
+    "start": 20.677,
+    "end": 20.712
+  },
+  {
+    "word": "scheduling",
+    "start": 20.793,
+    "end": 21.339
+  },
+  {
+    "word": "concern",
+    "start": 21.397,
+    "end": 21.85
+  },
+  {
+    "word": "or",
+    "start": 21.92,
+    "end": 22.024
+  },
+  {
+    "word": "preference",
+    "start": 22.117,
+    "end": 22.872
+  },
+  {
+    "word": "•",
+    "start": 22.872,
+    "end": 22.941
+  },
+  {
+    "word": "Recording",
+    "start": 23.092,
+    "end": 23.615
+  },
+  {
+    "word": "follow-up",
+    "start": 23.731,
+    "end": 24.311
+  },
+  {
+    "word": "items",
+    "start": 24.392,
+    "end": 24.834
+  },
+  {
+    "word": "that",
+    "start": 25.043,
+    "end": 25.298
+  },
+  {
+    "word": "need",
+    "start": 25.391,
+    "end": 25.716
+  },
+  {
+    "word": "attention",
+    "start": 25.809,
+    "end": 26.505
+  },
+  {
+    "word": "•",
+    "start": 26.505,
+    "end": 26.622
+  },
+  {
+    "word": "Noting",
+    "start": 26.947,
+    "end": 27.353
+  },
+  {
+    "word": "equipment",
+    "start": 27.469,
+    "end": 28.073
+  },
+  {
+    "word": "issued",
+    "start": 28.456,
+    "end": 28.967
+  },
+  {
+    "word": "to",
+    "start": 29.083,
+    "end": 29.35
+  },
+  {
+    "word": "an",
+    "start": 29.466,
+    "end": 29.559
+  },
+  {
+    "word": "employee",
+    "start": 29.605,
+    "end": 30.534
+  },
+  {
+    "word": "•",
+    "start": 30.534,
+    "end": 30.708
+  },
+  {
+    "word": "Documenting",
+    "start": 30.871,
+    "end": 31.73
+  },
+  {
+    "word": "any",
+    "start": 31.846,
+    "end": 32.159
+  },
+  {
+    "word": "informal",
+    "start": 32.275,
+    "end": 32.891
+  },
+  {
+    "word": "communications",
+    "start": 32.96,
+    "end": 33.843
+  },
+  {
+    "word": "that",
+    "start": 33.889,
+    "end": 34.005
+  },
+  {
+    "word": "should",
+    "start": 34.029,
+    "end": 34.191
+  },
+  {
+    "word": "be",
+    "start": 34.226,
+    "end": 34.296
+  },
+  {
+    "word": "on",
+    "start": 34.342,
+    "end": 34.412
+  },
+  {
+    "word": "record",
+    "start": 34.47,
+    "end": 35.77
+  },
+  {
+    "word": "When",
+    "start": 35.77,
+    "end": 35.979
+  },
+  {
+    "word": "adding",
+    "start": 36.014,
+    "end": 36.2
+  },
+  {
+    "word": "a",
+    "start": 36.234,
+    "end": 36.258
+  },
+  {
+    "word": "note,",
+    "start": 36.316,
+    "end": 36.56
+  },
+  {
+    "word": "always",
+    "start": 36.583,
+    "end": 36.931
+  },
+  {
+    "word": "include",
+    "start": 36.978,
+    "end": 37.337
+  },
+  {
+    "word": "the",
+    "start": 37.372,
+    "end": 37.442
+  },
+  {
+    "word": "date",
+    "start": 37.535,
+    "end": 37.906
+  },
+  {
+    "word": "and",
+    "start": 37.953,
+    "end": 38.104
+  },
+  {
+    "word": "a",
+    "start": 38.162,
+    "end": 38.185
+  },
+  {
+    "word": "brief",
+    "start": 38.255,
+    "end": 38.522
+  },
+  {
+    "word": "description",
+    "start": 38.58,
+    "end": 39.032
+  },
+  {
+    "word": "of",
+    "start": 39.067,
+    "end": 39.114
+  },
+  {
+    "word": "what",
+    "start": 39.16,
+    "end": 39.288
+  },
+  {
+    "word": "the",
+    "start": 39.323,
+    "end": 39.392
+  },
+  {
+    "word": "note",
+    "start": 39.45,
+    "end": 39.601
+  },
+  {
+    "word": "is",
+    "start": 39.636,
+    "end": 39.706
+  },
+  {
+    "word": "about.",
+    "start": 39.752,
+    "end": 40.24
+  },
+  {
+    "word": "This",
+    "start": 40.414,
+    "end": 40.611
+  },
+  {
+    "word": "makes",
+    "start": 40.67,
+    "end": 40.855
+  },
+  {
+    "word": "it",
+    "start": 40.902,
+    "end": 40.971
+  },
+  {
+    "word": "easier",
+    "start": 41.018,
+    "end": 41.343
+  },
+  {
+    "word": "for",
+    "start": 41.401,
+    "end": 41.505
+  },
+  {
+    "word": "others",
+    "start": 41.575,
+    "end": 41.865
+  },
+  {
+    "word": "on",
+    "start": 41.912,
+    "end": 41.981
+  },
+  {
+    "word": "your",
+    "start": 42.016,
+    "end": 42.121
+  },
+  {
+    "word": "team",
+    "start": 42.167,
+    "end": 42.399
+  },
+  {
+    "word": "to",
+    "start": 42.457,
+    "end": 42.504
+  },
+  {
+    "word": "understand",
+    "start": 42.574,
+    "end": 42.922
+  },
+  {
+    "word": "the",
+    "start": 42.957,
+    "end": 43.026
+  },
+  {
+    "word": "context",
+    "start": 43.084,
+    "end": 43.526
+  },
+  {
+    "word": "later.",
+    "start": 43.572,
+    "end": 44.919
+  },
+  {
+    "word": "Click",
+    "start": 44.919,
+    "end": 45.151
+  },
+  {
+    "word": "Save",
+    "start": 45.209,
+    "end": 45.546
+  },
+  {
+    "word": "after",
+    "start": 45.581,
+    "end": 45.836
+  },
+  {
+    "word": "adding",
+    "start": 45.906,
+    "end": 46.254
+  },
+  {
+    "word": "or",
+    "start": 46.324,
+    "end": 46.44
+  },
+  {
+    "word": "editing",
+    "start": 46.521,
+    "end": 46.869
+  },
+  {
+    "word": "a",
+    "start": 46.916,
+    "end": 46.95
+  },
+  {
+    "word": "note.",
+    "start": 47.009,
+    "end": 47.508
+  }
+]

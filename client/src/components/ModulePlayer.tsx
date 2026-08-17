@@ -215,6 +215,8 @@ interface Props {
   quizData: Record<string, QuizQuestion[]>;
   onProgressUpdate: (p: CourseProgress) => void;
   onComplete: (p: CourseProgress) => void;
+  /** Reaching the end of a part hands off to that part's graded quiz. */
+  onTakeGradedQuiz: () => void;
   onBack: () => void;
   initialSlide?: number;
 }
@@ -229,6 +231,7 @@ export default function ModulePlayer({
   quizData,
   onProgressUpdate,
   onComplete,
+  onTakeGradedQuiz,
   onBack,
   initialSlide,
 }: Props) {
@@ -693,9 +696,10 @@ export default function ModulePlayer({
 
   function handleNext() {
     if (isLastSlide) {
+      // A part is finished by passing its quiz, not by reaching the last slide.
       stopAudio();
-      const updated = markModuleComplete(progressRef.current, module.id, 100, true);
-      onComplete(updated);
+      onProgressUpdate(markSlideViewed(progressRef.current, module.id, slideIndex));
+      onTakeGradedQuiz();
     } else {
       goToSlide(slideIndex + 1);
     }
@@ -1110,14 +1114,14 @@ const slidesViewed = getModuleProgress(progress, module.id).slides_viewed.length
               style={{ ...styles.navBtn, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
               onClick={handleTakeQuiz}
             >
-              Quiz
+              Practice
             </button>
           )}
           <button
             style={{ ...styles.navBtn, ...styles.navBtnPrimary, padding: isMobile ? '8px 12px' : '10px 20px', fontSize: isMobile ? '13px' : '14px' }}
             onClick={handleNext}
           >
-            {isLastSlide ? 'Complete ✓' : 'Next →'}
+            {isLastSlide ? 'Take the quiz →' : 'Next →'}
           </button>
         </div>
       </div>

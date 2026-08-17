@@ -1,0 +1,497 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "to",
+    "start": 0.255,
+    "end": 0.325
+  },
+  {
+    "word": "Inventory",
+    "start": 0.418,
+    "end": 0.917
+  },
+  {
+    "word": "to",
+    "start": 0.964,
+    "end": 1.022
+  },
+  {
+    "word": "Item",
+    "start": 1.115,
+    "end": 1.358
+  },
+  {
+    "word": "Creation.",
+    "start": 1.416,
+    "end": 1.985
+  },
+  {
+    "word": "This",
+    "start": 2.032,
+    "end": 2.218
+  },
+  {
+    "word": "is",
+    "start": 2.264,
+    "end": 2.345
+  },
+  {
+    "word": "where",
+    "start": 2.392,
+    "end": 2.577
+  },
+  {
+    "word": "you",
+    "start": 2.624,
+    "end": 2.705
+  },
+  {
+    "word": "build",
+    "start": 2.798,
+    "end": 3.03
+  },
+  {
+    "word": "your",
+    "start": 3.088,
+    "end": 3.204
+  },
+  {
+    "word": "branch's",
+    "start": 3.251,
+    "end": 3.692
+  },
+  {
+    "word": "inventory",
+    "start": 3.773,
+    "end": 4.284
+  },
+  {
+    "word": "catalog,",
+    "start": 4.342,
+    "end": 4.946
+  },
+  {
+    "word": "the",
+    "start": 4.981,
+    "end": 5.074
+  },
+  {
+    "word": "master",
+    "start": 5.19,
+    "end": 5.631
+  },
+  {
+    "word": "list",
+    "start": 5.689,
+    "end": 5.875
+  },
+  {
+    "word": "of",
+    "start": 5.921,
+    "end": 5.979
+  },
+  {
+    "word": "items",
+    "start": 6.072,
+    "end": 6.362
+  },
+  {
+    "word": "that",
+    "start": 6.385,
+    "end": 6.478
+  },
+  {
+    "word": "can",
+    "start": 6.513,
+    "end": 6.606
+  },
+  {
+    "word": "be",
+    "start": 6.641,
+    "end": 6.722
+  },
+  {
+    "word": "assigned",
+    "start": 6.757,
+    "end": 7.187
+  },
+  {
+    "word": "to",
+    "start": 7.221,
+    "end": 7.279
+  },
+  {
+    "word": "jobs",
+    "start": 7.372,
+    "end": 7.779
+  },
+  {
+    "word": "and",
+    "start": 7.837,
+    "end": 7.988
+  },
+  {
+    "word": "checked",
+    "start": 8.046,
+    "end": 8.348
+  },
+  {
+    "word": "out",
+    "start": 8.382,
+    "end": 8.51
+  },
+  {
+    "word": "to",
+    "start": 8.545,
+    "end": 8.626
+  },
+  {
+    "word": "employees.",
+    "start": 8.719,
+    "end": 9.392
+  },
+  {
+    "word": "For",
+    "start": 9.451,
+    "end": 9.613
+  },
+  {
+    "word": "each",
+    "start": 9.694,
+    "end": 9.892
+  },
+  {
+    "word": "item,",
+    "start": 9.961,
+    "end": 10.344
+  },
+  {
+    "word": "enter:",
+    "start": 10.426,
+    "end": 10.82
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 10.971,
+    "end": 13.468
+  },
+  {
+    "word": "Item",
+    "start": 13.595,
+    "end": 13.897
+  },
+  {
+    "word": "Name,",
+    "start": 13.978,
+    "end": 14.292
+  },
+  {
+    "word": "a",
+    "start": 14.338,
+    "end": 14.408
+  },
+  {
+    "word": "clear,",
+    "start": 14.524,
+    "end": 14.872
+  },
+  {
+    "word": "descriptive",
+    "start": 14.918,
+    "end": 15.453
+  },
+  {
+    "word": "name",
+    "start": 15.499,
+    "end": 15.801
+  },
+  {
+    "word": "such",
+    "start": 15.836,
+    "end": 16.045
+  },
+  {
+    "word": "as",
+    "start": 16.091,
+    "end": 16.172
+  },
+  {
+    "word": "Radio,",
+    "start": 16.288,
+    "end": 16.718
+  },
+  {
+    "word": "Motorola",
+    "start": 16.741,
+    "end": 17.24
+  },
+  {
+    "word": "CLP1010",
+    "start": 17.345,
+    "end": 18.819
+  },
+  {
+    "word": "or",
+    "start": 19.179,
+    "end": 19.33
+  },
+  {
+    "word": "Nitrile",
+    "start": 19.423,
+    "end": 20.108
+  },
+  {
+    "word": "Gloves,",
+    "start": 20.259,
+    "end": 20.979
+  },
+  {
+    "word": "Large",
+    "start": 21.188,
+    "end": 21.571
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 21.676,
+    "end": 24.926
+  },
+  {
+    "word": "Category,",
+    "start": 25.077,
+    "end": 25.751
+  },
+  {
+    "word": "either",
+    "start": 26.018,
+    "end": 26.261
+  },
+  {
+    "word": "Inventory",
+    "start": 26.331,
+    "end": 26.83
+  },
+  {
+    "word": "Items",
+    "start": 26.912,
+    "end": 27.213
+  },
+  {
+    "word": "or",
+    "start": 27.295,
+    "end": 27.422
+  },
+  {
+    "word": "job",
+    "start": 27.492,
+    "end": 27.748
+  },
+  {
+    "word": "Equipment",
+    "start": 27.794,
+    "end": 28.258
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 28.537,
+    "end": 31.939
+  },
+  {
+    "word": "Any",
+    "start": 32.066,
+    "end": 32.275
+  },
+  {
+    "word": "additional",
+    "start": 32.322,
+    "end": 32.682
+  },
+  {
+    "word": "details",
+    "start": 32.728,
+    "end": 33.1
+  },
+  {
+    "word": "required",
+    "start": 33.158,
+    "end": 33.518
+  },
+  {
+    "word": "by",
+    "start": 33.553,
+    "end": 33.634
+  },
+  {
+    "word": "your",
+    "start": 33.692,
+    "end": 33.808
+  },
+  {
+    "word": "branch",
+    "start": 33.854,
+    "end": 34.11
+  },
+  {
+    "word": "Items",
+    "start": 34.191,
+    "end": 34.47
+  },
+  {
+    "word": "must",
+    "start": 34.528,
+    "end": 34.702
+  },
+  {
+    "word": "be",
+    "start": 34.737,
+    "end": 34.83
+  },
+  {
+    "word": "created",
+    "start": 34.864,
+    "end": 35.236
+  },
+  {
+    "word": "here",
+    "start": 35.282,
+    "end": 35.445
+  },
+  {
+    "word": "before",
+    "start": 35.48,
+    "end": 35.724
+  },
+  {
+    "word": "they",
+    "start": 35.758,
+    "end": 35.851
+  },
+  {
+    "word": "can",
+    "start": 35.886,
+    "end": 35.979
+  },
+  {
+    "word": "appear",
+    "start": 36.014,
+    "end": 36.258
+  },
+  {
+    "word": "in",
+    "start": 36.281,
+    "end": 36.327
+  },
+  {
+    "word": "Item",
+    "start": 36.408,
+    "end": 36.629
+  },
+  {
+    "word": "job",
+    "start": 36.676,
+    "end": 36.861
+  },
+  {
+    "word": "Equipment",
+    "start": 36.919,
+    "end": 37.395
+  },
+  {
+    "word": "or",
+    "start": 37.639,
+    "end": 37.802
+  },
+  {
+    "word": "be",
+    "start": 37.871,
+    "end": 37.976
+  },
+  {
+    "word": "selected",
+    "start": 38.034,
+    "end": 38.649
+  },
+  {
+    "word": "during",
+    "start": 38.823,
+    "end": 39.114
+  },
+  {
+    "word": "check-in",
+    "start": 39.172,
+    "end": 39.578
+  },
+  {
+    "word": "and",
+    "start": 39.648,
+    "end": 39.752
+  },
+  {
+    "word": "check-out.",
+    "start": 39.81,
+    "end": 40.344
+  },
+  {
+    "word": "If",
+    "start": 40.518,
+    "end": 40.669
+  },
+  {
+    "word": "an",
+    "start": 40.716,
+    "end": 40.785
+  },
+  {
+    "word": "item",
+    "start": 40.867,
+    "end": 41.134
+  },
+  {
+    "word": "is",
+    "start": 41.192,
+    "end": 41.261
+  },
+  {
+    "word": "missing",
+    "start": 41.343,
+    "end": 41.679
+  },
+  {
+    "word": "from",
+    "start": 41.737,
+    "end": 41.865
+  },
+  {
+    "word": "those",
+    "start": 41.912,
+    "end": 42.086
+  },
+  {
+    "word": "screens,",
+    "start": 42.109,
+    "end": 42.689
+  },
+  {
+    "word": "come",
+    "start": 42.898,
+    "end": 43.061
+  },
+  {
+    "word": "back",
+    "start": 43.084,
+    "end": 43.235
+  },
+  {
+    "word": "here",
+    "start": 43.293,
+    "end": 43.444
+  },
+  {
+    "word": "first.",
+    "start": 43.491,
+    "end": 44.118
+  }
+]

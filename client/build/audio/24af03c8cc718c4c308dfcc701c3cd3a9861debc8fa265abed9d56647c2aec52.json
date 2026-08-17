@@ -1,0 +1,347 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "Alpha",
+    "start": 0.244,
+    "end": 0.511
+  },
+  {
+    "word": "Roster",
+    "start": 0.58,
+    "end": 0.952
+  },
+  {
+    "word": "is",
+    "start": 1.045,
+    "end": 1.207
+  },
+  {
+    "word": "your",
+    "start": 1.277,
+    "end": 1.44
+  },
+  {
+    "word": "pre-event",
+    "start": 1.533,
+    "end": 2.322
+  },
+  {
+    "word": "checklist",
+    "start": 2.403,
+    "end": 3.019
+  },
+  {
+    "word": "—",
+    "start": 3.042,
+    "end": 3.088
+  },
+  {
+    "word": "an",
+    "start": 3.123,
+    "end": 3.251
+  },
+  {
+    "word": "alphabetical",
+    "start": 3.344,
+    "end": 3.982
+  },
+  {
+    "word": "list",
+    "start": 4.063,
+    "end": 4.296
+  },
+  {
+    "word": "of",
+    "start": 4.354,
+    "end": 4.458
+  },
+  {
+    "word": "every",
+    "start": 4.574,
+    "end": 4.865
+  },
+  {
+    "word": "employee",
+    "start": 4.911,
+    "end": 5.294
+  },
+  {
+    "word": "scheduled",
+    "start": 5.329,
+    "end": 5.724
+  },
+  {
+    "word": "for",
+    "start": 5.759,
+    "end": 5.875
+  },
+  {
+    "word": "a",
+    "start": 5.933,
+    "end": 5.956
+  },
+  {
+    "word": "job.",
+    "start": 6.014,
+    "end": 6.444
+  },
+  {
+    "word": "To",
+    "start": 6.444,
+    "end": 6.583
+  },
+  {
+    "word": "run",
+    "start": 6.676,
+    "end": 6.85
+  },
+  {
+    "word": "it:",
+    "start": 6.896,
+    "end": 7.163
+  },
+  {
+    "word": "1.",
+    "start": 7.163,
+    "end": 7.488
+  },
+  {
+    "word": "Go",
+    "start": 7.558,
+    "end": 7.732
+  },
+  {
+    "word": "to",
+    "start": 7.779,
+    "end": 7.837
+  },
+  {
+    "word": "Reports",
+    "start": 7.906,
+    "end": 8.359
+  },
+  {
+    "word": "→",
+    "start": 8.382,
+    "end": 8.417
+  },
+  {
+    "word": "Job",
+    "start": 8.499,
+    "end": 8.742
+  },
+  {
+    "word": "Administration",
+    "start": 8.789,
+    "end": 9.474
+  },
+  {
+    "word": "→",
+    "start": 9.497,
+    "end": 9.52
+  },
+  {
+    "word": "Alpha",
+    "start": 9.567,
+    "end": 9.845
+  },
+  {
+    "word": "Roster",
+    "start": 9.915,
+    "end": 10.356
+  },
+  {
+    "word": "2.",
+    "start": 10.356,
+    "end": 10.716
+  },
+  {
+    "word": "Enter",
+    "start": 10.751,
+    "end": 11.041
+  },
+  {
+    "word": "the",
+    "start": 11.111,
+    "end": 11.18
+  },
+  {
+    "word": "Job",
+    "start": 11.25,
+    "end": 11.517
+  },
+  {
+    "word": "Number,",
+    "start": 11.587,
+    "end": 11.935
+  },
+  {
+    "word": "Start",
+    "start": 12.016,
+    "end": 12.33
+  },
+  {
+    "word": "Time",
+    "start": 12.376,
+    "end": 12.69
+  },
+  {
+    "word": "(the",
+    "start": 12.725,
+    "end": 12.899
+  },
+  {
+    "word": "event",
+    "start": 12.957,
+    "end": 13.247
+  },
+  {
+    "word": "date),",
+    "start": 13.293,
+    "end": 13.676
+  },
+  {
+    "word": "and",
+    "start": 13.792,
+    "end": 13.978
+  },
+  {
+    "word": "your",
+    "start": 14.036,
+    "end": 14.175
+  },
+  {
+    "word": "Branch",
+    "start": 14.222,
+    "end": 14.651
+  },
+  {
+    "word": "3.",
+    "start": 14.651,
+    "end": 15.023
+  },
+  {
+    "word": "Click",
+    "start": 16.138,
+    "end": 16.393
+  },
+  {
+    "word": "Retrieve",
+    "start": 16.463,
+    "end": 17.182
+  },
+  {
+    "word": "You'll",
+    "start": 17.182,
+    "end": 17.403
+  },
+  {
+    "word": "see",
+    "start": 17.449,
+    "end": 17.6
+  },
+  {
+    "word": "each",
+    "start": 17.67,
+    "end": 17.844
+  },
+  {
+    "word": "employee's",
+    "start": 17.891,
+    "end": 18.251
+  },
+  {
+    "word": "name,",
+    "start": 18.297,
+    "end": 18.634
+  },
+  {
+    "word": "their",
+    "start": 18.761,
+    "end": 18.912
+  },
+  {
+    "word": "assigned",
+    "start": 18.947,
+    "end": 19.272
+  },
+  {
+    "word": "shift,",
+    "start": 19.307,
+    "end": 19.69
+  },
+  {
+    "word": "and",
+    "start": 19.737,
+    "end": 19.911
+  },
+  {
+    "word": "their",
+    "start": 19.957,
+    "end": 20.097
+  },
+  {
+    "word": "role.",
+    "start": 20.155,
+    "end": 20.491
+  },
+  {
+    "word": "Bring",
+    "start": 20.7,
+    "end": 20.921
+  },
+  {
+    "word": "this",
+    "start": 20.956,
+    "end": 21.083
+  },
+  {
+    "word": "with",
+    "start": 21.141,
+    "end": 21.304
+  },
+  {
+    "word": "you",
+    "start": 21.35,
+    "end": 21.443
+  },
+  {
+    "word": "to",
+    "start": 21.525,
+    "end": 21.606
+  },
+  {
+    "word": "the",
+    "start": 21.675,
+    "end": 21.745
+  },
+  {
+    "word": "event",
+    "start": 21.803,
+    "end": 22.093
+  },
+  {
+    "word": "as",
+    "start": 22.163,
+    "end": 22.326
+  },
+  {
+    "word": "your",
+    "start": 22.395,
+    "end": 22.535
+  },
+  {
+    "word": "on-site",
+    "start": 22.616,
+    "end": 23.243
+  },
+  {
+    "word": "reference.",
+    "start": 23.336,
+    "end": 24.148
+  }
+]

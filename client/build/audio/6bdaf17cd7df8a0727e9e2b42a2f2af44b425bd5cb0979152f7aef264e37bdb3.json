@@ -1,0 +1,277 @@
+[
+  {
+    "word": "California",
+    "start": 0,
+    "end": 0.731
+  },
+  {
+    "word": "has",
+    "start": 0.801,
+    "end": 0.987
+  },
+  {
+    "word": "some",
+    "start": 1.045,
+    "end": 1.196
+  },
+  {
+    "word": "of",
+    "start": 1.231,
+    "end": 1.277
+  },
+  {
+    "word": "the",
+    "start": 1.324,
+    "end": 1.405
+  },
+  {
+    "word": "strictest",
+    "start": 1.463,
+    "end": 1.916
+  },
+  {
+    "word": "meal",
+    "start": 1.974,
+    "end": 2.218
+  },
+  {
+    "word": "and",
+    "start": 2.287,
+    "end": 2.38
+  },
+  {
+    "word": "rest",
+    "start": 2.473,
+    "end": 2.717
+  },
+  {
+    "word": "break",
+    "start": 2.775,
+    "end": 3.019
+  },
+  {
+    "word": "rules",
+    "start": 3.077,
+    "end": 3.379
+  },
+  {
+    "word": "in",
+    "start": 3.413,
+    "end": 3.471
+  },
+  {
+    "word": "the",
+    "start": 3.506,
+    "end": 3.576
+  },
+  {
+    "word": "country,",
+    "start": 3.622,
+    "end": 4.075
+  },
+  {
+    "word": "and",
+    "start": 4.11,
+    "end": 4.284
+  },
+  {
+    "word": "AB",
+    "start": 4.365,
+    "end": 4.609
+  },
+  {
+    "word": "1512",
+    "start": 4.76,
+    "end": 5.608
+  },
+  {
+    "word": "adds",
+    "start": 5.7,
+    "end": 5.968
+  },
+  {
+    "word": "specific",
+    "start": 5.991,
+    "end": 6.502
+  },
+  {
+    "word": "provisions",
+    "start": 6.548,
+    "end": 7.036
+  },
+  {
+    "word": "for",
+    "start": 7.094,
+    "end": 7.221
+  },
+  {
+    "word": "security",
+    "start": 7.291,
+    "end": 7.732
+  },
+  {
+    "word": "officers.",
+    "start": 7.79,
+    "end": 8.382
+  },
+  {
+    "word": "In",
+    "start": 8.499,
+    "end": 8.638
+  },
+  {
+    "word": "this",
+    "start": 8.684,
+    "end": 8.812
+  },
+  {
+    "word": "module",
+    "start": 8.882,
+    "end": 9.381
+  },
+  {
+    "word": "you'll",
+    "start": 9.451,
+    "end": 9.648
+  },
+  {
+    "word": "learn",
+    "start": 9.683,
+    "end": 9.868
+  },
+  {
+    "word": "what",
+    "start": 9.927,
+    "end": 10.066
+  },
+  {
+    "word": "breaks",
+    "start": 10.124,
+    "end": 10.426
+  },
+  {
+    "word": "employees",
+    "start": 10.461,
+    "end": 10.971
+  },
+  {
+    "word": "are",
+    "start": 11.041,
+    "end": 11.215
+  },
+  {
+    "word": "entitled",
+    "start": 11.25,
+    "end": 11.703
+  },
+  {
+    "word": "to,",
+    "start": 11.738,
+    "end": 12.098
+  },
+  {
+    "word": "the",
+    "start": 12.214,
+    "end": 12.318
+  },
+  {
+    "word": "difference",
+    "start": 12.376,
+    "end": 12.713
+  },
+  {
+    "word": "between",
+    "start": 12.748,
+    "end": 13.05
+  },
+  {
+    "word": "paid",
+    "start": 13.12,
+    "end": 13.514
+  },
+  {
+    "word": "and",
+    "start": 13.584,
+    "end": 13.712
+  },
+  {
+    "word": "unpaid",
+    "start": 13.805,
+    "end": 14.246
+  },
+  {
+    "word": "breaks,",
+    "start": 14.304,
+    "end": 14.78
+  },
+  {
+    "word": "how",
+    "start": 14.989,
+    "end": 15.198
+  },
+  {
+    "word": "AB",
+    "start": 15.291,
+    "end": 15.523
+  },
+  {
+    "word": "1512",
+    "start": 15.674,
+    "end": 16.475
+  },
+  {
+    "word": "applies",
+    "start": 16.521,
+    "end": 16.893
+  },
+  {
+    "word": "to",
+    "start": 16.939,
+    "end": 16.997
+  },
+  {
+    "word": "on-call",
+    "start": 17.079,
+    "end": 17.543
+  },
+  {
+    "word": "rest",
+    "start": 17.636,
+    "end": 17.81
+  },
+  {
+    "word": "periods,",
+    "start": 17.857,
+    "end": 18.321
+  },
+  {
+    "word": "and",
+    "start": 18.472,
+    "end": 18.623
+  },
+  {
+    "word": "how",
+    "start": 18.681,
+    "end": 18.809
+  },
+  {
+    "word": "WISH",
+    "start": 18.925,
+    "end": 19.238
+  },
+  {
+    "word": "records",
+    "start": 19.354,
+    "end": 19.772
+  },
+  {
+    "word": "it",
+    "start": 19.807,
+    "end": 19.877
+  },
+  {
+    "word": "all.",
+    "start": 19.923,
+    "end": 20.388
+  }
+]

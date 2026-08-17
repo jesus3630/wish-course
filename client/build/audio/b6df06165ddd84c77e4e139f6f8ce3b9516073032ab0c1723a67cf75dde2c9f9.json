@@ -1,0 +1,592 @@
+[
+  {
+    "word": "Once",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "you've",
+    "start": 0.209,
+    "end": 0.36
+  },
+  {
+    "word": "confirmed",
+    "start": 0.383,
+    "end": 0.871
+  },
+  {
+    "word": "an",
+    "start": 0.906,
+    "end": 0.975
+  },
+  {
+    "word": "applicant",
+    "start": 1.045,
+    "end": 1.44
+  },
+  {
+    "word": "is",
+    "start": 1.474,
+    "end": 1.556
+  },
+  {
+    "word": "cleared",
+    "start": 1.602,
+    "end": 1.858
+  },
+  {
+    "word": "and",
+    "start": 1.881,
+    "end": 1.95
+  },
+  {
+    "word": "ready:",
+    "start": 1.997,
+    "end": 2.74
+  },
+  {
+    "word": "1.",
+    "start": 2.74,
+    "end": 3.111
+  },
+  {
+    "word": "Click",
+    "start": 3.262,
+    "end": 3.495
+  },
+  {
+    "word": "the",
+    "start": 3.553,
+    "end": 3.622
+  },
+  {
+    "word": "checkbox",
+    "start": 3.669,
+    "end": 4.261
+  },
+  {
+    "word": "next",
+    "start": 4.342,
+    "end": 4.574
+  },
+  {
+    "word": "to",
+    "start": 4.609,
+    "end": 4.667
+  },
+  {
+    "word": "their",
+    "start": 4.725,
+    "end": 4.865
+  },
+  {
+    "word": "name,",
+    "start": 4.923,
+    "end": 5.271
+  },
+  {
+    "word": "a",
+    "start": 5.352,
+    "end": 5.433
+  },
+  {
+    "word": "dropdown",
+    "start": 5.526,
+    "end": 6.002
+  },
+  {
+    "word": "will",
+    "start": 6.037,
+    "end": 6.188
+  },
+  {
+    "word": "appear",
+    "start": 6.235,
+    "end": 6.536
+  },
+  {
+    "word": "with",
+    "start": 6.629,
+    "end": 6.815
+  },
+  {
+    "word": "three",
+    "start": 6.861,
+    "end": 7.094
+  },
+  {
+    "word": "options:",
+    "start": 7.152,
+    "end": 8.022
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 8.022,
+    "end": 12.376
+  },
+  {
+    "word": "Select,",
+    "start": 12.678,
+    "end": 13.189
+  },
+  {
+    "word": "marks",
+    "start": 13.247,
+    "end": 13.514
+  },
+  {
+    "word": "the",
+    "start": 13.549,
+    "end": 13.63
+  },
+  {
+    "word": "applicant",
+    "start": 13.7,
+    "end": 14.095
+  },
+  {
+    "word": "for",
+    "start": 14.141,
+    "end": 14.257
+  },
+  {
+    "word": "import",
+    "start": 14.327,
+    "end": 15.058
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 15.058,
+    "end": 19.528
+  },
+  {
+    "word": "Rejected,",
+    "start": 19.644,
+    "end": 20.282
+  },
+  {
+    "word": "marks",
+    "start": 20.41,
+    "end": 20.712
+  },
+  {
+    "word": "them",
+    "start": 20.747,
+    "end": 20.898
+  },
+  {
+    "word": "as",
+    "start": 20.979,
+    "end": 21.141
+  },
+  {
+    "word": "rejected,",
+    "start": 21.234,
+    "end": 21.722
+  },
+  {
+    "word": "removing",
+    "start": 21.792,
+    "end": 22.186
+  },
+  {
+    "word": "them",
+    "start": 22.233,
+    "end": 22.36
+  },
+  {
+    "word": "from",
+    "start": 22.407,
+    "end": 22.535
+  },
+  {
+    "word": "consideration",
+    "start": 22.604,
+    "end": 23.649
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 23.649,
+    "end": 28.99
+  },
+  {
+    "word": "Rescind,",
+    "start": 29.164,
+    "end": 29.884
+  },
+  {
+    "word": "reverses",
+    "start": 30.058,
+    "end": 30.464
+  },
+  {
+    "word": "a",
+    "start": 30.511,
+    "end": 30.534
+  },
+  {
+    "word": "previous",
+    "start": 30.592,
+    "end": 30.987
+  },
+  {
+    "word": "action",
+    "start": 31.045,
+    "end": 31.312
+  },
+  {
+    "word": "if",
+    "start": 31.358,
+    "end": 31.428
+  },
+  {
+    "word": "needed",
+    "start": 31.486,
+    "end": 32.124
+  },
+  {
+    "word": "2.",
+    "start": 32.124,
+    "end": 32.554
+  },
+  {
+    "word": "Choose",
+    "start": 32.833,
+    "end": 33.158
+  },
+  {
+    "word": "Select",
+    "start": 33.193,
+    "end": 33.576
+  },
+  {
+    "word": "3.",
+    "start": 33.576,
+    "end": 33.901
+  },
+  {
+    "word": "Click",
+    "start": 33.97,
+    "end": 34.237
+  },
+  {
+    "word": "Import",
+    "start": 34.33,
+    "end": 34.725
+  },
+  {
+    "word": "Applicant",
+    "start": 34.783,
+    "end": 35.201
+  },
+  {
+    "word": "at",
+    "start": 35.248,
+    "end": 35.329
+  },
+  {
+    "word": "the",
+    "start": 35.364,
+    "end": 35.433
+  },
+  {
+    "word": "bottom",
+    "start": 35.48,
+    "end": 35.712
+  },
+  {
+    "word": "of",
+    "start": 35.747,
+    "end": 35.793
+  },
+  {
+    "word": "the",
+    "start": 35.828,
+    "end": 35.898
+  },
+  {
+    "word": "screen",
+    "start": 35.921,
+    "end": 36.455
+  },
+  {
+    "word": "The",
+    "start": 36.455,
+    "end": 36.606
+  },
+  {
+    "word": "system",
+    "start": 36.676,
+    "end": 36.977
+  },
+  {
+    "word": "will",
+    "start": 37.024,
+    "end": 37.152
+  },
+  {
+    "word": "create",
+    "start": 37.198,
+    "end": 37.5
+  },
+  {
+    "word": "their",
+    "start": 37.523,
+    "end": 37.662
+  },
+  {
+    "word": "employee",
+    "start": 37.72,
+    "end": 38.219
+  },
+  {
+    "word": "record",
+    "start": 38.289,
+    "end": 38.626
+  },
+  {
+    "word": "in",
+    "start": 38.684,
+    "end": 38.788
+  },
+  {
+    "word": "WISH.",
+    "start": 38.881,
+    "end": 39.763
+  },
+  {
+    "word": "After",
+    "start": 40.147,
+    "end": 40.448
+  },
+  {
+    "word": "a",
+    "start": 40.506,
+    "end": 40.541
+  },
+  {
+    "word": "successful",
+    "start": 40.599,
+    "end": 41.133
+  },
+  {
+    "word": "import,",
+    "start": 41.191,
+    "end": 41.807
+  },
+  {
+    "word": "the",
+    "start": 42.132,
+    "end": 42.236
+  },
+  {
+    "word": "applicant",
+    "start": 42.306,
+    "end": 42.712
+  },
+  {
+    "word": "will",
+    "start": 42.747,
+    "end": 42.875
+  },
+  {
+    "word": "appear",
+    "start": 42.91,
+    "end": 43.154
+  },
+  {
+    "word": "in",
+    "start": 43.212,
+    "end": 43.258
+  },
+  {
+    "word": "Records",
+    "start": 43.328,
+    "end": 43.63
+  },
+  {
+    "word": "to",
+    "start": 43.664,
+    "end": 43.722
+  },
+  {
+    "word": "Manage",
+    "start": 43.792,
+    "end": 44.071
+  },
+  {
+    "word": "Employee",
+    "start": 44.094,
+    "end": 44.709
+  },
+  {
+    "word": "and",
+    "start": 45.034,
+    "end": 45.359
+  },
+  {
+    "word": "can",
+    "start": 45.429,
+    "end": 45.557
+  },
+  {
+    "word": "be",
+    "start": 45.615,
+    "end": 45.708
+  },
+  {
+    "word": "assigned",
+    "start": 45.754,
+    "end": 46.253
+  },
+  {
+    "word": "a",
+    "start": 46.311,
+    "end": 46.358
+  },
+  {
+    "word": "pay",
+    "start": 46.474,
+    "end": 46.683
+  },
+  {
+    "word": "rate",
+    "start": 46.753,
+    "end": 46.985
+  },
+  {
+    "word": "and",
+    "start": 47.031,
+    "end": 47.147
+  },
+  {
+    "word": "scheduled",
+    "start": 47.205,
+    "end": 47.589
+  },
+  {
+    "word": "for",
+    "start": 47.612,
+    "end": 47.716
+  },
+  {
+    "word": "jobs.",
+    "start": 47.774,
+    "end": 48.691
+  },
+  {
+    "word": "You",
+    "start": 48.691,
+    "end": 48.808
+  },
+  {
+    "word": "can",
+    "start": 48.842,
+    "end": 48.958
+  },
+  {
+    "word": "also",
+    "start": 49.005,
+    "end": 49.284
+  },
+  {
+    "word": "use",
+    "start": 49.4,
+    "end": 49.702
+  },
+  {
+    "word": "CSV",
+    "start": 49.736,
+    "end": 50.247
+  },
+  {
+    "word": "Export",
+    "start": 50.421,
+    "end": 50.967
+  },
+  {
+    "word": "to",
+    "start": 51.246,
+    "end": 51.385
+  },
+  {
+    "word": "download",
+    "start": 51.478,
+    "end": 51.942
+  },
+  {
+    "word": "the",
+    "start": 51.977,
+    "end": 52.047
+  },
+  {
+    "word": "applicant",
+    "start": 52.116,
+    "end": 52.511
+  },
+  {
+    "word": "list",
+    "start": 52.569,
+    "end": 52.778
+  },
+  {
+    "word": "to",
+    "start": 52.813,
+    "end": 52.871
+  },
+  {
+    "word": "a",
+    "start": 52.952,
+    "end": 52.976
+  },
+  {
+    "word": "spreadsheet",
+    "start": 53.022,
+    "end": 53.556
+  },
+  {
+    "word": "if",
+    "start": 53.614,
+    "end": 53.695
+  },
+  {
+    "word": "you",
+    "start": 53.742,
+    "end": 53.811
+  },
+  {
+    "word": "need",
+    "start": 53.858,
+    "end": 54.02
+  },
+  {
+    "word": "to",
+    "start": 54.044,
+    "end": 54.102
+  },
+  {
+    "word": "share",
+    "start": 54.171,
+    "end": 54.543
+  },
+  {
+    "word": "or",
+    "start": 54.613,
+    "end": 54.775
+  },
+  {
+    "word": "archive",
+    "start": 54.868,
+    "end": 55.332
+  },
+  {
+    "word": "the",
+    "start": 55.356,
+    "end": 55.425
+  },
+  {
+    "word": "data.",
+    "start": 55.472,
+    "end": 56.052
+  }
+]

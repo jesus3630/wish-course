@@ -734,6 +734,11 @@ export default function AdminPanel() {
     setUsersLoading(false);
   }
 
+  // Parts are stored by id; show the name the learner sees.
+  function moduleName(id: string): string {
+    return modules.find((m: any) => m.id === id)?.name || id;
+  }
+
   async function loadExam() {
     setExamLoading(true);
     try {
@@ -1264,9 +1269,10 @@ export default function AdminPanel() {
           {adminView === 'exam' && (
             <div style={{ flex: 1, overflowY: 'auto', padding: '12px' }}>
               <div style={{ background: '#FFF7ED', border: '1px solid #FED7AA', borderRadius: '8px', padding: '10px 12px', marginBottom: '12px', fontSize: '11px', color: '#92400E', lineHeight: '1.5' }}>
-                <strong>Final exam record.</strong> One exam for the whole course, {exam?.questionCount ?? 25} questions,
-                one attempt per sitting, {exam?.passMark ?? 70}% to pass. Every sitting is kept, so you can see how many
-                attempts each person needed to reach 100%.
+                <strong>Quiz record.</strong> Each part of the training ends with its own quiz — one attempt per
+                sitting, {exam?.passMark ?? 70}% to pass. Learners are only tested on parts they have reached, so
+                somebody who stops halfway simply has no record for the parts beyond it. Every sitting is kept, so
+                you can see how many attempts each person needed to reach 100% on each part.
               </div>
 
               {examLoading && <div style={{ color: C.gray, fontSize: '13px', padding: '8px' }}>Loading...</div>}
@@ -1278,9 +1284,9 @@ export default function AdminPanel() {
                 <>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))', gap: '8px', marginBottom: '12px' }}>
                     {[
-                      { k: 'Sat the exam', v: exam.summary.learnersAttempted },
-                      { k: 'Passed', v: exam.summary.learnersPassed },
-                      { k: 'Reached 100%', v: exam.summary.learnersPerfect },
+                      { k: 'Learners assessed', v: exam.summary.learnersAttempted },
+                      { k: 'Part quizzes sat', v: exam.summary.partSittings },
+                      { k: 'Parts at 100%', v: exam.summary.partsPerfect },
                       { k: 'Avg attempts to 100%', v: exam.summary.averageAttemptsToPerfect ?? '—' },
                     ].map(s2 => (
                       <div key={s2.k} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 12px' }}>
@@ -1294,7 +1300,7 @@ export default function AdminPanel() {
                     <div key={l.email} style={{
                       background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px',
                       padding: '12px', marginBottom: '8px',
-                      borderLeft: `4px solid ${l.attemptsToPerfect ? C.green : l.hasPassed ? C.orange : '#EF4444'}`,
+                      borderLeft: `4px solid ${l.partsPerfect === l.partsAttempted ? C.green : l.partsPassed > 0 ? C.orange : '#EF4444'}`,
                     }}>
                       <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px', flexWrap: 'wrap' }}>
                         <div>
@@ -1302,35 +1308,50 @@ export default function AdminPanel() {
                           <div style={{ fontSize: '11px', color: C.gray }}>{l.email}</div>
                         </div>
                         <div style={{ textAlign: 'right' }}>
-                          <div style={{ fontSize: '11px', fontWeight: 700, color: l.hasPassed ? C.green : '#EF4444' }}>
-                            {l.hasPassed ? 'Passed' : 'Not passed'} · best {l.bestScore}%
+                          <div style={{ fontSize: '11px', fontWeight: 700, color: C.navy }}>
+                            {l.partsPassed}/{l.partsAttempted} parts passed
                           </div>
                           <div style={{ fontSize: '10px', color: C.gray }}>
-                            {l.totalAttempts} attempt{l.totalAttempts === 1 ? '' : 's'}
+                            {l.totalAttempts} attempt{l.totalAttempts === 1 ? '' : 's'} in total
                           </div>
                         </div>
                       </div>
 
-                      <div style={{ fontSize: '11px', color: C.navy, marginTop: '8px', fontWeight: 600 }}>
-                        {l.attemptsToPerfect
-                          ? `Scored 100% on attempt ${l.attemptsToPerfect}`
-                          : l.hasPassed
-                            ? `Passed on attempt ${l.attemptsToPass} — has not reached 100% yet`
-                            : 'Has not passed yet'}
-                      </div>
-
-                      {/* every sitting, in order */}
-                      <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap', marginTop: '8px' }}>
-                        {l.scores.map((sc: number, i: number) => (
-                          <span key={i} title={`Attempt ${i + 1}`} style={{
-                            fontSize: '10px', fontWeight: 700, padding: '2px 7px', borderRadius: '10px',
-                            background: sc >= 100 ? '#ECFDF5' : sc >= (exam.passMark || 70) ? '#FFF7ED' : '#FEF2F2',
-                            color: sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? '#92400E' : '#DC2626',
-                            border: `1px solid ${sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? C.orange : '#FCA5A5'}`,
-                          }}>{sc}%</span>
+                      {/* one row per part they have been assessed on */}
+                      <div style={{ marginTop: '9px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                        {l.parts.map((pt: any) => (
+                          <div key={pt.moduleId} style={{
+                            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                            gap: '8px', flexWrap: 'wrap', background: '#F8FAFC',
+                            border: `1px solid ${C.border}`, borderRadius: '6px', padding: '6px 9px',
+                          }}>
+                            <div style={{ minWidth: 0 }}>
+                              <div style={{ fontSize: '11.5px', fontWeight: 700, color: C.navy }}>
+                                {moduleName(pt.moduleId)}
+                              </div>
+                              <div style={{ fontSize: '10px', color: C.gray }}>
+                                {pt.attemptsToPerfect
+                                  ? `100% on attempt ${pt.attemptsToPerfect}`
+                                  : pt.hasPassed
+                                    ? `Passed on attempt ${pt.attemptsToPass} — not yet 100%`
+                                    : 'Not passed yet'}
+                              </div>
+                            </div>
+                            <div style={{ display: 'flex', gap: '3px', flexWrap: 'wrap', flexShrink: 0 }}>
+                              {pt.scores.map((sc: number, i: number) => (
+                                <span key={i} title={`Attempt ${i + 1}`} style={{
+                                  fontSize: '10px', fontWeight: 700, padding: '2px 6px', borderRadius: '10px',
+                                  background: sc >= 100 ? '#ECFDF5' : sc >= (exam.passMark || 70) ? '#FFF7ED' : '#FEF2F2',
+                                  color: sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? '#92400E' : '#DC2626',
+                                  border: `1px solid ${sc >= 100 ? C.green : sc >= (exam.passMark || 70) ? C.orange : '#FCA5A5'}`,
+                                }}>{sc}%</span>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
-                      <div style={{ fontSize: '10px', color: C.gray, marginTop: '6px' }}>
+
+                      <div style={{ fontSize: '10px', color: C.gray, marginTop: '7px' }}>
                         Last sat: {l.lastAttemptAt ? new Date(l.lastAttemptAt).toLocaleDateString() : '—'}
                       </div>
                     </div>
@@ -1339,7 +1360,7 @@ export default function AdminPanel() {
                   {exam.hardestQuestions?.length > 0 && (
                     <>
                       <div style={{ fontSize: '11px', fontWeight: 700, color: C.navy, textTransform: 'uppercase', letterSpacing: '0.5px', margin: '16px 0 8px' }}>
-                        Hardest exam questions
+                        Hardest questions across all parts
                       </div>
                       {exam.hardestQuestions.map((q: any) => (
                         <div key={q.id} style={{ background: C.white, border: `1px solid ${C.border}`, borderRadius: '8px', padding: '10px 12px', marginBottom: '6px' }}>

@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useIsMobile } from '../utils/useIsMobile';
 
 /**
- * The final exam — one for the whole course.
+ * The graded quiz at the end of a part of the training.
+ *
+ * One per part rather than a single exam at the end, so somebody who works
+ * through five parts is tested on those five and nothing else.
  *
  * A sitting is one pass. Every question is answered once and there is no going
  * back, no answer revealed along the way, and no second look at a question you
  * have moved past. The paper is marked on the server; this component never sees
- * a correct answer, which is what stops the exam being readable in the network
+ * a correct answer, which is what stops the quiz being readable in the network
  * tab.
  */
 
@@ -21,6 +24,7 @@ type ExamQuestion = {
 
 type ExamResult = {
   attemptNo: number;
+  moduleId: string;
   score: number;
   correct: number;
   total: number;
@@ -28,14 +32,18 @@ type ExamResult = {
   perfect: boolean;
   unanswered: number;
   passMark: number;
-  weakModules: { top: { id: string; misses: number }[]; moreCount: number };
+  missedCount: number;
 };
 
 interface Props {
   email: string;
   name: string;
-  moduleNames: Record<string, string>;
-  onExit: () => void;
+  moduleId: string;
+  moduleName: string;
+  /** Called when they pass — carries on into the next part of the training. */
+  onPassed: () => void;
+  /** Called when they choose to go back and re-read this part. */
+  onReview: () => void;
 }
 
 type Phase = 'brief' | 'sitting' | 'marking' | 'result';
@@ -45,7 +53,7 @@ const C = {
   ink: '#1F2937', muted: '#6B7280', line: '#E5E7EB',
 };
 
-export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
+export default function FinalExam({ email, name, moduleId, moduleName, onPassed, onReview }: Props) {
   const isMobile = useIsMobile();
   const [phase, setPhase] = useState<Phase>('brief');
   const [attemptId, setAttemptId] = useState<string | null>(null);
@@ -66,7 +74,7 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
     try {
       const r = await fetch('/api/exam/start', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email, name, moduleId }),
       });
       const d = await r.json();
       if (!r.ok) { setError(d.error || 'Could not start the exam.'); return; }
@@ -119,14 +127,14 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
     return (
       <Page>
         <Card isMobile={isMobile}>
-          <Tag>Final Exam</Tag>
-          <h1 style={{ ...s.h1, fontSize: isMobile ? 24 : 30 }}>WISH Certification Exam</h1>
+          <Tag>Knowledge Check</Tag>
+          <h1 style={{ ...s.h1, fontSize: isMobile ? 22 : 27 }}>{moduleName}</h1>
           <p style={s.lede}>
-            One exam covering the whole course. Read each question carefully — this is a single
-            attempt, and you cannot change an answer once you move on.
+            A short quiz on this part before you move on. Read each question carefully — this is
+            a single attempt, and you cannot change an answer once you move on.
           </p>
           <ul style={s.rules}>
-            <li><b>25 questions</b>, drawn from every part of the course.</li>
+            <li>Questions cover <b>this part only</b> — nothing you have not worked through yet.</li>
             <li><b>One chance per question.</b> Once you press Next, that answer is final.</li>
             <li><b>No answers are shown</b> while you work. You get your result at the end.</li>
             <li><b>{passMark}% or higher passes.</b> Your score and the number of attempts you take are recorded.</li>
@@ -136,8 +144,8 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
           )}
           {error && <p style={s.error}>{error}</p>}
           <div style={s.actions}>
-            <button style={s.ghost} onClick={onExit}>Back to training</button>
-            <button style={s.primary} onClick={startExam}>Start the exam</button>
+            <button style={s.ghost} onClick={onReview}>Re-read this part first</button>
+            <button style={s.primary} onClick={startExam}>Start the quiz</button>
           </div>
         </Card>
       </Page>
@@ -149,7 +157,7 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
     return (
       <Page>
         <Card isMobile={isMobile}>
-          <h1 style={{ ...s.h1, fontSize: 24 }}>Marking your exam…</h1>
+          <h1 style={{ ...s.h1, fontSize: 24 }}>Marking your quiz…</h1>
           <p style={s.lede}>One moment.</p>
         </Card>
       </Page>
@@ -164,7 +172,7 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
           <Card isMobile={isMobile}>
             <h1 style={{ ...s.h1, fontSize: 24 }}>Something went wrong</h1>
             <p style={s.error}>{error}</p>
-            <div style={s.actions}><button style={s.primary} onClick={onExit}>Back to training</button></div>
+            <div style={s.actions}><button style={s.primary} onClick={onReview}>Back to the training</button></div>
           </Card>
         </Page>
       );
@@ -181,6 +189,9 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
           <h1 style={{ ...s.h1, fontSize: isMobile ? 22 : 26, textAlign: 'center' }}>
             {result.perfect ? 'Perfect score' : good ? 'Passed' : 'Not passed'}
           </h1>
+          <p style={{ ...s.lede, textAlign: 'center', marginBottom: 6, fontWeight: 700, color: C.navy }}>
+            {moduleName}
+          </p>
           <p style={{ ...s.lede, textAlign: 'center' }}>
             {result.correct} of {result.total} correct
             {result.unanswered > 0 ? ` · ${result.unanswered} left blank` : ''}.
@@ -191,40 +202,34 @@ export default function FinalExam({ email, name, moduleNames, onExit }: Props) {
               : ` ${result.passMark}% is needed to pass.`}
           </p>
 
-          {result.weakModules?.top?.length > 0 && (
+          {!result.perfect && (
             <div style={s.weak}>
               <b style={{ color: C.navy }}>
-                {result.weakModules.top.length === 1
-                  ? 'Worth reviewing before your next attempt:'
-                  : 'Start your review here — where you missed the most:'}
+                {result.passed
+                  ? `You missed ${result.missedCount} — worth another look before you carry on.`
+                  : `You missed ${result.missedCount}. Re-read this part, then try again.`}
               </b>
-              <div style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-                {result.weakModules.top.map(m => (
-                  <span key={m.id} style={s.chip}>
-                    {moduleNames[m.id] || m.id}
-                    <span style={{ opacity: 0.65, marginLeft: 5 }}>
-                      {m.misses} missed
-                    </span>
-                  </span>
-                ))}
+              <div style={{ marginTop: 6, fontSize: 13, color: '#92400E' }}>
+                We do not show which ones, so a second attempt still means something.
               </div>
-              {result.weakModules.moreCount > 0 && (
-                <div style={{ marginTop: 8, fontSize: 13, color: '#92400E' }}>
-                  You also missed questions in {result.weakModules.moreCount} other{' '}
-                  {result.weakModules.moreCount === 1 ? 'chapter' : 'chapters'} — worth another pass
-                  through the course before retaking.
-                </div>
-              )}
             </div>
           )}
 
           <div style={s.actions}>
-            <button style={s.ghost} onClick={onExit}>Back to training</button>
-            {!result.perfect && (
-              <button style={s.primary} onClick={() => { setPhase('brief'); setAttemptNo(result.attemptNo + 1); }}>
-                {good ? 'Try for 100%' : 'Retake the exam'}
-              </button>
-            )}
+            <button style={s.ghost} onClick={onReview}>Re-read this part</button>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+              {!result.perfect && (
+                <button
+                  style={good ? s.ghost : s.primary}
+                  onClick={() => { setPhase('brief'); setAttemptNo(result.attemptNo + 1); }}
+                >
+                  {good ? 'Try for 100%' : 'Try again'}
+                </button>
+              )}
+              {good && (
+                <button style={s.primary} onClick={onPassed}>Continue the training →</button>
+              )}
+            </div>
           </div>
         </Card>
       </Page>

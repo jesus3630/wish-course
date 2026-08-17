@@ -1,0 +1,257 @@
+[
+  {
+    "word": "Congratulations!",
+    "start": 0,
+    "end": 0.929
+  },
+  {
+    "word": "You've",
+    "start": 0.987,
+    "end": 1.254
+  },
+  {
+    "word": "completed",
+    "start": 1.289,
+    "end": 1.718
+  },
+  {
+    "word": "the",
+    "start": 1.765,
+    "end": 1.892
+  },
+  {
+    "word": "Workforce",
+    "start": 2.009,
+    "end": 2.601
+  },
+  {
+    "word": "Admin",
+    "start": 2.717,
+    "end": 3.158
+  },
+  {
+    "word": "Maintenance",
+    "start": 3.239,
+    "end": 3.622
+  },
+  {
+    "word": "module.",
+    "start": 3.657,
+    "end": 4.133
+  },
+  {
+    "word": "You",
+    "start": 4.133,
+    "end": 4.249
+  },
+  {
+    "word": "now",
+    "start": 4.319,
+    "end": 4.447
+  },
+  {
+    "word": "know",
+    "start": 4.493,
+    "end": 4.632
+  },
+  {
+    "word": "how",
+    "start": 4.69,
+    "end": 4.795
+  },
+  {
+    "word": "to",
+    "start": 4.83,
+    "end": 4.888
+  },
+  {
+    "word": "access",
+    "start": 4.981,
+    "end": 5.422
+  },
+  {
+    "word": "and",
+    "start": 5.468,
+    "end": 5.561
+  },
+  {
+    "word": "update",
+    "start": 5.631,
+    "end": 6.026
+  },
+  {
+    "word": "Disciplinary",
+    "start": 6.06,
+    "end": 6.629
+  },
+  {
+    "word": "Action",
+    "start": 6.699,
+    "end": 6.989
+  },
+  {
+    "word": "records,",
+    "start": 7.047,
+    "end": 7.558
+  },
+  {
+    "word": "Pay",
+    "start": 7.686,
+    "end": 7.883
+  },
+  {
+    "word": "Rates,",
+    "start": 7.953,
+    "end": 8.266
+  },
+  {
+    "word": "and",
+    "start": 8.29,
+    "end": 8.44
+  },
+  {
+    "word": "Training",
+    "start": 8.499,
+    "end": 8.812
+  },
+  {
+    "word": "information",
+    "start": 8.847,
+    "end": 9.392
+  },
+  {
+    "word": "within",
+    "start": 9.451,
+    "end": 9.741
+  },
+  {
+    "word": "an",
+    "start": 9.81,
+    "end": 9.88
+  },
+  {
+    "word": "employee's",
+    "start": 9.938,
+    "end": 10.426
+  },
+  {
+    "word": "record.",
+    "start": 10.484,
+    "end": 11.076
+  },
+  {
+    "word": "Remember",
+    "start": 11.076,
+    "end": 11.494
+  },
+  {
+    "word": "—",
+    "start": 11.54,
+    "end": 17.136
+  },
+  {
+    "word": "always",
+    "start": 17.415,
+    "end": 17.798
+  },
+  {
+    "word": "deactivate",
+    "start": 17.845,
+    "end": 18.541
+  },
+  {
+    "word": "an",
+    "start": 18.588,
+    "end": 18.692
+  },
+  {
+    "word": "existing",
+    "start": 18.75,
+    "end": 19.192
+  },
+  {
+    "word": "pay",
+    "start": 19.25,
+    "end": 19.412
+  },
+  {
+    "word": "rate",
+    "start": 19.47,
+    "end": 19.656
+  },
+  {
+    "word": "before",
+    "start": 19.691,
+    "end": 19.993
+  },
+  {
+    "word": "adding",
+    "start": 20.039,
+    "end": 20.341
+  },
+  {
+    "word": "a",
+    "start": 20.376,
+    "end": 20.399
+  },
+  {
+    "word": "new",
+    "start": 20.446,
+    "end": 20.562
+  },
+  {
+    "word": "one.",
+    "start": 20.631,
+    "end": 20.863
+  },
+  {
+    "word": "Never",
+    "start": 21.305,
+    "end": 21.665
+  },
+  {
+    "word": "edit",
+    "start": 21.815,
+    "end": 22.152
+  },
+  {
+    "word": "a",
+    "start": 22.268,
+    "end": 22.384
+  },
+  {
+    "word": "rate",
+    "start": 22.535,
+    "end": 23
+  },
+  {
+    "word": "that's",
+    "start": 23.093,
+    "end": 23.36
+  },
+  {
+    "word": "already",
+    "start": 23.418,
+    "end": 23.743
+  },
+  {
+    "word": "been",
+    "start": 23.789,
+    "end": 23.917
+  },
+  {
+    "word": "used",
+    "start": 23.987,
+    "end": 24.172
+  },
+  {
+    "word": "for",
+    "start": 24.207,
+    "end": 24.312
+  },
+  {
+    "word": "payroll.",
+    "start": 24.37,
+    "end": 25.078
+  }
+]

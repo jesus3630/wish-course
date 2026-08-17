@@ -1,0 +1,267 @@
+[
+  {
+    "word": "Congratulations!",
+    "start": 0,
+    "end": 0.952
+  },
+  {
+    "word": "You've",
+    "start": 0.987,
+    "end": 1.161
+  },
+  {
+    "word": "completed",
+    "start": 1.184,
+    "end": 1.625
+  },
+  {
+    "word": "the",
+    "start": 1.672,
+    "end": 1.753
+  },
+  {
+    "word": "Admin",
+    "start": 1.823,
+    "end": 2.067
+  },
+  {
+    "word": "Reporting",
+    "start": 2.148,
+    "end": 2.531
+  },
+  {
+    "word": "module.",
+    "start": 2.566,
+    "end": 3.286
+  },
+  {
+    "word": "You",
+    "start": 3.286,
+    "end": 3.413
+  },
+  {
+    "word": "now",
+    "start": 3.483,
+    "end": 3.634
+  },
+  {
+    "word": "have",
+    "start": 3.704,
+    "end": 3.924
+  },
+  {
+    "word": "a",
+    "start": 3.959,
+    "end": 3.994
+  },
+  {
+    "word": "full",
+    "start": 4.145,
+    "end": 4.412
+  },
+  {
+    "word": "picture",
+    "start": 4.493,
+    "end": 4.876
+  },
+  {
+    "word": "of",
+    "start": 4.923,
+    "end": 4.981
+  },
+  {
+    "word": "the",
+    "start": 5.027,
+    "end": 5.108
+  },
+  {
+    "word": "WISH",
+    "start": 5.201,
+    "end": 5.445
+  },
+  {
+    "word": "Reports",
+    "start": 5.492,
+    "end": 5.863
+  },
+  {
+    "word": "menu",
+    "start": 5.921,
+    "end": 6.223
+  },
+  {
+    "word": "and",
+    "start": 6.339,
+    "end": 6.536
+  },
+  {
+    "word": "how",
+    "start": 6.606,
+    "end": 6.757
+  },
+  {
+    "word": "each",
+    "start": 6.908,
+    "end": 7.152
+  },
+  {
+    "word": "section",
+    "start": 7.21,
+    "end": 7.605
+  },
+  {
+    "word": "supports",
+    "start": 7.674,
+    "end": 8.092
+  },
+  {
+    "word": "your",
+    "start": 8.15,
+    "end": 8.278
+  },
+  {
+    "word": "branch",
+    "start": 8.348,
+    "end": 8.649
+  },
+  {
+    "word": "operations,",
+    "start": 8.707,
+    "end": 9.497
+  },
+  {
+    "word": "from",
+    "start": 9.671,
+    "end": 9.868
+  },
+  {
+    "word": "scheduling",
+    "start": 9.95,
+    "end": 10.484
+  },
+  {
+    "word": "and",
+    "start": 10.553,
+    "end": 10.658
+  },
+  {
+    "word": "payroll",
+    "start": 10.739,
+    "end": 11.297
+  },
+  {
+    "word": "through",
+    "start": 11.505,
+    "end": 11.773
+  },
+  {
+    "word": "billing",
+    "start": 11.831,
+    "end": 12.167
+  },
+  {
+    "word": "and",
+    "start": 12.237,
+    "end": 12.353
+  },
+  {
+    "word": "compliance.",
+    "start": 12.411,
+    "end": 13.293
+  },
+  {
+    "word": "If",
+    "start": 13.293,
+    "end": 13.421
+  },
+  {
+    "word": "you're",
+    "start": 13.456,
+    "end": 13.63
+  },
+  {
+    "word": "unsure",
+    "start": 13.676,
+    "end": 14.118
+  },
+  {
+    "word": "which",
+    "start": 14.187,
+    "end": 14.396
+  },
+  {
+    "word": "report",
+    "start": 14.454,
+    "end": 14.814
+  },
+  {
+    "word": "to",
+    "start": 14.849,
+    "end": 14.907
+  },
+  {
+    "word": "use",
+    "start": 15,
+    "end": 15.29
+  },
+  {
+    "word": "for",
+    "start": 15.325,
+    "end": 15.43
+  },
+  {
+    "word": "a",
+    "start": 15.464,
+    "end": 15.488
+  },
+  {
+    "word": "specific",
+    "start": 15.511,
+    "end": 16.022
+  },
+  {
+    "word": "situation,",
+    "start": 16.068,
+    "end": 16.858
+  },
+  {
+    "word": "your",
+    "start": 17.032,
+    "end": 17.183
+  },
+  {
+    "word": "administrator",
+    "start": 17.218,
+    "end": 17.821
+  },
+  {
+    "word": "is",
+    "start": 17.903,
+    "end": 18.042
+  },
+  {
+    "word": "the",
+    "start": 18.1,
+    "end": 18.17
+  },
+  {
+    "word": "best",
+    "start": 18.251,
+    "end": 18.471
+  },
+  {
+    "word": "place",
+    "start": 18.529,
+    "end": 18.82
+  },
+  {
+    "word": "to",
+    "start": 18.855,
+    "end": 18.924
+  },
+  {
+    "word": "start.",
+    "start": 18.994,
+    "end": 19.598
+  }
+]

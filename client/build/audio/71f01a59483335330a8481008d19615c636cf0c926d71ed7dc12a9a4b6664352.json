@@ -1,0 +1,387 @@
+[
+  {
+    "word": "With",
+    "start": 0,
+    "end": 0.313
+  },
+  {
+    "word": "Payroll",
+    "start": 0.395,
+    "end": 0.72
+  },
+  {
+    "word": "Reporting",
+    "start": 0.778,
+    "end": 1.173
+  },
+  {
+    "word": "access,",
+    "start": 1.242,
+    "end": 1.834
+  },
+  {
+    "word": "you",
+    "start": 2.009,
+    "end": 2.113
+  },
+  {
+    "word": "have",
+    "start": 2.183,
+    "end": 2.345
+  },
+  {
+    "word": "everything",
+    "start": 2.415,
+    "end": 2.914
+  },
+  {
+    "word": "in",
+    "start": 2.995,
+    "end": 3.1
+  },
+  {
+    "word": "General",
+    "start": 3.181,
+    "end": 3.506
+  },
+  {
+    "word": "Reporting",
+    "start": 3.553,
+    "end": 3.982
+  },
+  {
+    "word": "plus",
+    "start": 4.098,
+    "end": 4.412
+  },
+  {
+    "word": "one",
+    "start": 4.493,
+    "end": 4.656
+  },
+  {
+    "word": "additional",
+    "start": 4.679,
+    "end": 5.074
+  },
+  {
+    "word": "section",
+    "start": 5.132,
+    "end": 5.48
+  },
+  {
+    "word": "—",
+    "start": 5.631,
+    "end": 5.759
+  },
+  {
+    "word": "Payroll",
+    "start": 5.875,
+    "end": 6.281
+  },
+  {
+    "word": "Reports.",
+    "start": 6.339,
+    "end": 7.07
+  },
+  {
+    "word": "Payroll",
+    "start": 7.07,
+    "end": 7.454
+  },
+  {
+    "word": "Reports",
+    "start": 7.512,
+    "end": 7.976
+  },
+  {
+    "word": "lives",
+    "start": 8.127,
+    "end": 8.464
+  },
+  {
+    "word": "in",
+    "start": 8.51,
+    "end": 8.58
+  },
+  {
+    "word": "the",
+    "start": 8.615,
+    "end": 8.684
+  },
+  {
+    "word": "Reports",
+    "start": 8.742,
+    "end": 9.102
+  },
+  {
+    "word": "menu",
+    "start": 9.16,
+    "end": 9.485
+  },
+  {
+    "word": "alongside",
+    "start": 9.601,
+    "end": 10.368
+  },
+  {
+    "word": "Summary",
+    "start": 10.414,
+    "end": 10.751
+  },
+  {
+    "word": "Roster,",
+    "start": 10.844,
+    "end": 11.401
+  },
+  {
+    "word": "Detailed",
+    "start": 11.61,
+    "end": 12.121
+  },
+  {
+    "word": "Roster,",
+    "start": 12.167,
+    "end": 12.713
+  },
+  {
+    "word": "and",
+    "start": 12.864,
+    "end": 13.038
+  },
+  {
+    "word": "Job",
+    "start": 13.131,
+    "end": 13.456
+  },
+  {
+    "word": "Administration.",
+    "start": 13.537,
+    "end": 14.432
+  },
+  {
+    "word": "This",
+    "start": 14.606,
+    "end": 14.826
+  },
+  {
+    "word": "is",
+    "start": 14.884,
+    "end": 14.966
+  },
+  {
+    "word": "where",
+    "start": 15.012,
+    "end": 15.175
+  },
+  {
+    "word": "you",
+    "start": 15.21,
+    "end": 15.291
+  },
+  {
+    "word": "go",
+    "start": 15.36,
+    "end": 15.523
+  },
+  {
+    "word": "to",
+    "start": 15.616,
+    "end": 15.709
+  },
+  {
+    "word": "verify",
+    "start": 15.802,
+    "end": 16.371
+  },
+  {
+    "word": "employee",
+    "start": 16.429,
+    "end": 16.893
+  },
+  {
+    "word": "hours",
+    "start": 16.951,
+    "end": 17.439
+  },
+  {
+    "word": "and",
+    "start": 17.648,
+    "end": 17.857
+  },
+  {
+    "word": "pay",
+    "start": 17.949,
+    "end": 18.391
+  },
+  {
+    "word": "before",
+    "start": 18.669,
+    "end": 19.11
+  },
+  {
+    "word": "payroll",
+    "start": 19.169,
+    "end": 19.552
+  },
+  {
+    "word": "is",
+    "start": 19.61,
+    "end": 19.679
+  },
+  {
+    "word": "finalized.",
+    "start": 19.726,
+    "end": 20.736
+  },
+  {
+    "word": "Think",
+    "start": 20.736,
+    "end": 20.945
+  },
+  {
+    "word": "of",
+    "start": 20.991,
+    "end": 21.038
+  },
+  {
+    "word": "these",
+    "start": 21.084,
+    "end": 21.235
+  },
+  {
+    "word": "reports",
+    "start": 21.282,
+    "end": 21.746
+  },
+  {
+    "word": "as",
+    "start": 21.816,
+    "end": 22.025
+  },
+  {
+    "word": "your",
+    "start": 22.106,
+    "end": 22.315
+  },
+  {
+    "word": "review",
+    "start": 22.431,
+    "end": 22.744
+  },
+  {
+    "word": "tools",
+    "start": 22.802,
+    "end": 23.232
+  },
+  {
+    "word": "—",
+    "start": 23.29,
+    "end": 23.337
+  },
+  {
+    "word": "you",
+    "start": 23.545,
+    "end": 23.662
+  },
+  {
+    "word": "run",
+    "start": 23.778,
+    "end": 23.963
+  },
+  {
+    "word": "them",
+    "start": 24.01,
+    "end": 24.161
+  },
+  {
+    "word": "to",
+    "start": 24.23,
+    "end": 24.312
+  },
+  {
+    "word": "make",
+    "start": 24.428,
+    "end": 24.637
+  },
+  {
+    "word": "sure",
+    "start": 24.695,
+    "end": 25.043
+  },
+  {
+    "word": "what's",
+    "start": 25.124,
+    "end": 25.403
+  },
+  {
+    "word": "in",
+    "start": 25.438,
+    "end": 25.496
+  },
+  {
+    "word": "the",
+    "start": 25.531,
+    "end": 25.6
+  },
+  {
+    "word": "system",
+    "start": 25.647,
+    "end": 26.018
+  },
+  {
+    "word": "matches",
+    "start": 26.088,
+    "end": 26.483
+  },
+  {
+    "word": "what",
+    "start": 26.541,
+    "end": 26.703
+  },
+  {
+    "word": "actually",
+    "start": 26.761,
+    "end": 27.11
+  },
+  {
+    "word": "happened",
+    "start": 27.179,
+    "end": 27.528
+  },
+  {
+    "word": "at",
+    "start": 27.563,
+    "end": 27.632
+  },
+  {
+    "word": "the",
+    "start": 27.679,
+    "end": 27.748
+  },
+  {
+    "word": "event",
+    "start": 27.806,
+    "end": 28.097
+  },
+  {
+    "word": "before",
+    "start": 28.155,
+    "end": 28.596
+  },
+  {
+    "word": "payroll",
+    "start": 28.654,
+    "end": 29.037
+  },
+  {
+    "word": "gets",
+    "start": 29.083,
+    "end": 29.258
+  },
+  {
+    "word": "processed.",
+    "start": 29.304,
+    "end": 30.14
+  }
+]

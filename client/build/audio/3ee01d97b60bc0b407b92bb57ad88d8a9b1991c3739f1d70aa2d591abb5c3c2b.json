@@ -1,0 +1,547 @@
+[
+  {
+    "word": "Before",
+    "start": 0,
+    "end": 0.348
+  },
+  {
+    "word": "importing",
+    "start": 0.383,
+    "end": 0.72
+  },
+  {
+    "word": "an",
+    "start": 0.755,
+    "end": 0.813
+  },
+  {
+    "word": "applicant,",
+    "start": 0.871,
+    "end": 1.335
+  },
+  {
+    "word": "two",
+    "start": 1.358,
+    "end": 1.556
+  },
+  {
+    "word": "things",
+    "start": 1.637,
+    "end": 1.904
+  },
+  {
+    "word": "need",
+    "start": 1.95,
+    "end": 2.125
+  },
+  {
+    "word": "to",
+    "start": 2.159,
+    "end": 2.206
+  },
+  {
+    "word": "be",
+    "start": 2.276,
+    "end": 2.392
+  },
+  {
+    "word": "confirmed:",
+    "start": 2.438,
+    "end": 3.065
+  },
+  {
+    "word": "1.",
+    "start": 3.065,
+    "end": 3.402
+  },
+  {
+    "word": "Background",
+    "start": 3.495,
+    "end": 4.052
+  },
+  {
+    "word": "Check",
+    "start": 4.098,
+    "end": 4.365
+  },
+  {
+    "word": "Status",
+    "start": 4.458,
+    "end": 4.969
+  },
+  {
+    "word": "—",
+    "start": 5.004,
+    "end": 5.062
+  },
+  {
+    "word": "should",
+    "start": 5.306,
+    "end": 5.608
+  },
+  {
+    "word": "show",
+    "start": 5.666,
+    "end": 5.991
+  },
+  {
+    "word": "APPROVED.",
+    "start": 6.316,
+    "end": 7.117
+  },
+  {
+    "word": "Do",
+    "start": 7.326,
+    "end": 7.465
+  },
+  {
+    "word": "not",
+    "start": 7.558,
+    "end": 7.732
+  },
+  {
+    "word": "import",
+    "start": 7.802,
+    "end": 8.173
+  },
+  {
+    "word": "applicants",
+    "start": 8.231,
+    "end": 8.731
+  },
+  {
+    "word": "whose",
+    "start": 8.766,
+    "end": 8.998
+  },
+  {
+    "word": "background",
+    "start": 9.044,
+    "end": 9.485
+  },
+  {
+    "word": "check",
+    "start": 9.532,
+    "end": 9.776
+  },
+  {
+    "word": "is",
+    "start": 9.845,
+    "end": 9.961
+  },
+  {
+    "word": "still",
+    "start": 10.019,
+    "end": 10.298
+  },
+  {
+    "word": "pending",
+    "start": 10.379,
+    "end": 10.728
+  },
+  {
+    "word": "or",
+    "start": 10.82,
+    "end": 10.948
+  },
+  {
+    "word": "has",
+    "start": 11.018,
+    "end": 11.215
+  },
+  {
+    "word": "not",
+    "start": 11.285,
+    "end": 11.436
+  },
+  {
+    "word": "cleared.",
+    "start": 11.494,
+    "end": 11.97
+  },
+  {
+    "word": "2.",
+    "start": 11.97,
+    "end": 12.411
+  },
+  {
+    "word": "E-Verify",
+    "start": 12.655,
+    "end": 13.293
+  },
+  {
+    "word": "Status",
+    "start": 13.363,
+    "end": 13.862
+  },
+  {
+    "word": "—",
+    "start": 13.897,
+    "end": 13.943
+  },
+  {
+    "word": "should",
+    "start": 14.059,
+    "end": 14.315
+  },
+  {
+    "word": "show",
+    "start": 14.35,
+    "end": 14.593
+  },
+  {
+    "word": "EMPLOYMENTAUTHORIZED.",
+    "start": 14.721,
+    "end": 16.277
+  },
+  {
+    "word": "This",
+    "start": 16.3,
+    "end": 16.463
+  },
+  {
+    "word": "confirms",
+    "start": 16.521,
+    "end": 17.229
+  },
+  {
+    "word": "the",
+    "start": 17.554,
+    "end": 17.682
+  },
+  {
+    "word": "applicant",
+    "start": 17.751,
+    "end": 18.111
+  },
+  {
+    "word": "is",
+    "start": 18.146,
+    "end": 18.216
+  },
+  {
+    "word": "authorized",
+    "start": 18.274,
+    "end": 18.715
+  },
+  {
+    "word": "to",
+    "start": 18.738,
+    "end": 18.796
+  },
+  {
+    "word": "work.",
+    "start": 18.866,
+    "end": 19.203
+  },
+  {
+    "word": "Also",
+    "start": 19.203,
+    "end": 19.493
+  },
+  {
+    "word": "check",
+    "start": 19.562,
+    "end": 19.783
+  },
+  {
+    "word": "the",
+    "start": 19.841,
+    "end": 19.911
+  },
+  {
+    "word": "Status",
+    "start": 19.946,
+    "end": 20.259
+  },
+  {
+    "word": "column",
+    "start": 20.317,
+    "end": 20.677
+  },
+  {
+    "word": "—",
+    "start": 20.7,
+    "end": 20.747
+  },
+  {
+    "word": "it",
+    "start": 20.805,
+    "end": 20.863
+  },
+  {
+    "word": "should",
+    "start": 20.886,
+    "end": 21.072
+  },
+  {
+    "word": "show",
+    "start": 21.107,
+    "end": 21.292
+  },
+  {
+    "word": "Hired",
+    "start": 21.385,
+    "end": 21.757
+  },
+  {
+    "word": "before",
+    "start": 21.803,
+    "end": 22.105
+  },
+  {
+    "word": "you",
+    "start": 22.151,
+    "end": 22.233
+  },
+  {
+    "word": "proceed",
+    "start": 22.302,
+    "end": 22.686
+  },
+  {
+    "word": "with",
+    "start": 22.72,
+    "end": 22.836
+  },
+  {
+    "word": "the",
+    "start": 22.871,
+    "end": 22.941
+  },
+  {
+    "word": "import.",
+    "start": 22.999,
+    "end": 23.498
+  },
+  {
+    "word": "If",
+    "start": 23.823,
+    "end": 23.997
+  },
+  {
+    "word": "an",
+    "start": 24.067,
+    "end": 24.125
+  },
+  {
+    "word": "applicant",
+    "start": 24.16,
+    "end": 24.497
+  },
+  {
+    "word": "shows",
+    "start": 24.532,
+    "end": 24.764
+  },
+  {
+    "word": "a",
+    "start": 24.81,
+    "end": 24.845
+  },
+  {
+    "word": "different",
+    "start": 24.926,
+    "end": 25.24
+  },
+  {
+    "word": "status,",
+    "start": 25.275,
+    "end": 25.832
+  },
+  {
+    "word": "do",
+    "start": 25.925,
+    "end": 26.041
+  },
+  {
+    "word": "not",
+    "start": 26.122,
+    "end": 26.249
+  },
+  {
+    "word": "import",
+    "start": 26.284,
+    "end": 26.609
+  },
+  {
+    "word": "them",
+    "start": 26.644,
+    "end": 26.842
+  },
+  {
+    "word": "until",
+    "start": 26.958,
+    "end": 27.225
+  },
+  {
+    "word": "their",
+    "start": 27.271,
+    "end": 27.434
+  },
+  {
+    "word": "hiring",
+    "start": 27.48,
+    "end": 27.828
+  },
+  {
+    "word": "process",
+    "start": 27.886,
+    "end": 28.513
+  },
+  {
+    "word": "is",
+    "start": 28.664,
+    "end": 28.966
+  },
+  {
+    "word": "complete.",
+    "start": 29.245,
+    "end": 30.406
+  },
+  {
+    "word": "If",
+    "start": 30.406,
+    "end": 30.603
+  },
+  {
+    "word": "you",
+    "start": 30.696,
+    "end": 30.928
+  },
+  {
+    "word": "see",
+    "start": 31.207,
+    "end": 31.695
+  },
+  {
+    "word": "Duplicate",
+    "start": 31.973,
+    "end": 32.751
+  },
+  {
+    "word": "in",
+    "start": 32.809,
+    "end": 33.018
+  },
+  {
+    "word": "the",
+    "start": 33.099,
+    "end": 33.192
+  },
+  {
+    "word": "summary",
+    "start": 33.262,
+    "end": 33.691
+  },
+  {
+    "word": "count,",
+    "start": 33.773,
+    "end": 34.237
+  },
+  {
+    "word": "that",
+    "start": 34.481,
+    "end": 34.783
+  },
+  {
+    "word": "applicant",
+    "start": 34.864,
+    "end": 35.433
+  },
+  {
+    "word": "already",
+    "start": 35.503,
+    "end": 36.06
+  },
+  {
+    "word": "exists",
+    "start": 36.13,
+    "end": 36.687
+  },
+  {
+    "word": "in",
+    "start": 36.896,
+    "end": 37.221
+  },
+  {
+    "word": "WISH.",
+    "start": 37.662,
+    "end": 38.266
+  },
+  {
+    "word": "Do",
+    "start": 38.51,
+    "end": 38.684
+  },
+  {
+    "word": "not",
+    "start": 38.765,
+    "end": 38.974
+  },
+  {
+    "word": "import",
+    "start": 39.044,
+    "end": 39.52
+  },
+  {
+    "word": "duplicates",
+    "start": 39.694,
+    "end": 40.518
+  },
+  {
+    "word": "—",
+    "start": 40.634,
+    "end": 40.692
+  },
+  {
+    "word": "importing",
+    "start": 40.808,
+    "end": 41.308
+  },
+  {
+    "word": "a",
+    "start": 41.354,
+    "end": 41.377
+  },
+  {
+    "word": "duplicate",
+    "start": 41.447,
+    "end": 41.935
+  },
+  {
+    "word": "can",
+    "start": 41.969,
+    "end": 42.097
+  },
+  {
+    "word": "create",
+    "start": 42.155,
+    "end": 42.48
+  },
+  {
+    "word": "record",
+    "start": 42.573,
+    "end": 42.933
+  },
+  {
+    "word": "conflicts",
+    "start": 43.003,
+    "end": 43.606
+  },
+  {
+    "word": "in",
+    "start": 43.734,
+    "end": 44.059
+  },
+  {
+    "word": "the",
+    "start": 44.303,
+    "end": 44.477
+  },
+  {
+    "word": "system.",
+    "start": 44.558,
+    "end": 45.325
+  }
+]

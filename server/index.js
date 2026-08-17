@@ -1019,48 +1019,37 @@ app.post('/api/narrate', narrateLimit, async (req, res) => {
   elReq.end();
 });
 
-// ─── Final exam ───────────────────────────────────────────────────────────────
-// One exam for the whole course. A sitting is one pass — every question answered
-// once, marked on the server, 70% to pass. The rules live in server/exam.js; the
-// routes below only translate HTTP into those objects and back.
+// ─── Graded quizzes, one per part ─────────────────────────────────────────────
+// A quiz at the end of each part rather than one exam at the end of everything,
+// so a learner who stops halfway is only tested on what they actually covered.
+// A sitting is one pass — every question answered once, marked on the server,
+// 70% to pass. The rules live in server/exam.js; these routes only translate
+// HTTP into those objects and back.
 const examBlueprint = new ExamBlueprint({
-  questionCount: parseInt(process.env.EXAM_QUESTION_COUNT || '25', 10),
   passMark: parseInt(process.env.EXAM_PASS_MARK || '70', 10),
+  maxQuestions: parseInt(process.env.EXAM_MAX_QUESTIONS || '25', 10),
 });
 const examRepo = new ExamRepository(pool);
-
-// The chapters worth going back to, worst first. Returns at most `limit` of them
-// plus how many more were missed, so the advice stays usable when a learner has
-// missed something almost everywhere.
-function rankWeakModules(answers, limit) {
-  const missed = new Map();
-  for (const a of answers) {
-    if (a.correct) continue;
-    missed.set(a.module_id, (missed.get(a.module_id) || 0) + 1);
-  }
-  const ranked = [...missed.entries()]
-    .sort((a, b) => b[1] - a[1])
-    .map(([id, misses]) => ({ id, misses }));
-  return { top: ranked.slice(0, limit), moreCount: Math.max(0, ranked.length - limit) };
-}
 
 // Start a sitting. Returns the paper WITHOUT the answer key — the learner's copy
 // never contains correct_index, so the answers can't be read out of the network tab.
 app.post('/api/exam/start', async (req, res) => {
-  const { email, name } = req.body || {};
+  const { email, name, moduleId } = req.body || {};
   if (!email) return res.status(400).json({ error: 'Missing email' });
+  if (!moduleId) return res.status(400).json({ error: 'Missing moduleId' });
   try {
     const bank = await getQuizData();
-    const questions = examBlueprint.drawQuestions(bank || {});
+    const questions = examBlueprint.drawQuestions(bank || {}, moduleId);
     if (questions.length < examBlueprint.minQuestions) {
-      return res.status(503).json({ error: 'Not enough questions available to set an exam' });
+      return res.status(503).json({ error: 'This part has no quiz questions yet' });
     }
-    const attemptNo = (await examRepo.attemptCount(email)) + 1;
-    const attempt = new ExamAttempt({ email, name, questions, attemptNo });
+    const attemptNo = (await examRepo.attemptCount(email, moduleId)) + 1;
+    const attempt = new ExamAttempt({ email, name, moduleId, questions, attemptNo });
     examRepo.holdOpen(attempt);
     res.json({
       attemptId: attempt.id,
       attemptNo,
+      moduleId,
       passMark: examBlueprint.passMark,
       questions: attempt.questionsForLearner(),
     });
@@ -1084,6 +1073,7 @@ app.post('/api/exam/submit', async (req, res) => {
     await examRepo.save(result);
     res.json({
       attemptNo: result.attemptNo,
+      moduleId: result.moduleId,
       score: result.score,
       correct: result.correct,
       total: result.total,
@@ -1091,10 +1081,9 @@ app.post('/api/exam/submit', async (req, res) => {
       perfect: result.perfect,
       unanswered: result.unanswered,
       passMark: examBlueprint.passMark,
-      // Which chapters to revisit — not which option was right, so retakes stay honest.
-      // Ranked by how many were missed and capped: a learner who scores badly misses
-      // something in nearly every chapter, and a list of all 23 is no guidance at all.
-      weakModules: rankWeakModules(result.answers, 6),
+      // How many they missed, so the result can say what to re-read — but never
+      // which option was right, so a retake stays honest.
+      missedCount: result.answers.filter(a => !a.correct).length,
     });
   } catch (e) {
     console.error('[exam] submit failed:', e.message);
@@ -1105,11 +1094,11 @@ app.post('/api/exam/submit', async (req, res) => {
 // One person's exam record.
 app.get('/api/exam/history/:email', async (req, res) => {
   try {
-    const rows = await examRepo.attemptsFor(req.params.email);
-    const history = new LearnerExamHistory(req.params.email, '', rows);
-    res.json({ ...history.toJSON(), attempts: rows });
+    const rows = await examRepo.attemptsFor(req.params.email, req.query.moduleId);
+    const perPart = LearnerExamHistory.fromRows(rows).map(h => h.toJSON());
+    res.json({ email: req.params.email, parts: perPart, attempts: rows });
   } catch (e) {
-    res.status(500).json({ error: 'Could not load exam history' });
+    res.status(500).json({ error: 'Could not load quiz history' });
   }
 });
 
@@ -1121,19 +1110,20 @@ app.get('/api/admin/exam-results', adminAuth, async (req, res) => {
       examRepo.allAttempts(),
       examRepo.questionDifficulty(),
     ]);
-    const learners = LearnerExamHistory.fromRows(rows).map(h => h.toJSON());
-    const perfect = learners.filter(l => l.attemptsToPerfect !== null);
+    const histories = LearnerExamHistory.fromRows(rows);
+    const learners = LearnerExamHistory.summarisePerLearner(histories)
+      .sort((a, b) => b.totalAttempts - a.totalAttempts);
+    const withPerfect = learners.filter(l => l.averageAttemptsToPerfect !== null);
     res.json({
       passMark: examBlueprint.passMark,
-      questionCount: examBlueprint.questionCount,
-      learners: learners.sort((a, b) => b.totalAttempts - a.totalAttempts),
+      learners,
       summary: {
         learnersAttempted: learners.length,
-        learnersPassed: learners.filter(l => l.hasPassed).length,
-        learnersPerfect: perfect.length,
         totalAttempts: learners.reduce((n, l) => n + l.totalAttempts, 0),
-        averageAttemptsToPerfect: perfect.length
-          ? Math.round((perfect.reduce((n, l) => n + l.attemptsToPerfect, 0) / perfect.length) * 10) / 10
+        partSittings: histories.length,
+        partsPerfect: learners.reduce((n, l) => n + l.partsPerfect, 0),
+        averageAttemptsToPerfect: withPerfect.length
+          ? Math.round((withPerfect.reduce((n, l) => n + l.averageAttemptsToPerfect, 0) / withPerfect.length) * 10) / 10
           : null,
       },
       hardestQuestions: difficulty.slice(0, 15),

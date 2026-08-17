@@ -1,0 +1,347 @@
+[
+  {
+    "word": "You",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "have",
+    "start": 0.209,
+    "end": 0.337
+  },
+  {
+    "word": "two",
+    "start": 0.383,
+    "end": 0.569
+  },
+  {
+    "word": "options",
+    "start": 0.65,
+    "end": 1.045
+  },
+  {
+    "word": "for",
+    "start": 1.091,
+    "end": 1.242
+  },
+  {
+    "word": "how",
+    "start": 1.324,
+    "end": 1.521
+  },
+  {
+    "word": "employees",
+    "start": 1.602,
+    "end": 2.125
+  },
+  {
+    "word": "get",
+    "start": 2.171,
+    "end": 2.31
+  },
+  {
+    "word": "scheduled",
+    "start": 2.345,
+    "end": 2.786
+  },
+  {
+    "word": "through",
+    "start": 2.81,
+    "end": 3.088
+  },
+  {
+    "word": "ESS:",
+    "start": 3.239,
+    "end": 4.017
+  },
+  {
+    "word": "Auto-Schedule",
+    "start": 4.017,
+    "end": 4.83
+  },
+  {
+    "word": "—",
+    "start": 4.853,
+    "end": 5.062
+  },
+  {
+    "word": "Employees",
+    "start": 5.108,
+    "end": 5.666
+  },
+  {
+    "word": "who",
+    "start": 5.7,
+    "end": 5.817
+  },
+  {
+    "word": "apply",
+    "start": 5.875,
+    "end": 6.327
+  },
+  {
+    "word": "are",
+    "start": 6.444,
+    "end": 6.653
+  },
+  {
+    "word": "automatically",
+    "start": 6.711,
+    "end": 7.279
+  },
+  {
+    "word": "accepted",
+    "start": 7.326,
+    "end": 7.721
+  },
+  {
+    "word": "on",
+    "start": 7.767,
+    "end": 7.837
+  },
+  {
+    "word": "a",
+    "start": 7.883,
+    "end": 7.906
+  },
+  {
+    "word": "first-come,",
+    "start": 8.022,
+    "end": 8.707
+  },
+  {
+    "word": "first-served",
+    "start": 8.824,
+    "end": 9.427
+  },
+  {
+    "word": "basis",
+    "start": 9.485,
+    "end": 9.903
+  },
+  {
+    "word": "until",
+    "start": 9.985,
+    "end": 10.24
+  },
+  {
+    "word": "the",
+    "start": 10.286,
+    "end": 10.356
+  },
+  {
+    "word": "maximum",
+    "start": 10.449,
+    "end": 10.902
+  },
+  {
+    "word": "headcount",
+    "start": 10.96,
+    "end": 11.366
+  },
+  {
+    "word": "is",
+    "start": 11.401,
+    "end": 11.482
+  },
+  {
+    "word": "reached.",
+    "start": 11.564,
+    "end": 11.947
+  },
+  {
+    "word": "No",
+    "start": 12.272,
+    "end": 12.481
+  },
+  {
+    "word": "action",
+    "start": 12.574,
+    "end": 12.922
+  },
+  {
+    "word": "required",
+    "start": 12.98,
+    "end": 13.479
+  },
+  {
+    "word": "from",
+    "start": 13.526,
+    "end": 13.7
+  },
+  {
+    "word": "you.",
+    "start": 13.769,
+    "end": 14.025
+  },
+  {
+    "word": "Ideal",
+    "start": 14.176,
+    "end": 14.605
+  },
+  {
+    "word": "for",
+    "start": 14.663,
+    "end": 14.791
+  },
+  {
+    "word": "large",
+    "start": 14.872,
+    "end": 15.116
+  },
+  {
+    "word": "events.",
+    "start": 15.139,
+    "end": 15.871
+  },
+  {
+    "word": "Manual",
+    "start": 15.871,
+    "end": 16.231
+  },
+  {
+    "word": "Approval",
+    "start": 16.254,
+    "end": 16.66
+  },
+  {
+    "word": "—",
+    "start": 16.707,
+    "end": 16.753
+  },
+  {
+    "word": "Employees",
+    "start": 16.776,
+    "end": 17.67
+  },
+  {
+    "word": "apply",
+    "start": 17.996,
+    "end": 18.704
+  },
+  {
+    "word": "and",
+    "start": 18.982,
+    "end": 19.365
+  },
+  {
+    "word": "you",
+    "start": 19.447,
+    "end": 19.528
+  },
+  {
+    "word": "review",
+    "start": 19.609,
+    "end": 19.992
+  },
+  {
+    "word": "each",
+    "start": 20.143,
+    "end": 20.399
+  },
+  {
+    "word": "employees",
+    "start": 20.445,
+    "end": 21.246
+  },
+  {
+    "word": "scheduling",
+    "start": 21.42,
+    "end": 22.047
+  },
+  {
+    "word": "request",
+    "start": 22.117,
+    "end": 22.639
+  },
+  {
+    "word": "individually.",
+    "start": 22.732,
+    "end": 23.522
+  },
+  {
+    "word": "Gives",
+    "start": 23.766,
+    "end": 24.033
+  },
+  {
+    "word": "you",
+    "start": 24.068,
+    "end": 24.16
+  },
+  {
+    "word": "more",
+    "start": 24.23,
+    "end": 24.404
+  },
+  {
+    "word": "control",
+    "start": 24.439,
+    "end": 24.88
+  },
+  {
+    "word": "but",
+    "start": 24.95,
+    "end": 25.089
+  },
+  {
+    "word": "takes",
+    "start": 25.136,
+    "end": 25.484
+  },
+  {
+    "word": "significantly",
+    "start": 25.612,
+    "end": 26.494
+  },
+  {
+    "word": "more",
+    "start": 26.564,
+    "end": 26.784
+  },
+  {
+    "word": "time.",
+    "start": 26.831,
+    "end": 27.551
+  },
+  {
+    "word": "Most",
+    "start": 27.551,
+    "end": 27.876
+  },
+  {
+    "word": "high-volume",
+    "start": 27.934,
+    "end": 28.549
+  },
+  {
+    "word": "branches",
+    "start": 28.572,
+    "end": 29.013
+  },
+  {
+    "word": "use",
+    "start": 29.095,
+    "end": 29.315
+  },
+  {
+    "word": "auto-scheduling",
+    "start": 29.373,
+    "end": 30.244
+  },
+  {
+    "word": "for",
+    "start": 30.314,
+    "end": 30.453
+  },
+  {
+    "word": "large",
+    "start": 30.569,
+    "end": 30.894
+  },
+  {
+    "word": "events.",
+    "start": 30.929,
+    "end": 31.579
+  }
+]

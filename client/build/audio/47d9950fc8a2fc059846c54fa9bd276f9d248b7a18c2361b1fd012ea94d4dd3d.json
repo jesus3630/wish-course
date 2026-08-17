@@ -1,0 +1,282 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.174
+  },
+  {
+    "word": "this",
+    "start": 0.232,
+    "end": 0.372
+  },
+  {
+    "word": "module,",
+    "start": 0.441,
+    "end": 0.964
+  },
+  {
+    "word": "you",
+    "start": 1.08,
+    "end": 1.184
+  },
+  {
+    "word": "will",
+    "start": 1.231,
+    "end": 1.393
+  },
+  {
+    "word": "learn:",
+    "start": 1.44,
+    "end": 1.834
+  },
+  {
+    "word": "How",
+    "start": 2.009,
+    "end": 2.229
+  },
+  {
+    "word": "to",
+    "start": 2.299,
+    "end": 2.357
+  },
+  {
+    "word": "create",
+    "start": 2.426,
+    "end": 2.717
+  },
+  {
+    "word": "a",
+    "start": 2.74,
+    "end": 2.775
+  },
+  {
+    "word": "job",
+    "start": 2.844,
+    "end": 3.216
+  },
+  {
+    "word": "How",
+    "start": 3.39,
+    "end": 3.587
+  },
+  {
+    "word": "to",
+    "start": 3.646,
+    "end": 3.704
+  },
+  {
+    "word": "modify",
+    "start": 3.773,
+    "end": 4.238
+  },
+  {
+    "word": "an",
+    "start": 4.284,
+    "end": 4.354
+  },
+  {
+    "word": "existing",
+    "start": 4.412,
+    "end": 4.807
+  },
+  {
+    "word": "job",
+    "start": 4.865,
+    "end": 5.213
+  },
+  {
+    "word": "How",
+    "start": 5.329,
+    "end": 5.526
+  },
+  {
+    "word": "to",
+    "start": 5.573,
+    "end": 5.631
+  },
+  {
+    "word": "copy",
+    "start": 5.7,
+    "end": 5.979
+  },
+  {
+    "word": "a",
+    "start": 6.026,
+    "end": 6.06
+  },
+  {
+    "word": "job",
+    "start": 6.118,
+    "end": 6.467
+  },
+  {
+    "word": "How",
+    "start": 6.583,
+    "end": 6.792
+  },
+  {
+    "word": "to",
+    "start": 6.861,
+    "end": 6.931
+  },
+  {
+    "word": "delete",
+    "start": 7.024,
+    "end": 7.361
+  },
+  {
+    "word": "a",
+    "start": 7.407,
+    "end": 7.454
+  },
+  {
+    "word": "job",
+    "start": 7.523,
+    "end": 7.86
+  },
+  {
+    "word": "(and",
+    "start": 7.953,
+    "end": 8.197
+  },
+  {
+    "word": "why",
+    "start": 8.29,
+    "end": 8.649
+  },
+  {
+    "word": "order",
+    "start": 8.766,
+    "end": 9.056
+  },
+  {
+    "word": "matters)",
+    "start": 9.125,
+    "end": 9.613
+  },
+  {
+    "word": "Note:",
+    "start": 9.857,
+    "end": 10.228
+  },
+  {
+    "word": "If",
+    "start": 10.356,
+    "end": 10.507
+  },
+  {
+    "word": "you",
+    "start": 10.565,
+    "end": 10.646
+  },
+  {
+    "word": "have",
+    "start": 10.716,
+    "end": 10.902
+  },
+  {
+    "word": "Record",
+    "start": 10.971,
+    "end": 11.273
+  },
+  {
+    "word": "Maintenance",
+    "start": 11.32,
+    "end": 11.761
+  },
+  {
+    "word": "access,",
+    "start": 11.807,
+    "end": 12.365
+  },
+  {
+    "word": "this",
+    "start": 12.457,
+    "end": 12.69
+  },
+  {
+    "word": "module",
+    "start": 12.759,
+    "end": 13.142
+  },
+  {
+    "word": "is",
+    "start": 13.189,
+    "end": 13.27
+  },
+  {
+    "word": "included",
+    "start": 13.317,
+    "end": 13.735
+  },
+  {
+    "word": "within",
+    "start": 13.793,
+    "end": 14.187
+  },
+  {
+    "word": "that",
+    "start": 14.257,
+    "end": 14.408
+  },
+  {
+    "word": "permission.",
+    "start": 14.466,
+    "end": 15.047
+  },
+  {
+    "word": "Manage",
+    "start": 15.221,
+    "end": 15.604
+  },
+  {
+    "word": "job",
+    "start": 15.65,
+    "end": 15.929
+  },
+  {
+    "word": "is",
+    "start": 15.987,
+    "end": 16.08
+  },
+  {
+    "word": "for",
+    "start": 16.138,
+    "end": 16.266
+  },
+  {
+    "word": "users",
+    "start": 16.382,
+    "end": 16.742
+  },
+  {
+    "word": "who",
+    "start": 16.776,
+    "end": 16.892
+  },
+  {
+    "word": "create",
+    "start": 16.951,
+    "end": 17.322
+  },
+  {
+    "word": "and",
+    "start": 17.369,
+    "end": 17.496
+  },
+  {
+    "word": "modify",
+    "start": 17.566,
+    "end": 18.065
+  },
+  {
+    "word": "jobs",
+    "start": 18.158,
+    "end": 18.495
+  },
+  {
+    "word": "only.",
+    "start": 18.576,
+    "end": 19.087
+  }
+]

@@ -1,0 +1,687 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "menus",
+    "start": 0.221,
+    "end": 0.557
+  },
+  {
+    "word": "on",
+    "start": 0.604,
+    "end": 0.662
+  },
+  {
+    "word": "the",
+    "start": 0.708,
+    "end": 0.778
+  },
+  {
+    "word": "left",
+    "start": 0.848,
+    "end": 1.103
+  },
+  {
+    "word": "are",
+    "start": 1.149,
+    "end": 1.277
+  },
+  {
+    "word": "your",
+    "start": 1.324,
+    "end": 1.474
+  },
+  {
+    "word": "map",
+    "start": 1.544,
+    "end": 1.788
+  },
+  {
+    "word": "of",
+    "start": 1.904,
+    "end": 2.101
+  },
+  {
+    "word": "WISH.",
+    "start": 2.218,
+    "end": 2.775
+  },
+  {
+    "word": "Let's",
+    "start": 2.984,
+    "end": 3.193
+  },
+  {
+    "word": "walk",
+    "start": 3.228,
+    "end": 3.39
+  },
+  {
+    "word": "through",
+    "start": 3.425,
+    "end": 3.646
+  },
+  {
+    "word": "them.",
+    "start": 3.692,
+    "end": 3.901
+  },
+  {
+    "word": "Admin",
+    "start": 3.971,
+    "end": 4.342
+  },
+  {
+    "word": "handles",
+    "start": 4.4,
+    "end": 4.737
+  },
+  {
+    "word": "system",
+    "start": 4.772,
+    "end": 5.097
+  },
+  {
+    "word": "setup,",
+    "start": 5.166,
+    "end": 5.526
+  },
+  {
+    "word": "creating",
+    "start": 5.561,
+    "end": 5.909
+  },
+  {
+    "word": "companies",
+    "start": 5.968,
+    "end": 6.362
+  },
+  {
+    "word": "and",
+    "start": 6.397,
+    "end": 6.478
+  },
+  {
+    "word": "branches,",
+    "start": 6.525,
+    "end": 7.117
+  },
+  {
+    "word": "and",
+    "start": 7.291,
+    "end": 7.454
+  },
+  {
+    "word": "granting",
+    "start": 7.523,
+    "end": 7.848
+  },
+  {
+    "word": "user",
+    "start": 7.918,
+    "end": 8.185
+  },
+  {
+    "word": "access.",
+    "start": 8.278,
+    "end": 8.928
+  },
+  {
+    "word": "Billing",
+    "start": 9.172,
+    "end": 9.474
+  },
+  {
+    "word": "turns",
+    "start": 9.52,
+    "end": 9.787
+  },
+  {
+    "word": "a",
+    "start": 9.834,
+    "end": 9.868
+  },
+  {
+    "word": "completed",
+    "start": 9.927,
+    "end": 10.356
+  },
+  {
+    "word": "job",
+    "start": 10.414,
+    "end": 10.728
+  },
+  {
+    "word": "into",
+    "start": 10.786,
+    "end": 10.983
+  },
+  {
+    "word": "a",
+    "start": 11.099,
+    "end": 11.134
+  },
+  {
+    "word": "client",
+    "start": 11.192,
+    "end": 11.529
+  },
+  {
+    "word": "invoice",
+    "start": 11.575,
+    "end": 11.97
+  },
+  {
+    "word": "once",
+    "start": 12.016,
+    "end": 12.19
+  },
+  {
+    "word": "its",
+    "start": 12.225,
+    "end": 12.318
+  },
+  {
+    "word": "schedule",
+    "start": 12.341,
+    "end": 12.713
+  },
+  {
+    "word": "is",
+    "start": 12.748,
+    "end": 12.829
+  },
+  {
+    "word": "saved.",
+    "start": 12.875,
+    "end": 13.351
+  },
+  {
+    "word": "Inventory",
+    "start": 13.595,
+    "end": 14.268
+  },
+  {
+    "word": "tracks",
+    "start": 14.338,
+    "end": 14.71
+  },
+  {
+    "word": "items",
+    "start": 14.779,
+    "end": 15.104
+  },
+  {
+    "word": "used",
+    "start": 15.197,
+    "end": 15.441
+  },
+  {
+    "word": "at",
+    "start": 15.488,
+    "end": 15.557
+  },
+  {
+    "word": "events,",
+    "start": 15.615,
+    "end": 15.987
+  },
+  {
+    "word": "like",
+    "start": 16.033,
+    "end": 16.207
+  },
+  {
+    "word": "radios,",
+    "start": 16.289,
+    "end": 17.101
+  },
+  {
+    "word": "jackets,",
+    "start": 17.38,
+    "end": 18.193
+  },
+  {
+    "word": "and",
+    "start": 18.436,
+    "end": 18.576
+  },
+  {
+    "word": "other",
+    "start": 18.634,
+    "end": 18.808
+  },
+  {
+    "word": "supplies.",
+    "start": 18.854,
+    "end": 19.586
+  },
+  {
+    "word": "Records",
+    "start": 19.969,
+    "end": 20.375
+  },
+  {
+    "word": "is",
+    "start": 20.422,
+    "end": 20.503
+  },
+  {
+    "word": "where",
+    "start": 20.561,
+    "end": 20.793
+  },
+  {
+    "word": "you'll",
+    "start": 20.875,
+    "end": 21.095
+  },
+  {
+    "word": "spend",
+    "start": 21.153,
+    "end": 21.455
+  },
+  {
+    "word": "much",
+    "start": 21.606,
+    "end": 21.885
+  },
+  {
+    "word": "of",
+    "start": 21.931,
+    "end": 22.001
+  },
+  {
+    "word": "your",
+    "start": 22.07,
+    "end": 22.21
+  },
+  {
+    "word": "time,",
+    "start": 22.256,
+    "end": 22.767
+  },
+  {
+    "word": "entering,",
+    "start": 23.092,
+    "end": 23.673
+  },
+  {
+    "word": "editing,",
+    "start": 23.823,
+    "end": 24.439
+  },
+  {
+    "word": "and",
+    "start": 24.613,
+    "end": 24.787
+  },
+  {
+    "word": "updating",
+    "start": 24.88,
+    "end": 25.414
+  },
+  {
+    "word": "essential",
+    "start": 25.484,
+    "end": 25.96
+  },
+  {
+    "word": "data.",
+    "start": 26.029,
+    "end": 26.494
+  },
+  {
+    "word": "Reports",
+    "start": 26.819,
+    "end": 27.306
+  },
+  {
+    "word": "holds",
+    "start": 27.353,
+    "end": 27.62
+  },
+  {
+    "word": "your",
+    "start": 27.655,
+    "end": 27.771
+  },
+  {
+    "word": "key",
+    "start": 27.829,
+    "end": 27.991
+  },
+  {
+    "word": "documents:",
+    "start": 28.061,
+    "end": 28.758
+  },
+  {
+    "word": "alpha",
+    "start": 29.141,
+    "end": 29.431
+  },
+  {
+    "word": "rosters,",
+    "start": 29.5,
+    "end": 30.209
+  },
+  {
+    "word": "sign-in",
+    "start": 30.418,
+    "end": 31.021
+  },
+  {
+    "word": "and",
+    "start": 31.114,
+    "end": 31.3
+  },
+  {
+    "word": "sign-out",
+    "start": 31.393,
+    "end": 31.846
+  },
+  {
+    "word": "sheets,",
+    "start": 31.892,
+    "end": 32.403
+  },
+  {
+    "word": "and",
+    "start": 32.647,
+    "end": 33.157
+  },
+  {
+    "word": "payroll",
+    "start": 33.541,
+    "end": 33.959
+  },
+  {
+    "word": "and",
+    "start": 33.993,
+    "end": 34.063
+  },
+  {
+    "word": "billing",
+    "start": 34.098,
+    "end": 34.33
+  },
+  {
+    "word": "reports.",
+    "start": 34.365,
+    "end": 34.922
+  },
+  {
+    "word": "Scheduling",
+    "start": 35.166,
+    "end": 35.665
+  },
+  {
+    "word": "is",
+    "start": 35.712,
+    "end": 35.781
+  },
+  {
+    "word": "used",
+    "start": 35.851,
+    "end": 36.025
+  },
+  {
+    "word": "by",
+    "start": 36.048,
+    "end": 36.141
+  },
+  {
+    "word": "your",
+    "start": 36.211,
+    "end": 36.327
+  },
+  {
+    "word": "branch",
+    "start": 36.373,
+    "end": 36.687
+  },
+  {
+    "word": "to",
+    "start": 36.733,
+    "end": 36.815
+  },
+  {
+    "word": "assign",
+    "start": 36.907,
+    "end": 37.279
+  },
+  {
+    "word": "employees",
+    "start": 37.325,
+    "end": 37.906
+  },
+  {
+    "word": "to",
+    "start": 37.964,
+    "end": 38.045
+  },
+  {
+    "word": "jobs,",
+    "start": 38.161,
+    "end": 38.73
+  },
+  {
+    "word": "by",
+    "start": 38.846,
+    "end": 39.009
+  },
+  {
+    "word": "employee",
+    "start": 39.079,
+    "end": 39.798
+  },
+  {
+    "word": "or",
+    "start": 39.926,
+    "end": 40.123
+  },
+  {
+    "word": "by",
+    "start": 40.205,
+    "end": 40.367
+  },
+  {
+    "word": "job.",
+    "start": 40.449,
+    "end": 40.983
+  },
+  {
+    "word": "Payroll",
+    "start": 41.226,
+    "end": 41.61
+  },
+  {
+    "word": "is",
+    "start": 41.668,
+    "end": 41.726
+  },
+  {
+    "word": "where",
+    "start": 41.784,
+    "end": 41.958
+  },
+  {
+    "word": "staff",
+    "start": 42.004,
+    "end": 42.318
+  },
+  {
+    "word": "review",
+    "start": 42.387,
+    "end": 42.759
+  },
+  {
+    "word": "and",
+    "start": 42.875,
+    "end": 43.026
+  },
+  {
+    "word": "approve",
+    "start": 43.072,
+    "end": 43.514
+  },
+  {
+    "word": "work",
+    "start": 43.572,
+    "end": 43.792
+  },
+  {
+    "word": "hours",
+    "start": 43.85,
+    "end": 44.245
+  },
+  {
+    "word": "after",
+    "start": 44.361,
+    "end": 44.698
+  },
+  {
+    "word": "an",
+    "start": 44.744,
+    "end": 44.791
+  },
+  {
+    "word": "event.",
+    "start": 44.849,
+    "end": 45.232
+  },
+  {
+    "word": "And",
+    "start": 45.476,
+    "end": 45.685
+  },
+  {
+    "word": "Time",
+    "start": 45.766,
+    "end": 46.126
+  },
+  {
+    "word": "Clock",
+    "start": 46.161,
+    "end": 46.463
+  },
+  {
+    "word": "runs",
+    "start": 46.579,
+    "end": 46.857
+  },
+  {
+    "word": "on-site,",
+    "start": 46.927,
+    "end": 47.705
+  },
+  {
+    "word": "where",
+    "start": 47.879,
+    "end": 48.111
+  },
+  {
+    "word": "employees",
+    "start": 48.134,
+    "end": 48.622
+  },
+  {
+    "word": "sign",
+    "start": 48.68,
+    "end": 49.063
+  },
+  {
+    "word": "in",
+    "start": 49.179,
+    "end": 49.458
+  },
+  {
+    "word": "and",
+    "start": 49.528,
+    "end": 49.644
+  },
+  {
+    "word": "out",
+    "start": 49.702,
+    "end": 49.795
+  },
+  {
+    "word": "of",
+    "start": 49.818,
+    "end": 49.864
+  },
+  {
+    "word": "their",
+    "start": 49.899,
+    "end": 50.027
+  },
+  {
+    "word": "shifts.",
+    "start": 50.062,
+    "end": 50.503
+  },
+  {
+    "word": "You'll",
+    "start": 50.712,
+    "end": 50.944
+  },
+  {
+    "word": "only",
+    "start": 51.025,
+    "end": 51.281
+  },
+  {
+    "word": "ever",
+    "start": 51.35,
+    "end": 51.536
+  },
+  {
+    "word": "see",
+    "start": 51.583,
+    "end": 51.734
+  },
+  {
+    "word": "the",
+    "start": 51.768,
+    "end": 51.838
+  },
+  {
+    "word": "menus",
+    "start": 51.885,
+    "end": 52.198
+  },
+  {
+    "word": "your",
+    "start": 52.244,
+    "end": 52.395
+  },
+  {
+    "word": "role",
+    "start": 52.453,
+    "end": 52.778
+  },
+  {
+    "word": "and",
+    "start": 52.825,
+    "end": 52.976
+  },
+  {
+    "word": "completed",
+    "start": 53.034,
+    "end": 53.475
+  },
+  {
+    "word": "training",
+    "start": 53.51,
+    "end": 53.835
+  },
+  {
+    "word": "allow.",
+    "start": 53.881,
+    "end": 54.427
+  }
+]

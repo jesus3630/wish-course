@@ -1,0 +1,502 @@
+[
+  {
+    "word": "The",
+    "start": 0,
+    "end": 0.128
+  },
+  {
+    "word": "Shared",
+    "start": 0.174,
+    "end": 0.383
+  },
+  {
+    "word": "Branches",
+    "start": 0.406,
+    "end": 0.708
+  },
+  {
+    "word": "tab",
+    "start": 0.755,
+    "end": 0.94
+  },
+  {
+    "word": "controls",
+    "start": 0.998,
+    "end": 1.428
+  },
+  {
+    "word": "which",
+    "start": 1.509,
+    "end": 1.695
+  },
+  {
+    "word": "branches",
+    "start": 1.753,
+    "end": 2.194
+  },
+  {
+    "word": "beyond",
+    "start": 2.264,
+    "end": 2.589
+  },
+  {
+    "word": "the",
+    "start": 2.624,
+    "end": 2.694
+  },
+  {
+    "word": "employee's",
+    "start": 2.763,
+    "end": 3.17
+  },
+  {
+    "word": "home",
+    "start": 3.204,
+    "end": 3.379
+  },
+  {
+    "word": "branch",
+    "start": 3.402,
+    "end": 3.704
+  },
+  {
+    "word": "can",
+    "start": 3.727,
+    "end": 3.843
+  },
+  {
+    "word": "see",
+    "start": 3.889,
+    "end": 4.052
+  },
+  {
+    "word": "and",
+    "start": 4.075,
+    "end": 4.145
+  },
+  {
+    "word": "schedule",
+    "start": 4.18,
+    "end": 4.528
+  },
+  {
+    "word": "them.",
+    "start": 4.563,
+    "end": 4.957
+  },
+  {
+    "word": "When",
+    "start": 4.957,
+    "end": 5.143
+  },
+  {
+    "word": "an",
+    "start": 5.178,
+    "end": 5.248
+  },
+  {
+    "word": "employee",
+    "start": 5.283,
+    "end": 5.747
+  },
+  {
+    "word": "is",
+    "start": 5.817,
+    "end": 5.909
+  },
+  {
+    "word": "shared",
+    "start": 5.968,
+    "end": 6.235
+  },
+  {
+    "word": "to",
+    "start": 6.269,
+    "end": 6.351
+  },
+  {
+    "word": "another",
+    "start": 6.42,
+    "end": 6.676
+  },
+  {
+    "word": "branch:",
+    "start": 6.711,
+    "end": 7.535
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 7.535,
+    "end": 13.375
+  },
+  {
+    "word": "That",
+    "start": 13.572,
+    "end": 13.793
+  },
+  {
+    "word": "branch",
+    "start": 13.839,
+    "end": 14.106
+  },
+  {
+    "word": "can",
+    "start": 14.141,
+    "end": 14.257
+  },
+  {
+    "word": "search",
+    "start": 14.303,
+    "end": 14.512
+  },
+  {
+    "word": "for",
+    "start": 14.547,
+    "end": 14.64
+  },
+  {
+    "word": "them",
+    "start": 14.687,
+    "end": 14.838
+  },
+  {
+    "word": "in",
+    "start": 14.907,
+    "end": 15.012
+  },
+  {
+    "word": "Manage",
+    "start": 15.116,
+    "end": 15.453
+  },
+  {
+    "word": "Employee",
+    "start": 15.476,
+    "end": 16.404
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 16.404,
+    "end": 21.269
+  },
+  {
+    "word": "That",
+    "start": 21.536,
+    "end": 21.757
+  },
+  {
+    "word": "branch",
+    "start": 21.791,
+    "end": 22.059
+  },
+  {
+    "word": "can",
+    "start": 22.093,
+    "end": 22.163
+  },
+  {
+    "word": "schedule",
+    "start": 22.186,
+    "end": 22.384
+  },
+  {
+    "word": "them",
+    "start": 22.395,
+    "end": 22.476
+  },
+  {
+    "word": "for",
+    "start": 22.5,
+    "end": 22.569
+  },
+  {
+    "word": "their",
+    "start": 22.581,
+    "end": 22.674
+  },
+  {
+    "word": "jobs",
+    "start": 22.697,
+    "end": 23.173
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 23.173,
+    "end": 26.633
+  },
+  {
+    "word": "The",
+    "start": 26.737,
+    "end": 26.807
+  },
+  {
+    "word": "employee's",
+    "start": 26.842,
+    "end": 27.12
+  },
+  {
+    "word": "record",
+    "start": 27.155,
+    "end": 27.353
+  },
+  {
+    "word": "and",
+    "start": 27.387,
+    "end": 27.469
+  },
+  {
+    "word": "pay",
+    "start": 27.504,
+    "end": 27.585
+  },
+  {
+    "word": "rate",
+    "start": 27.631,
+    "end": 27.724
+  },
+  {
+    "word": "information",
+    "start": 27.759,
+    "end": 28.061
+  },
+  {
+    "word": "becomes",
+    "start": 28.096,
+    "end": 28.305
+  },
+  {
+    "word": "visible",
+    "start": 28.328,
+    "end": 28.56
+  },
+  {
+    "word": "to",
+    "start": 28.583,
+    "end": 28.63
+  },
+  {
+    "word": "that",
+    "start": 28.676,
+    "end": 28.769
+  },
+  {
+    "word": "branch",
+    "start": 28.792,
+    "end": 29.175
+  },
+  {
+    "word": "Common",
+    "start": 29.175,
+    "end": 29.373
+  },
+  {
+    "word": "use",
+    "start": 29.419,
+    "end": 29.512
+  },
+  {
+    "word": "cases:",
+    "start": 29.535,
+    "end": 30.081
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 30.081,
+    "end": 33.448
+  },
+  {
+    "word": "Large",
+    "start": 33.645,
+    "end": 33.843
+  },
+  {
+    "word": "events",
+    "start": 33.854,
+    "end": 34.121
+  },
+  {
+    "word": "where",
+    "start": 34.226,
+    "end": 34.353
+  },
+  {
+    "word": "staff",
+    "start": 34.377,
+    "end": 34.551
+  },
+  {
+    "word": "from",
+    "start": 34.574,
+    "end": 34.655
+  },
+  {
+    "word": "multiple",
+    "start": 34.702,
+    "end": 34.945
+  },
+  {
+    "word": "locations",
+    "start": 34.969,
+    "end": 35.282
+  },
+  {
+    "word": "are",
+    "start": 35.305,
+    "end": 35.375
+  },
+  {
+    "word": "needed",
+    "start": 35.398,
+    "end": 35.793
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 35.793,
+    "end": 43.49
+  },
+  {
+    "word": "Employees",
+    "start": 43.815,
+    "end": 44.57
+  },
+  {
+    "word": "who",
+    "start": 44.628,
+    "end": 44.814
+  },
+  {
+    "word": "regularly",
+    "start": 44.93,
+    "end": 45.476
+  },
+  {
+    "word": "work",
+    "start": 45.557,
+    "end": 45.824
+  },
+  {
+    "word": "across",
+    "start": 45.894,
+    "end": 46.288
+  },
+  {
+    "word": "multiple",
+    "start": 46.37,
+    "end": 46.811
+  },
+  {
+    "word": "branches",
+    "start": 46.846,
+    "end": 47.577
+  },
+  {
+    "word": "Add",
+    "start": 47.577,
+    "end": 47.867
+  },
+  {
+    "word": "branches",
+    "start": 47.925,
+    "end": 48.378
+  },
+  {
+    "word": "carefully,",
+    "start": 48.448,
+    "end": 49.098
+  },
+  {
+    "word": "sharing",
+    "start": 49.191,
+    "end": 49.597
+  },
+  {
+    "word": "an",
+    "start": 49.644,
+    "end": 49.702
+  },
+  {
+    "word": "employee",
+    "start": 49.737,
+    "end": 50.34
+  },
+  {
+    "word": "gives",
+    "start": 50.41,
+    "end": 50.642
+  },
+  {
+    "word": "another",
+    "start": 50.689,
+    "end": 51.072
+  },
+  {
+    "word": "branch",
+    "start": 51.118,
+    "end": 51.443
+  },
+  {
+    "word": "access",
+    "start": 51.513,
+    "end": 51.989
+  },
+  {
+    "word": "to",
+    "start": 52.035,
+    "end": 52.105
+  },
+  {
+    "word": "their",
+    "start": 52.175,
+    "end": 52.326
+  },
+  {
+    "word": "record",
+    "start": 52.407,
+    "end": 52.72
+  },
+  {
+    "word": "information.",
+    "start": 52.755,
+    "end": 53.591
+  },
+  {
+    "word": "Remove",
+    "start": 53.916,
+    "end": 54.299
+  },
+  {
+    "word": "the",
+    "start": 54.334,
+    "end": 54.404
+  },
+  {
+    "word": "sharing",
+    "start": 54.45,
+    "end": 54.833
+  },
+  {
+    "word": "when",
+    "start": 54.88,
+    "end": 55.008
+  },
+  {
+    "word": "it's",
+    "start": 55.042,
+    "end": 55.17
+  },
+  {
+    "word": "no",
+    "start": 55.228,
+    "end": 55.333
+  },
+  {
+    "word": "longer",
+    "start": 55.414,
+    "end": 55.693
+  },
+  {
+    "word": "needed.",
+    "start": 55.751,
+    "end": 56.331
+  }
+]

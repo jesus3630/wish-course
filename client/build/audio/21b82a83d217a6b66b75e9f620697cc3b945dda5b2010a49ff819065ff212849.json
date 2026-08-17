@@ -1,0 +1,547 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.186
+  },
+  {
+    "word": "to",
+    "start": 0.267,
+    "end": 0.337
+  },
+  {
+    "word": "Inventory",
+    "start": 0.418,
+    "end": 0.906
+  },
+  {
+    "word": "to",
+    "start": 0.964,
+    "end": 1.091
+  },
+  {
+    "word": "Item",
+    "start": 1.242,
+    "end": 1.509
+  },
+  {
+    "word": "job",
+    "start": 1.567,
+    "end": 1.776
+  },
+  {
+    "word": "Equipment.",
+    "start": 1.823,
+    "end": 2.264
+  },
+  {
+    "word": "This",
+    "start": 2.299,
+    "end": 2.485
+  },
+  {
+    "word": "screen",
+    "start": 2.508,
+    "end": 2.775
+  },
+  {
+    "word": "shows",
+    "start": 2.833,
+    "end": 3.1
+  },
+  {
+    "word": "the",
+    "start": 3.146,
+    "end": 3.228
+  },
+  {
+    "word": "items",
+    "start": 3.297,
+    "end": 3.553
+  },
+  {
+    "word": "assigned",
+    "start": 3.587,
+    "end": 3.924
+  },
+  {
+    "word": "to",
+    "start": 3.947,
+    "end": 4.005
+  },
+  {
+    "word": "jobs",
+    "start": 4.087,
+    "end": 4.516
+  },
+  {
+    "word": "and",
+    "start": 4.586,
+    "end": 4.772
+  },
+  {
+    "word": "their",
+    "start": 4.83,
+    "end": 4.981
+  },
+  {
+    "word": "current",
+    "start": 5.05,
+    "end": 5.341
+  },
+  {
+    "word": "quantities.",
+    "start": 5.387,
+    "end": 6.002
+  },
+  {
+    "word": "Set",
+    "start": 6.002,
+    "end": 6.235
+  },
+  {
+    "word": "the",
+    "start": 6.281,
+    "end": 6.351
+  },
+  {
+    "word": "Category",
+    "start": 6.409,
+    "end": 6.943
+  },
+  {
+    "word": "dropdown.",
+    "start": 7.012,
+    "end": 7.674
+  },
+  {
+    "word": "Choose",
+    "start": 7.709,
+    "end": 7.976
+  },
+  {
+    "word": "job",
+    "start": 8.011,
+    "end": 8.22
+  },
+  {
+    "word": "Equipment",
+    "start": 8.266,
+    "end": 8.649
+  },
+  {
+    "word": "for",
+    "start": 8.684,
+    "end": 8.835
+  },
+  {
+    "word": "consumable",
+    "start": 8.928,
+    "end": 9.497
+  },
+  {
+    "word": "supplies,",
+    "start": 9.532,
+    "end": 10.124
+  },
+  {
+    "word": "or",
+    "start": 10.17,
+    "end": 10.333
+  },
+  {
+    "word": "Inventory",
+    "start": 10.449,
+    "end": 10.971
+  },
+  {
+    "word": "Items",
+    "start": 11.064,
+    "end": 11.366
+  },
+  {
+    "word": "for",
+    "start": 11.413,
+    "end": 11.552
+  },
+  {
+    "word": "tracked",
+    "start": 11.622,
+    "end": 11.947
+  },
+  {
+    "word": "assets.",
+    "start": 12.005,
+    "end": 12.574
+  },
+  {
+    "word": "Then",
+    "start": 12.644,
+    "end": 12.853
+  },
+  {
+    "word": "select",
+    "start": 12.911,
+    "end": 13.178
+  },
+  {
+    "word": "your",
+    "start": 13.213,
+    "end": 13.317
+  },
+  {
+    "word": "branch",
+    "start": 13.352,
+    "end": 13.654
+  },
+  {
+    "word": "and",
+    "start": 13.712,
+    "end": 13.851
+  },
+  {
+    "word": "click",
+    "start": 13.898,
+    "end": 14.13
+  },
+  {
+    "word": "Search.",
+    "start": 14.246,
+    "end": 14.85
+  },
+  {
+    "word": "In",
+    "start": 14.85,
+    "end": 14.989
+  },
+  {
+    "word": "the",
+    "start": 15.001,
+    "end": 15.047
+  },
+  {
+    "word": "results",
+    "start": 15.093,
+    "end": 15.453
+  },
+  {
+    "word": "list:",
+    "start": 15.72,
+    "end": 16.603
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 16.603,
+    "end": 20.55
+  },
+  {
+    "word": "Use",
+    "start": 20.782,
+    "end": 21.003
+  },
+  {
+    "word": "the",
+    "start": 21.026,
+    "end": 21.084
+  },
+  {
+    "word": "plus",
+    "start": 21.131,
+    "end": 21.409
+  },
+  {
+    "word": "and",
+    "start": 21.467,
+    "end": 21.607
+  },
+  {
+    "word": "minus",
+    "start": 21.688,
+    "end": 21.967
+  },
+  {
+    "word": "buttons",
+    "start": 22.013,
+    "end": 22.268
+  },
+  {
+    "word": "under",
+    "start": 22.35,
+    "end": 22.512
+  },
+  {
+    "word": "Action",
+    "start": 22.559,
+    "end": 22.802
+  },
+  {
+    "word": "to",
+    "start": 22.849,
+    "end": 22.919
+  },
+  {
+    "word": "adjust",
+    "start": 22.977,
+    "end": 23.186
+  },
+  {
+    "word": "quantities",
+    "start": 23.232,
+    "end": 23.615
+  },
+  {
+    "word": "as",
+    "start": 23.662,
+    "end": 23.789
+  },
+  {
+    "word": "items",
+    "start": 23.871,
+    "end": 24.091
+  },
+  {
+    "word": "are",
+    "start": 24.126,
+    "end": 24.196
+  },
+  {
+    "word": "staged",
+    "start": 24.23,
+    "end": 24.544
+  },
+  {
+    "word": "or",
+    "start": 24.59,
+    "end": 24.66
+  },
+  {
+    "word": "returned",
+    "start": 24.706,
+    "end": 25.299
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 25.299,
+    "end": 28.631
+  },
+  {
+    "word": "Use",
+    "start": 28.828,
+    "end": 29.049
+  },
+  {
+    "word": "the",
+    "start": 29.072,
+    "end": 29.13
+  },
+  {
+    "word": "pencil",
+    "start": 29.165,
+    "end": 29.409
+  },
+  {
+    "word": "icon",
+    "start": 29.467,
+    "end": 29.768
+  },
+  {
+    "word": "to",
+    "start": 29.803,
+    "end": 29.873
+  },
+  {
+    "word": "edit",
+    "start": 29.931,
+    "end": 30.117
+  },
+  {
+    "word": "an",
+    "start": 30.152,
+    "end": 30.21
+  },
+  {
+    "word": "item's",
+    "start": 30.256,
+    "end": 30.5
+  },
+  {
+    "word": "details",
+    "start": 30.523,
+    "end": 31.185
+  },
+  {
+    "word": "ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¢",
+    "start": 31.185,
+    "end": 34.645
+  },
+  {
+    "word": "Use",
+    "start": 34.889,
+    "end": 35.109
+  },
+  {
+    "word": "the",
+    "start": 35.132,
+    "end": 35.202
+  },
+  {
+    "word": "trash",
+    "start": 35.237,
+    "end": 35.539
+  },
+  {
+    "word": "icon",
+    "start": 35.608,
+    "end": 35.98
+  },
+  {
+    "word": "to",
+    "start": 36.026,
+    "end": 36.084
+  },
+  {
+    "word": "remove",
+    "start": 36.154,
+    "end": 36.421
+  },
+  {
+    "word": "an",
+    "start": 36.444,
+    "end": 36.502
+  },
+  {
+    "word": "item",
+    "start": 36.56,
+    "end": 37.245
+  },
+  {
+    "word": "Common",
+    "start": 37.245,
+    "end": 37.559
+  },
+  {
+    "word": "items",
+    "start": 37.617,
+    "end": 37.838
+  },
+  {
+    "word": "you'll",
+    "start": 37.861,
+    "end": 38.023
+  },
+  {
+    "word": "see",
+    "start": 38.07,
+    "end": 38.221
+  },
+  {
+    "word": "here:",
+    "start": 38.279,
+    "end": 38.604
+  },
+  {
+    "word": "earplugs,",
+    "start": 38.72,
+    "end": 39.393
+  },
+  {
+    "word": "hand",
+    "start": 39.463,
+    "end": 39.684
+  },
+  {
+    "word": "warmers,",
+    "start": 39.742,
+    "end": 40.218
+  },
+  {
+    "word": "nitrile",
+    "start": 40.287,
+    "end": 40.67
+  },
+  {
+    "word": "gloves,",
+    "start": 40.705,
+    "end": 41.263
+  },
+  {
+    "word": "ponchos,",
+    "start": 41.379,
+    "end": 42.052
+  },
+  {
+    "word": "and",
+    "start": 42.087,
+    "end": 42.249
+  },
+  {
+    "word": "sunscreen",
+    "start": 42.319,
+    "end": 42.818
+  },
+  {
+    "word": "packets.",
+    "start": 42.876,
+    "end": 43.41
+  },
+  {
+    "word": "Keep",
+    "start": 43.852,
+    "end": 44.061
+  },
+  {
+    "word": "quantities",
+    "start": 44.13,
+    "end": 44.606
+  },
+  {
+    "word": "current",
+    "start": 44.664,
+    "end": 44.966
+  },
+  {
+    "word": "so",
+    "start": 45.013,
+    "end": 45.129
+  },
+  {
+    "word": "your",
+    "start": 45.198,
+    "end": 45.314
+  },
+  {
+    "word": "on-site",
+    "start": 45.384,
+    "end": 45.825
+  },
+  {
+    "word": "team",
+    "start": 45.848,
+    "end": 46.092
+  },
+  {
+    "word": "knows",
+    "start": 46.15,
+    "end": 46.394
+  },
+  {
+    "word": "what",
+    "start": 46.429,
+    "end": 46.545
+  },
+  {
+    "word": "has",
+    "start": 46.58,
+    "end": 46.661
+  },
+  {
+    "word": "been",
+    "start": 46.696,
+    "end": 46.847
+  },
+  {
+    "word": "allocated.",
+    "start": 46.905,
+    "end": 47.694
+  }
+]

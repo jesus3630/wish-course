@@ -1,0 +1,507 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.163
+  },
+  {
+    "word": "to",
+    "start": 0.197,
+    "end": 0.244
+  },
+  {
+    "word": "the",
+    "start": 0.302,
+    "end": 0.372
+  },
+  {
+    "word": "Tools",
+    "start": 0.43,
+    "end": 0.743
+  },
+  {
+    "word": "menu",
+    "start": 0.801,
+    "end": 1.022
+  },
+  {
+    "word": "in",
+    "start": 1.08,
+    "end": 1.138
+  },
+  {
+    "word": "the",
+    "start": 1.184,
+    "end": 1.254
+  },
+  {
+    "word": "sidebar",
+    "start": 1.3,
+    "end": 1.869
+  },
+  {
+    "word": "and",
+    "start": 1.95,
+    "end": 2.101
+  },
+  {
+    "word": "select",
+    "start": 2.148,
+    "end": 2.519
+  },
+  {
+    "word": "Manager",
+    "start": 2.635,
+    "end": 3.03
+  },
+  {
+    "word": "Portal",
+    "start": 3.111,
+    "end": 3.448
+  },
+  {
+    "word": "(MSS).",
+    "start": 3.692,
+    "end": 7.744
+  },
+  {
+    "word": "This",
+    "start": 8.127,
+    "end": 8.371
+  },
+  {
+    "word": "opens",
+    "start": 8.464,
+    "end": 8.789
+  },
+  {
+    "word": "the",
+    "start": 8.847,
+    "end": 8.94
+  },
+  {
+    "word": "WISH",
+    "start": 9.033,
+    "end": 9.346
+  },
+  {
+    "word": "Manager",
+    "start": 9.462,
+    "end": 9.857
+  },
+  {
+    "word": "Self-Service",
+    "start": 9.938,
+    "end": 10.565
+  },
+  {
+    "word": "portal",
+    "start": 10.612,
+    "end": 10.913
+  },
+  {
+    "word": "—",
+    "start": 11.064,
+    "end": 11.122
+  },
+  {
+    "word": "a",
+    "start": 11.204,
+    "end": 11.285
+  },
+  {
+    "word": "separate",
+    "start": 11.401,
+    "end": 11.761
+  },
+  {
+    "word": "system",
+    "start": 11.796,
+    "end": 12.109
+  },
+  {
+    "word": "from",
+    "start": 12.156,
+    "end": 12.283
+  },
+  {
+    "word": "the",
+    "start": 12.318,
+    "end": 12.388
+  },
+  {
+    "word": "main",
+    "start": 12.446,
+    "end": 12.643
+  },
+  {
+    "word": "WISH",
+    "start": 12.736,
+    "end": 12.968
+  },
+  {
+    "word": "application,",
+    "start": 13.015,
+    "end": 13.7
+  },
+  {
+    "word": "built",
+    "start": 13.758,
+    "end": 13.978
+  },
+  {
+    "word": "specifically",
+    "start": 14.002,
+    "end": 14.512
+  },
+  {
+    "word": "for",
+    "start": 14.547,
+    "end": 14.652
+  },
+  {
+    "word": "managers.",
+    "start": 14.698,
+    "end": 15.29
+  },
+  {
+    "word": "The",
+    "start": 15.314,
+    "end": 15.418
+  },
+  {
+    "word": "three",
+    "start": 15.476,
+    "end": 15.662
+  },
+  {
+    "word": "sections",
+    "start": 15.708,
+    "end": 16.091
+  },
+  {
+    "word": "you",
+    "start": 16.138,
+    "end": 16.208
+  },
+  {
+    "word": "will",
+    "start": 16.243,
+    "end": 16.382
+  },
+  {
+    "word": "use",
+    "start": 16.463,
+    "end": 16.684
+  },
+  {
+    "word": "most",
+    "start": 16.742,
+    "end": 16.974
+  },
+  {
+    "word": "often",
+    "start": 17.044,
+    "end": 17.334
+  },
+  {
+    "word": "are:",
+    "start": 17.404,
+    "end": 17.799
+  },
+  {
+    "word": "*",
+    "start": 17.857,
+    "end": 17.973
+  },
+  {
+    "word": "Web",
+    "start": 18.089,
+    "end": 18.344
+  },
+  {
+    "word": "Shift",
+    "start": 18.414,
+    "end": 18.774
+  },
+  {
+    "word": "—",
+    "start": 18.832,
+    "end": 18.878
+  },
+  {
+    "word": "publish",
+    "start": 19.006,
+    "end": 19.378
+  },
+  {
+    "word": "open",
+    "start": 19.436,
+    "end": 19.656
+  },
+  {
+    "word": "shifts",
+    "start": 19.714,
+    "end": 19.946
+  },
+  {
+    "word": "to",
+    "start": 19.97,
+    "end": 20.028
+  },
+  {
+    "word": "the",
+    "start": 20.086,
+    "end": 20.155
+  },
+  {
+    "word": "portal",
+    "start": 20.202,
+    "end": 20.492
+  },
+  {
+    "word": "so",
+    "start": 20.539,
+    "end": 20.631
+  },
+  {
+    "word": "employees",
+    "start": 20.701,
+    "end": 21.142
+  },
+  {
+    "word": "can",
+    "start": 21.189,
+    "end": 21.305
+  },
+  {
+    "word": "request",
+    "start": 21.363,
+    "end": 21.746
+  },
+  {
+    "word": "them",
+    "start": 21.792,
+    "end": 21.943
+  },
+  {
+    "word": "online",
+    "start": 22.025,
+    "end": 22.71
+  },
+  {
+    "word": "*",
+    "start": 22.744,
+    "end": 22.861
+  },
+  {
+    "word": "Web",
+    "start": 23.035,
+    "end": 23.278
+  },
+  {
+    "word": "Shift",
+    "start": 23.337,
+    "end": 23.604
+  },
+  {
+    "word": "Approval",
+    "start": 23.65,
+    "end": 24.138
+  },
+  {
+    "word": "—",
+    "start": 24.254,
+    "end": 24.3
+  },
+  {
+    "word": "review",
+    "start": 24.509,
+    "end": 24.846
+  },
+  {
+    "word": "and",
+    "start": 24.892,
+    "end": 24.962
+  },
+  {
+    "word": "approve",
+    "start": 24.997,
+    "end": 25.426
+  },
+  {
+    "word": "or",
+    "start": 25.473,
+    "end": 25.554
+  },
+  {
+    "word": "deny",
+    "start": 25.612,
+    "end": 25.937
+  },
+  {
+    "word": "employee",
+    "start": 26.007,
+    "end": 26.39
+  },
+  {
+    "word": "requests",
+    "start": 26.46,
+    "end": 26.936
+  },
+  {
+    "word": "that",
+    "start": 26.97,
+    "end": 27.11
+  },
+  {
+    "word": "come",
+    "start": 27.168,
+    "end": 27.365
+  },
+  {
+    "word": "in",
+    "start": 27.412,
+    "end": 27.563
+  },
+  {
+    "word": "*",
+    "start": 27.737,
+    "end": 28.015
+  },
+  {
+    "word": "Web",
+    "start": 28.189,
+    "end": 28.445
+  },
+  {
+    "word": "Shift",
+    "start": 28.503,
+    "end": 28.747
+  },
+  {
+    "word": "Report",
+    "start": 28.805,
+    "end": 29.234
+  },
+  {
+    "word": "—",
+    "start": 29.281,
+    "end": 29.385
+  },
+  {
+    "word": "view",
+    "start": 29.559,
+    "end": 29.768
+  },
+  {
+    "word": "a",
+    "start": 29.826,
+    "end": 29.861
+  },
+  {
+    "word": "summary",
+    "start": 29.919,
+    "end": 30.267
+  },
+  {
+    "word": "of",
+    "start": 30.325,
+    "end": 30.395
+  },
+  {
+    "word": "all",
+    "start": 30.465,
+    "end": 30.662
+  },
+  {
+    "word": "web",
+    "start": 30.72,
+    "end": 30.918
+  },
+  {
+    "word": "shift",
+    "start": 30.964,
+    "end": 31.208
+  },
+  {
+    "word": "activity",
+    "start": 31.266,
+    "end": 31.788
+  },
+  {
+    "word": "for",
+    "start": 31.916,
+    "end": 32.067
+  },
+  {
+    "word": "your",
+    "start": 32.113,
+    "end": 32.206
+  },
+  {
+    "word": "branch",
+    "start": 32.229,
+    "end": 32.694
+  },
+  {
+    "word": "Your",
+    "start": 33.135,
+    "end": 33.321
+  },
+  {
+    "word": "upcoming",
+    "start": 33.356,
+    "end": 33.704
+  },
+  {
+    "word": "events",
+    "start": 33.75,
+    "end": 33.983
+  },
+  {
+    "word": "are",
+    "start": 34.006,
+    "end": 34.099
+  },
+  {
+    "word": "listed",
+    "start": 34.133,
+    "end": 34.366
+  },
+  {
+    "word": "on",
+    "start": 34.401,
+    "end": 34.459
+  },
+  {
+    "word": "the",
+    "start": 34.493,
+    "end": 34.563
+  },
+  {
+    "word": "home",
+    "start": 34.609,
+    "end": 34.807
+  },
+  {
+    "word": "screen",
+    "start": 34.83,
+    "end": 35.144
+  },
+  {
+    "word": "for",
+    "start": 35.213,
+    "end": 35.353
+  },
+  {
+    "word": "quick",
+    "start": 35.445,
+    "end": 35.678
+  },
+  {
+    "word": "reference.",
+    "start": 35.736,
+    "end": 36.502
+  }
+]

@@ -1,0 +1,467 @@
+[
+  {
+    "word": "If",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "you",
+    "start": 0.209,
+    "end": 0.302
+  },
+  {
+    "word": "operate",
+    "start": 0.395,
+    "end": 0.743
+  },
+  {
+    "word": "in",
+    "start": 0.766,
+    "end": 0.813
+  },
+  {
+    "word": "California,",
+    "start": 0.848,
+    "end": 1.614
+  },
+  {
+    "word": "meal",
+    "start": 1.707,
+    "end": 1.974
+  },
+  {
+    "word": "and",
+    "start": 2.032,
+    "end": 2.113
+  },
+  {
+    "word": "rest",
+    "start": 2.171,
+    "end": 2.357
+  },
+  {
+    "word": "breaks",
+    "start": 2.415,
+    "end": 2.74
+  },
+  {
+    "word": "must",
+    "start": 2.821,
+    "end": 3.042
+  },
+  {
+    "word": "be",
+    "start": 3.1,
+    "end": 3.204
+  },
+  {
+    "word": "tracked",
+    "start": 3.262,
+    "end": 3.587
+  },
+  {
+    "word": "carefully",
+    "start": 3.657,
+    "end": 4.307
+  },
+  {
+    "word": "when",
+    "start": 4.423,
+    "end": 4.621
+  },
+  {
+    "word": "you",
+    "start": 4.656,
+    "end": 4.737
+  },
+  {
+    "word": "process",
+    "start": 4.807,
+    "end": 5.259
+  },
+  {
+    "word": "hours.",
+    "start": 5.317,
+    "end": 5.84
+  },
+  {
+    "word": "Employees",
+    "start": 6.084,
+    "end": 6.653
+  },
+  {
+    "word": "are",
+    "start": 6.699,
+    "end": 6.827
+  },
+  {
+    "word": "generally",
+    "start": 6.896,
+    "end": 7.256
+  },
+  {
+    "word": "entitled",
+    "start": 7.303,
+    "end": 7.79
+  },
+  {
+    "word": "to",
+    "start": 7.825,
+    "end": 7.918
+  },
+  {
+    "word": "an",
+    "start": 8.011,
+    "end": 8.069
+  },
+  {
+    "word": "unpaid",
+    "start": 8.162,
+    "end": 8.603
+  },
+  {
+    "word": "thirty-minute",
+    "start": 8.661,
+    "end": 9.195
+  },
+  {
+    "word": "meal",
+    "start": 9.23,
+    "end": 9.404
+  },
+  {
+    "word": "period",
+    "start": 9.474,
+    "end": 9.834
+  },
+  {
+    "word": "for",
+    "start": 9.903,
+    "end": 10.043
+  },
+  {
+    "word": "shifts",
+    "start": 10.101,
+    "end": 10.426
+  },
+  {
+    "word": "over",
+    "start": 10.507,
+    "end": 10.751
+  },
+  {
+    "word": "five",
+    "start": 10.809,
+    "end": 11.053
+  },
+  {
+    "word": "hours,",
+    "start": 11.088,
+    "end": 11.564
+  },
+  {
+    "word": "and",
+    "start": 11.807,
+    "end": 11.958
+  },
+  {
+    "word": "paid",
+    "start": 12.016,
+    "end": 12.237
+  },
+  {
+    "word": "ten-minute",
+    "start": 12.283,
+    "end": 12.736
+  },
+  {
+    "word": "rest",
+    "start": 12.771,
+    "end": 12.945
+  },
+  {
+    "word": "periods",
+    "start": 12.991,
+    "end": 13.363
+  },
+  {
+    "word": "for",
+    "start": 13.409,
+    "end": 13.537
+  },
+  {
+    "word": "every",
+    "start": 13.618,
+    "end": 13.874
+  },
+  {
+    "word": "four",
+    "start": 13.932,
+    "end": 14.141
+  },
+  {
+    "word": "hours",
+    "start": 14.199,
+    "end": 14.535
+  },
+  {
+    "word": "worked.",
+    "start": 14.617,
+    "end": 14.942
+  },
+  {
+    "word": "Under",
+    "start": 14.965,
+    "end": 15.174
+  },
+  {
+    "word": "AB",
+    "start": 15.255,
+    "end": 15.557
+  },
+  {
+    "word": "1512,",
+    "start": 15.731,
+    "end": 16.834
+  },
+  {
+    "word": "security",
+    "start": 17.043,
+    "end": 17.531
+  },
+  {
+    "word": "officers",
+    "start": 17.6,
+    "end": 17.949
+  },
+  {
+    "word": "may",
+    "start": 17.995,
+    "end": 18.1
+  },
+  {
+    "word": "be",
+    "start": 18.146,
+    "end": 18.227
+  },
+  {
+    "word": "kept",
+    "start": 18.285,
+    "end": 18.576
+  },
+  {
+    "word": "on",
+    "start": 18.657,
+    "end": 18.831
+  },
+  {
+    "word": "call",
+    "start": 18.912,
+    "end": 19.237
+  },
+  {
+    "word": "during",
+    "start": 19.319,
+    "end": 19.597
+  },
+  {
+    "word": "rest",
+    "start": 19.69,
+    "end": 19.899
+  },
+  {
+    "word": "periods,",
+    "start": 19.957,
+    "end": 20.352
+  },
+  {
+    "word": "but",
+    "start": 20.387,
+    "end": 20.596
+  },
+  {
+    "word": "an",
+    "start": 20.654,
+    "end": 20.77
+  },
+  {
+    "word": "interrupted",
+    "start": 20.863,
+    "end": 21.409
+  },
+  {
+    "word": "rest",
+    "start": 21.478,
+    "end": 21.664
+  },
+  {
+    "word": "period",
+    "start": 21.722,
+    "end": 22.059
+  },
+  {
+    "word": "must",
+    "start": 22.117,
+    "end": 22.302
+  },
+  {
+    "word": "be",
+    "start": 22.349,
+    "end": 22.442
+  },
+  {
+    "word": "restarted",
+    "start": 22.523,
+    "end": 23.104
+  },
+  {
+    "word": "or",
+    "start": 23.162,
+    "end": 23.254
+  },
+  {
+    "word": "paid",
+    "start": 23.336,
+    "end": 23.672
+  },
+  {
+    "word": "as",
+    "start": 23.73,
+    "end": 23.847
+  },
+  {
+    "word": "an",
+    "start": 23.893,
+    "end": 23.963
+  },
+  {
+    "word": "extra",
+    "start": 24.044,
+    "end": 24.381
+  },
+  {
+    "word": "hour",
+    "start": 24.439,
+    "end": 24.717
+  },
+  {
+    "word": "of",
+    "start": 24.81,
+    "end": 24.88
+  },
+  {
+    "word": "premium",
+    "start": 24.95,
+    "end": 25.356
+  },
+  {
+    "word": "time.",
+    "start": 25.414,
+    "end": 25.82
+  },
+  {
+    "word": "In",
+    "start": 25.855,
+    "end": 26.029
+  },
+  {
+    "word": "WISH,",
+    "start": 26.099,
+    "end": 26.563
+  },
+  {
+    "word": "record",
+    "start": 26.842,
+    "end": 27.144
+  },
+  {
+    "word": "meal",
+    "start": 27.19,
+    "end": 27.364
+  },
+  {
+    "word": "periods",
+    "start": 27.422,
+    "end": 27.829
+  },
+  {
+    "word": "as",
+    "start": 27.875,
+    "end": 27.968
+  },
+  {
+    "word": "unpaid",
+    "start": 28.061,
+    "end": 28.456
+  },
+  {
+    "word": "deductions",
+    "start": 28.502,
+    "end": 29.071
+  },
+  {
+    "word": "and",
+    "start": 29.106,
+    "end": 29.187
+  },
+  {
+    "word": "keep",
+    "start": 29.245,
+    "end": 29.419
+  },
+  {
+    "word": "rest",
+    "start": 29.501,
+    "end": 29.663
+  },
+  {
+    "word": "breaks",
+    "start": 29.698,
+    "end": 29.93
+  },
+  {
+    "word": "as",
+    "start": 29.953,
+    "end": 30.023
+  },
+  {
+    "word": "paid",
+    "start": 30.07,
+    "end": 30.267
+  },
+  {
+    "word": "time,",
+    "start": 30.302,
+    "end": 30.859
+  },
+  {
+    "word": "so",
+    "start": 31.068,
+    "end": 31.358
+  },
+  {
+    "word": "payroll",
+    "start": 31.509,
+    "end": 32.066
+  },
+  {
+    "word": "and",
+    "start": 32.159,
+    "end": 32.322
+  },
+  {
+    "word": "compliance",
+    "start": 32.38,
+    "end": 33.111
+  },
+  {
+    "word": "stay",
+    "start": 33.262,
+    "end": 33.715
+  },
+  {
+    "word": "accurate.",
+    "start": 33.924,
+    "end": 34.737
+  }
+]

@@ -1,0 +1,697 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.255
+  },
+  {
+    "word": "to",
+    "start": 0.372,
+    "end": 0.476
+  },
+  {
+    "word": "Scheduling",
+    "start": 0.546,
+    "end": 1.068
+  },
+  {
+    "word": "→",
+    "start": 1.277,
+    "end": 4.075
+  },
+  {
+    "word": "Schedule",
+    "start": 4.354,
+    "end": 4.853
+  },
+  {
+    "word": "by",
+    "start": 4.888,
+    "end": 5.004
+  },
+  {
+    "word": "Employee.",
+    "start": 5.062,
+    "end": 5.817
+  },
+  {
+    "word": "The",
+    "start": 5.817,
+    "end": 5.933
+  },
+  {
+    "word": "calendar",
+    "start": 5.991,
+    "end": 6.351
+  },
+  {
+    "word": "defaults",
+    "start": 6.409,
+    "end": 6.78
+  },
+  {
+    "word": "to",
+    "start": 6.815,
+    "end": 6.885
+  },
+  {
+    "word": "Saturday",
+    "start": 6.978,
+    "end": 7.372
+  },
+  {
+    "word": "through",
+    "start": 7.407,
+    "end": 7.616
+  },
+  {
+    "word": "Friday",
+    "start": 7.651,
+    "end": 8.057
+  },
+  {
+    "word": "—",
+    "start": 8.173,
+    "end": 11.122
+  },
+  {
+    "word": "this",
+    "start": 11.215,
+    "end": 11.378
+  },
+  {
+    "word": "is",
+    "start": 11.436,
+    "end": 11.517
+  },
+  {
+    "word": "the",
+    "start": 11.564,
+    "end": 11.633
+  },
+  {
+    "word": "beginning",
+    "start": 11.68,
+    "end": 12.074
+  },
+  {
+    "word": "of",
+    "start": 12.121,
+    "end": 12.179
+  },
+  {
+    "word": "the",
+    "start": 12.214,
+    "end": 12.283
+  },
+  {
+    "word": "pay",
+    "start": 12.33,
+    "end": 12.492
+  },
+  {
+    "word": "week",
+    "start": 12.55,
+    "end": 12.783
+  },
+  {
+    "word": "and",
+    "start": 12.957,
+    "end": 13.189
+  },
+  {
+    "word": "the",
+    "start": 13.247,
+    "end": 13.328
+  },
+  {
+    "word": "end",
+    "start": 13.421,
+    "end": 13.607
+  },
+  {
+    "word": "of",
+    "start": 13.677,
+    "end": 13.723
+  },
+  {
+    "word": "the",
+    "start": 13.758,
+    "end": 13.827
+  },
+  {
+    "word": "pay",
+    "start": 13.874,
+    "end": 14.036
+  },
+  {
+    "word": "week.",
+    "start": 14.083,
+    "end": 14.663
+  },
+  {
+    "word": "Search",
+    "start": 14.663,
+    "end": 14.942
+  },
+  {
+    "word": "for",
+    "start": 14.988,
+    "end": 15.093
+  },
+  {
+    "word": "your",
+    "start": 15.151,
+    "end": 15.279
+  },
+  {
+    "word": "employee",
+    "start": 15.325,
+    "end": 15.836
+  },
+  {
+    "word": "by",
+    "start": 15.894,
+    "end": 16.022
+  },
+  {
+    "word": "number",
+    "start": 16.115,
+    "end": 16.405
+  },
+  {
+    "word": "or",
+    "start": 16.498,
+    "end": 16.649
+  },
+  {
+    "word": "name.",
+    "start": 16.742,
+    "end": 17.16
+  },
+  {
+    "word": "Once",
+    "start": 17.334,
+    "end": 17.624
+  },
+  {
+    "word": "found,",
+    "start": 17.67,
+    "end": 18.1
+  },
+  {
+    "word": "click",
+    "start": 18.216,
+    "end": 18.448
+  },
+  {
+    "word": "on",
+    "start": 18.495,
+    "end": 18.564
+  },
+  {
+    "word": "the",
+    "start": 18.599,
+    "end": 18.669
+  },
+  {
+    "word": "job",
+    "start": 18.727,
+    "end": 18.982
+  },
+  {
+    "word": "in",
+    "start": 19.029,
+    "end": 19.075
+  },
+  {
+    "word": "the",
+    "start": 19.11,
+    "end": 19.18
+  },
+  {
+    "word": "calendar.",
+    "start": 19.215,
+    "end": 19.714
+  },
+  {
+    "word": "Select",
+    "start": 19.888,
+    "end": 20.271
+  },
+  {
+    "word": "the",
+    "start": 20.306,
+    "end": 20.376
+  },
+  {
+    "word": "shift",
+    "start": 20.422,
+    "end": 20.701
+  },
+  {
+    "word": "and",
+    "start": 20.736,
+    "end": 20.817
+  },
+  {
+    "word": "role,",
+    "start": 20.863,
+    "end": 21.328
+  },
+  {
+    "word": "then",
+    "start": 21.537,
+    "end": 21.931
+  },
+  {
+    "word": "click",
+    "start": 22.14,
+    "end": 22.558
+  },
+  {
+    "word": "the",
+    "start": 23,
+    "end": 23.116
+  },
+  {
+    "word": "green",
+    "start": 23.162,
+    "end": 23.359
+  },
+  {
+    "word": "checkmark.",
+    "start": 23.417,
+    "end": 24.091
+  },
+  {
+    "word": "The",
+    "start": 24.602,
+    "end": 24.718
+  },
+  {
+    "word": "scheduled",
+    "start": 24.764,
+    "end": 25.124
+  },
+  {
+    "word": "hours",
+    "start": 25.159,
+    "end": 25.542
+  },
+  {
+    "word": "will",
+    "start": 25.623,
+    "end": 25.832
+  },
+  {
+    "word": "populate",
+    "start": 25.89,
+    "end": 26.459
+  },
+  {
+    "word": "on",
+    "start": 26.517,
+    "end": 26.796
+  },
+  {
+    "word": "the",
+    "start": 26.866,
+    "end": 26.935
+  },
+  {
+    "word": "calendar",
+    "start": 26.982,
+    "end": 27.458
+  },
+  {
+    "word": "to",
+    "start": 27.527,
+    "end": 27.62
+  },
+  {
+    "word": "the",
+    "start": 27.702,
+    "end": 27.771
+  },
+  {
+    "word": "right",
+    "start": 27.887,
+    "end": 28.236
+  },
+  {
+    "word": "of",
+    "start": 28.352,
+    "end": 28.491
+  },
+  {
+    "word": "the",
+    "start": 28.549,
+    "end": 28.619
+  },
+  {
+    "word": "grid.",
+    "start": 28.665,
+    "end": 29.466
+  },
+  {
+    "word": "Click",
+    "start": 29.466,
+    "end": 29.873
+  },
+  {
+    "word": "Save",
+    "start": 30.476,
+    "end": 30.871
+  },
+  {
+    "word": "Schedule",
+    "start": 30.918,
+    "end": 31.359
+  },
+  {
+    "word": "when",
+    "start": 31.394,
+    "end": 31.544
+  },
+  {
+    "word": "ready.",
+    "start": 31.603,
+    "end": 32.09
+  },
+  {
+    "word": "You",
+    "start": 32.334,
+    "end": 32.462
+  },
+  {
+    "word": "can",
+    "start": 32.508,
+    "end": 32.624
+  },
+  {
+    "word": "schedule",
+    "start": 32.659,
+    "end": 33.065
+  },
+  {
+    "word": "the",
+    "start": 33.1,
+    "end": 33.17
+  },
+  {
+    "word": "same",
+    "start": 33.24,
+    "end": 33.541
+  },
+  {
+    "word": "employee",
+    "start": 33.576,
+    "end": 34.157
+  },
+  {
+    "word": "across",
+    "start": 34.203,
+    "end": 34.563
+  },
+  {
+    "word": "multiple",
+    "start": 34.633,
+    "end": 35.074
+  },
+  {
+    "word": "days",
+    "start": 35.12,
+    "end": 35.445
+  },
+  {
+    "word": "before",
+    "start": 35.527,
+    "end": 35.84
+  },
+  {
+    "word": "saving.",
+    "start": 35.887,
+    "end": 36.606
+  },
+  {
+    "word": "To",
+    "start": 36.606,
+    "end": 36.734
+  },
+  {
+    "word": "remove",
+    "start": 36.827,
+    "end": 37.106
+  },
+  {
+    "word": "an",
+    "start": 37.129,
+    "end": 37.175
+  },
+  {
+    "word": "employee,",
+    "start": 37.198,
+    "end": 37.918
+  },
+  {
+    "word": "click",
+    "start": 37.965,
+    "end": 38.174
+  },
+  {
+    "word": "the",
+    "start": 38.209,
+    "end": 38.278
+  },
+  {
+    "word": "role",
+    "start": 38.301,
+    "end": 38.464
+  },
+  {
+    "word": "on",
+    "start": 38.487,
+    "end": 38.534
+  },
+  {
+    "word": "the",
+    "start": 38.568,
+    "end": 38.638
+  },
+  {
+    "word": "calendar",
+    "start": 38.661,
+    "end": 39.079
+  },
+  {
+    "word": "and",
+    "start": 39.161,
+    "end": 39.277
+  },
+  {
+    "word": "delete",
+    "start": 39.358,
+    "end": 39.695
+  },
+  {
+    "word": "them,",
+    "start": 39.729,
+    "end": 40.066
+  },
+  {
+    "word": "or",
+    "start": 40.24,
+    "end": 40.426
+  },
+  {
+    "word": "bring",
+    "start": 40.496,
+    "end": 40.67
+  },
+  {
+    "word": "them",
+    "start": 40.705,
+    "end": 40.809
+  },
+  {
+    "word": "up",
+    "start": 40.867,
+    "end": 40.96
+  },
+  {
+    "word": "and",
+    "start": 41.007,
+    "end": 41.076
+  },
+  {
+    "word": "click",
+    "start": 41.123,
+    "end": 41.343
+  },
+  {
+    "word": "in",
+    "start": 41.425,
+    "end": 41.517
+  },
+  {
+    "word": "their",
+    "start": 41.575,
+    "end": 41.726
+  },
+  {
+    "word": "scheduled",
+    "start": 41.761,
+    "end": 42.179
+  },
+  {
+    "word": "area",
+    "start": 42.237,
+    "end": 42.597
+  },
+  {
+    "word": "—",
+    "start": 42.713,
+    "end": 47.566
+  },
+  {
+    "word": "a",
+    "start": 48.263,
+    "end": 48.321
+  },
+  {
+    "word": "dialogue",
+    "start": 48.402,
+    "end": 48.832
+  },
+  {
+    "word": "box",
+    "start": 48.855,
+    "end": 49.052
+  },
+  {
+    "word": "will",
+    "start": 49.087,
+    "end": 49.203
+  },
+  {
+    "word": "pop",
+    "start": 49.238,
+    "end": 49.447
+  },
+  {
+    "word": "up",
+    "start": 49.54,
+    "end": 49.679
+  },
+  {
+    "word": "and",
+    "start": 49.749,
+    "end": 49.877
+  },
+  {
+    "word": "ask",
+    "start": 49.935,
+    "end": 50.097
+  },
+  {
+    "word": "you",
+    "start": 50.132,
+    "end": 50.202
+  },
+  {
+    "word": "to",
+    "start": 50.236,
+    "end": 50.283
+  },
+  {
+    "word": "provide",
+    "start": 50.329,
+    "end": 50.62
+  },
+  {
+    "word": "a",
+    "start": 50.643,
+    "end": 50.666
+  },
+  {
+    "word": "reason",
+    "start": 50.724,
+    "end": 51.003
+  },
+  {
+    "word": "why",
+    "start": 51.072,
+    "end": 51.363
+  },
+  {
+    "word": "you",
+    "start": 51.479,
+    "end": 51.583
+  },
+  {
+    "word": "are",
+    "start": 51.652,
+    "end": 51.769
+  },
+  {
+    "word": "removing",
+    "start": 51.827,
+    "end": 52.337
+  },
+  {
+    "word": "the",
+    "start": 52.407,
+    "end": 52.477
+  },
+  {
+    "word": "employee",
+    "start": 52.523,
+    "end": 53.046
+  },
+  {
+    "word": "from",
+    "start": 53.092,
+    "end": 53.231
+  },
+  {
+    "word": "the",
+    "start": 53.278,
+    "end": 53.348
+  },
+  {
+    "word": "schedule.",
+    "start": 53.371,
+    "end": 53.916
+  },
+  {
+    "word": "You",
+    "start": 54.16,
+    "end": 54.242
+  },
+  {
+    "word": "will",
+    "start": 54.276,
+    "end": 54.427
+  },
+  {
+    "word": "select",
+    "start": 54.497,
+    "end": 55.008
+  },
+  {
+    "word": "a",
+    "start": 55.252,
+    "end": 55.368
+  },
+  {
+    "word": "reason",
+    "start": 55.484,
+    "end": 55.867
+  },
+  {
+    "word": "code.",
+    "start": 55.96,
+    "end": 56.61
+  }
+]

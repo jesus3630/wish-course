@@ -1,0 +1,312 @@
+[
+  {
+    "word": "AB",
+    "start": 0,
+    "end": 0.267
+  },
+  {
+    "word": "1512",
+    "start": 0.395,
+    "end": 1.207
+  },
+  {
+    "word": "provides",
+    "start": 1.277,
+    "end": 1.718
+  },
+  {
+    "word": "specific",
+    "start": 1.753,
+    "end": 2.276
+  },
+  {
+    "word": "rules",
+    "start": 2.392,
+    "end": 2.74
+  },
+  {
+    "word": "for",
+    "start": 2.798,
+    "end": 2.914
+  },
+  {
+    "word": "security",
+    "start": 2.972,
+    "end": 3.332
+  },
+  {
+    "word": "officers",
+    "start": 3.39,
+    "end": 3.75
+  },
+  {
+    "word": "registered",
+    "start": 3.808,
+    "end": 4.191
+  },
+  {
+    "word": "with",
+    "start": 4.226,
+    "end": 4.354
+  },
+  {
+    "word": "the",
+    "start": 4.389,
+    "end": 4.458
+  },
+  {
+    "word": "state",
+    "start": 4.505,
+    "end": 4.841
+  },
+  {
+    "word": "and",
+    "start": 4.888,
+    "end": 5.004
+  },
+  {
+    "word": "employed",
+    "start": 5.062,
+    "end": 5.48
+  },
+  {
+    "word": "by",
+    "start": 5.515,
+    "end": 5.631
+  },
+  {
+    "word": "a",
+    "start": 5.689,
+    "end": 5.712
+  },
+  {
+    "word": "private",
+    "start": 5.77,
+    "end": 6.118
+  },
+  {
+    "word": "patrol",
+    "start": 6.153,
+    "end": 6.478
+  },
+  {
+    "word": "operator.",
+    "start": 6.548,
+    "end": 7.036
+  },
+  {
+    "word": "A",
+    "start": 7.059,
+    "end": 7.14
+  },
+  {
+    "word": "security",
+    "start": 7.221,
+    "end": 7.593
+  },
+  {
+    "word": "officer",
+    "start": 7.663,
+    "end": 7.964
+  },
+  {
+    "word": "may",
+    "start": 8.034,
+    "end": 8.185
+  },
+  {
+    "word": "be",
+    "start": 8.255,
+    "end": 8.359
+  },
+  {
+    "word": "required",
+    "start": 8.44,
+    "end": 8.928
+  },
+  {
+    "word": "to",
+    "start": 8.963,
+    "end": 9.044
+  },
+  {
+    "word": "remain",
+    "start": 9.125,
+    "end": 9.451
+  },
+  {
+    "word": "on",
+    "start": 9.52,
+    "end": 9.613
+  },
+  {
+    "word": "the",
+    "start": 9.648,
+    "end": 9.718
+  },
+  {
+    "word": "premises",
+    "start": 9.752,
+    "end": 10.31
+  },
+  {
+    "word": "and",
+    "start": 10.391,
+    "end": 10.6
+  },
+  {
+    "word": "on",
+    "start": 10.67,
+    "end": 10.762
+  },
+  {
+    "word": "call",
+    "start": 10.844,
+    "end": 11.169
+  },
+  {
+    "word": "during",
+    "start": 11.285,
+    "end": 11.598
+  },
+  {
+    "word": "a",
+    "start": 11.656,
+    "end": 11.68
+  },
+  {
+    "word": "rest",
+    "start": 11.749,
+    "end": 11.935
+  },
+  {
+    "word": "period.",
+    "start": 11.981,
+    "end": 12.399
+  },
+  {
+    "word": "If",
+    "start": 12.434,
+    "end": 12.562
+  },
+  {
+    "word": "a",
+    "start": 12.62,
+    "end": 12.643
+  },
+  {
+    "word": "rest",
+    "start": 12.713,
+    "end": 12.887
+  },
+  {
+    "word": "period",
+    "start": 12.933,
+    "end": 13.212
+  },
+  {
+    "word": "is",
+    "start": 13.258,
+    "end": 13.34
+  },
+  {
+    "word": "interrupted,",
+    "start": 13.409,
+    "end": 14.025
+  },
+  {
+    "word": "the",
+    "start": 14.048,
+    "end": 14.164
+  },
+  {
+    "word": "officer",
+    "start": 14.257,
+    "end": 14.605
+  },
+  {
+    "word": "must",
+    "start": 14.64,
+    "end": 14.768
+  },
+  {
+    "word": "be",
+    "start": 14.802,
+    "end": 14.861
+  },
+  {
+    "word": "permitted",
+    "start": 14.895,
+    "end": 15.186
+  },
+  {
+    "word": "to",
+    "start": 15.209,
+    "end": 15.255
+  },
+  {
+    "word": "restart",
+    "start": 15.348,
+    "end": 15.859
+  },
+  {
+    "word": "a",
+    "start": 15.929,
+    "end": 15.975
+  },
+  {
+    "word": "rest",
+    "start": 16.091,
+    "end": 16.323
+  },
+  {
+    "word": "period",
+    "start": 16.381,
+    "end": 16.741
+  },
+  {
+    "word": "or",
+    "start": 16.799,
+    "end": 16.939
+  },
+  {
+    "word": "be",
+    "start": 16.997,
+    "end": 17.078
+  },
+  {
+    "word": "paid",
+    "start": 17.136,
+    "end": 17.438
+  },
+  {
+    "word": "an",
+    "start": 17.508,
+    "end": 17.589
+  },
+  {
+    "word": "additional",
+    "start": 17.612,
+    "end": 18.065
+  },
+  {
+    "word": "hour",
+    "start": 18.135,
+    "end": 18.46
+  },
+  {
+    "word": "of",
+    "start": 18.552,
+    "end": 18.645
+  },
+  {
+    "word": "premium",
+    "start": 18.727,
+    "end": 19.121
+  },
+  {
+    "word": "pay.",
+    "start": 19.179,
+    "end": 19.69
+  }
+]

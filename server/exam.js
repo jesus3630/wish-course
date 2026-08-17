@@ -1,10 +1,14 @@
 /**
- * The final exam.
+ * Graded quizzes.
  *
- * One exam for the whole course, not one per module. A sitting is one pass:
- * every question answered once, no second look, no answer revealed until it is
- * submitted and marked. 70% passes. Every sitting is recorded so we can see how
- * many attempts each person needed to reach 100%.
+ * One quiz per part of the training, taken at the end of that part. A learner
+ * who stops halfway is only ever tested on what they actually worked through,
+ * which is why this is per-part rather than one exam at the end.
+ *
+ * A sitting is still one pass: every question answered once, no second look, no
+ * answer revealed until it is submitted and marked. 70% passes. Every sitting is
+ * recorded so we can see how many attempts each person needed to reach 100% on
+ * each part.
  *
  * ─── Why this file is written as classes ──────────────────────────────────────
  * Four responsibilities live here, and they change for different reasons:
@@ -37,12 +41,13 @@ const crypto = require('crypto');
  * one-line change in one file.
  */
 class ExamBlueprint {
-  constructor({ questionCount = 25, passMark = 70, minQuestions = 10, maxQuestions = 25 } = {}) {
-    // Clamp rather than throw: a bad config value should not take the exam offline.
-    this.questionCount = Math.max(minQuestions, Math.min(maxQuestions, questionCount));
+  constructor({ passMark = 70, maxQuestions = 25, minQuestions = 1 } = {}) {
     this.passMark = passMark;
-    this.minQuestions = minQuestions;
+    // A part's quiz asks everything that part has, up to a ceiling. Parts hold
+    // anywhere from 4 to 15 questions, so there is no fixed count to enforce —
+    // trimming a 5-question part down to a target would just lose coverage.
     this.maxQuestions = maxQuestions;
+    this.minQuestions = minQuestions;
   }
 
   /** Does this percentage pass? The one place that answers the question. */
@@ -56,41 +61,21 @@ class ExamBlueprint {
   }
 
   /**
-   * Draw the exam from the full question bank.
+   * Draw the quiz for one part of the training.
    *
-   * Spread across chapters rather than taken at random from a flat list: 25
-   * random draws from a 112-question pool can easily take six from one chapter
-   * and none from another, which is not an exam over the whole course. We take
-   * turns across chapters until the paper is full, so coverage is even and the
-   * long chapters contribute a little more than the short ones.
+   * Everything that part has, shuffled, capped at `maxQuestions`. Only questions
+   * belonging to this part are eligible — testing somebody on material they have
+   * not reached yet is the thing this format exists to avoid.
    *
-   * @param {Object} bank  { moduleId: [question, ...] }
-   * @returns {Array} questions, each tagged with the module it came from
+   * @param {Object} bank      { moduleId: [question, ...] }
+   * @param {string} moduleId  the part being tested
+   * @returns {Array} questions, each tagged with the part it came from
    */
-  drawQuestions(bank) {
-    const byModule = Object.entries(bank)
-      .map(([moduleId, questions]) => ({
-        moduleId,
-        questions: shuffle((questions || []).filter(q => Array.isArray(q.options) && q.options.length > 1)),
-      }))
-      .filter(group => group.questions.length > 0);
-
-    if (byModule.length === 0) return [];
-
-    // Round-robin: one from each chapter, then a second from each, and so on.
-    const drawn = [];
-    let round = 0;
-    while (drawn.length < this.questionCount) {
-      const startedRound = drawn.length;
-      for (const group of shuffle(byModule)) {
-        if (drawn.length >= this.questionCount) break;
-        const q = group.questions[round];
-        if (q) drawn.push({ ...q, module_id: group.moduleId });
-      }
-      if (drawn.length === startedRound) break; // bank exhausted
-      round++;
-    }
-    return shuffle(drawn);
+  drawQuestions(bank, moduleId) {
+    const questions = (bank[moduleId] || [])
+      .filter(q => Array.isArray(q.options) && q.options.length > 1)
+      .map(q => ({ ...q, module_id: moduleId }));
+    return shuffle(questions).slice(0, this.maxQuestions);
   }
 }
 
@@ -107,10 +92,11 @@ class ExamBlueprint {
  * Marking happens here, on the server, against the copy the learner never sees.
  */
 class ExamAttempt {
-  constructor({ id, email, name, questions, attemptNo, startedAt }) {
+  constructor({ id, email, name, moduleId, questions, attemptNo, startedAt }) {
     this.id = id || crypto.randomUUID();
     this.email = email;
     this.name = name || '';
+    this.moduleId = moduleId;
     this.questions = questions;
     this.attemptNo = attemptNo;
     this.startedAt = startedAt || new Date();
@@ -160,6 +146,7 @@ class ExamAttempt {
       attemptId: this.id,
       email: this.email,
       name: this.name,
+      moduleId: this.moduleId,
       attemptNo: this.attemptNo,
       correct,
       total,
@@ -210,13 +197,22 @@ class ExamRepository {
         started_at TIMESTAMPTZ,
         submitted_at TIMESTAMPTZ DEFAULT NOW()
       );
+      ALTER TABLE exam_attempts ADD COLUMN IF NOT EXISTS module_id TEXT;
       CREATE INDEX IF NOT EXISTS exam_attempts_email_idx ON exam_attempts (email);
+      CREATE INDEX IF NOT EXISTS exam_attempts_email_module_idx ON exam_attempts (email, module_id);
     `);
   }
 
-  /** How many sittings this person has already submitted. */
-  async attemptCount(email) {
-    const r = await this.pool.query('SELECT COUNT(*)::int AS n FROM exam_attempts WHERE email = $1', [email]);
+  /**
+   * How many sittings this person has already submitted for this part.
+   * Attempts are counted per part, so "attempt 3" means the third go at THIS
+   * quiz, not the third quiz they have sat overall.
+   */
+  async attemptCount(email, moduleId) {
+    const r = await this.pool.query(
+      'SELECT COUNT(*)::int AS n FROM exam_attempts WHERE email = $1 AND module_id = $2',
+      [email, moduleId]
+    );
     return r.rows[0]?.n || 0;
   }
 
@@ -242,32 +238,36 @@ class ExamRepository {
   async save(result) {
     await this.pool.query(
       `INSERT INTO exam_attempts
-         (id, email, name, attempt_no, score, correct, total, passed, perfect, unanswered,
-          answers, duration_seconds, started_at, submitted_at)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)`,
+         (id, email, name, module_id, attempt_no, score, correct, total, passed, perfect,
+          unanswered, answers, duration_seconds, started_at, submitted_at)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)`,
       [
-        result.attemptId, result.email, result.name, result.attemptNo, result.score,
-        result.correct, result.total, result.passed, result.perfect, result.unanswered,
-        JSON.stringify(result.answers), result.durationSeconds, result.startedAt, result.submittedAt,
+        result.attemptId, result.email, result.name, result.moduleId, result.attemptNo,
+        result.score, result.correct, result.total, result.passed, result.perfect,
+        result.unanswered, JSON.stringify(result.answers), result.durationSeconds,
+        result.startedAt, result.submittedAt,
       ]
     );
   }
 
-  async attemptsFor(email) {
+  async attemptsFor(email, moduleId) {
+    const params = moduleId ? [email, moduleId] : [email];
     const r = await this.pool.query(
-      `SELECT id, attempt_no, score, correct, total, passed, perfect, unanswered,
+      `SELECT id, module_id, attempt_no, score, correct, total, passed, perfect, unanswered,
               duration_seconds, submitted_at
-         FROM exam_attempts WHERE email = $1 ORDER BY attempt_no ASC`,
-      [email]
+         FROM exam_attempts
+        WHERE email = $1 ${moduleId ? 'AND module_id = $2' : ''}
+        ORDER BY module_id ASC, attempt_no ASC`,
+      params
     );
     return r.rows;
   }
 
   async allAttempts() {
     const r = await this.pool.query(
-      `SELECT email, name, attempt_no, score, passed, perfect, correct, total,
+      `SELECT email, name, module_id, attempt_no, score, passed, perfect, correct, total,
               duration_seconds, submitted_at
-         FROM exam_attempts ORDER BY email ASC, attempt_no ASC`
+         FROM exam_attempts ORDER BY email ASC, module_id ASC, attempt_no ASC`
     );
     return r.rows;
   }
@@ -295,14 +295,19 @@ class ExamRepository {
 // LearnerExamHistory — what one person's attempts add up to
 // ─────────────────────────────────────────────────────────────────────────────
 /**
- * The CEO's question — "how many times did it take this employee to score 100%?"
- * — is not a property of any single sitting. It only exists across all of them,
- * so it gets its own object rather than being computed ad hoc in a route.
+ * "How many times did it take this employee to score 100%?" is not a property of
+ * any single sitting — it only exists across all of them, so it gets its own
+ * object rather than being computed ad hoc in a route.
+ *
+ * One of these represents one person's attempts at ONE part of the training.
+ * Somebody who never reaches part 9 simply has no history for part 9, which is
+ * the point of testing per part: you are only ever measured on what you covered.
  */
 class LearnerExamHistory {
-  constructor(email, name, attempts) {
+  constructor(email, name, attempts, moduleId = null) {
     this.email = email;
     this.name = name || '';
+    this.moduleId = moduleId;
     this.attempts = [...attempts].sort((a, b) => a.attempt_no - b.attempt_no);
   }
 
@@ -327,6 +332,7 @@ class LearnerExamHistory {
     return {
       email: this.email,
       name: this.name,
+      moduleId: this.moduleId,
       totalAttempts: this.totalAttempts,
       bestScore: this.bestScore,
       hasPassed: this.hasPassed,
@@ -337,16 +343,50 @@ class LearnerExamHistory {
     };
   }
 
-  /** Group a flat list of rows into one history per person. */
+  /** Group a flat list of rows into one history per person PER PART. */
   static fromRows(rows) {
-    const byEmail = new Map();
+    const byKey = new Map();
     for (const row of rows) {
-      if (!byEmail.has(row.email)) byEmail.set(row.email, { name: row.name, attempts: [] });
-      const entry = byEmail.get(row.email);
+      const key = `${row.email}::${row.module_id || ''}`;
+      if (!byKey.has(key)) {
+        byKey.set(key, { email: row.email, moduleId: row.module_id, name: row.name, attempts: [] });
+      }
+      const entry = byKey.get(key);
       if (row.name) entry.name = row.name;
       entry.attempts.push(row);
     }
-    return [...byEmail.entries()].map(([email, e]) => new LearnerExamHistory(email, e.name, e.attempts));
+    return [...byKey.values()].map(e => new LearnerExamHistory(e.email, e.name, e.attempts, e.moduleId));
+  }
+
+  /**
+   * Roll several per-part histories up into one line per person — how much of
+   * the training they have been tested on, and how they did across it.
+   */
+  static summarisePerLearner(histories) {
+    const byEmail = new Map();
+    for (const h of histories) {
+      if (!byEmail.has(h.email)) byEmail.set(h.email, { email: h.email, name: h.name, parts: [] });
+      const entry = byEmail.get(h.email);
+      if (h.name) entry.name = h.name;
+      entry.parts.push(h.toJSON());
+    }
+    return [...byEmail.values()].map(e => {
+      const perfect = e.parts.filter(p => p.attemptsToPerfect !== null);
+      return {
+        email: e.email,
+        name: e.name,
+        partsAttempted: e.parts.length,
+        partsPassed: e.parts.filter(p => p.hasPassed).length,
+        partsPerfect: perfect.length,
+        totalAttempts: e.parts.reduce((n, p) => n + p.totalAttempts, 0),
+        // Averaged over the parts they actually reached 100% on
+        averageAttemptsToPerfect: perfect.length
+          ? Math.round((perfect.reduce((n, p) => n + p.attemptsToPerfect, 0) / perfect.length) * 10) / 10
+          : null,
+        lastAttemptAt: e.parts.map(p => p.lastAttemptAt).filter(Boolean).sort().pop() || null,
+        parts: e.parts.sort((a, b) => (a.moduleId || '').localeCompare(b.moduleId || '')),
+      };
+    });
   }
 }
 

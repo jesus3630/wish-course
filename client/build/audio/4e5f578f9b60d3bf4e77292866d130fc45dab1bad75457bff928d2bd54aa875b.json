@@ -1,0 +1,552 @@
+[
+  {
+    "word": "Go",
+    "start": 0,
+    "end": 0.221
+  },
+  {
+    "word": "to",
+    "start": 0.302,
+    "end": 0.383
+  },
+  {
+    "word": "Inventory",
+    "start": 0.464,
+    "end": 0.929
+  },
+  {
+    "word": "to",
+    "start": 0.975,
+    "end": 1.022
+  },
+  {
+    "word": "Check-In",
+    "start": 1.091,
+    "end": 1.474
+  },
+  {
+    "word": "Check-Out.",
+    "start": 1.544,
+    "end": 2.078
+  },
+  {
+    "word": "This",
+    "start": 2.148,
+    "end": 2.403
+  },
+  {
+    "word": "is",
+    "start": 2.461,
+    "end": 2.554
+  },
+  {
+    "word": "where",
+    "start": 2.612,
+    "end": 2.786
+  },
+  {
+    "word": "you",
+    "start": 2.833,
+    "end": 2.926
+  },
+  {
+    "word": "process",
+    "start": 3.042,
+    "end": 3.564
+  },
+  {
+    "word": "the",
+    "start": 3.599,
+    "end": 3.692
+  },
+  {
+    "word": "actual",
+    "start": 3.773,
+    "end": 4.214
+  },
+  {
+    "word": "movement",
+    "start": 4.296,
+    "end": 4.679
+  },
+  {
+    "word": "of",
+    "start": 4.725,
+    "end": 4.807
+  },
+  {
+    "word": "items",
+    "start": 4.923,
+    "end": 5.259
+  },
+  {
+    "word": "at",
+    "start": 5.329,
+    "end": 5.492
+  },
+  {
+    "word": "an",
+    "start": 5.538,
+    "end": 5.596
+  },
+  {
+    "word": "event",
+    "start": 5.654,
+    "end": 5.991
+  },
+  {
+    "word": "—",
+    "start": 6.072,
+    "end": 9.601
+  },
+  {
+    "word": "checking",
+    "start": 9.683,
+    "end": 10.031
+  },
+  {
+    "word": "items",
+    "start": 10.112,
+    "end": 10.414
+  },
+  {
+    "word": "out",
+    "start": 10.484,
+    "end": 10.67
+  },
+  {
+    "word": "to",
+    "start": 10.716,
+    "end": 10.82
+  },
+  {
+    "word": "employees",
+    "start": 10.89,
+    "end": 11.494
+  },
+  {
+    "word": "and",
+    "start": 11.564,
+    "end": 11.656
+  },
+  {
+    "word": "checking",
+    "start": 11.703,
+    "end": 12.005
+  },
+  {
+    "word": "them",
+    "start": 12.051,
+    "end": 12.19
+  },
+  {
+    "word": "in",
+    "start": 12.272,
+    "end": 12.411
+  },
+  {
+    "word": "when",
+    "start": 12.481,
+    "end": 12.632
+  },
+  {
+    "word": "returned.",
+    "start": 12.69,
+    "end": 13.224
+  },
+  {
+    "word": "Select",
+    "start": 13.224,
+    "end": 13.572
+  },
+  {
+    "word": "the",
+    "start": 13.595,
+    "end": 13.665
+  },
+  {
+    "word": "Employee#",
+    "start": 13.711,
+    "end": 15.279
+  },
+  {
+    "word": "tab",
+    "start": 15.314,
+    "end": 15.546
+  },
+  {
+    "word": "to",
+    "start": 15.604,
+    "end": 15.662
+  },
+  {
+    "word": "search",
+    "start": 15.743,
+    "end": 15.975
+  },
+  {
+    "word": "by",
+    "start": 16.022,
+    "end": 16.138
+  },
+  {
+    "word": "person.",
+    "start": 16.219,
+    "end": 16.707
+  },
+  {
+    "word": "Fill",
+    "start": 16.985,
+    "end": 17.218
+  },
+  {
+    "word": "in:",
+    "start": 17.299,
+    "end": 17.822
+  },
+  {
+    "word": "•",
+    "start": 17.822,
+    "end": 17.856
+  },
+  {
+    "word": "Branch",
+    "start": 17.984,
+    "end": 18.321
+  },
+  {
+    "word": "and",
+    "start": 18.356,
+    "end": 18.425
+  },
+  {
+    "word": "Date",
+    "start": 18.472,
+    "end": 18.75
+  },
+  {
+    "word": "—",
+    "start": 18.924,
+    "end": 19.296
+  },
+  {
+    "word": "required",
+    "start": 19.47,
+    "end": 20.178
+  },
+  {
+    "word": "•",
+    "start": 20.178,
+    "end": 20.248
+  },
+  {
+    "word": "Event",
+    "start": 20.933,
+    "end": 21.281
+  },
+  {
+    "word": "—",
+    "start": 21.328,
+    "end": 23.51
+  },
+  {
+    "word": "select",
+    "start": 23.685,
+    "end": 23.917
+  },
+  {
+    "word": "the",
+    "start": 23.94,
+    "end": 24.01
+  },
+  {
+    "word": "active",
+    "start": 24.068,
+    "end": 24.37
+  },
+  {
+    "word": "event",
+    "start": 24.404,
+    "end": 24.869
+  },
+  {
+    "word": "•",
+    "start": 24.869,
+    "end": 26.146
+  },
+  {
+    "word": "Venue",
+    "start": 26.355,
+    "end": 26.715
+  },
+  {
+    "word": "and",
+    "start": 26.738,
+    "end": 26.819
+  },
+  {
+    "word": "Job",
+    "start": 26.877,
+    "end": 27.214
+  },
+  {
+    "word": "—",
+    "start": 27.33,
+    "end": 28.538
+  },
+  {
+    "word": "optional,",
+    "start": 28.619,
+    "end": 29.083
+  },
+  {
+    "word": "to",
+    "start": 29.106,
+    "end": 29.176
+  },
+  {
+    "word": "narrow",
+    "start": 29.246,
+    "end": 29.513
+  },
+  {
+    "word": "results",
+    "start": 29.594,
+    "end": 30.175
+  },
+  {
+    "word": "•",
+    "start": 30.175,
+    "end": 31.44
+  },
+  {
+    "word": "Employee",
+    "start": 31.719,
+    "end": 32.113
+  },
+  {
+    "word": "Number,",
+    "start": 32.148,
+    "end": 32.427
+  },
+  {
+    "word": "First",
+    "start": 32.45,
+    "end": 32.694
+  },
+  {
+    "word": "Name,",
+    "start": 32.752,
+    "end": 32.973
+  },
+  {
+    "word": "and",
+    "start": 32.984,
+    "end": 33.054
+  },
+  {
+    "word": "Last",
+    "start": 33.112,
+    "end": 33.356
+  },
+  {
+    "word": "Name",
+    "start": 33.414,
+    "end": 33.669
+  },
+  {
+    "word": "—",
+    "start": 33.704,
+    "end": 33.762
+  },
+  {
+    "word": "enter",
+    "start": 33.89,
+    "end": 34.145
+  },
+  {
+    "word": "as",
+    "start": 34.203,
+    "end": 34.273
+  },
+  {
+    "word": "much",
+    "start": 34.331,
+    "end": 34.482
+  },
+  {
+    "word": "as",
+    "start": 34.528,
+    "end": 34.586
+  },
+  {
+    "word": "you",
+    "start": 34.621,
+    "end": 34.702
+  },
+  {
+    "word": "have",
+    "start": 34.772,
+    "end": 35.178
+  },
+  {
+    "word": "•",
+    "start": 35.178,
+    "end": 35.225
+  },
+  {
+    "word": "WorkGroup",
+    "start": 35.353,
+    "end": 35.84
+  },
+  {
+    "word": "—",
+    "start": 35.956,
+    "end": 36.212
+  },
+  {
+    "word": "optional",
+    "start": 36.374,
+    "end": 36.746
+  },
+  {
+    "word": "filter",
+    "start": 36.781,
+    "end": 37.117
+  },
+  {
+    "word": "Click",
+    "start": 37.117,
+    "end": 37.303
+  },
+  {
+    "word": "Search",
+    "start": 37.35,
+    "end": 37.593
+  },
+  {
+    "word": "to",
+    "start": 37.64,
+    "end": 37.71
+  },
+  {
+    "word": "see",
+    "start": 37.768,
+    "end": 37.93
+  },
+  {
+    "word": "all",
+    "start": 37.988,
+    "end": 38.209
+  },
+  {
+    "word": "items",
+    "start": 38.29,
+    "end": 38.58
+  },
+  {
+    "word": "currently",
+    "start": 38.627,
+    "end": 38.94
+  },
+  {
+    "word": "checked",
+    "start": 38.987,
+    "end": 39.242
+  },
+  {
+    "word": "out",
+    "start": 39.277,
+    "end": 39.486
+  },
+  {
+    "word": "to",
+    "start": 39.73,
+    "end": 40.02
+  },
+  {
+    "word": "that",
+    "start": 40.171,
+    "end": 40.542
+  },
+  {
+    "word": "employee.",
+    "start": 40.867,
+    "end": 42.249
+  },
+  {
+    "word": "Use",
+    "start": 42.946,
+    "end": 43.259
+  },
+  {
+    "word": "this",
+    "start": 43.317,
+    "end": 43.689
+  },
+  {
+    "word": "view",
+    "start": 43.898,
+    "end": 44.292
+  },
+  {
+    "word": "to",
+    "start": 44.467,
+    "end": 44.629
+  },
+  {
+    "word": "verify",
+    "start": 44.745,
+    "end": 45.268
+  },
+  {
+    "word": "what",
+    "start": 45.349,
+    "end": 45.604
+  },
+  {
+    "word": "a",
+    "start": 45.686,
+    "end": 45.755
+  },
+  {
+    "word": "specific",
+    "start": 45.848,
+    "end": 46.475
+  },
+  {
+    "word": "person",
+    "start": 46.533,
+    "end": 46.893
+  },
+  {
+    "word": "has",
+    "start": 46.963,
+    "end": 47.311
+  },
+  {
+    "word": "before",
+    "start": 47.404,
+    "end": 47.868
+  },
+  {
+    "word": "they",
+    "start": 47.915,
+    "end": 48.054
+  },
+  {
+    "word": "leave",
+    "start": 48.135,
+    "end": 48.565
+  },
+  {
+    "word": "the",
+    "start": 48.739,
+    "end": 49.041
+  },
+  {
+    "word": "event.",
+    "start": 49.215,
+    "end": 50.248
+  }
+]

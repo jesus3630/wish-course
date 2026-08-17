@@ -1,0 +1,402 @@
+[
+  {
+    "word": "Workforce",
+    "start": 0,
+    "end": 0.848
+  },
+  {
+    "word": "Admin",
+    "start": 1.057,
+    "end": 1.486
+  },
+  {
+    "word": "Maintenance",
+    "start": 1.556,
+    "end": 1.985
+  },
+  {
+    "word": "builds",
+    "start": 2.067,
+    "end": 2.426
+  },
+  {
+    "word": "on",
+    "start": 2.485,
+    "end": 2.659
+  },
+  {
+    "word": "Workforce",
+    "start": 2.752,
+    "end": 3.344
+  },
+  {
+    "word": "Scheduler",
+    "start": 3.495,
+    "end": 4.087
+  },
+  {
+    "word": "Maintenance.",
+    "start": 4.168,
+    "end": 4.69
+  },
+  {
+    "word": "You",
+    "start": 4.934,
+    "end": 5.085
+  },
+  {
+    "word": "get",
+    "start": 5.201,
+    "end": 5.341
+  },
+  {
+    "word": "to",
+    "start": 5.375,
+    "end": 5.433
+  },
+  {
+    "word": "the",
+    "start": 5.503,
+    "end": 5.584
+  },
+  {
+    "word": "employee",
+    "start": 5.642,
+    "end": 6.072
+  },
+  {
+    "word": "record",
+    "start": 6.142,
+    "end": 6.467
+  },
+  {
+    "word": "the",
+    "start": 6.513,
+    "end": 6.606
+  },
+  {
+    "word": "same",
+    "start": 6.676,
+    "end": 6.954
+  },
+  {
+    "word": "way",
+    "start": 7.012,
+    "end": 7.268
+  },
+  {
+    "word": "—",
+    "start": 7.349,
+    "end": 12.934
+  },
+  {
+    "word": "Records",
+    "start": 13.259,
+    "end": 13.642
+  },
+  {
+    "word": "to",
+    "start": 13.677,
+    "end": 13.746
+  },
+  {
+    "word": "Manage",
+    "start": 13.816,
+    "end": 14.118
+  },
+  {
+    "word": "Employee,",
+    "start": 14.153,
+    "end": 14.768
+  },
+  {
+    "word": "search,",
+    "start": 14.884,
+    "end": 15.314
+  },
+  {
+    "word": "click",
+    "start": 15.372,
+    "end": 15.604
+  },
+  {
+    "word": "the",
+    "start": 15.662,
+    "end": 15.732
+  },
+  {
+    "word": "employee's",
+    "start": 15.79,
+    "end": 16.266
+  },
+  {
+    "word": "last",
+    "start": 16.324,
+    "end": 16.579
+  },
+  {
+    "word": "name.",
+    "start": 16.625,
+    "end": 17.287
+  },
+  {
+    "word": "At",
+    "start": 17.287,
+    "end": 17.45
+  },
+  {
+    "word": "this",
+    "start": 17.496,
+    "end": 17.647
+  },
+  {
+    "word": "permission",
+    "start": 17.705,
+    "end": 18.088
+  },
+  {
+    "word": "level",
+    "start": 18.135,
+    "end": 18.413
+  },
+  {
+    "word": "you",
+    "start": 18.564,
+    "end": 18.669
+  },
+  {
+    "word": "can",
+    "start": 18.727,
+    "end": 18.855
+  },
+  {
+    "word": "view",
+    "start": 18.924,
+    "end": 19.156
+  },
+  {
+    "word": "and",
+    "start": 19.249,
+    "end": 19.377
+  },
+  {
+    "word": "edit",
+    "start": 19.458,
+    "end": 19.76
+  },
+  {
+    "word": "everything",
+    "start": 19.876,
+    "end": 20.375
+  },
+  {
+    "word": "from",
+    "start": 20.445,
+    "end": 20.584
+  },
+  {
+    "word": "Workforce",
+    "start": 20.677,
+    "end": 21.188
+  },
+  {
+    "word": "Scheduler",
+    "start": 21.211,
+    "end": 21.629
+  },
+  {
+    "word": "Maintenance,",
+    "start": 21.676,
+    "end": 22.175
+  },
+  {
+    "word": "plus",
+    "start": 22.767,
+    "end": 23.127
+  },
+  {
+    "word": "three",
+    "start": 23.255,
+    "end": 23.661
+  },
+  {
+    "word": "additional",
+    "start": 23.765,
+    "end": 24.358
+  },
+  {
+    "word": "areas:",
+    "start": 24.462,
+    "end": 26.041
+  },
+  {
+    "word": "•",
+    "start": 26.041,
+    "end": 27.527
+  },
+  {
+    "word": "Disciplinary",
+    "start": 27.701,
+    "end": 28.293
+  },
+  {
+    "word": "Action",
+    "start": 28.351,
+    "end": 28.688
+  },
+  {
+    "word": "—",
+    "start": 28.781,
+    "end": 29.559
+  },
+  {
+    "word": "view",
+    "start": 30.151,
+    "end": 30.395
+  },
+  {
+    "word": "existing",
+    "start": 30.453,
+    "end": 30.778
+  },
+  {
+    "word": "records",
+    "start": 30.824,
+    "end": 31.161
+  },
+  {
+    "word": "and",
+    "start": 31.312,
+    "end": 31.498
+  },
+  {
+    "word": "add",
+    "start": 31.591,
+    "end": 31.788
+  },
+  {
+    "word": "new",
+    "start": 31.834,
+    "end": 31.927
+  },
+  {
+    "word": "ones",
+    "start": 31.985,
+    "end": 32.357
+  },
+  {
+    "word": "•",
+    "start": 32.357,
+    "end": 32.949
+  },
+  {
+    "word": "Pay",
+    "start": 33.262,
+    "end": 33.483
+  },
+  {
+    "word": "Rates",
+    "start": 33.541,
+    "end": 33.82
+  },
+  {
+    "word": "—",
+    "start": 34.029,
+    "end": 34.551
+  },
+  {
+    "word": "view",
+    "start": 34.923,
+    "end": 35.282
+  },
+  {
+    "word": "and",
+    "start": 35.41,
+    "end": 35.584
+  },
+  {
+    "word": "update",
+    "start": 35.677,
+    "end": 36.072
+  },
+  {
+    "word": "employee",
+    "start": 36.107,
+    "end": 36.571
+  },
+  {
+    "word": "pay",
+    "start": 36.618,
+    "end": 36.769
+  },
+  {
+    "word": "rates",
+    "start": 36.815,
+    "end": 37.337
+  },
+  {
+    "word": "•",
+    "start": 37.337,
+    "end": 38.022
+  },
+  {
+    "word": "Training",
+    "start": 38.255,
+    "end": 38.615
+  },
+  {
+    "word": "Records",
+    "start": 38.661,
+    "end": 39.009
+  },
+  {
+    "word": "—",
+    "start": 39.16,
+    "end": 39.543
+  },
+  {
+    "word": "view",
+    "start": 39.973,
+    "end": 40.24
+  },
+  {
+    "word": "which",
+    "start": 40.31,
+    "end": 40.53
+  },
+  {
+    "word": "WISH",
+    "start": 40.739,
+    "end": 41.006
+  },
+  {
+    "word": "training",
+    "start": 41.064,
+    "end": 41.308
+  },
+  {
+    "word": "modules",
+    "start": 41.355,
+    "end": 41.738
+  },
+  {
+    "word": "an",
+    "start": 41.772,
+    "end": 41.831
+  },
+  {
+    "word": "employee",
+    "start": 41.865,
+    "end": 42.237
+  },
+  {
+    "word": "has",
+    "start": 42.283,
+    "end": 42.399
+  },
+  {
+    "word": "completed",
+    "start": 42.446,
+    "end": 43.05
+  }
+]

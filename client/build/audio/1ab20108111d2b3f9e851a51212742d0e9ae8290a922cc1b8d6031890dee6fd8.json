@@ -1,0 +1,177 @@
+[
+  {
+    "word": "In",
+    "start": 0,
+    "end": 0.151
+  },
+  {
+    "word": "this",
+    "start": 0.197,
+    "end": 0.337
+  },
+  {
+    "word": "module,",
+    "start": 0.395,
+    "end": 0.871
+  },
+  {
+    "word": "you",
+    "start": 0.929,
+    "end": 1.033
+  },
+  {
+    "word": "will",
+    "start": 1.068,
+    "end": 1.231
+  },
+  {
+    "word": "learn",
+    "start": 1.265,
+    "end": 1.463
+  },
+  {
+    "word": "how",
+    "start": 1.521,
+    "end": 1.625
+  },
+  {
+    "word": "to",
+    "start": 1.672,
+    "end": 1.73
+  },
+  {
+    "word": "track",
+    "start": 1.8,
+    "end": 2.148
+  },
+  {
+    "word": "and",
+    "start": 2.218,
+    "end": 2.287
+  },
+  {
+    "word": "manage",
+    "start": 2.345,
+    "end": 2.67
+  },
+  {
+    "word": "physical",
+    "start": 2.717,
+    "end": 3.123
+  },
+  {
+    "word": "items",
+    "start": 3.239,
+    "end": 3.599
+  },
+  {
+    "word": "used",
+    "start": 3.692,
+    "end": 3.913
+  },
+  {
+    "word": "at",
+    "start": 3.947,
+    "end": 4.029
+  },
+  {
+    "word": "events—including",
+    "start": 4.087,
+    "end": 5.213
+  },
+  {
+    "word": "how",
+    "start": 5.271,
+    "end": 5.375
+  },
+  {
+    "word": "to",
+    "start": 5.422,
+    "end": 5.468
+  },
+  {
+    "word": "set",
+    "start": 5.538,
+    "end": 5.689
+  },
+  {
+    "word": "up",
+    "start": 5.735,
+    "end": 5.817
+  },
+  {
+    "word": "asset",
+    "start": 5.933,
+    "end": 6.327
+  },
+  {
+    "word": "tags,",
+    "start": 6.362,
+    "end": 6.873
+  },
+  {
+    "word": "create",
+    "start": 7.082,
+    "end": 7.43
+  },
+  {
+    "word": "inventory",
+    "start": 7.488,
+    "end": 8.057
+  },
+  {
+    "word": "items,",
+    "start": 8.115,
+    "end": 8.557
+  },
+  {
+    "word": "assign",
+    "start": 8.673,
+    "end": 9.102
+  },
+  {
+    "word": "equipment",
+    "start": 9.149,
+    "end": 9.52
+  },
+  {
+    "word": "to",
+    "start": 9.555,
+    "end": 9.625
+  },
+  {
+    "word": "jobs,",
+    "start": 9.741,
+    "end": 10.194
+  },
+  {
+    "word": "and",
+    "start": 10.228,
+    "end": 10.391
+  },
+  {
+    "word": "process",
+    "start": 10.461,
+    "end": 10.971
+  },
+  {
+    "word": "check-in",
+    "start": 11.041,
+    "end": 11.505
+  },
+  {
+    "word": "and",
+    "start": 11.587,
+    "end": 11.714
+  },
+  {
+    "word": "check-out",
+    "start": 11.761,
+    "end": 12.132
+  },
+  {
+    "word": "activity.",
+    "start": 12.167,
+    "end": 12.957
+  }
+]

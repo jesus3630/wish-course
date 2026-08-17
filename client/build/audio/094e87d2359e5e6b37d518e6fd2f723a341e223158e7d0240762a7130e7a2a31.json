@@ -1,0 +1,592 @@
+[
+  {
+    "word": "Use",
+    "start": 0,
+    "end": 0.302
+  },
+  {
+    "word": "Mail",
+    "start": 0.36,
+    "end": 0.685
+  },
+  {
+    "word": "By",
+    "start": 1.382,
+    "end": 1.579
+  },
+  {
+    "word": "Available",
+    "start": 1.649,
+    "end": 2.136
+  },
+  {
+    "word": "Employee",
+    "start": 2.171,
+    "end": 2.647
+  },
+  {
+    "word": "when",
+    "start": 2.694,
+    "end": 2.844
+  },
+  {
+    "word": "you're",
+    "start": 2.868,
+    "end": 3.042
+  },
+  {
+    "word": "trying",
+    "start": 3.065,
+    "end": 3.448
+  },
+  {
+    "word": "to",
+    "start": 3.506,
+    "end": 3.634
+  },
+  {
+    "word": "fill",
+    "start": 3.762,
+    "end": 4.075
+  },
+  {
+    "word": "open",
+    "start": 4.191,
+    "end": 4.481
+  },
+  {
+    "word": "shifts",
+    "start": 4.551,
+    "end": 4.981
+  },
+  {
+    "word": "and",
+    "start": 5.155,
+    "end": 5.422
+  },
+  {
+    "word": "need",
+    "start": 5.48,
+    "end": 5.666
+  },
+  {
+    "word": "to",
+    "start": 5.712,
+    "end": 5.77
+  },
+  {
+    "word": "reach",
+    "start": 5.851,
+    "end": 6.037
+  },
+  {
+    "word": "employees",
+    "start": 6.084,
+    "end": 6.606
+  },
+  {
+    "word": "who",
+    "start": 6.664,
+    "end": 6.838
+  },
+  {
+    "word": "aren't",
+    "start": 6.931,
+    "end": 7.233
+  },
+  {
+    "word": "already",
+    "start": 7.303,
+    "end": 7.697
+  },
+  {
+    "word": "scheduled.",
+    "start": 7.732,
+    "end": 8.522
+  },
+  {
+    "word": "This",
+    "start": 8.522,
+    "end": 8.742
+  },
+  {
+    "word": "tool",
+    "start": 8.824,
+    "end": 9.195
+  },
+  {
+    "word": "filters",
+    "start": 9.346,
+    "end": 9.787
+  },
+  {
+    "word": "your",
+    "start": 9.845,
+    "end": 10.066
+  },
+  {
+    "word": "employee",
+    "start": 10.147,
+    "end": 10.553
+  },
+  {
+    "word": "pool",
+    "start": 10.623,
+    "end": 10.971
+  },
+  {
+    "word": "to",
+    "start": 11.053,
+    "end": 11.134
+  },
+  {
+    "word": "show",
+    "start": 11.215,
+    "end": 11.436
+  },
+  {
+    "word": "only",
+    "start": 11.552,
+    "end": 11.9
+  },
+  {
+    "word": "those",
+    "start": 11.97,
+    "end": 12.283
+  },
+  {
+    "word": "who",
+    "start": 12.307,
+    "end": 12.423
+  },
+  {
+    "word": "are",
+    "start": 12.492,
+    "end": 12.643
+  },
+  {
+    "word": "available,",
+    "start": 12.678,
+    "end": 13.351
+  },
+  {
+    "word": "meaning",
+    "start": 13.595,
+    "end": 13.932
+  },
+  {
+    "word": "they",
+    "start": 13.99,
+    "end": 14.118
+  },
+  {
+    "word": "don't",
+    "start": 14.187,
+    "end": 14.396
+  },
+  {
+    "word": "have",
+    "start": 14.454,
+    "end": 14.745
+  },
+  {
+    "word": "a",
+    "start": 14.803,
+    "end": 14.861
+  },
+  {
+    "word": "conflicting",
+    "start": 14.954,
+    "end": 15.476
+  },
+  {
+    "word": "schedule",
+    "start": 15.546,
+    "end": 15.976
+  },
+  {
+    "word": "for",
+    "start": 16.034,
+    "end": 16.185
+  },
+  {
+    "word": "the",
+    "start": 16.243,
+    "end": 16.312
+  },
+  {
+    "word": "time",
+    "start": 16.37,
+    "end": 16.579
+  },
+  {
+    "word": "frame",
+    "start": 16.602,
+    "end": 16.87
+  },
+  {
+    "word": "you",
+    "start": 17.009,
+    "end": 17.229
+  },
+  {
+    "word": "select.",
+    "start": 17.496,
+    "end": 18.53
+  },
+  {
+    "word": "To",
+    "start": 18.53,
+    "end": 18.611
+  },
+  {
+    "word": "send",
+    "start": 18.681,
+    "end": 18.959
+  },
+  {
+    "word": "a",
+    "start": 19.192,
+    "end": 19.273
+  },
+  {
+    "word": "message:",
+    "start": 19.342,
+    "end": 20.202
+  },
+  {
+    "word": "1.",
+    "start": 20.202,
+    "end": 20.596
+  },
+  {
+    "word": "Go",
+    "start": 20.91,
+    "end": 21.096
+  },
+  {
+    "word": "to",
+    "start": 21.177,
+    "end": 21.258
+  },
+  {
+    "word": "Tools",
+    "start": 21.339,
+    "end": 21.734
+  },
+  {
+    "word": "to",
+    "start": 21.966,
+    "end": 22.082
+  },
+  {
+    "word": "Mail",
+    "start": 22.164,
+    "end": 22.442
+  },
+  {
+    "word": "By",
+    "start": 22.675,
+    "end": 22.837
+  },
+  {
+    "word": "Available",
+    "start": 22.883,
+    "end": 23.418
+  },
+  {
+    "word": "Employee",
+    "start": 23.476,
+    "end": 24.59
+  },
+  {
+    "word": "2.",
+    "start": 24.59,
+    "end": 24.938
+  },
+  {
+    "word": "Set",
+    "start": 25.356,
+    "end": 25.531
+  },
+  {
+    "word": "your",
+    "start": 25.577,
+    "end": 25.658
+  },
+  {
+    "word": "filters,",
+    "start": 25.705,
+    "end": 26.216
+  },
+  {
+    "word": "branch,",
+    "start": 26.366,
+    "end": 26.889
+  },
+  {
+    "word": "date",
+    "start": 27.086,
+    "end": 27.284
+  },
+  {
+    "word": "range,",
+    "start": 27.33,
+    "end": 27.69
+  },
+  {
+    "word": "and",
+    "start": 27.806,
+    "end": 27.957
+  },
+  {
+    "word": "role",
+    "start": 28.038,
+    "end": 28.456
+  },
+  {
+    "word": "if",
+    "start": 28.584,
+    "end": 28.77
+  },
+  {
+    "word": "applicable",
+    "start": 28.886,
+    "end": 29.931
+  },
+  {
+    "word": "3.",
+    "start": 29.931,
+    "end": 30.36
+  },
+  {
+    "word": "Review",
+    "start": 30.709,
+    "end": 31.08
+  },
+  {
+    "word": "the",
+    "start": 31.254,
+    "end": 31.359
+  },
+  {
+    "word": "list",
+    "start": 31.44,
+    "end": 31.695
+  },
+  {
+    "word": "of",
+    "start": 31.87,
+    "end": 31.962
+  },
+  {
+    "word": "available",
+    "start": 32.021,
+    "end": 32.392
+  },
+  {
+    "word": "employees",
+    "start": 32.415,
+    "end": 33.588
+  },
+  {
+    "word": "4.",
+    "start": 33.588,
+    "end": 33.936
+  },
+  {
+    "word": "Select",
+    "start": 34.203,
+    "end": 34.493
+  },
+  {
+    "word": "the",
+    "start": 34.516,
+    "end": 34.563
+  },
+  {
+    "word": "ones",
+    "start": 34.621,
+    "end": 34.783
+  },
+  {
+    "word": "you",
+    "start": 34.818,
+    "end": 34.888
+  },
+  {
+    "word": "want",
+    "start": 34.934,
+    "end": 35.073
+  },
+  {
+    "word": "to",
+    "start": 35.097,
+    "end": 35.155
+  },
+  {
+    "word": "contact,",
+    "start": 35.201,
+    "end": 35.712
+  },
+  {
+    "word": "or",
+    "start": 35.886,
+    "end": 36.142
+  },
+  {
+    "word": "select",
+    "start": 36.258,
+    "end": 36.664
+  },
+  {
+    "word": "all",
+    "start": 36.78,
+    "end": 37.175
+  },
+  {
+    "word": "5.",
+    "start": 37.175,
+    "end": 37.674
+  },
+  {
+    "word": "Compose",
+    "start": 37.918,
+    "end": 38.475
+  },
+  {
+    "word": "your",
+    "start": 38.522,
+    "end": 38.673
+  },
+  {
+    "word": "message",
+    "start": 38.765,
+    "end": 39.346
+  },
+  {
+    "word": "and",
+    "start": 39.439,
+    "end": 39.741
+  },
+  {
+    "word": "click",
+    "start": 39.834,
+    "end": 40.193
+  },
+  {
+    "word": "Send",
+    "start": 40.472,
+    "end": 41.262
+  },
+  {
+    "word": "This",
+    "start": 41.262,
+    "end": 41.482
+  },
+  {
+    "word": "is",
+    "start": 41.54,
+    "end": 41.633
+  },
+  {
+    "word": "your",
+    "start": 41.68,
+    "end": 41.83
+  },
+  {
+    "word": "go-to",
+    "start": 41.947,
+    "end": 42.492
+  },
+  {
+    "word": "tool",
+    "start": 42.608,
+    "end": 42.887
+  },
+  {
+    "word": "when",
+    "start": 42.933,
+    "end": 43.05
+  },
+  {
+    "word": "you're",
+    "start": 43.084,
+    "end": 43.259
+  },
+  {
+    "word": "short-staffed",
+    "start": 43.293,
+    "end": 44.071
+  },
+  {
+    "word": "and",
+    "start": 44.222,
+    "end": 44.454
+  },
+  {
+    "word": "need",
+    "start": 44.524,
+    "end": 44.733
+  },
+  {
+    "word": "to",
+    "start": 44.791,
+    "end": 44.861
+  },
+  {
+    "word": "reach",
+    "start": 45.012,
+    "end": 45.255
+  },
+  {
+    "word": "out",
+    "start": 45.313,
+    "end": 45.476
+  },
+  {
+    "word": "to",
+    "start": 45.522,
+    "end": 45.604
+  },
+  {
+    "word": "employees",
+    "start": 45.697,
+    "end": 46.428
+  },
+  {
+    "word": "who",
+    "start": 46.602,
+    "end": 46.776
+  },
+  {
+    "word": "could",
+    "start": 46.834,
+    "end": 46.985
+  },
+  {
+    "word": "potentially",
+    "start": 47.032,
+    "end": 47.705
+  },
+  {
+    "word": "pick",
+    "start": 47.821,
+    "end": 48.042
+  },
+  {
+    "word": "up",
+    "start": 48.088,
+    "end": 48.193
+  },
+  {
+    "word": "a",
+    "start": 48.251,
+    "end": 48.274
+  },
+  {
+    "word": "shift.",
+    "start": 48.344,
+    "end": 48.994
+  }
+]
