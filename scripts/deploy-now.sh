@@ -27,8 +27,17 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 
 # Stamp the commit into the build so /api/version can report what is running.
-# Railway sets RAILWAY_GIT_COMMIT_SHA only for git-triggered builds; an upload
-# has no idea what commit it came from unless we tell it.
+# Railway sets RAILWAY_GIT_COMMIT_SHA only for git-triggered builds; an upload has
+# no idea what commit it came from unless we tell it.
+#
+# The file is TRACKED, holding a placeholder in git. It must not be gitignored:
+# `railway up` honours .gitignore, so an ignored stamp is silently left out of the
+# upload and /api/version reports null — which looks identical to having no stamp
+# at all. We write the real value, upload, then restore the placeholder so the
+# working tree does not stay dirty.
+restore_stamp() { git checkout -- server/version.json 2>/dev/null || true; }
+trap restore_stamp EXIT
+
 printf '{"commit":"%s","builtAt":"%s"}\n' "$SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > server/version.json
 echo "🏷  Stamped ${SHORT} into server/version.json"
 
