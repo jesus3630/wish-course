@@ -1134,6 +1134,19 @@ app.get('/api/admin/exam-results', adminAuth, async (req, res) => {
   }
 });
 
+// Admin: clear one learner's quiz record. Needed for wiping test sittings before
+// a rollout — an anonymous demo run should not sit in the real record forever.
+// Scoped to a single email on purpose; there is no "delete everything" here.
+app.delete('/api/admin/exam-results/:email', adminAuth, async (req, res) => {
+  try {
+    const r = await pool.query('DELETE FROM exam_attempts WHERE email = $1', [req.params.email]);
+    res.json({ ok: true, deleted: r.rowCount });
+  } catch (e) {
+    console.error('[exam] delete failed:', e.message);
+    res.status(500).json({ error: 'Could not clear that record' });
+  }
+});
+
 // ─── Progress tracking ────────────────────────────────────────────────────────
 app.post('/api/progress', async (req, res) => {
   const { email, progress } = req.body;
