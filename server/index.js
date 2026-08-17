@@ -411,6 +411,32 @@ app.get(['/api/course', '/api/course-v2'], async (req, res) => {
   }
 });
 
+// ─── What is actually running ─────────────────────────────────────────────────
+// Deploys were being verified by watching the client bundle hash, which only
+// changes when the React app is rebuilt — so a server-only change looked
+// identical before and after, and a push that never deployed was indistinguishable
+// from one that had. This reports the running commit and when the process booted,
+// so "did my change land?" has a real answer.
+const BOOTED_AT = new Date().toISOString();
+const RUNNING_COMMIT =
+  process.env.RAILWAY_GIT_COMMIT_SHA ||
+  process.env.SOURCE_COMMIT ||
+  process.env.COMMIT_SHA ||
+  null;
+
+app.get('/api/version', (req, res) => {
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
+  res.json({
+    commit: RUNNING_COMMIT,
+    shortCommit: RUNNING_COMMIT ? RUNNING_COMMIT.slice(0, 7) : null,
+    // Present for git-triggered deploys; absent when the code was uploaded with
+    // `railway up`, which is why bootedAt matters as a fallback signal.
+    deploymentId: process.env.RAILWAY_DEPLOYMENT_ID || null,
+    bootedAt: BOOTED_AT,
+    uptimeSeconds: Math.round(process.uptime()),
+  });
+});
+
 // ─── Public: quiz data ────────────────────────────────────────────────────────
 app.get('/api/quiz', async (req, res) => {
   try {
