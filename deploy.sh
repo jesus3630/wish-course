@@ -65,8 +65,17 @@ fi
 # 6. Deploy = the push above. The live site (wishtrainingtest.com, Railway project
 #    "Wish-course") auto-deploys from GitHub main — no `railway up` needed.
 if [ "$AHEAD" -gt 0 ]; then
+  SHA="$(git rev-parse HEAD)"
   echo "🚀 Pushed — wishtrainingtest.com auto-deploys from GitHub main (~1-2 min)."
+  echo ""
+  echo "   Pushing does NOT always trigger a deploy. Do not assume it landed —"
+  echo "   watch until the running commit actually matches:"
+  echo ""
+  echo "     ./scripts/watch-deploy.sh $SHA"
+  echo ""
+  echo "   It exits 0 when ${SHA:0:7} is genuinely serving, and tells you what to"
+  echo "   do if the push never triggered a build."
 else
   echo "ℹ️  Nothing to push. To force a redeploy without changes, use the Railway dashboard → Redeploy."
 fi
-echo "✅ Live: https://www.wishtrainingtest.com"
+echo "✅ Target: https://www.wishtrainingtest.com"

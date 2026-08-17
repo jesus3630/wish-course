@@ -131,13 +131,33 @@ NODE_ENV=development
 ## Deploy
 
 **Deploy = `git push`.** The `Wish-course` Railway project auto-deploys from GitHub `main` (~1-2 min).
-No `railway up` / service linking needed.
+
+> ⚠️ **A push does not always trigger a deploy.** It has silently failed to — the code
+> sits correct on GitHub while the old container keeps serving, which looks exactly
+> like a bug in your change. **Never assume a deploy landed.** After pushing:
+>
+> ```bash
+> ./scripts/watch-deploy.sh $(git rev-parse HEAD)   # exits 0 only when that commit is genuinely serving
+> ```
+>
+> It reads `/api/version`, which reports the commit the server is actually running.
+> Do **not** verify by watching the client bundle hash — that only changes when the
+> React app is rebuilt, so a server-only change looks identical before and after.
+>
+> If it times out, the push never triggered a build. The fix is:
+> ```bash
+> railway up --service Wish-Training --detach
+> ```
+> **`railway redeploy` does NOT help** — it rebuilds the *same* commit, so it looks
+> like you retried when you didn't.
 
 ### Normal flow
 ```bash
 ./deploy.sh "what you changed"            # syncs mockup, guards demos, commits, pushes (auto-deploys)
 ./deploy.sh --build "what you changed"    # also rebuilds the React client first
 ```
+`deploy.sh` prints the exact `watch-deploy.sh` command to run next. Run it — it is the
+only thing that proves your change is live.
 
 ### Manual equivalent
 ```bash

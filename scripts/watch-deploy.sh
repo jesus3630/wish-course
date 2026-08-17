@@ -48,6 +48,14 @@ while :; do
 
   version_json="$(curl -fsS --max-time 15 "${SITE}/api/version" 2>/dev/null)" || version_json=""
 
+  # The SPA fallback answers unknown GETs with index.html and a 200, so a
+  # successful curl proves nothing. Only treat it as the endpoint if it is JSON
+  # carrying the field we asked for — otherwise the old build is still serving.
+  case "$version_json" in
+    *'"bootedAt"'*) ;;
+    *) version_json="" ;;
+  esac
+
   if [ -n "$version_json" ]; then
     live_commit="$(printf '%s' "$version_json" | sed -n 's/.*"commit":"\([^"]*\)".*/\1/p')"
     booted_at="$(printf '%s' "$version_json" | sed -n 's/.*"bootedAt":"\([^"]*\)".*/\1/p')"
