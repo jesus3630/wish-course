@@ -8,3 +8,7 @@ video_processing/
 progress_data.json
 client/public/audio/
 .claude/
+
+# Stamped at deploy time so /api/version can report the running commit.
+# Deliberately untracked: it is generated from HEAD just before upload.
+server/version.json

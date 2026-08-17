@@ -418,11 +418,22 @@ app.get(['/api/course', '/api/course-v2'], async (req, res) => {
 // from one that had. This reports the running commit and when the process booted,
 // so "did my change land?" has a real answer.
 const BOOTED_AT = new Date().toISOString();
+// Git-triggered builds get the SHA from Railway. Uploaded builds (`railway up`)
+// do not, so deploy stamps server/version.json just before uploading — otherwise
+// the only signal is "the server restarted", which cannot tell your change from
+// any other restart.
+function stampedCommit() {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(__dirname, 'version.json'), 'utf8')).commit || null;
+  } catch {
+    return null;
+  }
+}
 const RUNNING_COMMIT =
   process.env.RAILWAY_GIT_COMMIT_SHA ||
   process.env.SOURCE_COMMIT ||
   process.env.COMMIT_SHA ||
-  null;
+  stampedCommit();
 
 app.get('/api/version', (req, res) => {
   res.set('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
